@@ -9,6 +9,8 @@ Everything is a single `index.html`; data is stored in your own free Firebase pr
 - Library: subjects → topics → question sets, with default exam settings per subject
 - Timed exams with option E ("I choose not to answer", no penalty) and configurable penalties (`1/4`, `1/3`, `25%` or a fixed number)
 - Every attempt is saved: score trend, per-question history and "Practise mistakes"
+- Mock test builder: mix whole subjects and single topics with weightage by percentage or question count; save and retake with fresh questions
+- Weak-topics dashboard, flashcard revision with spaced repetition, daily goal and streak
 - Same library on phone and laptop via a private sync code (no login)
 
 ## Setup (about 5 minutes)
