@@ -198,6 +198,20 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .mb-topics{display:flex;flex-direction:column;gap:8px;padding:10px 0 4px 28px}
 tfoot td{border-bottom:none}
 
+/* main navigation */
+.tabbar{display:flex;gap:6px;flex-wrap:wrap;max-width:1120px;margin:12px auto 0;padding:0 16px}
+.tb-item{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:var(--card);border-radius:99px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--muted);font-size:.92rem}
+.tb-item svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.tb-item:hover{color:var(--text)}
+.tb-item.on{color:var(--primary);border-color:var(--primary);background:var(--primary-bg)}
+
+/* swipe animation between questions */
+@keyframes slideL{from{transform:translateX(32px);opacity:.2}to{transform:none;opacity:1}}
+@keyframes slideR{from{transform:translateX(-32px);opacity:.2}to{transform:none;opacity:1}}
+.slide-l{animation:slideL .18s ease-out}
+.slide-r{animation:slideR .18s ease-out}
+@media (prefers-reduced-motion:reduce){.slide-l,.slide-r{animation:none}}
+
 /* modal & toast */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;z-index:50;padding:16px}
 .modal{background:var(--card);border-radius:14px;padding:20px;max-width:460px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3);max-height:90vh;overflow:auto}
@@ -212,6 +226,17 @@ tfoot td{border-bottom:none}
   .exam{grid-template-columns:1fr}
   .palette-card{position:static}
   .pal-grid{max-height:none}
+  /* bottom navigation bar, like a native Android app */
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;margin:0;max-width:none;gap:0;flex-wrap:nowrap;justify-content:space-around;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--border);box-shadow:0 -2px 10px rgba(0,0,0,.06)}
+  .tb-item{flex:1 1 0;min-width:0;flex-direction:column;gap:3px;border:none;background:none;border-radius:12px;padding:3px 2px;font-size:.7rem;white-space:nowrap}
+  .tb-item span{overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .tb-item svg{width:24px;height:24px;padding:3px 14px;box-sizing:content-box;border-radius:99px}
+  .tb-item.on{background:none}
+  .tb-item.on svg{background:var(--primary-bg)}
+  .tb-add svg{color:var(--primary)}
+  body.has-tabbar main{padding-bottom:92px}
+  body.has-tabbar .toast{bottom:88px}
 }
 @media (max-width:520px){
   main{padding:12px}
@@ -232,6 +257,15 @@ tfoot td{border-bottom:none}
   <div class="bar-center" id="barCenter"></div>
   <div class="bar-right"><span id="barRight"></span><button class="icon-btn" id="themeBtn" title="Toggle light/dark theme" aria-label="Toggle theme">◐</button></div>
 </header>
+
+<!-- Main navigation: a tab row on wide screens, a bottom bar on phones -->
+<nav class="tabbar" id="tabbar" aria-label="Main" hidden>
+  <button class="tb-item" data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/></svg><span>Library</span></button>
+  <button class="tb-item" data-go="mocks"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 12.5l2 2 4-4"/></svg><span>Mock tests</span></button>
+  <button class="tb-item tb-add" data-go="add"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Add</span></button>
+  <button class="tb-item" data-go="revhub"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg><span>Revise</span></button>
+  <button class="tb-item" data-go="progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-8M11 20V5M17 20v-5M3 20h18"/></svg><span>Progress</span></button>
+</nav>
 
 <main>
 <section id="connect"><div class="loading">Loading…</div></section>
@@ -312,6 +346,9 @@ Explanation: RAM loses its contents without power.</pre>
   <div class="card" id="saveCard" hidden></div>
 </section>
 
+<section id="mocks" hidden></section>
+<section id="revhub" hidden></section>
+<section id="progress" hidden></section>
 <section id="mock" hidden></section>
 <section id="revise" hidden></section>
 <section id="setup" hidden></section>
@@ -334,7 +371,7 @@ Explanation: RAM loses its contents without power.</pre>
         <button class="btn" id="prevBtn">← Prev</button>
         <button class="btn primary" id="nextBtn">Next →</button>
       </div>
-      <p class="small muted" style="margin:12px 0 0">Keys: <span class="kbd">A</span>–<span class="kbd">E</span> select · <span class="kbd">←</span> <span class="kbd">→</span> navigate · <span class="kbd">M</span> mark</p>
+      <p class="small muted" style="margin:12px 0 0">Swipe left/right to move between questions · Keys: <span class="kbd">A</span>–<span class="kbd">E</span> select · <span class="kbd">←</span> <span class="kbd">→</span> navigate · <span class="kbd">M</span> mark</p>
     </div>
     <div class="card palette-card">
       <h2>Question palette</h2>
@@ -850,12 +887,32 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+// Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress' };
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
+  const bar = $('#tabbar');
+  bar.hidden = !store || !TAB_OF[id];
+  document.body.classList.toggle('has-tabbar', !bar.hidden);
+  bar.querySelectorAll('.tb-item').forEach(b => b.classList.toggle('on', b.dataset.go === TAB_OF[id]));
   window.scrollTo(0, 0);
 }
+$('#tabbar').addEventListener('click', e => {
+  const b = e.target.closest('.tb-item');
+  if (!b) return;
+  const go = b.dataset.go;
+  if (go === 'home') goHome();
+  else if (go === 'mocks') openMocks();
+  else if (go === 'revhub') openRevHub();
+  else if (go === 'progress') openProgress();
+  else if (go === 'add') {
+    // Adding from a topic or subject page pre-selects it
+    const onTopic = !$('#topic').hidden, onSubject = !$('#subject').hidden;
+    openAdd(onTopic ? { subjectId: cur.subjectId, topicId: cur.topicId } : onSubject ? { subjectId: cur.subjectId } : {});
+  }
+});
 function renderBar() {
   const left = $('#barLeft');
   left.innerHTML = '<span class="logo">✓</span>ExamSim';
@@ -873,6 +930,7 @@ document.addEventListener('click', e => {
   e.preventDefault();
   const [k, id] = a.dataset.nav.split(':');
   if (k === 'home') goHome();
+  else if (k === 'mocks') openMocks();
   else if (k === 'subject') openSubject(id);
   else if (k === 'topic') openTopic(id);
 });
@@ -1090,9 +1148,8 @@ function renderHome() {
         <span class="small muted">${plural(nT, 'topic')} · ${plural(sets.length, 'set')} · ${plural(nQ, 'question')}</span>
         <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></button>`;
     }).join('') + '</div>';
-    h += mocksCard() + weakTopicsCard();
   }
-  h += `<div class="card"><h2>Recent attempts</h2>${attemptsTable(D.attempts, { where: true, limit: 10 })}</div>`;
+  h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Recent attempts</h2>${D.attempts.length > 5 ? '<button class="btn ghost" id="hAllAtt">See all →</button>' : ''}</div>${attemptsTable(D.attempts, { where: true, limit: 5 })}</div>`;
   const el = $('#home');
   el.innerHTML = h;
   const newSubj = async () => { const s = await createSubject(); if (s) openSubject(s.id); };
@@ -1109,14 +1166,82 @@ function renderHome() {
     try { await store.put('prefs', 'main', { dailyGoal: n }); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
     renderHome();
   };
-  if ($('#hMock')) $('#hMock').onclick = () => openMockBuilder(null);
+  if ($('#hAllAtt')) $('#hAllAtt').onclick = openProgress;
+}
+
+/* ---------- Mock tests tab ---------- */
+function openMocks() { renderMocksPage(); show('mocks'); }
+function renderMocksPage() {
+  const el = $('#mocks');
+  let h = '<div class="page-head"><h1>Mock tests</h1></div><div class="kind">Mix subjects and topics with your own weightage</div>';
+  if (!D.sets.length) h += '<div class="card empty"><p>Add question sets to your subjects first.</p><p class="small">Then build a mock test from them, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p><button class="btn primary" data-nav="home">Go to library</button></div>';
+  else {
+    h += mocksCard();
+    const mAtts = D.attempts.filter(a => a.mode === 'mock');
+    if (mAtts.length) h += progressCard(mAtts, false);
+  }
+  el.innerHTML = h;
+  if ($('#hMock', el)) $('#hMock', el).onclick = () => openMockBuilder(null);
   el.querySelectorAll('[data-mockstart]').forEach(b => b.onclick = () => { const m = byId('mocks', b.dataset.mockstart); startMock(m, m.id); });
   el.querySelectorAll('[data-mockedit]').forEach(b => b.onclick = () => openMockBuilder(byId('mocks', b.dataset.mockedit)));
   el.querySelectorAll('[data-mockdel]').forEach(b => b.onclick = async () => {
     const m = byId('mocks', b.dataset.mockdel);
     if (!(await confirmBox(`Delete “${m.name}”?`, '<p>The mock test setup is deleted. Your past results are kept.</p>', 'Delete'))) return;
-    try { await removeDocs('mocks', [m.id]); renderHome(); } catch (e) { toast(errText(e), 'error'); }
+    try { await removeDocs('mocks', [m.id]); renderMocksPage(); } catch (e) { toast(errText(e), 'error'); }
   });
+}
+
+/* ---------- Revise tab ---------- */
+function openRevHub() { renderRevHub(); show('revhub'); }
+function renderRevHub() {
+  let h = '<div class="page-head"><h1>Revise</h1></div><div class="kind">Flashcards with spaced repetition</div>';
+  if (!D.sets.length) {
+    $('#revhub').innerHTML = h + '<div class="card empty"><p>Add question sets to your subjects first, then revise them here as flashcards.</p><button class="btn primary" data-nav="home">Go to library</button></div>';
+    return;
+  }
+  h += weakTopicsCard();
+  h += '<div class="card"><h2>All subjects and topics</h2><p class="small muted" style="margin-top:0">Each session shows the cards that are due plus up to 20 new ones.</p>';
+  h += D.subjects.map(s => {
+    const ts = D.topics.filter(t => t.subjectId === s.id);
+    const nQ = D.sets.filter(x => x.subjectId === s.id).reduce((n, x) => n + (x.count || 0), 0);
+    return `<div class="list-row" style="border-bottom:none;padding-bottom:4px"><div class="grow"><b>${esc(s.name)}</b> <span class="small muted">${plural(nQ, 'question')}</span></div>
+        ${nQ ? `<button class="btn" data-revise="subject:${s.id}">🃏 Whole subject</button>` : ''}</div>`
+      + ts.map(t => {
+        const n = D.sets.filter(x => x.topicId === t.id).reduce((m, x) => m + (x.count || 0), 0);
+        return `<div class="list-row" style="padding-left:18px"><div class="grow">${esc(t.name)} <span class="small muted">${plural(n, 'question')}</span></div>
+          <button class="btn" data-revise="topic:${t.id}" ${n ? '' : 'disabled'}>🃏 Revise</button></div>`;
+      }).join('');
+  }).join('') + '</div>';
+  $('#revhub').innerHTML = h;
+}
+
+/* ---------- Progress tab ---------- */
+function openProgress() { renderProgress(); show('progress'); }
+function renderProgress() {
+  const atts = D.attempts, { streak } = streakInfo();
+  const answered = atts.reduce((n, a) => n + a.correct + a.wrong + a.e, 0);
+  let h = '<div class="page-head"><h1>Progress</h1></div><div class="kind">All subjects, exams and mock tests</div>';
+  h += statsRow(atts, [[streak ? '🔥 ' + streak : '0', 'Day streak'], [answered, 'Questions answered']]);
+  h += `<div class="card"><h2>Score trend</h2>${trendSvg(atts)}</div>`;
+  if (D.subjects.length) {
+    // accuracy per subject from individual answers, so mixed mock tests count too
+    const acc = topicAccuracy(), bySubj = new Map();
+    D.topics.forEach(t => {
+      const r = acc.get(t.id); if (!r) return;
+      const g = bySubj.get(t.subjectId) || { seen: 0, c: 0, w: 0 };
+      g.seen += r.seen; g.c += r.c; g.w += r.w; bySubj.set(t.subjectId, g);
+    });
+    h += `<div class="card"><h2>By subject</h2><div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Answered</th><th class="num">Correct</th><th class="num">Wrong</th><th class="num">Correct %</th><th class="num">Exams</th><th class="num">Avg score</th></tr></thead><tbody>`
+      + D.subjects.map(s => {
+        const g = bySubj.get(s.id) || { seen: 0, c: 0, w: 0 }, sa = atts.filter(a => a.subjectId === s.id);
+        return `<tr><td><a href="#" data-nav="subject:${s.id}">${esc(s.name)}</a></td><td class="num">${g.seen}</td><td class="num">${g.c}</td><td class="num">${g.w}</td>
+          <td class="num"><b>${g.seen ? (g.c / g.seen * 100).toFixed(0) + '%' : '—'}</b></td><td class="num">${sa.length}</td>
+          <td class="num">${sa.length ? (sa.reduce((n, a) => n + pct(a), 0) / sa.length).toFixed(0) + '%' : '—'}</td></tr>`;
+      }).join('') + '</tbody></table></div></div>';
+  }
+  h += weakTopicsCard();
+  h += `<div class="card"><h2>All attempts</h2>${attemptsTable(atts, { where: true, limit: 50 })}</div>`;
+  $('#progress').innerHTML = h;
 }
 
 function todayCard() {
@@ -1629,7 +1754,7 @@ function renderMock() {
   const el = $('#mock');
   const openNow = new Set([...el.querySelectorAll('details.mb-subj[open]')].map(d => d.dataset.sid));
   const isSel = (type, id) => MB.sources.some(s => s.type === type && s.id === id);
-  let h = crumbs([['Library', 'home'], [MB.id ? 'Edit mock test' : 'Build mock test']])
+  let h = crumbs([['Mock tests', 'mocks'], [MB.id ? 'Edit mock test' : 'Build mock test']])
     + `<div class="page-head"><h1>${MB.id ? 'Edit mock test' : 'Build a mock test'}</h1></div><div class="kind">Mix subjects and topics with your own weightage</div>`;
   if (!D.sets.length) {
     el.innerHTML = h + '<div class="card empty">Add some question sets to your subjects first, then come back to build a mock test.</div>';
@@ -1700,7 +1825,7 @@ function renderMock() {
   if ($('#mbEqual')) $('#mbEqual').onclick = () => { splitEqually(); renderMock(); };
   if ($('#mbPrefer')) $('#mbPrefer').onchange = () => { MB.prefer = $('#mbPrefer').value; };
   $('#mbName').oninput = () => { MB.name = $('#mbName').value; };
-  $('#mbSave').onclick = async () => { if (await saveMock()) goHome(); };
+  $('#mbSave').onclick = async () => { if (await saveMock()) openMocks(); };
   $('#mbStart').onclick = () => startMock({ ...MB, name: normText(MB.name) || 'Mock test' }, MB.id);
 }
 
@@ -1864,7 +1989,7 @@ function startSetup(info) {
     const w = parsePenalty($('#exWrong').value, c) || 0, b = parsePenalty($('#exBlank').value, c) || 0;
     $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
   });
-  $('#exBack').onclick = () => info.mode === 'mock' ? goHome() : info.topicId ? openTopic(info.topicId) : goHome();
+  $('#exBack').onclick = () => info.mode === 'mock' ? openMocks() : info.topicId ? openTopic(info.topicId) : goHome();
   $('#exStart').onclick = () => {
     const r = readSettings('ex', true);
     if (!r) return;
@@ -1916,9 +2041,31 @@ function tick() {
 
 function go(i) {
   if (!S || i < 0 || i >= S.qs.length) return;
+  const dir = Math.sign(i - S.cur);
   S.cur = i; S.resp[i].visited = true;
   renderQuestion(); renderPalette();
+  if (dir) slideIn([$('#qText'), $('#qOpts')], dir);
 }
+
+/* Swipe left/right on touch screens (exam and review) */
+function slideIn(els, dir) {
+  els.forEach(el => { el.classList.remove('slide-l', 'slide-r'); void el.offsetWidth; el.classList.add(dir > 0 ? 'slide-l' : 'slide-r'); });
+}
+function addSwipe(el, onNext, onPrev) {
+  let x0 = null, y0 = 0, t0 = 0;
+  el.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) { x0 = null; return; }
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; t0 = Date.now();
+  }, { passive: true });
+  el.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+    x0 = null;
+    // a quick, mostly horizontal swipe; vertical scrolling is left alone
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && Date.now() - t0 < 700) (dx < 0 ? onNext : onPrev)();
+  }, { passive: true });
+}
+addSwipe($('#exam .exam > .card'), () => S && go(S.cur + 1), () => S && go(S.cur - 1));
 
 function renderQuestion() {
   const q = S.qs[S.cur], r = S.resp[S.cur], n = S.qs.length;
@@ -2156,7 +2303,11 @@ function rvJumpTo(i) {
   if (!RV.list.includes(i)) { RV.filter = 'all'; $('#rvFilter').value = 'all'; buildRvList(); }
   RV.pos = RV.list.indexOf(i); renderReview();
 }
-function rvStep(d) { const p = RV.pos + d; if (p >= 0 && p < RV.list.length) { RV.pos = p; renderReview(); } }
+function rvStep(d) {
+  const p = RV.pos + d;
+  if (p >= 0 && p < RV.list.length) { RV.pos = p; renderReview(); slideIn([$('#rvText'), $('#rvOpts')], d); }
+}
+addSwipe($('#review .exam > .card'), () => rvStep(1), () => rvStep(-1));
 
 function renderReview() {
   const empty = !RV.list.length;
