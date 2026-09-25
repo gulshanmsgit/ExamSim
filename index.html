@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ExamSim — MCQ Exam Simulator</title>
-<meta name="description" content="Offline MCQ mock-exam simulator with negative marking. Upload JSON, text or PDF question sets.">
+<meta name="description" content="MCQ mock-exam simulator with negative marking, organised by subject and topic, synced through Firebase.">
+<meta name="theme-color" content="#2f6fed">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <style>
 :root{
   --bg:#f4f6f9;--card:#ffffff;--text:#1c2230;--muted:#6a7386;--border:#dde2ea;
@@ -28,10 +32,12 @@ h1,h2,h3{line-height:1.25;margin:0 0 .6em}
 h2{font-size:1.15rem}
 .muted{color:var(--muted)}
 .small{font-size:.87rem}
+.center{text-align:center}
 
 /* top bar */
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--border)}
 .bar-left{flex:1 1 0;min-width:0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-left.link{cursor:pointer}
 .bar-center{flex:0 0 auto}
 .bar-right{flex:1 1 0;display:flex;justify-content:flex-end;align-items:center;gap:10px;white-space:nowrap}
 .logo{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--primary);color:#fff;margin-right:8px;font-size:15px;vertical-align:middle}
@@ -40,11 +46,42 @@ h2{font-size:1.15rem}
 .timer.danger{background:var(--red);color:#fff;animation:pulse 1s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(1.07);opacity:.8}}
 .qcount{font-weight:600;font-variant-numeric:tabular-nums}
+.chip{border:1px solid var(--border);background:var(--bg);border-radius:99px;padding:4px 12px;cursor:pointer;font-size:.85rem;font-weight:600}
 
 main{max-width:1120px;margin:0 auto;padding:16px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
 .hero{text-align:center;padding:18px 0 8px}
 .hero h1{font-size:1.8rem;margin-bottom:.2em}
+.loading{text-align:center;padding:60px 0;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:24px 12px}
+
+/* library */
+.crumbs{font-size:.88rem;color:var(--muted);margin:2px 0 8px}
+.crumbs a{text-decoration:none}
+.page-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
+.page-head h1{margin:0;font-size:1.5rem;flex:1;min-width:0;overflow-wrap:anywhere}
+.kind{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-bottom:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px}
+.subj{display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;margin:0;width:100%}
+.subj:hover{border-color:var(--primary)}
+.subj b{font-size:1.08rem;overflow-wrap:anywhere}
+.list-row{display:flex;gap:10px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.list-row:last-child{border-bottom:none}
+.list-row .grow{flex:1;min-width:180px}
+.linkish{background:none;border:none;padding:0;color:var(--primary);font-weight:600;cursor:pointer;text-align:left;font-size:1rem;overflow-wrap:anywhere}
+.trend{width:100%;height:auto;max-height:200px;display:block;margin-bottom:10px}
+.trend .ln{fill:none;stroke:var(--primary);stroke-width:2.5;stroke-linejoin:round}
+.trend .dt{fill:var(--primary)}
+.trend .gl{stroke:var(--border);stroke-width:1}
+.trend .zl{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3}
+.trend text{fill:var(--muted);font-size:11px}
+.qh{border-bottom:1px solid var(--border);padding:9px 0}
+.qh summary{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;cursor:pointer;list-style:none}
+.qh summary::-webkit-details-marker{display:none}
+.qh-q{flex:1;min-width:200px;overflow-wrap:anywhere}
+.qh-st{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.qh-body{padding:8px 0 4px 10px;font-size:.92rem}
+.qh-body .ok{color:var(--green);font-weight:600}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;border-radius:9px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-weight:600;text-decoration:none;min-height:40px}
@@ -55,23 +92,26 @@ main{max-width:1120px;margin:0 auto;padding:16px}
 .btn.ghost{background:transparent}
 .btn.marked{background:var(--orange-bg);border-color:var(--orange);color:var(--orange)}
 .btn.big{padding:12px 22px;font-size:1.05rem}
-.icon-btn{border:1px solid var(--border);background:var(--card);border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:16px}
+.icon-btn{border:1px solid var(--border);background:var(--card);border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:16px;flex:0 0 auto}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .spacer{flex:1}
 
 /* tabs & inputs */
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:14px}
-.tab{border:none;background:none;padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);font-weight:600}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:14px;overflow-x:auto}
+.tab{border:none;background:none;padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);font-weight:600;white-space:nowrap}
 .tab.active{color:var(--primary);border-bottom-color:var(--primary)}
-.drop{border:2px dashed var(--border);border-radius:12px;padding:28px 16px;text-align:center;cursor:pointer;transition:.15s}
+.drop{display:block;border:2px dashed var(--border);border-radius:12px;padding:28px 16px;text-align:center;cursor:pointer;transition:.15s}
 .drop.over,.drop:hover{border-color:var(--primary);background:var(--primary-bg)}
 textarea{width:100%;min-height:220px;padding:12px;border-radius:9px;border:1px solid var(--border);background:var(--bg);font-family:ui-monospace,Consolas,monospace;font-size:.88rem;resize:vertical}
-input[type=text],input[type=number]{padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);width:100%}
-.settings{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+input[type=text],input[type=number],select{padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);width:100%}
+.settings{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
 .settings label{display:block;font-size:.85rem;color:var(--muted);font-weight:600}
-.settings label input{margin-top:4px}
+.settings label input,.settings label select{margin-top:4px}
 .check{display:flex!important;align-items:center;gap:8px;color:var(--text)!important;font-weight:500!important;cursor:pointer}
 .check input{width:18px;height:18px}
+.chips{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.chips button{border:1px solid var(--border);background:var(--bg);border-radius:99px;padding:2px 10px;font-size:.82rem;cursor:pointer;min-width:34px}
+.chips button.on{background:var(--primary);border-color:var(--primary);color:#fff}
 .status{margin-top:10px;padding:10px 12px;border-radius:8px;font-size:.92rem}
 .status.info{background:var(--primary-bg)}
 .status.error{background:var(--red-bg);color:var(--red)}
@@ -85,23 +125,24 @@ table{border-collapse:collapse;width:100%;font-size:.92rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
 th{color:var(--muted);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.03em}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-.pill{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:600;background:var(--grey-bg);color:var(--muted)}
+.pill{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:600;background:var(--grey-bg);color:var(--muted);white-space:nowrap}
 .pill.correct{background:var(--green-bg);color:var(--green)}
 .pill.wrong{background:var(--red-bg);color:var(--red)}
 .pill.blank{background:var(--orange-bg);color:var(--orange)}
 .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:12px 0}
-.stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.card .stat{background:var(--bg)}
 .stat b{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}
 .stat span{font-size:.8rem;color:var(--muted)}
 
 /* exam */
 .exam{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
 .qhead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}
-.qtext{font-size:1.1rem;white-space:pre-wrap;margin-bottom:18px;word-wrap:break-word}
+.qtext{font-size:1.1rem;white-space:pre-wrap;margin-bottom:18px;overflow-wrap:anywhere}
 .opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--card);cursor:pointer;margin-bottom:10px;transition:border-color .1s,background .1s}
 .opt:hover{border-color:var(--primary)}
 .opt .key{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--grey-bg)}
-.opt .otext{padding-top:3px;white-space:pre-wrap;word-wrap:break-word;min-width:0}
+.opt .otext{padding-top:3px;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}
 .opt.sel{border-color:var(--primary);background:var(--primary-bg)}
 .opt.sel .key{background:var(--primary);color:#fff}
 .opt.e{border-style:dashed;color:var(--muted);margin-top:16px}
@@ -134,16 +175,17 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .banner{padding:12px 14px;border-radius:10px;background:var(--orange-bg);color:var(--orange);font-weight:600;margin-bottom:16px}
 .score-big{font-size:2.6rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
 .issues{max-height:180px;overflow:auto;font-size:.87rem;margin:6px 0 0;padding-left:20px}
-.chips{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
-.chips button{border:1px solid var(--border);background:var(--bg);border-radius:99px;padding:2px 10px;font-size:.82rem;cursor:pointer;min-width:34px}
-.chips button.on{background:var(--primary);border-color:var(--primary);color:#fff}
 .kbd{font-family:ui-monospace,monospace;font-size:.78rem;border:1px solid var(--border);border-radius:4px;padding:0 5px;background:var(--bg)}
 
-/* modal */
+/* modal & toast */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;z-index:50;padding:16px}
-.modal{background:var(--card);border-radius:14px;padding:20px;max-width:440px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.modal{background:var(--card);border-radius:14px;padding:20px;max-width:460px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3);max-height:90vh;overflow:auto}
 .modal table td{padding:6px 4px}
 .modal .row{justify-content:flex-end;margin-top:16px}
+.modal label{display:block;margin-top:4px}
+.modal label input{margin-top:4px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:10px;z-index:60;max-width:calc(100vw - 32px);box-shadow:0 6px 24px rgba(0,0,0,.25);font-size:.92rem}
+.toast.error{background:var(--red);color:#fff}
 
 @media (max-width:820px){
   .exam{grid-template-columns:1fr}
@@ -158,27 +200,32 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   .bar-left{font-size:.9rem}
   .qnav .btn{flex:1}
   .hero h1{font-size:1.5rem}
+  .page-head h1{font-size:1.3rem}
 }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <div class="bar-left" id="barLeft"><span class="logo">✓</span>ExamSim</div>
+  <div class="bar-left" id="barLeft"></div>
   <div class="bar-center" id="barCenter"></div>
   <div class="bar-right"><span id="barRight"></span><button class="icon-btn" id="themeBtn" title="Toggle light/dark theme" aria-label="Toggle theme">◐</button></div>
 </header>
 
 <main>
-<!-- ================= HOME ================= -->
-<section id="home">
-  <div class="hero">
-    <h1>ExamSim</h1>
-    <p class="muted">Timed MCQ mock exams with real negative marking. Works offline, nothing leaves your browser.</p>
-  </div>
+<section id="connect"><div class="loading">Loading…</div></section>
+<section id="home" hidden></section>
+<section id="subject" hidden></section>
+<section id="topic" hidden></section>
+
+<!-- ================= ADD QUESTION SET ================= -->
+<section id="add" hidden>
+  <nav class="crumbs" id="addCrumbs"></nav>
+  <div class="page-head"><h1>Add a question set</h1></div>
+  <div class="kind">Upload once, retake any time</div>
 
   <div class="card">
-    <h2>1. Load a question set</h2>
+    <h2>1. Load questions</h2>
     <div class="tabs">
       <button class="tab active" data-tab="upload">Upload file</button>
       <button class="tab" data-tab="paste">Paste text / JSON</button>
@@ -220,13 +267,13 @@ Explanation: RAM loses its contents without power.</pre>
     "explanation": "Optional, shown after submission"
   }
 ]</pre>
-      <p class="small">PDF: text is extracted in the browser (pdf.js is downloaded from cdnjs the first time you open a PDF), then parsed as plain text. Scanned PDFs and complex layouts may not parse; use text or JSON for those.</p>
+      <p class="small">PDF: text is extracted in the browser, then parsed as plain text. Scanned PDFs and complex layouts may not parse; use text or JSON for those.</p>
     </details>
   </div>
 
-  <div class="card">
-    <h2>Need questions? Ask an AI</h2>
-    <p class="small muted" style="margin-top:0">Copy a prompt, fill in the <b>[BRACKETS]</b>, and paste it into ChatGPT, Claude, Gemini or any other AI. Save the reply as a <code>.json</code> or <code>.txt</code> file, or paste it straight into the <i>Paste text / JSON</i> tab above.</p>
+  <details class="card" id="aiCard">
+    <summary>🤖 Need questions? Copy a prompt for ChatGPT, Claude or Gemini</summary>
+    <p class="small muted">Fill in the <b>[BRACKETS]</b>, paste the prompt into any AI chat, then paste its reply into the <i>Paste text / JSON</i> tab above.</p>
     <div class="tabs" id="aiTabs">
       <button class="tab active" data-ai="json">Generate as JSON</button>
       <button class="tab" data-ai="text">Generate as text</button>
@@ -238,46 +285,13 @@ Explanation: RAM loses its contents without power.</pre>
       <button class="btn primary" id="aiCopy">Copy prompt</button>
       <span class="small muted" id="aiCopied"></span>
     </div>
-  </div>
+  </details>
 
   <div class="card" id="previewCard" hidden></div>
-
-  <div class="card" id="settingsCard" hidden>
-    <h2>2. Exam settings</h2>
-    <div class="settings">
-      <label>Set name<input type="text" id="cfgName"></label>
-      <label>Total time (minutes)<input type="number" id="cfgTime" min="1" step="1"></label>
-      <label>Marks for correct (+)<input type="number" id="cfgCorrect" value="1" step="0.25"></label>
-      <div>
-        <label>Wrong answer penalty (−)<input type="text" id="cfgWrong" value="1/4" inputmode="decimal" autocomplete="off"></label>
-        <div class="chips" data-for="cfgWrong"><button data-v="0">None</button><button data-v="1/4">¼</button><button data-v="1/3">⅓</button><button data-v="1/2">½</button><button data-v="1">Full</button></div>
-        <div class="small muted" id="cfgWrongRes"></div>
-      </div>
-      <div>
-        <label>Blank / not visited penalty (−)<input type="text" id="cfgBlank" value="1/4" inputmode="decimal" autocomplete="off"></label>
-        <div class="chips" data-for="cfgBlank"><button data-v="0">None</button><button data-v="1/4">¼</button><button data-v="1/3">⅓</button><button data-v="1/2">½</button><button data-v="1">Full</button></div>
-        <div class="small muted" id="cfgBlankRes"></div>
-      </div>
-      <div>
-        <label class="check"><input type="checkbox" id="cfgShufQ"> Shuffle questions</label>
-        <label class="check" style="margin-top:6px"><input type="checkbox" id="cfgShufO"> Shuffle options</label>
-      </div>
-    </div>
-    <p class="small muted" style="margin:10px 0 0">Penalties accept a fraction of the correct marks (<code>1/3</code>, <code>1/4</code>, <code>25%</code>) or a fixed number of marks (<code>0.5</code>, <code>1</code>).</p>
-    <p class="small muted" id="cfgHint" style="margin:6px 0 0"></p>
-    <div class="row" style="margin-top:16px">
-      <button class="btn primary big" id="startBtn">Start exam →</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="row" style="margin-bottom:8px">
-      <h2 style="margin:0">Exam history</h2><span class="spacer"></span>
-      <button class="btn ghost small" id="clearHistBtn">Clear history</button>
-    </div>
-    <div id="historyBox"></div>
-  </div>
+  <div class="card" id="saveCard" hidden></div>
 </section>
+
+<section id="setup" hidden></section>
 
 <!-- ================= EXAM ================= -->
 <section id="exam" hidden>
@@ -315,7 +329,6 @@ Explanation: RAM loses its contents without power.</pre>
   </div>
 </section>
 
-<!-- ================= RESULTS ================= -->
 <section id="results" hidden></section>
 
 <!-- ================= REVIEW ================= -->
@@ -343,7 +356,7 @@ Explanation: RAM loses its contents without power.</pre>
     <div class="card palette-card">
       <h2>All questions</h2>
       <label class="small muted">Show
-        <select id="rvFilter" style="margin-left:6px;padding:4px;border-radius:6px;border:1px solid var(--border);background:var(--bg)">
+        <select id="rvFilter" style="width:auto;margin-left:6px;padding:4px">
           <option value="all">All</option><option value="correct">Correct</option><option value="wrong">Wrong</option><option value="blank">Blank</option><option value="e">Option E</option>
         </select>
       </label>
@@ -361,25 +374,51 @@ Explanation: RAM loses its contents without power.</pre>
 </main>
 
 <div class="modal-bg" id="modalBg" hidden><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
 
 <script>
 'use strict';
 /* ============================================================
+   Firebase setup: paste your web app config here
+   (Firebase console → Project settings → Your apps → Web app).
+   These values are public by design; the Firestore rules in
+   firestore.rules are what protect the data.
+   ============================================================ */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyDTPg4sq2L8aVo2EkFexAF-qRWaKCVxl5g",
+  authDomain: "examsim-4db41.firebaseapp.com",
+  projectId: "examsim-4db41",
+  storageBucket: "examsim-4db41.firebasestorage.app",
+  messagingSenderId: "490684195078",
+  appId: "1:490684195078:web:04e437f92a7dae88613e87"
+};
+const FIREBASE_VERSION = '10.12.2';
+
+/* ============================================================
    Constants & helpers
    ============================================================ */
-const LS_HIST = 'examsim.history.v1';
+const LS_WS = 'examsim.workspace';
 const LS_THEME = 'examsim.theme';
 const LETTERS = ['A', 'B', 'C', 'D'];
 const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
 const E_LABEL = 'I choose not to answer (no penalty)';
 const RESULT_LABEL = { correct: 'Correct', wrong: 'Wrong', blank: 'Blank', e: 'Option E' };
+const RES_CODE = { correct: 'c', wrong: 'w', blank: 'b', e: 'e' };
+const CODE_LABEL = { c: 'correct', w: 'wrong', b: 'blank', e: 'E' };
+const CODE_CLASS = { c: 'correct', w: 'wrong', b: 'blank', e: '' };
+const DEFAULT_SETTINGS = { minPerQ: 1.5, correct: 1, wrong: '1/4', blank: '1/4', shuffleQ: false, shuffleO: false };
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const r2 = x => Math.round(x * 100) / 100;
-const fmtNum = x => { const v = r2(x); return Number.isInteger(v) ? String(v) : String(v); };
+const fmtNum = x => String(r2(x));
 const fmtScore = x => r2(x).toFixed(2);
 const pad = n => String(n).padStart(2, '0');
+const byName = (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true });
+const fmtDate = t => new Date(t).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+const fmtDay = t => new Date(t).toLocaleDateString([], { dateStyle: 'medium' });
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const clone = o => JSON.parse(JSON.stringify(o));
 function fmtClock(ms) {
   const t = Math.max(0, Math.ceil(ms / 1000));
   return pad(Math.floor(t / 3600)) + ':' + pad(Math.floor(t / 60) % 60) + ':' + pad(t % 60);
@@ -393,9 +432,48 @@ function shuffle(a) {
   return a;
 }
 function lsGet(k, fallback) { try { const v = localStorage.getItem(k); return v == null ? fallback : JSON.parse(v); } catch (e) { return fallback; } }
-function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
+function lsSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
 function normText(s) { return String(s ?? '').replace(/\s+/g, ' ').trim(); }
 function normCmp(s) { return normText(s).toLowerCase().replace(/[^\p{L}\p{N} ]/gu, ''); }
+
+const ALPH = 'abcdefghjkmnpqrstuvwxyz23456789';
+function randStr(n) { const a = new Uint32Array(n); crypto.getRandomValues(a); return Array.from(a, x => ALPH[x % ALPH.length]).join(''); }
+const newId = () => Date.now().toString(36) + randStr(10);
+const newWorkspaceCode = () => randStr(24).match(/.{4}/g).join('-');
+function hash(str) { // cyrb53
+  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (let i = 0; i < str.length; i++) { const ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
+}
+// Stable identity for a question, independent of option order, so history survives shuffling
+const qKey = q => 'q' + hash(normCmp(q.question) + '|' + LETTERS.map(L => normCmp(q.options[L])).sort().join('|'));
+
+async function copyText(txt, ta) {
+  try { await navigator.clipboard.writeText(txt); return true; }
+  catch (e) {
+    const t = ta || Object.assign(document.createElement('textarea'), { value: txt });
+    if (!ta) { t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); }
+    t.focus(); t.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch (e2) { /* ignore */ }
+    if (!ta) t.remove();
+    return ok;
+  }
+}
+let toastTimer;
+function toast(msg, kind) {
+  const t = $('#toast');
+  t.textContent = msg; t.className = 'toast ' + (kind || ''); t.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, kind === 'error' ? 7000 : 2500);
+}
+function errText(e) {
+  const code = e && e.code;
+  if (code === 'permission-denied') return 'Firebase refused access. Check that the Firestore rules from firestore.rules are published.';
+  if (code === 'unavailable') return 'Cannot reach Firebase. Check your internet connection.';
+  return (e && e.message) || String(e);
+}
 
 /* ============================================================
    Parsing
@@ -574,13 +652,82 @@ async function extractPdf(file) {
 }
 
 /* ============================================================
-   Theme & modal
+   Storage: Firestore (cloud) or in-memory (demo)
+   Layout: workspaces/{syncCode}/{subjects|topics|sets|setq|attempts}/{id}
+   Question sets are split into metadata (sets) and questions (setq)
+   so the library can load without downloading every question.
+   ============================================================ */
+const D = { subjects: [], topics: [], sets: [], attempts: [] };
+const qCache = new Map();
+let store = null, WS = null, fb = null;
+
+function memoryStore() {
+  const m = { subjects: new Map(), topics: new Map(), sets: new Map(), setq: new Map(), attempts: new Map() };
+  return {
+    kind: 'demo',
+    list: async c => [...m[c]].map(([id, d]) => ({ ...clone(d), id })),
+    get: async (c, id) => m[c].has(id) ? { ...clone(m[c].get(id)), id } : null,
+    put: async (c, id, d) => { m[c].set(id, clone(d)); },
+    del: async (c, ids) => { ids.forEach(id => m[c].delete(id)); }
+  };
+}
+async function firestoreStore(ws) {
+  if (!fb) {
+    const base = `https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/`;
+    const [A, F] = await Promise.all([import(base + 'firebase-app.js'), import(base + 'firebase-firestore.js')]);
+    fb = { F, db: F.getFirestore(A.initializeApp(FIREBASE_CONFIG)) };
+  }
+  const { F, db } = fb;
+  const ref = (c, id) => F.doc(db, 'workspaces', ws, c, id);
+  return {
+    kind: 'cloud',
+    list: async c => (await F.getDocs(F.collection(db, 'workspaces', ws, c))).docs.map(d => ({ ...d.data(), id: d.id })),
+    get: async (c, id) => { const s = await F.getDoc(ref(c, id)); return s.exists() ? { ...s.data(), id } : null; },
+    put: (c, id, d) => F.setDoc(ref(c, id), clone(d)),
+    del: async (c, ids) => {
+      for (let i = 0; i < ids.length; i += 400) {
+        const b = F.writeBatch(db);
+        ids.slice(i, i + 400).forEach(id => b.delete(ref(c, id)));
+        await b.commit();
+      }
+    }
+  };
+}
+async function loadAll() {
+  const [subjects, topics, sets, attempts] = await Promise.all(['subjects', 'topics', 'sets', 'attempts'].map(c => store.list(c)));
+  Object.assign(D, { subjects: subjects.sort(byName), topics: topics.sort(byName), sets: sets.sort((a, b) => a.createdAt - b.createdAt), attempts });
+  qCache.clear();
+}
+async function save(c, obj) {
+  const { id, ...rest } = obj;
+  await store.put(c, id, rest);
+  const arr = D[c];
+  if (arr) { const i = arr.findIndex(x => x.id === id); if (i >= 0) arr[i] = obj; else arr.push(obj); }
+}
+async function removeDocs(c, ids) {
+  if (!ids.length) return;
+  await store.del(c, ids);
+  if (D[c]) D[c] = D[c].filter(x => !ids.includes(x.id));
+  if (c === 'setq') ids.forEach(id => qCache.delete(id));
+}
+async function getSetQuestions(setId) {
+  if (qCache.has(setId)) return qCache.get(setId);
+  const d = await store.get('setq', setId);
+  const qs = (d && d.questions) || [];
+  qCache.set(setId, qs);
+  return qs;
+}
+const byId = (c, id) => D[c].find(x => x.id === id);
+
+/* ============================================================
+   Theme, modal, screens
    ============================================================ */
 function applyTheme(t) { document.documentElement.dataset.theme = t; }
 let theme = lsGet(LS_THEME, null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 applyTheme(theme);
 $('#themeBtn').onclick = () => { theme = theme === 'dark' ? 'light' : 'dark'; applyTheme(theme); lsSet(LS_THEME, theme); };
 
+let modalOnClose = null;
 function openModal(html, actions) {
   const m = $('#modal');
   m.innerHTML = html + '<div class="row"></div>';
@@ -588,31 +735,545 @@ function openModal(html, actions) {
   actions.forEach(a => {
     const b = document.createElement('button');
     b.className = 'btn ' + (a.cls || ''); b.textContent = a.label;
-    b.onclick = () => { closeModal(); a.onClick && a.onClick(); };
+    b.onclick = async () => {
+      if (a.onClick && (await a.onClick(m)) === false) return;
+      closeModal();
+    };
     row.appendChild(b);
   });
   $('#modalBg').hidden = false;
   (row.lastElementChild || m).focus();
 }
-function closeModal() { $('#modalBg').hidden = true; }
+function closeModal() {
+  $('#modalBg').hidden = true;
+  const cb = modalOnClose; modalOnClose = null;
+  if (cb) cb();
+}
 $('#modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
+function alertMsg(msg, title = 'Check settings') { openModal(`<h3>${esc(title)}</h3><p>${esc(msg)}</p>`, [{ label: 'OK', cls: 'primary' }]); return null; }
+function askText(title, label, value = '') {
+  return new Promise(res => {
+    openModal(`<h3>${esc(title)}</h3><label class="small muted">${esc(label)}<input type="text" id="askIn" value="${esc(value)}" maxlength="80" autocomplete="off"></label>`, [
+      { label: 'Cancel' },
+      { label: 'Save', cls: 'primary', onClick: m => { const v = normText($('#askIn', m).value); if (!v) return false; modalOnClose = null; res(v); } }
+    ]);
+    modalOnClose = () => res(null);
+    const inp = $('#askIn');
+    inp.focus(); inp.select();
+    inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('#modal .row .primary').click(); } };
+  });
+}
+function confirmBox(title, html, okLabel) {
+  return new Promise(res => {
+    openModal(`<h3>${esc(title)}</h3>${html}`, [
+      { label: 'Cancel' },
+      { label: okLabel, cls: 'danger', onClick: () => { modalOnClose = null; res(true); } }
+    ]);
+    modalOnClose = () => res(false);
+  });
+}
+
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'setup', 'exam', 'results', 'review'];
+function show(id) {
+  for (const s of SCREENS) $('#' + s).hidden = s !== id;
+  if (id !== 'exam') renderBar();
+  window.scrollTo(0, 0);
+}
+function renderBar() {
+  const left = $('#barLeft');
+  left.innerHTML = '<span class="logo">✓</span>ExamSim';
+  left.classList.toggle('link', !!store);
+  $('#barCenter').innerHTML = '';
+  $('#barRight').innerHTML = store ? `<button class="chip" id="wsBtn" title="Sync code and workspace">${store.kind === 'cloud' ? '☁ Synced' : '⚠ Demo'}</button>` : '';
+  if (store) $('#wsBtn').onclick = showWorkspace;
+}
+$('#barLeft').onclick = () => { if (store && $('#exam').hidden) goHome(); };
+
+// Links like <a data-nav="topic:ID"> anywhere in the app
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-nav]');
+  if (!a) return;
+  e.preventDefault();
+  const [k, id] = a.dataset.nav.split(':');
+  if (k === 'home') goHome();
+  else if (k === 'subject') openSubject(id);
+  else if (k === 'topic') openTopic(id);
+});
+function crumbs(items) {
+  return `<nav class="crumbs">${items.map(([label, nav]) => nav ? `<a href="#" data-nav="${nav}">${esc(label)}</a>` : `<span>${esc(label)}</span>`).join(' › ')}</nav>`;
+}
 
 /* ============================================================
-   Screens
+   Connect / workspace
    ============================================================ */
-function show(id) {
-  for (const s of ['home', 'exam', 'results', 'review']) $('#' + s).hidden = s !== id;
-  if (id !== 'exam') {
-    $('#barLeft').innerHTML = '<span class="logo">✓</span>ExamSim';
-    $('#barCenter').innerHTML = ''; $('#barRight').innerHTML = '';
+async function boot() {
+  renderBar();
+  const m = location.hash.match(/ws=([a-z0-9-]+)/i);
+  const code = (m && m[1].toLowerCase()) || lsGet(LS_WS, null);
+  if (FIREBASE_CONFIG && code) await connect(code); else renderConnect();
+}
+
+async function connect(code, demo) {
+  $('#connect').innerHTML = '<div class="loading">Connecting…</div>';
+  show('connect');
+  try {
+    store = demo ? memoryStore() : await firestoreStore(code);
+    WS = demo ? null : code;
+    await loadAll();
+    if (!demo) {
+      lsSet(LS_WS, code);
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    }
+    goHome();
+    return true;
+  } catch (e) {
+    store = null; WS = null;
+    renderConnect('Could not connect: ' + errText(e));
+    return false;
   }
-  window.scrollTo(0, 0);
+}
+
+function renderConnect(err) {
+  let h = `<div class="hero"><h1>ExamSim</h1><p class="muted">Timed MCQ mock exams with negative marking, organised by subject and topic.</p></div>`;
+  if (err) h += `<div class="status error" style="margin-bottom:16px">${esc(err)}</div>`;
+  if (!FIREBASE_CONFIG) {
+    h += `<div class="card"><h2>Cloud storage isn't connected yet</h2>
+      <p>This copy of ExamSim has no Firebase project, so it can't save your library. Add your Firebase config to <code>FIREBASE_CONFIG</code> at the top of the script in <code>index.html</code> (the steps are in README.md).</p>
+      <p class="small muted">You can still try everything in demo mode. Nothing is saved there: refreshing the page clears it.</p>
+      <button class="btn primary" id="demoBtn">Try demo mode</button></div>`;
+  } else {
+    h += `<div class="card"><h2>Start a new library</h2>
+      <p class="small muted">Creates a private sync code. Enter the same code on your phone and laptop to see the same subjects, questions and results.</p>
+      <button class="btn primary" id="newWsBtn">Create my library</button></div>
+      <div class="card"><h2>I already have a sync code</h2>
+      <form id="wsForm" class="row"><input type="text" id="wsIn" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx" autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1;min-width:220px"><button class="btn">Open library</button></form>
+      <p class="small muted" style="margin-bottom:0">Keep your code private: anyone who has it can see and change your library.</p></div>
+      <p class="center"><button class="btn ghost" id="demoBtn">Try demo mode (nothing is saved)</button></p>`;
+  }
+  $('#connect').innerHTML = h;
+  show('connect');
+  $('#demoBtn').onclick = () => connect(null, true);
+  if (FIREBASE_CONFIG) {
+    $('#newWsBtn').onclick = createWorkspace;
+    $('#wsForm').onsubmit = e => {
+      e.preventDefault();
+      const code = $('#wsIn').value.toLowerCase().replace(/\s+/g, '');
+      if (!/^[a-z0-9-]{24,64}$/.test(code)) { toast('That does not look like a sync code (it should be about 29 characters, like abcd-efgh-…).', 'error'); return; }
+      connect(code);
+    };
+  }
+}
+
+async function createWorkspace() {
+  const code = newWorkspaceCode();
+  if (!(await connect(code))) return;
+  openModal(`<h3>Your library is ready</h3>
+    <p>This is your <b>sync code</b>. Save it somewhere safe, like a note or an email to yourself. Enter it on your phone or another computer to open the same library.</p>
+    <input type="text" readonly value="${code}" style="font-family:ui-monospace,monospace">
+    <p class="small muted">You can see it again any time from the ☁ button at the top right.</p>`,
+    [{ label: 'Copy code', onClick: async () => { await copyText(code); toast('Sync code copied'); return false; } }, { label: 'Done', cls: 'primary' }]);
+}
+
+function showWorkspace() {
+  if (store.kind === 'demo') {
+    openModal(`<h3>Demo mode</h3><p>Nothing is saved. Refreshing the page clears all subjects, question sets and results.</p>${FIREBASE_CONFIG ? '' : '<p class="small muted">To save to the cloud, add your Firebase config to index.html (see README.md).</p>'}`,
+      [{ label: 'Leave demo', onClick: () => { store = null; renderConnect(); } }, { label: 'Close', cls: 'primary' }]);
+    return;
+  }
+  const link = location.href.split('#')[0] + '#ws=' + WS;
+  openModal(`<h3>Your sync code</h3>
+    <p class="small">Use this code, or the link below, on any device to open this library. Keep it private: anyone who has it can see and change your data.</p>
+    <input type="text" readonly value="${esc(WS)}" style="font-family:ui-monospace,monospace">
+    <p class="small muted" style="margin-bottom:0;word-break:break-all">Link: ${esc(link)}</p>`, [
+    { label: 'Switch library', onClick: () => { lsSet(LS_WS, null); store = null; WS = null; renderConnect(); } },
+    { label: 'Reload data', onClick: async () => { try { await loadAll(); goHome(); toast('Library reloaded'); } catch (e) { toast(errText(e), 'error'); } } },
+    { label: 'Copy link', cls: 'primary', onClick: async () => { await copyText(link); toast('Link copied'); } }
+  ]);
+}
+
+/* ============================================================
+   Library: stats helpers
+   ============================================================ */
+const pct = a => a.max > 0 ? a.score / a.max * 100 : 0;
+function statBox(v, l) { return `<div class="stat"><b>${v}</b><span>${l}</span></div>`; }
+function statsRow(atts, extra = []) {
+  const ps = atts.map(pct);
+  const c = atts.reduce((n, a) => n + a.correct, 0), w = atts.reduce((n, a) => n + a.wrong, 0);
+  return `<div class="stats">${extra.map(([v, l]) => statBox(v, l)).join('')}
+    ${statBox(atts.length, 'Attempts')}
+    ${statBox(ps.length ? (ps.reduce((a, b) => a + b, 0) / ps.length).toFixed(1) + '%' : '—', 'Average score')}
+    ${statBox(ps.length ? Math.max(...ps).toFixed(1) + '%' : '—', 'Best score')}
+    ${statBox(c + w ? (c / (c + w) * 100).toFixed(1) + '%' : '—', 'Accuracy (excl. E)')}</div>`;
+}
+function trendSvg(atts) {
+  const a = [...atts].sort((x, y) => x.date - y.date).slice(-30);
+  if (a.length < 2) return '<p class="small muted">Take at least two exams to see your score trend.</p>';
+  const W = 600, H = 170, L = 38, R = 12, T = 12, B = 22;
+  const ys = a.map(pct), lo = Math.min(0, Math.floor(Math.min(...ys) / 10) * 10), hi = 100;
+  const x = i => L + i * (W - L - R) / (a.length - 1);
+  const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+  const ticks = [lo, ...(lo < 0 ? [0] : []), 50, 100].filter((v, i, arr) => arr.indexOf(v) === i);
+  return `<svg class="trend" viewBox="0 0 ${W} ${H}" role="img" aria-label="Score trend over the last ${a.length} attempts">
+    ${ticks.map(v => `<line class="${v === 0 && lo < 0 ? 'zl' : 'gl'}" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v}%</text>`).join('')}
+    <polyline class="ln" points="${ys.map((v, i) => x(i) + ',' + y(v)).join(' ')}"/>
+    ${ys.map((v, i) => `<circle class="dt" cx="${x(i)}" cy="${y(v)}" r="4"><title>${esc(a[i].setName)}: ${v.toFixed(1)}% (${fmtDate(a[i].date)})</title></circle>`).join('')}
+    <text x="${L}" y="${H - 5}">oldest</text><text x="${W - R}" y="${H - 5}" text-anchor="end">latest</text>
+  </svg>`;
+}
+function attemptsTable(atts, { where = false, limit = 20 } = {}) {
+  if (!atts.length) return '<p class="small muted">No attempts yet.</p>';
+  const rows = [...atts].sort((a, b) => b.date - a.date).slice(0, limit);
+  const modeTag = a => a.mode === 'mistakes' ? ' <span class="pill blank">mistakes</span>' : a.mode === 'all' ? ' <span class="pill">all sets</span>' : '';
+  const whereTxt = a => { const s = byId('subjects', a.subjectId), t = byId('topics', a.topicId); return [s && s.name, t && t.name].filter(Boolean).join(' › ') || '—'; };
+  return `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Set</th>${where ? '<th>Subject › Topic</th>' : ''}<th class="num">Score</th><th class="num">%</th><th class="num">✓</th><th class="num">✗</th><th class="num">Blank</th><th class="num">E</th><th class="num">Time</th></tr></thead><tbody>`
+    + rows.map(a => `<tr><td class="small">${esc(fmtDate(a.date))}</td><td>${esc(a.setName)}${modeTag(a)}</td>${where ? `<td class="small">${esc(whereTxt(a))}</td>` : ''}
+      <td class="num"><b>${fmtScore(a.score)}</b><span class="muted small"> / ${fmtNum(a.max)}</span></td><td class="num">${pct(a).toFixed(0)}%</td>
+      <td class="num">${a.correct}</td><td class="num">${a.wrong}</td><td class="num">${a.blank}</td><td class="num">${a.e}</td><td class="num small">${fmtDuration(a.timeTaken)}</td></tr>`).join('')
+    + '</tbody></table></div>' + (atts.length > limit ? `<p class="small muted">Showing the latest ${limit} of ${atts.length}.</p>` : '');
+}
+function progressCard(atts, where) {
+  return `<div class="card"><h2>Progress</h2>${trendSvg(atts)}${attemptsTable(atts, { where })}</div>`;
+}
+function pageHead(name, kind) {
+  return `<div class="page-head"><h1>${esc(name)}</h1><button class="btn ghost" data-act="rename">Rename</button><button class="btn ghost" data-act="delete" style="color:var(--red)">Delete</button></div><div class="kind">${kind}</div>`;
+}
+
+/* ============================================================
+   Library: create / rename / delete
+   ============================================================ */
+async function createSubject() {
+  const name = await askText('New subject', 'Subject name, e.g. Ed. Psychology');
+  if (!name) return null;
+  if (D.subjects.some(s => s.name.toLowerCase() === name.toLowerCase())) { toast(`You already have a subject called “${name}”.`, 'error'); return null; }
+  const s = { id: newId(), name, createdAt: Date.now(), settings: { ...DEFAULT_SETTINGS } };
+  try { await save('subjects', s); D.subjects.sort(byName); return s; }
+  catch (e) { toast(errText(e), 'error'); return null; }
+}
+async function createTopic(subjectId) {
+  const subj = byId('subjects', subjectId);
+  const name = await askText('New topic' + (subj ? ' in ' + subj.name : ''), 'Topic name, e.g. Learning Theories');
+  if (!name) return null;
+  if (D.topics.some(t => t.subjectId === subjectId && t.name.toLowerCase() === name.toLowerCase())) { toast(`This subject already has a topic called “${name}”.`, 'error'); return null; }
+  const t = { id: newId(), name, subjectId, createdAt: Date.now() };
+  try { await save('topics', t); D.topics.sort(byName); return t; }
+  catch (e) { toast(errText(e), 'error'); return null; }
+}
+async function renameItem(c, obj, label) {
+  const name = await askText('Rename ' + label, 'New name', obj.name);
+  if (!name || name === obj.name) return false;
+  const old = obj.name;
+  obj.name = name;
+  try { await save(c, obj); D[c].sort(byName); return true; }
+  catch (e) { obj.name = old; toast(errText(e), 'error'); return false; }
+}
+async function deleteCascade({ subjectId, topicId, setId }) {
+  const match = x => (subjectId && x.subjectId === subjectId) || (topicId && x.topicId === topicId) || (setId && x.id === setId);
+  const setIds = D.sets.filter(match).map(x => x.id);
+  const topicIds = subjectId ? D.topics.filter(t => t.subjectId === subjectId).map(t => t.id) : topicId ? [topicId] : [];
+  // Deleting a single set keeps its attempts so topic/subject history stays intact
+  const attIds = setId ? [] : D.attempts.filter(a => (subjectId && a.subjectId === subjectId) || (topicId && a.topicId === topicId)).map(a => a.id);
+  await removeDocs('attempts', attIds);
+  await removeDocs('setq', setIds);
+  await removeDocs('sets', setIds);
+  await removeDocs('topics', topicIds);
+  if (subjectId) await removeDocs('subjects', [subjectId]);
 }
 
 /* ============================================================
    Home
    ============================================================ */
-let loaded = null; // { name, format, questions, issues }
+function goHome() {
+  if (!store) { renderConnect(); return; }
+  renderHome(); show('home');
+}
+function renderHome() {
+  let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
+  h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1">Your subjects</h1>
+    <button class="btn" id="hNewSubj">+ New subject</button><button class="btn primary" id="hAddSet">+ Add question set</button></div>`;
+  if (!D.subjects.length) {
+    h += `<div class="card empty"><p>No subjects yet.</p><p class="small">Create a subject (e.g. “Ed. Psychology”), add topics to it, then add question sets to each topic. Every exam you take is saved, so you can track progress and practise your mistakes.</p>
+      <button class="btn primary" id="hNewSubj2">+ Create your first subject</button></div>`;
+  } else {
+    h += '<div class="cards">' + D.subjects.map(s => {
+      const nT = D.topics.filter(t => t.subjectId === s.id).length;
+      const sets = D.sets.filter(x => x.subjectId === s.id);
+      const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
+      const atts = D.attempts.filter(a => a.subjectId === s.id);
+      const avg = atts.length ? (atts.reduce((n, a) => n + pct(a), 0) / atts.length).toFixed(0) + '%' : '';
+      return `<button class="card subj" data-nav="subject:${s.id}"><b>${esc(s.name)}</b>
+        <span class="small muted">${plural(nT, 'topic')} · ${plural(sets.length, 'set')} · ${plural(nQ, 'question')}</span>
+        <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></button>`;
+    }).join('') + '</div>';
+  }
+  h += `<div class="card"><h2>Recent attempts</h2>${attemptsTable(D.attempts, { where: true, limit: 10 })}</div>`;
+  $('#home').innerHTML = h;
+  const newSubj = async () => { const s = await createSubject(); if (s) openSubject(s.id); };
+  $('#hNewSubj').onclick = newSubj;
+  if ($('#hNewSubj2')) $('#hNewSubj2').onclick = newSubj;
+  $('#hAddSet').onclick = () => openAdd({});
+}
+
+/* ============================================================
+   Subject page
+   ============================================================ */
+const cur = { subjectId: null, topicId: null };
+function openSubject(id) { cur.subjectId = id; cur.topicId = null; renderSubject(); show('subject'); }
+function renderSubject() {
+  const s = byId('subjects', cur.subjectId);
+  if (!s) return goHome();
+  const topics = D.topics.filter(t => t.subjectId === s.id);
+  const atts = D.attempts.filter(a => a.subjectId === s.id);
+  const sets = D.sets.filter(x => x.subjectId === s.id);
+  const st = { ...DEFAULT_SETTINGS, ...s.settings };
+  let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject');
+  h += statsRow(atts, [[topics.length, 'Topics'], [sets.reduce((n, x) => n + (x.count || 0), 0), 'Questions']]);
+  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2><button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
+  h += topics.length ? topics.map(t => {
+    const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
+    const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
+    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${esc(t.name)}</button>
+      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(tSets.reduce((n, x) => n + (x.count || 0), 0), 'question')}</div></div>
+      <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button></div>`;
+  }).join('') : '<div class="empty">No topics yet. Add one to start saving question sets.</div>';
+  h += '</div>';
+  h += progressCard(atts, true);
+  h += `<div class="card" id="sdCard"><h2>Default exam settings</h2>
+    <p class="small muted" style="margin-top:0">Used for every exam in this subject. You can still adjust them before each exam.</p>
+    ${settingsForm('sd', st, false)}
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="sdSave">Save settings</button></div></div>`;
+  const el = $('#subject');
+  el.innerHTML = h;
+  $('#sNewTopic').onclick = async () => { const t = await createTopic(s.id); if (t) openTopic(t.id); };
+  $('[data-act=rename]', el).onclick = async () => { if (await renameItem('subjects', s, 'subject')) renderSubject(); };
+  $('[data-act=delete]', el).onclick = async () => {
+    const ok = await confirmBox(`Delete “${s.name}”?`, `<p>This permanently deletes ${plural(topics.length, 'topic')}, ${plural(sets.length, 'question set')} and ${plural(atts.length, 'exam result')} in this subject.</p>`, 'Delete subject');
+    if (!ok) return;
+    try { await deleteCascade({ subjectId: s.id }); toast('Subject deleted'); goHome(); } catch (e) { toast(errText(e), 'error'); }
+  };
+  wireSettings('sd', () => {});
+  $('#sdSave').onclick = async () => {
+    const r = readSettings('sd', false);
+    if (!r) return;
+    const old = s.settings;
+    s.settings = { minPerQ: r.cfg.minutes, correct: r.cfg.correct, wrong: r.raw.wrong, blank: r.raw.blank, shuffleQ: r.cfg.shuffleQ, shuffleO: r.cfg.shuffleO };
+    try { await save('subjects', s); toast('Settings saved'); } catch (e) { s.settings = old; toast(errText(e), 'error'); }
+  };
+}
+
+/* ============================================================
+   Topic page
+   ============================================================ */
+let TH = null; // topic history state
+function openTopic(id) {
+  const t = byId('topics', id);
+  if (!t) return goHome();
+  cur.topicId = id; cur.subjectId = t.subjectId;
+  renderTopic(); show('topic');
+}
+function renderTopic() {
+  const t = byId('topics', cur.topicId);
+  if (!t) return goHome();
+  const s = byId('subjects', t.subjectId);
+  const sets = D.sets.filter(x => x.topicId === t.id);
+  const atts = D.attempts.filter(a => a.topicId === t.id);
+  const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
+  let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic');
+  h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
+  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
+  if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
+  else {
+    h += sets.map(x => {
+      const a = D.attempts.filter(y => y.setId === x.id);
+      const best = a.length ? Math.max(...a.map(pct)).toFixed(0) + '%' : '—';
+      return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(x.name)}</b><div class="small muted">${plural(x.count, 'question')} · added ${esc(fmtDay(x.createdAt))}</div></div>
+        <div class="small muted">${plural(a.length, 'attempt')} · best ${best}</div>
+        <button class="btn primary" data-start="${x.id}">Start exam</button>
+        <button class="icon-btn" data-ren="${x.id}" title="Rename set" aria-label="Rename set">✎</button>
+        <button class="icon-btn" data-del="${x.id}" title="Delete set" aria-label="Delete set">🗑</button></div>`;
+    }).join('');
+    h += `<div class="row" style="margin-top:12px"><button class="btn" id="tMistakes" disabled>Practise mistakes</button>
+      ${sets.length > 1 ? `<button class="btn" id="tAll" disabled>Exam from all sets (${nQ})</button>` : ''}</div>
+      <p class="small muted" style="margin-bottom:0">“Practise mistakes” uses questions you got wrong, left blank or skipped with E the last time you saw them.</p>`;
+  }
+  h += '</div>';
+  h += progressCard(atts, false);
+  h += `<div class="card"><div class="row"><h2 style="margin:0;flex:1">Question history</h2>
+    <select id="qhFilter" style="width:auto"><option value="all">All questions</option><option value="mistakes">Wrong / blank / E last time</option><option value="wrong">Ever answered wrong</option><option value="correct">Correct last time</option><option value="never">Never attempted</option></select></div>
+    <div id="qhList" style="margin-top:8px"><p class="small muted">${sets.length ? 'Loading questions…' : 'Add a question set to see question history.'}</p></div></div>`;
+  const el = $('#topic');
+  el.innerHTML = h;
+  $('#tAddSet').onclick = () => openAdd({ subjectId: t.subjectId, topicId: t.id });
+  $('[data-act=rename]', el).onclick = async () => { if (await renameItem('topics', t, 'topic')) renderTopic(); };
+  $('[data-act=delete]', el).onclick = async () => {
+    const ok = await confirmBox(`Delete “${t.name}”?`, `<p>This permanently deletes ${plural(sets.length, 'question set')} and ${plural(atts.length, 'exam result')} in this topic.</p>`, 'Delete topic');
+    if (!ok) return;
+    try { await deleteCascade({ topicId: t.id }); toast('Topic deleted'); s ? openSubject(s.id) : goHome(); } catch (e) { toast(errText(e), 'error'); }
+  };
+  el.querySelectorAll('[data-start]').forEach(b => b.onclick = async () => {
+    const x = byId('sets', b.dataset.start);
+    b.disabled = true;
+    try {
+      const questions = await getSetQuestions(x.id);
+      startSetup({ name: x.name, questions, subjectId: x.subjectId, topicId: x.topicId, setId: x.id, mode: 'set' });
+    } catch (e) { toast(errText(e), 'error'); b.disabled = false; }
+  });
+  el.querySelectorAll('[data-ren]').forEach(b => b.onclick = async () => { if (await renameItem('sets', byId('sets', b.dataset.ren), 'question set')) renderTopic(); });
+  el.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
+    const x = byId('sets', b.dataset.del);
+    const ok = await confirmBox(`Delete “${x.name}”?`, `<p>The ${plural(x.count, 'question')} in this set are deleted. Your past exam results are kept.</p>`, 'Delete set');
+    if (!ok) return;
+    try { await deleteCascade({ setId: x.id }); toast('Question set deleted'); renderTopic(); } catch (e) { toast(errText(e), 'error'); }
+  });
+  $('#qhFilter').onchange = () => { if (TH) { TH.limit = 50; renderQH(); } };
+  TH = null;
+  if (sets.length) loadTopicHistory(t, sets, atts);
+}
+
+async function loadTopicHistory(t, sets, atts) {
+  try {
+    const seen = new Set(), qs = [];
+    for (const x of sets) {
+      for (const q of await getSetQuestions(x.id)) {
+        const k = q.key || qKey(q);
+        if (!seen.has(k)) { seen.add(k); qs.push({ ...q, key: k, setName: x.name }); }
+      }
+    }
+    if (cur.topicId !== t.id || $('#topic').hidden) return;
+    // Walk attempts oldest → newest so "last" is the most recent result per question
+    const hist = new Map();
+    [...atts].sort((a, b) => a.date - b.date).forEach(a => (a.answers || []).forEach(ans => {
+      const r = hist.get(ans.k) || { seen: 0, c: 0, w: 0, b: 0, e: 0, last: null, lastSel: null };
+      r.seen++; r[ans.r]++; r.last = ans.r; r.lastSel = ans.s;
+      hist.set(ans.k, r);
+    }));
+    TH = { qs, hist, limit: 50 };
+    const mistakes = qs.filter(q => { const r = hist.get(q.key); return r && r.last !== 'c'; });
+    const mb = $('#tMistakes');
+    if (mb) {
+      mb.disabled = !mistakes.length;
+      mb.textContent = mistakes.length ? `Practise mistakes (${mistakes.length})` : 'No mistakes to practise';
+      mb.onclick = () => startSetup({ name: 'Mistakes: ' + t.name, questions: mistakes, subjectId: t.subjectId, topicId: t.id, setId: null, mode: 'mistakes' });
+    }
+    const ab = $('#tAll');
+    if (ab) { ab.disabled = false; ab.onclick = () => startSetup({ name: 'All sets: ' + t.name, questions: qs, subjectId: t.subjectId, topicId: t.id, setId: null, mode: 'all' }); }
+    renderQH();
+  } catch (e) {
+    const el = $('#qhList');
+    if (el) el.innerHTML = `<p class="status error">Could not load questions: ${esc(errText(e))}</p>`;
+  }
+}
+
+function renderQH() {
+  const f = $('#qhFilter').value, { qs, hist } = TH;
+  const list = qs.filter(q => {
+    const r = hist.get(q.key);
+    if (f === 'mistakes') return r && r.last !== 'c';
+    if (f === 'wrong') return r && r.w > 0;
+    if (f === 'correct') return r && r.last === 'c';
+    if (f === 'never') return !r;
+    return true;
+  });
+  const el = $('#qhList');
+  if (!list.length) { el.innerHTML = '<p class="small muted">No questions match this filter.</p>'; return; }
+  el.innerHTML = `<p class="small muted" style="margin:0 0 4px">${plural(list.length, 'question')} · tap one to see the answer</p>`
+    + list.slice(0, TH.limit).map(q => {
+      const r = hist.get(q.key);
+      const stats = r ? `seen ${r.seen} · ✓${r.c} ✗${r.w} · blank ${r.b} · E ${r.e}` : 'never attempted';
+      const lastPill = r ? `<span class="pill ${CODE_CLASS[r.last]}">last: ${CODE_LABEL[r.last]}</span>` : '';
+      return `<details class="qh"><summary><span class="qh-q">${esc(q.question)}</span><span class="qh-st">${stats}</span>${lastPill}</summary>
+        <div class="qh-body">${LETTERS.map(L => `<div class="${L === q.answer ? 'ok' : ''}">${L}. ${esc(q.options[L])}${L === q.answer ? ' ✓' : ''}${r && r.lastSel === L && L !== q.answer ? ' <span style="color:var(--red)">← your last answer</span>' : ''}</div>`).join('')}
+        ${r && r.lastSel === 'E' ? '<div class="muted">Last time you chose E (skip).</div>' : ''}
+        ${q.explanation ? `<div class="expl">${esc(q.explanation)}</div>` : ''}
+        <div class="muted small" style="margin-top:6px">From: ${esc(q.setName)}${q.subject ? ' · ' + esc(q.subject) : ''}</div></div></details>`;
+    }).join('')
+    + (list.length > TH.limit ? `<button class="btn" id="qhMore" style="margin-top:10px">Show ${Math.min(50, list.length - TH.limit)} more</button>` : '');
+  if ($('#qhMore')) $('#qhMore').onclick = () => { TH.limit += 50; renderQH(); };
+}
+
+/* ============================================================
+   Settings form (subject defaults & per-exam)
+   ============================================================ */
+// "1/3" or "25%" = fraction of the correct marks; a plain number = fixed marks
+function parsePenalty(str, correct) {
+  const s = String(str || '').trim().replace(/^[-−–]\s*/, '');
+  if (s === '') return 0;
+  let m;
+  if ((m = s.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/))) return +m[2] ? (m[1] / m[2]) * Math.abs(correct) : NaN;
+  if ((m = s.match(/^(\d+(?:\.\d+)?)\s*%$/))) return (m[1] / 100) * Math.abs(correct);
+  return /^\d*\.?\d+$/.test(s) ? parseFloat(s) : NaN;
+}
+const PEN_CHIPS = [['0', 'None'], ['1/4', '¼'], ['1/3', '⅓'], ['1/2', '½'], ['1', 'Full']];
+function penaltyField(id, label, v) {
+  return `<div><label>${label}<input type="text" id="${id}" value="${esc(v)}" inputmode="decimal" autocomplete="off"></label>
+    <div class="chips" data-for="${id}">${PEN_CHIPS.map(([cv, l]) => `<button type="button" data-v="${cv}">${l}</button>`).join('')}</div>
+    <div class="small muted" id="${id}Res"></div></div>`;
+}
+function settingsForm(p, st, exam) {
+  return `<div class="settings">
+    ${exam ? `<label>Total time (minutes)<input type="number" id="${p}Time" min="1" step="1" value="${st.minutes}"></label>`
+           : `<label>Minutes per question<input type="number" id="${p}Time" min="0.1" step="0.1" value="${st.minPerQ}"></label>`}
+    <label>Marks for correct (+)<input type="number" id="${p}Correct" step="0.25" value="${esc(st.correct)}"></label>
+    ${penaltyField(p + 'Wrong', 'Wrong answer penalty (−)', st.wrong)}
+    ${penaltyField(p + 'Blank', 'Blank / not visited penalty (−)', st.blank)}
+    <div><label class="check"><input type="checkbox" id="${p}ShufQ" ${st.shuffleQ ? 'checked' : ''}> Shuffle questions</label>
+      <label class="check" style="margin-top:6px"><input type="checkbox" id="${p}ShufO" ${st.shuffleO ? 'checked' : ''}> Shuffle options</label></div>
+  </div>
+  <p class="small muted" style="margin:10px 0 0">Penalties accept a fraction of the correct marks (<code>1/3</code>, <code>1/4</code>, <code>25%</code>) or a fixed number of marks (<code>0.5</code>, <code>1</code>).</p>`;
+}
+function describePenalty(id, correct) {
+  const raw = $('#' + id).value.trim(), v = parsePenalty(raw, correct), res = $('#' + id + 'Res');
+  document.querySelectorAll(`.chips[data-for="${id}"] button`).forEach(b => b.classList.toggle('on', b.dataset.v === raw));
+  if (!isFinite(v)) { res.innerHTML = '<span style="color:var(--red)">Enter a number, a fraction like 1/3, or a %</span>'; return; }
+  res.textContent = v === 0 ? 'No penalty' : `= −${fmtNum(v)} marks each` + (/[\/%]/.test(raw) ? ` (${raw} of +${fmtNum(correct)})` : '');
+}
+function wireSettings(p, onChange) {
+  const upd = () => {
+    const c = parseFloat($('#' + p + 'Correct').value) || 0;
+    describePenalty(p + 'Wrong', c); describePenalty(p + 'Blank', c);
+    onChange();
+  };
+  $('#' + p + 'Correct').closest('.settings').addEventListener('input', upd);
+  upd();
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.chips button');
+  if (!b) return;
+  const inp = $('#' + b.parentElement.dataset.for);
+  inp.value = b.dataset.v;
+  inp.dispatchEvent(new Event('input', { bubbles: true }));
+});
+function readSettings(p, exam) {
+  const time = parseFloat($('#' + p + 'Time').value);
+  const correct = parseFloat($('#' + p + 'Correct').value);
+  const wrongRaw = $('#' + p + 'Wrong').value.trim() || '0', blankRaw = $('#' + p + 'Blank').value.trim() || '0';
+  const wrong = parsePenalty(wrongRaw, correct), blank = parsePenalty(blankRaw, correct);
+  if (!(time > 0)) return alertMsg(exam ? 'Please enter a total time greater than 0 minutes.' : 'Minutes per question must be greater than 0.');
+  if (![correct, wrong, blank].every(v => isFinite(v))) return alertMsg('Please enter valid numbers for the marking scheme. Penalties can be a number (0.25), a fraction (1/3) or a percentage (25%).');
+  return {
+    raw: { wrong: wrongRaw, blank: blankRaw },
+    cfg: { minutes: time, correct, wrong, blank, shuffleQ: $('#' + p + 'ShufQ').checked, shuffleO: $('#' + p + 'ShufO').checked }
+  };
+}
+
+/* ============================================================
+   Add question set
+   ============================================================ */
+let loaded = null; // parsed upload: { name, format, questions, issues }
+let addCtx = {};
+
+function openAdd(ctx) {
+  addCtx = { ...ctx };
+  loaded = null;
+  const s = byId('subjects', ctx.subjectId), t = byId('topics', ctx.topicId);
+  const items = [['Library', 'home']];
+  if (s) items.push([s.name, 'subject:' + s.id]);
+  if (t) items.push([t.name, 'topic:' + t.id]);
+  items.push(['Add question set']);
+  $('#addCrumbs').outerHTML = crumbs(items).replace('<nav class="crumbs">', '<nav class="crumbs" id="addCrumbs">');
+  setStatus('');
+  $('#previewCard').hidden = $('#saveCard').hidden = true;
+  show('add');
+}
 
 function setStatus(msg, kind) {
   $('#loadStatus').innerHTML = msg ? `<div class="status ${kind || 'info'}">${msg}</div>` : '';
@@ -666,8 +1327,7 @@ $('#parseBtn').onclick = () => loadFromText($('#pasteArea').value, (loaded && lo
 $('#sampleBtn').onclick = () => { $('#pasteArea').value = SAMPLE; loadFromText(SAMPLE, 'Sample set'); };
 
 function renderPreview() {
-  const pc = $('#previewCard'), sc = $('#settingsCard');
-  if (!loaded) { pc.hidden = sc.hidden = true; return; }
+  const pc = $('#previewCard');
   const { questions: qs, issues } = loaded;
   const subjects = [...new Set(qs.map(q => q.subject).filter(Boolean))];
   let h = `<h2>Preview</h2>
@@ -675,9 +1335,9 @@ function renderPreview() {
       <div class="stat"><b>${qs.length}</b><span>Valid questions</span></div>
       <div class="stat"><b>${issues.length}</b><span>Skipped</span></div>
       <div class="stat"><b style="font-size:1rem;padding-top:6px">${esc(loaded.format)}</b><span>Detected format</span></div>
-      <div class="stat"><b>${subjects.length || '—'}</b><span>Subjects</span></div>
+      <div class="stat"><b>${subjects.length || '—'}</b><span>Subject tags</span></div>
     </div>`;
-  if (subjects.length) h += `<p class="small"><b>Subjects:</b> ${subjects.map(s => `<span class="pill">${esc(s)}</span>`).join(' ')}</p>`;
+  if (subjects.length) h += `<p class="small"><b>Subject tags in this file:</b> ${subjects.map(s => `<span class="pill">${esc(s)}</span>`).join(' ')} <span class="muted">(shown as a breakdown on the results screen)</span></p>`;
   if (qs.length) {
     h += `<div class="tbl-wrap"><table><thead><tr><th>#</th><th>Question</th><th>Options</th><th>Ans</th>${subjects.length ? '<th>Subject</th>' : ''}</tr></thead><tbody>`;
     for (const q of qs.slice(0, 5)) {
@@ -694,74 +1354,113 @@ function renderPreview() {
       + '</ul></details>';
   }
   pc.innerHTML = h; pc.hidden = false;
-  sc.hidden = !qs.length;
-  if (qs.length) {
-    $('#cfgName').value = loaded.name;
-    $('#cfgTime').value = Math.max(1, Math.ceil(qs.length * 1.5));
-    updateHint();
+  renderSaveCard();
+}
+
+function renderSaveCard() {
+  const sc = $('#saveCard');
+  if (!loaded || !loaded.questions.length) { sc.hidden = true; return; }
+  sc.innerHTML = `<h2>2. Save to your library</h2>
+    <div class="settings">
+      <label>Set name<input type="text" id="svName" value="${esc(loaded.name)}" maxlength="100"></label>
+      <label>Subject<select id="svSubj"></select></label>
+      <label>Topic<select id="svTopic"></select></label>
+    </div>
+    <div class="row" style="margin-top:16px"><button class="btn" id="svSave">Save set</button><button class="btn primary big" id="svStart">Save &amp; start exam →</button></div>`;
+  sc.hidden = false;
+  fillSubjects(addCtx.subjectId || (D.subjects.length === 1 ? D.subjects[0].id : ''));
+  fillTopics(addCtx.topicId);
+  $('#svSubj').onchange = async () => {
+    if ($('#svSubj').value === '__new') {
+      const s = await createSubject();
+      fillSubjects(s ? s.id : addCtx.subjectId);
+    } else addCtx.subjectId = $('#svSubj').value;
+    addCtx.topicId = '';
+    fillTopics();
+  };
+  $('#svTopic').onchange = async () => {
+    if ($('#svTopic').value === '__new') {
+      const t = await createTopic($('#svSubj').value);
+      fillTopics(t ? t.id : addCtx.topicId);
+    } else addCtx.topicId = $('#svTopic').value;
+  };
+  $('#svSave').onclick = () => saveSet(false);
+  $('#svStart').onclick = () => saveSet(true);
+}
+function fillSubjects(sel) {
+  addCtx.subjectId = sel || '';
+  $('#svSubj').innerHTML = `<option value="">— choose a subject —</option>`
+    + D.subjects.map(s => `<option value="${s.id}" ${s.id === sel ? 'selected' : ''}>${esc(s.name)}</option>`).join('')
+    + '<option value="__new">+ New subject…</option>';
+}
+function fillTopics(sel) {
+  const sid = $('#svSubj').value, ts = D.topics.filter(t => t.subjectId === sid), el = $('#svTopic');
+  if (!sel && ts.length === 1) sel = ts[0].id;
+  addCtx.topicId = sel || '';
+  el.disabled = !sid || sid === '__new';
+  el.innerHTML = el.disabled ? '<option value="">Choose a subject first</option>'
+    : `<option value="">— choose a topic —</option>` + ts.map(t => `<option value="${t.id}" ${t.id === sel ? 'selected' : ''}>${esc(t.name)}</option>`).join('') + '<option value="__new">+ New topic…</option>';
+}
+async function saveSet(startAfter) {
+  const sid = $('#svSubj').value, tid = $('#svTopic').value;
+  const name = normText($('#svName').value) || loaded.name;
+  if (!sid || sid === '__new') return alertMsg('Choose a subject to save this set into, or create a new one.', 'Where should it go?');
+  if (!tid || tid === '__new') return alertMsg('Choose a topic to save this set into, or create a new one.', 'Where should it go?');
+  const questions = loaded.questions.map(q => ({ ...q, key: qKey(q) }));
+  if (JSON.stringify(questions).length > 900000) return alertMsg('This set is too large to save in one piece (the limit is about 1 MB). Split it into smaller files, e.g. 300–500 questions each.', 'Set too large');
+  const set = { id: newId(), name, subjectId: sid, topicId: tid, count: questions.length, format: loaded.format, createdAt: Date.now() };
+  const btns = [$('#svSave'), $('#svStart')];
+  btns.forEach(b => b.disabled = true);
+  try {
+    await store.put('setq', set.id, { questions });
+    await save('sets', set);
+    qCache.set(set.id, questions);
+  } catch (e) {
+    toast(errText(e), 'error');
+    btns.forEach(b => b.disabled = false);
+    return;
   }
+  toast(`Saved “${name}”`);
+  if (startAfter) startSetup({ name, questions, subjectId: sid, topicId: tid, setId: set.id, mode: 'set' });
+  else openTopic(tid);
 }
 
-// "1/3" or "25%" = fraction of the correct marks; a plain number = fixed marks
-function parsePenalty(str, correct) {
-  const s = String(str || '').trim().replace(/^[-−–]\s*/, '');
-  if (s === '') return 0;
-  let m;
-  if ((m = s.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/))) return +m[2] ? (m[1] / m[2]) * Math.abs(correct) : NaN;
-  if ((m = s.match(/^(\d+(?:\.\d+)?)\s*%$/))) return (m[1] / 100) * Math.abs(correct);
-  return /^\d*\.?\d+$/.test(s) ? parseFloat(s) : NaN;
+/* ============================================================
+   Exam setup
+   ============================================================ */
+function startSetup(info) {
+  const s = byId('subjects', info.subjectId), t = byId('topics', info.topicId);
+  const st = { ...DEFAULT_SETTINGS, ...(s && s.settings) };
+  const n = info.questions.length;
+  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic' }[info.mode];
+  const items = [['Library', 'home']];
+  if (s) items.push([s.name, 'subject:' + s.id]);
+  if (t) items.push([t.name, 'topic:' + t.id]);
+  items.push(['Exam settings']);
+  $('#setup').innerHTML = crumbs(items) + `<div class="page-head"><h1>${esc(info.name)}</h1></div>
+    <div class="kind">${plural(n, 'question')}${modeLbl ? ' · ' + modeLbl : ''}</div>
+    <div class="card"><h2>Exam settings</h2>
+    ${settingsForm('ex', { ...st, minutes: Math.max(1, Math.ceil(n * st.minPerQ)) }, true)}
+    <p class="small muted" id="exHint" style="margin:6px 0 0"></p>
+    ${s ? `<label class="check" style="margin-top:12px"><input type="checkbox" id="exSaveDef"> Save these as the default settings for ${esc(s.name)}</label>` : ''}
+    <div class="row" style="margin-top:16px"><button class="btn" id="exBack">← Back</button><button class="btn primary big" id="exStart">Start exam →</button></div></div>`;
+  wireSettings('ex', () => {
+    const m = parseFloat($('#exTime').value) || 0, c = parseFloat($('#exCorrect').value) || 0;
+    const w = parsePenalty($('#exWrong').value, c) || 0, b = parsePenalty($('#exBlank').value, c) || 0;
+    $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
+  });
+  $('#exBack').onclick = () => info.topicId ? openTopic(info.topicId) : goHome();
+  $('#exStart').onclick = () => {
+    const r = readSettings('ex', true);
+    if (!r) return;
+    if (s && $('#exSaveDef').checked) {
+      s.settings = { minPerQ: r2(r.cfg.minutes / n) || DEFAULT_SETTINGS.minPerQ, correct: r.cfg.correct, wrong: r.raw.wrong, blank: r.raw.blank, shuffleQ: r.cfg.shuffleQ, shuffleO: r.cfg.shuffleO };
+      save('subjects', s).catch(e => toast(errText(e), 'error'));
+    }
+    startExam(info, r.cfg);
+  };
+  show('setup');
 }
-function describePenalty(id) {
-  const raw = $('#' + id).value.trim(), correct = parseFloat($('#cfgCorrect').value) || 0;
-  const v = parsePenalty(raw, correct), res = $('#' + id + 'Res');
-  document.querySelectorAll(`.chips[data-for=${id}] button`).forEach(b => b.classList.toggle('on', b.dataset.v === raw));
-  if (!isFinite(v)) { res.innerHTML = '<span style="color:var(--red)">Enter a number, a fraction like 1/3, or a %</span>'; return; }
-  res.textContent = v === 0 ? 'No penalty' : `= −${fmtNum(v)} marks each` + (/[\/%]/.test(raw) ? ` (${raw} of +${fmtNum(correct)})` : '');
-}
-document.querySelectorAll('.chips').forEach(c => c.addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  $('#' + c.dataset.for).value = b.dataset.v; updateHint();
-}));
-
-function readCfg() {
-  const minutes = parseFloat($('#cfgTime').value);
-  const correct = parseFloat($('#cfgCorrect').value);
-  const wrong = parsePenalty($('#cfgWrong').value, correct);
-  const blank = parsePenalty($('#cfgBlank').value, correct);
-  if (!(minutes > 0)) return alertMsg('Please enter a total time greater than 0 minutes.');
-  if ([correct, wrong, blank].some(v => !isFinite(v))) return alertMsg('Please enter valid numbers for the marking scheme.');
-  return { minutes, correct, wrong, blank, shuffleQ: $('#cfgShufQ').checked, shuffleO: $('#cfgShufO').checked };
-}
-function alertMsg(msg) { openModal(`<h3>Check settings</h3><p>${esc(msg)}</p>`, [{ label: 'OK', cls: 'primary' }]); return null; }
-function updateHint() {
-  describePenalty('cfgWrong'); describePenalty('cfgBlank');
-  if (!loaded || !loaded.questions.length) return;
-  const n = loaded.questions.length, m = parseFloat($('#cfgTime').value) || 0;
-  const c = parseFloat($('#cfgCorrect').value) || 0, w = parsePenalty($('#cfgWrong').value, c) || 0, b = parsePenalty($('#cfgBlank').value, c) || 0;
-  $('#cfgHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
-}
-['cfgTime', 'cfgCorrect', 'cfgWrong', 'cfgBlank'].forEach(id => $('#' + id).addEventListener('input', updateHint));
-$('#startBtn').onclick = () => {
-  const cfg = readCfg(); if (!cfg) return;
-  loaded.name = normText($('#cfgName').value) || loaded.name;
-  startExam(loaded, cfg);
-};
-
-/* History */
-function renderHistory() {
-  const hist = lsGet(LS_HIST, []);
-  $('#clearHistBtn').hidden = !hist.length;
-  if (!hist.length) { $('#historyBox').innerHTML = '<p class="muted small">No exams taken yet. Your last 10 results will appear here.</p>'; return; }
-  $('#historyBox').innerHTML = `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Set</th><th class="num">Score</th><th class="num">✓</th><th class="num">✗</th><th class="num">Blank</th><th class="num">E</th><th class="num">Time</th></tr></thead><tbody>`
-    + hist.map(h => `<tr><td class="small">${esc(new Date(h.date).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</td><td>${esc(h.name)}</td>
-      <td class="num"><b>${fmtScore(h.score)}</b><span class="muted small"> / ${fmtNum(h.max)}</span></td>
-      <td class="num">${h.correct}</td><td class="num">${h.wrong}</td><td class="num">${h.blank}</td><td class="num">${h.e}</td><td class="num small">${fmtDuration(h.timeTaken)}</td></tr>`).join('')
-    + '</tbody></table></div>';
-}
-$('#clearHistBtn').onclick = () => openModal('<h3>Clear history?</h3><p>This removes all saved exam results from this browser.</p>', [
-  { label: 'Cancel' },
-  { label: 'Clear', cls: 'danger', onClick: () => { lsSet(LS_HIST, []); renderHistory(); } }
-]);
 
 /* ============================================================
    Exam
@@ -769,18 +1468,19 @@ $('#clearHistBtn').onclick = () => openModal('<h3>Clear history?</h3><p>This rem
 let S = null; // exam session
 let timerId = null;
 
-function startExam(set, cfg) {
-  let qs = set.questions.map(q => ({ ...q, options: { ...q.options } }));
+function startExam(info, cfg) {
+  let qs = info.questions.map(q => ({ ...q, key: q.key || qKey(q), options: { ...q.options } }));
   if (cfg.shuffleQ) shuffle(qs);
   if (cfg.shuffleO) qs = qs.map(q => {
-    const perm = shuffle(LETTERS.slice());
+    const perm = shuffle(LETTERS.slice()); // perm[k] = original letter shown at position k
     const options = {}; LETTERS.forEach((L, k) => options[L] = q.options[perm[k]]);
-    return { ...q, options, answer: LETTERS[perm.indexOf(q.answer)] };
+    return { ...q, options, answer: LETTERS[perm.indexOf(q.answer)], perm };
   });
   const now = Date.now();
-  S = { set, cfg, name: set.name, qs, resp: qs.map(() => ({ sel: null, visited: false, marked: false })), cur: 0, startAt: now, endAt: now + cfg.minutes * 60000, done: false };
+  S = { info, cfg, name: info.name, qs, resp: qs.map(() => ({ sel: null, visited: false, marked: false })), cur: 0, startAt: now, endAt: now + cfg.minutes * 60000, done: false };
   show('exam');
   $('#barLeft').textContent = S.name;
+  $('#barLeft').classList.remove('link');
   $('#barCenter').innerHTML = '<span class="timer" id="timer" role="timer" aria-live="off">00:00:00</span>';
   go(0);
   clearInterval(timerId);
@@ -870,14 +1570,14 @@ function confirmSubmit() {
       <tr><td>Not visited</td><td class="num"><b>${t.nv}</b></td></tr>
       <tr><td style="color:var(--orange)">Marked for review</td><td class="num"><b>${t.mrk}</b></td></tr>
     </table>
-    ${unanswered && c.blank ? `<p class="small" style="color:var(--red)">${unanswered} unanswered question${unanswered > 1 ? 's' : ''} will cost −${fmtNum(r2(unanswered * c.blank))} marks. Choose option E to skip without penalty.</p>` : ''}`,
+    ${unanswered && c.blank ? `<p class="small" style="color:var(--red)">${unanswered} unanswered question${unanswered > 1 ? 's' : ''} will cost −${fmtNum(unanswered * c.blank)} marks. Choose option E to skip without penalty.</p>` : ''}`,
     [{ label: 'Go back' }, { label: 'Submit', cls: 'danger', onClick: () => submitExam(false) }]);
 }
 
 document.addEventListener('keydown', e => {
   if (e.ctrlKey || e.metaKey || e.altKey) return;
-  if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
   if (!$('#modalBg').hidden) { if (e.key === 'Escape') closeModal(); return; }
+  if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
   if (!$('#exam').hidden && S && !S.done) {
     const k = e.key.toUpperCase();
     if (['A', 'B', 'C', 'D', 'E'].includes(k)) { select(k); e.preventDefault(); }
@@ -890,10 +1590,13 @@ document.addEventListener('keydown', e => {
     else if (e.key === 'ArrowLeft') rvStep(-1);
   }
 });
-window.addEventListener('beforeunload', e => { if (S && !S.done && !$('#exam').hidden) { e.preventDefault(); e.returnValue = ''; } });
+window.addEventListener('beforeunload', e => {
+  const saving = RES && RES.saveState === 'saving';
+  if ((S && !S.done && !$('#exam').hidden) || saving) { e.preventDefault(); e.returnValue = ''; }
+});
 
 /* ============================================================
-   Scoring & results
+   Scoring, results & saving the attempt
    ============================================================ */
 let RES = null;
 
@@ -914,40 +1617,63 @@ function submitExam(auto) {
   const count = k => rows.filter(r => r.res === k).length;
   const correct = count('correct'), wrong = count('wrong'), blank = count('blank'), e = count('e');
   const score = r2(rows.reduce((s, r) => s + r.marks, 0));
-  RES = { name: S.name, rows, auto, correct, wrong, blank, e, score, max: r2(rows.length * c.correct), timeTaken: finish - S.startAt, cfg: c, set: S.set };
+  RES = { info: S.info, name: S.name, rows, auto, correct, wrong, blank, e, score, max: r2(rows.length * c.correct), timeTaken: finish - S.startAt, cfg: c };
 
-  const hist = lsGet(LS_HIST, []);
-  hist.unshift({ name: S.name, date: Date.now(), score, max: RES.max, correct, wrong, blank, e, total: rows.length, timeTaken: RES.timeTaken });
-  lsSet(LS_HIST, hist.slice(0, 10));
+  // Selections are stored as the ORIGINAL option letter so history is stable across option shuffles
+  const origSel = r => !r.sel || r.sel === 'E' ? r.sel : r.q.perm ? r.q.perm[LETTERS.indexOf(r.sel)] : r.sel;
+  RES.attempt = {
+    id: newId(), date: Date.now(), setId: S.info.setId || null, setName: S.name,
+    subjectId: S.info.subjectId || null, topicId: S.info.topicId || null, mode: S.info.mode || 'set',
+    score, max: RES.max, correct, wrong, blank, e, total: rows.length, timeTaken: RES.timeTaken, auto,
+    cfg: { minutes: c.minutes, correct: c.correct, wrong: r2(c.wrong), blank: r2(c.blank) },
+    answers: rows.map(r => ({ k: r.q.key, r: RES_CODE[r.res], s: origSel(r) }))
+  };
   renderResults();
+  saveAttempt();
+}
+
+async function saveAttempt() {
+  RES.saveState = 'saving'; showSaveState();
+  try { await save('attempts', RES.attempt); RES.saveState = 'saved'; }
+  catch (e) { RES.saveState = 'error'; RES.saveErr = errText(e); }
+  showSaveState();
+}
+function showSaveState() {
+  const el = $('#saveMsg');
+  if (!el || !RES) return;
+  const st = RES.saveState;
+  el.innerHTML = st === 'saving' ? '<span class="muted">Saving result…</span>'
+    : st === 'saved' ? `<span style="color:var(--green)">✓ Result saved${store.kind === 'demo' ? ' (demo: until you refresh)' : ' to your library'}</span>`
+    : `<span style="color:var(--red)">Could not save result: ${esc(RES.saveErr)}</span> <button class="btn" id="saveRetry">Retry</button>`;
+  if ($('#saveRetry')) $('#saveRetry').onclick = saveAttempt;
 }
 
 function renderResults() {
-  const R = RES, n = R.rows.length, attempted = R.correct + R.wrong;
+  const R = RES, attempted = R.correct + R.wrong;
   const acc = attempted ? (R.correct / attempted * 100).toFixed(1) + '%' : '—';
   const notVisited = R.rows.filter(r => r.res === 'blank' && !r.visited).length;
   const subjects = [...new Set(R.rows.map(r => r.q.subject).filter(Boolean))];
   let h = R.auto ? '<div class="banner">⏰ Time\'s up. Your exam was submitted automatically.</div>' : '';
   h += `<div class="card">
-    <div class="row" style="align-items:flex-end"><div>
-      <div class="muted small">${esc(R.name)}</div>
-      <div class="score-big">${fmtScore(R.score)} <span class="muted" style="font-size:1.3rem;font-weight:600">/ ${fmtNum(R.max)}</span></div>
-      <div class="muted small">${R.max > 0 ? (R.score / R.max * 100).toFixed(1) + '% of maximum' : ''}</div>
-    </div></div>
+    <div class="muted small">${esc(R.name)}</div>
+    <div class="score-big">${fmtScore(R.score)} <span class="muted" style="font-size:1.3rem;font-weight:600">/ ${fmtNum(R.max)}</span></div>
+    <div class="muted small">${R.max > 0 ? (R.score / R.max * 100).toFixed(1) + '% of maximum' : ''}</div>
+    <div class="small" id="saveMsg" style="margin-top:6px"></div>
     <div class="stats">
       <div class="stat"><b style="color:var(--green)">${R.correct}</b><span>Correct (+${fmtNum(R.correct * R.cfg.correct)})</span></div>
-      <div class="stat"><b style="color:var(--red)">${R.wrong}</b><span>Wrong (−${fmtNum(r2(R.wrong * R.cfg.wrong))})</span></div>
-      <div class="stat"><b style="color:var(--orange)">${R.blank}</b><span>Blank (−${fmtNum(r2(R.blank * R.cfg.blank))})${notVisited ? `, ${notVisited} not visited` : ''}</span></div>
+      <div class="stat"><b style="color:var(--red)">${R.wrong}</b><span>Wrong (−${fmtNum(R.wrong * R.cfg.wrong)})</span></div>
+      <div class="stat"><b style="color:var(--orange)">${R.blank}</b><span>Blank (−${fmtNum(R.blank * R.cfg.blank)})${notVisited ? `, ${notVisited} not visited` : ''}</span></div>
       <div class="stat"><b>${R.e}</b><span>Option E (0)</span></div>
       <div class="stat"><b>${acc}</b><span>Accuracy (excl. E)</span></div>
       <div class="stat"><b style="font-size:1.1rem;padding-top:4px">${fmtDuration(R.timeTaken)}</b><span>Time taken of ${fmtDuration(R.cfg.minutes * 60000)}</span></div>
     </div>
     <div class="row">
       <button class="btn primary" id="toReview">Review all questions</button>
-      <button class="btn" id="csvBtn">⬇ Download results as CSV</button>
-      <span class="spacer"></span>
+      <button class="btn" id="csvBtn">⬇ Download CSV</button>
       <button class="btn" id="retakeBtn">↻ Retake</button>
-      <button class="btn ghost" id="homeBtn">Home</button>
+      <span class="spacer"></span>
+      ${R.info.topicId ? `<button class="btn ghost" data-nav="topic:${R.info.topicId}">Back to topic</button>` : ''}
+      <button class="btn ghost" data-nav="home">Library</button>
     </div>
   </div>`;
   if (subjects.length) {
@@ -963,13 +1689,11 @@ function renderResults() {
   }
   $('#results').innerHTML = h;
   show('results');
+  showSaveState();
   $('#toReview').onclick = () => openReview();
   $('#csvBtn').onclick = downloadCsv;
-  $('#retakeBtn').onclick = () => startExam(R.set, R.cfg);
-  $('#homeBtn').onclick = goHome;
+  $('#retakeBtn').onclick = () => startExam(R.info, R.cfg);
 }
-
-function goHome() { S = null; renderHistory(); show('home'); }
 
 function downloadCsv() {
   const q = v => { const s = String(v ?? ''); return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
@@ -1049,49 +1773,6 @@ $('#rvJump').onsubmit = e => {
   $('#rvJumpIn').value = '';
 };
 $('#rvBack').onclick = () => show('results');
-
-/* ============================================================
-   Sample
-   ============================================================ */
-const SAMPLE = `Subject: Computers
-1. Which of the following is a volatile memory?
-A. Hard disk
-B. RAM
-C. ROM
-D. SSD
-Answer: B
-Explanation: RAM loses its contents when the power is switched off.
-
-2. What does CPU stand for?
-(A) Central Processing Unit
-(B) Central Program Utility
-(C) Computer Personal Unit
-(D) Control Processing Unit
-Ans: A
-
-Subject: Ed. Psychology
-3) Who proposed the Theory of Multiple Intelligences?
-A) Piaget
-B) Vygotsky
-C) Howard Gardner
-D) Skinner
-KEY: C
-Explanation: Howard Gardner proposed it in "Frames of Mind" (1983).
-
-4. The Zone of Proximal Development is associated with
-A: Jean Piaget
-B: Lev Vygotsky
-C: B. F. Skinner
-D: Albert Bandura
-Correct: B
-
-Subject: General Knowledge
-5. Which is the largest planet in our solar system?
-A. Earth
-B. Saturn
-C. Jupiter
-D. Neptune
-Answer Key: C`;
 
 /* ============================================================
    AI prompt guide
@@ -1188,16 +1869,60 @@ function showAiPrompt(k) {
 }
 document.querySelectorAll('#aiTabs .tab').forEach(b => b.onclick = () => showAiPrompt(b.dataset.ai));
 $('#aiCopy').onclick = async () => {
-  const ta = $('#aiPrompt');
-  try { await navigator.clipboard.writeText(ta.value); }
-  catch (e) { ta.focus(); ta.select(); try { document.execCommand('copy'); } catch (e2) { /* user can copy manually */ } }
+  await copyText($('#aiPrompt').value, $('#aiPrompt'));
   $('#aiCopied').textContent = '✓ Copied. Now paste it into your AI chat.';
 };
 
+/* ============================================================
+   Sample
+   ============================================================ */
+const SAMPLE = `Subject: Computers
+1. Which of the following is a volatile memory?
+A. Hard disk
+B. RAM
+C. ROM
+D. SSD
+Answer: B
+Explanation: RAM loses its contents when the power is switched off.
+
+2. What does CPU stand for?
+(A) Central Processing Unit
+(B) Central Program Utility
+(C) Computer Personal Unit
+(D) Control Processing Unit
+Ans: A
+
+Subject: Ed. Psychology
+3) Who proposed the Theory of Multiple Intelligences?
+A) Piaget
+B) Vygotsky
+C) Howard Gardner
+D) Skinner
+KEY: C
+Explanation: Howard Gardner proposed it in "Frames of Mind" (1983).
+
+4. The Zone of Proximal Development is associated with
+A: Jean Piaget
+B: Lev Vygotsky
+C: B. F. Skinner
+D: Albert Bandura
+Correct: B
+
+Subject: General Knowledge
+5. Which is the largest planet in our solar system?
+A. Earth
+B. Saturn
+C. Jupiter
+D. Neptune
+Answer Key: C`;
+
 /* init */
 showAiPrompt('json');
-updateHint();
-renderHistory();
+boot();
+// Installable app (PWA); only works when served over http(s), e.g. GitHub Pages
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  navigator.serviceWorker.register('sw.js').catch(() => { /* app still works without it */ });
+}
 </script>
 </body>
 </html>
