@@ -198,6 +198,11 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .mb-topics{display:flex;flex-direction:column;gap:8px;padding:10px 0 4px 28px}
 tfoot td{border-bottom:none}
 
+/* profile & AI */
+.ai-key{border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:10px;background:var(--bg)}
+.ai-explain{margin-top:10px}
+.expl.ai{border-left-color:var(--orange);background:var(--orange-bg);color:var(--text)}
+
 /* main navigation */
 .tabbar{display:flex;gap:6px;flex-wrap:wrap;max-width:1120px;margin:12px auto 0;padding:0 16px}
 .tb-item{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:var(--card);border-radius:99px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--muted);font-size:.92rem}
@@ -284,6 +289,7 @@ tfoot td{border-bottom:none}
     <div class="tabs">
       <button class="tab active" data-tab="upload">Upload file</button>
       <button class="tab" data-tab="paste">Paste text / JSON</button>
+      <button class="tab" data-tab="ai">✨ Generate with AI</button>
     </div>
     <div id="tab-upload">
       <label class="drop" id="drop">
@@ -299,6 +305,19 @@ tfoot td{border-bottom:none}
         <button class="btn primary" id="parseBtn">Parse questions</button>
         <button class="btn ghost" id="sampleBtn">Load sample</button>
       </div>
+    </div>
+    <div id="tab-ai" hidden>
+      <div id="aiGenNoKey" class="status info" style="margin:0 0 12px" hidden>To generate questions, add your free Gemini API key in your <a href="#" data-profile>Profile</a> first.</div>
+      <div class="settings">
+        <label>Subject / topic<input type="text" id="aiTopic" placeholder="e.g. Piaget's theory of cognitive development" maxlength="200"></label>
+        <label>Number of questions<input type="number" id="aiCount" min="1" max="100" value="20"></label>
+        <label>Difficulty<select id="aiDiff"><option value="mixed">Mixed</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label>
+        <label>Language<select id="aiLang"><option>English</option><option>Kannada</option><option>Hindi</option><option>English and Kannada (bilingual)</option></select></label>
+      </div>
+      <label class="small muted" style="display:block;margin-top:12px;font-weight:600">Source material (optional): paste notes or a chapter, and questions will be based only on it
+        <textarea id="aiSource" style="min-height:110px;margin-top:4px" placeholder="Leave empty to use the AI's general knowledge"></textarea></label>
+      <div class="row" style="margin-top:10px"><button class="btn primary" id="aiGenBtn">✨ Generate questions</button><span class="small muted" id="aiGenMsg"></span></div>
+      <p class="small muted" style="margin-bottom:0">AI can get facts or answer keys wrong. Check the preview before saving.</p>
     </div>
     <div id="loadStatus"></div>
     <details style="margin-top:14px">
@@ -346,6 +365,7 @@ Explanation: RAM loses its contents without power.</pre>
   <div class="card" id="saveCard" hidden></div>
 </section>
 
+<section id="profile" hidden></section>
 <section id="mocks" hidden></section>
 <section id="revhub" hidden></section>
 <section id="progress" hidden></section>
@@ -887,14 +907,14 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'profile', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress' };
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress', profile: '' };
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
   const bar = $('#tabbar');
-  bar.hidden = !store || !TAB_OF[id];
+  bar.hidden = !store || !(id in TAB_OF);
   document.body.classList.toggle('has-tabbar', !bar.hidden);
   bar.querySelectorAll('.tb-item').forEach(b => b.classList.toggle('on', b.dataset.go === TAB_OF[id]));
   window.scrollTo(0, 0);
@@ -918,8 +938,8 @@ function renderBar() {
   left.innerHTML = '<span class="logo">✓</span>ExamSim';
   left.classList.toggle('link', !!store);
   $('#barCenter').innerHTML = '';
-  $('#barRight').innerHTML = store ? `<button class="chip" id="wsBtn" title="Sync code and workspace">${store.kind === 'cloud' ? '☁ Synced' : '⚠ Demo'}</button>` : '';
-  if (store) $('#wsBtn').onclick = showWorkspace;
+  $('#barRight').innerHTML = store ? `<button class="chip" id="wsBtn" title="Profile, sync code and AI keys">${store.kind === 'cloud' ? '☁' : '⚠ Demo'} 👤 Profile</button>` : '';
+  if (store) $('#wsBtn').onclick = openProfile;
 }
 $('#barLeft').onclick = () => { if (store && $('#exam').hidden) goHome(); };
 
@@ -1012,25 +1032,8 @@ async function createWorkspace() {
   openModal(`<h3>Your library is ready</h3>
     <p>This is your <b>sync code</b>. Save it somewhere safe, like a note or an email to yourself. Enter it on your phone or another computer to open the same library.</p>
     <input type="text" readonly value="${code}" style="font-family:ui-monospace,monospace">
-    <p class="small muted">You can see it again any time from the ☁ button at the top right.</p>`,
+    <p class="small muted">You can see it again any time under 👤 Profile (top right).</p>`,
     [{ label: 'Copy code', onClick: async () => { await copyText(code); toast('Sync code copied'); return false; } }, { label: 'Done', cls: 'primary' }]);
-}
-
-function showWorkspace() {
-  if (store.kind === 'demo') {
-    openModal(`<h3>Demo mode</h3><p>Nothing is saved. Refreshing the page clears all subjects, question sets and results.</p>${FIREBASE_CONFIG ? '' : '<p class="small muted">To save to the cloud, add your Firebase config to index.html (see README.md).</p>'}`,
-      [{ label: 'Leave demo', onClick: () => { store = null; renderConnect(); } }, { label: 'Close', cls: 'primary' }]);
-    return;
-  }
-  const link = location.href.split('#')[0] + '#ws=' + WS;
-  openModal(`<h3>Your sync code</h3>
-    <p class="small">Use this code, or the link below, on any device to open this library. Keep it private: anyone who has it can see and change your data.</p>
-    <input type="text" readonly value="${esc(WS)}" style="font-family:ui-monospace,monospace">
-    <p class="small muted" style="margin-bottom:0;word-break:break-all">Link: ${esc(link)}</p>`, [
-    { label: 'Switch library', onClick: () => { lsSet(LS_WS, null); store = null; WS = null; renderConnect(); } },
-    { label: 'Reload data', onClick: async () => { try { await loadAll(); goHome(); toast('Library reloaded'); } catch (e) { toast(errText(e), 'error'); } } },
-    { label: 'Copy link', cls: 'primary', onClick: async () => { await copyText(link); toast('Link copied'); } }
-  ]);
 }
 
 /* ============================================================
@@ -1565,6 +1568,12 @@ function switchTab(t) {
   document.querySelectorAll('.tab[data-tab]').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
   $('#tab-upload').hidden = t !== 'upload';
   $('#tab-paste').hidden = t !== 'paste';
+  $('#tab-ai').hidden = t !== 'ai';
+  if (t === 'ai') {
+    $('#aiGenNoKey').hidden = !!aiCfg().gemKey;
+    const tp = byId('topics', addCtx.topicId);
+    if (tp && !$('#aiTopic').value) $('#aiTopic').value = tp.name;
+  }
 }
 document.querySelectorAll('.tab[data-tab]').forEach(b => b.onclick = () => switchTab(b.dataset.tab));
 
@@ -1935,12 +1944,16 @@ function renderRevision() {
     <div class="qtext" style="margin-top:6px">${esc(q.question)}</div>
     ${LETTERS.map(L => `<div class="opt${R.shown && L === q.answer ? ' right' : ''}" style="cursor:default"><span class="key">${L}</span><span class="otext">${esc(q.options[L])}</span>${R.shown && L === q.answer ? '<span class="tag" style="color:var(--green)">Correct answer</span>' : ''}</div>`).join('')}
     ${R.shown && q.explanation ? `<div class="expl">${esc(q.explanation)}</div>` : ''}
+    ${R.shown ? `<div id="rsExplain">${explainBlock()}</div>` : ''}
     <div class="qnav">${R.shown
       ? `<button class="btn" id="rvMiss" style="flex:1;color:var(--red)">✗ Didn't know <span class="kbd">1</span></button><button class="btn primary" id="rvKnew" style="flex:1">✓ Knew it <span class="kbd">2</span></button>`
       : `<button class="btn primary big" id="rvShow" style="flex:1">Show answer <span class="kbd">Space</span></button>`}</div>
     <p class="small muted" style="margin:10px 0 0">Think of the answer first, then reveal it and be honest. That's what makes spaced repetition work.</p></div>`;
   $('#revise').innerHTML = h;
-  if (R.shown) { $('#rvMiss').onclick = () => gradeCard(false); $('#rvKnew').onclick = () => gradeCard(true); }
+  if (R.shown) {
+    $('#rvMiss').onclick = () => gradeCard(false); $('#rvKnew').onclick = () => gradeCard(true);
+    $('#rsExplain [data-explain]').onclick = () => explainWithAI($('#rsExplain'), q, null);
+  }
   else $('#rvShow').onclick = () => { R.shown = true; renderRevision(); };
 }
 
@@ -2335,7 +2348,9 @@ function renderReview() {
     const tags = [isSel ? 'Your answer' : '', isAns ? 'Correct answer' : ''].filter(Boolean).join(' · ');
     return `<button class="${cls}" disabled><span class="key">${L}</span><span class="otext">${esc(L === 'E' ? E_LABEL : q.options[L])}</span>${tags ? `<span class="tag" style="color:${isAns ? 'var(--green)' : isSel && L !== 'E' ? 'var(--red)' : 'var(--muted)'}">${tags}</span>` : ''}</button>`;
   }).join('');
-  $('#rvExpl').innerHTML = q.explanation ? `<div class="expl"><b>Explanation</b>\n${esc(q.explanation)}</div>` : '';
+  const ex = $('#rvExpl');
+  ex.innerHTML = (q.explanation ? `<div class="expl"><b>Explanation</b>\n${esc(q.explanation)}</div>` : '') + explainBlock();
+  $('[data-explain]', ex).onclick = () => explainWithAI(ex, q, r.sel);
 }
 $('#rvPrev').onclick = () => rvStep(-1);
 $('#rvNext').onclick = () => rvStep(1);
@@ -2348,6 +2363,268 @@ $('#rvJump').onsubmit = e => {
   $('#rvJumpIn').value = '';
 };
 $('#rvBack').onclick = () => show('results');
+
+/* ============================================================
+   Profile: library / sync code, AI keys, preferences
+   AI keys are kept ONLY in this browser (localStorage). They are never
+   written to Firebase or GitHub, and are sent only to Google / Groq.
+   ============================================================ */
+const LS_AI = 'examsim.ai';
+const aiCfg = () => lsGet(LS_AI, {}) || {};
+const setAiCfg = patch => lsSet(LS_AI, { ...aiCfg(), ...patch });
+const AI_PROVIDERS = {
+  gem: { name: 'Google Gemini', use: 'Used for ✨ generating question sets.', keyUrl: 'https://aistudio.google.com/apikey', keyHost: 'aistudio.google.com' },
+  groq: { name: 'Groq', use: 'Used for 💡 “Explain with AI” in review and flashcards.', keyUrl: 'https://console.groq.com/keys', keyHost: 'console.groq.com' }
+};
+
+function openProfile() { renderProfile(); show('profile'); }
+function renderProfile() {
+  const cfg = aiCfg();
+  let h = '<div class="page-head"><h1>Profile</h1></div><div class="kind">Library, AI keys and preferences</div>';
+  if (store.kind === 'cloud') {
+    const link = location.href.split('#')[0].split('?')[0] + '#ws=' + WS;
+    h += `<div class="card"><h2>☁ Your library</h2>
+      <p class="small muted" style="margin-top:0">Your <b>sync code</b> opens this library on any device. Keep it private: anyone who has it can see and change your data.</p>
+      <input type="text" readonly value="${esc(WS)}" style="font-family:ui-monospace,monospace">
+      <div class="row" style="margin-top:10px"><button class="btn" id="pfCopyCode">Copy code</button><button class="btn" id="pfCopyLink">Copy link</button>
+      <button class="btn ghost" id="pfReload">Reload data</button><span class="spacer"></span><button class="btn ghost" id="pfSwitch" style="color:var(--red)">Switch library</button></div></div>`;
+  } else {
+    h += `<div class="card"><h2>⚠ Demo mode</h2><p class="small">Nothing is saved: refreshing the page clears everything.</p><button class="btn" id="pfLeaveDemo">Leave demo</button></div>`;
+  }
+  h += `<div class="card"><h2>🤖 AI keys</h2>
+    <p class="small muted" style="margin-top:0">Use your own free keys. They are stored <b>only on this device</b>, never in your library, Firebase or GitHub, and are sent only to Google or Groq. Add them again on each phone or computer you use.</p>
+    ${['gem', 'groq'].map(p => aiKeyBlock(p, cfg)).join('')}
+    <label class="small muted" style="display:block;margin-top:14px;font-weight:600">Language for AI explanations
+      <select id="pfLang" style="width:auto;margin-left:6px">${['English', 'Kannada', 'Hindi', 'English and Kannada (bilingual)'].map(l => `<option ${cfg.lang === l ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>`;
+  h += `<div class="card"><h2>⚙ Preferences</h2><div class="settings">
+    <label>Daily goal (questions)<input type="number" id="pfGoal" min="1" max="1000" value="${D.prefs.dailyGoal || 30}"></label>
+    <label>Theme<select id="pfTheme"><option value="light" ${theme === 'light' ? 'selected' : ''}>Light</option><option value="dark" ${theme === 'dark' ? 'selected' : ''}>Dark</option></select></label></div></div>`;
+  const el = $('#profile');
+  el.innerHTML = h;
+
+  if (store.kind === 'cloud') {
+    const link = location.href.split('#')[0].split('?')[0] + '#ws=' + WS;
+    $('#pfCopyCode').onclick = async () => { await copyText(WS); toast('Sync code copied'); };
+    $('#pfCopyLink').onclick = async () => { await copyText(link); toast('Link copied'); };
+    $('#pfReload').onclick = async () => { try { await loadAll(); toast('Library reloaded'); goHome(); } catch (e) { toast(errText(e), 'error'); } };
+    $('#pfSwitch').onclick = async () => {
+      if (!(await confirmBox('Switch library?', '<p>This device will forget your sync code. Make sure you have saved it, or you won\'t be able to open this library again.</p>', 'Switch'))) return;
+      lsSet(LS_WS, null); store = null; WS = null; renderConnect();
+    };
+  } else $('#pfLeaveDemo').onclick = () => { store = null; renderConnect(); };
+
+  ['gem', 'groq'].forEach(p => wireAiKey(p));
+  $('#pfLang').onchange = () => setAiCfg({ lang: $('#pfLang').value });
+  $('#pfTheme').onchange = () => { theme = $('#pfTheme').value; applyTheme(theme); lsSet(LS_THEME, theme); };
+  $('#pfGoal').onchange = async () => {
+    const n = parseInt($('#pfGoal').value, 10);
+    if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
+    const old = D.prefs.dailyGoal; D.prefs.dailyGoal = n;
+    try { await store.put('prefs', 'main', { dailyGoal: n }); toast('Daily goal saved'); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
+  };
+}
+function aiKeyBlock(p, cfg) {
+  const P = AI_PROVIDERS[p], key = cfg[p + 'Key'], model = cfg[p + 'Model'];
+  return `<div class="ai-key" id="pf-${p}"><div class="row"><b style="flex:1">${P.name}</b>
+      <span class="pill ${key ? 'correct' : ''}">${key ? '✓ key saved' : 'no key'}</span></div>
+    <div class="small muted">${P.use} Get a free key at <a href="${P.keyUrl}" target="_blank" rel="noopener">${P.keyHost}</a>.</div>
+    <div class="row" style="margin-top:8px"><input type="password" id="pf-${p}-key" placeholder="${key ? '•••••••• (saved; paste a new key to replace)' : 'Paste your API key'}" autocomplete="off" spellcheck="false" style="flex:1;min-width:200px">
+      <button class="btn primary" id="pf-${p}-save">Save &amp; test</button>${key ? `<button class="btn ghost" id="pf-${p}-del" style="color:var(--red)">Remove</button>` : ''}</div>
+    ${key ? `<label class="small muted" style="display:block;margin-top:8px">Model <select id="pf-${p}-model" style="width:auto;max-width:100%;margin-left:6px"><option>${esc(model || '')}</option></select>
+      <button class="btn ghost" id="pf-${p}-models" style="min-height:32px;padding:4px 10px">Load models</button></label>` : ''}
+    <div class="small" id="pf-${p}-msg" style="margin-top:6px"></div></div>`;
+}
+function wireAiKey(p) {
+  const msg = t => { $(`#pf-${p}-msg`).innerHTML = t; };
+  const fillModels = (list, selected) => {
+    const sel = $(`#pf-${p}-model`);
+    if (sel) sel.innerHTML = list.map(m => `<option ${m === selected ? 'selected' : ''}>${esc(m)}</option>`).join('');
+  };
+  $(`#pf-${p}-save`).onclick = async () => {
+    const key = $(`#pf-${p}-key`).value.trim() || aiCfg()[p + 'Key'];
+    if (!key) { msg('<span style="color:var(--red)">Paste a key first.</span>'); return; }
+    msg('<span class="muted">Checking key…</span>');
+    try {
+      const models = await listModels(p, key);
+      if (!models.length) throw new Error('This key works but no suitable models were found.');
+      const model = models.includes(aiCfg()[p + 'Model']) ? aiCfg()[p + 'Model'] : pickDefaultModel(p, models);
+      setAiCfg({ [p + 'Key']: key, [p + 'Model']: model, [p + 'Models']: models });
+      renderProfile();
+      $(`#pf-${p}-msg`).innerHTML = `<span style="color:var(--green)">✓ Key works. Using ${esc(model)}.</span>`;
+    } catch (e) { msg(`<span style="color:var(--red)">${esc(e.message)}</span>`); }
+  };
+  if ($(`#pf-${p}-del`)) $(`#pf-${p}-del`).onclick = () => { setAiCfg({ [p + 'Key']: null, [p + 'Model']: null, [p + 'Models']: null }); renderProfile(); toast('Key removed from this device'); };
+  if ($(`#pf-${p}-model`)) {
+    const c = aiCfg();
+    if (c[p + 'Models']) fillModels(c[p + 'Models'], c[p + 'Model']);
+    $(`#pf-${p}-model`).onchange = () => setAiCfg({ [p + 'Model']: $(`#pf-${p}-model`).value });
+    $(`#pf-${p}-models`).onclick = async () => {
+      msg('<span class="muted">Loading models…</span>');
+      try { const list = await listModels(p, aiCfg()[p + 'Key']); setAiCfg({ [p + 'Models']: list }); fillModels(list, aiCfg()[p + 'Model']); msg(`<span class="muted">${list.length} models available.</span>`); }
+      catch (e) { msg(`<span style="color:var(--red)">${esc(e.message)}</span>`); }
+    };
+  }
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-profile]')) { e.preventDefault(); openProfile(); } });
+
+/* ---------- AI providers (browser calls with the user's own key) ---------- */
+const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/';
+const GROQ = 'https://api.groq.com/openai/v1/';
+async function apiJson(res) {
+  let j = null;
+  try { j = await res.json(); } catch (e) { /* not JSON */ }
+  if (!res.ok) {
+    const m = (j && j.error && (j.error.message || j.error)) || res.statusText || ('HTTP ' + res.status);
+    if (res.status === 400 && /api key/i.test(m) || res.status === 401 || res.status === 403) throw new Error('The key was rejected: ' + m);
+    if (res.status === 429) throw new Error('Rate limit reached for this key. Wait a minute and try again. (' + m + ')');
+    throw new Error(m);
+  }
+  return j;
+}
+async function listModels(p, key) {
+  if (p === 'gem') {
+    const j = await apiJson(await fetch(GEMINI + 'models?pageSize=200', { headers: { 'x-goog-api-key': key } }));
+    return (j.models || [])
+      .filter(m => (m.supportedGenerationMethods || []).includes('generateContent'))
+      .map(m => m.name.replace(/^models\//, ''))
+      .filter(n => /gemini/i.test(n) && !/embed|image|tts|audio|live|vision|aqa/i.test(n));
+  }
+  const j = await apiJson(await fetch(GROQ + 'models', { headers: { Authorization: 'Bearer ' + key } }));
+  return (j.data || []).filter(m => m.active !== false).map(m => m.id)
+    .filter(id => !/whisper|tts|guard|playai|orpheus|prompt-guard|distil/i.test(id)).sort();
+}
+function pickDefaultModel(p, models) {
+  const prefs = p === 'gem'
+    ? [/^gemini-[\d.]+-flash$/, /^gemini-.*flash(?!.*lite)/, /flash/]
+    : [/^openai\/gpt-oss-120b$/, /^llama-3\.3-70b/, /70b/, /llama/];
+  const byVersionDesc = [...models].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+  for (const re of prefs) { const m = byVersionDesc.find(x => re.test(x)); if (m) return m; }
+  return models[0];
+}
+
+// Structured output: Gemini must return exactly this shape
+const Q_SCHEMA = {
+  type: 'ARRAY',
+  items: {
+    type: 'OBJECT',
+    properties: {
+      question: { type: 'STRING' },
+      options: { type: 'OBJECT', properties: { A: { type: 'STRING' }, B: { type: 'STRING' }, C: { type: 'STRING' }, D: { type: 'STRING' } }, required: ['A', 'B', 'C', 'D'], propertyOrdering: ['A', 'B', 'C', 'D'] },
+      answer: { type: 'STRING', format: 'enum', enum: ['A', 'B', 'C', 'D'] },
+      subject: { type: 'STRING' },
+      explanation: { type: 'STRING' }
+    },
+    required: ['question', 'options', 'answer', 'subject', 'explanation'],
+    propertyOrdering: ['question', 'options', 'answer', 'subject', 'explanation']
+  }
+};
+const genSystem = () => `You write high-quality multiple-choice questions for competitive exam preparation (for example Indian teacher-recruitment exams such as Karnataka CST, UPSC and NEET).
+Rules:
+${AI_RULES}
+- Every question must be factually correct and have exactly one defensible answer. If you are unsure of a fact, write a different question.
+- Never repeat or closely paraphrase a question.
+- Set "subject" to the topic name the user gives, spelled the same way every time.
+- Return only the JSON array described by the response schema.`;
+
+async function geminiGenerate({ topic, count, difficulty, language, source, avoid }) {
+  const { gemKey, gemModel } = aiCfg();
+  const prompt = [
+    `Create exactly ${count} multiple-choice questions.`,
+    `Topic: ${topic}`,
+    `Difficulty: ${difficulty}`,
+    `Language: ${language} (write the questions, options and explanations in this language).`,
+    source ? `Base every question ONLY on the source material below; do not use outside facts.\n"""\n${source}\n"""` : '',
+    avoid.length ? `Do not repeat any of these questions already written:\n- ${avoid.join('\n- ')}` : ''
+  ].filter(Boolean).join('\n');
+  const j = await apiJson(await fetch(GEMINI + 'models/' + encodeURIComponent(gemModel) + ':generateContent', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gemKey },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: genSystem() }] },
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: 'application/json', responseSchema: Q_SCHEMA, temperature: 0.8 }
+    })
+  }));
+  const cand = j.candidates && j.candidates[0];
+  const text = cand && cand.content && (cand.content.parts || []).filter(p => !p.thought).map(p => p.text || '').join('');
+  if (!text) throw new Error('Gemini returned nothing' + (cand && cand.finishReason ? ` (${cand.finishReason})` : (j.promptFeedback && j.promptFeedback.blockReason ? ` (blocked: ${j.promptFeedback.blockReason})` : '')) + '. Try again or change the topic.');
+  return JSON.parse(text);
+}
+
+$('#aiGenBtn').onclick = async () => {
+  const cfg = aiCfg();
+  if (!cfg.gemKey) { $('#aiGenNoKey').hidden = false; toast('Add your Gemini key in Profile first', 'error'); return; }
+  const topic = normText($('#aiTopic').value);
+  const count = Math.max(1, Math.min(100, parseInt($('#aiCount').value, 10) || 20));
+  if (!topic) { toast('Enter a subject or topic', 'error'); $('#aiTopic').focus(); return; }
+  const btn = $('#aiGenBtn'), msg = $('#aiGenMsg');
+  btn.disabled = true;
+  const all = [];
+  try {
+    // Ask in batches of 20 so long sets don't hit the model's output limit
+    while (all.length < count) {
+      const n = Math.min(20, count - all.length);
+      msg.textContent = `Generating ${all.length + 1}–${all.length + n} of ${count}…`;
+      const batch = await geminiGenerate({
+        topic, count: n, difficulty: $('#aiDiff').value, language: $('#aiLang').value,
+        source: $('#aiSource').value.trim().slice(0, 30000),
+        avoid: all.slice(-60).map(q => String(q.question || '').slice(0, 90))
+      });
+      if (!Array.isArray(batch) || !batch.length) break;
+      all.push(...batch.slice(0, n));
+    }
+    msg.textContent = '';
+    const json = JSON.stringify(all, null, 2);
+    $('#pasteArea').value = json; // editable copy in the Paste tab
+    loadFromText(json, topic + ' (AI)');
+    loaded.format = 'AI · ' + cfg.gemModel;
+    renderPreview();
+    setStatus(`Generated <b>${loaded.questions.length}</b> questions with Gemini. Check them in the preview below; you can also edit the JSON in the <i>Paste text / JSON</i> tab and parse again.`, 'ok');
+  } catch (e) {
+    msg.textContent = '';
+    if (all.length) { const json = JSON.stringify(all, null, 2); $('#pasteArea').value = json; loadFromText(json, topic + ' (AI)'); }
+    setStatus(esc(e.message) + (all.length ? ` (kept the ${all.length} questions generated before the error)` : ''), 'error');
+  } finally { btn.disabled = false; }
+};
+
+/* ---------- 💡 Explain with AI (Groq) ---------- */
+const explainCache = new Map();
+const EXPLAIN_SYSTEM = `You are a patient tutor helping a student prepare for a competitive multiple-choice exam.
+Explain in plain text, 60-120 words, with no headings or tables:
+1. Why the correct option is right.
+2. If the student chose a different option, why that option is wrong.
+3. One short memory tip.
+Treat the given correct answer as the answer key. Only if you are confident the key is wrong, say so politely in one final sentence.`;
+function explainBlock() {
+  return `<div class="ai-explain"><button class="btn ghost" data-explain>💡 Explain with AI</button><div class="ai-out"></div></div>`;
+}
+async function explainWithAI(container, q, sel) {
+  const out = $('.ai-out', container), btn = $('[data-explain]', container);
+  const { groqKey, groqModel, lang } = aiCfg();
+  if (!groqKey) { out.innerHTML = '<div class="status info">Add your free Groq API key in your <a href="#" data-profile>Profile</a> to get AI explanations.</div>'; return; }
+  const cacheKey = q.key + '|' + (sel || '') + '|' + (lang || '');
+  const render = txt => {
+    // light formatting: **bold** only, everything else escaped
+    out.innerHTML = `<div class="expl ai"><b>💡 AI explanation</b> <span class="small muted">(${esc(groqModel)}, may contain mistakes)</span>\n${esc(txt).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^#+\s*/gm, '')}</div>`;
+  };
+  if (explainCache.has(cacheKey)) { render(explainCache.get(cacheKey)); btn.hidden = true; return; }
+  btn.disabled = true; btn.textContent = '💡 Thinking…';
+  try {
+    const user = `Question: ${q.question}\n${LETTERS.map(L => `${L}. ${q.options[L]}`).join('\n')}\nCorrect answer: ${q.answer}\nStudent's answer: ${sel === 'E' ? 'skipped (chose "I don\'t know")' : sel || 'not answered'}`;
+    const j = await apiJson(await fetch(GROQ + 'chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + groqKey },
+      body: JSON.stringify({ model: groqModel, temperature: 0.3, max_tokens: 700, messages: [{ role: 'system', content: EXPLAIN_SYSTEM + `\nReply in ${lang || 'English'}.` }, { role: 'user', content: user }] })
+    }));
+    const txt = String((j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '').replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+    if (!txt) throw new Error('Groq returned an empty answer. Try another model in Profile.');
+    explainCache.set(cacheKey, txt);
+    render(txt); btn.hidden = true;
+  } catch (e) {
+    out.innerHTML = `<div class="status error">${esc(e.message)}</div>`;
+    btn.disabled = false; btn.textContent = '💡 Explain with AI';
+  }
+}
 
 /* ============================================================
    AI prompt guide
