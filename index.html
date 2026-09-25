@@ -177,6 +177,27 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .issues{max-height:180px;overflow:auto;font-size:.87rem;margin:6px 0 0;padding-left:20px}
 .kbd{font-family:ui-monospace,monospace;font-size:.78rem;border:1px solid var(--border);border-radius:4px;padding:0 5px;background:var(--bg)}
 
+/* goal, streak, weak topics, mock builder */
+.streak{font-weight:700;white-space:nowrap}
+.goal-bar{height:10px;border-radius:99px;background:var(--grey-bg);overflow:hidden}
+.goal-bar i{display:block;height:100%;background:var(--green);border-radius:99px;transition:width .3s}
+.week{display:flex;gap:6px;align-items:flex-end}
+.week div{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.7rem;color:var(--muted)}
+.week i{display:block;width:14px;background:var(--primary-bg);border-radius:3px}
+.week i.met{background:var(--green)}
+.bar{height:6px;background:var(--grey-bg);border-radius:99px;overflow:hidden;margin:6px 0 3px;max-width:340px}
+.bar i{display:block;height:100%;background:var(--orange);border-radius:99px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
+.seg button{border:none;background:var(--card);padding:7px 12px;cursor:pointer;font-weight:600;font-size:.88rem}
+.seg button.on{background:var(--primary);color:#fff}
+.mb-subj{border-bottom:1px solid var(--border);padding:8px 0}
+.mb-subj:last-of-type{border-bottom:none}
+.mb-subj summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap;list-style:none;font-weight:500}
+.mb-subj summary::-webkit-details-marker{display:none}
+.mb-more{margin-left:auto;color:var(--primary);cursor:pointer;font-weight:600}
+.mb-topics{display:flex;flex-direction:column;gap:8px;padding:10px 0 4px 28px}
+tfoot td{border-bottom:none}
+
 /* modal & toast */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;z-index:50;padding:16px}
 .modal{background:var(--card);border-radius:14px;padding:20px;max-width:460px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3);max-height:90vh;overflow:auto}
@@ -291,6 +312,8 @@ Explanation: RAM loses its contents without power.</pre>
   <div class="card" id="saveCard" hidden></div>
 </section>
 
+<section id="mock" hidden></section>
+<section id="revise" hidden></section>
 <section id="setup" hidden></section>
 
 <!-- ================= EXAM ================= -->
@@ -657,18 +680,21 @@ async function extractPdf(file) {
    Question sets are split into metadata (sets) and questions (setq)
    so the library can load without downloading every question.
    ============================================================ */
-const D = { subjects: [], topics: [], sets: [], attempts: [] };
+const D = { subjects: [], topics: [], sets: [], attempts: [], mocks: [], days: {}, prefs: { dailyGoal: 30 } };
 const qCache = new Map();
 let store = null, WS = null, fb = null;
 
 function memoryStore() {
-  const m = { subjects: new Map(), topics: new Map(), sets: new Map(), setq: new Map(), attempts: new Map() };
+  const m = {};
+  const col = c => m[c] || (m[c] = new Map());
   return {
     kind: 'demo',
-    list: async c => [...m[c]].map(([id, d]) => ({ ...clone(d), id })),
-    get: async (c, id) => m[c].has(id) ? { ...clone(m[c].get(id)), id } : null,
-    put: async (c, id, d) => { m[c].set(id, clone(d)); },
-    del: async (c, ids) => { ids.forEach(id => m[c].delete(id)); }
+    list: async c => [...col(c)].map(([id, d]) => ({ ...clone(d), id })),
+    query: async (c, f, v) => [...col(c)].filter(([, d]) => d[f] === v).map(([id, d]) => ({ ...clone(d), id })),
+    get: async (c, id) => col(c).has(id) ? { ...clone(col(c).get(id)), id } : null,
+    put: async (c, id, d) => { col(c).set(id, clone(d)); },
+    bump: async (c, id, f, n) => { const d = col(c).get(id) || {}; d[f] = (d[f] || 0) + n; col(c).set(id, d); },
+    del: async (c, ids) => { ids.forEach(id => col(c).delete(id)); }
   };
 }
 async function firestoreStore(ws) {
@@ -682,8 +708,10 @@ async function firestoreStore(ws) {
   return {
     kind: 'cloud',
     list: async c => (await F.getDocs(F.collection(db, 'workspaces', ws, c))).docs.map(d => ({ ...d.data(), id: d.id })),
+    query: async (c, f, v) => (await F.getDocs(F.query(F.collection(db, 'workspaces', ws, c), F.where(f, '==', v)))).docs.map(d => ({ ...d.data(), id: d.id })),
     get: async (c, id) => { const s = await F.getDoc(ref(c, id)); return s.exists() ? { ...s.data(), id } : null; },
     put: (c, id, d) => F.setDoc(ref(c, id), clone(d)),
+    bump: (c, id, f, n) => F.setDoc(ref(c, id), { [f]: F.increment(n) }, { merge: true }),
     del: async (c, ids) => {
       for (let i = 0; i < ids.length; i += 400) {
         const b = F.writeBatch(db);
@@ -694,9 +722,58 @@ async function firestoreStore(ws) {
   };
 }
 async function loadAll() {
-  const [subjects, topics, sets, attempts] = await Promise.all(['subjects', 'topics', 'sets', 'attempts'].map(c => store.list(c)));
-  Object.assign(D, { subjects: subjects.sort(byName), topics: topics.sort(byName), sets: sets.sort((a, b) => a.createdAt - b.createdAt), attempts });
+  D.rulesOutdated = false;
+  // Collections added after the first release: if the published Firestore rules predate them,
+  // keep the app working and ask the user to republish the rules
+  const optional = c => store.list(c).catch(e => { if (e && e.code === 'permission-denied') { D.rulesOutdated = true; return []; } throw e; });
+  const [subjects, topics, sets, attempts, mocks, days, prefs] = await Promise.all([
+    ...['subjects', 'topics', 'sets', 'attempts'].map(c => store.list(c)),
+    ...['mocks', 'days', 'prefs'].map(optional)
+  ]);
+  Object.assign(D, {
+    subjects: subjects.sort(byName), topics: topics.sort(byName), sets: sets.sort((a, b) => a.createdAt - b.createdAt), attempts,
+    mocks: mocks.sort(byName),
+    days: Object.fromEntries(days.map(d => [d.id, d.q || 0])),
+    prefs: { dailyGoal: 30, ...(prefs.find(p => p.id === 'main') || {}) }
+  });
   qCache.clear();
+}
+// Questions from several sets, de-duplicated, each tagged with where it came from
+async function sourceQuestions(sets) {
+  const lists = await Promise.all(sets.map(x => getSetQuestions(x.id)));
+  const seen = new Set(), qs = [];
+  sets.forEach((x, i) => lists[i].forEach(q => {
+    const k = q.key || qKey(q);
+    if (!seen.has(k)) { seen.add(k); qs.push({ ...q, key: k, setName: x.name, topicId: x.topicId, subjectId: x.subjectId }); }
+  }));
+  return qs;
+}
+// Per-question results across attempts; "last" is the most recent result
+function historyMap(atts) {
+  const hist = new Map();
+  [...atts].sort((a, b) => a.date - b.date).forEach(a => (a.answers || []).forEach(ans => {
+    const r = hist.get(ans.k) || { seen: 0, c: 0, w: 0, b: 0, e: 0, last: null, lastSel: null };
+    r.seen++; r[ans.r]++; r.last = ans.r; r.lastSel = ans.s;
+    hist.set(ans.k, r);
+  }));
+  return hist;
+}
+
+/* Daily goal & streak: days/{YYYY-MM-DD} = { q: questions practised } */
+const dayKey = t => { const d = new Date(t ?? Date.now()); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
+function logPractice(n) {
+  if (!(n > 0) || !store) return;
+  const k = dayKey();
+  D.days[k] = (D.days[k] || 0) + n;
+  store.bump('days', k, 'q', n).catch(e => { if (e && e.code === 'permission-denied') D.rulesOutdated = true; });
+}
+function streakInfo() {
+  const goal = D.prefs.dailyGoal || 30, todayQ = D.days[dayKey()] || 0;
+  const d = new Date();
+  if (todayQ < goal) d.setDate(d.getDate() - 1); // today still in progress: count up to yesterday
+  let streak = 0;
+  while ((D.days[dayKey(d)] || 0) >= goal) { streak++; d.setDate(d.getDate() - 1); }
+  return { goal, todayQ, streak };
 }
 async function save(c, obj) {
   const { id, ...rest } = obj;
@@ -773,7 +850,7 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
@@ -798,6 +875,13 @@ document.addEventListener('click', e => {
   if (k === 'home') goHome();
   else if (k === 'subject') openSubject(id);
   else if (k === 'topic') openTopic(id);
+});
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-revise]');
+  if (!a) return;
+  e.preventDefault();
+  const [type, id] = a.dataset.revise.split(':');
+  openRevision({ type, id });
 });
 function crumbs(items) {
   return `<nav class="crumbs">${items.map(([label, nav]) => nav ? `<a href="#" data-nav="${nav}">${esc(label)}</a>` : `<span>${esc(label)}</span>`).join(' › ')}</nav>`;
@@ -923,8 +1007,8 @@ function trendSvg(atts) {
 function attemptsTable(atts, { where = false, limit = 20 } = {}) {
   if (!atts.length) return '<p class="small muted">No attempts yet.</p>';
   const rows = [...atts].sort((a, b) => b.date - a.date).slice(0, limit);
-  const modeTag = a => a.mode === 'mistakes' ? ' <span class="pill blank">mistakes</span>' : a.mode === 'all' ? ' <span class="pill">all sets</span>' : '';
-  const whereTxt = a => { const s = byId('subjects', a.subjectId), t = byId('topics', a.topicId); return [s && s.name, t && t.name].filter(Boolean).join(' › ') || '—'; };
+  const modeTag = a => a.mode === 'mistakes' ? ' <span class="pill blank">mistakes</span>' : a.mode === 'all' ? ' <span class="pill">all sets</span>' : a.mode === 'mock' ? ' <span class="pill correct">mock</span>' : '';
+  const whereTxt = a => { const s = byId('subjects', a.subjectId), t = byId('topics', a.topicId); return [s && s.name, t && t.name].filter(Boolean).join(' › ') || (a.mode === 'mock' ? 'Mixed' : '—'); };
   return `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Set</th>${where ? '<th>Subject › Topic</th>' : ''}<th class="num">Score</th><th class="num">%</th><th class="num">✓</th><th class="num">✗</th><th class="num">Blank</th><th class="num">E</th><th class="num">Time</th></tr></thead><tbody>`
     + rows.map(a => `<tr><td class="small">${esc(fmtDate(a.date))}</td><td>${esc(a.setName)}${modeTag(a)}</td>${where ? `<td class="small">${esc(whereTxt(a))}</td>` : ''}
       <td class="num"><b>${fmtScore(a.score)}</b><span class="muted small"> / ${fmtNum(a.max)}</span></td><td class="num">${pct(a).toFixed(0)}%</td>
@@ -988,7 +1072,9 @@ function goHome() {
 }
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
-  h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1">Your subjects</h1>
+  if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
+  h += todayCard();
+  h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
     <button class="btn" id="hNewSubj">+ New subject</button><button class="btn primary" id="hAddSet">+ Add question set</button></div>`;
   if (!D.subjects.length) {
     h += `<div class="card empty"><p>No subjects yet.</p><p class="small">Create a subject (e.g. “Ed. Psychology”), add topics to it, then add question sets to each topic. Every exam you take is saved, so you can track progress and practise your mistakes.</p>
@@ -1004,13 +1090,94 @@ function renderHome() {
         <span class="small muted">${plural(nT, 'topic')} · ${plural(sets.length, 'set')} · ${plural(nQ, 'question')}</span>
         <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></button>`;
     }).join('') + '</div>';
+    h += mocksCard() + weakTopicsCard();
   }
   h += `<div class="card"><h2>Recent attempts</h2>${attemptsTable(D.attempts, { where: true, limit: 10 })}</div>`;
-  $('#home').innerHTML = h;
+  const el = $('#home');
+  el.innerHTML = h;
   const newSubj = async () => { const s = await createSubject(); if (s) openSubject(s.id); };
   $('#hNewSubj').onclick = newSubj;
   if ($('#hNewSubj2')) $('#hNewSubj2').onclick = newSubj;
   $('#hAddSet').onclick = () => openAdd({});
+  $('#goalBtn').onclick = async () => {
+    const v = await askText('Daily goal', 'Questions to practise per day (exams + flashcards)', String(D.prefs.dailyGoal || 30));
+    const n = parseInt(v, 10);
+    if (!v) return;
+    if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
+    const old = D.prefs.dailyGoal;
+    D.prefs.dailyGoal = n;
+    try { await store.put('prefs', 'main', { dailyGoal: n }); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
+    renderHome();
+  };
+  if ($('#hMock')) $('#hMock').onclick = () => openMockBuilder(null);
+  el.querySelectorAll('[data-mockstart]').forEach(b => b.onclick = () => { const m = byId('mocks', b.dataset.mockstart); startMock(m, m.id); });
+  el.querySelectorAll('[data-mockedit]').forEach(b => b.onclick = () => openMockBuilder(byId('mocks', b.dataset.mockedit)));
+  el.querySelectorAll('[data-mockdel]').forEach(b => b.onclick = async () => {
+    const m = byId('mocks', b.dataset.mockdel);
+    if (!(await confirmBox(`Delete “${m.name}”?`, '<p>The mock test setup is deleted. Your past results are kept.</p>', 'Delete'))) return;
+    try { await removeDocs('mocks', [m.id]); renderHome(); } catch (e) { toast(errText(e), 'error'); }
+  });
+}
+
+function todayCard() {
+  const { goal, todayQ, streak } = streakInfo();
+  const week = [...Array(7)].map((_, i) => {
+    const d = new Date(); d.setDate(d.getDate() - 6 + i);
+    const k = dayKey(d);
+    return { k, q: D.days[k] || 0, lbl: d.toLocaleDateString([], { weekday: 'narrow' }) };
+  });
+  const top = Math.max(goal, ...week.map(d => d.q));
+  return `<div class="card"><div class="row" style="margin-bottom:10px"><h2 style="margin:0;flex:1">Today</h2>
+      <span class="streak">${streak ? '🔥 ' + plural(streak, 'day') + ' streak' : 'No streak yet'}</span>
+      <button class="btn ghost" id="goalBtn" title="Change daily goal">Goal: ${goal}/day ✎</button></div>
+    <div class="goal-bar"><i style="width:${Math.min(100, todayQ / goal * 100)}%"></i></div>
+    <div class="row small" style="margin-top:8px;align-items:flex-end">
+      <span><b>${todayQ}</b> / ${goal} questions today${todayQ >= goal ? ' · <span style="color:var(--green)">✓ goal met</span>' : ''}</span><span class="spacer"></span>
+      <div class="week" aria-label="Last 7 days">${week.map(d => `<div title="${d.k}: ${d.q} questions"><i class="${d.q >= goal ? 'met' : ''}" style="height:${Math.max(3, Math.round(d.q / top * 30))}px"></i><span>${d.lbl}</span></div>`).join('')}</div>
+    </div></div>`;
+}
+
+// Per-topic share of correct answers across ALL attempts (blank and E count as not correct)
+function topicAccuracy() {
+  const m = new Map();
+  for (const a of D.attempts) for (const x of a.answers || []) {
+    const t = x.t || a.topicId;
+    if (!t) continue;
+    const r = m.get(t) || { seen: 0, c: 0, w: 0, b: 0, e: 0 };
+    r.seen++; r[x.r]++;
+    m.set(t, r);
+  }
+  return m;
+}
+function weakTopicsCard() {
+  const acc = topicAccuracy();
+  const rows = D.topics.map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5)
+    .sort((a, b) => a.r.c / a.r.seen - b.r.c / b.r.seen).slice(0, 5);
+  let h = '<div class="card"><h2>Weak topics</h2>';
+  if (!rows.length) return h + '<p class="small muted" style="margin-bottom:0">Answer at least 5 questions in a topic and your weakest topics will show up here.</p></div>';
+  h += '<p class="small muted" style="margin-top:0">Lowest share of correct answers across all your exams and mock tests. Blank and E count as not correct.</p>';
+  return h + rows.map(({ t, r }) => {
+    const p = r.c / r.seen * 100, s = byId('subjects', t.subjectId);
+    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${esc(t.name)}</button> <span class="small muted">${esc(s ? s.name : '')}</span>
+      <div class="bar"><i style="width:${p}%"></i></div>
+      <div class="small muted">${p.toFixed(0)}% correct of ${r.seen} answered · ✗ ${r.w} wrong · ${r.b + r.e} blank/E</div></div>
+      <button class="btn" data-revise="topic:${t.id}">🃏 Revise</button><button class="btn" data-nav="topic:${t.id}">Practise →</button></div>`;
+  }).join('') + '</div>';
+}
+
+function mocksCard() {
+  let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Mock tests</h2><button class="btn primary" id="hMock">🎯 Build mock test</button></div>`;
+  if (!D.mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
+  return h + D.mocks.map(m => {
+    const parts = m.sources.filter(srcName).map(s => `${srcName(s).replace(' (whole subject)', '')} ${m.mode === 'pct' ? s.weight + '%' : s.weight + 'q'}`);
+    const atts = D.attempts.filter(a => a.mockId === m.id);
+    const best = atts.length ? Math.max(...atts.map(pct)).toFixed(0) + '%' : '—';
+    return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(m.name)}</b><div class="small muted">${plural(m.total, 'question')} · ${esc(parts.join(' + '))}</div></div>
+      <div class="small muted">${plural(atts.length, 'attempt')} · best ${best}</div>
+      <button class="btn primary" data-mockstart="${m.id}">Start</button>
+      <button class="icon-btn" data-mockedit="${m.id}" title="Edit mock test" aria-label="Edit mock test">✎</button>
+      <button class="icon-btn" data-mockdel="${m.id}" title="Delete mock test" aria-label="Delete mock test">🗑</button></div>`;
+  }).join('') + '</div>';
 }
 
 /* ============================================================
@@ -1027,7 +1194,8 @@ function renderSubject() {
   const st = { ...DEFAULT_SETTINGS, ...s.settings };
   let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject');
   h += statsRow(atts, [[topics.length, 'Topics'], [sets.reduce((n, x) => n + (x.count || 0), 0), 'Questions']]);
-  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2><button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
+  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
+    ${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
@@ -1092,7 +1260,8 @@ function renderTopic() {
         <button class="icon-btn" data-del="${x.id}" title="Delete set" aria-label="Delete set">🗑</button></div>`;
     }).join('');
     h += `<div class="row" style="margin-top:12px"><button class="btn" id="tMistakes" disabled>Practise mistakes</button>
-      ${sets.length > 1 ? `<button class="btn" id="tAll" disabled>Exam from all sets (${nQ})</button>` : ''}</div>
+      ${sets.length > 1 ? `<button class="btn" id="tAll" disabled>Exam from all sets (${nQ})</button>` : ''}
+      <button class="btn" data-revise="topic:${t.id}">🃏 Revise (flashcards)</button></div>
       <p class="small muted" style="margin-bottom:0">“Practise mistakes” uses questions you got wrong, left blank or skipped with E the last time you saw them.</p>`;
   }
   h += '</div>';
@@ -1126,26 +1295,15 @@ function renderTopic() {
   });
   $('#qhFilter').onchange = () => { if (TH) { TH.limit = 50; renderQH(); } };
   TH = null;
-  if (sets.length) loadTopicHistory(t, sets, atts);
+  if (sets.length) loadTopicHistory(t, sets);
 }
 
-async function loadTopicHistory(t, sets, atts) {
+async function loadTopicHistory(t, sets) {
   try {
-    const seen = new Set(), qs = [];
-    for (const x of sets) {
-      for (const q of await getSetQuestions(x.id)) {
-        const k = q.key || qKey(q);
-        if (!seen.has(k)) { seen.add(k); qs.push({ ...q, key: k, setName: x.name }); }
-      }
-    }
+    const qs = await sourceQuestions(sets);
     if (cur.topicId !== t.id || $('#topic').hidden) return;
-    // Walk attempts oldest → newest so "last" is the most recent result per question
-    const hist = new Map();
-    [...atts].sort((a, b) => a.date - b.date).forEach(a => (a.answers || []).forEach(ans => {
-      const r = hist.get(ans.k) || { seen: 0, c: 0, w: 0, b: 0, e: 0, last: null, lastSel: null };
-      r.seen++; r[ans.r]++; r.last = ans.r; r.lastSel = ans.s;
-      hist.set(ans.k, r);
-    }));
+    // All attempts, so answers given in mock tests count towards this topic too
+    const hist = historyMap(D.attempts);
     TH = { qs, hist, limit: 50 };
     const mistakes = qs.filter(q => { const r = hist.get(q.key); return r && r.last !== 'c'; });
     const mb = $('#tMistakes');
@@ -1426,13 +1584,270 @@ async function saveSet(startAfter) {
 }
 
 /* ============================================================
+   Mock test builder
+   A mock is a blueprint: sections (whole subjects or single topics)
+   with weights, either as percentages of a total or as exact counts.
+   Every start picks a fresh set of questions.
+   ============================================================ */
+let MB = null;
+const srcSets = s => D.sets.filter(x => s.type === 'subject' ? x.subjectId === s.id : x.topicId === s.id);
+const srcAvail = s => srcSets(s).reduce((n, x) => n + (x.count || 0), 0);
+function srcName(s) {
+  if (s.type === 'subject') { const x = byId('subjects', s.id); return x ? x.name + ' (whole subject)' : null; }
+  const t = byId('topics', s.id), x = t && byId('subjects', t.subjectId);
+  return t ? (x ? x.name + ' › ' : '') + t.name : null;
+}
+function allocate(srcs, total, mode) {
+  const avail = srcs.map(srcAvail);
+  if (mode === 'count') return srcs.map((s, i) => Math.min(avail[i], Math.max(0, Math.floor(+s.weight || 0))));
+  const W = srcs.reduce((n, s) => n + Math.max(0, +s.weight || 0), 0);
+  if (!W || !(total > 0)) return srcs.map(() => 0);
+  // Largest-remainder rounding so the sections add up exactly to the total
+  const raw = srcs.map(s => total * Math.max(0, +s.weight || 0) / W);
+  const out = raw.map(v => Math.floor(v));
+  let rem = total - out.reduce((a, b) => a + b, 0);
+  raw.map((v, i) => [v - Math.floor(v), i]).sort((a, b) => b[0] - a[0]).forEach(([, i]) => { if (rem > 0) { out[i]++; rem--; } });
+  return out.map((n, i) => Math.min(n, avail[i]));
+}
+function splitEqually() {
+  const n = MB.sources.length, base = Math.floor(100 / n);
+  MB.sources.forEach((s, i) => { s.weight = base + (i < 100 - base * n ? 1 : 0); });
+  MB.touched = false;
+}
+
+function openMockBuilder(mock) {
+  const exists = s => byId(s.type === 'subject' ? 'subjects' : 'topics', s.id);
+  MB = mock
+    ? { id: mock.id, name: mock.name, total: mock.totalInput || mock.total, mode: mock.mode, prefer: mock.prefer || 'random', sources: mock.sources.filter(exists).map(s => ({ ...s })), touched: true }
+    : { id: null, name: 'Mock test ' + (D.mocks.length + 1), total: 50, mode: 'pct', prefer: 'random', sources: [], touched: false };
+  $('#mock').innerHTML = '';
+  renderMock();
+  show('mock');
+}
+
+function renderMock() {
+  const el = $('#mock');
+  const openNow = new Set([...el.querySelectorAll('details.mb-subj[open]')].map(d => d.dataset.sid));
+  const isSel = (type, id) => MB.sources.some(s => s.type === type && s.id === id);
+  let h = crumbs([['Library', 'home'], [MB.id ? 'Edit mock test' : 'Build mock test']])
+    + `<div class="page-head"><h1>${MB.id ? 'Edit mock test' : 'Build a mock test'}</h1></div><div class="kind">Mix subjects and topics with your own weightage</div>`;
+  if (!D.sets.length) {
+    el.innerHTML = h + '<div class="card empty">Add some question sets to your subjects first, then come back to build a mock test.</div>';
+    return;
+  }
+  h += '<div class="card"><h2>1. Choose what to include</h2><p class="small muted" style="margin-top:0">Tick a whole subject, or open it and tick only the topics you want.</p>';
+  h += D.subjects.map(s => {
+    const ts = D.topics.filter(t => t.subjectId === s.id);
+    const whole = isSel('subject', s.id), anyTopic = ts.some(t => isSel('topic', t.id));
+    return `<details class="mb-subj" data-sid="${s.id}" ${openNow.has(s.id) || anyTopic ? 'open' : ''}><summary>
+        <label class="check"><input type="checkbox" data-src="subject:${s.id}" ${whole ? 'checked' : ''}> <b>${esc(s.name)}</b></label>
+        <span class="small muted">${srcAvail({ type: 'subject', id: s.id })} questions</span>
+        ${ts.length ? `<span class="small mb-more">${plural(ts.length, 'topic')} ▾</span>` : ''}</summary>
+      <div class="mb-topics">${ts.map(t => `<label class="check"><input type="checkbox" data-src="topic:${t.id}" ${whole || isSel('topic', t.id) ? 'checked' : ''} ${whole ? 'disabled' : ''}> ${esc(t.name)} <span class="small muted">${srcAvail({ type: 'topic', id: t.id })} questions</span></label>`).join('') || '<span class="small muted">No topics yet</span>'}</div></details>`;
+  }).join('');
+  h += '</div>';
+
+  const alloc = allocate(MB.sources, MB.total, MB.mode);
+  const totalOut = alloc.reduce((a, b) => a + b, 0);
+  h += '<div class="card"><h2>2. Weightage</h2>';
+  if (!MB.sources.length) h += '<p class="small muted" style="margin-bottom:0">Tick at least one subject or topic above.</p>';
+  else {
+    const W = MB.sources.reduce((n, s) => n + Math.max(0, +s.weight || 0), 0);
+    h += `<div class="row" style="margin-bottom:12px"><div class="seg"><button data-mode="pct" class="${MB.mode === 'pct' ? 'on' : ''}">By percentage</button><button data-mode="count" class="${MB.mode === 'count' ? 'on' : ''}">By number of questions</button></div>
+      ${MB.mode === 'pct' ? `<label class="small muted">Total questions <input type="number" id="mbTotal" min="1" max="2000" value="${MB.total}" style="width:90px;margin-left:6px"></label><button class="btn ghost" id="mbEqual">Split equally</button>` : ''}</div>`;
+    h += `<div class="tbl-wrap"><table><thead><tr><th>Section</th><th class="num">Available</th><th class="num">${MB.mode === 'pct' ? 'Weight %' : 'Questions'}</th><th class="num">Gets</th><th></th></tr></thead><tbody>`
+      + MB.sources.map((s, i) => {
+        const av = srcAvail(s);
+        const want = MB.mode === 'pct' ? (W ? Math.round(MB.total * Math.max(0, +s.weight || 0) / W) : 0) : Math.floor(+s.weight || 0);
+        return `<tr><td>${esc(srcName(s))}</td><td class="num">${av}</td>
+          <td class="num"><input type="number" min="0" step="1" data-w="${i}" value="${esc(s.weight)}" style="width:84px;text-align:right"></td>
+          <td class="num"><b>${alloc[i]}</b>${alloc[i] < want ? `<div class="small" style="color:var(--orange)">only ${av} available</div>` : ''}</td>
+          <td><button class="icon-btn" data-rm="${i}" title="Remove section" aria-label="Remove section">✕</button></td></tr>`;
+      }).join('')
+      + `</tbody><tfoot><tr><td><b>Total</b></td><td></td><td class="num">${MB.mode === 'pct' ? `<b style="color:${Math.round(W) === 100 ? 'var(--green)' : 'var(--orange)'}">${fmtNum(W)}%</b>` : ''}</td><td class="num"><b>${totalOut}</b></td><td></td></tr></tfoot></table></div>`;
+    if (MB.mode === 'pct' && W && Math.round(W) !== 100) h += `<p class="small" style="color:var(--orange)">Weights add up to ${fmtNum(W)}%, so they are scaled proportionally to fill ${MB.total} questions.</p>`;
+    h += `<label class="small muted" style="display:block;margin-top:12px">Pick questions
+      <select id="mbPrefer" style="width:auto;margin-left:6px">${[['random', 'at random'], ['unseen', 'I haven\'t attempted first'], ['mistakes', 'I got wrong / skipped first']].map(([v, l]) => `<option value="${v}" ${MB.prefer === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>`;
+  }
+  h += `</div><div class="card"><h2>3. Save or start</h2>
+    <div class="settings"><label>Mock test name<input type="text" id="mbName" value="${esc(MB.name)}" maxlength="80"></label></div>
+    <p class="small muted">Saved mock tests appear on the home page. Each start picks a fresh set of questions with the same weightage. Questions stay grouped by section unless you tick “Shuffle questions” on the next screen.</p>
+    <div class="row"><button class="btn" id="mbSave" ${totalOut ? '' : 'disabled'}>${MB.id ? 'Save changes' : 'Save mock test'}</button>
+    <button class="btn primary big" id="mbStart" ${totalOut ? '' : 'disabled'}>Start mock test (${plural(totalOut, 'question')}) →</button></div></div>`;
+  el.innerHTML = h;
+
+  el.querySelectorAll('[data-src]').forEach(cb => cb.onchange = () => {
+    const [type, id] = cb.dataset.src.split(':');
+    if (type === 'subject') {
+      const topicIds = new Set(D.topics.filter(t => t.subjectId === id).map(t => t.id));
+      MB.sources = MB.sources.filter(s => !(s.type === 'topic' && topicIds.has(s.id)) && !(s.type === 'subject' && s.id === id));
+    } else MB.sources = MB.sources.filter(s => !(s.type === 'topic' && s.id === id));
+    if (cb.checked) MB.sources.push({ type, id, weight: MB.mode === 'count' ? Math.min(10, srcAvail({ type, id })) : 0 });
+    if (MB.mode === 'pct' && (!MB.touched || cb.checked && MB.sources.length === 1) && MB.sources.length) splitEqually();
+    renderMock();
+  });
+  el.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => {
+    if (b.dataset.mode === MB.mode) return;
+    const a = allocate(MB.sources, MB.total, MB.mode), sum = a.reduce((x, y) => x + y, 0);
+    if (b.dataset.mode === 'count') MB.sources.forEach((s, i) => { s.weight = a[i]; });
+    else { MB.total = sum || MB.total; MB.sources.forEach((s, i) => { s.weight = sum ? Math.round(a[i] / sum * 100) : 0; }); }
+    MB.mode = b.dataset.mode; MB.touched = true;
+    renderMock();
+  });
+  el.querySelectorAll('[data-w]').forEach(inp => inp.onchange = () => { MB.sources[+inp.dataset.w].weight = Math.max(0, parseFloat(inp.value) || 0); MB.touched = true; renderMock(); });
+  el.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { MB.sources.splice(+b.dataset.rm, 1); if (MB.mode === 'pct' && !MB.touched && MB.sources.length) splitEqually(); renderMock(); });
+  if ($('#mbTotal')) $('#mbTotal').onchange = () => { MB.total = Math.max(1, Math.min(2000, parseInt($('#mbTotal').value, 10) || 1)); renderMock(); };
+  if ($('#mbEqual')) $('#mbEqual').onclick = () => { splitEqually(); renderMock(); };
+  if ($('#mbPrefer')) $('#mbPrefer').onchange = () => { MB.prefer = $('#mbPrefer').value; };
+  $('#mbName').oninput = () => { MB.name = $('#mbName').value; };
+  $('#mbSave').onclick = async () => { if (await saveMock()) goHome(); };
+  $('#mbStart').onclick = () => startMock({ ...MB, name: normText(MB.name) || 'Mock test' }, MB.id);
+}
+
+async function saveMock() {
+  const alloc = allocate(MB.sources, MB.total, MB.mode);
+  const prev = MB.id && byId('mocks', MB.id);
+  const m = {
+    id: MB.id || newId(), name: normText(MB.name) || 'Mock test', mode: MB.mode, prefer: MB.prefer,
+    totalInput: MB.total, total: alloc.reduce((a, b) => a + b, 0),
+    sources: MB.sources.map(s => ({ type: s.type, id: s.id, weight: +s.weight || 0 })),
+    createdAt: prev ? prev.createdAt : Date.now()
+  };
+  try { await save('mocks', m); D.mocks.sort(byName); MB.id = m.id; toast(`Saved “${m.name}”`); return m; }
+  catch (e) { toast(errText(e), 'error'); return null; }
+}
+
+async function buildMockQuestions(bp) {
+  const srcs = bp.sources.filter(srcName);
+  const alloc = allocate(srcs, bp.totalInput ?? bp.total, bp.mode);
+  const hist = historyMap(D.attempts);
+  const rank = q => {
+    const r = hist.get(q.key);
+    if (bp.prefer === 'unseen') return r ? 1 : 0;
+    if (bp.prefer === 'mistakes') return r && r.last !== 'c' ? 0 : r ? 2 : 1;
+    return 0;
+  };
+  const used = new Set(), out = [];
+  for (let i = 0; i < srcs.length; i++) {
+    if (!alloc[i]) continue;
+    const label = srcName(srcs[i]).replace(' (whole subject)', '');
+    // shuffle, then a stable sort keeps the random order within each priority group
+    const pool = shuffle((await sourceQuestions(srcSets(srcs[i]))).filter(q => !used.has(q.key))).sort((a, b) => rank(a) - rank(b));
+    pool.slice(0, alloc[i]).forEach(q => { used.add(q.key); out.push({ ...q, subject: label }); });
+  }
+  return out;
+}
+
+async function startMock(bp, mockId) {
+  try {
+    const questions = await buildMockQuestions(bp);
+    if (!questions.length) return alertMsg('There are no questions available for this mock test. The subjects or topics may have been deleted.', 'Nothing to start');
+    const subj = new Set(questions.map(q => q.subjectId)), tops = new Set(questions.map(q => q.topicId));
+    startSetup({
+      name: bp.name, questions, mode: 'mock', mockId: mockId || null, setId: null,
+      subjectId: subj.size === 1 ? [...subj][0] : null, topicId: tops.size === 1 ? [...tops][0] : null,
+      settingsSubjectId: questions[0].subjectId
+    });
+  } catch (e) { toast(errText(e), 'error'); }
+}
+
+/* ============================================================
+   Revision mode: flashcards with spaced repetition (Leitner boxes)
+   cards/{questionKey} = { box 1-5, due, topicId, subjectId, seen, lapses }
+   ============================================================ */
+let RVS = null;
+const INTERVAL_DAYS = [0, 1, 3, 7, 16, 35]; // index = box
+const NEW_PER_SESSION = 20;
+
+async function openRevision(scope) {
+  const isTopic = scope.type === 'topic';
+  const obj = byId(isTopic ? 'topics' : 'subjects', scope.id);
+  if (!obj) return;
+  $('#revise').innerHTML = '<div class="loading">Loading cards…</div>';
+  show('revise');
+  try {
+    const qs = await sourceQuestions(D.sets.filter(x => isTopic ? x.topicId === scope.id : x.subjectId === scope.id));
+    const cards = new Map((await store.query('cards', isTopic ? 'topicId' : 'subjectId', scope.id)).map(c => [c.id, c]));
+    const now = Date.now();
+    const due = shuffle(qs.filter(q => cards.has(q.key) && cards.get(q.key).due <= now));
+    const fresh = shuffle(qs.filter(q => !cards.has(q.key)));
+    RVS = {
+      scope, obj, cards, queue: [...due, ...fresh.slice(0, NEW_PER_SESSION)], i: 0, shown: false, knew: 0, missed: 0, again: new Set(),
+      total: qs.length, nextDue: Math.min(...qs.map(q => cards.has(q.key) ? cards.get(q.key).due : Infinity))
+    };
+    renderRevision();
+  } catch (e) {
+    $('#revise').innerHTML = `<div class="status error">Could not load flashcards: ${esc(errText(e))}</div>`;
+  }
+}
+
+function renderRevision() {
+  const R = RVS, isTopic = R.scope.type === 'topic';
+  const s = isTopic ? byId('subjects', R.obj.subjectId) : R.obj;
+  const items = [['Library', 'home']];
+  if (s) items.push([s.name, 'subject:' + s.id]);
+  if (isTopic) items.push([R.obj.name, 'topic:' + R.obj.id]);
+  items.push(['Revision']);
+  const back = (isTopic ? 'topic:' : 'subject:') + R.obj.id;
+  let h = crumbs(items) + `<div class="page-head"><h1>🃏 ${esc(R.obj.name)}</h1></div><div class="kind">Revision · flashcards</div>`;
+  if (R.i >= R.queue.length) {
+    const mastered = [...R.cards.values()].filter(c => c.box >= 4).length;
+    if (!R.queue.length) {
+      h += `<div class="card empty"><p><b>All caught up!</b></p><p class="small">${R.total ? 'No cards are due right now.' + (isFinite(R.nextDue) ? ' The next one is due ' + esc(fmtDate(R.nextDue)) + '.' : '') : 'Add a question set first.'}</p>`;
+    } else {
+      h += `<div class="card center"><h2>Session complete</h2><div class="stats" style="max-width:460px;margin:12px auto">${statBox(R.knew, 'Knew it')}${statBox(R.missed, "Didn't know")}${statBox(mastered + ' / ' + R.total, 'Well learned')}</div>
+        <p class="small muted">Cards you know come back after 1, 3, 7, 16 and then 35 days. Cards you missed come back in your next session.</p>`;
+    }
+    h += `<div class="row" style="justify-content:center"><button class="btn" data-nav="${back}">← Back</button><button class="btn primary" id="rvAgain">Revise again</button></div></div>`;
+    $('#revise').innerHTML = h;
+    $('#rvAgain').onclick = () => openRevision(R.scope);
+    return;
+  }
+  const q = R.queue[R.i], c = R.cards.get(q.key);
+  h += `<div class="row small muted" style="margin:4px 0 8px"><span>Card ${R.i + 1} of ${R.queue.length}</span><span>✓ ${R.knew} · ✗ ${R.missed}</span><span class="spacer"></span><span>${c ? 'Review · box ' + c.box + '/5' : 'New card'}</span></div>
+    <div class="goal-bar" style="margin-bottom:12px"><i style="width:${R.i / R.queue.length * 100}%;background:var(--primary)"></i></div>
+    <div class="card"><div class="small muted">${esc(q.setName)}${!isTopic ? ' · ' + esc((byId('topics', q.topicId) || {}).name || '') : ''}</div>
+    <div class="qtext" style="margin-top:6px">${esc(q.question)}</div>
+    ${LETTERS.map(L => `<div class="opt${R.shown && L === q.answer ? ' right' : ''}" style="cursor:default"><span class="key">${L}</span><span class="otext">${esc(q.options[L])}</span>${R.shown && L === q.answer ? '<span class="tag" style="color:var(--green)">Correct answer</span>' : ''}</div>`).join('')}
+    ${R.shown && q.explanation ? `<div class="expl">${esc(q.explanation)}</div>` : ''}
+    <div class="qnav">${R.shown
+      ? `<button class="btn" id="rvMiss" style="flex:1;color:var(--red)">✗ Didn't know <span class="kbd">1</span></button><button class="btn primary" id="rvKnew" style="flex:1">✓ Knew it <span class="kbd">2</span></button>`
+      : `<button class="btn primary big" id="rvShow" style="flex:1">Show answer <span class="kbd">Space</span></button>`}</div>
+    <p class="small muted" style="margin:10px 0 0">Think of the answer first, then reveal it and be honest. That's what makes spaced repetition work.</p></div>`;
+  $('#revise').innerHTML = h;
+  if (R.shown) { $('#rvMiss').onclick = () => gradeCard(false); $('#rvKnew').onclick = () => gradeCard(true); }
+  else $('#rvShow').onclick = () => { R.shown = true; renderRevision(); };
+}
+
+function gradeCard(knew) {
+  const R = RVS, q = R.queue[R.i], old = R.cards.get(q.key) || {};
+  const box = knew ? Math.min(5, (old.box || 0) + 1) : 1;
+  const card = {
+    box, due: Date.now() + (knew ? INTERVAL_DAYS[box] * 86400000 : 0),
+    topicId: q.topicId, subjectId: q.subjectId, seen: (old.seen || 0) + 1, lapses: (old.lapses || 0) + (knew ? 0 : 1), updated: Date.now()
+  };
+  R.cards.set(q.key, { ...card, id: q.key });
+  store.put('cards', q.key, card).catch(e => toast('Could not save card: ' + errText(e), 'error'));
+  logPractice(1);
+  if (knew) R.knew++;
+  else {
+    R.missed++;
+    if (!R.again.has(q.key)) { R.again.add(q.key); R.queue.push(q); } // one more try at the end of this session
+  }
+  R.i++; R.shown = false;
+  renderRevision();
+}
+
+/* ============================================================
    Exam setup
    ============================================================ */
 function startSetup(info) {
   const s = byId('subjects', info.subjectId), t = byId('topics', info.topicId);
-  const st = { ...DEFAULT_SETTINGS, ...(s && s.settings) };
+  // A mixed mock test takes its default settings from its first section's subject
+  const sDef = s || byId('subjects', info.settingsSubjectId);
+  const st = { ...DEFAULT_SETTINGS, ...(sDef && sDef.settings) };
   const n = info.questions.length;
-  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic' }[info.mode];
+  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test' }[info.mode];
   const items = [['Library', 'home']];
   if (s) items.push([s.name, 'subject:' + s.id]);
   if (t) items.push([t.name, 'topic:' + t.id]);
@@ -1449,7 +1864,7 @@ function startSetup(info) {
     const w = parsePenalty($('#exWrong').value, c) || 0, b = parsePenalty($('#exBlank').value, c) || 0;
     $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
   });
-  $('#exBack').onclick = () => info.topicId ? openTopic(info.topicId) : goHome();
+  $('#exBack').onclick = () => info.mode === 'mock' ? goHome() : info.topicId ? openTopic(info.topicId) : goHome();
   $('#exStart').onclick = () => {
     const r = readSettings('ex', true);
     if (!r) return;
@@ -1588,6 +2003,10 @@ document.addEventListener('keydown', e => {
   } else if (!$('#review').hidden) {
     if (e.key === 'ArrowRight') rvStep(1);
     else if (e.key === 'ArrowLeft') rvStep(-1);
+  } else if (!$('#revise').hidden && RVS && RVS.i < RVS.queue.length) {
+    if (!RVS.shown && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); RVS.shown = true; renderRevision(); }
+    else if (RVS.shown && e.key === '1') gradeCard(false);
+    else if (RVS.shown && e.key === '2') gradeCard(true);
   }
 });
 window.addEventListener('beforeunload', e => {
@@ -1623,10 +2042,11 @@ function submitExam(auto) {
   const origSel = r => !r.sel || r.sel === 'E' ? r.sel : r.q.perm ? r.q.perm[LETTERS.indexOf(r.sel)] : r.sel;
   RES.attempt = {
     id: newId(), date: Date.now(), setId: S.info.setId || null, setName: S.name,
-    subjectId: S.info.subjectId || null, topicId: S.info.topicId || null, mode: S.info.mode || 'set',
+    subjectId: S.info.subjectId || null, topicId: S.info.topicId || null, mode: S.info.mode || 'set', mockId: S.info.mockId || null,
     score, max: RES.max, correct, wrong, blank, e, total: rows.length, timeTaken: RES.timeTaken, auto,
     cfg: { minutes: c.minutes, correct: c.correct, wrong: r2(c.wrong), blank: r2(c.blank) },
-    answers: rows.map(r => ({ k: r.q.key, r: RES_CODE[r.res], s: origSel(r) }))
+    // t = topic of each question, so mixed mock tests still feed per-topic stats
+    answers: rows.map(r => ({ k: r.q.key, r: RES_CODE[r.res], s: origSel(r), t: r.q.topicId || S.info.topicId || null }))
   };
   renderResults();
   saveAttempt();
@@ -1634,7 +2054,11 @@ function submitExam(auto) {
 
 async function saveAttempt() {
   RES.saveState = 'saving'; showSaveState();
-  try { await save('attempts', RES.attempt); RES.saveState = 'saved'; }
+  try {
+    await save('attempts', RES.attempt);
+    RES.saveState = 'saved';
+    if (!RES.logged) { RES.logged = true; logPractice(RES.correct + RES.wrong + RES.e); }
+  }
   catch (e) { RES.saveState = 'error'; RES.saveErr = errText(e); }
   showSaveState();
 }
