@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 4 — Programming Languages & Web",
- "description": "4 of 9 topics so far (11 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "6 of 9 topics so far (17 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2; Object Oriented Programming; Programming in C++ – Part 1. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 4 – Programming Languages & Web",
@@ -4037,6 +4037,2206 @@
          "answer": "C",
          "subject": "File Handling, Command Line Arguments and Preprocessors",
          "explanation": "This is why binary data must be written to files opened with \"wb\"."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Object Oriented Programming",
+     "sets": [
+      {
+       "name": "1 · Class, Object and Instantiation",
+       "questions": [
+        {
+         "question": "A class is best described as:",
+         "options": {
+          "A": "A variable that stores one value",
+          "B": "A blueprint that defines the data members and member functions shared by its objects",
+          "C": "A library of C functions",
+          "D": "A run-time instance occupying memory"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Objects are instances created from the class blueprint."
+        },
+        {
+         "question": "Creating an object from a class is called:",
+         "options": {
+          "A": "Inheritance",
+          "B": "Abstraction",
+          "C": "Encapsulation",
+          "D": "Instantiation"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Each object is an instance of its class."
+        },
+        {
+         "question": "Memory for the (non-static) data members of a class is allocated when:",
+         "options": {
+          "A": "The program is compiled",
+          "B": "A member function is defined",
+          "C": "An object of the class is created",
+          "D": "The class is declared"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "A class declaration is only a description; objects occupy memory."
+        },
+        {
+         "question": "According to Grady Booch, every object has:",
+         "options": {
+          "A": "State, behaviour and identity",
+          "B": "Only data",
+          "C": "Only methods",
+          "D": "Inheritance, polymorphism and encapsulation"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "State = attribute values, behaviour = methods, identity = what distinguishes it from other objects."
+        },
+        {
+         "question": "In C++,  Student *p = new Student();  creates the object:",
+         "options": {
+          "A": "On the heap, and p holds its address",
+          "B": "On the stack",
+          "C": "In the static data area",
+          "D": "Only at compile time"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Student s; would create it on the stack (automatic storage)."
+        },
+        {
+         "question": "A data member declared static in a class is:",
+         "options": {
+          "A": "Copied into every object",
+          "B": "Shared by all objects of the class – only one copy exists",
+          "C": "Destroyed after each function call",
+          "D": "Accessible only inside main"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "It belongs to the class rather than to any object."
+        },
+        {
+         "question": "A class has a static int count that its constructor increments. After creating 3 objects, count is:",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "Each object has its own count of 1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "All objects update the same shared variable."
+        },
+        {
+         "question": "A C++ class has two int data members (4 bytes each), one static int member and three member functions. On a typical system, sizeof an object of this class is:",
+         "options": {
+          "A": "12",
+          "B": "4",
+          "C": "20",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Static members and member functions are not stored inside each object."
+        },
+        {
+         "question": "In object-oriented terms, calling a method on an object is often called:",
+         "options": {
+          "A": "Inheriting the object",
+          "B": "Sending a message to the object",
+          "C": "Compiling the object",
+          "D": "Casting the object"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Objects communicate by message passing (method calls)."
+        },
+        {
+         "question": "Inside a C++ member function, the this pointer points to:",
+         "options": {
+          "A": "The base class",
+          "B": "The first object ever created",
+          "C": "The object on which the function was called",
+          "D": "The class definition"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "It lets a member function refer to its own object."
+        },
+        {
+         "question": "A language that supports objects and encapsulation but NOT inheritance is called:",
+         "options": {
+          "A": "Object-oriented",
+          "B": "Procedural only",
+          "C": "Object-based",
+          "D": "Functional"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Object-oriented languages add inheritance (and dynamic binding) to object-based features."
+        },
+        {
+         "question": "In C++, the only difference between a class and a struct is that:",
+         "options": {
+          "A": "A class cannot have data members",
+          "B": "Members of a class are private by default, while those of a struct are public by default",
+          "C": "A struct cannot be instantiated",
+          "D": "A struct cannot have member functions"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Default inheritance access also differs in the same way."
+        },
+        {
+         "question": "Abstraction in OOP means:",
+         "options": {
+          "A": "Copying one object into another",
+          "B": "Deriving one class from another",
+          "C": "Converting one type into another",
+          "D": "Showing only the essential features of an object and hiding the unnecessary details"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "E.g. a driver uses the steering and brakes without knowing the engine's details."
+        },
+        {
+         "question": "Instance variables and class variables differ in that:",
+         "options": {
+          "A": "There is no difference",
+          "B": "Instance variables are always static",
+          "C": "Each object has its own copy of an instance variable, while a class variable is shared by all objects",
+          "D": "Class variables belong to a single object"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "In Java and C++ class variables are declared static."
+        },
+        {
+         "question": "In Java,  String s1 = new String(\"hi\"); String s2 = new String(\"hi\");  the values of  s1 == s2  and  s1.equals(s2)  are:",
+         "options": {
+          "A": "false and false",
+          "B": "true and false",
+          "C": "true and true",
+          "D": "false and true"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "== compares references (identity); equals compares contents (state)."
+        },
+        {
+         "question": "Which language is usually called a 'pure' object-oriented language, since everything in it is an object?",
+         "options": {
+          "A": "C++",
+          "B": "Smalltalk",
+          "C": "C",
+          "D": "Java"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Java has primitive types that are not objects; C++ supports procedural code too."
+        },
+        {
+         "question": "In a UML class diagram, the three compartments of a class box show:",
+         "options": {
+          "A": "Inputs, outputs and errors",
+          "B": "Objects, arrays and files",
+          "C": "Constructors, destructors and friends",
+          "D": "Class name, attributes and operations"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Attributes model state; operations model behaviour."
+        },
+        {
+         "question": "In UML, the visibility symbols +, − and # mean respectively:",
+         "options": {
+          "A": "public, private, protected",
+          "B": "private, public, protected",
+          "C": "protected, private, public",
+          "D": "public, protected, private"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "~ is used for package visibility."
+        },
+        {
+         "question": "The C++ declaration  Student s[10];  calls the default constructor of Student:",
+         "options": {
+          "A": "Once",
+          "B": "Never",
+          "C": "10 times",
+          "D": "11 times"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Each array element is a separately constructed object."
+        },
+        {
+         "question": "Match the OOP term with its meaning:\na. Class\nb. Object\nc. Method\nd. Attribute\n\n1. Defines behaviour\n2. Blueprint or template\n3. Holds part of an object's state\n4. Instance occupying memory",
+         "options": {
+          "A": "a-4, b-2, c-1, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-2, b-4, c-3, d-1",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Attributes are data members; methods are member functions."
+        },
+        {
+         "question": "A bank account is modelled as a class. Which is the best choice of members?",
+         "options": {
+          "A": "Attributes: account number, balance; methods: deposit(), withdraw(), getBalance()",
+          "B": "Attributes: deposit(), withdraw(); methods: balance",
+          "C": "Only a global balance variable",
+          "D": "One function that does everything"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Data (state) and the operations on it are grouped in one class."
+        },
+        {
+         "question": "An object created without being given a name, for example  Point(2, 3).show();  in C++, is called:",
+         "options": {
+          "A": "An anonymous (temporary) object",
+          "B": "A friend object",
+          "C": "A static object",
+          "D": "An abstract object"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "It exists only until the end of the full expression."
+        },
+        {
+         "question": "Consider the statements:\nI. A class is a logical entity, while an object is a run-time entity that occupies memory.\nII. A class definition by itself allocates memory for its non-static data members.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Memory is allocated only when objects are created."
+        },
+        {
+         "question": "Consider the statements:\nI. In Java, objects are created at run time using new.\nII. In C++, objects can be created either on the stack or on the heap.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Java objects always live on the heap; C++ allows automatic and dynamic objects."
+        },
+        {
+         "question": "Consider the statements:\nI. Two different objects of the same class can have the same state.\nII. Two objects with the same state are the same object.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Identity is separate from state: equal values do not make them one object."
+        },
+        {
+         "question": "Assertion (A): Memory for non-static data members is allocated separately for each object.\nReason (R): Each object has its own state.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Separate storage is needed so each object can hold its own values."
+        },
+        {
+         "question": "Assertion (A): A static data member is copied into every object of the class.\nReason (R): A static data member is shared by all objects of the class.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Because it is shared, there is exactly one copy; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Smalltalk is considered a pure object-oriented language.\nReason (R): Simula 67 introduced the concepts of class and object.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Both true; Smalltalk's purity comes from treating everything as an object, not from Simula's history."
+        },
+        {
+         "question": "Assertion (A): The code of member functions is stored once per class, not once per object.\nReason (R): Every object keeps its own copy of the code of each member function.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "A is true; R is false – objects share the code and are passed to it through this."
+        },
+        {
+         "question": "A C++ class Box has a static data member count. The correct way to access it without any object is:",
+         "options": {
+          "A": "count() only",
+          "B": "Box.count",
+          "C": "this->count",
+          "D": "Box::count"
+         },
+         "answer": "D",
+         "subject": "Class, Object and Instantiation",
+         "explanation": "Static members can be accessed through the class name and the scope resolution operator."
+        }
+       ]
+      },
+      {
+       "name": "2 · Inheritance and Encapsulation",
+       "questions": [
+        {
+         "question": "Inheritance allows a new class to:",
+         "options": {
+          "A": "Run faster than its base class",
+          "B": "Be used without creating objects",
+          "C": "Hide all its data from other classes",
+          "D": "Acquire the members of an existing class and add or change features"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "It supports reuse and represents an 'is-a' relationship."
+        },
+        {
+         "question": "Inheritance models which relationship between classes?",
+         "options": {
+          "A": "part-of",
+          "B": "is-a",
+          "C": "uses-a",
+          "D": "has-a"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "A Dog is an Animal; 'has-a' is composition/aggregation."
+        },
+        {
+         "question": "Class C is derived from B, and B is derived from A. This is:",
+         "options": {
+          "A": "Hierarchical inheritance",
+          "B": "Multiple inheritance",
+          "C": "Hybrid inheritance",
+          "D": "Multilevel inheritance"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "A chain of derivations is multilevel."
+        },
+        {
+         "question": "One base class Shape with derived classes Circle, Square and Triangle is an example of:",
+         "options": {
+          "A": "Multiple inheritance",
+          "B": "Single inheritance",
+          "C": "Hierarchical inheritance",
+          "D": "Multilevel inheritance"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Many derived classes share one base."
+        },
+        {
+         "question": "A class derived from two base classes at the same time shows:",
+         "options": {
+          "A": "Hierarchical inheritance",
+          "B": "Single inheritance",
+          "C": "Multilevel inheritance",
+          "D": "Multiple inheritance"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "C++ allows it; Java allows it only through interfaces."
+        },
+        {
+         "question": "The 'diamond problem' of multiple inheritance is solved in C++ by:",
+         "options": {
+          "A": "Friend functions",
+          "B": "Static members",
+          "C": "Virtual base classes",
+          "D": "Inline functions"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "A virtual base ensures that only one copy of the common base is inherited."
+        },
+        {
+         "question": "A → B → C is multilevel inheritance, and each constructor prints its class name and each destructor prints '~' and its name. Creating and then destroying an object of C prints:",
+         "options": {
+          "A": "A B C ~A ~B ~C",
+          "B": "A B C ~C ~B ~A",
+          "C": "C B A ~C ~B ~A",
+          "D": "C B A ~A ~B ~C"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Constructors run from base to derived; destructors in the reverse order."
+        },
+        {
+         "question": "'A Car has an Engine' is best modelled by:",
+         "options": {
+          "A": "Making Engine inherit from Car",
+          "B": "Multiple inheritance",
+          "C": "Composition (the Car contains an Engine object)",
+          "D": "Making Car inherit from Engine"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "A car is not a kind of engine, so inheritance is wrong here."
+        },
+        {
+         "question": "Encapsulation refers to:",
+         "options": {
+          "A": "Deriving new classes from old ones",
+          "B": "Binding data and the functions that operate on it into one unit and restricting direct access to the data",
+          "C": "Using one name for many functions",
+          "D": "Converting source code into object code"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Data hiding is achieved with access specifiers."
+        },
+        {
+         "question": "In C++, a private member of a class can be accessed:",
+         "options": {
+          "A": "Only by member functions and friends of that class",
+          "B": "By any function in the program",
+          "C": "By derived classes directly",
+          "D": "Only by main()"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Even derived classes cannot access private members directly."
+        },
+        {
+         "question": "A protected member of a C++ class is accessible:",
+         "options": {
+          "A": "In its own class and in classes derived from it",
+          "B": "Only in its own class",
+          "C": "Everywhere in the program",
+          "D": "Only in friend classes of derived classes"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "protected lies between private and public."
+        },
+        {
+         "question": "With  class B : public A ,  the public and protected members of A become in B respectively:",
+         "options": {
+          "A": "protected and protected",
+          "B": "public and private",
+          "C": "private and private",
+          "D": "public and protected"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Private members of A remain inaccessible in B."
+        },
+        {
+         "question": "With  class B : private A ,  the public and protected members of A become in B:",
+         "options": {
+          "A": "protected",
+          "B": "private",
+          "C": "inaccessible even inside B",
+          "D": "public"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "They can be used inside B but are hidden from B's users and from classes derived from B."
+        },
+        {
+         "question": "A has a private x, a protected y and a public z.  class B : private A { };  class C : public B { };  Which of x, y, z can be used directly inside member functions of C?",
+         "options": {
+          "A": "None of them",
+          "B": "y and z",
+          "C": "Only z",
+          "D": "x, y and z"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "In B, y and z became private, and x was never accessible; private members of B are not accessible in C."
+        },
+        {
+         "question": "Public 'getter' and 'setter' methods for a private field mainly help to:",
+         "options": {
+          "A": "Remove the need for a constructor",
+          "B": "Enable multiple inheritance",
+          "C": "Control and validate access to the data",
+          "D": "Make the data public"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "E.g. setAge() can reject negative values."
+        },
+        {
+         "question": "Arrange Java access levels from most restrictive to least restrictive:",
+         "options": {
+          "A": "public → protected → default → private",
+          "B": "default → private → protected → public",
+          "C": "private → protected → default → public",
+          "D": "private → default (package) → protected → public"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "protected also grants access to subclasses in other packages."
+        },
+        {
+         "question": "In Java, the keyword used to call the constructor of the immediate superclass is:",
+         "options": {
+          "A": "base",
+          "B": "parent",
+          "C": "super",
+          "D": "this"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "super(...) must be the first statement of the subclass constructor."
+        },
+        {
+         "question": "In Java, a class declared final:",
+         "options": {
+          "A": "Cannot be inherited",
+          "B": "Must be abstract",
+          "C": "Cannot be instantiated",
+          "D": "Cannot have methods"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "String is a final class."
+        },
+        {
+         "question": "Java does not allow a class to extend two classes mainly to avoid:",
+         "options": {
+          "A": "Faster compilation",
+          "B": "The use of interfaces",
+          "C": "Garbage collection",
+          "D": "Ambiguity such as the diamond problem"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Multiple inheritance of type is still possible through interfaces."
+        },
+        {
+         "question": "Match the inheritance type with its structure:\na. Single\nb. Multiple\nc. Multilevel\nd. Hierarchical\n\n1. One base, many derived\n2. One base, one derived\n3. Two or more bases, one derived\n4. A → B → C",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-2, b-3, c-1, d-4",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Hybrid inheritance combines two or more of these."
+        },
+        {
+         "question": "The principle that an object of a derived class should be usable wherever an object of its base class is expected is the:",
+         "options": {
+          "A": "Open–closed principle",
+          "B": "Principle of locality",
+          "C": "Single-responsibility principle",
+          "D": "Liskov substitution principle"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "It keeps inheritance hierarchies correct (the L of SOLID)."
+        },
+        {
+         "question": "'A Dog is an Animal, and a Dog has a Tail.' These relationships are respectively:",
+         "options": {
+          "A": "Inheritance and composition",
+          "B": "Composition and inheritance",
+          "C": "Both inheritance",
+          "D": "Both composition"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "is-a → inheritance; has-a → composition/aggregation."
+        },
+        {
+         "question": "Consider the statements:\nI. In multilevel inheritance the base class constructor executes before the derived class constructor.\nII. Destructors execute in the same order as constructors.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Destructors run in the reverse order."
+        },
+        {
+         "question": "Consider the statements:\nI. Composition represents an is-a relationship.\nII. Inheritance represents an is-a relationship.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Composition represents has-a."
+        },
+        {
+         "question": "Consider the statements:\nI. Encapsulation makes it possible to change a class's internal data representation without affecting its users.\nII. Inheritance can increase coupling between base and derived classes.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Hidden data can change freely; derived classes depend on their base (the 'fragile base class' problem)."
+        },
+        {
+         "question": "Assertion (A): Inheritance promotes reuse of code.\nReason (R): A derived class acquires the members of its base class.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Inherited members need not be rewritten."
+        },
+        {
+         "question": "Assertion (A): Java supports multiple inheritance through interfaces.\nReason (R): A Java class can extend more than one class.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "A is true (a class can implement many interfaces); R is false."
+        },
+        {
+         "question": "Assertion (A): Private members of a base class are directly accessible in a derived class in C++.\nReason (R): Private members are accessible only within the class that declares them and its friends.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "R is the rule, and it shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Encapsulation supports data hiding.\nReason (R): C++ provides three access specifiers: public, private and protected.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "Both true; data hiding comes from restricting access, while the number of specifiers is incidental."
+        },
+        {
+         "question": "A combination of multiple and multilevel inheritance in one class hierarchy is called:",
+         "options": {
+          "A": "Hierarchical inheritance",
+          "B": "Hybrid inheritance",
+          "C": "Virtual inheritance",
+          "D": "Single inheritance"
+         },
+         "answer": "B",
+         "subject": "Inheritance and Encapsulation",
+         "explanation": "The diamond shape is a common hybrid hierarchy."
+        }
+       ]
+      },
+      {
+       "name": "3 · Abstract Classes and Polymorphism",
+       "questions": [
+        {
+         "question": "Polymorphism in OOP means:",
+         "options": {
+          "A": "Creating objects from classes",
+          "B": "Deriving a class from two classes",
+          "C": "The same name or interface behaving differently depending on the type of object or arguments",
+          "D": "Hiding data inside a class"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Greek: 'many forms'."
+        },
+        {
+         "question": "Which of the following is compile-time (static) polymorphism?",
+         "options": {
+          "A": "Virtual functions",
+          "B": "Function overloading and operator overloading",
+          "C": "Dynamic binding",
+          "D": "Method overriding through base references"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The compiler chooses the function from the argument types."
+        },
+        {
+         "question": "Run-time polymorphism in C++ is achieved through:",
+         "options": {
+          "A": "Function overloading",
+          "B": "Templates",
+          "C": "Macros",
+          "D": "Virtual functions called through base-class pointers or references"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The call is bound at run time to the actual object's function (late binding)."
+        },
+        {
+         "question": "An abstract class is a class that:",
+         "options": {
+          "A": "Cannot be inherited",
+          "B": "Has only static members",
+          "C": "Cannot be instantiated and is meant to be used as a base class",
+          "D": "Has no member functions"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "It usually declares abstract (pure virtual) methods that derived classes implement."
+        },
+        {
+         "question": "In C++, a pure virtual function is declared as:",
+         "options": {
+          "A": "virtual void draw() {}",
+          "B": "virtual void draw() = 0;",
+          "C": "abstract void draw();",
+          "D": "void draw() = 0;"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "A class with at least one pure virtual function is abstract."
+        },
+        {
+         "question": "A class derived from an abstract class that does NOT override all the pure virtual functions:",
+         "options": {
+          "A": "Causes a run-time error when compiled",
+          "B": "Becomes concrete automatically",
+          "C": "Cannot have constructors",
+          "D": "Is also abstract"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "It can be instantiated only after all pure virtual functions are defined."
+        },
+        {
+         "question": "What does this C++ code print?\nclass A { public: virtual void f() { cout << \"A\"; } void g() { cout << \"a\"; } };\nclass B : public A { public: void f() { cout << \"B\"; } void g() { cout << \"b\"; } };\nA *p = new B; p->f(); p->g();",
+         "options": {
+          "A": "BA",
+          "B": "Ab",
+          "C": "Bb",
+          "D": "Ba"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "f is virtual, so B::f runs; g is not virtual, so the pointer type A decides: A::g."
+        },
+        {
+         "question": "In Java,  Animal a = new Dog();  a.sound();  where Dog overrides sound(), calls:",
+         "options": {
+          "A": "Dog's sound()",
+          "B": "Animal's sound()",
+          "C": "Both, in order",
+          "D": "Neither – it is a compile error"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Java instance methods are virtual by default (dynamic method dispatch)."
+        },
+        {
+         "question": "C++ compilers usually implement virtual function calls using:",
+         "options": {
+          "A": "A virtual table (vtable) per class and a hidden pointer (vptr) in each object",
+          "B": "The symbol table at run time",
+          "C": "A separate thread per object",
+          "D": "Macros"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The vptr locates the right function in the vtable."
+        },
+        {
+         "question": "On a typical 64-bit compiler, a class with one int data member and one virtual function has sizeof equal to:",
+         "options": {
+          "A": "4",
+          "B": "16",
+          "C": "8",
+          "D": "12"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "An 8-byte vptr plus a 4-byte int, padded to a multiple of 8."
+        },
+        {
+         "question": "Converting a derived-class pointer to a base-class pointer is called:",
+         "options": {
+          "A": "Downcasting – always safe",
+          "B": "Upcasting – never allowed",
+          "C": "Upcasting – always safe",
+          "D": "Slicing"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Downcasting (base to derived) needs a check such as dynamic_cast."
+        },
+        {
+         "question": "Match the kind of polymorphism with an example:\na. Ad hoc\nb. Parametric\nc. Subtype (inclusion)\n\n1. Overloading + for int and complex\n2. Overriding draw() in subclasses of Shape\n3. A function template max<T>",
+         "options": {
+          "A": "a-1, b-2, c-3",
+          "B": "a-1, b-3, c-2",
+          "C": "a-3, b-1, c-2",
+          "D": "a-2, b-3, c-1"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Cardelli and Wegner's classification of polymorphism."
+        },
+        {
+         "question": "A virtual destructor is needed in a base class when:",
+         "options": {
+          "A": "The class has no data members",
+          "B": "The class is never inherited",
+          "C": "Objects are created only on the stack",
+          "D": "Derived objects are deleted through a base-class pointer"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Otherwise only the base destructor runs, which can leak the derived part's resources."
+        },
+        {
+         "question": "Which statement about interfaces and abstract classes in Java is correct?",
+         "options": {
+          "A": "Abstract classes cannot have concrete methods",
+          "B": "Interfaces can have constructors",
+          "C": "A class can implement many interfaces but can extend only one abstract class",
+          "D": "A class can extend many abstract classes"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Abstract classes can have constructors, fields and concrete methods."
+        },
+        {
+         "question": "In Java, a method declared final:",
+         "options": {
+          "A": "Cannot be overridden in a subclass",
+          "B": "Cannot be called",
+          "C": "Must be abstract",
+          "D": "Is always static"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "final on a class prevents inheritance; on a method it prevents overriding."
+        },
+        {
+         "question": "Which C++ operator can NOT be overloaded?",
+         "options": {
+          "A": "+",
+          "B": "[]",
+          "C": ":: (scope resolution)",
+          "D": "<<"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "::, ., .*, ?: and sizeof cannot be overloaded."
+        },
+        {
+         "question": "Overloading and overriding differ in that:",
+         "options": {
+          "A": "They are the same thing",
+          "B": "Overriding needs different parameter lists",
+          "C": "Overloading needs inheritance",
+          "D": "Overloading uses the same name with different parameter lists; overriding redefines a base-class method with the same signature in a derived class"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Overloading is resolved at compile time; overriding (with virtual) at run time."
+        },
+        {
+         "question": "Java has overloaded methods  void f(int x)  and  void f(double x).  The call f('a') invokes:",
+         "options": {
+          "A": "f(int), because char widens to int",
+          "B": "f(double) only",
+          "C": "Neither – compile error",
+          "D": "Both"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The most specific applicable widening conversion (char → int) is chosen."
+        },
+        {
+         "question": "Which of the following is NOT a form of polymorphism?",
+         "options": {
+          "A": "Encapsulation",
+          "B": "Virtual functions",
+          "C": "Operator overloading",
+          "D": "Function overloading"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Encapsulation is about bundling and hiding data."
+        },
+        {
+         "question": "A Shape array holds Circle and Rectangle objects, and each class overrides area(). Calling area() on every element through Shape references is an example of:",
+         "options": {
+          "A": "Function overloading",
+          "B": "Run-time polymorphism",
+          "C": "Multiple inheritance",
+          "D": "Encapsulation"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The same call executes different code depending on each object's class."
+        },
+        {
+         "question": "Consider the statements:\nI. Constructors can be declared virtual in C++.\nII. Destructors can be declared virtual in C++.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "An object's exact type must be known to construct it, so constructors cannot be virtual."
+        },
+        {
+         "question": "Consider the statements:\nI. A reference of an abstract class type can refer to an object of a concrete derived class.\nII. An abstract class can have concrete (non-abstract) methods.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Both are allowed in C++ and Java."
+        },
+        {
+         "question": "Consider the statements:\nI. In Java, static methods can be overridden like instance methods.\nII. In Java, private methods take part in dynamic dispatch.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Static methods are hidden, not overridden, and private methods are not inherited, so neither takes part in dynamic dispatch."
+        },
+        {
+         "question": "Assertion (A): Virtual functions support run-time polymorphism.\nReason (R): The function to be called is chosen at run time from the type of the object actually pointed to.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "That late binding is exactly run-time polymorphism."
+        },
+        {
+         "question": "Assertion (A): Objects of an abstract class can be created with new.\nReason (R): In C++, an abstract class has at least one pure virtual function.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Because of the pure virtual function, the class cannot be instantiated; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Java programmers cannot overload operators such as + for their own classes.\nReason (R): Java supports method overriding.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Both true but unrelated; Java's designers left out operator overloading for simplicity."
+        },
+        {
+         "question": "Assertion (A): A class that has a pure virtual function is abstract.\nReason (R): An abstract class cannot have any data members.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "A is true; R is false – abstract classes can have data members and constructors."
+        },
+        {
+         "question": "Assertion (A): Function overloading is resolved at compile time.\nReason (R): Overloaded functions differ in the number or types of their parameters, which the compiler can see.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The compiler picks the best match from the argument types."
+        },
+        {
+         "question": "Which statement about abstract classes is TRUE in both C++ and Java?",
+         "options": {
+          "A": "An abstract class cannot be used as a reference type",
+          "B": "An abstract class can have a constructor, which runs when a derived object is created",
+          "C": "An abstract class can be instantiated if it has no data",
+          "D": "An abstract class cannot have any methods"
+         },
+         "answer": "B",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "The constructor initialises the base part of each derived object."
+        },
+        {
+         "question": "Binding a function call to the function body at run time is called:",
+         "options": {
+          "A": "Name mangling",
+          "B": "Early (static) binding",
+          "C": "Late (dynamic) binding",
+          "D": "Linking"
+         },
+         "answer": "C",
+         "subject": "Abstract Classes and Polymorphism",
+         "explanation": "Non-virtual calls use early binding at compile time."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C++ – Part 1",
+     "sets": [
+      {
+       "name": "1 · Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+       "questions": [
+        {
+         "question": "Which of the following is NOT a C++ token category?",
+         "options": {
+          "A": "Keywords",
+          "B": "Identifiers",
+          "C": "Operators",
+          "D": "Comments"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Tokens are keywords, identifiers, constants (literals), strings and operators/punctuators; comments are removed."
+        },
+        {
+         "question": "The values of the C++ built-in type bool are:",
+         "options": {
+          "A": "true and false",
+          "B": "yes and no",
+          "C": "0 and 1 only",
+          "D": "T and F"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "bool converts to 1 and 0 in arithmetic."
+        },
+        {
+         "question": "What does  cout << 7 / 2 << \" \" << 7 / 2.0;  print?",
+         "options": {
+          "A": "3 3",
+          "B": "3.5 3.5",
+          "C": "3 3.5",
+          "D": "4 3.5"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "int / int is integer division; one double operand gives floating division."
+        },
+        {
+         "question": "What does this print?\nint x = 10;\nint main() { int x = 20; cout << ::x; }",
+         "options": {
+          "A": "Compile error",
+          "B": "10",
+          "C": "30",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "::x names the global x, hidden by the local x."
+        },
+        {
+         "question": "What does this print?\nint a = 5; int &r = a; r = 10; cout << a;",
+         "options": {
+          "A": "5",
+          "B": "15",
+          "C": "Address of a",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "r is another name (alias) for a."
+        },
+        {
+         "question": "In C++, sizeof('a') is:",
+         "options": {
+          "A": "Implementation-defined but always 4",
+          "B": "1, because a character literal has type char",
+          "C": "4, because it is an int",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "This differs from C, where 'a' has type int."
+        },
+        {
+         "question": "With C++11,  auto x = 3.0;  gives x the type:",
+         "options": {
+          "A": "int",
+          "B": "auto",
+          "C": "double",
+          "D": "float"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "auto deduces the type from the initialiser; 3.0 is a double literal."
+        },
+        {
+         "question": "Compared with malloc/free, the C++ operators new/delete:",
+         "options": {
+          "A": "Call constructors and destructors, and need no casts or size calculations",
+          "B": "Are slower and never call constructors",
+          "C": "Allocate on the stack",
+          "D": "Work only for built-in types"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "new T returns a T*; delete calls the destructor before freeing."
+        },
+        {
+         "question": "In  cout << \"Hi\";  and  cin >> x; , the operators << and >> are called:",
+         "options": {
+          "A": "Scope and member operators",
+          "B": "Left and right shift only",
+          "C": "Increment operators",
+          "D": "Insertion and extraction operators"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "They are overloaded for streams."
+        },
+        {
+         "question": "Which is NOT a C++ keyword?",
+         "options": {
+          "A": "virtual",
+          "B": "class",
+          "C": "then",
+          "D": "namespace"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "C++ has no 'then'; if is followed directly by a statement."
+        },
+        {
+         "question": "Which cast performs a run-time checked downcast in a polymorphic class hierarchy?",
+         "options": {
+          "A": "dynamic_cast",
+          "B": "static_cast",
+          "C": "reinterpret_cast",
+          "D": "const_cast"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "It returns nullptr (or throws for references) if the cast is invalid."
+        },
+        {
+         "question": "Match the C++ cast with its main use:\na. static_cast\nb. const_cast\nc. reinterpret_cast\nd. dynamic_cast\n\n1. Adding or removing const\n2. Checked conversion in a class hierarchy\n3. Low-level reinterpretation of bits/pointers\n4. Ordinary well-defined conversions such as double to int",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-4, b-1, c-3, d-2",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Named casts make the intent of a conversion explicit."
+        },
+        {
+         "question": "After  int i = 3.7;  the value of i is:",
+         "options": {
+          "A": "Compile error",
+          "B": "4",
+          "C": "3.7",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Floating-to-integer conversion truncates toward zero."
+        },
+        {
+         "question": "The statement  using namespace std;  allows a program to:",
+         "options": {
+          "A": "Define the std library",
+          "B": "Create a new namespace",
+          "C": "Use names such as cout and endl without the std:: prefix",
+          "D": "Include the <iostream> header"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "The header must still be included."
+        },
+        {
+         "question": "With C++11,  enum class Color { Red, Green };  differs from a plain enum because:",
+         "options": {
+          "A": "It stores strings",
+          "B": "Its enumerators are scoped (Color::Red) and do not convert implicitly to int",
+          "C": "It cannot have values",
+          "D": "It must be declared inside a class"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Scoped enums avoid name clashes and accidental conversions."
+        },
+        {
+         "question": "What does this print?\nint a[] = {1, 2, 3}; int s = 0;\nfor (int x : a) s += x;\ncout << s;",
+         "options": {
+          "A": "6",
+          "B": "123",
+          "C": "3",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "The range-based for loop visits each element."
+        },
+        {
+         "question": "What does this print?\nfor (int i = 10; i > 0; i -= 3) cout << i << \" \";",
+         "options": {
+          "A": "10 7 4",
+          "B": "10 7 4 1 -2",
+          "C": "7 4 1",
+          "D": "10 7 4 1"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "The loop stops when i becomes −2."
+        },
+        {
+         "question": "What does this print?\nint i = 0, s = 0;\nwhile (i < 5) { i++; if (i == 3) continue; s += i; }\ncout << s;",
+         "options": {
+          "A": "9",
+          "B": "10",
+          "C": "12",
+          "D": "15"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "1 + 2 + 4 + 5 = 12 (3 is skipped)."
+        },
+        {
+         "question": "What does  cout << (5 > 3 ? \"yes\" : \"no\");  print?",
+         "options": {
+          "A": "5",
+          "B": "yes",
+          "C": "no",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "The conditional operator selects the first string."
+        },
+        {
+         "question": "The manipulator endl differs from '\\n' in that it:",
+         "options": {
+          "A": "Also flushes the output buffer",
+          "B": "Clears the screen",
+          "C": "Works only with cin",
+          "D": "Prints two new lines"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Frequent flushing can slow down output."
+        },
+        {
+         "question": "A constant whose value must be computable at compile time is best declared in modern C++ with:",
+         "options": {
+          "A": "mutable",
+          "B": "register",
+          "C": "volatile",
+          "D": "constexpr"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "const only promises that the value will not change after initialisation."
+        },
+        {
+         "question": "Consider the statements:\nI. A C++ reference must be initialised when it is declared.\nII. A C++ reference can later be changed to refer to another variable.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "A reference is bound once; assigning to it changes the referred variable instead."
+        },
+        {
+         "question": "Consider the statements:\nI. In C++, a variable can be declared anywhere a statement can appear, e.g. inside a for header.\nII. In C++, the type wchar_t is used for wide characters.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Both are true."
+        },
+        {
+         "question": "Consider the statements:\nI. In C++, a void* can be assigned to an int* without a cast.\nII. In C++, main() must return int.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Unlike C, C++ needs an explicit cast from void*; main must have return type int."
+        },
+        {
+         "question": "Assertion (A): Inside a function,  ::x  refers to the global x even when a local x exists.\nReason (R): The unary scope resolution operator selects the global namespace.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "That is the purpose of the unary :: operator."
+        },
+        {
+         "question": "Assertion (A): In C++, sizeof('a') equals sizeof(int).\nReason (R): In C++, a character literal has type char.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Because 'a' is a char, sizeof('a') is 1; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): new calls the constructor of the object it creates.\nReason (R): new and malloc are identical in C++.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "A is true; R is false – malloc only allocates raw memory."
+        },
+        {
+         "question": "Assertion (A): bool is a built-in type in C++.\nReason (R): C++ supports reference variables.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "What does this print?\nchar c = 'A'; switch (c) { case 'A': cout << 1; case 'B': cout << 2; break; default: cout << 3; }",
+         "options": {
+          "A": "123",
+          "B": "2",
+          "C": "12",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "Without break after case 'A', control falls through to case 'B'."
+        },
+        {
+         "question": "Which statement about the C++ string class (std::string) is correct?",
+         "options": {
+          "A": "It cannot be compared",
+          "B": "It needs strcpy for assignment",
+          "C": "It is identical to a C char array",
+          "D": "It manages its own memory and supports + for concatenation and == for comparison"
+         },
+         "answer": "D",
+         "subject": "Tokens, Variables, Constants, Data Types, Operators and Control Statements",
+         "explanation": "It is defined in <string>."
+        }
+       ]
+      },
+      {
+       "name": "2 · Functions and Parameter Passing",
+       "questions": [
+        {
+         "question": "An inline function in C++:",
+         "options": {
+          "A": "Runs on a separate thread",
+          "B": "Cannot have parameters",
+          "C": "Is always expanded, whatever its size",
+          "D": "Is a request to the compiler to expand the function body at each call, avoiding call overhead"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "The compiler may ignore the request, e.g. for recursive functions."
+        },
+        {
+         "question": "Which declaration with default arguments is valid?",
+         "options": {
+          "A": "void f(int a = 1, int b);",
+          "B": "void f(= 1 int a);",
+          "C": "void f(int a, int b = 5);",
+          "D": "void f(int a = 1, int b, int c = 3);"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Default arguments must be given from the right-most parameter leftwards."
+        },
+        {
+         "question": "Given  int f(int a, int b = 10) { return a * b; } ,  f(2) returns:",
+         "options": {
+          "A": "2",
+          "B": "20",
+          "C": "Compile error",
+          "D": "12"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "b takes its default value 10."
+        },
+        {
+         "question": "Given  int g(int x = 2, int y = 3) { return x - y; } ,  what does  cout << g() << \" \" << g(5) << \" \" << g(5, 1);  print?",
+         "options": {
+          "A": "-1 -1 4",
+          "B": "-1 2 -4",
+          "C": "2 5 4",
+          "D": "-1 2 4"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "g() = 2 − 3; g(5) = 5 − 3; g(5, 1) = 5 − 1."
+        },
+        {
+         "question": "What does this print?\nvoid swap(int &a, int &b) { int t = a; a = b; b = t; }\nint main() { int x = 1, y = 2; swap(x, y); cout << x << y; }",
+         "options": {
+          "A": "12",
+          "B": "21",
+          "C": "11",
+          "D": "22"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Reference parameters are aliases of the arguments."
+        },
+        {
+         "question": "What does this print?\nvoid f(int x) { x = 100; }\nint main() { int a = 1; f(a); cout << a; }",
+         "options": {
+          "A": "1",
+          "B": "101",
+          "C": "100",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Pass by value copies the argument."
+        },
+        {
+         "question": "What does this print?\nvoid f(int &x) { x += 5; }\nint main() { int a = 1; f(a); f(a); cout << a; }",
+         "options": {
+          "A": "1",
+          "B": "10",
+          "C": "6",
+          "D": "11"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Each call adds 5 to a itself."
+        },
+        {
+         "question": "What does this print?\nvoid g(int *p) { *p = *p * 2; }\nint main() { int a = 3; g(&a); cout << a; }",
+         "options": {
+          "A": "9",
+          "B": "Address of a",
+          "C": "6",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "The function writes through the pointer."
+        },
+        {
+         "question": "What does this print?\nint& bigger(int &a, int &b) { return a > b ? a : b; }\nint main() { int x = 3, y = 7; bigger(x, y) = 0; cout << x << \" \" << y; }",
+         "options": {
+          "A": "3 0",
+          "B": "3 7",
+          "C": "0 0",
+          "D": "0 7"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Returning a reference lets the call be used as an l-value; the larger variable, y, becomes 0."
+        },
+        {
+         "question": "A large object is passed to a function that must not modify it. The best parameter type is:",
+         "options": {
+          "A": "T (by value)",
+          "B": "T*",
+          "C": "T&",
+          "D": "const T&"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "No copy is made, and const prevents modification."
+        },
+        {
+         "question": "Which call is INVALID for  void h(int &x); ?",
+         "options": {
+          "A": "int &r = a; h(r); (with int a)",
+          "B": "int a = 5; h(a);",
+          "C": "h(5);",
+          "D": "int b; h(b);"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "A non-const reference cannot bind to a literal (an r-value)."
+        },
+        {
+         "question": "What does this print?\nauto sq = [](int x) { return x * x; };\ncout << sq(4);",
+         "options": {
+          "A": "8",
+          "B": "16",
+          "C": "Compile error",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "A lambda expression defines an unnamed function object (C++11)."
+        },
+        {
+         "question": "What does f(4) return?\nint f(int n) { return n <= 1 ? 1 : n * f(n - 1); }",
+         "options": {
+          "A": "10",
+          "B": "24",
+          "C": "4",
+          "D": "16"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "4 × 3 × 2 × 1."
+        },
+        {
+         "question": "Default argument values are normally written:",
+         "options": {
+          "A": "In the function declaration (prototype), and not repeated in the definition",
+          "B": "Only in the function call",
+          "C": "In both the declaration and the definition",
+          "D": "In a separate header only for main"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Repeating them in the definition is an error when a prototype already has them."
+        },
+        {
+         "question": "Returning a reference to a local (automatic) variable from a function:",
+         "options": {
+          "A": "Gives a dangling reference, because the local is destroyed when the function returns",
+          "B": "Makes the local variable static",
+          "C": "Is always safe",
+          "D": "Is required for recursion"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Returning a reference to a static or member variable is safe."
+        },
+        {
+         "question": "When an array is passed to a C++ function as  void f(int a[]) , the function receives:",
+         "options": {
+          "A": "The array's size automatically",
+          "B": "A reference to a vector",
+          "C": "A pointer to the first element",
+          "D": "A full copy of the array"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "The size must be passed separately (or use std::array/std::vector)."
+        },
+        {
+         "question": "The compiler is most likely to IGNORE an inline request for a function that:",
+         "options": {
+          "A": "Returns an int",
+          "B": "Has one parameter",
+          "C": "Is very small",
+          "D": "Is recursive or contains large loops"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Expanding such functions would bloat the code or be impossible."
+        },
+        {
+         "question": "Match the parameter-passing method with its effect:\na. By value\nb. By reference\nc. By pointer\nd. By const reference\n\n1. No copy, cannot modify the argument\n2. Alias of the argument; changes are visible to the caller\n3. A copy; changes are not visible to the caller\n4. Receives an address; changes are made through *",
+         "options": {
+          "A": "a-2, b-3, c-4, d-1",
+          "B": "a-3, b-2, c-4, d-1",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "C++ supports all four styles."
+        },
+        {
+         "question": "A function that calls itself directly or indirectly is called:",
+         "options": {
+          "A": "Recursive",
+          "B": "Friend",
+          "C": "Inline",
+          "D": "Virtual"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Each call has its own activation record."
+        },
+        {
+         "question": "In C++, main() returning 0 conventionally means:",
+         "options": {
+          "A": "An error occurred",
+          "B": "The program will restart",
+          "C": "The program ended successfully",
+          "D": "Nothing – the value is ignored by the language"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Reaching the end of main without return also returns 0."
+        },
+        {
+         "question": "Consider the statements:\nI. A non-const reference parameter cannot bind to a literal such as 5.\nII. A const reference parameter can bind to a literal such as 5.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "A const reference can bind to a temporary created from the literal."
+        },
+        {
+         "question": "Consider the statements:\nI. Returning a reference to a local variable is safe.\nII. Returning a reference to a static local variable is safe.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "A static local lives for the whole program."
+        },
+        {
+         "question": "Consider the statements:\nI. C++ lets a function modify the caller's variable through a reference parameter.\nII. C++ passes all arguments by reference by default.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "The default is pass by value."
+        },
+        {
+         "question": "Assertion (A): Passing a large object by const reference is efficient.\nReason (R): No copy is made, and the function cannot modify the object.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "It combines the efficiency of references with the safety of pass by value."
+        },
+        {
+         "question": "Assertion (A): Inline functions can reduce function-call overhead.\nReason (R): The compiler must always inline every function declared inline.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "A is true; R is false – inline is only a request."
+        },
+        {
+         "question": "Assertion (A): Default arguments may appear in any order in the parameter list.\nReason (R): Default arguments must be supplied from the right-most parameter leftwards.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "R is the rule, and it shows why A is false."
+        },
+        {
+         "question": "Assertion (A): In C++ a function can change the caller's variable through a reference parameter.\nReason (R): C++ also supports pointers.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "Both true, but pointers are a separate mechanism and do not explain reference parameters."
+        },
+        {
+         "question": "A function prototype such as  int area(int, int);  mainly allows the compiler to:",
+         "options": {
+          "A": "Make the function recursive",
+          "B": "Allocate memory for the function",
+          "C": "Inline the function",
+          "D": "Check the number and types of arguments in each call before the function is defined"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "C++ requires a declaration before a function is called."
+        },
+        {
+         "question": "What does this print?\nint counter() { static int c = 0; return ++c; }\nint main() { counter(); counter(); cout << counter(); }",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "The static local keeps its value between calls."
+        },
+        {
+         "question": "What does this print?\nvoid show(int a, int b = 2, int c = 3) { cout << a + b + c; }\nint main() { show(1, 5); }",
+         "options": {
+          "A": "9",
+          "B": "8",
+          "C": "11",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Functions and Parameter Passing",
+         "explanation": "c takes its default: 1 + 5 + 3."
+        }
+       ]
+      },
+      {
+       "name": "3 · Classes, Objects, Constructors and Destructors",
+       "questions": [
+        {
+         "question": "Members of a C++ class are, by default:",
+         "options": {
+          "A": "protected",
+          "B": "private",
+          "C": "public",
+          "D": "static"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Members of a struct are public by default."
+        },
+        {
+         "question": "A member function defined inside the class body is:",
+         "options": {
+          "A": "Always virtual",
+          "B": "Not allowed in C++",
+          "C": "Always static",
+          "D": "Implicitly inline"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Functions defined outside use ClassName::function and are not inline unless declared so."
+        },
+        {
+         "question": "To define the member function show() of class Student outside the class, one writes:",
+         "options": {
+          "A": "Student void show() { … }",
+          "B": "void show::Student() { … }",
+          "C": "void Student::show() { … }",
+          "D": "void Student.show() { … }"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "The scope resolution operator ties the function to its class."
+        },
+        {
+         "question": "Which statement about constructors is correct?",
+         "options": {
+          "A": "A class can have only one constructor",
+          "B": "A constructor has the same name as its class, has no return type and is called automatically when an object is created",
+          "C": "A constructor must return void",
+          "D": "A constructor must be called explicitly after creating an object"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Constructors can be overloaded."
+        },
+        {
+         "question": "If a class declares no constructor at all, the compiler:",
+         "options": {
+          "A": "Prevents objects from being created",
+          "B": "Makes the class abstract",
+          "C": "Reports an error",
+          "D": "Supplies a default constructor"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Once any constructor is declared, the implicit default constructor is no longer generated."
+        },
+        {
+         "question": "A copy constructor of class A has the form:",
+         "options": {
+          "A": "~A()",
+          "B": "A(int)",
+          "C": "A(A other)",
+          "D": "A(const A &other)"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Taking the parameter by value would itself require a copy, causing infinite recursion."
+        },
+        {
+         "question": "In which situation is the copy constructor NOT normally called?",
+         "options": {
+          "A": "When an object is passed to a function by value",
+          "B": "When an existing object is assigned to another existing object (a = b;)",
+          "C": "When an object is initialised from another (A b = a;)",
+          "D": "When a function returns an object by value (unless elided)"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "a = b; calls the copy assignment operator, not the copy constructor."
+        },
+        {
+         "question": "A destructor:",
+         "options": {
+          "A": "Can take arguments",
+          "B": "Must be called explicitly",
+          "C": "Has the class name preceded by ~, takes no arguments, has no return type and cannot be overloaded",
+          "D": "Can be overloaded like constructors"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "A class has exactly one destructor."
+        },
+        {
+         "question": "What does this print?\nclass T { public: T() { cout << \"C\"; } ~T() { cout << \"D\"; } };\nint main() { T a; { T b; } T c; }",
+         "options": {
+          "A": "CCCDDD",
+          "B": "CCDDCD",
+          "C": "CCDCDD",
+          "D": "CDCDCD"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "a: C; b: C then D at the end of its block; c: C; at the end of main, c then a are destroyed: DD."
+        },
+        {
+         "question": "What does this print?\nclass A { int x; public: A(int v) : x(v) {} int get() { return x; } };\nint main() { A a(5); cout << a.get(); }",
+         "options": {
+          "A": "Compile error",
+          "B": "5",
+          "C": "0",
+          "D": "Garbage"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "The member initialiser list sets x to 5."
+        },
+        {
+         "question": "A constructor's member initialiser list is REQUIRED to initialise:",
+         "options": {
+          "A": "const data members and reference data members",
+          "B": "Only static members",
+          "C": "Only public members",
+          "D": "Nothing – it is always optional"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "They cannot be assigned after construction."
+        },
+        {
+         "question": "Inside a member function,  this->x = x;  is used to:",
+         "options": {
+          "A": "Create a new object",
+          "B": "Call the destructor",
+          "C": "Declare a static variable",
+          "D": "Assign the parameter x to the data member x when the parameter hides the member"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "this->x names the member; plain x names the parameter."
+        },
+        {
+         "question": "A static member function of a class:",
+         "options": {
+          "A": "Has no this pointer and can directly access only static members",
+          "B": "Must be virtual",
+          "C": "Can access every non-static member directly",
+          "D": "Is called only through an object"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "It is called as ClassName::function()."
+        },
+        {
+         "question": "A friend function of a class is:",
+         "options": {
+          "A": "A constructor",
+          "B": "A function that is inherited automatically",
+          "C": "A member function declared public",
+          "D": "A non-member function that is allowed to access the class's private and protected members"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Friendship is granted by the class, and it is not inherited or transitive."
+        },
+        {
+         "question": "The compiler-generated copy constructor copies pointer members:",
+         "options": {
+          "A": "Member by member (a shallow copy), so both objects point to the same memory",
+          "B": "By allocating new memory (a deep copy)",
+          "C": "By setting them to nullptr",
+          "D": "It does not copy pointers at all"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Classes that own dynamic memory need a user-defined deep copy."
+        },
+        {
+         "question": "A member function declared as  int get() const;  :",
+         "options": {
+          "A": "Returns a constant",
+          "B": "Can only be called on const objects",
+          "C": "Cannot modify the object's non-mutable data members",
+          "D": "Is automatically static"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "const objects can call only const member functions."
+        },
+        {
+         "question": "The 'rule of three' says that a class which needs a user-defined destructor usually also needs a user-defined:",
+         "options": {
+          "A": "Virtual function and template",
+          "B": "Copy constructor and copy assignment operator",
+          "C": "Friend function and static member",
+          "D": "Default constructor only"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "All three deal with owning resources such as dynamic memory."
+        },
+        {
+         "question": "class A { public: A(int) {} };  The statement  A a = 5;  :",
+         "options": {
+          "A": "Is valid; the constructor A(int) acts as a converting constructor",
+          "B": "Is valid only if A has a default constructor",
+          "C": "Calls the copy assignment operator",
+          "D": "Is a compile error because 5 is not an object"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Declaring the constructor explicit would forbid this implicit conversion."
+        },
+        {
+         "question": "A class has  static int count;  incremented in its constructor and decremented in its destructor. main() creates objects a, b and c, and then one more object inside an inner block that ends. What is count after the block?",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "The block's object is destroyed at the end of the block."
+        },
+        {
+         "question": "Match the constructor with its description:\na. Default\nb. Parameterised\nc. Copy\nd. Converting\n\n1. Takes arguments to initialise members\n2. Takes no arguments\n3. Creates an object from another object of the same class\n4. Single-argument constructor used for implicit conversion",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "A class can have several constructors (overloading)."
+        },
+        {
+         "question": "For the array  Point pts[5];  to compile, class Point must have:",
+         "options": {
+          "A": "A virtual destructor",
+          "B": "A default constructor",
+          "C": "A friend function",
+          "D": "A copy constructor only"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Each element is created with the default constructor."
+        },
+        {
+         "question": "Which statement about a class's static data member in C++ is correct?",
+         "options": {
+          "A": "It is created separately in every object",
+          "B": "It is destroyed with the first object",
+          "C": "It cannot be private",
+          "D": "It is declared inside the class and (before C++17 inline variables) defined once outside it, e.g. int A::count = 0;"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "It exists even if no objects are created."
+        },
+        {
+         "question": "Consider the statements:\nI. A static member function has no this pointer.\nII. A static member function can directly access non-static data members.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Without a this pointer, it has no object whose members it could use."
+        },
+        {
+         "question": "Consider the statements:\nI. Const data members must be initialised in the constructor's initialiser list.\nII. Reference data members must be initialised in the constructor's initialiser list.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Neither can be assigned in the constructor body."
+        },
+        {
+         "question": "Consider the statements:\nI. Constructors can be overloaded.\nII. A class can have more than one destructor.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "There is exactly one destructor per class."
+        },
+        {
+         "question": "Assertion (A): A destructor cannot be overloaded.\nReason (R): A destructor takes no arguments.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Overloads need different parameter lists, and a destructor has none."
+        },
+        {
+         "question": "Assertion (A): A constructor must have the return type void.\nReason (R): Constructors have no return type, not even void.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "R states the rule, which shows why A is false."
+        },
+        {
+         "question": "Assertion (A): The compiler supplies a copy constructor if the programmer does not write one.\nReason (R): The compiler-generated copy constructor makes a deep copy of pointer members.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "A is true; R is false – it makes a shallow, member-wise copy."
+        },
+        {
+         "question": "Assertion (A): Members of a class are private by default.\nReason (R): Members of a struct are public by default.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "Both true, but the struct rule does not explain the class rule."
+        },
+        {
+         "question": "The main purpose of a destructor is to:",
+         "options": {
+          "A": "Copy the object",
+          "B": "Release resources such as dynamic memory or files held by the object",
+          "C": "Create the object",
+          "D": "Make the object static"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors and Destructors",
+         "explanation": "This is the basis of the RAII idiom in C++."
         }
        ]
       }

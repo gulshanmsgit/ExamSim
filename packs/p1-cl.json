@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "1 of 14 topics so far (2 sets × 20 questions): Unit 1 – Introduction to Computer. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "2 of 14 topics so far (4 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -497,6 +497,501 @@
          "answer": "D",
          "subject": "Languages, Applications, Memory, Hardware and Software",
          "explanation": "Because RAM is volatile, it cannot store data permanently; R shows why A is false."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 2 – Operating Systems",
+     "sets": [
+      {
+       "name": "1 · Operating System: Meaning, Functions and Types",
+       "questions": [
+        {
+         "question": "An operating system is best described as:",
+         "options": {
+          "A": "A computer virus",
+          "B": "System software that manages the computer's hardware and resources and acts as an interface between the user and the hardware",
+          "C": "A hardware device inside the CPU",
+          "D": "An application for typing letters"
+         },
+         "answer": "B",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Without an OS, users and application programs could not use the hardware easily."
+        },
+        {
+         "question": "Which of the following is NOT a function of an operating system?",
+         "options": {
+          "A": "File management",
+          "B": "Managing input/output devices",
+          "C": "Typing and formatting a letter",
+          "D": "Memory management"
+         },
+         "answer": "C",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Typing letters is done by application software such as a word processor."
+        },
+        {
+         "question": "The core part of an operating system that stays in memory and directly controls the hardware is the:",
+         "options": {
+          "A": "Desktop",
+          "B": "Kernel",
+          "C": "Recycle Bin",
+          "D": "Shell only"
+         },
+         "answer": "B",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "The shell (command line or GUI) is the part that interacts with the user."
+        },
+        {
+         "question": "The Linux kernel was first released in 1991 by:",
+         "options": {
+          "A": "Dennis Ritchie",
+          "B": "Bill Gates",
+          "C": "Steve Jobs",
+          "D": "Linus Torvalds"
+         },
+         "answer": "D",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Linux is free and open-source."
+        },
+        {
+         "question": "Red Hat is best known as:",
+         "options": {
+          "A": "A version of MS-DOS",
+          "B": "Apple's operating system",
+          "C": "A company that develops and supports a distribution of Linux (Red Hat Enterprise Linux)",
+          "D": "An antivirus program"
+         },
+         "answer": "C",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Other Linux distributions include Ubuntu, Debian and Fedora."
+        },
+        {
+         "question": "The operating system used on Apple's Macintosh computers is:",
+         "options": {
+          "A": "MS-DOS",
+          "B": "macOS",
+          "C": "Windows",
+          "D": "Android"
+         },
+         "answer": "B",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "It was earlier called Mac OS X / OS X."
+        },
+        {
+         "question": "Windows is developed by:",
+         "options": {
+          "A": "Google",
+          "B": "Apple",
+          "C": "IBM",
+          "D": "Microsoft"
+         },
+         "answer": "D",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Windows 1.0 was released in 1985."
+        },
+        {
+         "question": "MS-DOS differs from Windows mainly because MS-DOS has a:",
+         "options": {
+          "A": "Touch interface",
+          "B": "Graphical user interface with icons",
+          "C": "Voice interface",
+          "D": "Command-line interface where commands are typed"
+         },
+         "answer": "D",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Windows provides a GUI with windows, icons, menus and a pointer."
+        },
+        {
+         "question": "An operating system that must respond to inputs within strict time limits, such as in air-traffic control or medical equipment, is a:",
+         "options": {
+          "A": "Real-time operating system",
+          "B": "Batch operating system",
+          "C": "Network printer driver",
+          "D": "Single-user desktop OS only"
+         },
+         "answer": "A",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Missing a deadline in such systems can be dangerous."
+        },
+        {
+         "question": "In a batch operating system:",
+         "options": {
+          "A": "Similar jobs are collected and run one after another without user interaction",
+          "B": "Many users interact with the computer at the same time",
+          "C": "Each job must respond in real time",
+          "D": "Only mobile apps are run"
+         },
+         "answer": "A",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "It was common in early mainframe computing."
+        },
+        {
+         "question": "An operating system that allows several users to work on one computer at the same time, each through a terminal, is:",
+         "options": {
+          "A": "Real-time only",
+          "B": "Single-user",
+          "C": "Multi-user (time-sharing)",
+          "D": "Batch only"
+         },
+         "answer": "C",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "UNIX and Linux are multi-user operating systems."
+        },
+        {
+         "question": "Android, the mobile operating system, is based on the:",
+         "options": {
+          "A": "MS-DOS",
+          "B": "Linux kernel",
+          "C": "macOS kernel",
+          "D": "Windows kernel"
+         },
+         "answer": "B",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Android is developed by Google."
+        },
+        {
+         "question": "Loading the operating system into main memory when the computer is switched on is called:",
+         "options": {
+          "A": "Booting",
+          "B": "Compiling",
+          "C": "Formatting",
+          "D": "Scanning"
+         },
+         "answer": "A",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "A cold boot starts from power-off; a warm boot is a restart."
+        },
+        {
+         "question": "The program that starts first when a PC is switched on and begins the boot process is stored in:",
+         "options": {
+          "A": "A text file on the desktop",
+          "B": "The Recycle Bin",
+          "C": "BIOS/UEFI firmware on a ROM chip",
+          "D": "The printer"
+         },
+         "answer": "C",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "It tests the hardware (POST) and then loads the OS."
+        },
+        {
+         "question": "Restarting a computer that is already on, without switching off the power, is called a:",
+         "options": {
+          "A": "Cold boot",
+          "B": "Warm boot",
+          "C": "Shutdown",
+          "D": "Log off"
+         },
+         "answer": "B",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Switching on from a powered-off state is a cold boot."
+        },
+        {
+         "question": "Match the operating system with its developer:\na. Windows\nb. macOS\nc. Android\nd. Red Hat Enterprise Linux\n\n1. Microsoft\n2. Google\n3. Apple\n4. Red Hat",
+         "options": {
+          "A": "a-3, b-1, c-2, d-4",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "D",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "iOS (for iPhones) is also developed by Apple."
+        },
+        {
+         "question": "Consider the statements:\nI. Linux is open-source software.\nII. Windows is open-source software.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Windows and macOS are proprietary; their source code is not freely available."
+        },
+        {
+         "question": "Consider the statements:\nI. The operating system manages memory and files.\nII. The operating system provides the user interface.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "Both are standard functions of an operating system."
+        },
+        {
+         "question": "Assertion (A): A computer cannot be used conveniently without an operating system.\nReason (R): The operating system manages the hardware and provides an interface for users and programs.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "The OS is the link between users, programs and hardware."
+        },
+        {
+         "question": "Assertion (A): MS Word is an operating system.\nReason (R): An operating system manages the computer's hardware resources.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Operating System: Meaning, Functions and Types",
+         "explanation": "MS Word is application software, since it does not manage hardware; R shows why A is false."
+        }
+       ]
+      },
+      {
+       "name": "2 · Windows Concepts, Mouse and Icons",
+       "questions": [
+        {
+         "question": "The four main elements of a graphical user interface are summarised as WIMP, which stands for:",
+         "options": {
+          "A": "Windows, Internet, Memory, Processor",
+          "B": "Windows, Icons, Menus, Pointer",
+          "C": "Web, Internet, Mail, Programs",
+          "D": "Words, Images, Mouse, Printer"
+         },
+         "answer": "B",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Windows introduced a WIMP-style GUI for PCs."
+        },
+        {
+         "question": "The strip, usually at the bottom of the Windows screen, that holds the Start button, open programs and the clock is the:",
+         "options": {
+          "A": "Status bar",
+          "B": "Scroll bar",
+          "C": "Taskbar",
+          "D": "Title bar"
+         },
+         "answer": "C",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "The area near the clock is the notification area (system tray)."
+        },
+        {
+         "question": "A small picture on the desktop that represents a program, file or folder is called an:",
+         "options": {
+          "A": "Window",
+          "B": "Menu",
+          "C": "Cursor",
+          "D": "Icon"
+         },
+         "answer": "D",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Double-clicking an icon opens the item."
+        },
+        {
+         "question": "A desktop icon with a small curved arrow at its lower-left corner is a:",
+         "options": {
+          "A": "Deleted file",
+          "B": "Shortcut to a file, folder or program",
+          "C": "Virus-infected file",
+          "D": "Hidden system file"
+         },
+         "answer": "B",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Deleting a shortcut does not delete the original item."
+        },
+        {
+         "question": "Files deleted from the hard disk in Windows normally go first to the:",
+         "options": {
+          "A": "Start menu",
+          "B": "Control unit",
+          "C": "Recycle Bin, from where they can be restored",
+          "D": "Taskbar"
+         },
+         "answer": "C",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "They are removed permanently only when the Recycle Bin is emptied."
+        },
+        {
+         "question": "Pressing Shift + Delete on a selected file in Windows:",
+         "options": {
+          "A": "Copies it",
+          "B": "Renames it",
+          "C": "Moves it to the desktop",
+          "D": "Deletes it permanently without sending it to the Recycle Bin"
+         },
+         "answer": "D",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Windows usually asks for confirmation first."
+        },
+        {
+         "question": "Match the mouse action with its usual result:\na. Single click\nb. Double click\nc. Right click\nd. Drag and drop\n\n1. Moves an item to a new place\n2. Opens a file or program\n3. Opens a context (shortcut) menu\n4. Selects an item",
+         "options": {
+          "A": "a-4, b-3, c-2, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-2, b-4, c-3, d-1",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "These are the basic mouse operations in Windows."
+        },
+        {
+         "question": "To move an icon to another place on the desktop, the user should:",
+         "options": {
+          "A": "Drag it with the left mouse button held down and release it at the new place",
+          "B": "Right-click it once",
+          "C": "Press the Delete key",
+          "D": "Double-click it"
+         },
+         "answer": "A",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "If 'Auto arrange icons' is on, Windows arranges them automatically."
+        },
+        {
+         "question": "The three buttons at the right end of a window's title bar are:",
+         "options": {
+          "A": "Minimise, Maximise/Restore and Close",
+          "B": "Cut, Copy and Paste",
+          "C": "Back, Forward and Refresh",
+          "D": "Save, Open and Print"
+         },
+         "answer": "A",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "A minimised window stays available on the taskbar."
+        },
+        {
+         "question": "Which keyboard shortcut switches between open windows in Windows?",
+         "options": {
+          "A": "Alt + F4",
+          "B": "Ctrl + Z",
+          "C": "Alt + Tab",
+          "D": "Ctrl + C"
+         },
+         "answer": "C",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Alt + F4 closes the active window."
+        },
+        {
+         "question": "Match the Windows shortcut with its action:\na. Windows key + D\nb. Windows key + E\nc. Windows key + L\nd. Alt + F4\n\n1. Open File Explorer\n2. Close the active window\n3. Lock the computer\n4. Show the desktop",
+         "options": {
+          "A": "a-1, b-4, c-3, d-2",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "D",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Keyboard shortcuts speed up common tasks."
+        },
+        {
+         "question": "The Windows program used to view, copy, move and organise files and folders is:",
+         "options": {
+          "A": "Calculator",
+          "B": "File Explorer (Windows Explorer)",
+          "C": "Notepad",
+          "D": "Paint"
+         },
+         "answer": "B",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "It can be opened with Windows key + E."
+        },
+        {
+         "question": "To select several files that are NOT next to each other in File Explorer, the user holds down:",
+         "options": {
+          "A": "Shift while clicking each file",
+          "B": "Alt while double-clicking",
+          "C": "Ctrl while clicking each file",
+          "D": "Tab while scrolling"
+         },
+         "answer": "C",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Shift + click selects a continuous range of items."
+        },
+        {
+         "question": "The mouse pointer changes to a spinning circle (or hourglass in older Windows) when:",
+         "options": {
+          "A": "The mouse battery is low",
+          "B": "A file has been deleted",
+          "C": "The internet is disconnected",
+          "D": "The computer is busy and the user should wait"
+         },
+         "answer": "D",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "An I-beam pointer appears over text that can be edited."
+        },
+        {
+         "question": "Dragging a file with the RIGHT mouse button and releasing it shows a menu with options such as:",
+         "options": {
+          "A": "Copy here, Move here and Create shortcuts here",
+          "B": "Restart, Shut down and Sleep",
+          "C": "Print, Save and Close",
+          "D": "Bold, Italic and Underline"
+         },
+         "answer": "A",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "It lets the user choose exactly what should happen."
+        },
+        {
+         "question": "The main screen that appears after logging in to Windows, with icons and the taskbar, is called the:",
+         "options": {
+          "A": "Clipboard",
+          "B": "Desktop",
+          "C": "Control unit",
+          "D": "BIOS"
+         },
+         "answer": "B",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Windows are opened on top of the desktop."
+        },
+        {
+         "question": "Consider the statements:\nI. A folder can contain files and other folders.\nII. Deleting a shortcut icon also deletes the original program.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "A shortcut is only a link to the original item."
+        },
+        {
+         "question": "Consider the statements:\nI. Double-clicking an icon normally opens the item it represents.\nII. Right-clicking an item normally shows a context menu of actions for that item.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Both are standard mouse actions in Windows."
+        },
+        {
+         "question": "Assertion (A): A file deleted with the Delete key can usually be recovered in Windows.\nReason (R): Such files are first moved to the Recycle Bin.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "Files can be restored from the Recycle Bin until it is emptied."
+        },
+        {
+         "question": "Assertion (A): Minimising a window closes the program.\nReason (R): A minimised window remains available as a button on the taskbar.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Windows Concepts, Mouse and Icons",
+         "explanation": "The program keeps running on the taskbar, which shows why A is false."
         }
        ]
       }
