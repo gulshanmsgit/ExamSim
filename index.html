@@ -420,6 +420,7 @@ Explanation: RAM loses its contents without power.</pre>
 </section>
 
 <section id="profile" hidden></section>
+<section id="bank" hidden></section>
 <section id="mocks" hidden></section>
 <section id="revhub" hidden></section>
 <section id="progress" hidden></section>
@@ -972,9 +973,9 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'profile', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress', profile: '' };
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress', profile: '', bank: 'add' };
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
@@ -1292,9 +1293,9 @@ function goHome() {
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
   if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
-  h += todayCard() + planCard() + continueCard();
+  h += '<div id="bankBanner"></div>' + todayCard() + planCard() + continueCard();
   h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
-    <button class="btn" id="hNewSubj">+ New subject</button><button class="btn primary" id="hAddSet">+ Add question set</button></div>`;
+    <button class="btn primary" id="hBank">📦 Question bank</button><button class="btn" id="hNewSubj">+ New subject</button><button class="btn" id="hAddSet">+ Add question set</button></div>`;
   if (!D.subjects.length) {
     h += `<div class="card empty"><p>No subjects yet.</p><p class="small">Create a subject (e.g. “Ed. Psychology”), add topics to it, then add question sets to each topic. Every exam you take is saved, so you can track progress and practise your mistakes.</p>
       <button class="btn primary" id="hNewSubj2">+ Create your first subject</button></div>`;
@@ -1319,6 +1320,8 @@ function renderHome() {
   $('#hNewSubj').onclick = newSubj;
   if ($('#hNewSubj2')) $('#hNewSubj2').onclick = newSubj;
   $('#hAddSet').onclick = () => openAdd({});
+  $('#hBank').onclick = openBank;
+  bankBanner();
   $('#goalBtn').onclick = async () => {
     const v = await askText('Daily goal', 'Questions to practise per day (exams + flashcards)', String(D.prefs.dailyGoal || 30));
     const n = parseInt(v, 10);
@@ -1326,7 +1329,7 @@ function renderHome() {
     if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
     const old = D.prefs.dailyGoal;
     D.prefs.dailyGoal = n;
-    try { await store.put('prefs', 'main', { dailyGoal: n }); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
+    try { await savePrefs(); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
     renderHome();
   };
   if ($('#hAllAtt')) $('#hAllAtt').onclick = openProgress;
@@ -1798,7 +1801,7 @@ function switchTab(t) {
   $('#tab-paste').hidden = t !== 'paste';
   $('#tab-ai').hidden = t !== 'ai';
   $('#tab-packs').hidden = t !== 'packs';
-  if (t === 'packs') loadPackList();
+  if (t === 'packs') { switchTab('upload'); openBank(); return; }
   if (t === 'ai') {
     $('#aiGenNoKey').hidden = !!aiCfg().gemKey;
     const tp = byId('topics', addCtx.topicId);
@@ -2118,38 +2121,84 @@ async function importPack(pack, onTick) {
   return res;
 }
 
-// 📦 Packs tab: packs published alongside the app (packs/index.json)
+// 📦 Question bank: ready-made packs published alongside the app (packs/index.json)
 let packIndex = null;
-async function loadPackList() {
-  const el = $('#packList');
-  if (!packIndex) {
-    try {
-      const r = await fetch('packs/index.json', { cache: 'no-cache' });
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      packIndex = await r.json();
-    } catch (e) {
-      el.innerHTML = `<p class="small muted">Study packs can be listed only when the app is opened from its website (e.g. GitHub Pages), not as a local file. You can still import a pack file with the <b>Upload</b> tab.</p>`;
-      return;
-    }
-  }
-  const packs = packIndex.packs || [];
-  if (!packs.length) { el.innerHTML = '<p class="small muted">No study packs published yet.</p>'; return; }
-  el.innerHTML = `<p class="small muted" style="margin-top:0">${esc(packIndex.title || 'Ready-made question packs')}. Import them in order; each one adds to the same subjects and topics.</p>`
-    + packs.map((p, i) => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b><div class="small muted">${esc(p.description || '')}</div>
-        <div class="small">${p.questions ? plural(p.questions, 'question') + ' · ' : ''}${p.topics ? plural(p.topics, 'topic') : ''}</div></div>
-        <button class="btn primary" data-pack="${i}">Load</button></div>`).join('');
-  el.querySelectorAll('[data-pack]').forEach(b => b.onclick = async () => {
-    const p = packs[+b.dataset.pack];
-    b.disabled = true; b.textContent = 'Loading…';
-    try {
-      const r = await fetch('packs/' + p.file, { cache: 'no-cache' });
-      if (!r.ok) throw new Error('Could not download the pack (HTTP ' + r.status + ')');
-      loadFromText(await r.text(), p.name);
-      $('#saveCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } catch (e) { toast(e.message, 'error'); }
-    finally { b.disabled = false; b.textContent = 'Load'; }
-  });
+async function getPackIndex() {
+  if (packIndex) return packIndex;
+  const r = await fetch('packs/index.json', { cache: 'no-cache' });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return (packIndex = await r.json());
 }
+const importedPacks = () => (D.prefs && D.prefs.packs) || {};
+function savePrefs() { const { id, ...p } = D.prefs; return store.put('prefs', 'main', p); }
+
+function openBank() { renderBank(); show('bank'); }
+async function renderBank() {
+  const el = $('#bank');
+  const head = crumbs([['Library', 'home'], ['Question bank']]) + '<div class="page-head"><h1>📦 Question bank</h1></div><div class="kind">Ready-made question packs · one tap to import</div>';
+  el.innerHTML = head + '<div class="loading">Loading packs…</div>';
+  let idx;
+  try { idx = await getPackIndex(); }
+  catch (e) {
+    el.innerHTML = head + `<div class="card"><p>The question bank is available when the app is opened from its website (${esc(location.hostname || 'GitHub Pages')}), not from a local file.</p>
+      <p class="small muted" style="margin-bottom:0">You can still import a downloaded pack file: <b>⊕ Add → Upload</b>.</p></div>`;
+    return;
+  }
+  const done = importedPacks(), packs = idx.packs || [];
+  const fresh = packs.filter(p => !done[p.file]).length;
+  let h = head + `<div class="card"><p style="margin-top:0">${esc(idx.title || 'Question packs')}</p>
+    <p class="small muted" style="margin-bottom:0"><b>How it works:</b> tap <b>Import</b> on a pack. Its questions go into the matching subjects and topics automatically, with nothing to choose. Importing a pack again is safe; sets you already have are skipped. ${fresh ? `<b>${plural(fresh, 'pack')} not imported yet.</b>` : 'All packs are imported ✓'}</p></div>`;
+  let group = null;
+  packs.forEach((p, i) => {
+    if (p.group && p.group !== group) { group = p.group; h += `<h2 style="margin:18px 0 8px">${esc(group)}</h2>`; }
+    const when = done[p.file];
+    h += `<div class="card" style="margin-bottom:10px"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">
+        <div style="flex:1;min-width:0"><b>${esc(p.name)}</b> ${when ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>'}
+          <div class="small muted" style="margin-top:4px">${esc(p.description || '')}</div>
+          <div class="small" style="margin-top:4px">${p.questions ? plural(p.questions, 'question') : 'Structure only'}${p.topics ? ' · ' + plural(p.topics, 'topic') : ''}${when ? ' · imported ' + esc(fmtDay(when)) : ''}</div></div>
+        <button class="btn ${when ? '' : 'primary'}" data-bank="${i}" style="flex:0 0 auto">${when ? 'Re-import' : 'Import'}</button></div></div>`;
+  });
+  el.innerHTML = h;
+  el.querySelectorAll('[data-bank]').forEach(b => b.onclick = () => quickImport(packs[+b.dataset.bank], b));
+}
+async function quickImport(p, btn) {
+  const needsStructure = p.file !== packs0File() && !importedPacks()[packs0File()] && !D.topics.some(t => t.plan);
+  if (needsStructure && !(await confirmBox('Import the syllabus first?', '<p>This pack works best after <b>“0 · Syllabus & study plan”</b>, which creates all subjects and topics with your planner dates. Import this pack anyway?</p>', 'Import anyway'))) return;
+  document.querySelectorAll('[data-bank]').forEach(b => b.disabled = true);
+  btn.textContent = 'Downloading…';
+  try {
+    const r = await fetch('packs/' + p.file, { cache: 'no-cache' });
+    if (!r.ok) throw new Error('Could not download the pack (HTTP ' + r.status + ')');
+    const pack = detectPack(await r.text());
+    if (!pack) throw new Error('This file is not a valid question pack.');
+    summarizePack(pack);
+    const res = await importPack(pack, (d, n) => { btn.textContent = `Saving ${Math.round(d / n * 100)}%`; });
+    D.prefs.packs = { ...importedPacks(), [p.file]: Date.now() };
+    await savePrefs().catch(() => {});
+    openModal(`<h3>📦 ${esc(p.name)}</h3><table>
+      <tr><td>Questions added</td><td class="num"><b>${res.questions}</b></td></tr>
+      <tr><td>Question sets added</td><td class="num"><b>${res.sets}</b></td></tr>
+      <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
+      <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
+      ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}</table>
+      <p class="small muted">Find them under <b>Library</b> → the subject → the topic.</p>`, [{ label: 'Stay here' }, { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
+  } catch (e) { toast(errText(e), 'error'); }
+  if (!$('#bank').hidden) renderBank();
+}
+const packs0File = () => ((packIndex && packIndex.packs) || []).find(p => /structure/.test(p.file))?.file || '';
+// Library banner when published packs are waiting to be imported
+async function bankBanner() {
+  try {
+    const idx = await getPackIndex(), done = importedPacks();
+    const n = (idx.packs || []).filter(p => !done[p.file]).length;
+    const slot = $('#bankBanner');
+    if (!slot || $('#home').hidden) return;
+    slot.innerHTML = n ? `<div class="card" style="border-color:var(--primary);background:var(--primary-bg)"><div class="row"><div style="flex:1;min-width:200px"><b>📦 ${plural(n, 'question pack')} ready to import</b>
+      <div class="small">Syllabus-based questions for your exam, sorted into subjects and topics automatically.</div></div>
+      <button class="btn primary" data-open-bank>Open question bank</button></div></div>` : '';
+  } catch (e) { /* no bank when opened as a local file */ }
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-open-bank]')) { e.preventDefault(); openBank(); } });
 
 /* ---------- Study plan (topics that carry plan dates from a pack) ---------- */
 const planDate = d => new Date(d + 'T00:00:00');
@@ -2943,7 +2992,7 @@ function renderProfile() {
     const n = parseInt($('#pfGoal').value, 10);
     if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
     const old = D.prefs.dailyGoal; D.prefs.dailyGoal = n;
-    try { await store.put('prefs', 'main', { dailyGoal: n }); toast('Daily goal saved'); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
+    try { await savePrefs(); toast('Daily goal saved'); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
   };
 }
 function aiKeyBlock(p, cfg) {

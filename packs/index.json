@@ -1,25 +1,44 @@
 {
-  "title": "GPSTR / CST 2026 question bank, following the study planner",
+  "title": "GPSTR / CST 2026 question bank, built from the official syllabus and your study planner",
   "packs": [
     {
+      "group": "① Start here",
       "file": "gpstr-cst-2026-00-structure.json",
-      "name": "0 · Syllabus & study plan (import first)",
-      "description": "All Paper 1 and Paper 2 subjects and topics with planner dates, plus Paper 1 and Paper 2 full-mock presets. No questions.",
+      "name": "Syllabus & study plan (import this first)",
+      "description": "Creates all 17 Paper 1 and Paper 2 subjects and 194 topics with your planner dates, plus Paper 1 and Paper 2 full-mock presets. Contains no questions.",
       "topics": 194
     },
     {
-      "file": "gpstr-cst-2026-01-days01-02.json",
-      "name": "1 · Days 1–2 (26–27 Sep)",
-      "description": "Paper 2: Unit 1 (all 7 topics), language design, data types, C parts 1–2. Paper 1: psychology, GK, Kannada alphabet, computer literacy, parts of speech, health and value education basics.",
-      "questions": 200,
-      "topics": 20
+      "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
+      "file": "p2-u1-complete.json",
+      "name": "Unit 1 · Fundamentals of Computers (complete)",
+      "description": "7 topics → 20 sub-topics: introduction, functional units, evolution, generations, classification, applications, input/output/memory devices, software, problem solving, Word, Excel, PowerPoint, configuration, motherboard types & components, memory, power supply, assembling.",
+      "questions": 600,
+      "topics": 7
     },
     {
+      "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
+      "file": "p2-u2-complete.json",
+      "name": "Unit 2 · Discrete Structures & Optimization (complete)",
+      "description": "9 topics → 29 sub-topics: propositional & predicate logic, normal forms, inference, sets, relations, equivalence & partial orders, counting, pigeonhole, P&C, inclusion–exclusion, induction, probability, Bayes, graphs, Euler/Hamilton, planarity, colouring, bipartite, trees, prefix codes, traversals, spanning trees, Boolean algebra.",
+      "questions": 870,
+      "topics": 9
+    },
+    {
+      "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
       "file": "p2-u5-01-dbms-concepts.json",
-      "name": "P2 · Unit 5 DBMS — 1. Concepts & Architecture",
-      "description": "30 questions for each sub-topic: data models · schemas & instances · three-schema architecture · data independence · database languages & interfaces · centralized & client/server architectures.",
+      "name": "Unit 5 · DBMS: Concepts & Architecture",
+      "description": "1 topic → 6 sub-topics: data models, schemas & instances, three-schema architecture, data independence, languages & interfaces, centralized & client/server architectures. (Rest of Unit 5 coming.)",
       "questions": 180,
       "topics": 1
+    },
+    {
+      "group": "③ Daily practice (mixed Paper 1 + Paper 2)",
+      "file": "gpstr-cst-2026-01-days01-02.json",
+      "name": "Days 1–2 (26–27 Sep) · 10 per topic",
+      "description": "Paper 1: psychology, GK, Kannada alphabet, computer literacy, parts of speech, health and value education. Paper 2: Unit 1 and C basics (10 per topic, earlier format).",
+      "questions": 200,
+      "topics": 20
     }
   ]
 }
