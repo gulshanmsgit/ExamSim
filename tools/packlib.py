@@ -1,13 +1,14 @@
 """Shared builder for ExamSim study packs.
 
 A pack script defines questions as (question, [4 options], correct_index, explanation)
-and calls build_pack(). Options are shuffled deterministically (seeded by the question
-text) so correct answers spread across A–D, except option sets whose order carries
+and calls build_pack(). Options are shuffled deterministically and balanced per set
+(each correct answer goes to the least-used letter so far) so answers spread evenly across A–D, except option sets whose order carries
 meaning (Only I / Both…, assertion–reason, a-1 b-2 matchings, arrows/sequences).
 The build fails on any structural problem: wrong option count, duplicate options,
 bad answer index or duplicate questions (within the pack).
 """
 import hashlib, json, random, re, sys
+from collections import Counter
 from pathlib import Path
 
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
@@ -39,6 +40,9 @@ def build_pack(out_path, name, description, subjects):
             out_sets = []
             for st in t["sets"]:
                 qs = []
+                # Balance A–D inside the set: fixed-order questions keep their letter; every other question puts its
+                # correct answer on the least-used letter so far (ties and distractor order decided by a hash of the text).
+                used = Counter("ABCD"[a] for q, o, a, _ in st["questions"] if _keep_order(q, o) and 0 <= a < 4)
                 for i, (q, opts, ans, expl) in enumerate(st["questions"]):
                     where = f"{t['name']} / {st['name']} Q{i + 1}"
                     if len(opts) != 4 or len(set(opts)) != 4:
@@ -50,8 +54,13 @@ def build_pack(out_path, name, description, subjects):
                         problems.append(f"{where}: duplicate of {seen[key]}")
                     seen[key] = where
                     order = list(range(4))
-                    if not _keep_order(q, opts):
-                        random.Random(hashlib.md5(q.encode()).hexdigest()).shuffle(order)
+                    if not _keep_order(q, opts) and 0 <= ans < 4:
+                        rng = random.Random(hashlib.md5(q.encode()).hexdigest())
+                        others = [k for k in order if k != ans]
+                        rng.shuffle(others)
+                        slots = sorted(range(4), key=lambda k: (used["ABCD"[k]], rng.random()))
+                        order = others[:slots[0]] + [ans] + others[slots[0]:]
+                        used["ABCD"[slots[0]]] += 1
                     letter = "ABCD"[order.index(ans)] if 0 <= ans < 4 else "A"
                     counts[letter] += 1
                     qs.append({"question": q, "options": dict(zip("ABCD", [opts[k] for k in order])),
