@@ -52,7 +52,16 @@ Every set, both papers:
 - **Explanation for every question**: 1–3 sentences saying why the answer is right (and for numericals, the worked steps).
 - **Accuracy first.** If unsure about a fact, write a different question. No questions on things that differ between textbooks
   unless the question names the convention (e.g. "according to Morris Mano…").
-- **No duplicates** across the whole bank (the builder rejects exact duplicates in one pack; do not reword the same question).
+- **No duplicates** across the whole bank. The app identifies a question by its text + options, ignoring only spacing and case
+  (`qKey` in index.html); `check_packs.py` uses the same rule. Two different questions must not share the same stem *and* options.
+- **Layout**: use `
+` for line breaks (the app keeps them): code snippets, 'I. … II. …' statements, AR's 'Assertion (A): …
+Reason (R): …'.
+- **Match-the-following** format: `"<stem>
+a. X  b. Y  c. Z  d. W
+1. P  2. Q  3. R  4. S"` with options like `"a-4, b-3, c-2, d-1"`
+  (two spaces between items). Write the columns in any convenient order: `packlib` renumbers the right column (so the correct code
+  varies), rewrites every option code to match, and lays each item on its own line.
 - Sources: Paper 2 → Mano (COA), Sebesta / Kernighan-Ritchie / Balaguruswamy (languages), Elmasri & Navathe, Silberschatz,
   Galvin, Forouzan, Tanenbaum, Pressman, Cormen, Rosen, Russell & Norvig, Sinha (fundamentals). Paper 1 → KTBS textbooks, NCERT, standard psychology texts.
 
@@ -61,9 +70,11 @@ Every set, both papers:
 - Content modules: `tools/p2u<N>_<a,b,c…>.py` (Paper 2) or `tools/p1_<subj>_<a,b…>.py` (Paper 1). Each exports
   `TOPICS = {"<planner topic name>": [("1 · <Sub-topic>", QUESTIONS), ("2 · <Sub-topic>", QUESTIONS), …]}`.
   Question tuple: `(question, [4 options], correct_index, explanation)`. Keep each module under ~60 KB (about 2–3 topics).
-- Assembler: `tools/pack_p2_u<N>.py` / `tools/pack_p1_<subj>.py`, modelled on `tools/pack_p2_u2.py`
-  (asserts topic names against the structure pack, asserts set size, sets `tag` = sub-topic name, calls `packlib.build_pack`).
-- Output: `packs/p2-u<N>-complete.json` or `packs/p1-<subj>-complete.json`. Partial units: `packs/p2-u<N>-<NN>-<slug>.json`.
+- Builder: **`python tools/build_subject.py <key>`** (keys and their modules are listed in `PACKS` at the top of that file; add a new
+  subject or module there). It checks topic names against the planner, set names against `tools/syllabus_map.json` and set sizes,
+  writes `packs/<key>.json`, adds/updates its entry in `packs/index.json` and runs `make_index.py`. `build_subject.py all` rebuilds everything.
+- Output: one pack per subject/unit that grows topic by topic: `packs/p2-u<N>.json`, `packs/p1-<subj>.json`
+  (older packs keep their names: `p2-u1-complete`, `p2-u2-complete`, `p2-u5-01-dbms-concepts`, `p1-kannada-complete`).
 - Set names: `"<n> · <Sub-topic>"` numbered from 1 inside each topic; `tag` = the text after `· ` (results break down by it).
 - Mock-test sets (full-length practice) go in topic `Mock tests` (Kannada: `ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು (Mock tests)`) and are not in the syllabus map.
 
@@ -72,8 +83,9 @@ Every set, both papers:
 1. Read the unit's topics in the structure pack (names, `plan.coverage`) and the matching section of the syllabus PDF.
 2. Write the split into `tools/syllabus_map.json`: `"<subject>": {"<topic>": ["Sub-topic 1", "Sub-topic 2", …]}`.
 3. Write the questions in content modules, set by set, following section 3.
-4. Build: `python tools/pack_p2_u<N>.py packs/p2-u<N>-complete.json` (fix anything it reports; check the printed A–D spread).
-5. Add the pack to `packs/index.json` (hand fields: `group`, `file`, `name`, `description`), then `python tools/make_index.py`.
+4. Build: `python tools/build_subject.py <key>` (fix anything it reports; check the printed A–D spread). This also lists the pack
+   in the Question bank (`packs/index.json`) and refreshes plan IDs.
+5. Re-read a sample of the built questions as a student would (code outputs, numericals, 'which is INCORRECT' options).
 6. `python tools/check_packs.py` must print no ERROR lines.
 7. Test in the browser in demo mode: import from Question bank, open a topic, run a set, check the study-plan day shows it.
 8. Bump `CACHE` in `sw.js`, update the status table in `CLAUDE.md`, commit, and tell the owner to run `git push origin main`.

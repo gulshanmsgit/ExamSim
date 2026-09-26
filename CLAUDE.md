@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v10),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v11),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -58,7 +58,7 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 - Paper 1 General Kannada: questions in Kannada (KTBS textbook basis). No current affairs anywhere.
 - Accuracy first: if unsure of a fact, write a different question. Sources: syllabus reference books (Sinha, Rosen, Elmasri & Navathe, Silberschatz, Forouzan, Mano, Pressman, Russell & Norvig…).
 
-### Status (as of 26 Sep 2026)
+### Status (as of 26 Sep 2026 — Day 1 and Day 2 of the plan complete)
 | Pack | Status |
 |---|---|
 | Structure (syllabus + plan) | done |
@@ -66,15 +66,17 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 | P2 Unit 1 – Fundamentals (7 topics, 20 sub-topics, 600 Q) | done |
 | P2 Unit 2 – Discrete Structures (9 topics, 29 sub-topics, 870 Q) | done |
 | P2 Unit 5 – DBMS: only topic "DBMS Concepts and Architecture" (6 sub-topics, 180 Q) | partial — 9 more topics to do |
-| P2 Units 3, 4, 6, 7, 8, 9, 10 | **not started** |
+| P2 Unit 4 – Programming Languages & Web: topics U4-01…04 (Language design, Elementary data types, C Part 1 & 2; 11 sets, 330 Q) → `packs/p2-u4.json` | partial — OOP, C++, Web to do |
+| P2 Units 3, 6, 7, 8, 9, 10 | **not started** |
 | P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`.  + `packs/p1-kannada-mocks.json` (10 mocks × 20 Q, topic "Mock tests"). |
-| Other Paper 1 subjects | only the Days 1–2 sample |
+| P1 Days 1–2 topics: PSY-01/02, GK-01/02, CL-01, ENG-01, HE-01, VE-01 (16 sets × 20 = 320 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Day 1 and Day 2 fully covered, except current affairs by design) |
+| Other Paper 1 topics | only the Days 1–2 sample |
 
 ### Next steps (owner's current request)
-Continue Paper 2 **two units per step**, in this order: **Units 3 and 4**, then 6 and 7, 8 and 9, 10 and the rest of Unit 5.
-Split each planner topic into its syllabus sub-topics (from `GPT_P2.pdf`) × 30 questions, follow the rules above, build with packlib,
-verify topic names against the structure pack, add to `packs/index.json` (group "② Paper 2 · Computer Science…"),
-test the import in the browser (demo mode), bump the sw cache, commit, and tell the owner to push.
+Questions are now generated **by study-plan day, in calendar order** (QUESTION_STANDARD.md §6: `Generate: next` / `Generate: day …`).
+Days 1 and 2 are complete. Next: **Day 3 onwards**. For each topic, fill `tools/syllabus_map.json` from the syllabus PDF, write the content
+module, add it to `PACKS` in `tools/build_subject.py`, build, run `tools/check_packs.py`, test "Import questions for this day" in the
+browser (demo mode), bump the sw cache, commit and tell the owner to push. Merging closely related sub-topics into one set is fine (owner's OK).
 
 ### Study plan & pack workflow (built, tested, committed 26 Sep 2026)
 - Bottom bar: Library · Mock tests · Add · Revise · **📅 Study plan**. Study plan has 3 tabs: **Days** (default: "Up next" = today + tomorrow open, then all 63 days grouped by week, each day a collapsible block filled on open; week mock button per week; overdue list), **Subjects** (Paper 1 / Paper 2 toggle → the planner sheets as cards/table with Status/Rev/Confidence/notes, synced via `prefs/planState`), **Progress** (KPIs, tracker, progress stats). Old tab keys (today/calendar/p1/p2/tracker) map onto these.
