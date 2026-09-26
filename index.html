@@ -246,6 +246,7 @@ tfoot td{border-bottom:none}
 .where-t{display:block;padding:3px 0 3px 22px;text-decoration:none;font-size:.9rem}
 .sheet.pick{max-height:55vh;overflow:auto}
 .avail{border:1px dashed var(--primary);background:var(--primary-bg)}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pill.pk{background:var(--primary-bg);color:var(--primary)}
 
 /* study plan */
@@ -1819,7 +1820,7 @@ function subjectPacksHTML(s) {
   if (!packIndex) return '';
   const list = packsForSubject(s);
   const body = list.length ? list.map(p => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b> ${packImported(p) ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>'}
-      <div class="small muted">${esc(p.description || '')}</div><div class="small">${plural(p.questions || 0, 'question')}</div></div>
+      <div class="small muted clamp2">${esc(p.description || '')}</div><div class="small">${plural(p.questions || 0, 'question')} · ${plural(p.topics || 0, 'topic')}</div></div>
       <button class="btn ${packImported(p) ? '' : 'primary'}" data-bankfile="${esc(p.file)}">${packImported(p) ? 'Re-import' : 'Import'}</button></div>`).join('')
     : '<p class="small muted" style="margin:0">No ready-made packs for this subject yet. They will appear here as the question bank grows.</p>';
   return `<div class="card"><h2>📦 Question packs for this subject</h2>${body}</div>`;
