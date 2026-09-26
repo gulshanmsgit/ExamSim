@@ -1,0 +1,4048 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 4 — Programming Languages & Web",
+ "description": "4 of 9 topics so far (11 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 4 – Programming Languages & Web",
+   "icon": "⌨️",
+   "topics": [
+    {
+     "name": "Language Design and Translation Issues",
+     "sets": [
+      {
+       "name": "1 · Language Concepts, Paradigms, Models and Programming Environments",
+       "questions": [
+        {
+         "question": "A program in which computation is expressed as facts and rules, and execution consists of answering queries, belongs to which paradigm?",
+         "options": {
+          "A": "Imperative programming",
+          "B": "Logic programming",
+          "C": "Object-oriented programming",
+          "D": "Functional programming"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Logic languages such as Prolog state facts and rules; the system answers queries by inference."
+        },
+        {
+         "question": "The imperative paradigm is characterised mainly by:",
+         "options": {
+          "A": "Functions without side effects",
+          "B": "Message passing between objects only",
+          "C": "Rules and backtracking",
+          "D": "Statements that change program state through assignment"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Imperative languages mirror the von Neumann machine: variables are memory cells updated by assignment."
+        },
+        {
+         "question": "Referential transparency, a key property of pure functional languages, means that:",
+         "options": {
+          "A": "Pointers are always visible to the programmer",
+          "B": "An expression can be replaced by its value without changing the program's behaviour",
+          "C": "Every function must be recursive",
+          "D": "Variables can be reassigned many times"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "With no side effects, f(x) always gives the same value, so it can be substituted by that value."
+        },
+        {
+         "question": "Which language is primarily a pure functional language?",
+         "options": {
+          "A": "COBOL",
+          "B": "Fortran",
+          "C": "C",
+          "D": "Haskell"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Haskell is a lazy, purely functional language; the others are imperative."
+        },
+        {
+         "question": "Functional programming languages are based on which formal model of computation?",
+         "options": {
+          "A": "Predicate calculus",
+          "B": "Petri nets",
+          "C": "Lambda calculus",
+          "D": "Relational algebra"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Church's lambda calculus underlies LISP, ML and Haskell; logic languages are based on predicate calculus."
+        },
+        {
+         "question": "The 'von Neumann bottleneck' refers to:",
+         "options": {
+          "A": "The cost of writing compilers",
+          "B": "The limit on the number of registers in a CPU",
+          "C": "The slowness of magnetic tape",
+          "D": "The limited speed of transfer between memory and the CPU, which shaped imperative languages"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Instructions and data travel through one path between memory and processor; imperative languages model this cell-by-cell style."
+        },
+        {
+         "question": "Orthogonality in programming-language design means:",
+         "options": {
+          "A": "Every construct has exactly one syntax",
+          "B": "A small set of primitive constructs can be combined in a small number of ways, and every combination is legal and meaningful",
+          "C": "Programs run on every hardware platform",
+          "D": "The language has no reserved words"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Orthogonal features combine freely without special exceptions (Sebesta; Pratt: 'orthogonality')."
+        },
+        {
+         "question": "Consider the statements:\nI. Readability and writability of a language can conflict with each other.\nII. Making a language more and more orthogonal without limit always improves it.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Too much orthogonality creates many useless combinations (ALGOL 68 is the classic example), so II is false."
+        },
+        {
+         "question": "Which language feature most directly reduces program reliability?",
+         "options": {
+          "A": "Restricted pointer use",
+          "B": "Strong type checking",
+          "C": "Aliasing – two or more names for the same memory cell",
+          "D": "Exception handling"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Aliasing lets a change through one name silently change another; the other features improve reliability."
+        },
+        {
+         "question": "In C, the binding of a variable to its data type occurs at:",
+         "options": {
+          "A": "Compile time",
+          "B": "Load time",
+          "C": "Language design time",
+          "D": "Run time"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "C is statically typed: types are bound by declarations when the program is compiled."
+        },
+        {
+         "question": "The binding of the symbol '*' to the multiplication operation takes place at:",
+         "options": {
+          "A": "Compile time",
+          "B": "Language design time",
+          "C": "Run time",
+          "D": "Link time"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Operator symbols get their meaning when the language is defined."
+        },
+        {
+         "question": "Java is usually implemented as a:",
+         "options": {
+          "A": "Hybrid system: source compiled to bytecode, which a JVM interprets or JIT-compiles",
+          "B": "Pure interpreter of source code",
+          "C": "Pure compiler to native code only",
+          "D": "Assembler"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "javac produces platform-independent bytecode; the JVM interprets it or compiles hot code just-in-time."
+        },
+        {
+         "question": "Compared with compilation, pure interpretation has which main disadvantage?",
+         "options": {
+          "A": "Cannot run small programs",
+          "B": "It needs a linker",
+          "C": "No run-time error messages",
+          "D": "Much slower execution, because each statement is decoded every time it runs"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Decoding high-level statements repeatedly makes interpretation typically 10–100 times slower (Sebesta)."
+        },
+        {
+         "question": "A 'virtual computer' in Pratt's layered view is:",
+         "options": {
+          "A": "A computer simulated only on paper",
+          "B": "A cloud server",
+          "C": "Hardware together with the software layers (OS, translators) that together behave like a machine executing the language",
+          "D": "A computer without memory"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Each layer of software on top of hardware presents a more convenient 'virtual machine' to the layer above."
+        },
+        {
+         "question": "Which of the following is NOT normally a component of a programming environment?",
+         "options": {
+          "A": "Debugger",
+          "B": "Editor",
+          "C": "Test-data generator",
+          "D": "The arithmetic-logic unit of the target CPU"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "A programming environment is the set of software tools (editors, debuggers, verifiers, test tools) used while developing programs."
+        },
+        {
+         "question": "For separate compilation of a subprogram, the compiler needs to know:",
+         "options": {
+          "A": "The specifications (interfaces) of the other subprograms it calls",
+          "B": "The machine's clock speed",
+          "C": "The complete source code of every other subprogram",
+          "D": "The run-time values of all variables"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Header files/prototypes give the needed interface information; the linker later joins the separately compiled pieces."
+        },
+        {
+         "question": "Programs in an embedded-system environment differ most from batch programs in that they:",
+         "options": {
+          "A": "Never use interrupts",
+          "B": "Always use punched cards",
+          "C": "Often have real-time constraints and must run without human intervention",
+          "D": "Run only once and stop"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Embedded software controls devices and must respond within time limits, reliably and autonomously."
+        },
+        {
+         "question": "Match the paradigm with a typical language:\na. Imperative\nb. Functional\nc. Logic\nd. Object-oriented\n\n1. Smalltalk\n2. C\n3. LISP\n4. Prolog",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "C – imperative; LISP – functional; Prolog – logic; Smalltalk – pure object-oriented."
+        },
+        {
+         "question": "Match the language with its main original purpose or feature:\na. FORTRAN\nb. COBOL\nc. LISP\nd. ALGOL 60\n\n1. Business data processing\n2. Scientific computation\n3. First language defined using BNF\n4. List processing and AI",
+         "options": {
+          "A": "a-4, b-1, c-2, d-3",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "FORTRAN (1957) – scientific; COBOL (1960) – business; LISP (1958) – list processing/AI; ALGOL 60 – syntax described in BNF."
+        },
+        {
+         "question": "The concepts of class and object were first introduced in:",
+         "options": {
+          "A": "Smalltalk-80",
+          "B": "C++",
+          "C": "Simula 67",
+          "D": "Ada"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Simula 67 (Dahl and Nygaard) introduced classes for simulation; Smalltalk and C++ came later."
+        },
+        {
+         "question": "Assertion (A): Pure functional programs are comparatively easy to evaluate in parallel.\nReason (R): Without side effects, independent sub-expressions can be evaluated in any order.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Since evaluation order cannot change results, independent parts can safely run in parallel."
+        },
+        {
+         "question": "Assertion (A): Java bytecode can run on any machine that has a Java Virtual Machine.\nReason (R): The Java compiler translates source code directly into the native machine code of the target processor.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "A is true. R is false: javac produces bytecode, not native code – that is exactly why it is portable."
+        },
+        {
+         "question": "Assertion (A): C is a strongly typed language in the strict sense.\nReason (R): C allows unions and implicit conversions that are not type-checked.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Because of unchecked unions, casts and coercions, C is not strongly typed; R is true and shows why A is false."
+        },
+        {
+         "question": "Assertion (A): COBOL is widely used for business data processing.\nReason (R): COBOL was designed by a committee (CODASYL) around 1959–60.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Both are true, but being designed by a committee does not explain its use in business; its record handling and English-like syntax do."
+        },
+        {
+         "question": "A language in which the order of statement execution is decided mainly by user actions such as clicks and key presses follows the:",
+         "options": {
+          "A": "Batch paradigm",
+          "B": "Event-driven paradigm",
+          "C": "Logic paradigm",
+          "D": "Functional paradigm"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Event-driven programs wait for events and run handlers; common in GUIs and JavaScript."
+        },
+        {
+         "question": "Consider the statements about scripting languages such as Python and JavaScript:\nI. They are usually interpreted (or compiled to bytecode at run time).\nII. They are usually dynamically typed.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Both statements describe typical scripting languages."
+        },
+        {
+         "question": "SQL is best described as:",
+         "options": {
+          "A": "A declarative language – the user states what data is wanted, not how to get it",
+          "B": "An imperative language with loops over files",
+          "C": "A logic language based on backtracking",
+          "D": "A machine language"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "The query optimiser decides the access strategy; the programmer only specifies the result."
+        },
+        {
+         "question": "Which statement about compilers and interpreters is INCORRECT?",
+         "options": {
+          "A": "Compiled code generally runs faster",
+          "B": "A compiler translates the whole program before it runs",
+          "C": "An interpreter can give error messages close to the source statement",
+          "D": "An interpreter produces an object program that is saved for later execution"
+         },
+         "answer": "D",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "An interpreter executes directly and does not save an object program; a compiler does."
+        },
+        {
+         "question": "Which is NOT one of the essential features of object-oriented programming?",
+         "options": {
+          "A": "Encapsulation (abstract data types)",
+          "B": "Pointer arithmetic",
+          "C": "Inheritance",
+          "D": "Dynamic binding of method calls (polymorphism)"
+         },
+         "answer": "B",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Sebesta lists abstract data types, inheritance and dynamic binding; pointer arithmetic has nothing to do with OOP."
+        },
+        {
+         "question": "Which of the following contributes most to the 'cost of use' of a language, as discussed by Pratt?",
+         "options": {
+          "A": "Costs of program execution, translation, creation/testing and maintenance together",
+          "B": "Only the price of the compiler licence",
+          "C": "Only the cost of the hardware",
+          "D": "Only the time to type the program"
+         },
+         "answer": "A",
+         "subject": "Language Concepts, Paradigms, Models and Programming Environments",
+         "explanation": "Pratt lists execution, translation, program creation/testing/use and maintenance as the costs of using a language."
+        }
+       ]
+      },
+      {
+       "name": "2 · Syntax and Stages in Translation",
+       "questions": [
+        {
+         "question": "The syntax of a programming language specifies:",
+         "options": {
+          "A": "How fast programs run",
+          "B": "The meaning of programs",
+          "C": "The hardware needed",
+          "D": "The form or structure of expressions, statements and program units"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Syntax = form; semantics = meaning."
+        },
+        {
+         "question": "The output of the lexical analyser is:",
+         "options": {
+          "A": "A parse tree",
+          "B": "Object code",
+          "C": "A stream of tokens",
+          "D": "An annotated syntax tree"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "The scanner groups characters into lexemes and passes tokens to the parser."
+        },
+        {
+         "question": "In C, a missing semicolon at the end of a statement is detected during:",
+         "options": {
+          "A": "Code optimisation",
+          "B": "Syntax analysis (parsing)",
+          "C": "Lexical analysis",
+          "D": "Linking"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Each character is a valid token; it is the sequence of tokens that violates the grammar."
+        },
+        {
+         "question": "An error such as adding an integer to a structure variable in C is detected during:",
+         "options": {
+          "A": "Code generation",
+          "B": "Lexical analysis",
+          "C": "Loading",
+          "D": "Semantic analysis (type checking)"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "The statement may be syntactically correct; the type rules are checked in semantic analysis."
+        },
+        {
+         "question": "Information about identifiers – their names, types and scopes – collected during translation is stored in the:",
+         "options": {
+          "A": "Parse stack",
+          "B": "Symbol table",
+          "C": "Object file header",
+          "D": "Heap"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "The symbol table is built and used by all phases of the translator."
+        },
+        {
+         "question": "In BNF (Backus–Naur Form), the symbol ::= means:",
+         "options": {
+          "A": "'end of rule'",
+          "B": "'is equal to' (assignment)",
+          "C": "'is defined as'",
+          "D": "'is not equal to'"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "<expr> ::= <expr> + <term> reads 'expr is defined as expr + term'."
+        },
+        {
+         "question": "BNF was first used to describe the syntax of:",
+         "options": {
+          "A": "FORTRAN I",
+          "B": "ALGOL 60",
+          "C": "COBOL",
+          "D": "C"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "John Backus and Peter Naur used it in the ALGOL 60 report."
+        },
+        {
+         "question": "Extended BNF (EBNF) adds which notations?",
+         "options": {
+          "A": "{ } for repetition and [ ] for optional parts",
+          "B": "Only the | symbol",
+          "C": "Pointers and arrays",
+          "D": "Semantic actions in Java"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "EBNF makes grammars shorter; it does not describe more languages than BNF."
+        },
+        {
+         "question": "A grammar is ambiguous if:",
+         "options": {
+          "A": "It has recursive rules",
+          "B": "It has more than one start symbol",
+          "C": "It generates an infinite language",
+          "D": "Some sentence has two or more distinct parse trees"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Equivalently, some sentence has two distinct leftmost derivations."
+        },
+        {
+         "question": "With the grammar E → E + E | E * E | id, how many distinct parse trees does id + id * id have?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Either + or * can be the root operator: (id + id) * id or id + (id * id)."
+        },
+        {
+         "question": "With the ambiguous grammar E → E + E | id, how many distinct parse trees does id + id + id + id have?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "6",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Three operators can be bracketed in Catalan(3) = 5 ways."
+        },
+        {
+         "question": "In an unambiguous expression grammar, an operator of higher precedence is placed:",
+         "options": {
+          "A": "Nowhere – precedence cannot be expressed in grammars",
+          "B": "At a lower level of the grammar, so it appears nearer the leaves of the parse tree",
+          "C": "In a separate grammar",
+          "D": "At the start symbol"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "E → E + T, T → T * F: * is generated lower in the tree, so it binds tighter and is evaluated first."
+        },
+        {
+         "question": "A left-recursive rule such as E → E − T | T gives the operator − :",
+         "options": {
+          "A": "Right associativity",
+          "B": "No associativity",
+          "C": "Left associativity",
+          "D": "Higher precedence than *"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "a − b − c is parsed as (a − b) − c."
+        },
+        {
+         "question": "How many tokens are in the C statement:  sum = sum + x * 10;",
+         "options": {
+          "A": "8",
+          "B": "9",
+          "C": "7",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "sum, =, sum, +, x, *, 10, ; → 8 tokens."
+        },
+        {
+         "question": "How many tokens are in the C statement:  printf(\"%d\", a);",
+         "options": {
+          "A": "8",
+          "B": "7",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "printf, (, \"%d\", ',', a, ), ; → 7 tokens; a string literal is a single token."
+        },
+        {
+         "question": "Which of the following belongs to the synthesis part of translation?",
+         "options": {
+          "A": "Syntactic analysis",
+          "B": "Lexical analysis",
+          "C": "Semantic analysis",
+          "D": "Code generation"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Analysis breaks down the source; synthesis (optimisation and code generation) builds the object program."
+        },
+        {
+         "question": "Resolving external references between separately compiled modules is done by the:",
+         "options": {
+          "A": "Linker (linkage editor)",
+          "B": "Preprocessor",
+          "C": "Lexical analyser",
+          "D": "Parser"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "The linker combines object modules and library routines into one executable."
+        },
+        {
+         "question": "Relocation, done by a relocating loader or linker, means:",
+         "options": {
+          "A": "Rewriting the program in another language",
+          "B": "Moving the source file to another folder",
+          "C": "Adjusting addresses in object code so the program can run at a location different from the one assumed at translation",
+          "D": "Reordering statements for speed"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Address-sensitive words are modified by the load (relocation) address."
+        },
+        {
+         "question": "Replacing  x * 2  by  x + x  or  x << 1  is an example of:",
+         "options": {
+          "A": "Strength reduction",
+          "B": "Dead-code elimination",
+          "C": "Loop unrolling",
+          "D": "Constant folding"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "An expensive operation is replaced by a cheaper equivalent one."
+        },
+        {
+         "question": "Evaluating  3 * 4  at compile time and using 12 in the object code is called:",
+         "options": {
+          "A": "Inlining",
+          "B": "Constant folding",
+          "C": "Strength reduction",
+          "D": "Register allocation"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Expressions with constant operands are computed by the compiler itself."
+        },
+        {
+         "question": "A cross-compiler is a compiler that:",
+         "options": {
+          "A": "Translates between two high-level languages only",
+          "B": "Works only on crossed loops",
+          "C": "Compiles itself",
+          "D": "Runs on one machine and produces code for a different machine"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Used to build software for embedded devices from a desktop computer."
+        },
+        {
+         "question": "Match the phase with its main output:\na. Lexical analyser\nb. Parser\nc. Semantic analyser\nd. Code generator\n\n1. Target code\n2. Tokens\n3. Parse tree\n4. Type-checked (annotated) tree",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-3, b-2, c-4, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Tokens → parse tree → annotated tree → target code."
+        },
+        {
+         "question": "Match the error with the phase that normally detects it:\na. Illegal character @ in an identifier\nb. Unbalanced parentheses\nc. Use of an undeclared variable\nd. Division by zero with values read at run time\n\n1. Syntax analysis\n2. Lexical analysis\n3. Execution\n4. Semantic analysis",
+         "options": {
+          "A": "a-2, b-4, c-1, d-3",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Characters → lexical; structure → syntax; declarations/types → semantic; values known only at run time → execution."
+        },
+        {
+         "question": "Assertion (A): Comments and white space are removed during lexical analysis.\nReason (R): They do not affect the meaning of the program.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Because they carry no meaning for later phases, the scanner discards them."
+        },
+        {
+         "question": "Assertion (A): A context-free grammar can express every syntactic restriction of C.\nReason (R): The rule 'a variable must be declared before it is used' is context-sensitive.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Declare-before-use cannot be expressed by a CFG, so such rules are checked as static semantics; A is false."
+        },
+        {
+         "question": "Assertion (A): Syntax diagrams (railroad diagrams) are an alternative to BNF.\nReason (R): The syntax of Pascal was popularised using syntax diagrams.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Both are true, but Pascal's use of them does not explain why they are an alternative notation."
+        },
+        {
+         "question": "Assertion (A): Lexical analysers are usually built from finite automata.\nReason (R): The tokens of most languages can be described only by context-sensitive grammars.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "A is true. R is false: tokens are described by regular expressions, which is why finite automata suffice."
+        },
+        {
+         "question": "Consider the statements:\nI. Every regular language is context-free.\nII. Every context-free language is regular.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Regular ⊂ context-free; {aⁿbⁿ} is context-free but not regular."
+        },
+        {
+         "question": "In C, in the statement  if (a) if (b) s1; else s2;  the else is associated with:",
+         "options": {
+          "A": "The nearest (inner) if",
+          "B": "The outer if",
+          "C": "Both ifs",
+          "D": "Neither – it is a syntax error"
+         },
+         "answer": "A",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "The 'dangling else' is resolved by matching the nearest unmatched if."
+        },
+        {
+         "question": "Attribute grammars are mainly used to describe:",
+         "options": {
+          "A": "Operating-system calls",
+          "B": "Lexical tokens only",
+          "C": "Static semantics, such as type compatibility rules",
+          "D": "Hardware timing"
+         },
+         "answer": "C",
+         "subject": "Syntax and Stages in Translation",
+         "explanation": "Attributes attached to grammar symbols carry types and other information checked during semantic analysis."
+        }
+       ]
+      },
+      {
+       "name": "3 · Formal Transition Models",
+       "questions": [
+        {
+         "question": "Match the grammar type (Chomsky hierarchy) with its recognising machine:\na. Type 0 (unrestricted)\nb. Type 1 (context-sensitive)\nc. Type 2 (context-free)\nd. Type 3 (regular)\n\n1. Linear bounded automaton\n2. Turing machine\n3. Pushdown automaton\n4. Finite automaton",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "TM ⊃ LBA ⊃ PDA ⊃ FA, matching types 0 to 3."
+        },
+        {
+         "question": "In a deterministic finite automaton (DFA):",
+         "options": {
+          "A": "ε-moves are allowed",
+          "B": "A stack is used",
+          "C": "There may be several next states for the same input",
+          "D": "For each state and each input symbol there is exactly one next state"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "Determinism = one unique transition per (state, symbol)."
+        },
+        {
+         "question": "An NFA with 4 states is converted to a DFA by subset construction. The DFA can have at most:",
+         "options": {
+          "A": "24 states",
+          "B": "8 states",
+          "C": "4 states",
+          "D": "16 states"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "Each DFA state is a subset of the NFA's states: at most 2⁴ = 16."
+        },
+        {
+         "question": "The transition function of an NFA (without ε-moves) is:",
+         "options": {
+          "A": "δ: Q → Σ",
+          "B": "δ: Q × Σ × Γ → Q × Γ*",
+          "C": "δ: Q × Σ → 2^Q",
+          "D": "δ: Q × Σ → Q"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "It maps a state and a symbol to a set of states; the last option is a PDA's."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {0,1} accepting all strings whose length is divisible by 3 is:",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "States track length mod 3: 0, 1, 2."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {0,1} accepting all strings that end in 01 is:",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "States: nothing useful seen, last symbol 0, last two symbols 01 (accepting)."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {a,b} accepting strings with exactly two a's is:",
+         "options": {
+          "A": "2",
+          "B": "5",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "Counts 0, 1, 2 a's plus a dead state for more than two."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {0,1} accepting strings whose second-last symbol is 1 is:",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "The DFA must remember the last two symbols: 2² = 4 states."
+        },
+        {
+         "question": "The regular expression (a+b)*abb denotes:",
+         "options": {
+          "A": "All strings over {a,b} ending in abb",
+          "B": "All strings starting with abb",
+          "C": "Only the string abb",
+          "D": "All strings containing exactly one abb"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "Any prefix (a+b)* followed by abb."
+        },
+        {
+         "question": "How many strings of length 3 over {a,b} are in the language of a*b*?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "aaa, aab, abb, bbb – some a's followed by some b's."
+        },
+        {
+         "question": "Which of the following languages is NOT regular?",
+         "options": {
+          "A": "{ aᵐbⁿ | m, n ≥ 0 }",
+          "B": "{ aⁿbⁿ | n ≥ 0 }",
+          "C": "Strings over {a,b} with an even number of a's",
+          "D": "{ aⁿ | n ≥ 0 }"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "Matching counts needs unbounded memory; the pumping lemma proves aⁿbⁿ is not regular."
+        },
+        {
+         "question": "The language { aⁿbⁿcⁿ | n ≥ 1 } is:",
+         "options": {
+          "A": "Context-sensitive but not context-free",
+          "B": "Regular",
+          "C": "Context-free",
+          "D": "Not recursively enumerable"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "A single stack cannot match three counts; an LBA can."
+        },
+        {
+         "question": "The language { wwᴿ | w ∈ {a,b}* } (even-length palindromes) is:",
+         "options": {
+          "A": "Regular",
+          "B": "Not context-free",
+          "C": "Deterministic context-free",
+          "D": "Context-free but not deterministic context-free"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "An NPDA must guess the middle; no DPDA can accept it."
+        },
+        {
+         "question": "The language generated by S → aSb | ε is:",
+         "options": {
+          "A": "{ a²ⁿ | n ≥ 0 }",
+          "B": "(ab)*",
+          "C": "{ aⁿbⁿ | n ≥ 0 }",
+          "D": "{ aⁿbᵐ | n, m ≥ 0 }"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "Each step adds one a on the left and one b on the right."
+        },
+        {
+         "question": "The grammar S → aS | bS | a generates:",
+         "options": {
+          "A": "All strings over {a,b} that end in a",
+          "B": "All strings that start with a",
+          "C": "Only strings of a's",
+          "D": "Strings with exactly one a"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "Any sequence of a/b followed finally by a."
+        },
+        {
+         "question": "In a context-sensitive grammar every production α → β satisfies:",
+         "options": {
+          "A": "β is a single terminal",
+          "B": "|α| ≤ |β|",
+          "C": "|α| = 1",
+          "D": "α is a single terminal"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "Non-contracting productions define type-1 grammars."
+        },
+        {
+         "question": "A Moore machine differs from a Mealy machine in that its output depends on:",
+         "options": {
+          "A": "The current state only",
+          "B": "The stack contents",
+          "C": "The current state and current input",
+          "D": "The input only"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "Mealy output is attached to transitions (state + input)."
+        },
+        {
+         "question": "For an input string of length n, a Moore machine produces an output string of length:",
+         "options": {
+          "A": "2n",
+          "B": "n − 1",
+          "C": "n",
+          "D": "n + 1"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "It outputs once in the start state and once after each input symbol."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {0,1} accepting all strings that contain at least one 1 is:",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "One state for 'no 1 seen yet' and one accepting state that loops on 0 and 1."
+        },
+        {
+         "question": "Which regular expression is NOT equivalent to (a+b)*?",
+         "options": {
+          "A": "(a*b*)*",
+          "B": "(a* + b*)*",
+          "C": "(a+b)*(a+b)*",
+          "D": "(ab)*"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "(ab)* cannot generate 'a' or 'ba'; the others generate every string over {a,b}."
+        },
+        {
+         "question": "Consider the statements:\nI. Deterministic pushdown automata accept every context-free language.\nII. Every regular language is accepted by some deterministic pushdown automaton.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "DPDAs are weaker than NPDAs (wwᴿ), but a DPDA can simply ignore its stack and act as a DFA."
+        },
+        {
+         "question": "Consider the statements:\nI. Context-free languages are closed under union.\nII. Context-free languages are closed under intersection.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "aⁿbⁿcᵐ ∩ aᵐbⁿcⁿ = aⁿbⁿcⁿ, which is not context-free, so II is false."
+        },
+        {
+         "question": "Assertion (A): Every DFA is also an NFA.\nReason (R): A DFA is simply an NFA in which each transition leads to exactly one state.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "The definition of an NFA includes the deterministic case."
+        },
+        {
+         "question": "Assertion (A): A finite automaton can recognise the language of balanced parentheses.\nReason (R): A finite automaton has only a finite amount of memory in the form of its states.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Formal Transition Models",
+         "explanation": "Nesting depth is unbounded, so a finite automaton cannot count it; R is true and explains why A is false."
+        },
+        {
+         "question": "Assertion (A): NFAs and DFAs accept exactly the same class of languages.\nReason (R): An NFA may have more than one transition for the same state and input symbol.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "Both true, but R describes nondeterminism; the equivalence follows from subset construction."
+        },
+        {
+         "question": "Assertion (A): The halting problem for Turing machines is undecidable.\nReason (R): Turing machines are less powerful than pushdown automata.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "A is true (Turing, 1936). R is false: Turing machines are the most powerful of these models."
+        },
+        {
+         "question": "Left-linear and right-linear grammars generate exactly the:",
+         "options": {
+          "A": "Recursive languages",
+          "B": "Context-sensitive languages",
+          "C": "Regular languages",
+          "D": "Context-free languages"
+         },
+         "answer": "C",
+         "subject": "Formal Transition Models",
+         "explanation": "Linear grammars with the non-terminal at one end correspond to finite automata."
+        },
+        {
+         "question": "In compilers, finite automata and pushdown automata are used respectively for:",
+         "options": {
+          "A": "Code generation and optimisation",
+          "B": "Lexical analysis and syntax analysis",
+          "C": "Syntax analysis and lexical analysis",
+          "D": "Linking and loading"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "Tokens are regular; program structure is context-free."
+        },
+        {
+         "question": "The minimum number of states of a DFA over {a,b} accepting all strings of length at least 2 is:",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Formal Transition Models",
+         "explanation": "States for length 0, length 1 and length ≥ 2 (accepting, looping)."
+        },
+        {
+         "question": "The minimum number of states of a DFA that accepts binary numbers (read from the most significant bit) divisible by 3 is:",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "5",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Formal Transition Models",
+         "explanation": "States track the value mod 3; reading bit b moves r to (2r + b) mod 3."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Elementary Data Types",
+     "sets": [
+      {
+       "name": "1 · Properties of Types and Objects",
+       "questions": [
+        {
+         "question": "In Pratt's terminology, a data object is:",
+         "options": {
+          "A": "A file on disk only",
+          "B": "A class in an object-oriented language only",
+          "C": "A constant written in the source program",
+          "D": "A run-time grouping of one or more pieces of data – a container for data values"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "A data object is a location (container); a data value is what it holds."
+        },
+        {
+         "question": "In the C assignment  x = x + 1;  the x on the left-hand side denotes its:",
+         "options": {
+          "A": "Scope",
+          "B": "l-value (location)",
+          "C": "Type",
+          "D": "r-value (value)"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The left side needs a location to store into; the right side uses x's current value."
+        },
+        {
+         "question": "The lifetime of a data object is:",
+         "options": {
+          "A": "The time taken to compile it",
+          "B": "Its size in bytes",
+          "C": "The number of lines in which its name is visible",
+          "D": "The period of execution during which it exists and is bound to storage"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Lifetime is temporal; scope is textual visibility."
+        },
+        {
+         "question": "Which group of languages relies mainly on dynamic type checking?",
+         "options": {
+          "A": "C, Pascal and Ada",
+          "B": "Assembly languages only",
+          "C": "Python, LISP and JavaScript",
+          "D": "FORTRAN and COBOL"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "In these languages types belong to values and are checked when operations execute."
+        },
+        {
+         "question": "A language is called strongly typed if:",
+         "options": {
+          "A": "It allows no conversions at all",
+          "B": "All type errors are always detected, either at compile time or at run time",
+          "C": "Every variable must be declared at the start of the program",
+          "D": "It has at least ten built-in types"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Strong typing = no type error goes undetected (Sebesta)."
+        },
+        {
+         "question": "Coercion is:",
+         "options": {
+          "A": "An implicit type conversion inserted automatically by the translator",
+          "B": "A kind of loop",
+          "C": "An explicit cast written by the programmer",
+          "D": "A run-time error"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "In 2 + 3.5, C coerces 2 to double."
+        },
+        {
+         "question": "In C, what is the value of  (float)(7 / 2) ?",
+         "options": {
+          "A": "3.5",
+          "B": "4.0",
+          "C": "3.0",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "7 / 2 is integer division = 3, which is then converted to 3.0."
+        },
+        {
+         "question": "In C, after  int i = 5;  double d = i / 2;  the value of d is:",
+         "options": {
+          "A": "3.0",
+          "B": "2.5",
+          "C": "0.0",
+          "D": "2.0"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "i / 2 is evaluated as integer division (2) before conversion to double."
+        },
+        {
+         "question": "In C, what is printed by  char c = 'A' + 2;  printf(\"%c\", c); ?",
+         "options": {
+          "A": "B",
+          "B": "C",
+          "C": "A2",
+          "D": "67"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "'A' is 65; 65 + 2 = 67 = 'C'."
+        },
+        {
+         "question": "Which conversion is a narrowing conversion that may lose information?",
+         "options": {
+          "A": "short to long",
+          "B": "float to double",
+          "C": "int to double",
+          "D": "double to int"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The fractional part (and possibly range) is lost; the others widen."
+        },
+        {
+         "question": "Under structural type equivalence, two types are equivalent if:",
+         "options": {
+          "A": "They are declared on the same line",
+          "B": "They occupy the same address",
+          "C": "They have the same structure, even if their names differ",
+          "D": "They have the same name only"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Name equivalence requires the same type name; structural equivalence compares components."
+        },
+        {
+         "question": "Which of the following is NOT a purpose of declarations (Pratt)?",
+         "options": {
+          "A": "To speed up the linker",
+          "B": "Enabling static type checking and resolving overloaded operations",
+          "C": "Choosing storage representations",
+          "D": "Storage management information such as lifetime"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Declarations help storage representation, storage management, polymorphic/overloaded operations and static type checking."
+        },
+        {
+         "question": "A binding that occurs before run time and remains unchanged throughout execution is called:",
+         "options": {
+          "A": "Lazy binding",
+          "B": "Static binding",
+          "C": "Late binding",
+          "D": "Dynamic binding"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Dynamic binding happens or can change during execution."
+        },
+        {
+         "question": "The specification of a data type consists of:",
+         "options": {
+          "A": "Its attributes, the values its objects may take and the operations defined on them",
+          "B": "Only its storage size",
+          "C": "Only its name",
+          "D": "Its machine instructions"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The implementation then gives storage representation and algorithms for the operations."
+        },
+        {
+         "question": "A run-time descriptor (dope vector) of a data object stores:",
+         "options": {
+          "A": "Its attributes, such as type, bounds and size, needed during execution",
+          "B": "The object's comments",
+          "C": "The source code of the object",
+          "D": "The compiler version"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "E.g. an array descriptor holds its bounds and element size for subscript checking."
+        },
+        {
+         "question": "The specification  + : integer × integer → integer  is called the operation's:",
+         "options": {
+          "A": "Scope",
+          "B": "Signature",
+          "C": "Signal",
+          "D": "Semantics"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "A signature gives the domain (argument types) and range (result type)."
+        },
+        {
+         "question": "An operation that modifies one of its arguments in addition to returning a result is said to have a:",
+         "options": {
+          "A": "Signature",
+          "B": "Coercion",
+          "C": "Binding",
+          "D": "Side effect"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "E.g. x++ returns a value and also changes x."
+        },
+        {
+         "question": "A dangling reference is:",
+         "options": {
+          "A": "A pointer that is always NULL",
+          "B": "A data object with no access path left",
+          "C": "An access path that still exists to a data object that has been deallocated",
+          "D": "A reference to a constant"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The reverse situation – an object with no access path – is garbage."
+        },
+        {
+         "question": "When two names in a program refer to the same data object at the same time, this is called:",
+         "options": {
+          "A": "Aliasing",
+          "B": "Overloading",
+          "C": "Encapsulation",
+          "D": "Coercion"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "E.g. passing the same variable twice by reference."
+        },
+        {
+         "question": "In ML or Haskell, the compiler can find the types of most expressions without declarations. This is called:",
+         "options": {
+          "A": "Type erasure",
+          "B": "Type inference",
+          "C": "Dynamic typing",
+          "D": "Coercion"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Hindley–Milner type inference deduces types statically."
+        },
+        {
+         "question": "Match the category of variable with the time its storage is bound:\na. Static\nb. Stack-dynamic\nc. Explicit heap-dynamic\nd. Implicit heap-dynamic\n\n1. Created by new / malloc\n2. When a value is assigned, e.g. in Python\n3. For the whole program run\n4. When its declaration is elaborated on subprogram entry",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-3, b-4, c-1, d-2",
+          "D": "a-3, b-4, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Sebesta's four categories of variables by lifetime."
+        },
+        {
+         "question": "Assertion (A): Dynamic type checking gives the programmer more flexibility.\nReason (R): With dynamic type checking, type information has to be kept with each data object at run time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Both true; R states a cost of dynamic checking, not the reason for its flexibility."
+        },
+        {
+         "question": "Assertion (A): C performs complete static type checking.\nReason (R): C unions allow the same storage to be read as different types without any check.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Unchecked unions (and casts) mean C's static checking is incomplete; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Coercions can reduce the reliability of programs.\nReason (R): Implicit conversions can hide type errors that the compiler would otherwise report.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "E.g. mistyping a float variable for an int one goes unnoticed when coercion is allowed."
+        },
+        {
+         "question": "Assertion (A): A dangling reference arises when storage is freed while a pointer still refers to it.\nReason (R): Garbage collection is the main cause of dangling references.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "A is true. R is false: garbage collection frees only unreachable objects, so it prevents dangling references."
+        },
+        {
+         "question": "Consider the statements:\nI. An r-value is the value stored in a data object.\nII. A named constant has an l-value that can be the target of an assignment.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "A constant's value cannot be changed by assignment, so II is false."
+        },
+        {
+         "question": "In Python,  x = 5  followed by  x = 'hello'  is legal because:",
+         "options": {
+          "A": "Python converts 'hello' to an integer",
+          "B": "x is declared as a string",
+          "C": "Python ignores the first assignment",
+          "D": "Python binds types to values dynamically at assignment"
+         },
+         "answer": "D",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The variable is only a name; its type follows the object it currently refers to."
+        },
+        {
+         "question": "Using + for both integer and floating-point addition is an example of:",
+         "options": {
+          "A": "Overloading (ad hoc polymorphism)",
+          "B": "Coercion only",
+          "C": "Type inference",
+          "D": "Aliasing"
+         },
+         "answer": "A",
+         "subject": "Properties of Types and Objects",
+         "explanation": "The same operator symbol stands for different operations chosen by operand types."
+        },
+        {
+         "question": "In a statically typed language, the type of a variable is bound at:",
+         "options": {
+          "A": "Run time",
+          "B": "Language design time",
+          "C": "Compile time",
+          "D": "Load time"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Static typing = types known and checked before execution."
+        },
+        {
+         "question": "Consider the statements:\nI. The scope of a variable is a textual (static) property.\nII. The lifetime of a variable is a temporal (run-time) property.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Properties of Types and Objects",
+         "explanation": "Scope = region of program text where the name is visible; lifetime = time during which storage exists. A static local in C has local scope but whole-program lifetime."
+        }
+       ]
+      },
+      {
+       "name": "2 · Scalar and Composite Data Types",
+       "questions": [
+        {
+         "question": "Which of the following is NOT a scalar data type?",
+         "options": {
+          "A": "Enumeration",
+          "B": "Integer",
+          "C": "Boolean",
+          "D": "Character string"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "A scalar object holds a single value; a string is a composite of characters."
+        },
+        {
+         "question": "The range of a 16-bit two's-complement integer is:",
+         "options": {
+          "A": "−65536 to 65535",
+          "B": "0 to 65535",
+          "C": "−32768 to 32767",
+          "D": "−32767 to 32767"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "n bits give −2ⁿ⁻¹ to 2ⁿ⁻¹ − 1."
+        },
+        {
+         "question": "The range of an 8-bit unsigned integer is:",
+         "options": {
+          "A": "0 to 255",
+          "B": "1 to 256",
+          "C": "−128 to 127",
+          "D": "0 to 256"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "2⁸ = 256 values starting from 0."
+        },
+        {
+         "question": "The 8-bit two's-complement representation of −5 is:",
+         "options": {
+          "A": "00000101",
+          "B": "11111010",
+          "C": "11111011",
+          "D": "10000101"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "+5 = 00000101; invert → 11111010; add 1 → 11111011."
+        },
+        {
+         "question": "A subrange type such as 1..10 in Pascal offers which advantages?",
+         "options": {
+          "A": "Faster floating-point arithmetic",
+          "B": "Unlimited range",
+          "C": "Dynamic typing",
+          "D": "Less storage and automatic range checking"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Values can be packed in fewer bits and out-of-range assignments are detected."
+        },
+        {
+         "question": "In C, given  enum colour {RED, GREEN = 5, BLUE};  the value of BLUE is:",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "RED = 0, GREEN = 5 explicitly, BLUE = GREEN + 1 = 6."
+        },
+        {
+         "question": "A Boolean value needs only one bit, but it is usually stored in a whole byte because:",
+         "options": {
+          "A": "Bits cannot store true/false",
+          "B": "The byte is normally the smallest addressable unit of memory",
+          "C": "Booleans need 8 values",
+          "D": "It is required by ASCII"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Accessing single bits needs extra masking operations."
+        },
+        {
+         "question": "In C, the value of  '7' − '0'  is:",
+         "options": {
+          "A": "'7'",
+          "B": "55",
+          "C": "7",
+          "D": "48"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Digit characters have consecutive codes: 55 − 48 = 7."
+        },
+        {
+         "question": "In IEEE 754 single precision, the fields are:",
+         "options": {
+          "A": "1 sign bit, 7 exponent bits, 24 fraction bits",
+          "B": "8 sign bits, 8 exponent bits, 16 fraction bits",
+          "C": "1 sign bit, 11 exponent bits, 52 fraction bits",
+          "D": "1 sign bit, 8 exponent bits, 23 fraction bits"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Total 32 bits; the second option is double precision."
+        },
+        {
+         "question": "The exponent bias used in IEEE 754 single precision is:",
+         "options": {
+          "A": "127",
+          "B": "1023",
+          "C": "255",
+          "D": "128"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Double precision uses 1023."
+        },
+        {
+         "question": "In IEEE 754 single precision, the stored (biased) exponent field of the number 1.0 is:",
+         "options": {
+          "A": "10000000",
+          "B": "01111111",
+          "C": "00000000",
+          "D": "00000001"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "1.0 = 1.0 × 2⁰; biased exponent = 0 + 127 = 127 = 01111111."
+        },
+        {
+         "question": "Comparing two floating-point values with == is risky because:",
+         "options": {
+          "A": "Many decimal fractions such as 0.1 cannot be represented exactly in binary",
+          "B": "Floating-point numbers have no sign",
+          "C": "The == operator is illegal for floats",
+          "D": "Floating values are always rounded to integers"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "0.1 + 0.2 == 0.3 is false in binary floating point; compare with a tolerance."
+        },
+        {
+         "question": "Fixed-point decimal representation is preferred for:",
+         "options": {
+          "A": "Scientific calculations with very large ranges",
+          "B": "Storing characters",
+          "C": "Money and business calculations that need exact decimal digits",
+          "D": "Graphics coordinates only"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "COBOL and PL/I provide fixed-point decimal types for this reason."
+        },
+        {
+         "question": "In C,  strlen(\"hello\")  and  sizeof(\"hello\")  are respectively:",
+         "options": {
+          "A": "5 and 5",
+          "B": "6 and 6",
+          "C": "6 and 5",
+          "D": "5 and 6"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "sizeof counts the terminating '\\0'; strlen does not."
+        },
+        {
+         "question": "A file differs from most other data objects because:",
+         "options": {
+          "A": "It can hold only integers",
+          "B": "It is always stored in registers",
+          "C": "It has no type",
+          "D": "It resides on secondary storage and its lifetime can be longer than the program that created it"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Pratt: files are the usual way data persists between program runs."
+        },
+        {
+         "question": "An array is ______, whereas a record (structure) is ______.",
+         "options": {
+          "A": "heterogeneous; homogeneous",
+          "B": "homogeneous; heterogeneous",
+          "C": "scalar; composite",
+          "D": "dynamic; static"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Array elements share one type; record fields can have different types."
+        },
+        {
+         "question": "A[10][20] is stored in row-major order from base address 1000, with 4 bytes per element and 0-based indices. The address of A[5][6] is:",
+         "options": {
+          "A": "1424",
+          "B": "1400",
+          "C": "1106",
+          "D": "1256"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "1000 + (5 × 20 + 6) × 4 = 1000 + 424 = 1424."
+        },
+        {
+         "question": "A[1..10, 1..20] is stored in column-major order from base address 2000, with 2 bytes per element. The address of A[3, 4] is:",
+         "options": {
+          "A": "2098",
+          "B": "2044",
+          "C": "2064",
+          "D": "2060"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Columns before: (4 − 1) × 10 = 30; rows before in its column: 3 − 1 = 2; 2000 + 32 × 2 = 2064."
+        },
+        {
+         "question": "How many elements does the array A[−2..5, 3..7] have?",
+         "options": {
+          "A": "40",
+          "B": "30",
+          "C": "48",
+          "D": "35"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Rows: 5 − (−2) + 1 = 8; columns: 7 − 3 + 1 = 5; 8 × 5 = 40."
+        },
+        {
+         "question": "The size of a C union is (ignoring padding):",
+         "options": {
+          "A": "The size of its first member",
+          "B": "Always 8 bytes",
+          "C": "The size of its largest member",
+          "D": "The sum of the sizes of its members"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "All members share the same storage."
+        },
+        {
+         "question": "A Pascal-style  set of 0..31  is most efficiently implemented as:",
+         "options": {
+          "A": "An array of 32 integers",
+          "B": "A hash table",
+          "C": "A linked list of integers",
+          "D": "A 32-bit string with one bit per possible element"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Union and intersection then become bitwise OR and AND."
+        },
+        {
+         "question": "Match the type with its usual storage representation:\na. Boolean\nb. Character\nc. Floating-point\nd. Set (small base type)\n\n1. Sign, exponent and mantissa\n2. A single bit or byte\n3. A code such as ASCII or Unicode\n4. Bit string",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-4, b-3, c-1, d-2"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Standard representations described in Pratt, chapter on elementary data types."
+        },
+        {
+         "question": "Assertion (A): Subrange types can improve program reliability.\nReason (R): The translator or run-time system can check that assigned values stay within the declared range.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Range checks catch errors that would otherwise produce wrong values silently."
+        },
+        {
+         "question": "Assertion (A): Floating-point numbers can represent every real number within their range exactly.\nReason (R): They use a fixed, finite number of bits for the mantissa.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "With finitely many bits only finitely many values are representable; R explains why A is false."
+        },
+        {
+         "question": "Assertion (A): In C, an array name used in an expression usually converts to a pointer to its first element.\nReason (R): C arrays store their length as part of the array object.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "A is true (array-to-pointer decay). R is false: C arrays carry no length, which is why functions need a size argument."
+        },
+        {
+         "question": "Assertion (A): Enumeration types make programs more readable.\nReason (R): Enumeration values are usually stored internally as small integers.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Both true, but readability comes from meaningful names, not from the internal integer representation."
+        },
+        {
+         "question": "Consider the statements about a C union:\nI. It can hold valid values of all its members at the same time.\nII. Storing into one member can change the value read through another member.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Members overlap in memory, so only the last stored member is meaningful."
+        },
+        {
+         "question": "To keep a student's name, roll number and marks together as one data object, the most suitable type is a:",
+         "options": {
+          "A": "Enumeration",
+          "B": "Array of integers",
+          "C": "Record (structure)",
+          "D": "Subrange"
+         },
+         "answer": "C",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Fields of different types are grouped in a record."
+        },
+        {
+         "question": "Consider the statements:\nI. A pointer data object holds the location (address) of another data object.\nII. In C, dereferencing a NULL pointer is always detected at compile time.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "II is false: a NULL dereference is a run-time error (undefined behaviour) that the compiler usually cannot detect."
+        },
+        {
+         "question": "Which operation is NOT normally defined on an enumeration type such as {MON, TUE, WED}?",
+         "options": {
+          "A": "Multiplication of two values",
+          "B": "Assignment",
+          "C": "Comparison (MON < TUE)",
+          "D": "Successor and predecessor"
+         },
+         "answer": "A",
+         "subject": "Scalar and Composite Data Types",
+         "explanation": "Enumerations are ordered, so comparison and succ/pred make sense; arithmetic like MON × TUE does not."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C – Part 1",
+     "sets": [
+      {
+       "name": "1 · Tokens, Identifiers and Data Types",
+       "questions": [
+        {
+         "question": "Which of the following is a valid C identifier?",
+         "options": {
+          "A": "2total",
+          "B": "total-sum",
+          "C": "_total1",
+          "D": "int"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Identifiers start with a letter or underscore, contain only letters, digits and underscores, and cannot be keywords."
+        },
+        {
+         "question": "How many keywords does ANSI C (C89) define?",
+         "options": {
+          "A": "24",
+          "B": "32",
+          "C": "44",
+          "D": "37"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "C89 has 32 keywords; C99 added 5 more (inline, restrict, _Bool, _Complex, _Imaginary)."
+        },
+        {
+         "question": "Which of the following is NOT a C token?",
+         "options": {
+          "A": "An operator",
+          "B": "A keyword",
+          "C": "A string literal",
+          "D": "A comment"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Comments are removed before tokenisation (replaced by a space); tokens are keywords, identifiers, constants, string literals, operators and punctuators."
+        },
+        {
+         "question": "What does  printf(\"%d\", 010);  print?",
+         "options": {
+          "A": "2",
+          "B": "010",
+          "C": "10",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "A leading 0 makes an integer constant octal: 010₈ = 8."
+        },
+        {
+         "question": "What does  printf(\"%d\", 0x1F);  print?",
+         "options": {
+          "A": "1F",
+          "B": "31",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "0x1F = 1×16 + 15 = 31."
+        },
+        {
+         "question": "In C (not C++),  sizeof('A')  on a system with 4-byte int is:",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "In C a character constant has type int; in C++ it has type char."
+        },
+        {
+         "question": "sizeof(char) in C is:",
+         "options": {
+          "A": "Always 2",
+          "B": "Equal to sizeof(int)",
+          "C": "Always 1",
+          "D": "Implementation-defined, usually 4"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "The standard defines sizeof(char) as 1 byte."
+        },
+        {
+         "question": "The range of a signed char (8-bit, two's complement) is:",
+         "options": {
+          "A": "0 to 255",
+          "B": "−128 to 127",
+          "C": "−127 to 127",
+          "D": "−256 to 255"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "8 bits give 256 values: −2⁷ to 2⁷ − 1."
+        },
+        {
+         "question": "With 32-bit int, what does  unsigned int x = -1;  printf(\"%u\", x);  print?",
+         "options": {
+          "A": "65535",
+          "B": "-1",
+          "C": "0",
+          "D": "4294967295"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "−1 converted to unsigned wraps to 2³² − 1."
+        },
+        {
+         "question": "Consider the statements:\nI. In C, overflow of an unsigned integer wraps around modulo 2ⁿ.\nII. In C, overflow of a signed int is guaranteed to wrap around the same way.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Unsigned arithmetic is modular by definition; signed overflow is undefined behaviour."
+        },
+        {
+         "question": "In C, the constant 3.14 has type:",
+         "options": {
+          "A": "int",
+          "B": "double",
+          "C": "float",
+          "D": "long double"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Floating constants are double unless suffixed: 3.14f is float, 3.14L is long double."
+        },
+        {
+         "question": "What is  strlen(\"a\\tb\")?",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "\\t is a single escape character: a, TAB, b."
+        },
+        {
+         "question": "To read a double with scanf, the correct format specifier is:",
+         "options": {
+          "A": "%ld",
+          "B": "%f",
+          "C": "%d",
+          "D": "%lf"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "In scanf, %f expects float* and %lf expects double*; in printf both %f and %lf print a double."
+        },
+        {
+         "question": "What does  char c = 65;  printf(\"%c %d\", c, c);  print?",
+         "options": {
+          "A": "A 65",
+          "B": "65 65",
+          "C": "A A",
+          "D": "65 A"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "The same value printed as a character and as an integer."
+        },
+        {
+         "question": "In C,  Sum  and  sum  are:",
+         "options": {
+          "A": "Two different identifiers",
+          "B": "The same identifier",
+          "C": "Both keywords",
+          "D": "Invalid identifiers"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "C is case-sensitive."
+        },
+        {
+         "question": "What happens with  const int x = 10;  x = 20; ?",
+         "options": {
+          "A": "x becomes 30",
+          "B": "x becomes 20",
+          "C": "Run-time error only",
+          "D": "Compile-time error: assignment to a read-only variable"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "A const-qualified object is not a modifiable l-value."
+        },
+        {
+         "question": "How many tokens are there in  int a = 10, b;",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "6",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "int, a, =, 10, ',', b, ; → 7."
+        },
+        {
+         "question": "What does  printf(\"%d\", 'a' - 'A');  print (ASCII)?",
+         "options": {
+          "A": "-32",
+          "B": "0",
+          "C": "32",
+          "D": "26"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "97 − 65 = 32."
+        },
+        {
+         "question": "After  int x = 3.9;  the value of x is:",
+         "options": {
+          "A": "3",
+          "B": "Compile error",
+          "C": "3.9",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Conversion from floating to integer truncates toward zero."
+        },
+        {
+         "question": "What does  printf(\"%x\", 255);  print?",
+         "options": {
+          "A": "ff",
+          "B": "FF00",
+          "C": "255",
+          "D": "377"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "255 = 0xFF; %x prints lower-case hexadecimal (%o would give 377)."
+        },
+        {
+         "question": "On a typical system,  sizeof(3.0)  is:",
+         "options": {
+          "A": "4",
+          "B": "10",
+          "C": "8",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "3.0 is a double constant."
+        },
+        {
+         "question": "Match the type with its printf format specifier:\na. int\nb. float/double\nc. char\nd. string (char *)\n\n1. %s\n2. %f\n3. %d\n4. %c",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-3, b-2, c-1, d-4",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-3, b-2, c-4, d-1"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "%d, %f, %c and %s."
+        },
+        {
+         "question": "Which of the following is NOT a data-type modifier in C?",
+         "options": {
+          "A": "long",
+          "B": "large",
+          "C": "short",
+          "D": "unsigned"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "The modifiers are short, long, signed and unsigned."
+        },
+        {
+         "question": "Consider the statements:\nI. Whether plain char is signed or unsigned is implementation-defined.\nII. sizeof(int) is always 2 bytes in C.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "int size depends on the implementation (commonly 4 bytes today); the standard only fixes minimum ranges."
+        },
+        {
+         "question": "Assertion (A): 'A' and \"A\" are the same in C.\nReason (R): \"A\" is a string literal made of the character 'A' followed by '\\0'.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "'A' is an int constant (65); \"A\" is a 2-byte char array. R is true and shows why A is false."
+        },
+        {
+         "question": "Assertion (A): In C, sizeof is an operator, not a library function.\nReason (R): sizeof(int) can be evaluated by the compiler at compile time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Both true; sizeof is an operator by definition of the language, and compile-time evaluation is a consequence, not the reason."
+        },
+        {
+         "question": "Assertion (A): Identifiers in C are case-sensitive.\nReason (R): C treats upper-case and lower-case letters as distinct characters.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Because 'S' and 's' are different characters, Sum and sum are different names."
+        },
+        {
+         "question": "Assertion (A): In C, the value of 5 % 3 is 2.\nReason (R): The % operator in C also accepts floating-point operands.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "A is true. R is false: % needs integer operands; fmod() is used for floating-point values."
+        },
+        {
+         "question": "Which declaration is INVALID in C?",
+         "options": {
+          "A": "float _y;",
+          "B": "int 2x;",
+          "C": "double total_marks;",
+          "D": "char c1;"
+         },
+         "answer": "B",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "An identifier cannot begin with a digit."
+        },
+        {
+         "question": "The value of the constant 1e3 in C is:",
+         "options": {
+          "A": "13",
+          "B": "1000 (an int)",
+          "C": "1000.0 (a double)",
+          "D": "e³"
+         },
+         "answer": "C",
+         "subject": "Tokens, Identifiers and Data Types",
+         "explanation": "Exponent notation always produces a floating (double) constant."
+        }
+       ]
+      },
+      {
+       "name": "2 · Sequence Control: Operators, Expressions and Statements",
+       "questions": [
+        {
+         "question": "What is the value of  5 + 3 * 2  in C?",
+         "options": {
+          "A": "13",
+          "B": "11",
+          "C": "10",
+          "D": "16"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "* has higher precedence than +: 5 + 6."
+        },
+        {
+         "question": "What is the value of  10 / 3 * 3  in C (int operands)?",
+         "options": {
+          "A": "9",
+          "B": "1",
+          "C": "10",
+          "D": "11"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Left to right: 10 / 3 = 3 (integer division), 3 * 3 = 9."
+        },
+        {
+         "question": "What is the value of  10 % 3 * 2 ?",
+         "options": {
+          "A": "0",
+          "B": "4",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "% and * have equal precedence, left to right: 1 * 2 = 2."
+        },
+        {
+         "question": "In C99, the values of  -7 / 2  and  -7 % 2  are:",
+         "options": {
+          "A": "-3 and 1",
+          "B": "-4 and 1",
+          "C": "-3 and -1",
+          "D": "-4 and -1"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Division truncates toward zero, and (a/b)*b + a%b == a: (−3)(2) + (−1) = −7."
+        },
+        {
+         "question": "After  int i = 5, j;  j = i++ + 2;  the values of i and j are:",
+         "options": {
+          "A": "i = 7, j = 8",
+          "B": "i = 6, j = 7",
+          "C": "i = 6, j = 8",
+          "D": "i = 5, j = 7"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "i++ yields the old value 5 and then increments i."
+        },
+        {
+         "question": "After  int a = 0, b = 5;  if (a && (b = 10)) ;  the value of b is:",
+         "options": {
+          "A": "5",
+          "B": "0",
+          "C": "10",
+          "D": "Undefined"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "a is 0, so && short-circuits and the assignment b = 10 is never evaluated."
+        },
+        {
+         "question": "After  int a = 1, b = 5;  if (a || b++) ;  the value of b is:",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "0",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "a is non-zero, so || short-circuits and b++ is not evaluated."
+        },
+        {
+         "question": "What is the value of x after  x = (1, 2, 3);",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "Compile error",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "The comma operator evaluates left to right and yields its last operand."
+        },
+        {
+         "question": "What is the value of the expression  5 > 3 > 1  in C?",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "Compile error",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "(5 > 3) is 1, then 1 > 1 is 0."
+        },
+        {
+         "question": "What is the value of  3 == 3 == 3  in C?",
+         "options": {
+          "A": "3",
+          "B": "0",
+          "C": "1",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "(3 == 3) is 1, then 1 == 3 is 0."
+        },
+        {
+         "question": "What are the values of  5 & 3,  5 | 3  and  5 ^ 3 ?",
+         "options": {
+          "A": "1, 7, 2",
+          "B": "7, 1, 6",
+          "C": "1, 7, 6",
+          "D": "1, 6, 7"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "101 & 011 = 001; 101 | 011 = 111; 101 ^ 011 = 110."
+        },
+        {
+         "question": "What are the values of  1 << 4  and  20 >> 2 ?",
+         "options": {
+          "A": "16 and 80",
+          "B": "16 and 5",
+          "C": "8 and 10",
+          "D": "4 and 5"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Left shift by k multiplies by 2ᵏ; right shift of a non-negative value divides by 2ᵏ."
+        },
+        {
+         "question": "How many times does the body of  for (i = 0; i < 10; i += 3)  execute?",
+         "options": {
+          "A": "3",
+          "B": "10",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "i = 0, 3, 6, 9."
+        },
+        {
+         "question": "How many times does the body of  for (i = 1; i <= 100; i *= 2)  execute?",
+         "options": {
+          "A": "100",
+          "B": "8",
+          "C": "6",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "i = 1, 2, 4, 8, 16, 32, 64; next 128 > 100."
+        },
+        {
+         "question": "After  int i = 10;  do { i++; } while (i < 5);  the value of i is:",
+         "options": {
+          "A": "11",
+          "B": "6",
+          "C": "5",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "A do-while body always runs once before the test."
+        },
+        {
+         "question": "With x = 0, what is x after:\nswitch (2) { case 1: x += 1; case 2: x += 2; case 3: x += 3; break; default: x += 10; }",
+         "options": {
+          "A": "15",
+          "B": "5",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Execution starts at case 2 and falls through case 3 to the break: 2 + 3."
+        },
+        {
+         "question": "In the nested loops  for (i = 0; i < 5; i++) for (j = 0; j < i; j++) count++;  starting with count = 0, the final count is:",
+         "options": {
+          "A": "25",
+          "B": "5",
+          "C": "15",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "0 + 1 + 2 + 3 + 4 = 10."
+        },
+        {
+         "question": "How does C parse the expression  a & b == c ?",
+         "options": {
+          "A": "It is a syntax error",
+          "B": "(a & b) == c",
+          "C": "a & (b == c)",
+          "D": "(a & b) & c"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "== has higher precedence than bitwise &, a classic source of bugs."
+        },
+        {
+         "question": "In  a = b = c = 5;  the assignments are performed:",
+         "options": {
+          "A": "Right to left, so all three become 5",
+          "B": "Left to right, so only a becomes 5",
+          "C": "It is a compile error",
+          "D": "In an unspecified order"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Assignment is right-associative: a = (b = (c = 5))."
+        },
+        {
+         "question": "A break statement inside the inner loop of two nested loops:",
+         "options": {
+          "A": "Exits the function",
+          "B": "Exits only the innermost enclosing loop",
+          "C": "Restarts the outer loop",
+          "D": "Exits both loops"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "break leaves only the nearest enclosing loop or switch."
+        },
+        {
+         "question": "The structured program theorem (Böhm and Jacopini) states that any algorithm can be written using only:",
+         "options": {
+          "A": "Recursion and goto",
+          "B": "goto statements",
+          "C": "Functions and pointers",
+          "D": "Sequence, selection and iteration"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "These three control structures are sufficient, so goto is never strictly necessary."
+        },
+        {
+         "question": "The value of the postfix expression  2 3 4 * +  is:",
+         "options": {
+          "A": "14",
+          "B": "24",
+          "C": "20",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "3 * 4 = 12, then 2 + 12 = 14."
+        },
+        {
+         "question": "The postfix form of the infix expression  a + b * c  is:",
+         "options": {
+          "A": "a b * c +",
+          "B": "+ a * b c",
+          "C": "a b c * +",
+          "D": "a b + c *"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "* has higher precedence, so b c * is formed first."
+        },
+        {
+         "question": "What does this print?\nint i, s = 0;\nfor (i = 1; i <= 10; i++) { if (i % 3 == 0) continue; s += i; }\nprintf(\"%d\", s);",
+         "options": {
+          "A": "55",
+          "B": "37",
+          "C": "40",
+          "D": "18"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "55 − (3 + 6 + 9) = 37."
+        },
+        {
+         "question": "Match the operator with its category:\na. ?:\nb. sizeof\nc. ,\nd. ->\n\n1. Conditional (ternary)\n2. Sequencing (comma)\n3. Member access through a pointer\n4. Unary, compile-time size",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "?: is the only ternary operator in C."
+        },
+        {
+         "question": "Consider the statements:\nI. In C, the order of evaluation of the two operands of + is unspecified.\nII. The && operator guarantees left-to-right evaluation.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "&&, ||, ?: and the comma operator have sequence points; + does not."
+        },
+        {
+         "question": "Assertion (A): In C,  if (x = 0) { … }  never executes its body.\nReason (R): The value of an assignment expression is the value that is assigned.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "x = 0 has value 0 (false) whatever x was, so the body never runs."
+        },
+        {
+         "question": "Assertion (A): The && operator evaluates its right operand only when necessary.\nReason (R): && has higher precedence than ||.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "Both true, but short-circuit evaluation has nothing to do with precedence."
+        },
+        {
+         "question": "Assertion (A): A do-while loop executes its body at least once.\nReason (R): In a do-while loop the condition is tested before the body.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "A is true because the condition is tested after the body; R is false."
+        },
+        {
+         "question": "Assertion (A): case labels in a C switch statement may be floating-point constants such as 1.5.\nReason (R): case labels must be integral constant expressions.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Sequence Control: Operators, Expressions and Statements",
+         "explanation": "R is the rule, and it shows A is false."
+        }
+       ]
+      },
+      {
+       "name": "3 · Subprogram Control and Functions",
+       "questions": [
+        {
+         "question": "An activation record (stack frame) of a C function typically contains:",
+         "options": {
+          "A": "Return address, parameters, local variables and a link to the caller's frame",
+          "B": "Only global variables",
+          "C": "The source code of the function",
+          "D": "The function's compiled machine code"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Each call pushes a new activation record on the run-time stack."
+        },
+        {
+         "question": "Recursion is implemented by giving each active call:",
+         "options": {
+          "A": "A separate program",
+          "B": "A new heap object freed by the programmer",
+          "C": "A shared static copy of its local variables",
+          "D": "Its own activation record on the run-time stack"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Separate records keep the parameters and locals of different calls apart."
+        },
+        {
+         "question": "What is printed?\nvoid f(int x) { x = 10; }\nint main() { int a = 5; f(a); printf(\"%d\", a); }",
+         "options": {
+          "A": "Garbage",
+          "B": "5",
+          "C": "0",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "C passes by value: f changes only its own copy."
+        },
+        {
+         "question": "What is printed?\nvoid f(int *x) { *x = 10; }\nint main() { int a = 5; f(&a); printf(\"%d\", a); }",
+         "options": {
+          "A": "5",
+          "B": "10",
+          "C": "Address of a",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "The pointer lets f store into the caller's variable (call by reference simulated)."
+        },
+        {
+         "question": "Procedure p(x, y) { x = x + 1; y = y + 1; } is called as p(a, a) with a = 1. With call by reference, a becomes:",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "x and y are aliases of a, so a is incremented twice."
+        },
+        {
+         "question": "The same procedure p(x, y) { x = x + 1; y = y + 1; } is called as p(a, a) with a = 1 using call by value-result (copy-in/copy-out, copied back left to right). a becomes:",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "x and y each start at 1 and become 2; both copies return 2 to a."
+        },
+        {
+         "question": "Call by name, in which an argument expression is re-evaluated at every use of the formal parameter, was introduced in:",
+         "options": {
+          "A": "FORTRAN",
+          "B": "ALGOL 60",
+          "C": "C",
+          "D": "Pascal"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Jensen's device exploits call by name in ALGOL 60."
+        },
+        {
+         "question": "Consider:\nint x = 1;\nvoid f() { printf(\"%d\", x); }\nvoid g() { int x = 2; f(); }\nmain calls g(). What is printed under static scoping and under dynamic scoping?",
+         "options": {
+          "A": "Static: 1, Dynamic: 2",
+          "B": "2 in both",
+          "C": "1 in both",
+          "D": "Static: 2, Dynamic: 1"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Static scope uses the x where f is defined (global); dynamic scope uses the most recent caller's x (g's)."
+        },
+        {
+         "question": "How many calls of fact() are made to compute fact(5) with  int fact(int n) { return n == 0 ? 1 : n * fact(n - 1); } ?",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "6",
+          "D": "120"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "fact(5), fact(4), …, fact(0): six calls."
+        },
+        {
+         "question": "With  int fib(int n) { return n <= 1 ? n : fib(n-1) + fib(n-2); },  how many calls in total are made to compute fib(5)?",
+         "options": {
+          "A": "8",
+          "B": "9",
+          "C": "5",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "C(n) = 1 + C(n−1) + C(n−2) with C(0) = C(1) = 1: C(2)=3, C(3)=5, C(4)=9, C(5)=15."
+        },
+        {
+         "question": "What does f(7) return?\nint f(int n) { if (n <= 0) return 0; return n + f(n - 2); }",
+         "options": {
+          "A": "16",
+          "B": "12",
+          "C": "28",
+          "D": "15"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "7 + 5 + 3 + 1 + 0 = 16."
+        },
+        {
+         "question": "What does f(5) return?\nint f(int n) { if (n == 1) return 1; return 2 * f(n - 1); }",
+         "options": {
+          "A": "32",
+          "B": "10",
+          "C": "25",
+          "D": "16"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "f(n) = 2ⁿ⁻¹, so f(5) = 16."
+        },
+        {
+         "question": "What does g(1234) return?\nint g(int x) { return x > 9 ? x % 10 + g(x / 10) : x; }",
+         "options": {
+          "A": "4",
+          "B": "10",
+          "C": "1234",
+          "D": "24"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "It adds the digits: 4 + 3 + 2 + 1."
+        },
+        {
+         "question": "What is printed when f() is called three times?\nvoid f() { static int c = 0; c++; printf(\"%d \", c); }",
+         "options": {
+          "A": "1 1 1",
+          "B": "0 1 2",
+          "C": "1 2 3",
+          "D": "3 3 3"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "A static local is initialised once and keeps its value between calls."
+        },
+        {
+         "question": "The storage class specifier extern in a declaration means:",
+         "options": {
+          "A": "The variable is local to the block",
+          "B": "The variable is stored in a register",
+          "C": "The variable is constant",
+          "D": "The variable is defined elsewhere (possibly in another file)"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "extern declares without defining, so the linker resolves it."
+        },
+        {
+         "question": "Which operation is NOT allowed on a variable declared with the register storage class?",
+         "options": {
+          "A": "Taking its address with &",
+          "B": "Assigning to it",
+          "C": "Using it as a loop counter",
+          "D": "Using it in arithmetic"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "A register variable may not have an address in memory."
+        },
+        {
+         "question": "The main purpose of a function prototype in C is to:",
+         "options": {
+          "A": "Make the function run faster",
+          "B": "Let the compiler check the number and types of arguments in calls",
+          "C": "Allocate memory for the function",
+          "D": "Make the function recursive"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Prototypes allow argument checking and conversions at compile time."
+        },
+        {
+         "question": "A function is tail-recursive when:",
+         "options": {
+          "A": "It uses a static variable",
+          "B": "It calls itself twice",
+          "C": "The recursive call is the last action performed by the function",
+          "D": "It has no parameters"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "A compiler can turn tail recursion into a loop, reusing the same frame."
+        },
+        {
+         "question": "Subprograms that can suspend their execution and later resume from the point of suspension are called:",
+         "options": {
+          "A": "Inline functions",
+          "B": "Macros",
+          "C": "Interrupt vectors",
+          "D": "Coroutines"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Pratt discusses coroutines as a generalisation of simple call-return subprograms."
+        },
+        {
+         "question": "In a language with nested subprograms, the static link in an activation record points to:",
+         "options": {
+          "A": "The heap",
+          "B": "The activation record of the lexically enclosing subprogram",
+          "C": "The caller's activation record",
+          "D": "The global symbol table"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "The dynamic link points to the caller; the static link is used to reach non-local variables under static scoping."
+        },
+        {
+         "question": "With  void f(int n) { if (n > 0) f(n - 1); }  called as f(5), the maximum number of activation records of f on the stack at one time is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "6",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "f(5) down to f(0) are all active together."
+        },
+        {
+         "question": "Match the parameter-passing method with a language that uses it:\na. Call by name\nb. Call by value\nc. Call by reference (traditional)\nd. In out (copy-in/copy-out for scalars)\n\n1. Ada\n2. ALGOL 60\n3. FORTRAN\n4. C",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-3, c-4, d-1"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "ALGOL 60 – name; C – value; FORTRAN – reference; Ada in out – value-result for scalars."
+        },
+        {
+         "question": "Assertion (A): Recursive subprograms need a separate activation record for each active call.\nReason (R): Each activation needs its own copy of parameters and local variables.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Without separate records, a new call would overwrite the values of the pending ones."
+        },
+        {
+         "question": "Assertion (A): In C, an array argument is copied element by element into the called function.\nReason (R): When an array is passed, only the address of its first element is passed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Only a pointer is passed, which is why the function can change the caller's array. R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): A static local variable in C retains its value between calls.\nReason (R): Static local variables are stored on the run-time stack.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "A is true. R is false: static variables live in the static data area for the whole run."
+        },
+        {
+         "question": "Assertion (A): Standard C does not allow a function to be defined inside another function.\nReason (R): C supports recursion.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Both true but unrelated; lack of nesting is why C needs no static links."
+        },
+        {
+         "question": "Consider the statements:\nI. With dynamic scoping, a non-local name is resolved by searching back through the chain of calling subprograms.\nII. C uses dynamic scoping.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "C (like Pascal and Ada) uses static (lexical) scoping."
+        },
+        {
+         "question": "Which statement about recursion is TRUE?",
+         "options": {
+          "A": "Recursion does not use the stack",
+          "B": "Recursion always runs faster than iteration",
+          "C": "Every recursive function can be rewritten iteratively, possibly using an explicit stack",
+          "D": "Recursive functions cannot have parameters"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "The run-time stack can always be simulated by an explicit stack."
+        },
+        {
+         "question": "Two functions A and B where A calls B and B calls A are said to be:",
+         "options": {
+          "A": "Tail recursive",
+          "B": "Inline",
+          "C": "Reentrant only",
+          "D": "Mutually (indirectly) recursive"
+         },
+         "answer": "D",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Recursion through another function is indirect or mutual recursion."
+        },
+        {
+         "question": "Consider the statements:\nI. In C89, a function declared without a return type is assumed to return int.\nII. A C function can return a whole structure by value.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Subprogram Control and Functions",
+         "explanation": "Implicit int was allowed in C89 (removed in C99), and structures can be returned by value."
+        }
+       ]
+      },
+      {
+       "name": "4 · Arrays, Structures, Unions and Strings",
+       "questions": [
+        {
+         "question": "After  int a[5] = {1, 2};  the value of a[3] is:",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "Garbage",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Elements without an initialiser in a partly initialised array are set to 0."
+        },
+        {
+         "question": "For  int a[] = {1, 2, 3, 4};  the value of  sizeof(a) / sizeof(a[0])  is:",
+         "options": {
+          "A": "16",
+          "B": "8",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Total bytes ÷ bytes per element = number of elements."
+        },
+        {
+         "question": "Accessing a[5] of an array declared  int a[5];  results in:",
+         "options": {
+          "A": "An automatic resize of the array",
+          "B": "A compile-time error always",
+          "C": "Undefined behaviour – C does no bounds checking",
+          "D": "The value 0"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Valid indices are 0 to 4; C does not check bounds."
+        },
+        {
+         "question": "With 4-byte int,  int a[3][4];  occupies:",
+         "options": {
+          "A": "12 bytes",
+          "B": "48 bytes",
+          "C": "28 bytes",
+          "D": "16 bytes"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "3 × 4 elements × 4 bytes."
+        },
+        {
+         "question": "For  int a[2][3] = {{1, 2, 3}, {4, 5, 6}};  the value of a[1][2] is:",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "3",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Row 1 is {4, 5, 6}; column 2 is 6."
+        },
+        {
+         "question": "For  int a[] = {10, 20, 30, 40};  the value of  *(a + 2)  is:",
+         "options": {
+          "A": "30",
+          "B": "40",
+          "C": "20",
+          "D": "12"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "a[i] ≡ *(a + i)."
+        },
+        {
+         "question": "strcmp(\"abc\", \"abd\") returns:",
+         "options": {
+          "A": "A positive value",
+          "B": "0",
+          "C": "3",
+          "D": "A negative value"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "The first difference is 'c' < 'd'."
+        },
+        {
+         "question": "Given  char s[10];  the statement  s = \"hi\";  results in:",
+         "options": {
+          "A": "s holding \"hi\"",
+          "B": "A compile error – an array cannot be assigned",
+          "C": "s[0] = 'h' only",
+          "D": "A run-time error"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Use strcpy(s, \"hi\") instead."
+        },
+        {
+         "question": "What does  char s[] = \"GATE\";  printf(\"%s\", s + 1);  print?",
+         "options": {
+          "A": "HATE",
+          "B": "GATE",
+          "C": "ATE",
+          "D": "E"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "s + 1 points to the second character."
+        },
+        {
+         "question": "Which statement is correct?\nchar s[] = \"hello\"; char *p = \"hello\";",
+         "options": {
+          "A": "s[0] = 'j' is valid, but p[0] = 'j' is undefined behaviour",
+          "B": "Both assignments are valid",
+          "C": "Both are compile errors",
+          "D": "p[0] = 'j' is valid, but s[0] = 'j' is not"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "s is a modifiable array; p points to a string literal, which must not be modified."
+        },
+        {
+         "question": "strlen(\"abc\\0def\") is:",
+         "options": {
+          "A": "7",
+          "B": "3",
+          "C": "6",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "strlen stops at the first null character."
+        },
+        {
+         "question": "On a typical system with 4-byte int aligned on 4-byte boundaries, sizeof(struct { char c; int i; }) is:",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "8",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "3 bytes of padding follow c so that i is aligned."
+        },
+        {
+         "question": "With 4-byte aligned int, which structure is larger?\nS1: { char a; char b; int c; }   S2: { char a; int c; char b; }",
+         "options": {
+          "A": "S2 (12 bytes) is larger than S1 (8 bytes)",
+          "B": "S1 is larger than S2",
+          "C": "Both are 6 bytes",
+          "D": "Both are 8 bytes"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "In S2, padding is needed after a and again after b at the end; member order affects size."
+        },
+        {
+         "question": "For a structure pointer p,  p->x  is equivalent to:",
+         "options": {
+          "A": "(*p).x",
+          "B": "*p.x",
+          "C": "p.x",
+          "D": "&p.x"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "*p.x would mean *(p.x) because . binds tighter than *."
+        },
+        {
+         "question": "Consider the statements about C:\nI. Two structures of the same type can be compared with ==.\nII. A structure can be passed to and returned from a function by value.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "== is not defined for structures; compare member by member instead."
+        },
+        {
+         "question": "The size of  union { int i; char c[4]; }  with 4-byte int is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "8",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Members overlap; the largest member is 4 bytes."
+        },
+        {
+         "question": "The range of values of the bit-field  unsigned a : 3;  is:",
+         "options": {
+          "A": "0 to 3",
+          "B": "0 to 7",
+          "C": "−4 to 3",
+          "D": "0 to 8"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "3 bits give 2³ = 8 values."
+        },
+        {
+         "question": "A self-referential structure such as  struct node { int data; struct node *next; };  is mainly used to build:",
+         "options": {
+          "A": "Linked lists and trees",
+          "B": "Files",
+          "C": "Macros",
+          "D": "Fixed-size arrays"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "The pointer member links one node to the next."
+        },
+        {
+         "question": "Given  struct date { int d, m, y; };  struct emp { char name[20]; struct date doj; } e;  the year of joining is accessed as:",
+         "options": {
+          "A": "e.y",
+          "B": "e->doj->y",
+          "C": "doj.e.y",
+          "D": "e.doj.y"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Nested members are accessed with successive dots."
+        },
+        {
+         "question": "What does this print?\nchar s[] = \"abcdef\"; int i;\nfor (i = 0; s[i]; i += 2) putchar(s[i]);",
+         "options": {
+          "A": "bdf",
+          "B": "ac",
+          "C": "ace",
+          "D": "abcdef"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Indices 0, 2 and 4 print a, c, e; at i = 6 the loop meets the terminating '\\0' and stops."
+        },
+        {
+         "question": "Reversing the string \"program\" in place by swapping s[i] and s[n−1−i] needs how many swaps?",
+         "options": {
+          "A": "3",
+          "B": "7",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "n = 7, swaps = ⌊7/2⌋ = 3; the middle character stays."
+        },
+        {
+         "question": "Match the string function with its action:\na. strlen\nb. strcpy\nc. strcmp\nd. strcat\n\n1. Copies a string\n2. Joins one string to the end of another\n3. Counts characters before '\\0'\n4. Compares two strings",
+         "options": {
+          "A": "a-3, b-4, c-1, d-2",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-3, b-1, c-4, d-2"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "All are declared in <string.h>."
+        },
+        {
+         "question": "Assertion (A): An array name cannot appear on the left of an assignment in C.\nReason (R): An array name is not a modifiable l-value.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "That is exactly the rule that forbids array assignment."
+        },
+        {
+         "question": "Assertion (A): C strings store their length in the first byte.\nReason (R): C strings are terminated by the null character '\\0'.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "C finds the end by scanning for '\\0', so no length is stored (that is Pascal-style strings)."
+        },
+        {
+         "question": "Assertion (A): Two structure variables of the same type can be assigned using =.\nReason (R): Structures can contain members of different data types.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Both true; whole-structure assignment is a language rule unrelated to mixed member types."
+        },
+        {
+         "question": "Assertion (A): sizeof a structure may be greater than the sum of the sizes of its members.\nReason (R): C compilers never insert padding between structure members.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "A is true because compilers insert padding for alignment; R is false."
+        },
+        {
+         "question": "To store the marks of 50 students, each with a name, roll number and marks, the most suitable declaration is:",
+         "options": {
+          "A": "A union of 50 members",
+          "B": "An array of 50 structures",
+          "C": "A 2-D char array only",
+          "D": "50 separate int variables"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Each element holds one student's mixed data."
+        },
+        {
+         "question": "What does this print?\nint a[5] = {5, 1, 4, 2, 3}, i, m = a[0];\nfor (i = 1; i < 5; i++) if (a[i] > m) m = a[i];\nprintf(\"%d\", m);",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "5",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "It finds the maximum, using n − 1 = 4 comparisons."
+        },
+        {
+         "question": "What is printed?\nchar s[20] = \"Hello\"; strcat(s, \" C\"); printf(\"%d\", (int)strlen(s));",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "8",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "\"Hello C\" has 7 characters."
+        },
+        {
+         "question": "Which initialisation of a 2-D array is INVALID in C?",
+         "options": {
+          "A": "int a[][] = {{1, 2}, {3, 4}};",
+          "B": "int a[2][2] = {{1}, {3, 4}};",
+          "C": "int a[][2] = {{1, 2}, {3, 4}};",
+          "D": "int a[2][2] = {1, 2, 3, 4};"
+         },
+         "answer": "A",
+         "subject": "Arrays, Structures, Unions and Strings",
+         "explanation": "Only the first dimension may be omitted; the column size is needed for address computation."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C – Part 2",
+     "sets": [
+      {
+       "name": "1 · Pointers",
+       "questions": [
+        {
+         "question": "After  int x = 10, *p = &x;  *p = 20;  the value of x is:",
+         "options": {
+          "A": "10",
+          "B": "30",
+          "C": "Address of x",
+          "D": "20"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "*p is another name for x."
+        },
+        {
+         "question": "An int pointer p holds the address 1000. With 4-byte int, after p++ it holds:",
+         "options": {
+          "A": "1002",
+          "B": "1004",
+          "C": "1008",
+          "D": "1001"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "Pointer arithmetic is scaled by the size of the pointed-to type."
+        },
+        {
+         "question": "For an int array a, the value of  &a[5] - &a[1]  is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "16",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "Pointer difference counts elements, not bytes."
+        },
+        {
+         "question": "For  int a[] = {5, 6, 7, 8};  what is  2[a] ?",
+         "options": {
+          "A": "8",
+          "B": "6",
+          "C": "7",
+          "D": "Compile error"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "a[i] ≡ *(a + i) ≡ *(i + a) ≡ i[a]."
+        },
+        {
+         "question": "What does this print?\nint a[] = {10, 20, 30}; int *p = a;\nprintf(\"%d \", *p++); printf(\"%d\", *p);",
+         "options": {
+          "A": "11 20",
+          "B": "10 20",
+          "C": "20 30",
+          "D": "10 10"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "*p++ yields *p (10) and then advances p to the next element."
+        },
+        {
+         "question": "What does this print?\nint a[] = {10, 20, 30}; int *p = a;\n(*p)++; printf(\"%d %d\", a[0], *p);",
+         "options": {
+          "A": "10 20",
+          "B": "10 11",
+          "C": "11 11",
+          "D": "11 20"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "(*p)++ increments the value pointed to; p itself does not move."
+        },
+        {
+         "question": "For  int a[] = {1, 2, 3, 4, 5}; int *p = a + 1;  the value of  *(p + 2)  is:",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "p points to a[1]; p + 2 points to a[3]."
+        },
+        {
+         "question": "After  int x = 5; int *p = &x; int **q = &p; **q = 7;  the value of x is:",
+         "options": {
+          "A": "Compile error",
+          "B": "5",
+          "C": "Address of p",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "**q → *p → x."
+        },
+        {
+         "question": "For  int a[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};  the value of  *(*(a + 1) + 2)  is:",
+         "options": {
+          "A": "8",
+          "B": "5",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "*(a + 1) is row 1 {4, 5, 6}; element 2 of it is 6."
+        },
+        {
+         "question": "What does this print?\nchar *s = \"hello\"; printf(\"%c\", *(s + 4));",
+         "options": {
+          "A": "h",
+          "B": "l",
+          "C": "o",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "Indices 0–4 are h, e, l, l, o."
+        },
+        {
+         "question": "Which declares fp as a pointer to a function taking two ints and returning int?",
+         "options": {
+          "A": "(int *)fp(int, int);",
+          "B": "int (*fp)(int, int);",
+          "C": "int fp*(int, int);",
+          "D": "int *fp(int, int);"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "Without the parentheses, int *fp(int, int) declares a function returning int *."
+        },
+        {
+         "question": "int *a[10];  and  int (*b)[10];  declare respectively:",
+         "options": {
+          "A": "Two pointers to int",
+          "B": "An array of 10 pointers to int; a pointer to an array of 10 ints",
+          "C": "A pointer to an array; an array of pointers",
+          "D": "Two arrays of 10 ints"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "[] binds tighter than *, unless parentheses change it."
+        },
+        {
+         "question": "A pointer that has been declared but not initialised is called a:",
+         "options": {
+          "A": "Wild pointer",
+          "B": "Null pointer",
+          "C": "Smart pointer",
+          "D": "Void pointer"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "It holds an indeterminate address; dereferencing it is undefined behaviour."
+        },
+        {
+         "question": "Memory allocated with malloc() that is never freed and can no longer be reached causes a:",
+         "options": {
+          "A": "Dangling pointer",
+          "B": "Stack overflow",
+          "C": "Memory leak",
+          "D": "Segmentation of code"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "The memory stays allocated until the program ends."
+        },
+        {
+         "question": "Which statement about calloc() and malloc() is correct?",
+         "options": {
+          "A": "calloc(n, size) allocates n × size bytes and sets them to zero; malloc(size) does not initialise",
+          "B": "malloc initialises memory to zero; calloc does not",
+          "C": "Both always initialise to zero",
+          "D": "calloc allocates on the stack"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "Both return NULL if allocation fails."
+        },
+        {
+         "question": "In  const int *p;  and  int * const q;  which statements are true?",
+         "options": {
+          "A": "*p cannot be changed through p, but p can point elsewhere; q cannot point elsewhere, but *q can be changed",
+          "B": "Both are the same",
+          "C": "p is a constant pointer; q points to a constant",
+          "D": "Neither can be changed at all"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "Read declarations right to left: q is a const pointer to int; p is a pointer to const int."
+        },
+        {
+         "question": "On a typical 64-bit system, sizeof(int *) and sizeof(char *) are:",
+         "options": {
+          "A": "8 and 1",
+          "B": "4 and 4",
+          "C": "4 and 1",
+          "D": "8 and 8"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "All data pointers are usually the size of an address."
+        },
+        {
+         "question": "Which pointer operation is NOT allowed in C?",
+         "options": {
+          "A": "Adding two pointers",
+          "B": "Subtracting two pointers into the same array",
+          "C": "Comparing two pointers into the same array",
+          "D": "Adding an integer to a pointer"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "The sum of two addresses has no meaning."
+        },
+        {
+         "question": "What does this print?\nint a[5] = {1, 2, 3, 4, 5}, *p, s = 0;\nfor (p = a; p < a + 5; p++) s += *p;\nprintf(\"%d\", s);",
+         "options": {
+          "A": "Address of a",
+          "B": "5",
+          "C": "10",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "The pointer walks over all five elements: 1 + 2 + 3 + 4 + 5."
+        },
+        {
+         "question": "What does this print?\nvoid swap(int *x, int *y) { int t = *x; *x = *y; *y = t; }\nint main() { int a = 1, b = 2; swap(&a, &b); printf(\"%d %d\", a, b); }",
+         "options": {
+          "A": "1 1",
+          "B": "1 2",
+          "C": "2 1",
+          "D": "2 2"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "Passing addresses lets swap change the caller's variables."
+        },
+        {
+         "question": "Match the declaration with its meaning:\na. int *p\nb. int **p\nc. int (*p)[5]\nd. int (*p)(void)\n\n1. Pointer to pointer to int\n2. Pointer to an array of 5 ints\n3. Pointer to int\n4. Pointer to a function returning int",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-1, b-3, c-2, d-4",
+          "D": "a-3, b-1, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "Parentheses bind * to p before [] or ()."
+        },
+        {
+         "question": "Assertion (A): Incrementing an int pointer advances it by sizeof(int) bytes.\nReason (R): The compiler scales pointer arithmetic by the size of the pointed-to type.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "That scaling is why p + 1 always points to the next element."
+        },
+        {
+         "question": "Assertion (A): A C function can change the caller's variable if it receives the variable's address.\nReason (R): C passes all arguments by reference.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "A is true. R is false: C always passes by value; passing an address simulates reference."
+        },
+        {
+         "question": "Assertion (A): A void pointer can be dereferenced directly without a cast.\nReason (R): A void pointer carries no information about the type of the object it points to.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "Because the type is unknown, the compiler cannot dereference it; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): calloc() initialises the allocated memory to zero.\nReason (R): malloc() takes a single argument, the number of bytes.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Pointers",
+         "explanation": "Both true, but malloc's signature does not explain calloc's zero-initialisation."
+        },
+        {
+         "question": "Consider the statements:\nI. Returning the address of a local (automatic) variable from a function creates a dangling pointer.\nII. Memory from malloc() is freed automatically when the calling function returns.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "Heap memory lives until free() is called; locals die when the function returns."
+        },
+        {
+         "question": "Consider the statements:\nI. The name of an array is a constant pointer and cannot be incremented (a++ is illegal).\nII. A pointer variable set to the array can be incremented (p++ is legal).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Pointers",
+         "explanation": "a is not a modifiable l-value, but p is an ordinary variable."
+        },
+        {
+         "question": "What does this print?\nint x = 10; int *p = &x; int **q = &p;\nprintf(\"%d\", **q + *p);",
+         "options": {
+          "A": "Compile error",
+          "B": "10",
+          "C": "Address",
+          "D": "20"
+         },
+         "answer": "D",
+         "subject": "Pointers",
+         "explanation": "Both **q and *p are x: 10 + 10."
+        },
+        {
+         "question": "The standard library function used to change the size of a block previously allocated by malloc is:",
+         "options": {
+          "A": "realloc()",
+          "B": "calloc()",
+          "C": "resize()",
+          "D": "free()"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "realloc may move the block and returns its new address."
+        },
+        {
+         "question": "Consider the statements:\nI. malloc() returns NULL if the requested memory cannot be allocated.\nII. Calling free() twice on the same pointer is safe.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Pointers",
+         "explanation": "A double free is undefined behaviour and can corrupt the heap."
+        }
+       ]
+      },
+      {
+       "name": "2 · File Handling, Command Line Arguments and Preprocessors",
+       "questions": [
+        {
+         "question": "Opening a file with fopen(name, \"w\") when the file already exists:",
+         "options": {
+          "A": "Fails with NULL",
+          "B": "Truncates it to zero length and writes from the beginning",
+          "C": "Opens it read-only",
+          "D": "Appends to the end"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Use \"a\" to append or \"r+\" to update without truncating."
+        },
+        {
+         "question": "fopen() returns ______ if the file cannot be opened.",
+         "options": {
+          "A": "0 bytes",
+          "B": "-1",
+          "C": "EOF",
+          "D": "NULL"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Always test the returned FILE pointer before using it."
+        },
+        {
+         "question": "The FILE type and functions such as fopen and fprintf are declared in:",
+         "options": {
+          "A": "<stdlib.h>",
+          "B": "<string.h>",
+          "C": "<stdio.h>",
+          "D": "<file.h>"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "stdio = standard input/output."
+        },
+        {
+         "question": "To write one structure variable rec to a binary file fp, the correct call is:",
+         "options": {
+          "A": "fprintf(fp, rec);",
+          "B": "fwrite(&rec, sizeof(rec), 1, fp);",
+          "C": "fputs(&rec, fp);",
+          "D": "fwrite(rec, 1, fp);"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "fwrite(pointer, size of each item, number of items, stream)."
+        },
+        {
+         "question": "After  fseek(fp, 0, SEEK_END);  the call  ftell(fp)  returns:",
+         "options": {
+          "A": "The size of the file in bytes",
+          "B": "The number of lines",
+          "C": "0",
+          "D": "EOF"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "The position at the end equals the file length (for binary streams)."
+        },
+        {
+         "question": "rewind(fp) is equivalent to:",
+         "options": {
+          "A": "fseek(fp, 0, SEEK_END)",
+          "B": "fclose(fp)",
+          "C": "fflush(fp)",
+          "D": "fseek(fp, 0, SEEK_SET) (and clearing the error indicator)"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "It moves the position back to the start."
+        },
+        {
+         "question": "fclose(fp) is important because it:",
+         "options": {
+          "A": "Opens the file again",
+          "B": "Moves to the end of the file",
+          "C": "Deletes the file",
+          "D": "Flushes buffered output to the file and releases the stream"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Unflushed data may be lost if a program ends abnormally without closing."
+        },
+        {
+         "question": "The three standard streams opened automatically for a C program are:",
+         "options": {
+          "A": "stdin, stdout and stderr",
+          "B": "input, output and log",
+          "C": "stdin, stdout and stdfile",
+          "D": "keyboard, screen and printer"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "stderr is unbuffered, so error messages appear immediately."
+        },
+        {
+         "question": "A program is run as  ./prog one two .  In main(int argc, char *argv[]), argc and argv[2] are:",
+         "options": {
+          "A": "2 and \"two\"",
+          "B": "3 and \"two\"",
+          "C": "3 and \"one\"",
+          "D": "2 and \"one\""
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "argv[0] is the program name, so there are 3 arguments."
+        },
+        {
+         "question": "In main(int argc, char *argv[]), the element argv[argc] is:",
+         "options": {
+          "A": "The last argument",
+          "B": "Undefined",
+          "C": "A null pointer",
+          "D": "The program name"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "The standard guarantees argv[argc] == NULL."
+        },
+        {
+         "question": "To convert the command-line argument \"25\" in argv[1] to an int, a program can use:",
+         "options": {
+          "A": "atoi(argv[1])",
+          "B": "(int) argv[1]",
+          "C": "argv[1] - '0'",
+          "D": "int(argv[1])"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Casting the pointer gives an address, not the number; strtol is a safer alternative."
+        },
+        {
+         "question": "With  #define SQUARE(x) x * x ,  what is the value of  SQUARE(2 + 3) ?",
+         "options": {
+          "A": "10",
+          "B": "11",
+          "C": "25",
+          "D": "13"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "It expands to 2 + 3 * 2 + 3 = 11; arguments are substituted as text."
+        },
+        {
+         "question": "If the macro is written with full parentheses as  #define SQUARE(x) ((x) * (x)) ,  then  SQUARE(2 + 3)  evaluates to:",
+         "options": {
+          "A": "13",
+          "B": "10",
+          "C": "25",
+          "D": "11"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Parentheses keep the argument together: (5) * (5)."
+        },
+        {
+         "question": "With  #define CUBE(x) (x * x * x) ,  what is the value of  CUBE(1 + 1) ?",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "8",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Expands to (1 + 1 * 1 + 1 * 1 + 1) = 4."
+        },
+        {
+         "question": "Preprocessing happens:",
+         "options": {
+          "A": "After code generation",
+          "B": "Before compilation proper, on the source text",
+          "C": "At run time",
+          "D": "After linking"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Directives beginning with # are handled by the preprocessor."
+        },
+        {
+         "question": "The difference between  #include <file.h>  and  #include \"file.h\"  is that:",
+         "options": {
+          "A": "The quoted form includes only the first line",
+          "B": "They are identical",
+          "C": "The angle-bracket form searches only the current directory",
+          "D": "The quoted form searches the current (source) directory first, then the system directories"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Angle brackets are used for standard/system headers."
+        },
+        {
+         "question": "Include guards such as  #ifndef MY_H  #define MY_H … #endif  are used to:",
+         "options": {
+          "A": "Prevent a header's contents from being processed twice in one translation unit",
+          "B": "Speed up the linker",
+          "C": "Hide the header from the compiler",
+          "D": "Make variables global"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Double inclusion would cause redefinition errors."
+        },
+        {
+         "question": "With  #define STR(x) #x ,  STR(hello) expands to:",
+         "options": {
+          "A": "hello",
+          "B": "#hello",
+          "C": "\"hello\"",
+          "D": "'hello'"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "# is the stringizing operator."
+        },
+        {
+         "question": "With  #define JOIN(a, b) a##b ,  JOIN(x, 1) expands to:",
+         "options": {
+          "A": "x1",
+          "B": "\"x1\"",
+          "C": "x##1",
+          "D": "x 1"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "## is the token-pasting operator."
+        },
+        {
+         "question": "Which of the following is a predefined macro in ANSI C?",
+         "options": {
+          "A": "__MAIN__",
+          "B": "__SIZE__",
+          "C": "__LINE__",
+          "D": "__PROGRAM__"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "__FILE__, __LINE__, __DATE__, __TIME__ and __STDC__ are predefined."
+        },
+        {
+         "question": "#undef NAME is used to:",
+         "options": {
+          "A": "Declare an undefined variable",
+          "B": "Remove a previous macro definition of NAME",
+          "C": "Stop compilation",
+          "D": "Delete a file"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "NAME can then be redefined."
+        },
+        {
+         "question": "With  #define MAX(a, b) ((a) > (b) ? (a) : (b)) ,  int i = 5, j = 3;  and  m = MAX(i++, j); , the final value of i is:",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "i++ appears twice in the expansion and is evaluated twice because i > j – a classic macro side-effect trap."
+        },
+        {
+         "question": "Match the function with its action:\na. fseek\nb. ftell\nc. rewind\nd. feof\n\n1. Moves the position to a chosen place\n2. Returns non-zero after an attempt to read past the end\n3. Moves the position to the beginning\n4. Returns the current file position",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "All take a FILE * argument."
+        },
+        {
+         "question": "Match the fopen mode with its meaning:\na. \"r\"\nb. \"w\"\nc. \"a\"\nd. \"r+\"\n\n1. Read an existing file\n2. Read and update an existing file\n3. Create or truncate for writing\n4. Write at the end, creating the file if needed",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-3, b-1, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Adding b (e.g. \"rb\") opens the file in binary mode."
+        },
+        {
+         "question": "Assertion (A): The value returned by fgetc() should be stored in an int, not a char.\nReason (R): fgetc() returns EOF, a value distinct from every valid character.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "A char cannot reliably hold both all 256 byte values and EOF (−1)."
+        },
+        {
+         "question": "Assertion (A): Opening an existing file in \"w\" mode appends new data to its end.\nReason (R): The \"a\" mode opens a file for appending.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "\"w\" truncates; appending is what \"a\" does, which shows A is false."
+        },
+        {
+         "question": "Assertion (A): Include guards prevent a header from being included twice in a translation unit.\nReason (R): The preprocessor runs before the compiler proper.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "Both true, but the guard works because of the #ifndef/#define test, not merely because preprocessing comes first."
+        },
+        {
+         "question": "Assertion (A): Macros can be faster than functions for very small operations.\nReason (R): Macro arguments are type-checked by the compiler just like function arguments.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "A is true (no call overhead). R is false: macros are plain text substitution with no type checking."
+        },
+        {
+         "question": "Consider the statements:\nI. argv[0] normally holds the name used to run the program.\nII. argc counts only the arguments after the program name.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "argc includes the program name, so argc ≥ 1."
+        },
+        {
+         "question": "Consider the statements:\nI. In text mode, newline characters may be translated on some systems (for example to CR-LF on Windows).\nII. In binary mode, bytes are read and written without any translation.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "File Handling, Command Line Arguments and Preprocessors",
+         "explanation": "This is why binary data must be written to files opened with \"wb\"."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
