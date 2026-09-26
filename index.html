@@ -655,6 +655,8 @@ function shuffle(a) {
 function lsGet(k, fallback) { try { const v = localStorage.getItem(k); return v == null ? fallback : JSON.parse(v); } catch (e) { return fallback; } }
 function lsSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
 function normText(s) { return String(s ?? '').replace(/\s+/g, ' ').trim(); }
+// Like normText but keeps line breaks (code snippets, 'I. … II. …' statements, match-the-following columns)
+function normBlock(s) { return String(s ?? '').replace(/\r\n?/g, '\n').split('\n').map(l => l.replace(/[ \t\f\v]+/g, ' ').trim()).join('\n').replace(/\n{3,}/g, '\n\n').trim(); }
 function normCmp(s) { return normText(s).toLowerCase().replace(/[^\p{L}\p{N} ]/gu, ''); }
 
 const ALPH = 'abcdefghjkmnpqrstuvwxyz23456789';
@@ -669,7 +671,12 @@ function hash(str) { // cyrb53
   return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
 }
 // Stable identity for a question, independent of option order, so history survives shuffling
-const qKey = q => 'q' + hash(normCmp(q.question) + '|' + LETTERS.map(L => normCmp(q.options[L])).sort().join('|'));
+// Question identity for history, flashcards and de-duplication. It is stored with each question when the question is
+// saved, so a change here only affects questions saved afterwards. v1 dropped all symbols, which made questions such as
+// x + x'y / x + xy or p ∧ q / p ∨ q (and Kannada vowel signs) look identical; v2 keeps every character except spacing and case.
+const keyText = s => normText(s).toLowerCase().normalize('NFKC');
+const qKey = q => 'q' + hash(keyText(q.question) + '|' + LETTERS.map(L => keyText(q.options[L])).sort().join('|'));
+const qKeyV1 = q => 'q' + hash(normCmp(q.question) + '|' + LETTERS.map(L => normCmp(q.options[L])).sort().join('|'));
 
 async function copyText(txt, ta) {
   try { await navigator.clipboard.writeText(txt); return true; }
@@ -731,7 +738,7 @@ function parseJSON(data) {
   arr.forEach((it, i) => {
     const label = 'Item ' + (i + 1);
     if (!it || typeof it !== 'object') { issues.push({ label, reason: 'not an object' }); return; }
-    const q = normText(it.question ?? it.q ?? it.text);
+    const q = normBlock(it.question ?? it.q ?? it.text);
     const o = {};
     const src = it.options ?? it.choices;
     if (Array.isArray(src)) src.slice(0, 4).forEach((v, k) => { if (v != null && normText(v)) o[LETTERS[k]] = normText(v); });
@@ -1755,7 +1762,9 @@ function idsQuestionInfo(ids) {
     if (id.startsWith('P1-CA-')) continue; // current affairs: no question packs by design
     const t = planTopic(id);
     if (t && topicQuestionCount(t.id)) withQ.push(t);
-    else { missing.push(id); packsForPlanId(id).filter(p => !packImported(p)).forEach(p => need.set(p.file, p)); }
+    else missing.push(id);
+    // offer new packs even when the topic already has some questions (e.g. only the small daily sample)
+    packsForPlanId(id).filter(p => !packImported(p)).forEach(p => need.set(p.file, p));
   }
   return { withQ, missing, packs: [...need.values()] };
 }
@@ -1868,10 +1877,11 @@ function subjectPacksHTML(s) {
 }
 function topicAvailHTML(t) {
   ensureBank();
-  if (!packIndex || !t.plan || !t.plan.id || topicQuestionCount(t.id)) return '';
-  const p = packsForPlanId(t.plan.id).filter(x => !packImported(x));
+  if (!packIndex || !t.plan || !t.plan.id) return '';
+  const p = packsForPlanId(t.plan.id).filter(x => !packImported(x)), has = topicQuestionCount(t.id);
+  if (!p.length && has) return '';
   if (!p.length) return `<div class="card"><p class="small muted" style="margin:0">📦 No questions for this topic in the question bank yet. They will appear here when a pack covering <b>${esc(t.plan.id)}</b> is published.</p></div>`;
-  return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b>📦 Questions for this topic are ready</b>
+  return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b>📦 ${has ? 'More questions' : 'Questions'} for this topic are ready</b>
     <div class="small">In “${esc(p[0].name)}” (${plural(p[0].questions || 0, 'question')})${p.length > 1 ? ` and ${p.length - 1} more pack(s)` : ''}.</div></div>
     <button class="btn primary" data-bankfile="${esc(p[0].file)}">Import</button></div></div>`;
 }
@@ -2156,7 +2166,7 @@ function renderSubject() {
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
-    const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = !nQ && t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
+    const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>
       <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${ready ? ' · <span class="pill pk">📦 ready in the bank</span>' : ''}</div></div>
       <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
@@ -2742,7 +2752,18 @@ async function importPack(pack, onTick) {
         const questions = (pset._valid || parseJSON(pset.questions || []).questions).map(q => ({ ...q, key: qKey(q) }));
         const name = normText(pset.name) || tname;
         if (!questions.length) continue;
-        if (D.sets.some(x => x.topicId === t.id && same(x.name, name))) { res.skipped++; continue; }
+        const ex = D.sets.find(x => x.topicId === t.id && same(x.name, name));
+        if (ex) {
+          res.skipped++;
+          // Re-importing repairs the layout (line breaks) of a set imported by an older version; only whitespace may
+          // differ, so the stored keys, history and flashcards stay valid
+          if (ex.format === 'Study pack') tasks.push(async () => {
+            const old = await getSetQuestions(ex.id), fresh = new Map(questions.map(q => [qKeyV1(q), q]));
+            const upd = old.map(q => { const f = fresh.get(qKeyV1(q)); return f && f.question !== q.question && normText(f.question) === normText(q.question) ? { ...q, question: f.question } : q; });
+            if (upd.some((q, i) => q !== old[i])) { await store.put('setq', ex.id, { questions: upd }); qCache.set(ex.id, upd); res.refreshed = (res.refreshed || 0) + 1; }
+          });
+          continue;
+        }
         const set = { id: newId(), name, subjectId: s.id, topicId: t.id, count: questions.length, format: 'Study pack', createdAt: Date.now() };
         D.sets.push(set); qCache.set(set.id, questions);
         res.sets++; res.questions += questions.length; added++;

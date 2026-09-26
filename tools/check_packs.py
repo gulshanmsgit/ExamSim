@@ -4,10 +4,11 @@ ERROR = must fix before committing.  WARN = review (older packs may carry a few)
 Checks: pack files are listed in packs/index.json; subject/topic names match the planner (structure pack);
 set sizes (P2 30, P1 20); sets match tools/syllabus_map.json; Paper 2 is English only; every question has
 4 distinct options, an answer and an explanation; A–D spread per set; assertion–reason answers vary;
-no duplicate questions across the whole bank.
+no duplicate questions across the whole bank (compared the way the app does: spacing and case ignored,
+options in any order).
 Usage: python tools/check_packs.py
 """
-import json, re, sys
+import json, re, sys, unicodedata
 from collections import Counter
 from pathlib import Path
 
@@ -24,6 +25,16 @@ planned = {s["name"]: {t["name"] for t in s["topics"]} for s in structure["subje
 smap = json.loads((ROOT / "tools" / "syllabus_map.json").read_text(encoding="utf-8"))
 index = json.loads((PACKS / "index.json").read_text(encoding="utf-8"))
 listed = {p["file"] for p in index["packs"]}
+
+
+
+def key_text(t):  # same as keyText() in index.html: collapse spacing, lower-case, NFKC
+    return unicodedata.normalize("NFKC", re.sub(r"\s+", " ", str(t)).strip().lower())
+
+
+def app_key(question, options):  # the app's question identity (qKey v2): used for history, de-duplication and flashcards
+    return key_text(question) + "|" + "|".join(sorted(key_text(o) for o in options))
+
 
 errors, warns, seen = [], [], {}
 err = lambda m: errors.append(m)
@@ -77,7 +88,7 @@ for f in sorted(listed):
                     letters[q.get("answer")] += 1
                     if "Assertion (A)" in q["question"]:
                         ar[q.get("answer")] += 1
-                    k = re.sub(r"\s+", " ", (q["question"] + " | " + " | ".join(sorted(vals))).strip().lower())
+                    k = app_key(q["question"], vals)
                     if k in seen:
                         err(f"{where} Q{i}: duplicate of {seen[k]}")
                     else:

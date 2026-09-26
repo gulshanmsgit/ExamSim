@@ -30,6 +30,34 @@ def _keep_order(q, opts):
     return "Assertion (A)" in q or any(_ORDERED.search(o) for o in opts)
 
 
+# Match-the-following: stem ends with a line "1. …  2. …  3. …  4. …" and options are codes like "a-4, b-3, c-2, d-1".
+# The numbered column is reordered (seeded by the question text) and every code is rewritten to match, so the
+# correct code differs from question to question instead of following one habit such as "a-4, b-3, c-2, d-1".
+_MATCH_OPT = re.compile(r"^[a-e]-\d(, [a-e]-\d)+$")
+
+
+def _renumber_match(q, opts):
+    if not all(_MATCH_OPT.match(o) for o in opts):
+        return q, opts
+    head, _, last = q.rpartition("\n")
+    parts = re.split(r"(?:^|\s{2,})(\d)\.\s", last)
+    nums, items = parts[1::2], parts[2::2]
+    if parts[0].strip() or nums != [str(i) for i in range(1, len(nums) + 1)]:
+        return q, opts
+    perm = list(range(len(items)))
+    random.Random("match" + hashlib.md5(q.encode()).hexdigest()).shuffle(perm)  # old item k becomes number perm[k] + 1
+    new_items = [None] * len(items)
+    for k, it in enumerate(items):
+        new_items[perm[k]] = it.strip()
+    recode = lambda o: re.sub(r"([a-e])-(\d)", lambda m: f"{m.group(1)}-{perm[int(m.group(2)) - 1] + 1}", o)
+    # One item per line (the app keeps line breaks): stem, then a. b. c. d., a blank line, then 1. 2. 3. 4.
+    stem, _, left = head.rpartition("\n")
+    lparts = re.split(r"(?:^|\s{2,})([a-e])\.\s", left)
+    if not lparts[0].strip() and lparts[1::2] == list("abcde"[:len(lparts[1::2])]) and len(lparts) > 1:
+        head = stem + "\n" + "\n".join(f"{lab}. {txt.strip()}" for lab, txt in zip(lparts[1::2], lparts[2::2]))
+    return head + "\n\n" + "\n".join(f"{i + 1}. {t}" for i, t in enumerate(new_items)), [recode(o) for o in opts]
+
+
 def build_pack(out_path, name, description, subjects):
     """subjects: [{name, icon, topics: [{name, sets: [{name, questions: [(q, opts, ans, expl)], tag?}]}]}]"""
     problems, counts, seen = [], {"A": 0, "B": 0, "C": 0, "D": 0}, {}
@@ -44,6 +72,7 @@ def build_pack(out_path, name, description, subjects):
                 # correct answer on the least-used letter so far (ties and distractor order decided by a hash of the text).
                 used = Counter("ABCD"[a] for q, o, a, _ in st["questions"] if _keep_order(q, o) and 0 <= a < 4)
                 for i, (q, opts, ans, expl) in enumerate(st["questions"]):
+                    q, opts = _renumber_match(q, opts)
                     where = f"{t['name']} / {st['name']} Q{i + 1}"
                     if len(opts) != 4 or len(set(opts)) != 4:
                         problems.append(f"{where}: needs 4 distinct options")
