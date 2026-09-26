@@ -62,7 +62,7 @@ Workflow: Claude edits and commits locally; **the owner runs `git push origin ma
 | P2 Unit 2 – Discrete Structures (9 topics, 29 sub-topics, 870 Q) | done |
 | P2 Unit 5 – DBMS: only topic "DBMS Concepts and Architecture" (6 sub-topics, 180 Q) | partial — 9 more topics to do |
 | P2 Units 3, 4, 6, 7, 8, 9, 10 | **not started** |
-| P1 General Kannada | `tools/p1_kan_*.py` + `tools/pack_p1_kannada.py` exist (340 Q, 20 per topic) — created by another session, **not yet built into `packs/` or listed in index.json**; confirm with the owner before using |
+| P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`. As of 11:23 on 26 Sep these changes (and a small `packlib.py` UTF-8 stdout tweak) were **not yet committed** — check `git status`, review, then commit. |
 | Other Paper 1 subjects | only the Days 1–2 sample |
 
 ### Next steps (owner's current request)
