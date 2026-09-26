@@ -342,7 +342,9 @@ tfoot td{border-bottom:none}
       <button class="tab active" data-tab="upload">Upload</button>
       <button class="tab" data-tab="paste">Paste</button>
       <button class="tab" data-tab="ai">✨ AI</button>
+      <button class="tab" data-tab="packs">📦 Packs</button>
     </div>
+    <div id="tab-packs" hidden><div id="packList"><p class="small muted">Loading study packs…</p></div></div>
     <div id="tab-upload">
       <label class="drop" id="drop">
         <input type="file" id="fileInput" accept=".json,.txt,.pdf,application/json,text/plain,application/pdf" hidden>
@@ -1290,7 +1292,7 @@ function goHome() {
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
   if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
-  h += todayCard() + continueCard();
+  h += todayCard() + planCard() + continueCard();
   h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
     <button class="btn" id="hNewSubj">+ New subject</button><button class="btn primary" id="hAddSet">+ Add question set</button></div>`;
   if (!D.subjects.length) {
@@ -1488,9 +1490,12 @@ function mocksCard() {
   if (!D.mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
   return h + D.mocks.map(m => {
     const parts = m.sources.filter(srcName).map(s => `${srcName(s).replace(' (whole subject)', '')} ${m.mode === 'pct' ? s.weight + '%' : s.weight + 'q'}`);
+    // how many questions the library can supply right now (grows as packs are imported)
+    const target = m.totalInput || m.total, avail = allocate(m.sources.filter(srcName), target, m.mode).reduce((a, b) => a + b, 0);
+    const size = avail < target ? `${avail} of ${target} questions available` : plural(target, 'question');
     const atts = D.attempts.filter(a => a.mockId === m.id);
     const best = atts.length ? Math.max(...atts.map(pct)).toFixed(0) + '%' : '—';
-    return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(m.name)}</b><div class="small muted">${plural(m.total, 'question')} · ${esc(parts.join(' + '))}</div></div>
+    return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(m.name)}</b><div class="small muted">${size} · ${esc(parts.join(' + '))}</div></div>
       <div class="small muted">${plural(atts.length, 'attempt')} · best ${best}</div>
       <button class="btn primary" data-mockstart="${m.id}">Start</button>
       <button class="icon-btn" data-mockedit="${m.id}" title="Edit mock test" aria-label="Edit mock test">✎</button>
@@ -1562,6 +1567,10 @@ function renderTopic() {
   const atts = D.attempts.filter(a => a.topicId === t.id);
   const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
   let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic', s);
+  if (t.plan) {
+    const p = t.plan, fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
+    h += `<p class="small" style="margin:-4px 0 8px">📅 <span class="pill">${esc(p.id || 'Plan')}</span> ${p.start ? esc(fd(p.start)) + (p.end && p.end !== p.start ? ' → ' + esc(fd(p.end)) : '') : ''}${p.priority ? ' · ' + esc(p.priority) + ' priority' : ''}${p.tip ? ' · 💡 ' + esc(p.tip) : ''}</p>`;
+  }
   h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
   if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
@@ -1742,6 +1751,7 @@ function openAdd(ctx) {
   $('#addCrumbs').outerHTML = crumbs(items).replace('<nav class="crumbs">', '<nav class="crumbs" id="addCrumbs">');
   setStatus('');
   $('#previewCard').hidden = $('#saveCard').hidden = true;
+  $('#destCard').hidden = false;
   fillSubjects(ctx.subjectId || (D.subjects.length === 1 ? D.subjects[0].id : ''));
   fillTopics(ctx.topicId);
   show('add');
@@ -1787,6 +1797,8 @@ function switchTab(t) {
   $('#tab-upload').hidden = t !== 'upload';
   $('#tab-paste').hidden = t !== 'paste';
   $('#tab-ai').hidden = t !== 'ai';
+  $('#tab-packs').hidden = t !== 'packs';
+  if (t === 'packs') loadPackList();
   if (t === 'ai') {
     $('#aiGenNoKey').hidden = !!aiCfg().gemKey;
     const tp = byId('topics', addCtx.topicId);
@@ -1819,6 +1831,14 @@ async function handleFile(file) {
 }
 
 function loadFromText(text, name, srcFormat) {
+  const pack = detectPack(text);
+  if (pack) {
+    const sum = summarizePack(pack);
+    loaded = { name: pack.name || name || 'Study pack', format: 'Study pack', pack, sum, questions: [], issues: [] };
+    setStatus(`📦 Study pack <b>${esc(loaded.name)}</b>: ${plural(sum.questions, 'question')} in ${plural(sum.topics, 'topic')} across ${plural(pack.subjects.length, 'subject')}.`, 'ok');
+    renderPreview();
+    return;
+  }
   const r = parseInput(text);
   if (srcFormat) r.format = srcFormat + ' → ' + r.format;
   loaded = { name: name || 'Untitled set', ...r };
@@ -1838,6 +1858,8 @@ $('#sampleBtn').onclick = () => { $('#pasteArea').value = SAMPLE; loadFromText(S
 
 function renderPreview() {
   const pc = $('#previewCard');
+  $('#destCard').hidden = !!loaded.pack; // a pack brings its own subjects and topics
+  if (loaded.pack) { pc.innerHTML = packPreviewHTML(); pc.hidden = false; renderSaveCard(); return; }
   const { questions: qs, issues } = loaded;
   const subjects = [...new Set(qs.map(q => q.subject).filter(Boolean))];
   let h = `<h2>Preview</h2>
@@ -1870,6 +1892,7 @@ function renderPreview() {
 /* Step 3: save. Shown right under the loader (above the preview) as soon as questions are parsed */
 function renderSaveCard() {
   const sc = $('#saveCard');
+  if (loaded && loaded.pack) { renderPackSave(); return; }
   if (!loaded || !loaded.questions.length) { sc.hidden = true; return; }
   const prevName = $('#svName') ? $('#svName').value : null, prevSplit = $('#svSplit') ? $('#svSplit').checked : false;
   const tags = [...new Set(loaded.questions.map(q => q.subject).filter(Boolean))];
@@ -1957,6 +1980,217 @@ async function saveSet(startAfter) {
   } else if (startAfter) startSetup({ name, questions: saved.flatMap(x => x.questions), subjectId: sid, topicId: null, setId: null, mode: 'import' });
   else openSubject(sid);
 }
+
+/* ============================================================
+   Study packs: many subjects → topics → sets (+ mock presets) in one JSON file
+   { "examsimPack": 1, "name", "description",
+     "subjects": [ { "name", "icon"?, "color"?, "settings"?,
+       "topics": [ { "name", "plan"?: { id, start, end, priority, tip },
+         "sets"?: [ { "name", "questions": [ …same format as a JSON set… ] } ] } ] } ],
+     "mocks"?: [ { "name", "mode": "count"|"pct", "total"?, "prefer"?, "sources": [ { "subject", "topic"?, "weight" } ] } ] }
+   Everything is matched by name, so importing again, or importing the next
+   day's pack, adds to the same subjects and topics without duplicates.
+   ============================================================ */
+function detectPack(text) {
+  const t = String(text || '').replace(/^﻿/, '').trim();
+  if (t[0] !== '{') return null;
+  try { const o = JSON.parse(t); return o && Array.isArray(o.subjects) ? o : null; } catch (e) { return null; }
+}
+function summarizePack(p) {
+  const sum = { topics: 0, sets: 0, questions: 0, bad: 0, planned: 0, per: [], mocks: (p.mocks || []).length };
+  for (const s of p.subjects) {
+    const row = { name: normText(s.name), topics: 0, questions: 0 };
+    for (const t of s.topics || []) {
+      sum.topics++; row.topics++;
+      if (t.plan) sum.planned++;
+      for (const set of t.sets || []) {
+        const r = parseJSON(Array.isArray(set.questions) ? set.questions : []);
+        set._valid = r.questions; sum.bad += r.issues.length;
+        sum.sets++; sum.questions += r.questions.length; row.questions += r.questions.length;
+      }
+    }
+    sum.per.push(row);
+  }
+  return sum;
+}
+function packPreviewHTML() {
+  const { pack, sum } = loaded;
+  return `<h2>📦 ${esc(loaded.name)}</h2>${pack.description ? `<p class="small muted" style="margin-top:0">${esc(pack.description)}</p>` : ''}
+    <div class="stats">${statBox(sum.questions, 'Questions')}${statBox(sum.topics, 'Topics')}${statBox(pack.subjects.length, 'Subjects')}${statBox(sum.mocks, 'Mock presets')}</div>
+    ${sum.bad ? `<p class="small" style="color:var(--orange)">⚠ ${plural(sum.bad, 'question')} in this pack are invalid and will be skipped.</p>` : ''}
+    <div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Topics</th><th class="num">Questions</th></tr></thead><tbody>
+    ${sum.per.map(r => `<tr><td>${esc(subjIcon({ name: r.name }))} ${esc(r.name)}</td><td class="num">${r.topics}</td><td class="num">${r.questions || '—'}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function renderPackSave() {
+  const sc = $('#saveCard');
+  sc.innerHTML = `<h2>3. Import study pack</h2>
+    <p class="small muted" style="margin-top:0">Subjects and topics are matched by name, and missing ones are created. A question set already in a topic (same name) is skipped, so importing again is safe.</p>
+    <div class="row"><button class="btn primary big" id="pkImport">📦 Import everything</button><span class="small muted" id="pkMsg"></span></div>`;
+  sc.hidden = false;
+  $('#pkImport').onclick = async () => {
+    const btn = $('#pkImport'), msg = $('#pkMsg');
+    btn.disabled = true;
+    try {
+      const r = await importPack(loaded.pack, (d, n) => { msg.textContent = `Saving… ${d}/${n}`; });
+      msg.textContent = '';
+      toast(`Imported: ${plural(r.questions, 'question')} into ${plural(r.topicsTouched, 'topic')}`);
+      openAdd({});
+      goHome();
+      openModal(`<h3>📦 Pack imported</h3><table>
+        <tr><td>New subjects</td><td class="num"><b>${r.subjects}</b></td></tr>
+        <tr><td>New topics</td><td class="num"><b>${r.topics}</b></td></tr>
+        <tr><td>Question sets added</td><td class="num"><b>${r.sets}</b> (${plural(r.questions, 'question')})</td></tr>
+        <tr><td>Sets already present (skipped)</td><td class="num"><b>${r.skipped}</b></td></tr>
+        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>`, [{ label: 'Done', cls: 'primary' }]);
+    } catch (e) { toast(errText(e), 'error'); msg.textContent = ''; btn.disabled = false; }
+  };
+}
+async function runPool(tasks, n, onTick) {
+  let next = 0, done = 0;
+  const worker = async () => { while (next < tasks.length) { const k = next++; await tasks[k](); done++; if (onTick) onTick(done, tasks.length); } };
+  await Promise.all(Array.from({ length: Math.min(n, tasks.length) }, worker));
+}
+async function importPack(pack, onTick) {
+  const res = { subjects: 0, topics: 0, sets: 0, questions: 0, skipped: 0, mocks: 0, topicsTouched: 0 };
+  const same = (a, b) => normText(a).toLowerCase() === normText(b).toLowerCase();
+  const tasks = [];
+  for (const ps of pack.subjects) {
+    const sname = normText(ps.name);
+    if (!sname) continue;
+    let s = D.subjects.find(x => same(x.name, sname));
+    if (!s) {
+      s = { id: newId(), name: sname, createdAt: Date.now(), settings: { ...DEFAULT_SETTINGS, ...(ps.settings || {}) } };
+      if (ps.icon) s.icon = String(ps.icon);
+      if (ps.color) s.color = String(ps.color);
+      await save('subjects', s); res.subjects++;
+    }
+    for (const pt of ps.topics || []) {
+      const tname = normText(pt.name);
+      if (!tname) continue;
+      let t = D.topics.find(x => x.subjectId === s.id && same(x.name, tname));
+      const plan = pt.plan && typeof pt.plan === 'object' ? clone(pt.plan) : null;
+      if (!t) {
+        t = { id: newId(), name: tname, subjectId: s.id, createdAt: Date.now() };
+        if (plan) t.plan = plan;
+        D.topics.push(t); res.topics++;
+        const tt = t; tasks.push(() => store.put('topics', tt.id, (({ id, ...rest }) => rest)(tt)));
+      } else if (plan && JSON.stringify(plan) !== JSON.stringify(t.plan || null)) {
+        t.plan = plan;
+        const tt = t; tasks.push(() => save('topics', tt));
+      }
+      let touched = false;
+      for (const pset of pt.sets || []) {
+        const questions = (pset._valid || parseJSON(pset.questions || []).questions).map(q => ({ ...q, key: qKey(q) }));
+        const name = normText(pset.name) || tname;
+        if (!questions.length) continue;
+        if (D.sets.some(x => x.topicId === t.id && same(x.name, name))) { res.skipped++; continue; }
+        const set = { id: newId(), name, subjectId: s.id, topicId: t.id, count: questions.length, format: 'Study pack', createdAt: Date.now() };
+        D.sets.push(set); qCache.set(set.id, questions);
+        res.sets++; res.questions += questions.length; touched = true;
+        tasks.push(async () => { await store.put('setq', set.id, { questions }); await store.put('sets', set.id, (({ id, ...rest }) => rest)(set)); });
+      }
+      if (touched) res.topicsTouched++;
+    }
+  }
+  try { await runPool(tasks, 6, onTick); }
+  finally { D.subjects.sort(byName); D.topics.sort(byName); }
+  // Mock presets refer to subjects/topics by name
+  for (const pm of pack.mocks || []) {
+    const sources = [];
+    for (const src of pm.sources || []) {
+      const s = D.subjects.find(x => same(x.name, src.subject || ''));
+      if (!s) continue;
+      if (src.topic) { const t = D.topics.find(x => x.subjectId === s.id && same(x.name, src.topic)); if (t) sources.push({ type: 'topic', id: t.id, weight: +src.weight || 0 }); }
+      else sources.push({ type: 'subject', id: s.id, weight: +src.weight || 0 });
+    }
+    if (!sources.length) continue;
+    const prev = D.mocks.find(x => same(x.name, pm.name || ''));
+    const mode = pm.mode === 'pct' ? 'pct' : 'count';
+    const m = {
+      id: prev ? prev.id : newId(), name: normText(pm.name) || 'Mock test', mode, prefer: pm.prefer || 'random',
+      totalInput: mode === 'pct' ? (+pm.total || 50) : sources.reduce((n, x) => n + x.weight, 0),
+      total: mode === 'pct' ? (+pm.total || 50) : sources.reduce((n, x) => n + x.weight, 0),
+      sources, createdAt: prev ? prev.createdAt : Date.now()
+    };
+    await save('mocks', m); res.mocks++;
+  }
+  D.mocks.sort(byName);
+  return res;
+}
+
+// 📦 Packs tab: packs published alongside the app (packs/index.json)
+let packIndex = null;
+async function loadPackList() {
+  const el = $('#packList');
+  if (!packIndex) {
+    try {
+      const r = await fetch('packs/index.json', { cache: 'no-cache' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      packIndex = await r.json();
+    } catch (e) {
+      el.innerHTML = `<p class="small muted">Study packs can be listed only when the app is opened from its website (e.g. GitHub Pages), not as a local file. You can still import a pack file with the <b>Upload</b> tab.</p>`;
+      return;
+    }
+  }
+  const packs = packIndex.packs || [];
+  if (!packs.length) { el.innerHTML = '<p class="small muted">No study packs published yet.</p>'; return; }
+  el.innerHTML = `<p class="small muted" style="margin-top:0">${esc(packIndex.title || 'Ready-made question packs')}. Import them in order; each one adds to the same subjects and topics.</p>`
+    + packs.map((p, i) => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b><div class="small muted">${esc(p.description || '')}</div>
+        <div class="small">${p.questions ? plural(p.questions, 'question') + ' · ' : ''}${p.topics ? plural(p.topics, 'topic') : ''}</div></div>
+        <button class="btn primary" data-pack="${i}">Load</button></div>`).join('');
+  el.querySelectorAll('[data-pack]').forEach(b => b.onclick = async () => {
+    const p = packs[+b.dataset.pack];
+    b.disabled = true; b.textContent = 'Loading…';
+    try {
+      const r = await fetch('packs/' + p.file, { cache: 'no-cache' });
+      if (!r.ok) throw new Error('Could not download the pack (HTTP ' + r.status + ')');
+      loadFromText(await r.text(), p.name);
+      $('#saveCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (e) { toast(e.message, 'error'); }
+    finally { b.disabled = false; b.textContent = 'Load'; }
+  });
+}
+
+/* ---------- Study plan (topics that carry plan dates from a pack) ---------- */
+const planDate = d => new Date(d + 'T00:00:00');
+function topicQuestionCount(tid) { return D.sets.filter(x => x.topicId === tid).reduce((n, x) => n + (x.count || 0), 0); }
+async function practiseTopic(tid, btn) {
+  const t = byId('topics', tid), sets = D.sets.filter(x => x.topicId === tid);
+  if (!t || !sets.length) return;
+  if (sets.length === 1) return startSetFromId(sets[0].id, btn);
+  if (btn) btn.disabled = true;
+  try { startSetup({ name: 'All sets: ' + t.name, questions: await sourceQuestions(sets), subjectId: t.subjectId, topicId: t.id, setId: null, mode: 'all' }); }
+  catch (e) { toast(errText(e), 'error'); }
+  finally { if (btn) btn.disabled = false; }
+}
+function planCard() {
+  const today = dayKey();
+  const planned = D.topics.filter(t => t.plan && t.plan.start);
+  if (!planned.length) return '';
+  let list = planned.filter(t => t.plan.start <= today && today <= (t.plan.end || t.plan.start));
+  let title = "📅 Today's plan";
+  if (!list.length) {
+    const upcoming = planned.filter(t => t.plan.start > today).sort((a, b) => a.plan.start.localeCompare(b.plan.start));
+    if (!upcoming.length) return '';
+    const d = upcoming[0].plan.start;
+    list = upcoming.filter(t => t.plan.start === d);
+    title = '📅 Next in your plan · ' + planDate(d).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
+  }
+  list.sort((a, b) => String(a.plan.id || '').localeCompare(String(b.plan.id || ''), undefined, { numeric: true }));
+  const rows = list.map(t => {
+    const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id), carry = t.plan.start < today;
+    return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>
+        <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(planDate(t.plan.start).toLocaleDateString([], { day: 'numeric', month: 'short' })) : ''}</div>
+        ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+        <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
+  });
+  const more = rows.length > 6;
+  return `<div class="card"><h2>${title}</h2>${rows.slice(0, 6).join('')}${more ? `<details><summary class="small" style="padding:8px 0">Show ${rows.length - 6} more</summary>${rows.slice(6).join('')}</details>` : ''}</div>`;
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-practise]');
+  if (b) { e.preventDefault(); practiseTopic(b.dataset.practise, b); }
+});
 
 /* ============================================================
    Mock test builder
