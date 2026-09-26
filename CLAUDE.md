@@ -58,7 +58,7 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 - Paper 1 General Kannada: questions in Kannada (KTBS textbook basis). No current affairs anywhere.
 - Accuracy first: if unsure of a fact, write a different question. Sources: syllabus reference books (Sinha, Rosen, Elmasri & Navathe, Silberschatz, Forouzan, Mano, Pressman, Russell & Norvig…).
 
-### Status (as of 26 Sep 2026 — plan Days 1–4 complete)
+### Status (as of 26 Sep 2026 — plan Days 1–6 complete)
 | Pack | Status |
 |---|---|
 | Structure (syllabus + plan) | done |
@@ -66,15 +66,15 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 | P2 Unit 1 – Fundamentals (7 topics, 20 sub-topics, 600 Q) | done |
 | P2 Unit 2 – Discrete Structures (9 topics, 29 sub-topics, 870 Q) | done |
 | P2 Unit 5 – DBMS: only topic "DBMS Concepts and Architecture" (6 sub-topics, 180 Q) | partial — 9 more topics to do |
-| P2 Unit 4 – Programming Languages & Web: U4-01…06 (Language design, Data types, C Part 1 & 2, OOP, C++ Part 1; 17 sets, 510 Q) → `packs/p2-u4.json` (modules p2u4_a/b/c) | partial — C++ Part 2, Web (HTML/CSS, XML/JS) to do |
+| P2 Unit 4 – Programming Languages & Web: U4-01…08 (Language design, Data types, C Part 1 & 2, OOP, C++ Part 1 & 2, HTML/DHTML/CSS; 24 sets, 720 Q) → `packs/p2-u4.json` (modules p2u4_a…d) | partial — U4-09 Web: XML, scripting, JavaScript to do |
 | P2 Units 3, 6, 7, 8, 9, 10 | **not started** |
 | P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`.  + `packs/p1-kannada-mocks.json` (10 mocks × 20 Q, topic "Mock tests"). |
-| P1 Days 1–4 topics: PSY-01/02, GK-01/02, CL-01/02, ENG-01, HE-01, VE-01 (18 sets × 20 = 360 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Day 1 and Day 2 fully covered, except current affairs by design) |
+| P1 Days 1–6 topics: PSY-01/02/03, GK-01/02/03, CL-01/02, ENG-01/02, HE-01, VE-01 (25 sets × 20 = 500 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–6 fully covered, except current affairs by design) |
 | Other Paper 1 topics | only the Days 1–2 sample |
 
 ### Next steps (owner's current request)
 Questions are now generated **by study-plan day, in calendar order** (QUESTION_STANDARD.md §6: `Generate: next` / `Generate: day …`).
-Days 1–4 are complete (Day 3 needed nothing new). Next: **Day 5** (C++ Part 2, Growth & Development, Verbs – tense), then Day 6. For each topic, fill `tools/syllabus_map.json` from the syllabus PDF, write the content
+Days 1–6 are complete (Day 3 needed nothing new). Next: **Day 7** (U4-09 XML/scripting/JavaScript, U8-01 Linear Data Structures, HE-02 Health and Diseases). For each topic, fill `tools/syllabus_map.json` from the syllabus PDF, write the content
 module, add it to `PACKS` in `tools/build_subject.py`, build, run `tools/check_packs.py`, test "Import questions for this day" in the
 browser (demo mode), bump the sw cache, commit and tell the owner to push. Merging closely related sub-topics into one set is fine (owner's OK).
 
