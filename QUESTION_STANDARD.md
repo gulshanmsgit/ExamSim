@@ -77,3 +77,26 @@ Every set, both papers:
 6. `python tools/check_packs.py` must print no ERROR lines.
 7. Test in the browser in demo mode: import from Question bank, open a topic, run a set, check the study-plan day shows it.
 8. Bump `CACHE` in `sw.js`, update the status table in `CLAUDE.md`, commit, and tell the owner to run `git push origin main`.
+
+## 6. How the owner asks, and what each request means
+
+The unit of work is always a **whole planner topic** (all of its sub-topic sets), whichever way it is requested.
+A topic "has questions" when its sets exist in a pack listed in `packs/index.json`. Skip such topics unless the owner says "redo".
+
+| Owner types | Agent does |
+|---|---|
+| `Generate: next` | Take planner topics **in calendar order** (earliest `plan.start` first, Paper 1 and Paper 2 together) that have no questions yet, up to the batch limit. This is the default way to keep the bank ahead of the study plan. |
+| `Generate: <subject or unit>` (e.g. `Generate: P2 Unit 3`, `Generate: Educational Psychology`) | All topics of that subject without questions, in planner order, up to the batch limit. |
+| `Generate: day <date>` / `Generate: days <date> to <date>` | Read the `calendar` rows for those dates in `packs/gpstr-cst-2026-plan.json`, take their task IDs (`P2-U3-01`, `P1-GK-05`…; current-affairs `P1-CA-*` ignored), map them to topics, and do those. |
+| `Generate: <topic name>` | Just that topic. |
+| Any of the above + `redo` | Rewrite those topics' sets (new set content under the same names; tell the owner to delete the old sets in the app before re-importing). |
+
+- **Batch limit per request: about 10 topics (≈ 300–450 questions).** If more remain, finish the batch, commit, and say
+  exactly what is left and the command to continue (e.g. "next: `Generate: P2 Unit 3` again for the last 3 topics").
+- **Files stay per subject, never per day**: questions for a day are added to that subject's pack
+  (`packs/p2-u<N>.json` / `packs/p1-<subj>.json`; the Unit 1/2 and Kannada packs keep their `-complete` names). The pack grows
+  topic by topic; its assembler builds whatever topics exist, and its index description says which topics are covered.
+  Re-importing a grown pack in the app only adds the new sets, and the study plan finds it by plan ID, so day-wise requests
+  still show up under "Import questions for this day".
+- Start every request by printing the chosen topics with their plan IDs, dates and planned sub-topic sets, then do the work
+  without waiting (unless something is ambiguous). End with: topics done, question count, what is left, `git push origin main`.
