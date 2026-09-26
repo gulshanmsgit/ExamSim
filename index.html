@@ -291,6 +291,42 @@ tr.st-rev td:first-child{box-shadow:inset 4px 0 var(--orange)}
 .pg>summary .grow{flex:1;min-width:200px}
 tr.tot td{border-top:2px solid var(--border)}
 .plan-h2{font-size:1.05rem;margin:16px 0 8px}
+.back-btn{margin-right:8px;width:34px;height:34px;vertical-align:middle;font-size:18px;line-height:1}
+.lbl{display:block;font-weight:600;font-size:.9rem;margin-top:8px}
+.lbl input,.lbl select{display:block;width:100%;margin-top:4px;font-weight:400}
+.today-paper{margin-top:10px}
+.tp-h{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:10px 0 4px}
+.tp-subj{border:1px solid var(--border);border-radius:12px;padding:8px 10px;margin-bottom:8px}
+.tp-subj .subj-ic{width:30px;height:30px;font-size:1rem;border-radius:8px}
+.tp-subj-h{display:flex;align-items:center;gap:8px}
+.tp-subj-h b{flex:1;min-width:0;overflow-wrap:anywhere}
+.tp-subj-h .btn{padding:4px 10px;flex:0 0 auto}
+.chips .subj-chip{border-color:color-mix(in srgb,var(--sc,var(--primary)) 55%,var(--border));padding:4px 12px}
+.note-h{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.note-h .grow{flex:1;min-width:0;overflow-wrap:anywhere}
+.merge-bar{position:sticky;top:60px;z-index:6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px;margin-bottom:10px;border:1px solid var(--primary);border-radius:12px;background:var(--primary-bg)}
+.md{line-height:1.6;overflow-wrap:anywhere}
+.md>:first-child{margin-top:0}.md>:last-child{margin-bottom:0}
+.md h1,.md h2,.md h3,.md h4{line-height:1.3;margin:1.1em 0 .45em}
+.md h1{font-size:1.35rem}.md h2{font-size:1.2rem}.md h3{font-size:1.07rem}.md h4{font-size:1rem}
+.md p{margin:.55em 0}
+.md ul,.md ol{padding-left:1.4em;margin:.5em 0}
+.md li{margin:.2em 0}
+.md blockquote{margin:.7em 0;padding:.4em .9em;border-left:4px solid var(--primary);background:var(--primary-bg);border-radius:6px}
+.md code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:var(--grey-bg);padding:.1em .35em;border-radius:5px}
+.md pre{background:var(--grey-bg);padding:12px;border-radius:10px;overflow-x:auto}
+.md pre code{background:none;padding:0;font-size:.85rem}
+.md table{border-collapse:collapse;min-width:60%}
+.md th,.md td{border:1px solid var(--border);padding:6px 10px;text-align:left;vertical-align:top}
+.md th{background:var(--grey-bg)}
+.md hr{border:none;border-top:1px solid var(--border);margin:1.2em 0}
+.md img{max-width:100%}
+.md .katex-display{overflow-x:auto;overflow-y:hidden;padding:4px 0}
+.md-clip{max-height:340px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent)}
+.md-more{margin-top:4px}
+.md-raw{white-space:pre-wrap;font-family:inherit}
+.nt-text{width:100%;font-family:ui-monospace,Consolas,monospace;font-size:.88rem;line-height:1.5;min-height:260px}
+.nt-prev{border:1px dashed var(--border);border-radius:10px;padding:12px;min-height:200px}
 .plan-sum{padding:12px 16px}
 .day>summary{margin-bottom:6px}
 .day.is-today>summary,.day[open]>summary{border-color:var(--primary)}
@@ -502,6 +538,7 @@ Explanation: RAM loses its contents without power.</pre>
 <section id="mocks" hidden></section>
 <section id="revhub" hidden></section>
 <section id="errlog" hidden></section>
+<section id="notes" hidden></section>
 <section id="progress" hidden></section>
 <section id="plan" hidden></section>
 <section id="mock" hidden></section>
@@ -1067,10 +1104,11 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'notes', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', notes: 'home', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
 function show(id) {
+  navPush(id);
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
   const bar = $('#tabbar');
@@ -1095,7 +1133,9 @@ $('#tabbar').addEventListener('click', e => {
 });
 function renderBar() {
   const left = $('#barLeft');
-  left.innerHTML = '<span class="logo">✓</span>ExamSim';
+  const back = !!store && canGoBack();
+  left.innerHTML = (back ? '<button class="icon-btn back-btn" id="backBtn" title="Back" aria-label="Back">←</button>' : '') + '<span class="logo">✓</span>ExamSim';
+  if (back) $('#backBtn').onclick = e => { e.stopPropagation(); history.back(); };
   left.classList.toggle('link', !!store);
   $('#barCenter').innerHTML = '';
   $('#barRight').innerHTML = store ? `<button class="chip" id="wsBtn" title="Profile, sync code and AI keys">${store.kind === 'cloud' ? '☁' : '⚠ Demo'} 👤 Profile</button>` : '';
@@ -1428,7 +1468,12 @@ async function mergeTopicInto(src, dst) {
   await runPool(jobs, 6);
   await Promise.all(retargetMocks('topic', src.id, dst.id));
   await retargetCards('topicId', src.id, { topicId: dst.id, subjectId: dst.subjectId });
-  if (!dst.plan && src.plan) { dst.plan = src.plan; await save('topics', dst); }
+  try {
+    const ns = await store.query('notes', 'topicId', src.id);
+    await runPool(ns.map(n => () => store.merge('notes', n.id, { topicId: dst.id })), 6);
+    if (ns.length) dst.notes = (dst.notes || 0) + ns.length;
+  } catch (e) { /* notes collection not allowed yet: nothing to move */ }
+  if ((!dst.plan && src.plan) || src.notes) { if (!dst.plan && src.plan) dst.plan = src.plan; await save('topics', dst); }
   await removeDocs('topics', [src.id]);
 }
 async function moveTopicTo(t, subj) {
@@ -1562,6 +1607,9 @@ async function deleteCascade({ subjectId, topicId, setId }) {
   await removeDocs('attempts', attIds);
   await removeDocs('setq', setIds);
   await removeDocs('sets', setIds);
+  for (const tid of topicIds) {
+    try { await removeDocs('notes', (await store.query('notes', 'topicId', tid)).map(n => n.id)); } catch (e) { /* no notes access yet */ }
+  }
   await removeDocs('topics', topicIds);
   if (subjectId) await removeDocs('subjects', [subjectId]);
 }
@@ -1747,7 +1795,7 @@ function taskHTML(t) {
   const r = planRow(m[1]), st = rowState(r), top = planTopic(r.id), n = top ? topicQuestionCount(top.id) : 0;
   return `<div class="task ${stClass(st.status)}"><div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(m[2])}</div>
     <select data-pf="s" data-id="${r.id}" aria-label="Status">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
-    ${top ? `<button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
+    ${top ? `<button class="btn" data-notes="${top.id}" title="Notes">📝${topicNoteCount(top) ? ' ' + topicNoteCount(top) : ''}</button><button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
 }
 function calRowFor(date) { return (D.plan.calendar || []).find(d => d.date === date); }
 function dayDone(d) { const s = D.planState['day:' + d.date]; return s && s.d !== undefined ? s.d : !!d.done; }
@@ -2168,7 +2216,7 @@ function renderSubject() {
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
     const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>
-      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${ready ? ' · <span class="pill pk">📦 ready in the bank</span>' : ''}</div></div>
+      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${t.notes ? ' · 📝 ' + t.notes : ''}${ready ? ' · <span class="pill pk">📦 ready in the bank</span>' : ''}</div></div>
       <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
       <button class="icon-btn" data-menu data-topicmenu="${t.id}" title="Topic options" aria-label="Options for ${esc(t.name)}">⋯</button></div>`;
   }).join('') : '<div class="empty">No topics yet. Add one to start saving question sets.</div>';
@@ -2224,6 +2272,7 @@ function renderTopic() {
   }
   h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
   h += topicAvailHTML(t);
+  h += topicNotesHTML(t);
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
   if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
   else {
@@ -2913,29 +2962,49 @@ async function practiseTopic(tid, btn) {
   finally { if (btn) btn.disabled = false; }
 }
 function planTopicRow(t, carry) {
-  const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id);
+  const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t);
   return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>${ps ? ` <span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}
-      <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
+      <div class="small muted">${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
       ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+      <button class="btn" data-notes="${t.id}" title="Notes for this topic">📝${nn ? ' ' + nn : ''}</button>
       <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
 }
-// Home: today's and tomorrow's tasks from the study-plan calendar
+// A calendar day's tasks grouped by paper and subject, so it is clear which subjects are active that day
+function dayGroups(d) {
+  const out = [];
+  for (const [k, label] of [['p2', 'Paper 2 · Computer Science'], ['p1', 'Paper 1 · General']]) {
+    const subs = new Map(), extra = [];
+    for (const task of dayTasks(d, k)) {
+      const id = taskId(task), t = id && planTopic(id);
+      if (!t) { extra.push(task.replace(/^P[12]-[A-Z0-9]+-\d+\s+/, '')); continue; }
+      if (!subs.has(t.subjectId)) subs.set(t.subjectId, { s: byId('subjects', t.subjectId), topics: [] });
+      subs.get(t.subjectId).topics.push(t);
+    }
+    if (subs.size || extra.length) out.push({ label, subs: [...subs.values()], extra });
+  }
+  return out;
+}
+function dayGroupsHTML(d) {
+  return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h">${esc(g.label)}</div>`
+    + g.subs.map(({ s, topics }) => `<div class="tp-subj"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
+        <button class="btn ghost" data-nav="subject:${s.id}" title="Open subject">Open ›</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
+    + (g.extra.length ? `<div class="small muted" style="padding:6px 2px">🗞 Also: ${esc(g.extra.join(' · '))}</div>` : '') + '</div>').join('');
+}
+// Home: the subjects to study today (both papers) with their topics, notes and practice, plus tomorrow
 function planHomeCard() {
   const cal = D.plan.calendar, today = dayKey();
   let i = cal.findIndex(x => x.date === today);
   const before = i < 0 && today < cal[0].date;
   if (i < 0 && !before) return '';
   if (before) i = 0;
-  const rows = d => [...dayTasks(d, 'p2'), ...dayTasks(d, 'p1')].map(task => {
-    const id = taskId(task), t = id && planTopic(id);
-    return t ? planTopicRow(t, t.plan.start < d.date) : `<div class="list-row"><div class="grow small">${esc(task)}</div></div>`;
-  }).join('');
   const d = cal[i], nx = cal[i + 1], nQ = idsQuestionInfo(dayPlanIds(d)).withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
-  const title = before ? `📅 Your plan starts ${esc(dayLabel(d))}` : `📅 Today's plan · Day ${i + 1} of ${cal.length}`;
+  const chips = dayGroups(d).flatMap(g => g.subs.map(({ s }) => `<button class="chip subj-chip" data-nav="subject:${s.id}" style="--sc:${subjColor(s)}">${esc(subjIcon(s))} ${esc(displayName(s))}</button>`)).join('');
+  const title = before ? `📅 Your plan starts ${esc(dayLabel(d))}` : `📅 Today · Day ${i + 1} of ${cal.length}`;
   return `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">${title}</h2>
       ${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise today (${Math.min(40, nQ)} Q)</button>` : ''}</div>
-    ${rows(d)}
-    ${nx ? `<details class="nextday"><summary><b>Tomorrow</b> · Day ${i + 2} · ${esc(dayLabel(nx))} <span class="small muted">· ${plural(dayPlanIds(nx).length, 'topic')}</span></summary>${rows(nx)}</details>` : ''}
+    ${chips ? `<div class="small muted" style="margin-bottom:4px">Active subjects today</div><div class="chips">${chips}</div>` : ''}
+    ${dayGroupsHTML(d)}
+    ${nx ? `<details class="nextday"><summary><b>Tomorrow</b> · Day ${i + 2} · ${esc(dayLabel(nx))} <span class="small muted">· ${dayGroups(nx).flatMap(g => g.subs.map(x => displayName(x.s))).map(esc).join(' · ') || plural(dayPlanIds(nx).length, 'topic')}</span></summary>${dayGroupsHTML(nx)}</details>` : ''}
     <div class="row" style="margin-top:10px"><button class="btn" data-go-plan>📆 See all ${cal.length} days</button></div></div>`;
 }
 function planCard() {
@@ -3390,6 +3459,330 @@ document.addEventListener('click', async e => {
     w.parentElement.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.w === val));
     store.merge('prefs', 'errlog', { [k]: val }).catch(err => toast(errText(err), 'error'));
   }
+});
+
+/* ============================================================
+   Notes: one or more Markdown notes per topic, stored in notes/{id} = { topicId, title, md, source, order, createdAt, updatedAt }.
+   Built for pasting answers from ChatGPT / Gemini / Claude: their Markdown (headings, **bold**, lists, tables, code,
+   $maths$) is rendered the same way; copied web-page formatting (HTML) is converted to Markdown on paste.
+   ============================================================ */
+const CDN = 'https://cdn.jsdelivr.net/npm/';
+const LIBS = {
+  marked: CDN + 'marked@15.0.12/marked.min.js', purify: CDN + 'dompurify@3.2.6/dist/purify.min.js',
+  turndown: CDN + 'turndown@7.2.0/dist/turndown.js', gfm: CDN + 'turndown-plugin-gfm@1.0.2/dist/turndown-plugin-gfm.js',
+  katex: CDN + 'katex@0.16.22/dist/katex.min.js', katexCss: CDN + 'katex@0.16.22/dist/katex.min.css'
+};
+const libLoads = {};
+function loadScript(url) {
+  return libLoads[url] || (libLoads[url] = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = url; s.onload = res;
+    s.onerror = () => { delete libLoads[url]; rej(new Error('Could not load ' + url.split('/npm/')[1].split('/')[0] + '. Check your internet connection.')); };
+    document.head.appendChild(s);
+  }));
+}
+function loadCss(url) {
+  if (document.querySelector(`link[href="${url}"]`)) return;
+  const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = url; document.head.appendChild(l);
+}
+const loadMarkdown = () => Promise.all([loadScript(LIBS.marked), loadScript(LIBS.purify)]);
+const loadTurndown = () => loadScript(LIBS.turndown).then(() => loadScript(LIBS.gfm));
+const loadKatex = () => { loadCss(LIBS.katexCss); return loadScript(LIBS.katex); };
+
+// $$…$$, \[…\], \(…\) and $…$ (the last only when it hugs its content, so prices like "$5 and $10" stay text)
+const MATH_RE = /\$\$([\s\S]+?)\$\$|\\\[([\s\S]+?)\\\]|\\\(([\s\S]+?)\\\)|(?<![\\$\w])\$(?=\S)([^$\n]+?)(?<=\S)\$(?![\w$])/g;
+async function mdToHtml(md) {
+  await loadMarkdown();
+  const code = [], math = [];
+  let src = String(md || '').replace(/```[\s\S]*?```|`[^`\n]+`/g, m => `CODETOKEN${code.push(m) - 1}END`);
+  src = src.replace(MATH_RE, (m, a, b, c, d) => `MATHTOKEN${math.push({ tex: a ?? b ?? c ?? d, display: a != null || b != null }) - 1}END`);
+  src = src.replace(/CODETOKEN(\d+)END/g, (_, i) => code[i]);
+  let html = DOMPurify.sanitize(marked.parse(src, { gfm: true, breaks: true }));
+  if (math.length) {
+    let ok = true;
+    try { await loadKatex(); } catch (e) { ok = false; }
+    html = html.replace(/MATHTOKEN(\d+)END/g, (_, i) => {
+      const { tex, display } = math[i];
+      if (!ok) return `<code>${esc(tex)}</code>`;
+      try { return katex.renderToString(tex, { displayMode: display, throwOnError: false, output: 'html' }); } catch (e) { return `<code>${esc(tex)}</code>`; }
+    });
+  }
+  return html;
+}
+// Render Markdown into an element; falls back to plain text if the libraries cannot load (offline first use)
+async function renderMdInto(el, md) {
+  try {
+    el.innerHTML = await mdToHtml(md);
+    el.querySelectorAll('table').forEach(t => { const w = document.createElement('div'); w.className = 'tbl-wrap'; t.replaceWith(w); w.appendChild(t); });
+    el.querySelectorAll('a[href]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+  } catch (e) {
+    el.innerHTML = `<pre class="md-raw">${esc(md)}</pre><p class="small muted">${esc(errText(e))} Showing the note as plain text.</p>`;
+  }
+}
+
+// Clipboard: keep Markdown as it is; convert copied web formatting (e.g. selecting an answer on the ChatGPT page) to Markdown
+const looksLikeMarkdown = t => /(^|\n)\s{0,3}(#{1,6}\s|[-*+]\s|\d+[.)]\s|>\s|```|\|.*\|)|\*\*[^*\n]+\*\*|\$\$|\\\(/.test(t);
+async function htmlToMd(html) {
+  await loadTurndown();
+  const td = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced', bulletListMarker: '-', emDelimiter: '*' });
+  td.use(turndownPluginGfm.gfm);
+  td.remove(['button', 'style', 'script', 'svg', 'meta', 'title']);
+  td.addRule('katex', {  // formulas rendered with KaTeX keep their original TeX source
+    filter: n => n.classList && (n.classList.contains('katex-display') || (n.classList.contains('katex') && !(n.parentNode && n.parentNode.closest && n.parentNode.closest('.katex-display')))),
+    replacement: (c, n) => { const a = n.querySelector('annotation[encoding="application/x-tex"]'); if (!a) return c; return n.classList.contains('katex-display') ? `\n\n$$${a.textContent}$$\n\n` : `$${a.textContent}$`; }
+  });
+  return td.turndown(html).replace(/\n{3,}/g, '\n\n').trim();
+}
+function insertAtCursor(ta, text) {
+  const s = ta.selectionStart ?? ta.value.length, e = ta.selectionEnd ?? ta.value.length;
+  ta.value = ta.value.slice(0, s) + text + ta.value.slice(e);
+  ta.selectionStart = ta.selectionEnd = s + text.length;
+  ta.dispatchEvent(new Event('input'));
+}
+async function pasteInto(ta, e) {
+  const cd = e.clipboardData;
+  if (!cd) return;
+  const html = cd.getData('text/html'), text = cd.getData('text/plain');
+  if (!html || looksLikeMarkdown(text)) return;  // plain Markdown: let the browser paste it as is
+  e.preventDefault();
+  let md = text;
+  try { md = await htmlToMd(html) || text; } catch (err) { /* keep plain text */ }
+  insertAtCursor(ta, md);
+}
+// "Paste from clipboard" button (mobile-friendly): reads HTML when the browser allows it, else plain text
+async function pasteFromClipboard(ta) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.read) {
+      const items = await navigator.clipboard.read();
+      let text = '', html = '';
+      for (const it of items) {
+        if (it.types.includes('text/plain')) text = await (await it.getType('text/plain')).text();
+        if (it.types.includes('text/html')) html = await (await it.getType('text/html')).text();
+      }
+      insertAtCursor(ta, html && !looksLikeMarkdown(text) ? (await htmlToMd(html) || text) : text);
+      return;
+    }
+    insertAtCursor(ta, await navigator.clipboard.readText());
+  } catch (e) {
+    toast('Could not read the clipboard here. Long-press inside the box and choose Paste.', 'error');
+    ta.focus();
+  }
+}
+const noteTitleFrom = md => {
+  const h = /^\s{0,3}#{1,6}\s+(.+)$/m.exec(md || ''), first = String(md || '').split('\n').map(l => l.trim()).find(Boolean) || '';
+  return normText((h ? h[1] : first).replace(/[*_`#>$]/g, '')).slice(0, 70) || 'Note';
+};
+
+const NT = { topicId: null, notes: [], sel: new Set(), edit: null, openAll: false, err: null };
+const NOTE_SOURCES = ['ChatGPT', 'Gemini', 'Claude', 'My own', 'Other'];
+const topicNoteCount = t => (t && t.notes) || 0;
+async function openNotes(topicId, opts = {}) {
+  const t = byId('topics', topicId);
+  if (!t) return;
+  if (NT.topicId !== topicId) { NT.sel.clear(); NT.openAll = false; }
+  NT.topicId = topicId; NT.edit = opts.edit || null; NT.err = null;
+  cur.topicId = t.id; cur.subjectId = t.subjectId;
+  $('#notes').innerHTML = '<div class="loading">Loading notes…</div>';
+  show('notes');
+  try { NT.notes = (await store.query('notes', 'topicId', topicId)).sort((a, b) => (a.order ?? a.createdAt) - (b.order ?? b.createdAt)); }
+  catch (e) { NT.notes = []; NT.err = e && e.code === 'permission-denied' ? 'rules' : errText(e); }
+  if (topicNoteCount(t) !== NT.notes.length && !NT.err) { t.notes = NT.notes.length; save('topics', t).catch(() => {}); }
+  renderNotes();
+}
+function renderNotes() {
+  const t = byId('topics', NT.topicId);
+  if (!t) return goHome();
+  const s = byId('subjects', t.subjectId);
+  let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name, 'topic:' + t.id], ['Notes']])
+    + `<div class="page-head"><h1>📝 ${esc(t.name)}</h1></div><div class="kind">Notes${t.plan && t.plan.id ? ' · ' + esc(t.plan.id) : ''} · ${plural(NT.notes.length, 'note')}</div>`;
+  if (NT.err === 'rules') {
+    h += `<div class="banner">Notes need one update in Firebase: open the Firebase console → Firestore Database → Rules, paste the new contents of <b>firestore.rules</b> (it now includes <b>notes</b>), click <b>Publish</b>, then reload this page.</div>`;
+    $('#notes').innerHTML = h; return;
+  }
+  if (NT.err) { $('#notes').innerHTML = h + `<div class="status error">Could not load notes: ${esc(NT.err)}</div>`; return; }
+  if (NT.edit) { $('#notes').innerHTML = h + noteEditorHTML(); wireNoteEditor(); return; }
+  const n = topicQuestionCount(t.id);
+  h += `<div class="row" style="margin-bottom:12px"><button class="btn primary" data-note-new>📋 Paste from AI</button><button class="btn" data-note-write>✎ Write a note</button>
+    ${n ? `<button class="btn" data-practise="${t.id}">▶ Practise this topic (${n} Q)</button>` : ''}
+    ${NT.notes.length > 1 ? `<span class="spacer"></span><button class="btn ghost" data-note-openall>${NT.openAll ? 'Collapse all' : 'Expand all'}</button>` : ''}</div>`;
+  if (!NT.notes.length) {
+    h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Ask ChatGPT, Gemini or Claude to explain this topic, press its <b>Copy</b> button, then tap <b>📋 Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
+  } else {
+    if (NT.sel.size) h += `<div class="merge-bar"><span>${plural(NT.sel.size, 'note')} selected</span><span class="spacer"></span>
+      ${NT.sel.size > 1 ? `<button class="btn primary" data-note-merge>⇲ Merge into one note</button>` : '<span class="small muted">Select one more note to merge</span>'}<button class="btn ghost" data-note-unsel>Clear</button></div>`;
+    h += NT.notes.map((x, i) => `<div class="card note" data-note="${x.id}">
+      <div class="note-h"><label class="check" title="Select to merge"><input type="checkbox" data-note-sel="${x.id}" ${NT.sel.has(x.id) ? 'checked' : ''}></label>
+        <div class="grow"><b>${esc(x.title || 'Note')}</b><div class="small muted">${x.source ? esc(x.source) + ' · ' : ''}${esc(fmtDay(x.updatedAt || x.createdAt))}</div></div>
+        <button class="icon-btn" data-note-up="${x.id}" ${i ? '' : 'disabled'} title="Move up" aria-label="Move up">↑</button>
+        <button class="icon-btn" data-note-down="${x.id}" ${i < NT.notes.length - 1 ? '' : 'disabled'} title="Move down" aria-label="Move down">↓</button>
+        <button class="icon-btn" data-note-edit="${x.id}" title="Edit" aria-label="Edit">✎</button>
+        <button class="icon-btn" data-note-del="${x.id}" title="Delete" aria-label="Delete">🗑</button></div>
+      <div class="md ${NT.openAll || NT.notes.length === 1 ? '' : 'md-clip'}" data-md="${x.id}"><p class="small muted">Formatting…</p></div>
+      <button class="btn ghost md-more" data-note-more="${x.id}" hidden>Show all ▾</button></div>`).join('');
+  }
+  $('#notes').innerHTML = h;
+  NT.notes.forEach(x => {
+    const el = $(`#notes [data-md="${x.id}"]`);
+    renderMdInto(el, x.md).then(() => {
+      const more = $(`#notes [data-note-more="${x.id}"]`);
+      if (more && el.classList.contains('md-clip') && el.scrollHeight > el.clientHeight + 8) more.hidden = false;
+      else if (el) el.classList.remove('md-clip');
+    });
+  });
+}
+function noteEditorHTML() {
+  const x = NT.edit.id ? NT.notes.find(n => n.id === NT.edit.id) : null;
+  const others = NT.notes.filter(n => !x || n.id !== x.id);
+  return `<div class="card"><h2 style="margin-top:0">${x ? 'Edit note' : NT.edit.write ? 'Write a note' : 'Paste from AI'}</h2>
+    ${x || NT.edit.write ? '' : `<p class="small muted" style="margin-top:0">Use the AI's <b>Copy</b> button (ChatGPT, Gemini, Claude), then paste below – or tap <b>Paste from clipboard</b>. Copied web pages are converted too.</p>`}
+    <label class="lbl">Title<input id="ntTitle" placeholder="Taken from the first heading if left empty" value="${esc(x ? x.title : '')}"></label>
+    <div class="row" style="gap:8px;margin:10px 0 6px">
+      <div class="seg"><button data-ntab="write" class="on">Write</button><button data-ntab="preview">Preview</button></div>
+      <button class="btn" id="ntClip">📋 Paste from clipboard</button><span class="spacer"></span>
+      <select id="ntSource" style="width:auto" aria-label="Source"><option value="">Source…</option>${NOTE_SOURCES.map(v => `<option ${x && x.source === v ? 'selected' : ''}>${v}</option>`).join('')}</select></div>
+    <textarea id="ntText" class="nt-text" rows="16" spellcheck="false" placeholder="Paste or type here. Markdown works: # Heading, **bold**, - list, | table |, \`code\`, $formula$">${esc(x ? x.md : '')}</textarea>
+    <div id="ntPrev" class="md nt-prev" hidden></div>
+    ${!x && others.length ? `<label class="lbl" style="margin-top:10px">Save as<select id="ntTarget"><option value="">A new note</option>${others.map(n => `<option value="${n.id}">Add to the end of “${esc(n.title || 'Note')}”</option>`).join('')}</select></label>` : ''}
+    <p class="small muted" id="ntSize" style="margin:6px 0 0"></p>
+    <div class="row" style="margin-top:12px"><button class="btn" data-note-cancel>Cancel</button><button class="btn primary" id="ntSave">Save note</button></div></div>`;
+}
+function wireNoteEditor() {
+  const ta = $('#ntText'), size = () => { $('#ntSize').textContent = ta.value ? `${ta.value.length.toLocaleString()} characters` : ''; };
+  ta.addEventListener('paste', e => pasteInto(ta, e));
+  ta.addEventListener('input', size); size();
+  $('#ntClip').onclick = () => pasteFromClipboard(ta);
+  document.querySelectorAll('#notes [data-ntab]').forEach(b => b.onclick = async () => {
+    const prev = b.dataset.ntab === 'preview';
+    document.querySelectorAll('#notes [data-ntab]').forEach(x => x.classList.toggle('on', x === b));
+    ta.hidden = prev; $('#ntPrev').hidden = !prev;
+    if (prev) { $('#ntPrev').innerHTML = '<p class="small muted">Formatting…</p>'; await renderMdInto($('#ntPrev'), ta.value || '_Nothing to preview yet._'); }
+  });
+  $('#ntSave').onclick = saveNoteFromEditor;
+  if (!NT.edit.id) setTimeout(() => ta.focus(), 50);
+}
+async function saveNoteFromEditor() {
+  const md = $('#ntText').value.replace(/\s+$/, ''), title = normText($('#ntTitle').value), source = $('#ntSource').value;
+  if (!md.trim()) { toast('The note is empty', 'error'); return; }
+  if (md.length > 800000) { toast('This note is too long to save in one piece. Split it into two notes.', 'error'); return; }
+  const t = byId('topics', NT.topicId), now = Date.now(), target = $('#ntTarget') && $('#ntTarget').value;
+  const btn = $('#ntSave'); btn.disabled = true;
+  try {
+    if (NT.edit.id || target) {
+      const x = NT.notes.find(n => n.id === (NT.edit.id || target));
+      const merged = NT.edit.id ? md : x.md + '\n\n---\n\n' + (title ? `## ${title}\n\n` : '') + md;
+      Object.assign(x, { md: merged, title: NT.edit.id ? (title || noteTitleFrom(md)) : x.title, source: NT.edit.id ? source : (x.source || source), updatedAt: now });
+      await save('notes', x);
+    } else {
+      const x = { id: newId(), topicId: t.id, title: title || noteTitleFrom(md), md, source, order: now, createdAt: now, updatedAt: now };
+      await save('notes', x); NT.notes.push(x);
+      t.notes = NT.notes.length; save('topics', t).catch(() => {});
+    }
+    toast('Note saved ✓');
+    NT.edit = null; renderNotes(); window.scrollTo(0, 0);
+  } catch (e) { toast(errText(e), 'error'); btn.disabled = false; }
+}
+async function mergeSelectedNotes() {
+  const picked = NT.notes.filter(n => NT.sel.has(n.id));
+  if (picked.length < 2) return;
+  const ok = await confirmBox(`Merge ${picked.length} notes?`, `<p>They are joined into “${esc(picked[0].title)}” in their current order, each under its own heading. ${picked.length > 2 ? `The other ${picked.length - 1} notes are` : 'The other note is'} then removed.</p>`, 'Merge');
+  if (!ok) return;
+  const [first, ...rest] = picked, t = byId('topics', NT.topicId);
+  first.md = picked.map((n, i) => (i ? `## ${n.title || 'Note'}\n\n` : '') + n.md).join('\n\n---\n\n');
+  first.updatedAt = Date.now();
+  try {
+    await save('notes', first);
+    await removeDocs('notes', rest.map(n => n.id));
+    NT.notes = NT.notes.filter(n => !rest.includes(n));
+    NT.sel.clear(); t.notes = NT.notes.length; save('topics', t).catch(() => {});
+    toast('Notes merged ✓'); renderNotes();
+  } catch (e) { toast(errText(e), 'error'); }
+}
+async function moveNote(id, dir) {
+  const i = NT.notes.findIndex(n => n.id === id), j = i + dir;
+  if (i < 0 || j < 0 || j >= NT.notes.length) return;
+  [NT.notes[i], NT.notes[j]] = [NT.notes[j], NT.notes[i]];
+  NT.notes.forEach((n, k) => { n.order = k; });
+  renderNotes();
+  try { await Promise.all([NT.notes[i], NT.notes[j]].map(n => store.merge('notes', n.id, { order: n.order }))); } catch (e) { toast(errText(e), 'error'); }
+}
+document.addEventListener('click', async e => {
+  const g = (sel) => e.target.closest(sel);
+  let b;
+  if ((b = g('[data-notes]'))) { e.preventDefault(); openNotes(b.dataset.notes); return; }
+  if ((b = g('[data-notes-paste]'))) { e.preventDefault(); openNotes(b.dataset.notesPaste, { edit: { id: null } }); return; }
+  if ($('#notes').hidden) return;
+  if (g('[data-note-new]')) { NT.edit = { id: null }; renderNotes(); return; }
+  if (g('[data-note-write]')) { NT.edit = { id: null, write: true }; renderNotes(); return; }
+  if (g('[data-note-cancel]')) { NT.edit = null; renderNotes(); return; }
+  if (g('[data-note-openall]')) { NT.openAll = !NT.openAll; renderNotes(); return; }
+  if (g('[data-note-merge]')) { mergeSelectedNotes(); return; }
+  if (g('[data-note-unsel]')) { NT.sel.clear(); renderNotes(); return; }
+  if ((b = g('[data-note-edit]'))) { NT.edit = { id: b.dataset.noteEdit }; renderNotes(); window.scrollTo(0, 0); return; }
+  if ((b = g('[data-note-up]'))) { moveNote(b.dataset.noteUp, -1); return; }
+  if ((b = g('[data-note-down]'))) { moveNote(b.dataset.noteDown, 1); return; }
+  if ((b = g('[data-note-more]'))) { const el = $(`#notes [data-md="${b.dataset.noteMore}"]`); el.classList.remove('md-clip'); b.hidden = true; return; }
+  if ((b = g('[data-note-del]'))) {
+    const x = NT.notes.find(n => n.id === b.dataset.noteDel), t = byId('topics', NT.topicId);
+    if (!x || !await confirmBox(`Delete “${esc(x.title)}”?`, '<p>This note is deleted permanently.</p>', 'Delete note')) return;
+    try { await removeDocs('notes', [x.id]); NT.notes = NT.notes.filter(n => n !== x); NT.sel.delete(x.id); t.notes = NT.notes.length; save('topics', t).catch(() => {}); renderNotes(); toast('Note deleted'); }
+    catch (err) { toast(errText(err), 'error'); }
+  }
+});
+document.addEventListener('change', e => {
+  const c = e.target.closest('[data-note-sel]');
+  if (!c) return;
+  if (c.checked) NT.sel.add(c.dataset.noteSel); else NT.sel.delete(c.dataset.noteSel);
+  const y = window.scrollY; renderNotes(); window.scrollTo(0, y);
+});
+// Topic page card
+function topicNotesHTML(t) {
+  const n = topicNoteCount(t);
+  return `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">📝 Notes</h2>
+    <div class="small muted">${n ? plural(n, 'note') + ' for this topic' : 'Paste explanations from ChatGPT, Gemini or Claude – formatting is kept'}</div></div>
+    ${n ? `<button class="btn primary" data-notes="${t.id}">Open notes</button>` : ''}<button class="btn ${n ? '' : 'primary'}" data-notes-paste="${t.id}">📋 Paste from AI</button></div></div>`;
+}
+
+/* ---------- Back navigation ----------
+   Every screen change adds a browser-history entry { r: route, d: depth }, so both the ← button in the top bar and the
+   phone's back gesture/button step back through the app. Screens that cannot be rebuilt (exam, settings, flashcard
+   session, add form) are skipped on the way back; leaving a running exam asks first. */
+const NAV = { restoring: false, ignore: false };
+const routeOf = id => id === 'subject' ? 'subject:' + cur.subjectId : id === 'topic' ? 'topic:' + cur.topicId : id === 'notes' ? 'notes:' + NT.topicId : id;
+function navPush(id) {
+  if (NAV.restoring || !store || id === 'connect') return;
+  const r = routeOf(id), st = history.state;
+  if (st && st.r === r) return;
+  if (!st || !st.r) history.replaceState({ r, d: 0 }, '');
+  else history.pushState({ r, d: (st.d || 0) + 1 }, '');
+}
+const canGoBack = () => !!(history.state && history.state.d > 0);
+function openRoute(r) {
+  const [k, id] = r.split(':');
+  const open = {
+    home: goHome, plan: () => openPlan(), mocks: openMocks, revhub: openRevHub, errlog: openErrLog, bank: openBank, profile: openProfile,
+    subject: () => byId('subjects', id) ? openSubject(id) : goHome(),
+    topic: () => byId('topics', id) ? openTopic(id) : goHome(),
+    notes: () => byId('topics', id) ? openNotes(id) : goHome(),
+    results: () => RES ? renderResults() : false,
+    review: () => RES ? openReview() : false
+  }[k];
+  if (!open) return false;
+  NAV.restoring = true;
+  try { return open() !== false; } finally { NAV.restoring = false; }
+}
+window.addEventListener('popstate', async e => {
+  if (NAV.ignore) { NAV.ignore = false; return; }
+  const r = e.state && e.state.r;
+  if (!store || !r) return;
+  if (!$('#modalBg').hidden) closeModal();
+  if (S && !S.done && !$('#exam').hidden) {
+    NAV.ignore = true; history.forward(); // stay in the exam until the user decides
+    if (!await confirmBox('Leave this exam?', '<p>Your answers in this exam will not be saved.</p>', 'Leave exam')) return;
+    clearInterval(timerId); S.done = true;
+    history.back();
+    return;
+  }
+  if (!openRoute(r)) history.back(); // a screen that cannot be rebuilt: skip it
 });
 
 /* ============================================================
