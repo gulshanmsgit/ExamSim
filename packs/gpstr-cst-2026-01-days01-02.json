@@ -1,0 +1,2661 @@
+{
+ "examsimPack": 1,
+ "name": "GPSTR / CST 2026 — Days 1–2 questions (26–27 Sep)",
+ "description": "Higher-difficulty questions for the study-plan topics of 26–27 September: Paper 2 Unit 1 and C/programming basics, plus Paper 1 psychology, GK, Kannada, computer literacy, English, health and value education.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 1 – Fundamentals of Computers",
+   "icon": "🖥️",
+   "topics": [
+    {
+     "name": "Introduction & Functional Components",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which unit of the CPU generates the timing and control signals that direct the sequence of micro-operations, but does not itself operate on data?",
+         "options": {
+          "A": "Accumulator",
+          "B": "Control Unit",
+          "C": "Arithmetic Logic Unit",
+          "D": "Memory Buffer Register"
+         },
+         "answer": "B",
+         "subject": "Introduction & Functional Components",
+         "explanation": "The control unit decodes instructions and issues control signals; the ALU performs the actual arithmetic and logic operations."
+        },
+        {
+         "question": "The 'von Neumann bottleneck' refers to:",
+         "options": {
+          "A": "The limited width of the ALU",
+          "B": "The absence of cache memory in early computers",
+          "C": "The slow speed of secondary storage compared with RAM",
+          "D": "The single shared pathway between CPU and memory used for both instructions and data"
+         },
+         "answer": "D",
+         "subject": "Introduction & Functional Components",
+         "explanation": "In the von Neumann design, instructions and data travel over the same bus, so the CPU often waits for memory transfers."
+        },
+        {
+         "question": "Consider the statements:\nI. The Harvard architecture uses separate memories/buses for instructions and data.\nII. Most modern CPUs follow a modified Harvard design with split L1 instruction and data caches.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Introduction & Functional Components",
+         "explanation": "Both are correct: pure Harvard separates instruction and data memory; modern CPUs split only the L1 caches while sharing main memory (modified Harvard)."
+        },
+        {
+         "question": "Which register holds the address of the next instruction to be fetched?",
+         "options": {
+          "A": "Memory Address Register (MAR)",
+          "B": "Instruction Register (IR)",
+          "C": "Memory Buffer Register (MBR)",
+          "D": "Program Counter (PC)"
+         },
+         "answer": "D",
+         "subject": "Introduction & Functional Components",
+         "explanation": "The PC always points to the next instruction; its value is copied to the MAR at the start of the fetch cycle."
+        },
+        {
+         "question": "Which sequence of register transfers correctly describes the instruction fetch cycle?",
+         "options": {
+          "A": "IR ← PC; MAR ← IR; MBR ← M[MAR]",
+          "B": "MBR ← PC; IR ← MBR; MAR ← IR",
+          "C": "MAR ← PC; MBR ← M[MAR], PC ← PC + 1; IR ← MBR",
+          "D": "PC ← MAR; IR ← M[PC]; MBR ← IR"
+         },
+         "answer": "C",
+         "subject": "Introduction & Functional Components",
+         "explanation": "The PC is copied to the MAR, memory is read into the MBR while the PC is incremented, and the instruction moves from the MBR to the IR."
+        },
+        {
+         "question": "The 'stored-program concept' introduced by John von Neumann means that:",
+         "options": {
+          "A": "Instructions and data reside in the same read–write memory, so a program can be loaded and modified like data",
+          "B": "Programs are permanently stored in ROM",
+          "C": "Programs are stored only on magnetic disks",
+          "D": "Programs are hard-wired into the control unit"
+         },
+         "answer": "A",
+         "subject": "Introduction & Functional Components",
+         "explanation": "Before the stored-program idea, machines like ENIAC were programmed by rewiring; storing instructions in memory made computers general-purpose."
+        },
+        {
+         "question": "Which of the following is NOT one of the five classic functional units of a computer?",
+         "options": {
+          "A": "Arithmetic Logic Unit",
+          "B": "Compiler",
+          "C": "Control unit",
+          "D": "Input unit"
+         },
+         "answer": "B",
+         "subject": "Introduction & Functional Components",
+         "explanation": "The five units are input, output, memory, ALU and control unit. A compiler is software, not a functional hardware unit."
+        },
+        {
+         "question": "A processor has a 32-bit address bus and byte-addressable memory. What is the maximum memory it can address directly?",
+         "options": {
+          "A": "32 MB",
+          "B": "4 GB",
+          "C": "2 GB",
+          "D": "4 MB"
+         },
+         "answer": "B",
+         "subject": "Introduction & Functional Components",
+         "explanation": "2^32 addresses × 1 byte = 4,294,967,296 bytes = 4 GB."
+        },
+        {
+         "question": "After adding two signed (two's complement) numbers, which status flag indicates that the result is outside the representable range?",
+         "options": {
+          "A": "Parity flag",
+          "B": "Zero flag",
+          "C": "Carry flag",
+          "D": "Overflow flag"
+         },
+         "answer": "D",
+         "subject": "Introduction & Functional Components",
+         "explanation": "The overflow flag signals signed overflow; the carry flag signals an unsigned carry out of the most significant bit."
+        },
+        {
+         "question": "Assertion (A): Widening the data bus can improve performance even at the same clock frequency.\nReason (R): A wider data bus transfers more bits in each bus cycle.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Introduction & Functional Components",
+         "explanation": "Both are true and R explains A: more bits per transfer means fewer bus cycles for the same amount of data."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Evolution, Generations, Classification, Applications",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which generation–technology pairing is INCORRECT?",
+         "options": {
+          "A": "First generation – vacuum tubes",
+          "B": "Third generation – microprocessors",
+          "C": "Fifth generation – ULSI, parallel processing and AI",
+          "D": "Second generation – transistors"
+         },
+         "answer": "B",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "Third generation computers used integrated circuits; microprocessors (VLSI) characterise the fourth generation."
+        },
+        {
+         "question": "ENIAC, completed in 1945–46, used approximately how many vacuum tubes?",
+         "options": {
+          "A": "About 1,800",
+          "B": "About 18,000",
+          "C": "About 180",
+          "D": "About 180,000"
+         },
+         "answer": "B",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "ENIAC had roughly 17,468 vacuum tubes, weighed about 27 tonnes and consumed around 150 kW of power."
+        },
+        {
+         "question": "The Intel 4004 (1971), the first commercial single-chip microprocessor, was a:",
+         "options": {
+          "A": "32-bit processor",
+          "B": "16-bit processor",
+          "C": "8-bit processor",
+          "D": "4-bit processor"
+         },
+         "answer": "D",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "The 4004 was a 4-bit CPU designed for a calculator; the 8008 (1972) and 8080 (1974) were 8-bit."
+        },
+        {
+         "question": "In Charles Babbage's Analytical Engine, the 'Mill' corresponds to which part of a modern computer?",
+         "options": {
+          "A": "Output device",
+          "B": "Processor (ALU)",
+          "C": "Input device",
+          "D": "Memory"
+         },
+         "answer": "B",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "The 'Store' held numbers (memory) and the 'Mill' performed calculations (processor/ALU); punched cards gave input."
+        },
+        {
+         "question": "Which machine is credited with running the world's first stored program, in June 1948?",
+         "options": {
+          "A": "Manchester Baby (SSEM)",
+          "B": "Harvard Mark I",
+          "C": "UNIVAC I",
+          "D": "ENIAC"
+         },
+         "answer": "A",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "The Small-Scale Experimental Machine at Manchester ran the first stored program on 21 June 1948; EDSAC (1949) was the first practical one."
+        },
+        {
+         "question": "A computer in a hospital ICU accepts continuous signals such as heartbeat and temperature, converts them to digital form and processes them. It is an example of a:",
+         "options": {
+          "A": "Digital computer",
+          "B": "Hybrid computer",
+          "C": "Quantum computer",
+          "D": "Analog computer"
+         },
+         "answer": "B",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "Hybrid computers combine analog input handling with digital processing, as in ICU patient monitors."
+        },
+        {
+         "question": "India's first supercomputer, PARAM 8000 (1991), was developed by:",
+         "options": {
+          "A": "ISRO",
+          "B": "C-DAC, Pune",
+          "C": "DRDO",
+          "D": "BARC, Mumbai"
+         },
+         "answer": "B",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "The Centre for Development of Advanced Computing (C-DAC) built PARAM 8000 after India was denied import of a Cray supercomputer."
+        },
+        {
+         "question": "UNIVAC I (1951) is notable because it was:",
+         "options": {
+          "A": "The first commercially produced computer in the United States",
+          "B": "The first microcomputer",
+          "C": "The first computer to use integrated circuits",
+          "D": "The first transistorised computer"
+         },
+         "answer": "A",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "UNIVAC I was the first commercial computer produced in the US; it famously predicted the 1952 presidential election."
+        },
+        {
+         "question": "Moore's law, in its commonly cited (1975) form, states that:",
+         "options": {
+          "A": "Memory prices halve every six months",
+          "B": "Processor power consumption doubles every five years",
+          "C": "Clock speed doubles every year",
+          "D": "The number of transistors on an integrated circuit doubles about every two years"
+         },
+         "answer": "D",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "Gordon Moore observed that transistor count doubles roughly every two years; clock speed is not part of the law."
+        },
+        {
+         "question": "Arrange in chronological order: Pascaline, Jacquard loom, Abacus, Analytical Engine.",
+         "options": {
+          "A": "Abacus → Pascaline → Jacquard loom → Analytical Engine",
+          "B": "Abacus → Jacquard loom → Pascaline → Analytical Engine",
+          "C": "Pascaline → Abacus → Jacquard loom → Analytical Engine",
+          "D": "Abacus → Pascaline → Analytical Engine → Jacquard loom"
+         },
+         "answer": "A",
+         "subject": "Evolution, Generations, Classification, Applications",
+         "explanation": "Abacus (ancient), Pascaline (1642), Jacquard's punched-card loom (1804) and Babbage's Analytical Engine design (1837)."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Input, Output and Memory Devices",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which of the following is a non-impact printer?",
+         "options": {
+          "A": "Daisy-wheel printer",
+          "B": "Laser printer",
+          "C": "Line printer",
+          "D": "Dot-matrix printer"
+         },
+         "answer": "B",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "Laser and inkjet printers form images without striking the paper; dot-matrix, daisy-wheel and line printers are impact printers."
+        },
+        {
+         "question": "MICR (Magnetic Ink Character Recognition) is mainly used for:",
+         "options": {
+          "A": "Processing bank cheques",
+          "B": "Converting scanned text to editable text",
+          "C": "Reading product barcodes",
+          "D": "Evaluating OMR answer sheets"
+         },
+         "answer": "A",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "Cheques carry the MICR line printed in magnetic ink (E-13B font), which machines read quickly and reliably."
+        },
+        {
+         "question": "The print quality (resolution) of a laser printer is usually expressed in:",
+         "options": {
+          "A": "CPS",
+          "B": "DPI",
+          "C": "LPM",
+          "D": "PPM"
+         },
+         "answer": "B",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "DPI (dots per inch) measures resolution; PPM (pages per minute) measures speed."
+        },
+        {
+         "question": "Which of the following memories is volatile?",
+         "options": {
+          "A": "ROM",
+          "B": "SRAM",
+          "C": "Flash memory",
+          "D": "EEPROM"
+         },
+         "answer": "B",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "SRAM (like DRAM) loses its contents when power is removed; ROM, EEPROM and flash are non-volatile."
+        },
+        {
+         "question": "DRAM must be refreshed periodically because:",
+         "options": {
+          "A": "It stores data magnetically",
+          "B": "It stores bits in flip-flops that lose state",
+          "C": "Each bit is stored as charge on a capacitor that gradually leaks",
+          "D": "It is a non-volatile memory"
+         },
+         "answer": "C",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "A DRAM cell is a transistor and a capacitor; the charge leaks within milliseconds, so it is refreshed. SRAM uses flip-flops and needs no refresh."
+        },
+        {
+         "question": "Arrange in order of decreasing access speed:",
+         "options": {
+          "A": "Registers > Cache > Main memory > SSD > Hard disk",
+          "B": "Cache > Registers > Main memory > Hard disk > SSD",
+          "C": "Registers > Main memory > Cache > SSD > Hard disk",
+          "D": "Cache > Main memory > Registers > SSD > Hard disk"
+         },
+         "answer": "A",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "Registers are fastest, then cache (SRAM), main memory (DRAM), SSD (flash) and finally the mechanical hard disk."
+        },
+        {
+         "question": "The contents of an EPROM chip are erased by:",
+         "options": {
+          "A": "Heating the chip",
+          "B": "An electrical signal",
+          "C": "Exposure to ultraviolet light",
+          "D": "A strong magnetic field"
+         },
+         "answer": "C",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "EPROM has a quartz window for UV erasure; EEPROM and flash are erased electrically."
+        },
+        {
+         "question": "Most smartphone touch screens detect a finger through a change in the electrostatic field. They are:",
+         "options": {
+          "A": "Surface acoustic wave screens",
+          "B": "Capacitive touch screens",
+          "C": "Infrared touch screens",
+          "D": "Resistive touch screens"
+         },
+         "answer": "B",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "Capacitive screens sense the conductive human body; resistive screens respond to pressure and work with any stylus."
+        },
+        {
+         "question": "Plotters are preferred over ordinary printers mainly for:",
+         "options": {
+          "A": "Large-format vector drawings such as engineering and CAD drawings",
+          "B": "Printing photographs",
+          "C": "Printing receipts",
+          "D": "High-volume text printing"
+         },
+         "answer": "A",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "Plotters draw continuous lines with pens or inkjets on large sheets, which suits maps and CAD drawings."
+        },
+        {
+         "question": "Which pair is correctly matched?",
+         "options": {
+          "A": "MICR – recognises handwritten text",
+          "B": "BCR – reads handwriting on forms",
+          "C": "OCR – reads characters printed in magnetic ink",
+          "D": "OMR – detects marks made in predefined positions"
+         },
+         "answer": "D",
+         "subject": "Input, Output and Memory Devices",
+         "explanation": "OMR reads pencil/pen marks (e.g. answer sheets); OCR recognises printed text; MICR reads magnetic ink; BCR reads barcodes."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Software Concepts & Problem Solving Methodology",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "According to Donald Knuth, which of the following is NOT an essential property of an algorithm?",
+         "options": {
+          "A": "It must take at least one input",
+          "B": "Definiteness",
+          "C": "Effectiveness",
+          "D": "Finiteness"
+         },
+         "answer": "A",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "An algorithm has zero or more inputs and one or more outputs, and must be finite, definite and effective."
+        },
+        {
+         "question": "Which of the following is system software?",
+         "options": {
+          "A": "A device driver",
+          "B": "MS Word",
+          "C": "Adobe Photoshop",
+          "D": "Tally ERP"
+         },
+         "answer": "A",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Device drivers let the OS control hardware; they are system software. The others are application software."
+        },
+        {
+         "question": "Firmware is best described as:",
+         "options": {
+          "A": "Software distributed free of cost",
+          "B": "Software that spreads without permission",
+          "C": "Software permanently stored in ROM/flash that controls a hardware device",
+          "D": "Software whose source code is public"
+         },
+         "answer": "C",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "BIOS/UEFI and the code inside routers or printers are firmware, stored in non-volatile memory on the device."
+        },
+        {
+         "question": "Pseudocode is:",
+         "options": {
+          "A": "Machine code written in hexadecimal",
+          "B": "Code that the compiler translates directly",
+          "C": "A flowchart symbol",
+          "D": "An informal, language-independent description of an algorithm's logic"
+         },
+         "answer": "D",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Pseudocode uses structured English-like statements to plan logic before coding in any particular language."
+        },
+        {
+         "question": "Which kind of licence allows users to run, study, modify and redistribute the source code?",
+         "options": {
+          "A": "Proprietary end-user licence",
+          "B": "Freeware",
+          "C": "Shareware",
+          "D": "Free and open-source licence (e.g. GNU GPL)"
+         },
+         "answer": "D",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Freeware is free of cost but usually closed; open-source licences like the GPL grant the freedom to modify and share the code."
+        },
+        {
+         "question": "The 'top-down' approach to problem solving means:",
+         "options": {
+          "A": "Designing hardware before software",
+          "B": "Writing the detailed code first and combining it later",
+          "C": "Breaking the main problem into smaller sub-problems by stepwise refinement",
+          "D": "Testing the program before designing it"
+         },
+         "answer": "C",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Top-down design starts from the overall problem and refines it into modules; bottom-up design builds from small components."
+        },
+        {
+         "question": "What is printed by this algorithm?\nsum ← 0\nfor i ← 1 to 5\n  if i mod 2 = 1 then sum ← sum + i\nprint sum",
+         "options": {
+          "A": "6",
+          "B": "15",
+          "C": "9",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Only odd values of i are added: 1 + 3 + 5 = 9."
+        },
+        {
+         "question": "Which of the following is a utility program?",
+         "options": {
+          "A": "Spreadsheet package",
+          "B": "Payroll system",
+          "C": "Railway reservation system",
+          "D": "Disk defragmenter"
+         },
+         "answer": "D",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Utilities (defragmenters, antivirus, backup tools) help maintain the computer; the others are application software."
+        },
+        {
+         "question": "A trace table is used to:",
+         "options": {
+          "A": "Dry-run an algorithm by recording the values of variables at each step",
+          "B": "Test hardware components",
+          "C": "Draw a flowchart",
+          "D": "Compile a program"
+         },
+         "answer": "A",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "Dry-running with a trace table helps find logical errors before the program is executed."
+        },
+        {
+         "question": "In a flowchart, which symbol is used for a connector joining different parts of the chart?",
+         "options": {
+          "A": "Rectangle",
+          "B": "Parallelogram",
+          "C": "Diamond",
+          "D": "Small circle"
+         },
+         "answer": "D",
+         "subject": "Software Concepts & Problem Solving Methodology",
+         "explanation": "A small circle is an on-page connector; rectangle = process, diamond = decision, parallelogram = input/output."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Word Processing, Spreadsheets, PowerPoint",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "In MS Excel, how many cells are added by =SUM(A1:B3)?",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "3",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "A1:B3 is 2 columns × 3 rows = 6 cells."
+        },
+        {
+         "question": "In the Excel reference $A1:",
+         "options": {
+          "A": "The column is absolute and the row is relative",
+          "B": "The row is absolute and the column is relative",
+          "C": "Both row and column are absolute",
+          "D": "Both row and column are relative"
+         },
+         "answer": "A",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "The $ fixes the part it precedes: $A1 keeps column A fixed while the row changes when copied."
+        },
+        {
+         "question": "Cell C1 contains =A1*$B$1. If it is copied to C3, the formula in C3 becomes:",
+         "options": {
+          "A": "=A1*$B$1",
+          "B": "=A3*$B$3",
+          "C": "=C3*$B$1",
+          "D": "=A3*$B$1"
+         },
+         "answer": "D",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "The relative reference A1 shifts by two rows to A3; the absolute reference $B$1 does not change."
+        },
+        {
+         "question": "Mail Merge in MS Word combines:",
+         "options": {
+          "A": "A main document with a data source to produce personalised copies",
+          "B": "Two tables into one",
+          "C": "The styles of two documents",
+          "D": "Several macros into one"
+         },
+         "answer": "A",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "Mail Merge fills fields (name, address…) from a data source such as an Excel sheet into a letter template."
+        },
+        {
+         "question": "Which PowerPoint view lets you rearrange slides by dragging their thumbnails, all on one screen?",
+         "options": {
+          "A": "Normal view",
+          "B": "Notes Page view",
+          "C": "Slide Sorter view",
+          "D": "Reading view"
+         },
+         "answer": "C",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "Slide Sorter shows all slides as thumbnails for reordering, deleting and applying transitions."
+        },
+        {
+         "question": "Cells A1:A5 contain 10, \"abc\", (blank), 5 and TRUE. What does =COUNT(A1:A5) return?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "COUNT counts only numeric values. Text, blanks and logical values inside a range are ignored, so only 10 and 5 are counted. COUNTA would return 4."
+        },
+        {
+         "question": "Which Excel error appears when a formula refers to a cell that is no longer valid, for example because it was deleted?",
+         "options": {
+          "A": "#REF!",
+          "B": "#VALUE!",
+          "C": "#N/A",
+          "D": "#NAME?"
+         },
+         "answer": "A",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "#REF! means an invalid reference; #NAME? an unknown function name; #VALUE! a wrong type of argument; #N/A a value not available."
+        },
+        {
+         "question": "In MS Word, the shortcut Ctrl+J is used to:",
+         "options": {
+          "A": "Open the Go To dialog",
+          "B": "Centre the text",
+          "C": "Justify the paragraph",
+          "D": "Insert a hyperlink"
+         },
+         "answer": "C",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "Ctrl+J justifies, Ctrl+E centres, Ctrl+K inserts a hyperlink and Ctrl+G opens Go To."
+        },
+        {
+         "question": "In PowerPoint, changes made to the Slide Master:",
+         "options": {
+          "A": "Apply the theme, layouts and fonts to all slides based on it",
+          "B": "Affect only the animations",
+          "C": "Affect only the current slide",
+          "D": "Change only the speaker notes"
+         },
+         "answer": "A",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "The Slide Master stores the design shared by all slides, so one change updates the whole presentation."
+        },
+        {
+         "question": "A1 = 60 and B1 = 50. What does =IF(AND(A1>50, B1>50), \"Pass\", \"Fail\") return?",
+         "options": {
+          "A": "#VALUE!",
+          "B": "Fail",
+          "C": "Pass",
+          "D": "TRUE"
+         },
+         "answer": "B",
+         "subject": "Word Processing, Spreadsheets, PowerPoint",
+         "explanation": "B1>50 is FALSE because 50 is not greater than 50, so AND returns FALSE and the formula gives \"Fail\"."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Computer Configuration & Motherboard",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "In traditional chipsets, which component linked the CPU with RAM and the graphics slot (the high-speed devices)?",
+         "options": {
+          "A": "Super I/O chip",
+          "B": "Northbridge",
+          "C": "Southbridge",
+          "D": "BIOS chip"
+         },
+         "answer": "B",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "The northbridge handled high-speed links (memory, AGP/PCIe graphics); the southbridge handled slower I/O such as USB, SATA and audio."
+        },
+        {
+         "question": "The CMOS battery on a motherboard is used to:",
+         "options": {
+          "A": "Power the CPU when the mains supply fails",
+          "B": "Keep the real-time clock running and retain BIOS settings when the PC is off",
+          "C": "Charge the UPS",
+          "D": "Supply power to the hard disk"
+         },
+         "answer": "B",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "A coin cell (CR2032) keeps the RTC and the CMOS settings alive while the computer is unplugged."
+        },
+        {
+         "question": "The Power-On Self-Test (POST) is performed by:",
+         "options": {
+          "A": "A device driver",
+          "B": "The BIOS/UEFI firmware",
+          "C": "The operating system kernel",
+          "D": "The OS boot loader"
+         },
+         "answer": "B",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "POST runs from firmware immediately after power-on, before any operating system is loaded."
+        },
+        {
+         "question": "Which of these motherboard form factors is the smallest?",
+         "options": {
+          "A": "Micro-ATX",
+          "B": "Mini-ITX",
+          "C": "ATX",
+          "D": "E-ATX"
+         },
+         "answer": "B",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "Mini-ITX is 17 × 17 cm; Micro-ATX is 24.4 × 24.4 cm; ATX is 30.5 × 24.4 cm; E-ATX is larger still."
+        },
+        {
+         "question": "On modern motherboards, the M.2 slot is mainly used for:",
+         "options": {
+          "A": "The power supply connector",
+          "B": "RAM modules",
+          "C": "NVMe/SATA solid-state drives (and some Wi-Fi cards)",
+          "D": "CPU fan headers"
+         },
+         "answer": "C",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "M.2 is a small edge connector used mostly for NVMe SSDs running over PCIe lanes."
+        },
+        {
+         "question": "In modern Intel and AMD platforms, the memory controller that used to be in the northbridge is now located in:",
+         "options": {
+          "A": "The CPU itself",
+          "B": "The Platform Controller Hub",
+          "C": "The SATA controller",
+          "D": "The BIOS chip"
+         },
+         "answer": "A",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "Integrating the memory controller into the CPU reduces memory latency; the remaining I/O functions sit in the PCH/chipset."
+        },
+        {
+         "question": "Modern graphics cards are installed in which type of expansion slot?",
+         "options": {
+          "A": "AGP",
+          "B": "ISA",
+          "C": "PCI Express x1",
+          "D": "PCI Express x16"
+         },
+         "answer": "D",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "PCIe x16 provides the bandwidth that graphics cards need; AGP and ISA are obsolete."
+        },
+        {
+         "question": "SO-DIMM memory modules are mainly used in:",
+         "options": {
+          "A": "Graphics cards",
+          "B": "Hard disk controllers",
+          "C": "Laptops and small form-factor PCs",
+          "D": "Servers"
+         },
+         "answer": "C",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "SO-DIMMs are about half the length of desktop DIMMs, which suits laptops and mini PCs."
+        },
+        {
+         "question": "Which feature is provided by UEFI but not by legacy BIOS?",
+         "options": {
+          "A": "Secure Boot and booting from GPT disks larger than 2 TB",
+          "B": "Choosing the boot device order",
+          "C": "Storing settings in CMOS",
+          "D": "The Power-On Self-Test"
+         },
+         "answer": "A",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "UEFI supports GPT partitioning, Secure Boot and faster booting; POST, boot order and CMOS settings existed in legacy BIOS too."
+        },
+        {
+         "question": "DDR SDRAM achieves higher bandwidth than SDR SDRAM at the same clock because it:",
+         "options": {
+          "A": "Transfers data on both the rising and falling edges of the clock",
+          "B": "Uses two memory controllers",
+          "C": "Is non-volatile",
+          "D": "Doubles the storage capacity of each chip"
+         },
+         "answer": "A",
+         "subject": "Computer Configuration & Motherboard",
+         "explanation": "Double Data Rate means two transfers per clock cycle."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Memory, Power Supply & Assembling",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "An SMPS in a computer converts:",
+         "options": {
+          "A": "AC mains supply into regulated low-voltage DC (12 V, 5 V, 3.3 V)",
+          "B": "Battery DC into AC for the monitor",
+          "C": "DC into high-voltage AC",
+          "D": "AC into higher-voltage AC"
+         },
+         "answer": "A",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "The switched-mode power supply rectifies and regulates the mains supply into the DC rails needed by the components."
+        },
+        {
+         "question": "How many pins does the main ATX power connector on a modern motherboard have?",
+         "options": {
+          "A": "8",
+          "B": "24",
+          "C": "20",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "The main ATX connector has 24 pins (older boards used 20); the separate 4/8-pin EPS connector powers the CPU."
+        },
+        {
+         "question": "Thermal paste is applied between the CPU and its heat sink to:",
+         "options": {
+          "A": "Reduce the CPU's clock speed",
+          "B": "Fill microscopic air gaps and improve heat transfer",
+          "C": "Glue the heat sink permanently",
+          "D": "Insulate the CPU electrically"
+         },
+         "answer": "B",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "Air is a poor conductor; a thin layer of thermal paste fills surface irregularities so heat flows to the heat sink."
+        },
+        {
+         "question": "Which UPS type provides virtually zero switch-over time because the load always runs from the inverter?",
+         "options": {
+          "A": "Online (double-conversion) UPS",
+          "B": "Uninterrupted transformer",
+          "C": "Offline (standby) UPS",
+          "D": "Line-interactive UPS"
+         },
+         "answer": "A",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "An online UPS continuously converts AC→DC→AC, so there is no transfer delay when mains power fails."
+        },
+        {
+         "question": "Cache memory is usually built from:",
+         "options": {
+          "A": "Flash memory",
+          "B": "DRAM",
+          "C": "EEPROM",
+          "D": "SRAM"
+         },
+         "answer": "D",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "SRAM is faster than DRAM and needs no refresh, which suits small, fast cache memory."
+        },
+        {
+         "question": "Virtual memory allows a computer to:",
+         "options": {
+          "A": "Store BIOS settings",
+          "B": "Increase the CPU clock speed",
+          "C": "Use cache as a hard disk",
+          "D": "Use part of secondary storage as an extension of main memory"
+         },
+         "answer": "D",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "Pages are swapped between RAM and a page file or swap space on disk, so programs can be larger than physical RAM."
+        },
+        {
+         "question": "How many bytes are there in 2 MiB?",
+         "options": {
+          "A": "2,000,000",
+          "B": "2,097,152",
+          "C": "2,048",
+          "D": "2,048,000"
+         },
+         "answer": "B",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "1 MiB = 2^20 = 1,048,576 bytes, so 2 MiB = 2,097,152 bytes."
+        },
+        {
+         "question": "An '80 PLUS' certification on a PC power supply indicates:",
+         "options": {
+          "A": "At least 80% energy efficiency at 20%, 50% and 100% load",
+          "B": "80 connectors",
+          "C": "An output of 80 W",
+          "D": "Safe operation up to 80 °C"
+         },
+         "answer": "A",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "80 PLUS certifies efficiency; higher grades (Bronze, Silver, Gold…) require even better efficiency."
+        },
+        {
+         "question": "Which is recommended practice when assembling a desktop computer?",
+         "options": {
+          "A": "Install the CPU, cooler and RAM on the motherboard before fixing it in the cabinet",
+          "B": "Apply thermal paste after fixing the heat sink",
+          "C": "Connect the power cord before installing the RAM",
+          "D": "Keep the PSU switched on while installing components"
+         },
+         "answer": "A",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "Components are easier and safer to fit on an open board; all work is done with the power disconnected."
+        },
+        {
+         "question": "An anti-static wrist strap is worn while assembling a computer to:",
+         "options": {
+          "A": "Keep the hands cool",
+          "B": "Protect against electric shock from the mains",
+          "C": "Improve grip on screws",
+          "D": "Prevent electrostatic discharge damage to components"
+         },
+         "answer": "D",
+         "subject": "Memory, Power Supply & Assembling",
+         "explanation": "Static charge from the body can destroy sensitive chips; the strap keeps you at the same potential as the chassis."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P2 · Unit 4 – Programming Languages & Web",
+   "icon": "⌨️",
+   "topics": [
+    {
+     "name": "Language Design and Translation Issues",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which language–paradigm pair is INCORRECT?",
+         "options": {
+          "A": "C – imperative/procedural",
+          "B": "Prolog – logic programming",
+          "C": "Smalltalk – object-oriented",
+          "D": "Haskell – logic programming"
+         },
+         "answer": "D",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "Haskell is a purely functional language; Prolog is the classic logic-programming language."
+        },
+        {
+         "question": "What is the correct order of the main phases of a compiler?",
+         "options": {
+          "A": "Lexical analysis → Syntax analysis → Semantic analysis → Intermediate code → Optimisation → Code generation",
+          "B": "Syntax analysis → Lexical analysis → Semantic analysis → Code generation → Optimisation",
+          "C": "Lexical analysis → Semantic analysis → Syntax analysis → Optimisation → Code generation",
+          "D": "Parsing → Scanning → Code generation → Semantic analysis"
+         },
+         "answer": "A",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "The scanner produces tokens, the parser builds a parse tree, semantic analysis checks types, then IR is generated, optimised and translated to target code."
+        },
+        {
+         "question": "The output of the lexical analyser is a stream of:",
+         "options": {
+          "A": "Parse trees",
+          "B": "Three-address code",
+          "C": "Tokens",
+          "D": "Object code"
+         },
+         "answer": "C",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "The lexical analyser (scanner) groups characters into tokens such as identifiers, keywords and operators."
+        },
+        {
+         "question": "Which formal model is used to recognise the context-free syntax of programming languages?",
+         "options": {
+          "A": "Pushdown automaton",
+          "B": "Finite automaton",
+          "C": "Turing machine",
+          "D": "Mealy machine"
+         },
+         "answer": "A",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "Context-free grammars are recognised by pushdown automata; finite automata recognise the regular languages used in lexical analysis."
+        },
+        {
+         "question": "A grammar is said to be ambiguous if:",
+         "options": {
+          "A": "It contains ε-productions",
+          "B": "Some string has more than one parse tree (or leftmost derivation)",
+          "C": "It has left recursion",
+          "D": "It generates an infinite language"
+         },
+         "answer": "B",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "Ambiguity means one sentence can be derived in two different ways, e.g. the classic dangling-else problem."
+        },
+        {
+         "question": "In a dynamically typed language such as Python, the type of a variable is bound:",
+         "options": {
+          "A": "At run time",
+          "B": "At link time",
+          "C": "At compile time",
+          "D": "At language design time"
+         },
+         "answer": "A",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "Dynamic typing binds types to values during execution; C and Java bind types at compile time."
+        },
+        {
+         "question": "Which statement is generally TRUE?",
+         "options": {
+          "A": "A compiler cannot detect syntax errors",
+          "B": "An interpreter translates the whole program before running any part",
+          "C": "An interpreter produces a standalone object file",
+          "D": "Compiled programs usually run faster than the same program interpreted"
+         },
+         "answer": "D",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "A compiler translates the whole program in advance into machine code; an interpreter translates and executes statement by statement, which is slower."
+        },
+        {
+         "question": "'Orthogonality' in programming language design means:",
+         "options": {
+          "A": "Every statement must end with a semicolon",
+          "B": "The language has no data types",
+          "C": "The language supports only right-angled graphics",
+          "D": "A small set of primitive constructs can be combined in few ways, and every combination is legal and meaningful"
+         },
+         "answer": "D",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "High orthogonality reduces exceptions to the rules, making a language easier to learn and read."
+        },
+        {
+         "question": "Just-In-Time (JIT) compilation, as used by the Java Virtual Machine, means:",
+         "options": {
+          "A": "Compilation happens on a remote server",
+          "B": "Source code is compiled only once, at installation",
+          "C": "Bytecode is compiled into native machine code at run time, when needed",
+          "D": "The program is interpreted only"
+         },
+         "answer": "C",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "The JVM interprets bytecode and compiles frequently used parts (hot spots) into native code while the program runs."
+        },
+        {
+         "question": "BNF (Backus–Naur Form) is used to describe the:",
+         "options": {
+          "A": "Semantics of a language",
+          "B": "Memory layout of a program",
+          "C": "Run-time environment",
+          "D": "Syntax of a language"
+         },
+         "answer": "D",
+         "subject": "Language Design and Translation Issues",
+         "explanation": "BNF/EBNF notations formally specify the context-free syntax of programming languages."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Elementary Data Types",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which of the following is a composite (structured) data type?",
+         "options": {
+          "A": "char",
+          "B": "int",
+          "C": "enum",
+          "D": "array"
+         },
+         "answer": "D",
+         "subject": "Elementary Data Types",
+         "explanation": "Arrays, structures and records are composite; int, char, float and enum are scalar (elementary) types."
+        },
+        {
+         "question": "A language is called 'strongly typed' if:",
+         "options": {
+          "A": "It has many data types",
+          "B": "All type errors are always detected (at compile or run time)",
+          "C": "Variables must be declared in upper case",
+          "D": "It supports only integer arithmetic"
+         },
+         "answer": "B",
+         "subject": "Elementary Data Types",
+         "explanation": "Strong typing guarantees that type errors are caught; C is weakly typed because of unchecked casts and unions."
+        },
+        {
+         "question": "In C, the value of sizeof(char) is:",
+         "options": {
+          "A": "Always 8",
+          "B": "Implementation-defined, usually 4",
+          "C": "Always 1",
+          "D": "2 on 16-bit machines"
+         },
+         "answer": "C",
+         "subject": "Elementary Data Types",
+         "explanation": "The C standard defines sizeof(char) as exactly 1 (one byte), whatever the number of bits in a byte."
+        },
+        {
+         "question": "What is the range of an 8-bit signed integer stored in two's complement?",
+         "options": {
+          "A": "−127 to +128",
+          "B": "−127 to +127",
+          "C": "0 to 255",
+          "D": "−128 to +127"
+         },
+         "answer": "D",
+         "subject": "Elementary Data Types",
+         "explanation": "An n-bit two's complement number ranges from −2^(n−1) to 2^(n−1) − 1, i.e. −128 to +127 for 8 bits."
+        },
+        {
+         "question": "The automatic conversion of an int to a float in the expression 5 + 2.5 is called:",
+         "options": {
+          "A": "Type inference",
+          "B": "Type casting (explicit)",
+          "C": "Type coercion (implicit conversion)",
+          "D": "Overloading"
+         },
+         "answer": "C",
+         "subject": "Elementary Data Types",
+         "explanation": "Coercion is done by the compiler implicitly; casting is written explicitly by the programmer, e.g. (float)5."
+        },
+        {
+         "question": "Two types are considered the same under 'structural equivalence' if:",
+         "options": {
+          "A": "They occupy the same memory address",
+          "B": "They are declared in the same statement",
+          "C": "They have identical structure (same components in the same order)",
+          "D": "They have the same name"
+         },
+         "answer": "C",
+         "subject": "Elementary Data Types",
+         "explanation": "Name equivalence requires the same type name; structural equivalence compares the type structure."
+        },
+        {
+         "question": "In the IEEE 754 single-precision format, the numbers of sign, exponent and fraction bits are:",
+         "options": {
+          "A": "1, 11, 52",
+          "B": "2, 8, 22",
+          "C": "1, 7, 24",
+          "D": "1, 8, 23"
+         },
+         "answer": "D",
+         "subject": "Elementary Data Types",
+         "explanation": "Single precision (32 bits) = 1 sign + 8 exponent + 23 fraction bits; double precision = 1 + 11 + 52."
+        },
+        {
+         "question": "In C, given enum colour { RED, GREEN = 5, BLUE };  what is the value of BLUE?",
+         "options": {
+          "A": "6",
+          "B": "2",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Elementary Data Types",
+         "explanation": "RED = 0, GREEN is explicitly 5, and each following enumerator is one more than the previous one, so BLUE = 6."
+        },
+        {
+         "question": "A descriptor (such as a dope vector for arrays) stores:",
+         "options": {
+          "A": "The attributes of a data object, such as its type, bounds and address",
+          "B": "Only the value of the variable",
+          "C": "The source code of a function",
+          "D": "The compiler's error messages"
+         },
+         "answer": "A",
+         "subject": "Elementary Data Types",
+         "explanation": "Descriptors hold the information needed to access a data object, e.g. array bounds for index checking."
+        },
+        {
+         "question": "Which of the following is NOT a scalar (elementary) type in C?",
+         "options": {
+          "A": "float",
+          "B": "double",
+          "C": "struct",
+          "D": "char"
+         },
+         "answer": "C",
+         "subject": "Elementary Data Types",
+         "explanation": "A struct groups several members, so it is a composite type."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C – Part 1",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "What is the output?\nint a = 10, b = 3;\nprintf(\"%d %d\", a / b, a % b);",
+         "options": {
+          "A": "3 0",
+          "B": "4 1",
+          "C": "3 1",
+          "D": "3.33 1"
+         },
+         "answer": "C",
+         "subject": "Programming in C – Part 1",
+         "explanation": "Integer division truncates 10/3 to 3, and 10 % 3 = 1."
+        },
+        {
+         "question": "What is the output?\nchar s[] = \"hello\";\nprintf(\"%zu %zu\", sizeof(s), strlen(s));",
+         "options": {
+          "A": "6 5",
+          "B": "5 6",
+          "C": "6 6",
+          "D": "5 5"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 1",
+         "explanation": "The array includes the terminating '\\0', so sizeof is 6; strlen counts only the 5 visible characters."
+        },
+        {
+         "question": "What is the output?\nint i = 2;\nswitch (i) {\n  case 1: printf(\"A\");\n  case 2: printf(\"B\");\n  case 3: printf(\"C\"); break;\n  default: printf(\"D\");\n}",
+         "options": {
+          "A": "BCD",
+          "B": "B",
+          "C": "ABC",
+          "D": "BC"
+         },
+         "answer": "D",
+         "subject": "Programming in C – Part 1",
+         "explanation": "Execution starts at case 2 and falls through to case 3 because there is no break after case 2; the break then stops before default."
+        },
+        {
+         "question": "What is the output?\nint i;\nfor (i = 0; i < 5; i++);\nprintf(\"%d\", i);",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "0",
+          "D": "01234"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 1",
+         "explanation": "The semicolon after the for makes an empty loop body; the loop ends when i becomes 5, then printf runs once."
+        },
+        {
+         "question": "Which of the following is a valid C identifier?",
+         "options": {
+          "A": "my-var",
+          "B": "_count",
+          "C": "2total",
+          "D": "int"
+         },
+         "answer": "B",
+         "subject": "Programming in C – Part 1",
+         "explanation": "Identifiers may start with a letter or underscore and cannot be keywords or contain '-'."
+        },
+        {
+         "question": "Assuming a 4-byte int, what is sizeof(u) for:\nunion { int i; char c[8]; } u;",
+         "options": {
+          "A": "12",
+          "B": "4",
+          "C": "8",
+          "D": "16"
+         },
+         "answer": "C",
+         "subject": "Programming in C – Part 1",
+         "explanation": "A union is as large as its largest member (8 bytes here); a struct would need space for all members."
+        },
+        {
+         "question": "What is the output?\nint arr[5] = {1, 2};\nprintf(\"%d\", arr[3]);",
+         "options": {
+          "A": "0",
+          "B": "Compile error",
+          "C": "Garbage value",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 1",
+         "explanation": "When an array is partly initialised, the remaining elements are set to zero."
+        },
+        {
+         "question": "What is the value of x?\nint x = 2 + 3 * 4 > 10 && 5;",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "14",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 1",
+         "explanation": "3*4 = 12, 2+12 = 14, 14 > 10 is 1, and 1 && 5 is 1 (true)."
+        },
+        {
+         "question": "What is the output?\nint n = 0;\ndo { n++; } while (n < 0);\nprintf(\"%d\", n);",
+         "options": {
+          "A": "0",
+          "B": "−1",
+          "C": "Infinite loop",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Programming in C – Part 1",
+         "explanation": "A do-while body executes at least once before the condition is checked."
+        },
+        {
+         "question": "On a typical system with 4-byte int and 4-byte alignment, sizeof(struct { char c; int i; }) is:",
+         "options": {
+          "A": "8",
+          "B": "4",
+          "C": "6",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 1",
+         "explanation": "Three padding bytes are inserted after c so that i starts on a 4-byte boundary: 1 + 3 + 4 = 8."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C – Part 2",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "What is the output?\nint a[] = {10, 20, 30};\nint *p = a;\nprintf(\"%d\", *(p + 2));",
+         "options": {
+          "A": "Address of a[2]",
+          "B": "30",
+          "C": "20",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Programming in C – Part 2",
+         "explanation": "p + 2 points to a[2], and dereferencing it gives 30."
+        },
+        {
+         "question": "What is the output?\nint x = 5;\nint *p = &x;\nint **q = &p;\n**q = 10;\nprintf(\"%d\", x);",
+         "options": {
+          "A": "10",
+          "B": "Address of x",
+          "C": "5",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 2",
+         "explanation": "**q is the same object as *p, which is x, so x becomes 10."
+        },
+        {
+         "question": "What is the output?\nvoid f(int n) { n = 20; }\nint main() { int a = 10; f(a); printf(\"%d\", a); }",
+         "options": {
+          "A": "Garbage",
+          "B": "0",
+          "C": "10",
+          "D": "20"
+         },
+         "answer": "C",
+         "subject": "Programming in C – Part 2",
+         "explanation": "C passes arguments by value; f changes only its local copy n."
+        },
+        {
+         "question": "What is the output?\nvoid f() { static int c = 0; c++; printf(\"%d\", c); }\nint main() { f(); f(); f(); }",
+         "options": {
+          "A": "000",
+          "B": "012",
+          "C": "123",
+          "D": "111"
+         },
+         "answer": "C",
+         "subject": "Programming in C – Part 2",
+         "explanation": "A static local variable is initialised once and keeps its value between calls: 1, 2, 3."
+        },
+        {
+         "question": "What is the output?\n#define SQ(x) x*x\nprintf(\"%d\", SQ(2+3));",
+         "options": {
+          "A": "10",
+          "B": "13",
+          "C": "25",
+          "D": "11"
+         },
+         "answer": "D",
+         "subject": "Programming in C – Part 2",
+         "explanation": "The macro expands to 2+3*2+3 = 2 + 6 + 3 = 11. Writing ((x)*(x)) would give 25."
+        },
+        {
+         "question": "A program is run as:  ./prog one two\nWhat is the value of argc?",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "0",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Programming in C – Part 2",
+         "explanation": "argv[0] is the program name, so argc counts it too: prog, one, two = 3."
+        },
+        {
+         "question": "Which statement about fopen(\"data.txt\", \"a\") is correct?",
+         "options": {
+          "A": "It fails if the file does not exist",
+          "B": "It opens the file for appending and creates it if it does not exist",
+          "C": "It truncates the file to zero length",
+          "D": "It opens the file for reading only"
+         },
+         "answer": "B",
+         "subject": "Programming in C – Part 2",
+         "explanation": "Mode \"a\" writes at the end of the file and creates the file if needed; \"w\" truncates; \"r\" fails if the file is missing."
+        },
+        {
+         "question": "What is the output?\nchar *s = \"ABC\";\nprintf(\"%c\", *(s + 1));",
+         "options": {
+          "A": "66",
+          "B": "C",
+          "C": "A",
+          "D": "B"
+         },
+         "answer": "D",
+         "subject": "Programming in C – Part 2",
+         "explanation": "s + 1 points to the second character, 'B'."
+        },
+        {
+         "question": "A pointer p of type int* holds address 1000, and sizeof(int) is 4. After p++, p holds:",
+         "options": {
+          "A": "1004",
+          "B": "1001",
+          "C": "1002",
+          "D": "1008"
+         },
+         "answer": "A",
+         "subject": "Programming in C – Part 2",
+         "explanation": "Pointer arithmetic scales by the size of the pointed-to type: 1000 + 1 × 4 = 1004."
+        },
+        {
+         "question": "Which statement is true of calloc() but not of malloc()?",
+         "options": {
+          "A": "It returns NULL on failure",
+          "B": "It returns a void pointer",
+          "C": "It initialises the allocated memory to zero",
+          "D": "It allocates memory on the heap"
+         },
+         "answer": "C",
+         "subject": "Programming in C – Part 2",
+         "explanation": "Both allocate heap memory, return void* and can return NULL; only calloc zero-fills the block."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · Educational Psychology",
+   "icon": "🧠",
+   "topics": [
+    {
+     "name": "Psychology & Educational Psychology",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Over time, psychology was successively defined as the science of:",
+         "options": {
+          "A": "Soul → Mind → Consciousness → Behaviour",
+          "B": "Mind → Soul → Behaviour → Consciousness",
+          "C": "Behaviour → Consciousness → Mind → Soul",
+          "D": "Soul → Consciousness → Mind → Behaviour"
+         },
+         "answer": "A",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "The meaning shifted from the Greek 'psyche' (soul) to mind, then consciousness (Wundt, James) and finally behaviour (Watson)."
+        },
+        {
+         "question": "Who defined psychology as 'the science of behaviour'?",
+         "options": {
+          "A": "Wilhelm Wundt",
+          "B": "William James",
+          "C": "J. B. Watson",
+          "D": "Sigmund Freud"
+         },
+         "answer": "C",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Watson, founder of behaviourism (1913), rejected the study of consciousness in favour of observable behaviour."
+        },
+        {
+         "question": "'First psychology lost its soul, then it lost its mind, then it lost consciousness; it still has behaviour of a sort.' This remark is attributed to:",
+         "options": {
+          "A": "E. B. Titchener",
+          "B": "R. S. Woodworth",
+          "C": "B. F. Skinner",
+          "D": "Kurt Koffka"
+         },
+         "answer": "B",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Woodworth used this remark to summarise how the definition of psychology changed."
+        },
+        {
+         "question": "The first psychological laboratory was established in 1879 by:",
+         "options": {
+          "A": "William James at Harvard",
+          "B": "Ivan Pavlov at St Petersburg",
+          "C": "Wilhelm Wundt at Leipzig",
+          "D": "Francis Galton at London"
+         },
+         "answer": "C",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Wundt's Leipzig laboratory marks the start of experimental psychology as a separate science."
+        },
+        {
+         "question": "Who is regarded as the father of educational psychology?",
+         "options": {
+          "A": "Jean Piaget",
+          "B": "E. L. Thorndike",
+          "C": "B. F. Skinner",
+          "D": "John Dewey"
+         },
+         "answer": "B",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Thorndike's work 'Educational Psychology' (1903) and his laws of learning founded the field."
+        },
+        {
+         "question": "'Educational psychology is that branch of psychology which deals with teaching and learning.' This definition was given by:",
+         "options": {
+          "A": "Charles E. Skinner",
+          "B": "B. F. Skinner",
+          "C": "Crow and Crow",
+          "D": "Stephen"
+         },
+         "answer": "A",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "The definition is by Charles E. Skinner, the educational psychologist, not the behaviourist B. F. Skinner."
+        },
+        {
+         "question": "The nature of educational psychology is best described as:",
+         "options": {
+          "A": "A purely theoretical science",
+          "B": "A normative science that prescribes ideals",
+          "C": "A branch of philosophy",
+          "D": "An applied, positive science of behaviour in educational situations"
+         },
+         "answer": "D",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "It applies psychological principles to education and describes 'what is' rather than prescribing 'what ought to be'."
+        },
+        {
+         "question": "Which of the following is NOT usually included in the scope of educational psychology?",
+         "options": {
+          "A": "The learning process",
+          "B": "Deciding teachers' salary scales",
+          "C": "The learning situation",
+          "D": "The learner"
+         },
+         "answer": "B",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Its scope covers the learner, learning process, learning situation, evaluation and the teacher, not administrative pay matters."
+        },
+        {
+         "question": "Which school–founder pairing is INCORRECT?",
+         "options": {
+          "A": "Structuralism – E. B. Titchener",
+          "B": "Functionalism – William James",
+          "C": "Gestalt psychology – J. B. Watson",
+          "D": "Psychoanalysis – Sigmund Freud"
+         },
+         "answer": "C",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Gestalt psychology was founded by Max Wertheimer, with Köhler and Koffka; Watson founded behaviourism."
+        },
+        {
+         "question": "The principle 'the whole is different from (greater than) the sum of its parts' is central to:",
+         "options": {
+          "A": "Behaviourism",
+          "B": "Gestalt psychology",
+          "C": "Structuralism",
+          "D": "Psychoanalysis"
+         },
+         "answer": "B",
+         "subject": "Psychology & Educational Psychology",
+         "explanation": "Gestalt psychologists stressed perceiving organised wholes, which led to insight learning (Köhler)."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Methods of Psychology",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which method of psychology is least suitable for studying young children and people with mental disorders?",
+         "options": {
+          "A": "Case study",
+          "B": "Observation",
+          "C": "Introspection",
+          "D": "Experimental method"
+         },
+         "answer": "C",
+         "subject": "Methods of Psychology",
+         "explanation": "Introspection needs a trained, articulate person to examine their own mental states, which young children cannot do."
+        },
+        {
+         "question": "The introspection method was mainly developed by the:",
+         "options": {
+          "A": "Behaviourists (Watson, Skinner)",
+          "B": "Gestaltists (Wertheimer)",
+          "C": "Psychoanalysts (Freud)",
+          "D": "Structuralists (Wundt, Titchener)"
+         },
+         "answer": "D",
+         "subject": "Methods of Psychology",
+         "explanation": "Structuralists trained observers to report the elements of their conscious experience."
+        },
+        {
+         "question": "In an experiment on the effect of praise on pupils' test scores, 'praise' is the:",
+         "options": {
+          "A": "Dependent variable",
+          "B": "Control variable",
+          "C": "Intervening variable",
+          "D": "Independent variable"
+         },
+         "answer": "D",
+         "subject": "Methods of Psychology",
+         "explanation": "The experimenter manipulates the independent variable (praise) and measures the dependent variable (test scores)."
+        },
+        {
+         "question": "A teacher studies a chronically absent pupil in depth, collecting family history, health records and interviews. This is the:",
+         "options": {
+          "A": "Experimental method",
+          "B": "Survey method",
+          "C": "Case study method",
+          "D": "Introspection method"
+         },
+         "answer": "C",
+         "subject": "Methods of Psychology",
+         "explanation": "A case study is an intensive, many-sided study of one individual, often a problem child."
+        },
+        {
+         "question": "When the observer joins the group and takes part in its activities while observing, it is called:",
+         "options": {
+          "A": "Controlled observation",
+          "B": "Introspection",
+          "C": "Non-participant observation",
+          "D": "Participant observation"
+         },
+         "answer": "D",
+         "subject": "Methods of Psychology",
+         "explanation": "In participant observation the observer becomes a member of the group being studied."
+        },
+        {
+         "question": "The main purpose of a control group in an experiment is to:",
+         "options": {
+          "A": "Select the best subjects",
+          "B": "Replace the experimental group if it fails",
+          "C": "Receive the maximum treatment",
+          "D": "Provide a baseline for comparison with the experimental group"
+         },
+         "answer": "D",
+         "subject": "Methods of Psychology",
+         "explanation": "The control group does not receive the treatment, so any difference can be attributed to the independent variable."
+        },
+        {
+         "question": "People change their behaviour simply because they know they are being studied. This limitation of observation is known as the:",
+         "options": {
+          "A": "Pygmalion effect",
+          "B": "Hawthorne effect",
+          "C": "Placebo effect",
+          "D": "Halo effect"
+         },
+         "answer": "B",
+         "subject": "Methods of Psychology",
+         "explanation": "The name comes from the Hawthorne Works studies (1920s–30s), where workers' productivity rose because they were being observed."
+        },
+        {
+         "question": "The experimental method is considered the most scientific method of psychology because it:",
+         "options": {
+          "A": "Establishes cause-and-effect relationships under controlled conditions",
+          "B": "Needs no trained researcher",
+          "C": "Studies only one person at a time",
+          "D": "Is the cheapest"
+         },
+         "answer": "A",
+         "subject": "Methods of Psychology",
+         "explanation": "Controlling other variables lets the researcher conclude that changes in the dependent variable were caused by the independent variable."
+        },
+        {
+         "question": "Studying the same group of children from age 5 to 15 to track their development is the:",
+         "options": {
+          "A": "Cross-sectional method",
+          "B": "Clinical method",
+          "C": "Longitudinal method",
+          "D": "Case study method"
+         },
+         "answer": "C",
+         "subject": "Methods of Psychology",
+         "explanation": "Longitudinal studies follow the same subjects over a long time; cross-sectional studies compare different age groups at one time."
+        },
+        {
+         "question": "Consider the statements:\nI. Introspection is an objective method.\nII. The experimental method can establish cause-and-effect relationships.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Methods of Psychology",
+         "explanation": "Introspection is subjective, since only the person can observe their own mind; statement II is correct."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · General Knowledge",
+   "icon": "🌍",
+   "topics": [
+    {
+     "name": "Famous Books and Authors",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which book did Jawaharlal Nehru write while imprisoned at Ahmednagar Fort (1942–46)?",
+         "options": {
+          "A": "Glimpses of World History",
+          "B": "An Autobiography",
+          "C": "Letters from a Father to His Daughter",
+          "D": "The Discovery of India"
+         },
+         "answer": "D",
+         "subject": "Famous Books and Authors",
+         "explanation": "The Discovery of India was written at Ahmednagar Fort; Glimpses of World History consists of letters written from prisons in 1930–33."
+        },
+        {
+         "question": "Match the books with their authors:\n(a) Anandamath (b) Nil Darpan (c) Gita Govinda (d) Mudrarakshasa\n1. Jayadeva 2. Dinabandhu Mitra 3. Vishakhadatta 4. Bankim Chandra Chattopadhyay",
+         "options": {
+          "A": "a-4, b-2, c-1, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-1, b-2, c-4, d-3"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Anandamath (with 'Vande Mataram') is by Bankim Chandra, Nil Darpan by Dinabandhu Mitra, Gita Govinda by Jayadeva and Mudrarakshasa by Vishakhadatta."
+        },
+        {
+         "question": "The first Jnanpith Award for Kannada went to Kuvempu in 1967 for:",
+         "options": {
+          "A": "Kanooru Heggadithi",
+          "B": "Nenapina Doniyali",
+          "C": "Malegalalli Madumagalu",
+          "D": "Sri Ramayana Darshanam"
+         },
+         "answer": "D",
+         "subject": "Famous Books and Authors",
+         "explanation": "Kuvempu received the Jnanpith for his epic Sri Ramayana Darshanam; Malegalalli Madumagalu and Kanooru Heggadithi are his novels."
+        },
+        {
+         "question": "K. Shivaram Karanth received the Jnanpith Award (1977) for:",
+         "options": {
+          "A": "Mookajjiya Kanasugalu",
+          "B": "Chomana Dudi",
+          "C": "Bettada Jeeva",
+          "D": "Marali Mannige"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Mookajjiya Kanasugalu won the Jnanpith; Chomana Dudi, Marali Mannige and Bettada Jeeva are his other well-known novels."
+        },
+        {
+         "question": "Which book deeply influenced Mahatma Gandhi, who paraphrased it in Gujarati as 'Sarvodaya'?",
+         "options": {
+          "A": "Unto This Last – John Ruskin",
+          "B": "Civil Disobedience – Henry David Thoreau",
+          "C": "The Kingdom of God Is Within You – Leo Tolstoy",
+          "D": "Hind Swaraj – Gandhi himself"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Gandhi read Ruskin's Unto This Last in 1904 and translated its ideas as 'Sarvodaya' (welfare of all)."
+        },
+        {
+         "question": "'Poverty and Un-British Rule in India', which put forward the 'drain theory', was written by:",
+         "options": {
+          "A": "M. G. Ranade",
+          "B": "R. C. Dutt",
+          "C": "Gopal Krishna Gokhale",
+          "D": "Dadabhai Naoroji"
+         },
+         "answer": "D",
+         "subject": "Famous Books and Authors",
+         "explanation": "Dadabhai Naoroji argued that British rule drained India's wealth; R. C. Dutt wrote 'The Economic History of India'."
+        },
+        {
+         "question": "The earliest available literary work in Kannada, a treatise on poetics (c. 850 CE), is:",
+         "options": {
+          "A": "Kavirajamarga",
+          "B": "Vaddaradhane",
+          "C": "Vikramarjuna Vijaya",
+          "D": "Shabdamanidarpana"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Kavirajamarga, from the court of the Rashtrakuta king Amoghavarsha I (attributed to Srivijaya), is the earliest extant Kannada work."
+        },
+        {
+         "question": "Which pair is INCORRECTLY matched?",
+         "options": {
+          "A": "Rajatarangini – Kalhana",
+          "B": "Arthashastra – Kautilya",
+          "C": "Indica – Megasthenes",
+          "D": "Harshacharita – Kalidasa"
+         },
+         "answer": "D",
+         "subject": "Famous Books and Authors",
+         "explanation": "Harshacharita, the biography of King Harsha, was written by Banabhatta."
+        },
+        {
+         "question": "'Wings of Fire', the autobiography of Dr A. P. J. Abdul Kalam, was co-written with:",
+         "options": {
+          "A": "Arun Tiwari",
+          "B": "Kushwant Singh",
+          "C": "Y. S. Rajan",
+          "D": "Srijan Pal Singh"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Wings of Fire (1999) was written with Arun Tiwari; Kalam wrote 'India 2020' with Y. S. Rajan."
+        },
+        {
+         "question": "Adikavi Pampa's 'Vikramarjuna Vijaya' is popularly known as:",
+         "options": {
+          "A": "Pampa Bharata",
+          "B": "Gadayuddha",
+          "C": "Pampa Ramayana",
+          "D": "Adipurana"
+         },
+         "answer": "A",
+         "subject": "Famous Books and Authors",
+         "explanation": "Vikramarjuna Vijaya retells the Mahabharata (Pampa Bharata); Adipurana is Pampa's Jain work; Gadayuddha is by Ranna."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Important Inventions and Discoveries",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which discovery–scientist pair is INCORRECTLY matched?",
+         "options": {
+          "A": "Electron – Ernest Rutherford",
+          "B": "Penicillin – Alexander Fleming",
+          "C": "Neutron – James Chadwick",
+          "D": "Radioactivity – Henri Becquerel"
+         },
+         "answer": "A",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "J. J. Thomson discovered the electron (1897); Rutherford discovered the atomic nucleus and the proton."
+        },
+        {
+         "question": "National Science Day (28 February) commemorates the discovery of:",
+         "options": {
+          "A": "The Chandrasekhar limit",
+          "B": "The Raman Effect",
+          "C": "The Bose–Einstein statistics",
+          "D": "The Saha ionisation equation"
+         },
+         "answer": "B",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "C. V. Raman announced the Raman Effect on 28 February 1928 and received the Nobel Prize in Physics in 1930."
+        },
+        {
+         "question": "The first vaccine, against smallpox, was developed by Edward Jenner in 1796 using:",
+         "options": {
+          "A": "Killed bacteria",
+          "B": "Material from cowpox lesions",
+          "C": "Blood serum of horses",
+          "D": "Weakened smallpox virus"
+         },
+         "answer": "B",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Jenner observed that milkmaids who had cowpox did not get smallpox, and inoculated people with cowpox material."
+        },
+        {
+         "question": "The World Wide Web was invented in 1989 by Tim Berners-Lee at:",
+         "options": {
+          "A": "MIT",
+          "B": "Bell Labs",
+          "C": "Stanford Research Institute",
+          "D": "CERN"
+         },
+         "answer": "D",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Berners-Lee proposed the WWW at CERN, Geneva, and wrote the first web browser and server."
+        },
+        {
+         "question": "The transistor was invented in 1947 at Bell Labs by:",
+         "options": {
+          "A": "Bardeen, Brattain and Shockley",
+          "B": "Edison and Tesla",
+          "C": "Jack Kilby and Robert Noyce",
+          "D": "Eckert and Mauchly"
+         },
+         "answer": "A",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "The three shared the 1956 Nobel Prize in Physics; Kilby and Noyce invented the integrated circuit."
+        },
+        {
+         "question": "Insulin was discovered in 1921 by:",
+         "options": {
+          "A": "Louis Pasteur",
+          "B": "Frederick Banting and Charles Best",
+          "C": "Selman Waksman",
+          "D": "Robert Koch"
+         },
+         "answer": "B",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Banting and Best isolated insulin at the University of Toronto; Banting shared the 1923 Nobel Prize with Macleod."
+        },
+        {
+         "question": "The laws of electromagnetic induction were discovered by:",
+         "options": {
+          "A": "Georg Ohm",
+          "B": "James Clerk Maxwell",
+          "C": "Michael Faraday",
+          "D": "André-Marie Ampère"
+         },
+         "answer": "C",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Faraday discovered electromagnetic induction in 1831, the basis of generators and transformers."
+        },
+        {
+         "question": "The circulation of blood in the human body was described by:",
+         "options": {
+          "A": "Karl Landsteiner",
+          "B": "Galen",
+          "C": "William Harvey",
+          "D": "Andreas Vesalius"
+         },
+         "answer": "C",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Harvey published De Motu Cordis in 1628; Landsteiner discovered blood groups."
+        },
+        {
+         "question": "Who proposed the heliocentric model, placing the Sun at the centre of the solar system?",
+         "options": {
+          "A": "Ptolemy",
+          "B": "Aryabhata",
+          "C": "Tycho Brahe",
+          "D": "Nicolaus Copernicus"
+         },
+         "answer": "D",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Copernicus published the heliocentric theory in 1543; Ptolemy's model was geocentric."
+        },
+        {
+         "question": "Radioactivity was discovered in 1896 by:",
+         "options": {
+          "A": "Wilhelm Röntgen",
+          "B": "Henri Becquerel",
+          "C": "Marie Curie",
+          "D": "Pierre Curie"
+         },
+         "answer": "B",
+         "subject": "Important Inventions and Discoveries",
+         "explanation": "Becquerel found that uranium salts emit radiation; the Curies later discovered polonium and radium. Röntgen discovered X-rays (1895)."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)",
+   "icon": "ಕ",
+   "topics": [
+    {
+     "name": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "ಪ್ರಸ್ತುತ ಕನ್ನಡ ವರ್ಣಮಾಲೆಯಲ್ಲಿರುವ ಒಟ್ಟು ಅಕ್ಷರಗಳ ಸಂಖ್ಯೆ ಎಷ್ಟು?",
+         "options": {
+          "A": "50",
+          "B": "47",
+          "C": "52",
+          "D": "49"
+         },
+         "answer": "D",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಸ್ವರಗಳು 13 + ಯೋಗವಾಹಗಳು 2 + ವ್ಯಂಜನಗಳು 34 = 49 ಅಕ್ಷರಗಳು."
+        },
+        {
+         "question": "ಕನ್ನಡ ವರ್ಣಮಾಲೆಯಲ್ಲಿರುವ ಸ್ವರಗಳ ಸಂಖ್ಯೆ:",
+         "options": {
+          "A": "12",
+          "B": "10",
+          "C": "14",
+          "D": "13"
+         },
+         "answer": "D",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಅ ಆ ಇ ಈ ಉ ಊ ಋ ಎ ಏ ಐ ಒ ಓ ಔ – ಒಟ್ಟು 13 ಸ್ವರಗಳು."
+        },
+        {
+         "question": "ಯೋಗವಾಹಗಳು ಯಾವುವು?",
+         "options": {
+          "A": "ಋ ಮತ್ತು ೠ",
+          "B": "ಅನುಸ್ವಾರ ಮತ್ತು ವಿಸರ್ಗ",
+          "C": "ಳ ಮತ್ತು ಱ",
+          "D": "ಙ ಮತ್ತು ಞ"
+         },
+         "answer": "B",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಅನುಸ್ವಾರ (ಂ) ಮತ್ತು ವಿಸರ್ಗ (ಃ) ಯೋಗವಾಹಗಳು; ಇವು ಸ್ವತಂತ್ರವಾಗಿ ಉಚ್ಚರಿಸಲ್ಪಡದೆ ಬೇರೆ ಅಕ್ಷರಗಳ ಜೊತೆ ಸೇರಿ ಬರುತ್ತವೆ."
+        },
+        {
+         "question": "ವರ್ಗೀಯ ಮತ್ತು ಅವರ್ಗೀಯ ವ್ಯಂಜನಗಳ ಸಂಖ್ಯೆ ಕ್ರಮವಾಗಿ:",
+         "options": {
+          "A": "20 ಮತ್ತು 14",
+          "B": "25 ಮತ್ತು 10",
+          "C": "25 ಮತ್ತು 9",
+          "D": "24 ಮತ್ತು 10"
+         },
+         "answer": "C",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಕ, ಚ, ಟ, ತ, ಪ ಎಂಬ ಐದು ವರ್ಗಗಳಲ್ಲಿ ತಲಾ 5 = 25 ವರ್ಗೀಯ; ಯ ರ ಲ ವ ಶ ಷ ಸ ಹ ಳ = 9 ಅವರ್ಗೀಯ ವ್ಯಂಜನಗಳು."
+        },
+        {
+         "question": "ಈ ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಅನುನಾಸಿಕ ಅಕ್ಷರ ಯಾವುದು?",
+         "options": {
+          "A": "ಳ",
+          "B": "ಣ",
+          "C": "ಶ",
+          "D": "ಘ"
+         },
+         "answer": "B",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಪ್ರತಿ ವರ್ಗದ ಐದನೆಯ ಅಕ್ಷರಗಳಾದ ಙ ಞ ಣ ನ ಮ ಅನುನಾಸಿಕಗಳು."
+        },
+        {
+         "question": "ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಎಲ್ಲವೂ ಮಹಾಪ್ರಾಣ ಅಕ್ಷರಗಳಾಗಿರುವ ಗುಂಪು:",
+         "options": {
+          "A": "ಕ ಗ ಙ",
+          "B": "ಯ ರ ಲ",
+          "C": "ಖ ಘ ಛ",
+          "D": "ಚ ಜ ಞ"
+         },
+         "answer": "C",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಪ್ರತಿ ವರ್ಗದ ಎರಡನೆಯ ಮತ್ತು ನಾಲ್ಕನೆಯ ಅಕ್ಷರಗಳು (ಖ ಘ, ಛ ಝ, ಠ ಢ, ಥ ಧ, ಫ ಭ) ಮಹಾಪ್ರಾಣಗಳು – ಒಟ್ಟು 10."
+        },
+        {
+         "question": "ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಎಲ್ಲವೂ ದೀರ್ಘ ಸ್ವರಗಳಾಗಿರುವ ಗುಂಪು:",
+         "options": {
+          "A": "ಇ ಊ ಏ ಒ",
+          "B": "ಅ ಇ ಉ ಋ",
+          "C": "ಆ ಈ ಏ ಐ",
+          "D": "ಎ ಒ ಆ ಈ"
+         },
+         "answer": "C",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಹ್ರಸ್ವ ಸ್ವರಗಳು: ಅ ಇ ಉ ಋ ಎ ಒ (6). ದೀರ್ಘ ಸ್ವರಗಳು: ಆ ಈ ಊ ಏ ಐ ಓ ಔ (7)."
+        },
+        {
+         "question": "ಕೆಳಗಿನ ಪದಗಳಲ್ಲಿ ಸಜಾತೀಯ ಸಂಯುಕ್ತಾಕ್ಷರವಿರುವ ಪದ ಯಾವುದು?",
+         "options": {
+          "A": "ಶಕ್ತಿ",
+          "B": "ಅಮ್ಮ",
+          "C": "ಸ್ವರ",
+          "D": "ವಿದ್ಯೆ"
+         },
+         "answer": "B",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಒಂದೇ ವ್ಯಂಜನ ಎರಡು ಬಾರಿ ಸೇರಿದರೆ ಸಜಾತೀಯ (ಮ್ + ಮ = ಮ್ಮ). ಶಕ್ತಿ (ಕ್+ತ), ವಿದ್ಯೆ (ದ್+ಯ), ಸ್ವರ (ಸ್+ವ) ವಿಜಾತೀಯ ಸಂಯುಕ್ತಾಕ್ಷರಗಳು."
+        },
+        {
+         "question": "'ಕಾ' ಎಂಬ ಗುಣಿತಾಕ್ಷರದಲ್ಲಿ ಸೇರಿರುವ ವರ್ಣಗಳು:",
+         "options": {
+          "A": "ಕ + ಅ",
+          "B": "ಕ + ಆ",
+          "C": "ಕ್ + ಅ + ಆ",
+          "D": "ಕ್ + ಆ"
+         },
+         "answer": "D",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಗುಣಿತಾಕ್ಷರ = ವ್ಯಂಜನ (ಅರ್ಧಾಕ್ಷರ) + ಸ್ವರ. ಕ್ + ಆ = ಕಾ."
+        },
+        {
+         "question": "ಕೇಶಿರಾಜನು 'ಶಬ್ದಮಣಿದರ್ಪಣ'ದಲ್ಲಿ ಕನ್ನಡ ವರ್ಣಮಾಲೆಯ ಅಕ್ಷರಗಳ ಸಂಖ್ಯೆಯನ್ನು ಎಷ್ಟೆಂದು ಹೇಳಿದ್ದಾನೆ?",
+         "options": {
+          "A": "50",
+          "B": "49",
+          "C": "47",
+          "D": "34"
+         },
+         "answer": "C",
+         "subject": "ಕನ್ನಡ ವರ್ಣಮಾಲೆ",
+         "explanation": "ಕೇಶಿರಾಜನ ಪ್ರಕಾರ ಕನ್ನಡದ ಅಕ್ಷರಗಳು 47. ಪ್ರಸ್ತುತ ಶಾಲಾ ಪಠ್ಯಪುಸ್ತಕಗಳಲ್ಲಿ 49 ಅಕ್ಷರಗಳನ್ನು ಗುರುತಿಸಲಾಗಿದೆ."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · Computer Literacy",
+   "icon": "💻",
+   "topics": [
+    {
+     "name": "Unit 1 – Introduction to Computer",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "A computer inside an ATM or a washing-machine controller is an example of a:",
+         "options": {
+          "A": "General-purpose computer",
+          "B": "Special-purpose (embedded) computer",
+          "C": "Supercomputer",
+          "D": "Mainframe computer"
+         },
+         "answer": "B",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "Special-purpose computers are built for one dedicated task; general-purpose computers run many kinds of programs."
+        },
+        {
+         "question": "SQL is classified as a:",
+         "options": {
+          "A": "Second-generation language",
+          "B": "First-generation language",
+          "C": "Third-generation language",
+          "D": "Fourth-generation language"
+         },
+         "answer": "D",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "1GL = machine code, 2GL = assembly, 3GL = high-level languages like C, 4GL = non-procedural languages like SQL."
+        },
+        {
+         "question": "Which program translates assembly language into machine code?",
+         "options": {
+          "A": "Linker",
+          "B": "Interpreter",
+          "C": "Assembler",
+          "D": "Compiler"
+         },
+         "answer": "C",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "An assembler converts mnemonics (MOV, ADD) into machine code; compilers and interpreters handle high-level languages."
+        },
+        {
+         "question": "Which memory can the CPU access directly?",
+         "options": {
+          "A": "Pen drive",
+          "B": "Primary memory (RAM, cache, registers)",
+          "C": "DVD",
+          "D": "Hard disk"
+         },
+         "answer": "B",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "Secondary storage must first be loaded into main memory before the CPU can use it."
+        },
+        {
+         "question": "How many nibbles are there in 4 bytes?",
+         "options": {
+          "A": "32",
+          "B": "4",
+          "C": "16",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "1 byte = 8 bits = 2 nibbles, so 4 bytes = 8 nibbles."
+        },
+        {
+         "question": "Which storage device uses flash memory and has no moving parts?",
+         "options": {
+          "A": "Solid-state drive (SSD)",
+          "B": "Hard disk drive",
+          "C": "Magnetic tape",
+          "D": "Floppy disk"
+         },
+         "answer": "A",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "SSDs store data in NAND flash chips, so they are faster and more shock-resistant than HDDs with spinning platters."
+        },
+        {
+         "question": "A computer that supports hundreds of users at once for bulk transaction processing, such as railway reservations or banking, is typically a:",
+         "options": {
+          "A": "Embedded computer",
+          "B": "Microcomputer",
+          "C": "Workstation",
+          "D": "Mainframe computer"
+         },
+         "answer": "D",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "Mainframes (e.g. IBM Z) handle very large volumes of simultaneous transactions reliably."
+        },
+        {
+         "question": "Which of these is hardware rather than software?",
+         "options": {
+          "A": "Compiler",
+          "B": "Device driver",
+          "C": "Graphics card",
+          "D": "BIOS"
+         },
+         "answer": "C",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "A graphics card is a physical component; the BIOS is firmware, and drivers and compilers are software."
+        },
+        {
+         "question": "Which language can be executed by the computer without any translation?",
+         "options": {
+          "A": "Python",
+          "B": "C",
+          "C": "Assembly language",
+          "D": "Machine language"
+         },
+         "answer": "D",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "Machine language (binary) is the only language the CPU understands directly."
+        },
+        {
+         "question": "Which of these is a brand or type of operating system, not application software?",
+         "options": {
+          "A": "Photoshop",
+          "B": "VLC Media Player",
+          "C": "Tally",
+          "D": "Ubuntu"
+         },
+         "answer": "D",
+         "subject": "Unit 1 – Introduction to Computer",
+         "explanation": "Ubuntu is a Linux distribution (an operating system); the others are applications."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · General English",
+   "icon": "📝",
+   "topics": [
+    {
+     "name": "Parts of Speech",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Identify the part of speech of the word in capitals: He ran FAST to catch the bus.",
+         "options": {
+          "A": "Noun",
+          "B": "Adverb",
+          "C": "Verb",
+          "D": "Adjective"
+         },
+         "answer": "B",
+         "subject": "Parts of Speech",
+         "explanation": "'Fast' modifies the verb 'ran', telling how he ran, so it is an adverb."
+        },
+        {
+         "question": "Identify the part of speech of the word in capitals: The FAST was broken after sunset.",
+         "options": {
+          "A": "Noun",
+          "B": "Adjective",
+          "C": "Adverb",
+          "D": "Verb"
+         },
+         "answer": "A",
+         "subject": "Parts of Speech",
+         "explanation": "Here 'fast' means a period of not eating; it is the subject of the sentence, so it is a noun."
+        },
+        {
+         "question": "Identify the part of speech of the word in capitals: She is TOO tired to walk.",
+         "options": {
+          "A": "Preposition",
+          "B": "Adjective",
+          "C": "Adverb",
+          "D": "Conjunction"
+         },
+         "answer": "C",
+         "subject": "Parts of Speech",
+         "explanation": "'Too' modifies the adjective 'tired', so it is an adverb (of degree)."
+        },
+        {
+         "question": "Identify the part of speech of the word in capitals: BESIDES English, he speaks French.",
+         "options": {
+          "A": "Adverb",
+          "B": "Adjective",
+          "C": "Preposition",
+          "D": "Conjunction"
+         },
+         "answer": "C",
+         "subject": "Parts of Speech",
+         "explanation": "'Besides' is followed by the noun 'English' as its object, so it is a preposition."
+        },
+        {
+         "question": "Identify the part of speech of the word in capitals: He came AFTER I had left.",
+         "options": {
+          "A": "Preposition",
+          "B": "Conjunction",
+          "C": "Adjective",
+          "D": "Adverb"
+         },
+         "answer": "B",
+         "subject": "Parts of Speech",
+         "explanation": "'After' joins two clauses ('He came' and 'I had left'), so here it is a subordinating conjunction."
+        },
+        {
+         "question": "Identify the part of speech of the word in capitals: ALAS! He is no more.",
+         "options": {
+          "A": "Noun",
+          "B": "Conjunction",
+          "C": "Interjection",
+          "D": "Adverb"
+         },
+         "answer": "C",
+         "subject": "Parts of Speech",
+         "explanation": "'Alas' expresses sudden emotion (sorrow), so it is an interjection."
+        },
+        {
+         "question": "In 'SWIMMING is good exercise', the word in capitals is:",
+         "options": {
+          "A": "A present participle used as an adjective",
+          "B": "A gerund (verbal noun)",
+          "C": "An adverb",
+          "D": "A verb"
+         },
+         "answer": "B",
+         "subject": "Parts of Speech",
+         "explanation": "An -ing form used as a noun (here the subject) is a gerund."
+        },
+        {
+         "question": "In 'The RICH are not always happy', the word in capitals is used as a:",
+         "options": {
+          "A": "Adjective",
+          "B": "Noun",
+          "C": "Adverb",
+          "D": "Verb"
+         },
+         "answer": "B",
+         "subject": "Parts of Speech",
+         "explanation": "'The rich' means rich people; an adjective preceded by 'the' can work as a plural noun."
+        },
+        {
+         "question": "In 'This is the book THAT I bought yesterday', the word in capitals is a:",
+         "options": {
+          "A": "Demonstrative adjective",
+          "B": "Relative pronoun",
+          "C": "Conjunction",
+          "D": "Demonstrative pronoun"
+         },
+         "answer": "B",
+         "subject": "Parts of Speech",
+         "explanation": "'That' introduces a relative clause describing 'the book', so it is a relative pronoun."
+        },
+        {
+         "question": "In 'She sings WELL', the word in capitals is a/an:",
+         "options": {
+          "A": "Adjective",
+          "B": "Noun",
+          "C": "Interjection",
+          "D": "Adverb"
+         },
+         "answer": "D",
+         "subject": "Parts of Speech",
+         "explanation": "'Well' modifies the verb 'sings'. In 'She is well', it would be an adjective meaning healthy."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · Health Education",
+   "icon": "🩺",
+   "topics": [
+    {
+     "name": "Health Education – Basics",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "Which dimension is NOT part of the WHO's original 1948 definition of health?",
+         "options": {
+          "A": "Physical well-being",
+          "B": "Mental well-being",
+          "C": "Spiritual well-being",
+          "D": "Social well-being"
+         },
+         "answer": "C",
+         "subject": "Health Education – Basics",
+         "explanation": "WHO (1948): 'Health is a state of complete physical, mental and social well-being and not merely the absence of disease or infirmity.' The spiritual dimension was discussed later."
+        },
+        {
+         "question": "World Health Day is observed every year on:",
+         "options": {
+          "A": "7 April",
+          "B": "31 May",
+          "C": "5 June",
+          "D": "1 December"
+         },
+         "answer": "A",
+         "subject": "Health Education – Basics",
+         "explanation": "It marks the founding of the WHO on 7 April 1948. 1 Dec is World AIDS Day, 31 May is World No Tobacco Day and 5 June is World Environment Day."
+        },
+        {
+         "question": "The word 'hygiene' is derived from Hygieia, who in Greek mythology was the goddess of:",
+         "options": {
+          "A": "Health",
+          "B": "Harvest",
+          "C": "Water",
+          "D": "Wisdom"
+         },
+         "answer": "A",
+         "subject": "Health Education – Basics",
+         "explanation": "Hygieia, daughter of Asclepius, was the Greek goddess of health, cleanliness and sanitation."
+        },
+        {
+         "question": "Screening school staff for diabetes to detect it early is an example of:",
+         "options": {
+          "A": "Secondary prevention",
+          "B": "Tertiary prevention",
+          "C": "Health promotion",
+          "D": "Primary prevention"
+         },
+         "answer": "A",
+         "subject": "Health Education – Basics",
+         "explanation": "Secondary prevention means early diagnosis and prompt treatment; primary prevention (e.g. immunisation) stops disease from occurring."
+        },
+        {
+         "question": "Immunisation of children is an example of:",
+         "options": {
+          "A": "Secondary prevention",
+          "B": "Rehabilitation",
+          "C": "Primary prevention (specific protection)",
+          "D": "Tertiary prevention"
+         },
+         "answer": "C",
+         "subject": "Health Education – Basics",
+         "explanation": "Specific protection such as vaccination prevents the disease from occurring at all."
+        },
+        {
+         "question": "The main aim of health education is to:",
+         "options": {
+          "A": "Treat diseases",
+          "B": "Train doctors",
+          "C": "Build more hospitals",
+          "D": "Bring desirable changes in people's health knowledge, attitudes and practices"
+         },
+         "answer": "D",
+         "subject": "Health Education – Basics",
+         "explanation": "Health education aims at voluntary behaviour change, often measured as KAP (knowledge, attitude, practice)."
+        },
+        {
+         "question": "Global Handwashing Day is observed on:",
+         "options": {
+          "A": "15 October",
+          "B": "2 October",
+          "C": "7 April",
+          "D": "22 March"
+         },
+         "answer": "A",
+         "subject": "Health Education – Basics",
+         "explanation": "15 October promotes handwashing with soap; 2 October is Gandhi Jayanti and 22 March is World Water Day."
+        },
+        {
+         "question": "Swachh Bharat Mission was launched on:",
+         "options": {
+          "A": "2 October 2014",
+          "B": "2 October 2019",
+          "C": "15 August 2014",
+          "D": "26 January 2015"
+         },
+         "answer": "A",
+         "subject": "Health Education – Basics",
+         "explanation": "It was launched on Gandhi Jayanti, 2 October 2014; India was declared open-defecation-free on 2 October 2019."
+        },
+        {
+         "question": "According to the WHO, the normal Body Mass Index (BMI) range for adults is:",
+         "options": {
+          "A": "16.0–18.4",
+          "B": "25.0–29.9",
+          "C": "18.5–24.9",
+          "D": "30.0–34.9"
+         },
+         "answer": "C",
+         "subject": "Health Education – Basics",
+         "explanation": "BMI = weight (kg) ÷ height (m)². Below 18.5 is underweight, 25–29.9 overweight and 30 or more obese."
+        },
+        {
+         "question": "Personal hygiene such as washing hands before eating mainly prevents diseases spread through the:",
+         "options": {
+          "A": "Airborne route, e.g. tuberculosis",
+          "B": "Sexual route",
+          "C": "Vector route, e.g. malaria",
+          "D": "Faeco-oral route, e.g. typhoid and cholera"
+         },
+         "answer": "D",
+         "subject": "Health Education – Basics",
+         "explanation": "Contaminated hands carry germs from faeces to the mouth; handwashing breaks this chain."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P1 · Value Education",
+   "icon": "🌱",
+   "topics": [
+    {
+     "name": "Value Education – Basics",
+     "sets": [
+      {
+       "name": "Set 1 · Days 1–2 (26–27 Sep)",
+       "questions": [
+        {
+         "question": "The word 'value' is derived from the Latin word 'valere', which means:",
+         "options": {
+          "A": "To teach",
+          "B": "To be of worth / to be strong",
+          "C": "To follow rules",
+          "D": "To value money"
+         },
+         "answer": "B",
+         "subject": "Value Education – Basics",
+         "explanation": "'Valere' means to be strong or to be of worth; values are what we consider worthwhile."
+        },
+        {
+         "question": "According to the NCERT document on value education, how many values were listed?",
+         "options": {
+          "A": "10",
+          "B": "108",
+          "C": "37",
+          "D": "83"
+         },
+         "answer": "D",
+         "subject": "Value Education – Basics",
+         "explanation": "NCERT's 'Documents on Social, Moral and Spiritual Values in Education' listed 83 values."
+        },
+        {
+         "question": "A value that is desired for its own sake, and not as a means to something else, is called a/an:",
+         "options": {
+          "A": "Intrinsic value",
+          "B": "Instrumental value",
+          "C": "Material value",
+          "D": "Extrinsic value"
+         },
+         "answer": "A",
+         "subject": "Value Education – Basics",
+         "explanation": "Intrinsic (terminal) values such as truth or happiness are ends in themselves; instrumental values such as money are means to other ends."
+        },
+        {
+         "question": "The five human values promoted in Sathya Sai Education in Human Values (EHV) are:",
+         "options": {
+          "A": "Honesty, Punctuality, Obedience, Cleanliness, Courtesy",
+          "B": "Liberty, Equality, Fraternity, Justice, Dignity",
+          "C": "Truth, Wealth, Power, Fame, Beauty",
+          "D": "Sathya, Dharma, Shanti, Prema, Ahimsa"
+         },
+         "answer": "D",
+         "subject": "Value Education – Basics",
+         "explanation": "Truth, Right Conduct, Peace, Love and Non-violence are presented as the universal human values."
+        },
+        {
+         "question": "Which of the following is NOT a characteristic of values?",
+         "options": {
+          "A": "Values are fixed at birth and cannot change",
+          "B": "Values are relatively enduring",
+          "C": "Values guide behaviour",
+          "D": "Values are learned"
+         },
+         "answer": "A",
+         "subject": "Value Education – Basics",
+         "explanation": "Values are acquired through socialisation and education and can change over time."
+        },
+        {
+         "question": "Which set of values is enshrined in the Preamble to the Indian Constitution?",
+         "options": {
+          "A": "Wealth, Health and Happiness",
+          "B": "Duty, Discipline and Devotion",
+          "C": "Truth, Non-violence and Peace",
+          "D": "Justice, Liberty, Equality and Fraternity"
+         },
+         "answer": "D",
+         "subject": "Value Education – Basics",
+         "explanation": "The Preamble secures justice, liberty and equality to all citizens and promotes fraternity."
+        },
+        {
+         "question": "Which of the following is primarily a social value?",
+         "options": {
+          "A": "Cleanliness of one's body",
+          "B": "Self-discipline",
+          "C": "Punctuality",
+          "D": "Cooperation"
+         },
+         "answer": "D",
+         "subject": "Value Education – Basics",
+         "explanation": "Cooperation concerns our relations with others; the other options are mainly personal values."
+        },
+        {
+         "question": "Which commission recommended a 'conscious and organised attempt' to impart education in social, moral and spiritual values?",
+         "options": {
+          "A": "Hunter Commission",
+          "B": "Kothari Commission (1964–66)",
+          "C": "Mudaliar Commission",
+          "D": "Radhakrishnan Commission"
+         },
+         "answer": "B",
+         "subject": "Value Education – Basics",
+         "explanation": "The Kothari (Education) Commission stressed moral, social and spiritual values in education."
+        },
+        {
+         "question": "In Krathwohl's taxonomy of the affective domain, 'Valuing' comes immediately after:",
+         "options": {
+          "A": "Organisation",
+          "B": "Responding",
+          "C": "Characterisation",
+          "D": "Receiving"
+         },
+         "answer": "B",
+         "subject": "Value Education – Basics",
+         "explanation": "The order is Receiving → Responding → Valuing → Organisation → Characterisation by a value."
+        },
+        {
+         "question": "Moral values are primarily concerned with:",
+         "options": {
+          "A": "Economic profit",
+          "B": "Right and wrong conduct",
+          "C": "Artistic beauty",
+          "D": "Physical fitness"
+         },
+         "answer": "B",
+         "subject": "Value Education – Basics",
+         "explanation": "Moral values such as honesty and fairness guide judgements about right and wrong behaviour."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
