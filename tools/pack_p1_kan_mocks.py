@@ -20,13 +20,12 @@ MOCKS = [
     ("ಮಾದರಿ ಪರೀಕ್ಷೆ 10 (Mock Test 10)", p1_kan_mock_6_to_10.MOCK_10),
 ]
 
-topics = []
+# All 10 mocks go into ONE topic of the General Kannada subject (not a separate subject), one set per mock
+sets = []
 for name, qs in MOCKS:
     assert len(qs) == 20, f"{name}: {len(qs)} questions (expected 20)"
-    topics.append({
-        "name": name,
-        "sets": [{"name": f"Set 1 · {name}", "tag": "ಸಾಮಾನ್ಯ ಕನ್ನಡ ಮಾದರಿ ಪರೀಕ್ಷೆ", "questions": qs}]
-    })
+    sets.append({"name": name, "tag": "ಸಾಮಾನ್ಯ ಕನ್ನಡ ಮಾದರಿ ಪರೀಕ್ಷೆ", "questions": qs})
+topics = [{"name": "ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು (Mock tests)", "sets": sets}]
 
 out_file = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent.parent / "packs" / "p1-kannada-mocks.json")
 
@@ -34,5 +33,5 @@ build_pack(
     out_file,
     "P1 · General Kannada — 10 High-Difficulty Mock Tests (ಸಾಮಾನ್ಯ ಕನ್ನಡ ಸಮಗ್ರ ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು)",
     "10 High-difficulty full mock tests (10 sets × 20 questions = 200 MCQs) for Karnataka GPSTR / KARTET / HSTR / CST Paper 1. Covers advanced grammar, Shabdamanidarpana rules, complex Sandhi & Samasa, Chandassu & Alankara, Halagannada & Hosagannada Sahitya, Jnanpith & Academy awardees, and Assertion-Reason questions.",
-    [{"name": "P1 · General Kannada Mocks (ಸಾಮಾನ್ಯ ಕನ್ನಡ ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು)", "icon": "📝", "topics": topics}]
+    [{"name": "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)", "icon": "📝", "topics": topics}]
 )

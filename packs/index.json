@@ -6,7 +6,39 @@
       "file": "gpstr-cst-2026-00-structure.json",
       "name": "Syllabus & study plan (import this first)",
       "description": "Creates all 17 Paper 1 and Paper 2 subjects and 194 topics with your planner dates, plus Paper 1 and Paper 2 full-mock presets. Contains no questions.",
-      "topics": 194
+      "topics": 194,
+      "questions": 0,
+      "subjects": [
+        "P1 · General Knowledge",
+        "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)",
+        "P1 · General English",
+        "P1 · Educational Psychology",
+        "P1 · Computer Literacy",
+        "P1 · Health Education",
+        "P1 · Value Education",
+        "P2 · Unit 1 – Fundamentals of Computers",
+        "P2 · Unit 4 – Programming Languages & Web",
+        "P2 · Unit 8 – Data Structures & Algorithms",
+        "P2 · Unit 5 – Database Management Systems",
+        "P2 · Unit 6 – System Software & Operating Systems",
+        "P2 · Unit 9 – Data Communication & Networks",
+        "P2 · Unit 3 – Computer System Architecture",
+        "P2 · Unit 2 – Discrete Structures & Optimization",
+        "P2 · Unit 7 – Software Engineering",
+        "P2 · Unit 10 – Artificial Intelligence"
+      ],
+      "planIds": []
+    },
+    {
+      "group": "① Start here",
+      "file": "gpstr-cst-2026-plan.json",
+      "name": "Study plan (your Excel planner)",
+      "description": "All 245 planner rows, the tracker and the 63-day calendar. Opens in 📅 Study plan in the bottom bar; your status updates sync to all devices.",
+      "questions": 0,
+      "topics": 0,
+      "subjects": [],
+      "planIds": [],
+      "studyPlan": true
     },
     {
       "group": "② Paper 1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ — 20 questions per set)",
@@ -14,7 +46,29 @@
       "name": "General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ — complete)",
       "description": "All 17 syllabus topics (18 sets × 20 questions = 360 MCQs): ವರ್ಣಮಾಲೆ, ಗುಣಿತಾಕ್ಷರ-ಸಂಯುಕ್ತಾಕ್ಷರ, ನಾಮಪದ-ಸರ್ವನಾಮ, ಕ್ರಿಯಾಪದ-ಕಾಲಗಳು-ಧಾತು, ಲಿಂಗ-ವಚನ-ವಿಭಕ್ತಿ, ಸಂಧಿಗಳು, ಸಮಾಸಗಳು, ಕೃದಂತ-ತದ್ಧಿತಾಂತ, ದ್ವಿರುಕ್ತಿ-ಜೋಡುನುಡಿ-ಗಾದೆ, ಅವ್ಯಯ, ವಾಕ್ಯರಚನೆ, ಲೇಖನ ಚಿಹ್ನೆಗಳು, ಅರ್ಥ-ಶುದ್ಧರೂಪ, ತತ್ಸಮ-ತದ್ಭವ, ಗ್ರಾಮ್ಯ-ಗ್ರಾಂಥಿಕ, ಛಂದಸ್ಸು-ಅಲಂಕಾರ, ಹಳಗನ್ನಡ ಸಾಹಿತ್ಯ, ಹೊಸಗನ್ನಡ ಸಾಹಿತ್ಯ ಚರಿತ್ರೆ.",
       "questions": 360,
-      "topics": 17
+      "topics": 17,
+      "subjects": [
+        "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)"
+      ],
+      "planIds": [
+        "P1-KAN-01",
+        "P1-KAN-02",
+        "P1-KAN-03",
+        "P1-KAN-04",
+        "P1-KAN-05",
+        "P1-KAN-06",
+        "P1-KAN-07",
+        "P1-KAN-08",
+        "P1-KAN-09",
+        "P1-KAN-10",
+        "P1-KAN-11",
+        "P1-KAN-12",
+        "P1-KAN-13",
+        "P1-KAN-14",
+        "P1-KAN-15",
+        "P1-KAN-16",
+        "P1-KAN-17"
+      ]
     },
     {
       "group": "② Paper 1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ — 20 questions per set)",
@@ -22,7 +76,11 @@
       "name": "General Kannada — 10 High-Difficulty Mock Tests (ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು 1–10)",
       "description": "10 full-length high-difficulty mock tests (10 sets × 20 questions = 200 MCQs) featuring Assertion-Reason, Statement I & II analysis, complex Shabdamanidarpana grammar, and deep literature questions.",
       "questions": 200,
-      "topics": 10
+      "topics": 1,
+      "subjects": [
+        "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)"
+      ],
+      "planIds": []
     },
     {
       "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
@@ -30,7 +88,19 @@
       "name": "Unit 1 · Fundamentals of Computers (complete)",
       "description": "7 topics → 20 sub-topics: introduction, functional units, evolution, generations, classification, applications, input/output/memory devices, software, problem solving, Word, Excel, PowerPoint, configuration, motherboard types & components, memory, power supply, assembling.",
       "questions": 600,
-      "topics": 7
+      "topics": 7,
+      "subjects": [
+        "P2 · Unit 1 – Fundamentals of Computers"
+      ],
+      "planIds": [
+        "P2-U1-01",
+        "P2-U1-02",
+        "P2-U1-03",
+        "P2-U1-04",
+        "P2-U1-05",
+        "P2-U1-06",
+        "P2-U1-07"
+      ]
     },
     {
       "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
@@ -38,7 +108,21 @@
       "name": "Unit 2 · Discrete Structures & Optimization (complete)",
       "description": "9 topics → 29 sub-topics: propositional & predicate logic, normal forms, inference, sets, relations, equivalence & partial orders, counting, pigeonhole, P&C, inclusion–exclusion, induction, probability, Bayes, graphs, Euler/Hamilton, planarity, colouring, bipartite, trees, prefix codes, traversals, spanning trees, Boolean algebra.",
       "questions": 870,
-      "topics": 9
+      "topics": 9,
+      "subjects": [
+        "P2 · Unit 2 – Discrete Structures & Optimization"
+      ],
+      "planIds": [
+        "P2-U2-01",
+        "P2-U2-02",
+        "P2-U2-03",
+        "P2-U2-04",
+        "P2-U2-05",
+        "P2-U2-06",
+        "P2-U2-07",
+        "P2-U2-08",
+        "P2-U2-09"
+      ]
     },
     {
       "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
@@ -46,7 +130,13 @@
       "name": "Unit 5 · DBMS: Concepts & Architecture",
       "description": "1 topic → 6 sub-topics: data models, schemas & instances, three-schema architecture, data independence, languages & interfaces, centralized & client/server architectures. (Rest of Unit 5 coming.)",
       "questions": 180,
-      "topics": 1
+      "topics": 1,
+      "subjects": [
+        "P2 · Unit 5 – Database Management Systems"
+      ],
+      "planIds": [
+        "P2-U5-01"
+      ]
     },
     {
       "group": "③ Daily practice (mixed Paper 1 + Paper 2)",
@@ -54,7 +144,40 @@
       "name": "Days 1–2 (26–27 Sep) · 10 per topic",
       "description": "Paper 1: psychology, GK, Kannada alphabet, computer literacy, parts of speech, health and value education. Paper 2: Unit 1 and C basics (10 per topic, earlier format).",
       "questions": 200,
-      "topics": 20
+      "topics": 20,
+      "subjects": [
+        "P2 · Unit 1 – Fundamentals of Computers",
+        "P2 · Unit 4 – Programming Languages & Web",
+        "P1 · Educational Psychology",
+        "P1 · General Knowledge",
+        "P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)",
+        "P1 · Computer Literacy",
+        "P1 · General English",
+        "P1 · Health Education",
+        "P1 · Value Education"
+      ],
+      "planIds": [
+        "P1-CL-01",
+        "P1-ENG-01",
+        "P1-GK-01",
+        "P1-GK-02",
+        "P1-HE-01",
+        "P1-KAN-01",
+        "P1-PSY-01",
+        "P1-PSY-02",
+        "P1-VE-01",
+        "P2-U1-01",
+        "P2-U1-02",
+        "P2-U1-03",
+        "P2-U1-04",
+        "P2-U1-05",
+        "P2-U1-06",
+        "P2-U1-07",
+        "P2-U4-01",
+        "P2-U4-02",
+        "P2-U4-03",
+        "P2-U4-04"
+      ]
     }
   ]
 }
