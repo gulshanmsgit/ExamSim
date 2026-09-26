@@ -59,7 +59,7 @@ main{max-width:1120px;margin:0 auto;padding:16px}
 .crumbs{font-size:.88rem;color:var(--muted);margin:2px 0 8px}
 .crumbs a{text-decoration:none}
 .page-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
-.page-head h1{margin:0;font-size:1.5rem;flex:1;min-width:0;overflow-wrap:anywhere}
+.page-head h1{margin:0;font-size:1.5rem;flex:1 1 220px;min-width:0;overflow-wrap:anywhere}
 .kind{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-bottom:8px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px}
 .subj{display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;margin:0;width:100%}
@@ -230,6 +230,76 @@ tfoot td{border-bottom:none}
 
 /* exam action bar (phones only) */
 .exam-bar{display:none}
+
+/* library groups, tidy, import destinations */
+.lib-group{margin-bottom:10px}
+.lib-group>summary{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;list-style:none;padding:6px 2px 10px;cursor:pointer}
+.lib-group>summary::-webkit-details-marker{display:none}
+.lib-group>summary::before{content:"▾";color:var(--muted);transition:transform .15s}
+.lib-group:not([open])>summary::before{transform:rotate(-90deg)}
+.lib-title{font-size:1.1rem;font-weight:800}
+.bar.lib{max-width:none;margin:4px 0 2px}
+.bar.lib i{background:var(--green)}
+.card.tidy{border-color:var(--orange);background:var(--orange-bg)}
+.where{max-height:40vh;overflow:auto}
+.where-s{margin-top:8px}
+.where-t{display:block;padding:3px 0 3px 22px;text-decoration:none;font-size:.9rem}
+.sheet.pick{max-height:55vh;overflow:auto}
+.avail{border:1px dashed var(--primary);background:var(--primary-bg)}
+.pill.pk{background:var(--primary-bg);color:var(--primary)}
+
+/* study plan */
+.plan-kpi{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+@media (max-width:600px){.plan-kpi{grid-template-columns:repeat(3,1fr);gap:6px}.plan-kpi .stat{padding:8px}.plan-kpi .stat b{font-size:1.1rem}.plan-kpi .stat span{font-size:.7rem;line-height:1.2;display:block}}
+.plan-tabs{position:sticky;top:57px;z-index:5;background:var(--bg);padding-top:4px}
+.plan-h3{font-size:.95rem;margin:14px 0 6px;color:var(--muted)}
+.task{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 10px;border:1px solid var(--border);border-left:4px solid var(--border);border-radius:10px;margin-bottom:6px;background:var(--card)}
+.task .grow{flex:1;min-width:170px}
+.task select{width:auto;padding:5px 8px}
+.task.plain{color:var(--muted)}
+.pr{border:1px solid var(--border);border-left:5px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px;background:var(--card)}
+.pr-top{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.pr-ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.pr-ctrl select{width:auto;padding:6px 8px}
+.pr-notes{min-height:0;height:auto;margin-top:8px;font-family:inherit;font-size:.9rem;padding:8px 10px}
+.pt .pr-notes{margin:0;min-width:160px}
+.pt select{width:auto;padding:4px 6px}
+.pt td{white-space:normal}
+.conf{display:inline-flex;gap:3px}
+.conf button{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-weight:700;font-size:.85rem}
+.conf button.on{background:var(--primary);border-color:var(--primary);color:#fff}
+.pill.prio-high{background:var(--red-bg);color:var(--red)}
+.pill.prio-medium{background:var(--orange-bg);color:var(--orange)}
+.pill.prio-low{background:var(--grey-bg);color:var(--muted)}
+.st-done{border-left-color:var(--green)!important}
+.st-prog{border-left-color:#e0b40b!important}
+.st-rev{border-left-color:var(--orange)!important}
+tr.st-done td:first-child{box-shadow:inset 4px 0 var(--green)}
+tr.st-prog td:first-child{box-shadow:inset 4px 0 #e0b40b}
+tr.st-rev td:first-child{box-shadow:inset 4px 0 var(--orange)}
+.pill.st-done{background:var(--green-bg);color:var(--green)}
+.pill.st-prog{background:#fdf6d8;color:#9a7a00}
+.pill.st-rev{background:var(--orange-bg);color:var(--orange)}
+.od{color:var(--red)}
+.plan-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.plan-tools input{flex:1;min-width:180px;width:auto}
+.plan-tools select{width:auto}
+.pg{margin-bottom:12px}
+.pg>summary{display:flex;gap:10px;align-items:center;flex-wrap:wrap;list-style:none;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;cursor:pointer}
+.pg>summary::-webkit-details-marker{display:none}
+.pg>summary .grow{flex:1;min-width:200px}
+tr.tot td{border-top:2px solid var(--border)}
+.cal{border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px;background:var(--card);cursor:pointer}
+.cal:hover{border-color:var(--primary)}
+.cal.today{border:2px solid var(--primary);background:var(--primary-bg)}
+.cal.missed{border-left:5px solid var(--red)}
+.cal.done{border-left:5px solid var(--green)}
+.cal-h{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cal-t{margin-top:4px}
+.daynav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.daynav select{width:auto;flex:1;min-width:160px}
+.daynav .btn{min-height:38px}
+.pr-avail{font-size:.8rem;margin-left:6px}
 
 /* profile & AI */
 .ai-key{border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:10px;background:var(--bg)}
@@ -1189,6 +1259,7 @@ function rerender() {
   else if (!$('#progress').hidden) renderProgress();
   else if (!$('#mocks').hidden) renderMocksPage();
   else if (!$('#revhub').hidden) renderRevHub();
+  else if (!$('#plan').hidden) { const y = window.scrollY; renderPlan(); window.scrollTo(0, y); }
 }
 function editAppearance(s) {
   let color = subjColor(s);
@@ -1623,7 +1694,7 @@ function renderPlan() {
   const left = D.plan.examDate ? Math.ceil((planDate(D.plan.examDate) - planDate(dayKey())) / 86400000) : null;
   h += `<div class="kind">${esc(D.plan.title || 'Study plan')}${D.plan.examDate ? ' · exam ' + esc(planDate(D.plan.examDate).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })) : ''}</div>
     <div class="stats plan-kpi">${statBox(left != null ? left : '—', 'Days left')}${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
-      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'Paper 1 readiness (marks-weighted)')}</div>
+      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div>
     <div class="tabs plan-tabs">${tabs.map(([k, l]) => `<button class="tab ${PL.tab === k ? 'active' : ''}" data-ptab="${k}">${l}</button>`).join('')}</div><div id="planBody"></div>`;
   el.innerHTML = h;
   const body = $('#planBody');
@@ -1647,33 +1718,129 @@ function taskHTML(t) {
 }
 function calRowFor(date) { return (D.plan.calendar || []).find(d => d.date === date); }
 function dayDone(d) { const s = D.planState['day:' + d.date]; return s && s.d !== undefined ? s.d : !!d.done; }
+const taskId = t => { const m = /^(P[12]-[A-Z0-9]+-\d+)\s/.exec(t); return m ? m[1] : null; };
+// A calendar cell can hold several tasks, one per line (as in the Excel sheet)
+const dayTasks = (d, k) => (d[k] || []).flatMap(t => String(t).split('\n')).map(t => t.trim()).filter(Boolean);
+// Plan IDs studied on a calendar day (both papers), without duplicates
+const dayPlanIds = d => [...new Set([...dayTasks(d, 'p2'), ...dayTasks(d, 'p1')].map(taskId).filter(Boolean))];
+function idsQuestionInfo(ids) {
+  const withQ = [], missing = [], need = new Map();
+  for (const id of ids) {
+    if (id.startsWith('P1-CA-')) continue; // current affairs: no question packs by design
+    const t = planTopic(id);
+    if (t && topicQuestionCount(t.id)) withQ.push(t);
+    else { missing.push(id); packsForPlanId(id).filter(p => !packImported(p)).forEach(p => need.set(p.file, p)); }
+  }
+  return { withQ, missing, packs: [...need.values()] };
+}
 function planTodayHTML() {
-  const cal = D.plan.calendar || [], today = dayKey();
-  let d = calRowFor(today), note = '';
-  if (!d && cal.length) {
-    d = cal.find(x => x.date > today) || cal[cal.length - 1];
-    note = today < cal[0].date ? `Your plan starts on ${fmtPD(cal[0].date)}. Here is the first day:` : 'Your plan has ended. Here is its last day:';
+  const cal = D.plan.calendar || [];
+  if (!cal.length) return '<div class="card empty">This study plan has no calendar.</div>';
+  const today = dayKey();
+  if (!PL.day || !calRowFor(PL.day)) PL.day = calRowFor(today) ? today : (today < cal[0].date ? cal[0].date : cal[cal.length - 1].date);
+  const i = cal.findIndex(x => x.date === PL.day), d = cal[i], week = Math.floor(i / 7) + 1;
+  const label = x => planDate(x.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
+  let h = `<div class="daynav"><button class="btn" data-day-step="-1" ${i ? '' : 'disabled'} aria-label="Previous day">◀</button>
+    <select id="plDay" aria-label="Choose a day">${cal.map((x, k) => `<option value="${x.date}" ${k === i ? 'selected' : ''}>Day ${k + 1} · ${label(x)}${x.date === today ? ' (today)' : ''} · ${esc(x.phase)}</option>`).join('')}</select>
+    <button class="btn" data-day-step="1" ${i < cal.length - 1 ? '' : 'disabled'} aria-label="Next day">▶</button>
+    ${d.date !== today && calRowFor(today) ? '<button class="btn ghost" data-day-today>Today</button>' : ''}</div>`;
+  const ids = dayPlanIds(d), info = idsQuestionInfo(ids), nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">${d.date === today ? 'Today · ' : ''}Day ${i + 1} of ${cal.length}</h2>
+      <div class="small muted">${esc(planDate(d.date).toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))} · Week ${week} · <span class="pill">${esc(d.phase)}</span> · ${d.hours} h planned</div></div>
+      <label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>`;
+  if (ids.length) {
+    h += `<div class="row" style="margin-top:12px">${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise this day (${Math.min(40, nQ)} Q)</button>` : ''}
+      ${info.packs.length ? `<button class="btn" data-day-import="${d.date}">📦 Import questions for this day (${plural(info.packs.length, 'pack')})</button>` : ''}</div>
+      <p class="small muted" style="margin:6px 0 0">${info.withQ.length} of ${ids.length} topics of this day have questions${info.missing.length && !info.packs.length ? '; the rest will come as the question bank grows' : ''}.</p>`;
   }
-  let h = '';
-  if (d) {
-    h += `<div class="card"><div class="row"><div style="flex:1"><h2 style="margin:0">${d.date === today ? 'Today' : esc(planDate(d.date).toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'short' }))}</h2>
-      <div class="small muted">${note ? esc(note) + ' · ' : ''}${esc(d.day)} · <span class="pill">${esc(d.phase)}</span> · ${d.hours} h planned</div></div>
-      <label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>
-      <h3 class="plan-h3">Paper 2 (Computer Science)</h3>${d.p2.map(taskHTML).join('') || '<p class="small muted">—</p>'}
-      <h3 class="plan-h3">Paper 1 (General)</h3>${d.p1.map(taskHTML).join('') || '<p class="small muted">—</p>'}
-      ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
-  }
+  h += `<h3 class="plan-h3">Paper 2 (Computer Science)</h3>${dayTasks(d, 'p2').map(taskHTML).join('') || '<p class="small muted">—</p>'}
+    <h3 class="plan-h3">Paper 1 (General)</h3>${dayTasks(d, 'p1').map(taskHTML).join('') || '<p class="small muted">—</p>'}
+    ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
+  // Weekly mock: a fresh test built from every topic scheduled in this week that has questions
+  const wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
+  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">🎯 Week ${week} mock test</h2>
+      <div class="small muted">${label(wk[0])} – ${label(wk[wk.length - 1])} · ${wkInfo.withQ.length} topics with questions</div></div>
+      <button class="btn primary" data-week-mock="${week}" ${wkInfo.withQ.length ? '' : 'disabled'}>Start (up to 50 Q)</button></div>
+      <p class="small muted" style="margin:6px 0 0">Mixes this week's topics in proportion to how often they are scheduled, preferring questions you haven't attempted yet.</p></div>`;
   const over = planRows().map(r => ({ r, st: rowState(r) })).filter(x => isOverdue(x.r, x.st)).sort((a, b) => a.r.target.localeCompare(b.r.target));
   if (over.length) {
     h += `<div class="card"><h2>⏰ Overdue (${over.length})</h2>${over.slice(0, 15).map(({ r, st }) => `<div class="task ${stClass(st.status)}">
       <div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(r.topic)} <span class="small od">· due ${fmtPD(r.target)}</span></div>
       <button class="btn" data-mark-done="${r.id}">✓ Completed</button></div>`).join('')}${over.length > 15 ? `<p class="small muted">…and ${over.length - 15} more in the Paper 1 / Paper 2 tabs.</p>` : ''}</div>`;
   }
-  const next = cal.filter(x => x.date > (d ? d.date : today)).slice(0, 3);
-  if (next.length) h += `<div class="card"><h2>Coming up</h2>${next.map(x => `<div class="list-row"><div class="grow"><b>${esc(planDate(x.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b> <span class="pill">${esc(x.phase)}</span>
-    <div class="small muted">${x.p2.length + x.p1.length} tasks · ${x.hours} h</div></div></div>`).join('')}</div>`;
   return h;
 }
+async function importPacksList(packs, btn) {
+  for (const p of packs) { if (btn) btn.textContent = `Importing ${p.name.slice(0, 30)}…`; await quickImport(p, null, true); }
+  toast(`Imported ${plural(packs.length, 'pack')} ✓`);
+  rerender();
+}
+async function practiseDay(date) {
+  const d = calRowFor(date), topics = idsQuestionInfo(dayPlanIds(d)).withQ, i = D.plan.calendar.indexOf(d) + 1;
+  const avail = topics.reduce((n, t) => n + topicQuestionCount(t.id), 0), total = Math.min(40, avail);
+  const questions = await buildMockQuestions({ mode: 'pct', prefer: 'unseen', total, totalInput: total, sources: topics.map(t => ({ type: 'topic', id: t.id, weight: 1 })) });
+  startSetup({ name: `Day ${i} practice (${fmtPD(date)})`, questions, mode: 'day', setId: null, subjectId: null, topicId: topics.length === 1 ? topics[0].id : null, settingsSubjectId: topics[0].subjectId });
+}
+function weekMock(week) {
+  const cal = D.plan.calendar, wk = cal.slice((week - 1) * 7, week * 7), counts = new Map();
+  wk.forEach(d => dayPlanIds(d).forEach(id => { const t = planTopic(id); if (t && topicQuestionCount(t.id)) counts.set(t.id, (counts.get(t.id) || 0) + 1); }));
+  if (!counts.size) return;
+  const total = Math.min(50, [...counts.keys()].reduce((n, id) => n + topicQuestionCount(id), 0));
+  startMock({ name: `Week ${week} mock (${fmtPD(wk[0].date)} – ${fmtPD(wk[wk.length - 1].date)})`, mode: 'pct', prefer: 'unseen', total, totalInput: total,
+    sources: [...counts].map(([id, n]) => ({ type: 'topic', id, weight: n })) }, null);
+}
+document.addEventListener('click', async e => {
+  const st = e.target.closest('[data-day-step]');
+  if (st) { const cal = D.plan.calendar, i = cal.findIndex(x => x.date === PL.day) + +st.dataset.dayStep; if (cal[i]) { PL.day = cal[i].date; renderPlan(); } return; }
+  if (e.target.closest('[data-day-today]')) { PL.day = dayKey(); renderPlan(); return; }
+  const pr = e.target.closest('[data-day-practise]');
+  if (pr) { pr.disabled = true; try { await practiseDay(pr.dataset.dayPractise); } finally { pr.disabled = false; } return; }
+  const im = e.target.closest('[data-day-import]');
+  if (im) { im.disabled = true; await importPacksList(idsQuestionInfo(dayPlanIds(calRowFor(im.dataset.dayImport))).packs, im); return; }
+  const wm = e.target.closest('[data-week-mock]');
+  if (wm) { weekMock(+wm.dataset.weekMock); return; }
+  const cd = e.target.closest('.cal[data-cal-day]');
+  if (cd && !e.target.closest('label, input')) { PL.day = cd.dataset.calDay; PL.tab = 'today'; renderPlan(); window.scrollTo(0, 0); }
+});
+document.addEventListener('change', e => { if (e.target.id === 'plDay') { PL.day = e.target.value; renderPlan(); } });
+
+/* ---------- Packs available for a subject / topic (from packs/index.json) ---------- */
+const packImported = p => !!importedPacks()[p.file];
+const packsForPlanId = id => ((packIndex && packIndex.packs) || []).filter(p => (p.planIds || []).includes(id));
+const packsForSubject = s => ((packIndex && packIndex.packs) || []).filter(p => p.questions && (p.subjects || []).some(n => nameKey(n) === nameKey(s.name)));
+let bankLoadStarted = false;
+function ensureBank() { // load the index once in the background, then refresh the current screen
+  if (packIndex || bankLoadStarted) return;
+  bankLoadStarted = true;
+  getPackIndex().then(() => rerender()).catch(() => {});
+}
+function subjectPacksHTML(s) {
+  ensureBank();
+  if (!packIndex) return '';
+  const list = packsForSubject(s);
+  const body = list.length ? list.map(p => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b> ${packImported(p) ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>'}
+      <div class="small muted">${esc(p.description || '')}</div><div class="small">${plural(p.questions || 0, 'question')}</div></div>
+      <button class="btn ${packImported(p) ? '' : 'primary'}" data-bankfile="${esc(p.file)}">${packImported(p) ? 'Re-import' : 'Import'}</button></div>`).join('')
+    : '<p class="small muted" style="margin:0">No ready-made packs for this subject yet. They will appear here as the question bank grows.</p>';
+  return `<div class="card"><h2>📦 Question packs for this subject</h2>${body}</div>`;
+}
+function topicAvailHTML(t) {
+  ensureBank();
+  if (!packIndex || !t.plan || !t.plan.id || topicQuestionCount(t.id)) return '';
+  const p = packsForPlanId(t.plan.id).filter(x => !packImported(x));
+  if (!p.length) return `<div class="card"><p class="small muted" style="margin:0">📦 No questions for this topic in the question bank yet. They will appear here when a pack covering <b>${esc(t.plan.id)}</b> is published.</p></div>`;
+  return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b>📦 Questions for this topic are ready</b>
+    <div class="small">In “${esc(p[0].name)}” (${plural(p[0].questions || 0, 'question')})${p.length > 1 ? ` and ${p.length - 1} more pack(s)` : ''}.</div></div>
+    <button class="btn primary" data-bankfile="${esc(p[0].file)}">Import</button></div></div>`;
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-bankfile]');
+  if (!b) return;
+  e.preventDefault();
+  const p = ((packIndex && packIndex.packs) || []).find(x => x.file === b.dataset.bankfile);
+  if (p) { await quickImport(p, b); rerender(); }
+});
+
 
 function planRowCard(r) {
   const st = rowState(r), od = isOverdue(r, st), top = planTopic(r.id), n = top ? topicQuestionCount(top.id) : 0;
@@ -1751,14 +1918,14 @@ function planTrackerHTML() {
 }
 function planCalendarHTML() {
   const today = dayKey();
-  return (D.plan.calendar || []).map(d => {
+  return (D.plan.calendar || []).map((d, i) => {
     const done = dayDone(d), missed = d.date < today && !done;
-    return `<div class="cal ${d.date === today ? 'today' : ''} ${missed ? 'missed' : ''} ${done ? 'done' : ''}" id="cal-${d.date}">
-      <div class="cal-h"><b>${esc(planDate(d.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b>
+    return `<div class="cal ${d.date === today ? 'today' : ''} ${missed ? 'missed' : ''} ${done ? 'done' : ''}" id="cal-${d.date}" data-cal-day="${d.date}" title="Open this day">
+      <div class="cal-h"><span class="pill">Day ${i + 1}</span><b>${esc(planDate(d.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b>
         <span class="pill">${esc(d.phase)}</span><span class="small muted">${d.hours} h</span><span class="spacer"></span>
         <label class="check"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Done</label></div>
-      <div class="small cal-t"><span class="muted">Paper 2:</span> ${d.p2.map(t => esc(t)).join(' · ') || '—'}</div>
-      <div class="small cal-t"><span class="muted">Paper 1:</span> ${d.p1.map(t => esc(t)).join(' · ') || '—'}</div></div>`;
+      <div class="small cal-t"><span class="muted">Paper 2:</span> ${dayTasks(d, 'p2').map(t => esc(t)).join(' · ') || '—'}</div>
+      <div class="small cal-t"><span class="muted">Paper 1:</span> ${dayTasks(d, 'p1').map(t => esc(t)).join(' · ') || '—'}</div></div>`;
   }).join('');
 }
 
@@ -1943,17 +2110,22 @@ function renderSubject() {
   const st = { ...DEFAULT_SETTINGS, ...s.settings };
   let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject', s);
   h += statsRow(atts, [[topics.length, 'Topics'], [sets.reduce((n, x) => n + (x.count || 0), 0), 'Questions']]);
+  // Packs not imported yet go on top (import in place); once everything is in, the card moves below the topics
+  const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(p => !packImported(p));
+  if (packsNew) h += packsCard;
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
     ${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
-    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${esc(t.name)}</button>
-      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(tSets.reduce((n, x) => n + (x.count || 0), 0), 'question')}</div></div>
+    const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = !nQ && t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
+    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>
+      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${ready ? ' · <span class="pill pk">📦 ready in the bank</span>' : ''}</div></div>
       <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
       <button class="icon-btn" data-menu data-topicmenu="${t.id}" title="Topic options" aria-label="Options for ${esc(t.name)}">⋯</button></div>`;
   }).join('') : '<div class="empty">No topics yet. Add one to start saving question sets.</div>';
   h += '</div>';
+  if (!packsNew) h += packsCard;
   h += progressCard(atts, true);
   h += `<div class="card" id="sdCard"><h2>Default exam settings</h2>
     <p class="small muted" style="margin-top:0">Used for every exam in this subject. You can still adjust them before each exam.</p>
@@ -2003,6 +2175,7 @@ function renderTopic() {
     h += `<p class="small" style="margin:-4px 0 8px">📅 <span class="pill">${esc(p.id || 'Plan')}</span> ${p.start ? esc(fd(p.start)) + (p.end && p.end !== p.start ? ' → ' + esc(fd(p.end)) : '') : ''}${p.priority ? ' · ' + esc(p.priority) + ' priority' : ''}${p.tip ? ' · 💡 ' + esc(p.tip) : ''}</p>`;
   }
   h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
+  h += topicAvailHTML(t);
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
   if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
   else {
@@ -2489,7 +2662,7 @@ async function runPool(tasks, n, onTick) {
 // Name matching that survives small differences: case, spacing, dashes, '&' vs 'and', punctuation,
 // and the 'P1 · ' / 'P2 · ' prefixes. Topics also match by study-plan ID first.
 const nameKey = s => normText(s).toLowerCase().normalize('NFKC').replace(/^p[12]\s*·\s*/, '').replace(/&/g, ' and ')
-  .replace(/\(.*?\)/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  .replace(/\+/g, ' plus ').replace(/#/g, ' sharp ').replace(/\(.*?\)/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 const findSubject = name => D.subjects.find(x => normText(x.name).toLowerCase() === normText(name).toLowerCase())
   || D.subjects.find(x => nameKey(x.name) === nameKey(name));
 function findTopic(subjectId, name, plan) {
@@ -2625,21 +2798,22 @@ async function renderBank() {
   el.innerHTML = h;
   el.querySelectorAll('[data-bank]').forEach(b => b.onclick = () => quickImport(packs[+b.dataset.bank], b));
 }
-async function quickImport(p, btn) {
+async function quickImport(p, btn, quiet) {
   const needsStructure = p.file !== packs0File() && !importedPacks()[packs0File()] && !D.topics.some(t => t.plan);
-  if (needsStructure && !(await confirmBox('Import the syllabus first?', '<p>This pack works best after <b>“0 · Syllabus & study plan”</b>, which creates all subjects and topics with your planner dates. Import this pack anyway?</p>', 'Import anyway'))) return;
-  document.querySelectorAll('[data-bank]').forEach(b => b.disabled = true);
-  btn.textContent = 'Downloading…';
+  if (needsStructure && !quiet && !(await confirmBox('Import the syllabus first?', '<p>This pack works best after <b>“0 · Syllabus & study plan”</b>, which creates all subjects and topics with your planner dates. Import this pack anyway?</p>', 'Import anyway'))) return;
+  document.querySelectorAll('[data-bank], [data-bankfile]').forEach(b => b.disabled = true);
+  const say = t => { if (btn) btn.textContent = t; };
+  say('Downloading…');
   try {
     const r = await fetch('packs/' + p.file, { cache: 'no-cache' });
     if (!r.ok) throw new Error('Could not download the pack (HTTP ' + r.status + ')');
     const pack = detectPack(await r.text());
     if (!pack) throw new Error('This file is not a valid question pack.');
     summarizePack(pack);
-    const res = await importPack(pack, (d, n) => { btn.textContent = `Saving ${Math.round(d / n * 100)}%`; });
+    const res = await importPack(pack, (d, n) => say(`Saving ${Math.round(d / n * 100)}%`));
     D.prefs.packs = { ...importedPacks(), [p.file]: Date.now() };
     await savePrefs().catch(() => {});
-    openModal(`<h3>📦 ${esc(p.name)}</h3><table>
+    if (!quiet) openModal(`<h3>📦 ${esc(p.name)}</h3><table>
       <tr><td>Questions added</td><td class="num"><b>${res.questions}</b></td></tr>
       <tr><td>Question sets added</td><td class="num"><b>${res.sets}</b></td></tr>
       <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
@@ -2648,6 +2822,7 @@ async function quickImport(p, btn) {
       ${res.plan ? '<p class="status ok">📅 Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
       [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('today') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }
+  document.querySelectorAll('[data-bankfile]').forEach(b => b.disabled = false);
   if (!$('#bank').hidden) renderBank();
 }
 const packs0File = () => ((packIndex && packIndex.packs) || []).find(p => /structure/.test(p.file))?.file || '';
@@ -2976,7 +3151,7 @@ function startSetup(info) {
   const sDef = s || byId('subjects', info.settingsSubjectId);
   const st = { ...DEFAULT_SETTINGS, ...(sDef && sDef.settings) };
   const n = info.questions.length;
-  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test', import: 'Just imported' }[info.mode];
+  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test', import: 'Just imported', day: 'Study plan day' }[info.mode];
   const items = [['Library', 'home']];
   if (s) items.push([s.name, 'subject:' + s.id]);
   if (t) items.push([t.name, 'topic:' + t.id]);
@@ -2993,7 +3168,7 @@ function startSetup(info) {
     const w = parsePenalty($('#exWrong').value, c) || 0, b = parsePenalty($('#exBlank').value, c) || 0;
     $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
   });
-  $('#exBack').onclick = () => info.mode === 'mock' ? openMocks() : info.topicId ? openTopic(info.topicId) : goHome();
+  $('#exBack').onclick = () => info.mode === 'mock' ? openMocks() : info.mode === 'day' ? openPlan('today') : info.topicId ? openTopic(info.topicId) : goHome();
   $('#exStart').onclick = () => {
     const r = readSettings('ex', true);
     if (!r) return;
