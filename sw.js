@@ -1,7 +1,7 @@
 // Service worker: makes ExamSim installable and lets the app screen open without a connection.
 // Network-first, so a new version on GitHub Pages is picked up on the next load.
 // Firebase, pdf.js and other cross-origin requests are not touched.
-const CACHE = 'examsim-v5';
+const CACHE = 'examsim-v6';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png'];
 
 self.addEventListener('install', e => {

@@ -327,12 +327,21 @@ tfoot td{border-bottom:none}
   <div class="page-head"><h1>Add a question set</h1></div>
   <div class="kind">Upload once, retake any time</div>
 
+  <div class="card" id="destCard">
+    <h2>1. Where should these questions go?</h2>
+    <div class="settings">
+      <label>Subject<select id="svSubj"></select></label>
+      <label>Topic<select id="svTopic"></select></label>
+    </div>
+    <p class="small muted" id="destHint" style="margin-bottom:0"></p>
+  </div>
+
   <div class="card">
-    <h2>1. Load questions</h2>
+    <h2>2. Load questions</h2>
     <div class="tabs">
-      <button class="tab active" data-tab="upload">Upload file</button>
-      <button class="tab" data-tab="paste">Paste text / JSON</button>
-      <button class="tab" data-tab="ai">✨ Generate with AI</button>
+      <button class="tab active" data-tab="upload">Upload</button>
+      <button class="tab" data-tab="paste">Paste</button>
+      <button class="tab" data-tab="ai">✨ AI</button>
     </div>
     <div id="tab-upload">
       <label class="drop" id="drop">
@@ -390,7 +399,7 @@ Explanation: RAM loses its contents without power.</pre>
 
   <details class="card" id="aiCard">
     <summary>🤖 Need questions? Copy a prompt for ChatGPT, Claude or Gemini</summary>
-    <p class="small muted">Fill in the <b>[BRACKETS]</b>, paste the prompt into any AI chat, then paste its reply into the <i>Paste text / JSON</i> tab above.</p>
+    <p class="small muted">Fill in the <b>[BRACKETS]</b>, paste the prompt into any AI chat, then paste its reply into the <i>Paste</i> tab above.</p>
     <div class="tabs" id="aiTabs">
       <button class="tab active" data-ai="json">Generate as JSON</button>
       <button class="tab" data-ai="text">Generate as text</button>
@@ -404,8 +413,8 @@ Explanation: RAM loses its contents without power.</pre>
     </div>
   </details>
 
-  <div class="card" id="previewCard" hidden></div>
   <div class="card" id="saveCard" hidden></div>
+  <div class="card" id="previewCard" hidden></div>
 </section>
 
 <section id="profile" hidden></section>
@@ -1733,7 +1742,41 @@ function openAdd(ctx) {
   $('#addCrumbs').outerHTML = crumbs(items).replace('<nav class="crumbs">', '<nav class="crumbs" id="addCrumbs">');
   setStatus('');
   $('#previewCard').hidden = $('#saveCard').hidden = true;
+  fillSubjects(ctx.subjectId || (D.subjects.length === 1 ? D.subjects[0].id : ''));
+  fillTopics(ctx.topicId);
   show('add');
+}
+
+/* Step 1: destination. Chosen before loading so it's always clear where questions are saved */
+$('#svSubj').onchange = async () => {
+  if ($('#svSubj').value === '__new') {
+    const s = await createSubject();
+    fillSubjects(s ? s.id : addCtx.subjectId);
+  } else addCtx.subjectId = $('#svSubj').value;
+  addCtx.topicId = '';
+  fillTopics();
+};
+$('#svTopic').onchange = async () => {
+  if ($('#svTopic').value === '__new') {
+    const t = await createTopic($('#svSubj').value);
+    fillTopics(t ? t.id : addCtx.topicId);
+  } else { addCtx.topicId = $('#svTopic').value; destChanged(); }
+};
+$('#aiTopic').addEventListener('input', () => { $('#aiTopic').dataset.auto = '0'; });
+function destLabel() {
+  const s = byId('subjects', $('#svSubj').value), t = byId('topics', $('#svTopic').value);
+  return s ? `${subjIcon(s)} ${s.name}${t ? ' › ' + t.name : ''}` : '';
+}
+function destChanged() {
+  const s = byId('subjects', $('#svSubj').value), t = byId('topics', $('#svTopic').value);
+  $('#destHint').innerHTML = !D.subjects.length ? 'You have no subjects yet: choose <b>+ New subject…</b> above to create one, then a topic inside it.'
+    : !s ? 'Choose the subject, then the topic. Use <b>+ New…</b> to create one.'
+    : !t ? `Now choose a topic in ${esc(s.name)}, or create one with <b>+ New topic…</b>.`
+    : `✓ Questions will be saved to <b>${esc(destLabel())}</b>.`;
+  // AI tab: suggest the chosen topic as what to generate about
+  const ai = $('#aiTopic');
+  if (t && ai && (!ai.value || ai.dataset.auto === '1')) { ai.value = t.name; ai.dataset.auto = '1'; }
+  if (loaded && loaded.questions.length) renderSaveCard();
 }
 
 function setStatus(msg, kind) {
@@ -1824,40 +1867,36 @@ function renderPreview() {
   renderSaveCard();
 }
 
+/* Step 3: save. Shown right under the loader (above the preview) as soon as questions are parsed */
 function renderSaveCard() {
   const sc = $('#saveCard');
   if (!loaded || !loaded.questions.length) { sc.hidden = true; return; }
-  sc.innerHTML = `<h2>2. Save to your library</h2>
-    <div class="settings">
-      <label>Set name<input type="text" id="svName" value="${esc(loaded.name)}" maxlength="100"></label>
-      <label>Subject<select id="svSubj"></select></label>
-      <label>Topic<select id="svTopic"></select></label>
-    </div>
-    <div class="row" style="margin-top:16px"><button class="btn" id="svSave">Save set</button><button class="btn primary big" id="svStart">Save &amp; start exam →</button></div>`;
+  const prevName = $('#svName') ? $('#svName').value : null, prevSplit = $('#svSplit') ? $('#svSplit').checked : false;
+  const tags = [...new Set(loaded.questions.map(q => q.subject).filter(Boolean))];
+  const sid = $('#svSubj').value, tid = $('#svTopic').value;
+  const s = byId('subjects', sid), t = byId('topics', tid);
+  const split = tags.length >= 2 && prevSplit;
+  const ready = s && (t || split);
+  sc.innerHTML = `<h2>3. Check &amp; save ${plural(loaded.questions.length, 'question')}</h2>
+    <div class="settings"><label>Set name<input type="text" id="svName" value="${esc(prevName ?? loaded.name)}" maxlength="100"></label></div>
+    ${tags.length >= 2 ? `<label class="check" style="margin-top:12px"><input type="checkbox" id="svSplit" ${split ? 'checked' : ''}>
+      Create a topic for each tag in the file (${tags.length}: ${esc(tags.slice(0, 4).join(', '))}${tags.length > 4 ? '…' : ''})</label>
+      <p class="small muted" style="margin:4px 0 0 26px">Topics with the same name are reused. Questions without a tag go to the topic chosen above.</p>` : ''}
+    <div class="status ${ready ? 'ok' : 'error'}" style="margin-top:12px">${ready
+      ? `Saving to <b>${esc(s ? subjIcon(s) + ' ' + s.name : '')}${split ? ' › one topic per tag' : ' › ' + esc(t.name)}</b>`
+      : `⬆ First choose ${s ? 'a topic' : 'a subject and topic'} in step 1 (<a href="#" id="svGoDest">go there</a>).`}</div>
+    <div class="row" style="margin-top:14px"><button class="btn" id="svSave" ${ready ? '' : 'disabled'}>Save set</button>
+      <button class="btn primary big" id="svStart" ${ready ? '' : 'disabled'}>Save &amp; start exam →</button></div>`;
   sc.hidden = false;
-  fillSubjects(addCtx.subjectId || (D.subjects.length === 1 ? D.subjects[0].id : ''));
-  fillTopics(addCtx.topicId);
-  $('#svSubj').onchange = async () => {
-    if ($('#svSubj').value === '__new') {
-      const s = await createSubject();
-      fillSubjects(s ? s.id : addCtx.subjectId);
-    } else addCtx.subjectId = $('#svSubj').value;
-    addCtx.topicId = '';
-    fillTopics();
-  };
-  $('#svTopic').onchange = async () => {
-    if ($('#svTopic').value === '__new') {
-      const t = await createTopic($('#svSubj').value);
-      fillTopics(t ? t.id : addCtx.topicId);
-    } else addCtx.topicId = $('#svTopic').value;
-  };
+  if ($('#svSplit')) $('#svSplit').onchange = renderSaveCard;
+  if ($('#svGoDest')) $('#svGoDest').onclick = e => { e.preventDefault(); $('#destCard').scrollIntoView({ behavior: 'smooth' }); $('#svSubj').value ? $('#svTopic').focus() : $('#svSubj').focus(); };
   $('#svSave').onclick = () => saveSet(false);
   $('#svStart').onclick = () => saveSet(true);
 }
 function fillSubjects(sel) {
   addCtx.subjectId = sel || '';
   $('#svSubj').innerHTML = `<option value="">— choose a subject —</option>`
-    + D.subjects.map(s => `<option value="${s.id}" ${s.id === sel ? 'selected' : ''}>${esc(s.name)}</option>`).join('')
+    + D.subjects.map(s => `<option value="${s.id}" ${s.id === sel ? 'selected' : ''}>${esc(subjIcon(s) + ' ' + s.name)}</option>`).join('')
     + '<option value="__new">+ New subject…</option>';
 }
 function fillTopics(sel) {
@@ -1867,29 +1906,56 @@ function fillTopics(sel) {
   el.disabled = !sid || sid === '__new';
   el.innerHTML = el.disabled ? '<option value="">Choose a subject first</option>'
     : `<option value="">— choose a topic —</option>` + ts.map(t => `<option value="${t.id}" ${t.id === sel ? 'selected' : ''}>${esc(t.name)}</option>`).join('') + '<option value="__new">+ New topic…</option>';
+  destChanged();
+}
+async function topicByName(subjectId, name) {
+  const found = D.topics.find(t => t.subjectId === subjectId && t.name.toLowerCase() === name.toLowerCase());
+  if (found) return found;
+  const t = { id: newId(), name, subjectId, createdAt: Date.now() };
+  await save('topics', t);
+  D.topics.sort(byName);
+  return t;
 }
 async function saveSet(startAfter) {
   const sid = $('#svSubj').value, tid = $('#svTopic').value;
+  const split = $('#svSplit') && $('#svSplit').checked;
   const name = normText($('#svName').value) || loaded.name;
-  if (!sid || sid === '__new') return alertMsg('Choose a subject to save this set into, or create a new one.', 'Where should it go?');
-  if (!tid || tid === '__new') return alertMsg('Choose a topic to save this set into, or create a new one.', 'Where should it go?');
-  const questions = loaded.questions.map(q => ({ ...q, key: qKey(q) }));
-  if (JSON.stringify(questions).length > 900000) return alertMsg('This set is too large to save in one piece (the limit is about 1 MB). Split it into smaller files, e.g. 300–500 questions each.', 'Set too large');
-  const set = { id: newId(), name, subjectId: sid, topicId: tid, count: questions.length, format: loaded.format, createdAt: Date.now() };
+  if (!byId('subjects', sid)) return alertMsg('Choose a subject in step 1, or create a new one.', 'Where should it go?');
+  const all = loaded.questions.map(q => ({ ...q, key: qKey(q) }));
+  if (!split && !byId('topics', tid)) return alertMsg('Choose a topic in step 1, or create a new one.', 'Where should it go?');
+  if (split && !byId('topics', tid) && all.some(q => !q.subject)) return alertMsg('Some questions have no tag. Choose a topic in step 1 for them, or untick “Create a topic for each tag”.', 'Where should untagged questions go?');
+  // One group per destination topic
+  const groups = new Map();
+  for (const q of all) {
+    const key = split && q.subject ? 'tag:' + q.subject.toLowerCase() : 'topic:' + tid;
+    if (!groups.has(key)) groups.set(key, { tag: split && q.subject ? q.subject : null, questions: [] });
+    groups.get(key).questions.push(q);
+  }
+  for (const g of groups.values()) if (JSON.stringify(g.questions).length > 900000) return alertMsg('This set is too large to save in one piece (the limit is about 1 MB). Split it into smaller files, e.g. 300–500 questions each.', 'Set too large');
   const btns = [$('#svSave'), $('#svStart')];
   btns.forEach(b => b.disabled = true);
+  const saved = [];
   try {
-    await store.put('setq', set.id, { questions });
-    await save('sets', set);
-    qCache.set(set.id, questions);
+    for (const g of groups.values()) {
+      const topic = g.tag ? await topicByName(sid, g.tag) : byId('topics', tid);
+      const set = { id: newId(), name, subjectId: sid, topicId: topic.id, count: g.questions.length, format: loaded.format, createdAt: Date.now() };
+      await store.put('setq', set.id, { questions: g.questions });
+      await save('sets', set);
+      qCache.set(set.id, g.questions);
+      saved.push({ set, questions: g.questions.map(q => ({ ...q, topicId: topic.id, subjectId: sid })) });
+    }
   } catch (e) {
     toast(errText(e), 'error');
     btns.forEach(b => b.disabled = false);
     return;
   }
-  toast(`Saved “${name}”`);
-  if (startAfter) startSetup({ name, questions, subjectId: sid, topicId: tid, setId: set.id, mode: 'set' });
-  else openTopic(tid);
+  toast(saved.length > 1 ? `Saved “${name}” into ${saved.length} topics` : `Saved “${name}”`);
+  if (saved.length === 1) {
+    const { set, questions } = saved[0];
+    if (startAfter) startSetup({ name, questions, subjectId: sid, topicId: set.topicId, setId: set.id, mode: 'set' });
+    else openTopic(set.topicId);
+  } else if (startAfter) startSetup({ name, questions: saved.flatMap(x => x.questions), subjectId: sid, topicId: null, setId: null, mode: 'import' });
+  else openSubject(sid);
 }
 
 /* ============================================================
@@ -2160,7 +2226,7 @@ function startSetup(info) {
   const sDef = s || byId('subjects', info.settingsSubjectId);
   const st = { ...DEFAULT_SETTINGS, ...(sDef && sDef.settings) };
   const n = info.questions.length;
-  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test' }[info.mode];
+  const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test', import: 'Just imported' }[info.mode];
   const items = [['Library', 'home']];
   if (s) items.push([s.name, 'subject:' + s.id]);
   if (t) items.push([t.name, 'topic:' + t.id]);
@@ -2802,7 +2868,7 @@ $('#aiGenBtn').onclick = async () => {
     loadFromText(json, topic + ' (AI)');
     loaded.format = 'AI · ' + cfg.gemModel;
     renderPreview();
-    setStatus(`Generated <b>${loaded.questions.length}</b> questions with Gemini. Check them in the preview below; you can also edit the JSON in the <i>Paste text / JSON</i> tab and parse again.`, 'ok');
+    setStatus(`Generated <b>${loaded.questions.length}</b> questions with Gemini. Check the preview, then save in step 3. You can also edit the JSON in the <i>Paste</i> tab and parse again.`, 'ok');
   } catch (e) {
     msg.textContent = '';
     if (all.length) { const json = JSON.stringify(all, null, 2); $('#pasteArea').value = json; loadFromText(json, topic + ' (AI)'); }
