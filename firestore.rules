@@ -6,7 +6,7 @@ service cloud.firestore {
     // browse other people's libraries: you need the exact code.
     match /workspaces/{ws}/{coll}/{docId} {
       allow read, write: if ws.size() >= 24
-        && coll in ['subjects', 'topics', 'sets', 'setq', 'attempts', 'mocks', 'cards', 'days', 'prefs'];
+        && coll in ['subjects', 'topics', 'sets', 'setq', 'attempts', 'mocks', 'cards', 'days', 'prefs', 'notes'];
     }
   }
 }

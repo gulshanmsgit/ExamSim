@@ -18,11 +18,11 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v11),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v12; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
-  Collections: `subjects, topics, sets, setq (questions of a set), attempts, mocks, cards (flashcards), days (daily goal counts), prefs (dailyGoal, packs imported)`.
+  Collections: `subjects, topics, sets, setq (questions of a set), attempts, mocks, cards (flashcards), days (daily goal counts), prefs (dailyGoal, packs imported, studyPlan, planState, errlog), notes`.
   `firestore.rules` must allow exactly these; if a new collection is added, the owner must republish the rules in the Firebase console.
 - **Demo mode** (`connect(null, true)`, in-memory store) is used for all browser testing — never write test data to the real Firebase unless asked.
 - Local-only (localStorage): sync code, theme, text size, AI keys (`examsim.ai`: Gemini + Groq keys/models — never sent anywhere except Google/Groq).
@@ -90,6 +90,19 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 - `nameKey()` (JS) and `key()` (make_index.py) must stay in sync; `+`→plus, `#`→sharp (C vs C++ bug fixed).
 - General Kannada mocks now go into subject `P1 · General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ)`, topic `ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು (Mock tests)`, 10 sets.
 - Library tidy/merge/move tools exist (subject ⋯ Merge; topic ⋯ Move/Merge; set ⇄) for anything imported under an old name.
+
+### Notes, navigation and Home (built 26 Sep 2026)
+- **Notes** (screen `notes`, `openNotes(topicId)`): Markdown notes per topic in `notes/{id} = {topicId, title, md, source, order, createdAt, updatedAt}`;
+  `topics.notes` keeps the count. Made for pasting AI answers: Markdown is kept as typed; pasted HTML (text/html without Markdown markers) is converted
+  with turndown + GFM (KaTeX spans → `$tex$`, buttons dropped). Rendering: marked (gfm, breaks) + DOMPurify; maths `$…$`, `$$…$$`, `\(…\)`, `\[…\]`
+  via KaTeX (loaded only when needed). Libraries are lazy-loaded from cdn.jsdelivr.net (versions pinned in `LIBS`). Notes can be edited, reordered,
+  appended to ("Save as: add to the end of …") and merged (select ≥ 2). Entry points: topic page card, 📝 buttons on Home and Study plan task rows,
+  📝 count on subject topic rows. Topic merge moves notes; topic/subject delete removes them.
+  **`firestore.rules` now includes `notes` – the owner must republish the rules once** (the notes screen shows instructions if not).
+- **Back navigation**: `show()` → `navPush()` adds a history entry `{r: route, d: depth}` per screen; ← button in the top bar when `d > 0`, and the phone's
+  back gesture works via `popstate` → `openRoute()`. Non-rebuildable screens (exam, setup, add, revise, mock builder) are skipped; leaving a running exam asks first.
+- **Home "Today" card** (`planHomeCard` / `dayGroups`): active subjects of the day as chips, then Paper 2 / Paper 1 → subject → topic rows (📝 notes,
+  Open, Practise), plus a collapsible Tomorrow section.
 
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;
