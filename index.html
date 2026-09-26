@@ -290,14 +290,21 @@ tr.st-rev td:first-child{box-shadow:inset 4px 0 var(--orange)}
 .pg>summary::-webkit-details-marker{display:none}
 .pg>summary .grow{flex:1;min-width:200px}
 tr.tot td{border-top:2px solid var(--border)}
-.cal{border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px;background:var(--card);cursor:pointer}
-.cal:hover{border-color:var(--primary)}
-.cal.today{border:2px solid var(--primary);background:var(--primary-bg)}
-.cal.missed{border-left:5px solid var(--red)}
-.cal.done{border-left:5px solid var(--green)}
-.cal-h{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.cal-t{margin-top:4px}
-.daynav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.plan-h2{font-size:1.05rem;margin:16px 0 8px}
+.plan-sum{padding:12px 16px}
+.day>summary{margin-bottom:6px}
+.day.is-today>summary,.day[open]>summary{border-color:var(--primary)}
+.day.st-done>summary{border-left:5px solid var(--green)}
+.day.st-miss>summary{border-left:5px solid var(--red)}
+.day-body{padding:0 4px 10px}
+.clamp1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.day>summary .grow{min-width:0;flex:1 1 200px}
+.nextday{margin-top:8px;border-top:1px solid var(--border);padding-top:8px}
+.nextday>summary{cursor:pointer;padding:6px 0}
+.err-item{border:1px solid var(--border);border-radius:12px;padding:12px;margin:0 0 10px;background:var(--card)}
+.why{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.why button{border:1px solid var(--border);background:var(--bg);border-radius:99px;padding:4px 10px;font-size:.8rem;cursor:pointer;color:var(--text)}
+.why button.on{background:var(--primary);border-color:var(--primary);color:#fff}
 .daynav select{width:auto;flex:1;min-width:160px}
 .daynav .btn{min-height:38px}
 .pr-avail{font-size:.8rem;margin-left:6px}
@@ -494,6 +501,7 @@ Explanation: RAM loses its contents without power.</pre>
 <section id="bank" hidden></section>
 <section id="mocks" hidden></section>
 <section id="revhub" hidden></section>
+<section id="errlog" hidden></section>
 <section id="progress" hidden></section>
 <section id="plan" hidden></section>
 <section id="mock" hidden></section>
@@ -928,9 +936,11 @@ async function loadAll() {
     days: Object.fromEntries(days.map(d => [d.id, d.q || 0])),
     prefs: { dailyGoal: 30, ...(prefs.find(p => p.id === 'main') || {}) },
     plan: prefs.find(p => p.id === 'studyPlan') || null,
-    planState: prefs.find(p => p.id === 'planState') || {}
+    planState: prefs.find(p => p.id === 'planState') || {},
+    errNotes: prefs.find(p => p.id === 'errlog') || {}
   });
   delete D.planState.id;
+  delete D.errNotes.id;
   qCache.clear();
 }
 // Questions from several sets, de-duplicated, each tagged with where it came from
@@ -1050,9 +1060,9 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
@@ -1595,6 +1605,7 @@ function renderHome() {
     else if (k === 'mock') { const m = byId('mocks', id); if (m) startMock(m, m.id); }
     else if (k === 'topic') openTopic(id);
     else if (k === 'revise') openRevision({ type: 'topic', id });
+    else if (k === 'errlog') openErrLog();
   });
 }
 
@@ -1610,6 +1621,8 @@ function continueCard() {
   }
   const acc = topicAccuracy();
   const weak = D.topics.map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5).sort((a, b) => a.r.c / a.r.seen - b.r.c / b.r.seen)[0];
+  const errOpen = errorLogData().filter(r => r.open).length;
+  if (errOpen) items.push({ icon: '📕', title: 'Error log', sub: plural(errOpen, 'mistake') + ' to fix', act: 'errlog:' });
   if (weak) items.push({ icon: '🃏', title: 'Revise weakest topic', sub: `${weak.t.name} · ${(weak.r.c / weak.r.seen * 100).toFixed(0)}% correct`, act: 'revise:' + weak.t.id });
   if (!items.length) return '';
   return `<div class="card"><h2>Continue</h2><div class="cont">${items.map(it => `<button class="cont-item" data-cont="${it.act}"><span class="cont-ic">${it.icon}</span><span><b>${esc(it.title)}</b><span class="small muted">${esc(it.sub)}</span></span></button>`).join('')}</div></div>`;
@@ -1629,7 +1642,7 @@ async function startSetFromId(setId, btn) {
    D.planState = prefs/planState: { [rowId]: { s: status, r1, r2: 'Yes'|'No', c: 1-5, n: notes }, ['day:YYYY-MM-DD']: { d: true } }
    ============================================================ */
 const PLAN_ST = ['Not Started', 'In Progress', 'Completed', 'Review Required'];
-const PL = { tab: 'today', q: '', filter: 'all', view: null };
+const PL = { tab: 'days', paper: 'p1', q: '', filter: 'all', view: null };
 const planRows = key => !D.plan ? [] : (key ? [D.plan.sheets[key]] : [D.plan.sheets.p1, D.plan.sheets.p2])
   .flatMap(sh => sh ? sh.groups.flatMap(g => g.rows) : []);
 let _rowIdx = null, _rowIdxOf = null;
@@ -1680,9 +1693,13 @@ function readiness() { // Paper 1 marks-weighted readiness, as in the Tracker sh
 }
 
 function openPlan(tab) { if (tab) PL.tab = tab; renderPlan(); show('plan'); }
+const addDays = (key, n) => { const d = planDate(key); d.setDate(d.getDate() + n); return dayKey(d); };
+const dayLabel = x => planDate(x.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
 function renderPlan() {
   const el = $('#plan');
-  const tabs = [['today', 'Today'], ['p1', 'Paper 1'], ['p2', 'Paper 2'], ['tracker', 'Tracker'], ['calendar', 'Calendar'], ['progress', 'Progress']];
+  // Three views: the days (like a diary), the subjects (like the Library) and progress
+  const tabs = [['days', '📆 Days'], ['subjects', '📚 Subjects'], ['progress', '📈 Progress']];
+  PL.tab = { today: 'days', calendar: 'days', p1: 'subjects', p2: 'subjects', tracker: 'progress' }[PL.tab] || PL.tab;
   let h = '<div class="page-head"><h1>📅 Study plan</h1></div>';
   if (!D.plan) {
     h += `<div class="kind">Your planner and progress</div><div class="card"><h2>Load your study plan</h2>
@@ -1690,20 +1707,28 @@ function renderPlan() {
       <button class="btn primary" data-open-bank>📦 Open question bank</button></div><h2 style="margin:18px 0 8px">Progress</h2><div id="planBody"></div>`;
     el.innerHTML = h; renderProgress($('#planBody')); return;
   }
-  if (!tabs.some(t => t[0] === PL.tab)) PL.tab = 'today';
-  const all = planStats(planRows()), p1 = planStats(planRows('p1')), p2 = planStats(planRows('p2'));
-  const left = D.plan.examDate ? Math.ceil((planDate(D.plan.examDate) - planDate(dayKey())) / 86400000) : null;
+  if (!tabs.some(t => t[0] === PL.tab)) PL.tab = 'days';
+  const all = planStats(planRows()), cal = D.plan.calendar || [], today = dayKey(), ti = cal.findIndex(x => x.date === today);
+  const left = D.plan.examDate ? Math.ceil((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
+  const where = ti >= 0 ? `Day <b>${ti + 1}</b> of ${cal.length} · Week ${Math.floor(ti / 7) + 1} · ${esc(cal[ti].phase)}`
+    : cal.length && today < cal[0].date ? 'Starts ' + esc(dayLabel(cal[0])) : 'Plan finished';
   h += `<div class="kind">${esc(D.plan.title || 'Study plan')}${D.plan.examDate ? ' · exam ' + esc(planDate(D.plan.examDate).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })) : ''}</div>
-    <div class="stats plan-kpi">${statBox(left != null ? left : '—', 'Days left')}${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
-      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div>
+    <div class="card plan-sum"><div class="row" style="gap:6px 18px"><span>${left != null ? `<b>${left}</b> days left` : ''}</span><span>${where}</span>
+      <span><b>${all.done}</b> / ${all.total} topics done${all.overdue ? ` · <span class="od">${all.overdue} overdue</span>` : ''}</span></div>
+      <div class="goal-bar" style="margin-top:8px" title="${all.pct}% of planner topics completed"><i style="width:${all.pct}%"></i></div></div>
     <div class="tabs plan-tabs">${tabs.map(([k, l]) => `<button class="tab ${PL.tab === k ? 'active' : ''}" data-ptab="${k}">${l}</button>`).join('')}</div><div id="planBody"></div>`;
   el.innerHTML = h;
   const body = $('#planBody');
-  if (PL.tab === 'today') body.innerHTML = planTodayHTML();
-  else if (PL.tab === 'p1' || PL.tab === 'p2') body.innerHTML = planSheetHTML(PL.tab);
-  else if (PL.tab === 'tracker') body.innerHTML = planTrackerHTML();
-  else if (PL.tab === 'calendar') { body.innerHTML = planCalendarHTML(); const t = $('#cal-' + dayKey()); if (t) setTimeout(() => t.scrollIntoView({ block: 'center' }), 50); }
-  else renderProgress(body);
+  if (PL.tab === 'days') { body.innerHTML = planDaysHTML(); wireDayBlocks(body); }
+  else if (PL.tab === 'subjects') {
+    const key = PL.paper === 'p2' ? 'p2' : 'p1';
+    body.innerHTML = `<div class="seg" style="margin-bottom:10px"><button data-ppaper="p1" class="${key === 'p1' ? 'on' : ''}">Paper 1 · General</button><button data-ppaper="p2" class="${key === 'p2' ? 'on' : ''}">Paper 2 · Computer Science</button></div>` + planSheetHTML(key);
+  } else {
+    const p1 = planStats(planRows('p1')), p2 = planStats(planRows('p2'));
+    body.innerHTML = `<div class="stats plan-kpi">${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
+      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div>${planTrackerHTML()}<div id="plProg"></div>`;
+    renderProgress($('#plProg'));
+  }
   const q = $('#plQ');
   if (q) q.oninput = () => { PL.q = q.value; const pos = q.selectionStart; renderPlan(); const n = $('#plQ'); n.focus(); n.setSelectionRange(pos, pos); };
   if ($('#plF')) $('#plF').onchange = () => { PL.filter = $('#plF').value; renderPlan(); };
@@ -1734,43 +1759,65 @@ function idsQuestionInfo(ids) {
   }
   return { withQ, missing, packs: [...need.values()] };
 }
-function planTodayHTML() {
+// One calendar day as a collapsible block; its body is filled when opened (63 days × several tasks is a lot of DOM)
+function dayBlockHTML(d, i, open) {
+  const today = dayKey(), ids = dayPlanIds(d), info = idsQuestionInfo(ids), done = dayDone(d);
+  const nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+  const tag = d.date === today ? ' <span class="pill pk">Today</span>' : d.date === addDays(today, 1) ? ' <span class="pill">Tomorrow</span>' : '';
+  const names = [...dayTasks(d, 'p2'), ...dayTasks(d, 'p1')].map(t => t.replace(/^P[12]-[A-Z0-9]+-\d+\s+/, ''));
+  return `<details class="pg day ${done ? 'st-done' : d.date < today ? 'st-miss' : ''}" data-day="${d.date}" ${open ? 'open' : ''}>
+    <summary><div class="grow"><b>Day ${i + 1}</b> · ${esc(dayLabel(d))}${tag}${done ? ' <span class="pill st-done">✓ done</span>' : ''}
+      <div class="small muted clamp1">${esc(names.join(' · ') || '—')}</div></div>
+      <span class="small muted">${plural(ids.length, 'topic')} · ${nQ ? plural(nQ, 'question') : 'no questions yet'}</span></summary>
+    <div class="day-body" data-day-body="${d.date}" data-i="${i}"></div></details>`;
+}
+function dayBodyHTML(d) {
+  const ids = dayPlanIds(d), info = idsQuestionInfo(ids), nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+  let h = `<div class="row" style="margin:0 0 8px">${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise this day (${Math.min(40, nQ)} Q)</button>` : ''}
+    ${info.packs.length ? `<button class="btn" data-day-import="${d.date}">📦 Import questions for this day (${plural(info.packs.length, 'pack')})</button>` : ''}
+    <span class="spacer"></span><label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>`;
+  if (ids.length && info.withQ.length < ids.length) h += `<p class="small muted" style="margin:0 0 8px">${info.withQ.length} of ${ids.length} topics have questions${info.packs.length ? '' : '; the rest will come as the question bank grows'}.</p>`;
+  h += `<h3 class="plan-h3">Paper 2 (Computer Science) · ${d.hours} h planned today</h3>${dayTasks(d, 'p2').map(taskHTML).join('') || '<p class="small muted">—</p>'}
+    <h3 class="plan-h3">Paper 1 (General)</h3>${dayTasks(d, 'p1').map(taskHTML).join('') || '<p class="small muted">—</p>'}
+    ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}`;
+  return h;
+}
+function wireDayBlocks(root) {
+  const fill = det => { const b = det.querySelector('[data-day-body]'); if (b && !b.childElementCount) b.innerHTML = dayBodyHTML(calRowFor(b.dataset.dayBody)); };
+  root.querySelectorAll('details.day').forEach(det => { if (det.open) fill(det); det.addEventListener('toggle', () => { if (det.open) fill(det); }); });
+}
+function planDaysHTML() {
   const cal = D.plan.calendar || [];
   if (!cal.length) return '<div class="card empty">This study plan has no calendar.</div>';
   const today = dayKey();
-  if (!PL.day || !calRowFor(PL.day)) PL.day = calRowFor(today) ? today : (today < cal[0].date ? cal[0].date : cal[cal.length - 1].date);
-  const i = cal.findIndex(x => x.date === PL.day), d = cal[i], week = Math.floor(i / 7) + 1;
-  const label = x => planDate(x.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
-  let h = `<div class="daynav"><button class="btn" data-day-step="-1" ${i ? '' : 'disabled'} aria-label="Previous day">◀</button>
-    <select id="plDay" aria-label="Choose a day">${cal.map((x, k) => `<option value="${x.date}" ${k === i ? 'selected' : ''}>Day ${k + 1} · ${label(x)}${x.date === today ? ' (today)' : ''} · ${esc(x.phase)}</option>`).join('')}</select>
-    <button class="btn" data-day-step="1" ${i < cal.length - 1 ? '' : 'disabled'} aria-label="Next day">▶</button>
-    ${d.date !== today && calRowFor(today) ? '<button class="btn ghost" data-day-today>Today</button>' : ''}</div>`;
-  const ids = dayPlanIds(d), info = idsQuestionInfo(ids), nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
-  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">${d.date === today ? 'Today · ' : ''}Day ${i + 1} of ${cal.length}</h2>
-      <div class="small muted">${esc(planDate(d.date).toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))} · Week ${week} · <span class="pill">${esc(d.phase)}</span> · ${d.hours} h planned</div></div>
-      <label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>`;
-  if (ids.length) {
-    h += `<div class="row" style="margin-top:12px">${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise this day (${Math.min(40, nQ)} Q)</button>` : ''}
-      ${info.packs.length ? `<button class="btn" data-day-import="${d.date}">📦 Import questions for this day (${plural(info.packs.length, 'pack')})</button>` : ''}</div>
-      <p class="small muted" style="margin:6px 0 0">${info.withQ.length} of ${ids.length} topics of this day have questions${info.missing.length && !info.packs.length ? '; the rest will come as the question bank grows' : ''}.</p>`;
+  let ti = cal.findIndex(x => x.date === today);
+  if (ti < 0 && today < cal[0].date) ti = 0;
+  let h = '';
+  if (ti >= 0) {
+    h += '<h2 class="plan-h2">Up next</h2>' + [ti, ti + 1].filter(k => cal[k]).map(k => dayBlockHTML(cal[k], k, true)).join('');
+    const ids = [...new Set([ti, ti + 1].filter(k => cal[k]).flatMap(k => dayPlanIds(cal[k])))], errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || { plan: {} }).plan?.id));
+    if (errs.length) h += `<div class="task"><div class="grow">📕 <b>${plural(errs.length, 'mistake')}</b> from earlier practice are in today's and tomorrow's topics</div><button class="btn" data-errlog>Review in Error log</button></div>`;
   }
-  h += `<h3 class="plan-h3">Paper 2 (Computer Science)</h3>${dayTasks(d, 'p2').map(taskHTML).join('') || '<p class="small muted">—</p>'}
-    <h3 class="plan-h3">Paper 1 (General)</h3>${dayTasks(d, 'p1').map(taskHTML).join('') || '<p class="small muted">—</p>'}
-    ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
-  // Weekly mock: a fresh test built from every topic scheduled in this week that has questions
-  const wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
-  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">🎯 Week ${week} mock test</h2>
-      <div class="small muted">${label(wk[0])} – ${label(wk[wk.length - 1])} · ${wkInfo.withQ.length} topics with questions</div></div>
-      <button class="btn primary" data-week-mock="${week}" ${wkInfo.withQ.length ? '' : 'disabled'}>Start (up to 50 Q)</button></div>
-      <p class="small muted" style="margin:6px 0 0">Mixes this week's topics in proportion to how often they are scheduled, preferring questions you haven't attempted yet.</p></div>`;
+  const weeks = [];
+  for (let w = 0; w * 7 < cal.length; w++) weeks.push(cal.slice(w * 7, w * 7 + 7));
+  h += `<h2 class="plan-h2">All ${cal.length} days</h2>` + weeks.map((wk, w) => {
+    const cur = wk.some(d => d.date === today) || (ti === 0 && w === 0), doneN = wk.filter(dayDone).length;
+    const phases = [...new Set(wk.map(d => d.phase))].join(' → '), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
+    return `<details class="lib-group" data-day="week${w + 1}" ${cur ? 'open' : ''}><summary><span class="lib-title">Week ${w + 1}</span>
+      <span class="small muted">${esc(dayLabel(wk[0]))} – ${esc(dayLabel(wk[wk.length - 1]))} · ${esc(phases)} · ${doneN}/${wk.length} days done</span></summary>
+      ${wk.map((d, k) => dayBlockHTML(d, w * 7 + k, false)).join('')}
+      <div class="task"><div class="grow">🎯 <b>Week ${w + 1} mock test</b><div class="small muted">Up to 50 Q from this week's topics, weighted by how often they are scheduled · ${wkInfo.withQ.length} topics with questions</div></div>
+      <button class="btn" data-week-mock="${w + 1}" ${wkInfo.withQ.length ? '' : 'disabled'}>Start</button></div></details>`;
+  }).join('');
   const over = planRows().map(r => ({ r, st: rowState(r) })).filter(x => isOverdue(x.r, x.st)).sort((a, b) => a.r.target.localeCompare(b.r.target));
   if (over.length) {
     h += `<div class="card"><h2>⏰ Overdue (${over.length})</h2>${over.slice(0, 15).map(({ r, st }) => `<div class="task ${stClass(st.status)}">
       <div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(r.topic)} <span class="small od">· due ${fmtPD(r.target)}</span></div>
-      <button class="btn" data-mark-done="${r.id}">✓ Completed</button></div>`).join('')}${over.length > 15 ? `<p class="small muted">…and ${over.length - 15} more in the Paper 1 / Paper 2 tabs.</p>` : ''}</div>`;
+      <button class="btn" data-mark-done="${r.id}">✓ Completed</button></div>`).join('')}${over.length > 15 ? `<p class="small muted">…and ${over.length - 15} more in the By subject tab.</p>` : ''}</div>`;
   }
   return h;
 }
+
 async function importPacksList(packs, btn) {
   for (const p of packs) { if (btn) btn.textContent = `Importing ${p.name.slice(0, 30)}…`; await quickImport(p, null, true); }
   toast(`Imported ${plural(packs.length, 'pack')} ✓`);
@@ -1791,19 +1838,13 @@ function weekMock(week) {
     sources: [...counts].map(([id, n]) => ({ type: 'topic', id, weight: n })) }, null);
 }
 document.addEventListener('click', async e => {
-  const st = e.target.closest('[data-day-step]');
-  if (st) { const cal = D.plan.calendar, i = cal.findIndex(x => x.date === PL.day) + +st.dataset.dayStep; if (cal[i]) { PL.day = cal[i].date; renderPlan(); } return; }
-  if (e.target.closest('[data-day-today]')) { PL.day = dayKey(); renderPlan(); return; }
   const pr = e.target.closest('[data-day-practise]');
   if (pr) { pr.disabled = true; try { await practiseDay(pr.dataset.dayPractise); } finally { pr.disabled = false; } return; }
   const im = e.target.closest('[data-day-import]');
   if (im) { im.disabled = true; await importPacksList(idsQuestionInfo(dayPlanIds(calRowFor(im.dataset.dayImport))).packs, im); return; }
   const wm = e.target.closest('[data-week-mock]');
   if (wm) { weekMock(+wm.dataset.weekMock); return; }
-  const cd = e.target.closest('.cal[data-cal-day]');
-  if (cd && !e.target.closest('label, input')) { PL.day = cd.dataset.calDay; PL.tab = 'today'; renderPlan(); window.scrollTo(0, 0); }
 });
-document.addEventListener('change', e => { if (e.target.id === 'plDay') { PL.day = e.target.value; renderPlan(); } });
 
 /* ---------- Packs available for a subject / topic (from packs/index.json) ---------- */
 const packImported = p => !!importedPacks()[p.file];
@@ -1917,19 +1958,6 @@ function planTrackerHTML() {
     + table('p1', 'Paper 1 — General (100 marks)', true) + table('p2', 'Paper 2 — Computer Science (unit weights estimated)', false)
     + (D.plan.notes && D.plan.notes.length ? `<details class="card"><summary>How this plan was built</summary><ol class="small">${D.plan.notes.map(n => `<li>${esc(n.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol></details>` : '');
 }
-function planCalendarHTML() {
-  const today = dayKey();
-  return (D.plan.calendar || []).map((d, i) => {
-    const done = dayDone(d), missed = d.date < today && !done;
-    return `<div class="cal ${d.date === today ? 'today' : ''} ${missed ? 'missed' : ''} ${done ? 'done' : ''}" id="cal-${d.date}" data-cal-day="${d.date}" title="Open this day">
-      <div class="cal-h"><span class="pill">Day ${i + 1}</span><b>${esc(planDate(d.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b>
-        <span class="pill">${esc(d.phase)}</span><span class="small muted">${d.hours} h</span><span class="spacer"></span>
-        <label class="check"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Done</label></div>
-      <div class="small cal-t"><span class="muted">Paper 2:</span> ${dayTasks(d, 'p2').map(t => esc(t)).join(' · ') || '—'}</div>
-      <div class="small cal-t"><span class="muted">Paper 1:</span> ${dayTasks(d, 'p1').map(t => esc(t)).join(' · ') || '—'}</div></div>`;
-  }).join('');
-}
-
 // Plan interactions (work on the plan screen, the home card and topic pages)
 document.addEventListener('change', async e => {
   const el = e.target;
@@ -1940,7 +1968,7 @@ document.addEventListener('change', async e => {
     if (f === 's' || f === 'c') refreshPlanViews();
   } else if (el.matches('[data-daydone]')) {
     await setPlanField('day:' + el.dataset.daydone, 'd', el.checked);
-    if (!$('#plan').hidden && PL.tab === 'calendar') renderPlan();
+    refreshPlanViews();
   }
 });
 document.addEventListener('click', async e => {
@@ -1951,10 +1979,17 @@ document.addEventListener('click', async e => {
   const t = e.target.closest('[data-ptab]');
   if (t) { PL.tab = t.dataset.ptab; PL.q = ''; PL.filter = 'all'; renderPlan(); return; }
   const v = e.target.closest('[data-pview]');
-  if (v) { PL.view = v.dataset.pview; renderPlan(); }
+  if (v) { PL.view = v.dataset.pview; renderPlan(); return; }
+  const pp = e.target.closest('[data-ppaper]');
+  if (pp) { PL.paper = pp.dataset.ppaper; PL.q = ''; PL.filter = 'all'; renderPlan(); }
 });
 function refreshPlanViews() {
-  if (!$('#plan').hidden) { const y = window.scrollY; renderPlan(); window.scrollTo(0, y); }
+  if (!$('#plan').hidden) {
+    const y = window.scrollY, open = [...document.querySelectorAll('#plan details[open]')].map(d => d.dataset.day || d.querySelector('summary').textContent);
+    renderPlan();
+    document.querySelectorAll('#plan details').forEach(d => { if (open.includes(d.dataset.day || d.querySelector('summary').textContent)) d.open = true; });
+    window.scrollTo(0, y);
+  }
   else if (!$('#home').hidden) renderHome();
 }
 
@@ -1988,6 +2023,8 @@ function renderRevHub() {
     $('#revhub').innerHTML = h + '<div class="card empty"><p>Add question sets to your subjects first, then revise them here as flashcards.</p><button class="btn primary" data-nav="home">Go to library</button></div>';
     return;
   }
+  const errOpen = errorLogData().filter(r => r.open).length;
+  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">📕 Error log</h2><div class="small muted">${errOpen ? plural(errOpen, 'mistake') + ' to fix, by subject or by study-plan day' : 'Your wrong answers from every exam collect here automatically'}</div></div><button class="btn primary" data-errlog>Open error log</button></div></div>`;
   h += weakTopicsCard();
   h += '<div class="card"><h2>All subjects and topics</h2><p class="small muted" style="margin-top:0">Each session shows the cards that are due plus up to 20 new ones.</p>';
   h += D.subjects.map(s => {
@@ -2821,7 +2858,7 @@ async function quickImport(p, btn, quiet) {
       <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
       ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}</table>
       ${res.plan ? '<p class="status ok">📅 Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
-      [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('today') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
+      [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('days') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }
   document.querySelectorAll('[data-bankfile]').forEach(b => b.disabled = false);
   if (!$('#bank').hidden) renderBank();
@@ -2840,7 +2877,7 @@ async function bankBanner() {
   } catch (e) { /* no bank when opened as a local file */ }
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-open-bank]')) { e.preventDefault(); openBank(); } });
-document.addEventListener('click', e => { if (e.target.closest('[data-go-plan]')) { e.preventDefault(); openPlan('today'); } });
+document.addEventListener('click', e => { if (e.target.closest('[data-go-plan]')) { e.preventDefault(); openPlan('days'); } });
 
 /* ---------- Study plan (topics that carry plan dates from a pack) ---------- */
 const planDate = d => new Date(d + 'T00:00:00');
@@ -2854,7 +2891,34 @@ async function practiseTopic(tid, btn) {
   catch (e) { toast(errText(e), 'error'); }
   finally { if (btn) btn.disabled = false; }
 }
+function planTopicRow(t, carry) {
+  const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id);
+  return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>${ps ? ` <span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}
+      <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
+      ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+      <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
+}
+// Home: today's and tomorrow's tasks from the study-plan calendar
+function planHomeCard() {
+  const cal = D.plan.calendar, today = dayKey();
+  let i = cal.findIndex(x => x.date === today);
+  const before = i < 0 && today < cal[0].date;
+  if (i < 0 && !before) return '';
+  if (before) i = 0;
+  const rows = d => [...dayTasks(d, 'p2'), ...dayTasks(d, 'p1')].map(task => {
+    const id = taskId(task), t = id && planTopic(id);
+    return t ? planTopicRow(t, t.plan.start < d.date) : `<div class="list-row"><div class="grow small">${esc(task)}</div></div>`;
+  }).join('');
+  const d = cal[i], nx = cal[i + 1], nQ = idsQuestionInfo(dayPlanIds(d)).withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+  const title = before ? `📅 Your plan starts ${esc(dayLabel(d))}` : `📅 Today's plan · Day ${i + 1} of ${cal.length}`;
+  return `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">${title}</h2>
+      ${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise today (${Math.min(40, nQ)} Q)</button>` : ''}</div>
+    ${rows(d)}
+    ${nx ? `<details class="nextday"><summary><b>Tomorrow</b> · Day ${i + 2} · ${esc(dayLabel(nx))} <span class="small muted">· ${plural(dayPlanIds(nx).length, 'topic')}</span></summary>${rows(nx)}</details>` : ''}
+    <div class="row" style="margin-top:10px"><button class="btn" data-go-plan>📆 See all ${cal.length} days</button></div></div>`;
+}
 function planCard() {
+  if (D.plan && (D.plan.calendar || []).length) return planHomeCard();
   const today = dayKey();
   const planned = D.topics.filter(t => t.plan && t.plan.start);
   if (!planned.length) return '';
@@ -3144,6 +3208,170 @@ function gradeCard(knew) {
 }
 
 /* ============================================================
+   Error log: every question you got wrong (or skipped) is collected automatically
+   from your exam answers. "To fix" = not answered correctly since; "Fixed" = answered
+   correctly on a later attempt. Grouped by subject or by study-plan day.
+   ============================================================ */
+const EL = { view: 'subject', filter: 'open', skipped: false, qmap: null, items: [] };
+const WHY = ['Concept gap', 'Careless', 'Guessed', 'Misread', 'Forgot'];
+function errorLogData() {
+  const map = new Map();
+  [...D.attempts].sort((a, b) => a.date - b.date).forEach(a => (a.answers || []).forEach(x => {
+    let r = map.get(x.k);
+    if (!r) map.set(x.k, r = { k: x.k, t: null, seen: 0, c: 0, w: 0, b: 0, e: 0 });
+    r.seen++; r[x.r]++; r.last = x.r; r.t = x.t || a.topicId || r.t;
+    if (x.r !== 'c') { r.missDate = a.date; r.missSel = x.s; r.missKind = x.r; }
+  }));
+  // wrong answers always count; blank / option E only when "include skipped" is on
+  return [...map.values()].filter(r => r.w || (EL.skipped && (r.b || r.e))).map(r => ({ ...r, open: r.last !== 'c' }));
+}
+// First calendar day on which a topic is scheduled
+function topicDayIndex(t) {
+  const id = t && t.plan && t.plan.id, cal = (D.plan && D.plan.calendar) || [];
+  return id ? cal.findIndex(d => dayPlanIds(d).includes(id)) : -1;
+}
+function openErrLog() { renderErrLog(); show('errlog'); }
+async function renderErrLog() {
+  const el = $('#errlog');
+  const all = errorLogData(), open = all.filter(r => r.open), fixed = all.length - open.length;
+  EL.items = all.filter(r => EL.filter === 'all' || (EL.filter === 'open' ? r.open : !r.open));
+  const whyCount = {};
+  all.forEach(r => { const w = D.errNotes[r.k]; if (w) whyCount[w] = (whyCount[w] || 0) + 1; });
+  const topWhy = Object.entries(whyCount).sort((a, b) => b[1] - a[1])[0];
+  let h = `<div class="page-head"><h1>📕 Error log</h1></div><div class="kind">Your mistakes, collected automatically from every exam</div>
+    <div class="stats">${statBox(open.length, 'To fix')}${statBox(fixed, 'Fixed since')}${statBox(topWhy ? esc(topWhy[0]) : '—', 'Most common reason')}</div>`;
+  if (!all.length) {
+    el.innerHTML = h + `<div class="card empty"><p><b>No mistakes logged yet.</b></p><p class="small">Every question you answer wrong in an exam, day practice or mock test lands here automatically, sorted by subject and study-plan day. Answer it correctly later and it moves to “Fixed”.</p>
+      <label class="check" style="justify-content:center"><input type="checkbox" id="elSkip" ${EL.skipped ? 'checked' : ''}> Also count skipped questions (blank / option E)</label></div>`;
+    $('#elSkip').onchange = e => { EL.skipped = e.target.checked; renderErrLog(); };
+    return;
+  }
+  h += errPlanCard(open);
+  h += `<div class="plan-tools"><div class="seg"><button data-elview="subject" class="${EL.view === 'subject' ? 'on' : ''}">By subject</button><button data-elview="day" class="${EL.view === 'day' ? 'on' : ''}">By plan day</button></div>
+    <select id="elFilter">${[['open', 'To fix'], ['fixed', 'Fixed'], ['all', 'All mistakes']].map(([v, l]) => `<option value="${v}" ${EL.filter === v ? 'selected' : ''}>${l}</option>`).join('')}</select>
+    <label class="check"><input type="checkbox" id="elSkip" ${EL.skipped ? 'checked' : ''}> Include skipped (blank / E)</label></div><div id="elBody"></div>`;
+  el.innerHTML = h;
+  $('#elFilter').onchange = e => { EL.filter = e.target.value; renderErrLog(); };
+  $('#elSkip').onchange = e => { EL.skipped = e.target.checked; renderErrLog(); };
+  const body = $('#elBody');
+  if (!EL.items.length) { body.innerHTML = `<div class="card empty">${EL.filter === 'fixed' ? 'Nothing fixed yet. Practise your mistakes and answer them correctly.' : 'Nothing to fix. 🎉'}</div>`; return; }
+  body.innerHTML = errGroupsHTML();
+  body.querySelectorAll('details[data-eltopic]').forEach(d => d.addEventListener('toggle', () => { if (d.open) fillErrTopic(d); }));
+}
+// "For your plan": mistakes in today's and tomorrow's topics, plus spaced review of earlier plan days
+function errPlanCard(open) {
+  const cal = (D.plan && D.plan.calendar) || [];
+  if (!cal.length) return '';
+  const today = dayKey(), rows = [];
+  const add = (label, date) => {
+    const d = calRowFor(date);
+    if (!d) return;
+    const ids = dayPlanIds(d), n = open.filter(r => ids.includes((byId('topics', r.t) || {}).plan?.id)).length;
+    rows.push({ label: `${label} · Day ${cal.indexOf(d) + 1} (${dayLabel(d)})`, n, date });
+  };
+  add('Today', today); add('Tomorrow', addDays(today, 1));
+  [[1, 'Yesterday'], [3, '3 days ago'], [7, 'A week ago']].forEach(([k, l]) => add('Review · ' + l, addDays(today, -k)));
+  const shown = rows.filter((r, i) => i < 2 || r.n);
+  if (!shown.length) return '';
+  return `<div class="card"><h2>For your plan</h2>${shown.map(r => `<div class="list-row"><div class="grow">${esc(r.label)}<div class="small muted">${r.n ? plural(r.n, 'mistake') + ' to fix' : 'no mistakes to fix in these topics'}</div></div>
+    ${r.n ? `<button class="btn primary" data-elpractise="day:${r.date}">Practise ${r.n}</button>` : ''}</div>`).join('')}
+    <p class="small muted" style="margin:6px 0 0">Reviewing yesterday's, 3-day-old and week-old mistakes is spaced repetition: it is when you are about to forget that revision helps most.</p></div>`;
+}
+function errGroupsHTML() {
+  const byTopic = new Map();
+  EL.items.forEach(r => { const k = r.t || 'none'; if (!byTopic.has(k)) byTopic.set(k, []); byTopic.get(k).push(r); });
+  const topicRow = (tid, list) => {
+    const t = byId('topics', tid);
+    return `<details class="pg" data-eltopic="${tid}"><summary><div class="grow">${t && t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}<b>${esc(t ? t.name : 'Other (no topic)')}</b></div>
+      <span class="small muted">${plural(list.length, 'mistake')}</span><button class="btn" data-elpractise="topic:${tid}">Practise</button></summary><div class="el-list"></div></details>`;
+  };
+  const groups = new Map(); // group key -> { title, sub, topics: [tid] }
+  for (const [tid, list] of byTopic) {
+    const t = byId('topics', tid);
+    let key, title;
+    if (EL.view === 'day') {
+      const i = topicDayIndex(t), d = i >= 0 && D.plan.calendar[i];
+      key = i >= 0 ? 'd' + String(i).padStart(3, '0') : 'zz';
+      title = d ? `Day ${i + 1} · ${dayLabel(d)}${d.date === dayKey() ? ' (today)' : ''}` : 'Not in the study plan';
+    } else {
+      const s = t && byId('subjects', t.subjectId);
+      key = s ? s.name : 'zz'; title = s ? `${subjIcon(s)} ${s.name}` : 'Other';
+    }
+    if (!groups.has(key)) groups.set(key, { title, key, topics: [] });
+    groups.get(key).topics.push([tid, list]);
+  }
+  return [...groups.values()].sort((a, b) => a.key.localeCompare(b.key)).map(g => {
+    const n = g.topics.reduce((m, [, l]) => m + l.length, 0);
+    return `<details class="lib-group" open><summary><span class="lib-title">${esc(g.title)}</span><span class="small muted">${plural(n, 'mistake')}</span>
+      <button class="btn ghost" data-elpractise="group:${esc(g.topics.map(([tid]) => tid).join(','))}">Practise all</button></summary>
+      ${g.topics.map(([tid, list]) => topicRow(tid, list)).join('')}</details>`;
+  }).join('');
+}
+// Question text for logged mistakes, loaded from the topics' sets
+async function errQuestions(topicIds) {
+  EL.qmap = EL.qmap || new Map();
+  const need = D.sets.filter(x => topicIds.includes(x.topicId) && !EL.qmap.has('set:' + x.id));
+  if (need.length) {
+    (await sourceQuestions(need)).forEach(q => EL.qmap.set(q.key, q));
+    need.forEach(x => EL.qmap.set('set:' + x.id, true));
+  }
+  return EL.qmap;
+}
+async function fillErrTopic(det) {
+  const box = det.querySelector('.el-list');
+  if (box.childElementCount) return;
+  box.innerHTML = '<p class="small muted">Loading questions…</p>';
+  const tid = det.dataset.eltopic, list = EL.items.filter(r => (r.t || 'none') === tid).sort((a, b) => b.missDate - a.missDate);
+  try {
+    const qm = await errQuestions([tid]);
+    box.innerHTML = list.map(r => errItemHTML(r, qm.get(r.k))).join('') || '<p class="small muted">—</p>';
+  } catch (e) { box.innerHTML = `<div class="status error">${esc(errText(e))}</div>`; }
+}
+function errItemHTML(r, q) {
+  const kind = { w: 'wrong', b: 'left blank', e: 'skipped with E' }[r.missKind] || 'wrong';
+  const meta = `${r.open ? '<span class="pill wrong">To fix</span>' : '<span class="pill correct">✓ Fixed</span>'} Missed ${r.seen - r.c} of ${r.seen} · last ${kind} ${esc(fmtDay(r.missDate))}`;
+  if (!q) return `<div class="err-item"><div class="small muted">${meta}</div><p class="small muted">This question's set was deleted.</p></div>`;
+  const why = D.errNotes[r.k];
+  return `<div class="err-item"><div class="small muted">${esc(q.setName || '')} · ${meta}</div><div class="qtext" style="margin:6px 0">${esc(q.question)}</div>
+    ${LETTERS.map(L => { const right = L === q.answer, mine = L === r.missSel && !right;
+      return `<div class="opt ${right ? 'right' : mine ? 'bad' : ''}" style="cursor:default"><span class="key">${L}</span><span class="otext">${esc(q.options[L])}</span>${right ? '<span class="tag" style="color:var(--green)">Correct</span>' : mine ? '<span class="tag" style="color:var(--red)">Your answer</span>' : ''}</div>`; }).join('')}
+    ${q.explanation ? `<div class="expl">${esc(q.explanation)}</div>` : ''}
+    <div class="why"><span class="small muted">Why did I miss it?</span>${WHY.map(w => `<button type="button" data-why="${r.k}" data-w="${esc(w)}" class="${why === w ? 'on' : ''}">${esc(w)}</button>`).join('')}</div></div>`;
+}
+async function practiseErrors(spec) {
+  const [kind, val] = spec.split(/:(.*)/s);
+  let list = errorLogData().filter(r => EL.filter === 'fixed' ? !r.open : EL.filter === 'all' || r.open), name;
+  if (kind === 'day') {
+    const ids = dayPlanIds(calRowFor(val));
+    list = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || {}).plan?.id));
+    name = 'Error log · ' + dayLabel(calRowFor(val));
+  } else {
+    const tids = val.split(',');
+    list = list.filter(r => tids.includes(r.t || 'none'));
+    name = 'Error log · ' + (tids.length === 1 ? (byId('topics', tids[0]) || { name: 'Other' }).name : plural(tids.length, 'topic'));
+  }
+  const tids = [...new Set(list.map(r => r.t).filter(Boolean))];
+  const qm = await errQuestions(tids), questions = list.map(r => qm.get(r.k)).filter(Boolean);
+  if (!questions.length) { toast('These questions are no longer in your library', 'error'); return; }
+  const t = tids.length === 1 ? byId('topics', tids[0]) : null, first = byId('topics', tids[0]);
+  startSetup({ name, questions: shuffle(questions), subjectId: t ? t.subjectId : null, topicId: t ? t.id : null, setId: null, mode: 'mistakes', from: 'errlog', settingsSubjectId: first && first.subjectId });
+}
+document.addEventListener('click', async e => {
+  if (e.target.closest('[data-errlog]')) { e.preventDefault(); openErrLog(); return; }
+  const v = e.target.closest('[data-elview]');
+  if (v) { EL.view = v.dataset.elview; renderErrLog(); return; }
+  const p = e.target.closest('[data-elpractise]');
+  if (p) { e.preventDefault(); p.disabled = true; try { await practiseErrors(p.dataset.elpractise); } catch (err) { toast(errText(err), 'error'); } finally { p.disabled = false; } return; }
+  const w = e.target.closest('[data-why]');
+  if (w) {
+    const k = w.dataset.why, val = D.errNotes[k] === w.dataset.w ? null : w.dataset.w;
+    D.errNotes[k] = val;
+    w.parentElement.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.w === val));
+    store.merge('prefs', 'errlog', { [k]: val }).catch(err => toast(errText(err), 'error'));
+  }
+});
+
+/* ============================================================
    Exam setup
    ============================================================ */
 function startSetup(info) {
@@ -3169,7 +3397,7 @@ function startSetup(info) {
     const w = parsePenalty($('#exWrong').value, c) || 0, b = parsePenalty($('#exBlank').value, c) || 0;
     $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
   });
-  $('#exBack').onclick = () => info.mode === 'mock' ? openMocks() : info.mode === 'day' ? openPlan('today') : info.topicId ? openTopic(info.topicId) : goHome();
+  $('#exBack').onclick = () => info.from === 'errlog' ? openErrLog() : info.mode === 'mock' ? openMocks() : info.mode === 'day' ? openPlan('days') : info.topicId ? openTopic(info.topicId) : goHome();
   $('#exStart').onclick = () => {
     const r = readSettings('ex', true);
     if (!r) return;
@@ -3467,6 +3695,7 @@ function renderResults() {
       <button class="btn primary" id="toReview">Review all questions</button>
       <button class="btn" id="csvBtn">⬇ Download CSV</button>
       <button class="btn" id="retakeBtn">↻ Retake</button>
+      ${R.wrong ? `<button class="btn" data-errlog title="Wrong answers are added to your error log automatically">📕 Error log (+${R.wrong})</button>` : ''}
       <span class="spacer"></span>
       ${R.info.topicId ? `<button class="btn ghost" data-nav="topic:${R.info.topicId}">Back to topic</button>` : ''}
       <button class="btn ghost" data-nav="home">Library</button>
