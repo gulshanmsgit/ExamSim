@@ -312,7 +312,7 @@ tfoot td{border-bottom:none}
   <button class="tb-item" data-go="mocks"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 12.5l2 2 4-4"/></svg><span>Mock tests</span></button>
   <button class="tb-item tb-add" data-go="add"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Add</span></button>
   <button class="tb-item" data-go="revhub"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg><span>Revise</span></button>
-  <button class="tb-item" data-go="progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-8M11 20V5M17 20v-5M3 20h18"/></svg><span>Progress</span></button>
+  <button class="tb-item" data-go="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg><span>Study plan</span></button>
 </nav>
 
 <main>
@@ -424,6 +424,7 @@ Explanation: RAM loses its contents without power.</pre>
 <section id="mocks" hidden></section>
 <section id="revhub" hidden></section>
 <section id="progress" hidden></section>
+<section id="plan" hidden></section>
 <section id="mock" hidden></section>
 <section id="revise" hidden></section>
 <section id="setup" hidden></section>
@@ -798,7 +799,7 @@ async function extractPdf(file) {
    Question sets are split into metadata (sets) and questions (setq)
    so the library can load without downloading every question.
    ============================================================ */
-const D = { subjects: [], topics: [], sets: [], attempts: [], mocks: [], days: {}, prefs: { dailyGoal: 30 } };
+const D = { subjects: [], topics: [], sets: [], attempts: [], mocks: [], days: {}, prefs: { dailyGoal: 30 }, plan: null, planState: {} };
 const qCache = new Map();
 let store = null, WS = null, fb = null;
 
@@ -812,6 +813,7 @@ function memoryStore() {
     get: async (c, id) => col(c).has(id) ? { ...clone(col(c).get(id)), id } : null,
     put: async (c, id, d) => { col(c).set(id, clone(d)); },
     bump: async (c, id, f, n) => { const d = col(c).get(id) || {}; d[f] = (d[f] || 0) + n; col(c).set(id, d); },
+    merge: async (c, id, obj) => { const d = col(c).get(id) || {}; for (const [k, v] of Object.entries(clone(obj))) d[k] = v && typeof v === 'object' && !Array.isArray(v) ? { ...(d[k] || {}), ...v } : v; col(c).set(id, d); },
     del: async (c, ids) => { ids.forEach(id => col(c).delete(id)); }
   };
 }
@@ -830,6 +832,7 @@ async function firestoreStore(ws) {
     get: async (c, id) => { const s = await F.getDoc(ref(c, id)); return s.exists() ? { ...s.data(), id } : null; },
     put: (c, id, d) => F.setDoc(ref(c, id), clone(d)),
     bump: (c, id, f, n) => F.setDoc(ref(c, id), { [f]: F.increment(n) }, { merge: true }),
+    merge: (c, id, obj) => F.setDoc(ref(c, id), clone(obj), { merge: true }),
     del: async (c, ids) => {
       for (let i = 0; i < ids.length; i += 400) {
         const b = F.writeBatch(db);
@@ -852,8 +855,11 @@ async function loadAll() {
     subjects: subjects.sort(byName), topics: topics.sort(byName), sets: sets.sort((a, b) => a.createdAt - b.createdAt), attempts,
     mocks: mocks.sort(byName),
     days: Object.fromEntries(days.map(d => [d.id, d.q || 0])),
-    prefs: { dailyGoal: 30, ...(prefs.find(p => p.id === 'main') || {}) }
+    prefs: { dailyGoal: 30, ...(prefs.find(p => p.id === 'main') || {}) },
+    plan: prefs.find(p => p.id === 'studyPlan') || null,
+    planState: prefs.find(p => p.id === 'planState') || {}
   });
+  delete D.planState.id;
   qCache.clear();
 }
 // Questions from several sets, de-duplicated, each tagged with where it came from
@@ -973,9 +979,9 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'progress', profile: '', bank: 'add' };
+const TAB_OF = { home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
 function show(id) {
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
   if (id !== 'exam') renderBar();
@@ -992,7 +998,7 @@ $('#tabbar').addEventListener('click', e => {
   if (go === 'home') goHome();
   else if (go === 'mocks') openMocks();
   else if (go === 'revhub') openRevHub();
-  else if (go === 'progress') openProgress();
+  else if (go === 'plan') openPlan();
   else if (go === 'add') {
     // Adding from a topic or subject page pre-selects it
     const onTopic = !$('#topic').hidden, onSubject = !$('#subject').hidden;
@@ -1165,6 +1171,9 @@ function subjIcon(s) {
   for (const [re, ic] of SUBJ_ICON_RULES) if (re.test(n)) return ic;
   return '📚';
 }
+// Library display name: the 'P1 · ' / 'P2 · ' prefix is shown as a section heading instead
+const displayName = s => s ? s.name.replace(/^P[12]\s*·\s*/, '') : '';
+const paperOf = s => { const m = s && /^P([12])\s*·/.exec(s.name); return m ? +m[1] : 0; };
 const subjColor = s => (s && s.color) || SUBJ_COLORS[parseInt(hash(s ? s.id : 'x'), 36) % SUBJ_COLORS.length];
 
 // A list of actions; slides up from the bottom on phones
@@ -1213,11 +1222,187 @@ async function deleteTopicFlow(t) {
   if (!ok) return;
   try { await deleteCascade({ topicId: t.id }); toast(`Deleted “${t.name}”`); if (!$('#topic').hidden) openSubject(t.subjectId); else rerender(); } catch (e) { toast(errText(e), 'error'); }
 }
+/* ---------- Library layout: grouped by paper, so it stays readable as packs grow ---------- */
+function subjectStats(s) {
+  const topics = D.topics.filter(t => t.subjectId === s.id), sets = D.sets.filter(x => x.subjectId === s.id);
+  const atts = D.attempts.filter(a => a.subjectId === s.id);
+  const planned = topics.filter(t => t.plan && t.plan.id);
+  return {
+    topics: topics.length, sets: sets.length, nQ: sets.reduce((n, x) => n + (x.count || 0), 0),
+    ready: topics.filter(t => sets.some(x => x.topicId === t.id)).length,
+    atts: atts.length, avg: atts.length ? Math.round(atts.reduce((n, a) => n + pct(a), 0) / atts.length) : null,
+    planned: planned.length, done: D.plan ? planned.filter(t => planStatus(t.plan.id) === 'Completed').length : 0
+  };
+}
+function subjectCard(s) {
+  const st = subjectStats(s), ready = st.topics ? Math.round(st.ready / st.topics * 100) : 0;
+  const bits = [];
+  if (D.plan && st.planned) bits.push(`📅 ${st.done}/${st.planned} studied`);
+  bits.push(st.atts ? `${plural(st.atts, 'attempt')} · avg ${st.avg}%` : 'No attempts yet');
+  return `<div class="card subj" data-nav="subject:${s.id}" role="button" tabindex="0" style="--sc:${subjColor(s)}">
+    <div class="subj-head"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b></div>
+    <button class="icon-btn subj-more" data-menu data-subjmenu="${s.id}" title="Subject options" aria-label="Options for ${esc(s.name)}">⋯</button>
+    <span class="small muted">${st.nQ ? `${plural(st.nQ, 'question')} · ` : ''}${st.ready}/${st.topics} topics with questions</span>
+    <div class="bar lib" title="${ready}% of topics have questions"><i style="width:${ready}%"></i></div>
+    <span class="small">${bits.join(' · ')}</span></div>`;
+}
+const LS_LIBCLOSED = 'examsim.libclosed';
+function libraryHTML() {
+  const closed = lsGet(LS_LIBCLOSED, []) || [];
+  return [[1, 'Paper 1 · General'], [2, 'Paper 2 · Computer Science'], [0, 'My subjects']].map(([p, title]) => {
+    const list = D.subjects.filter(s => paperOf(s) === p);
+    if (!list.length) return '';
+    const nQ = D.sets.filter(x => list.some(s => s.id === x.subjectId)).reduce((n, x) => n + (x.count || 0), 0);
+    return `<details class="lib-group" data-paper="${p}" ${closed.includes(p) ? '' : 'open'}><summary><span class="lib-title">${title}</span>
+      <span class="small muted">${plural(list.length, 'subject')} · ${plural(nQ, 'question')}</span></summary>
+      <div class="cards">${list.map(subjectCard).join('')}</div></details>`;
+  }).join('');
+}
+function wireLibraryGroups(el) {
+  el.querySelectorAll('details.lib-group').forEach(d => d.addEventListener('toggle', () => {
+    const p = +d.dataset.paper, closed = new Set(lsGet(LS_LIBCLOSED, []) || []);
+    if (d.open) closed.delete(p); else closed.add(p);
+    lsSet(LS_LIBCLOSED, [...closed]);
+  }));
+}
+
+/* ---------- Organise: move and merge, so everything ends up in one subject/topic ---------- */
+// Duplicates = subjects (or topics in the same subject) whose names match after normalisation
+function findDuplicates() {
+  const out = [];
+  const score = s => (paperOf(s) ? 2 : 0) + (D.topics.some(t => t.subjectId === s.id && t.plan) ? 1 : 0);
+  const seen = new Map();
+  for (const s of D.subjects) {
+    const k = nameKey(s.name);
+    if (!seen.has(k)) { seen.set(k, s); continue; }
+    const a = seen.get(k), keep = score(s) > score(a) ? s : a, dup = keep === s ? a : s;
+    seen.set(k, keep); out.push({ kind: 'subject', keep, dup });
+  }
+  const seenT = new Map();
+  for (const t of D.topics) {
+    const k = t.subjectId + '|' + nameKey(t.name);
+    if (!seenT.has(k)) { seenT.set(k, t); continue; }
+    const a = seenT.get(k), keep = (t.plan && !a.plan) ? t : a, dup = keep === t ? a : t;
+    seenT.set(k, keep); out.push({ kind: 'topic', keep, dup });
+  }
+  return out;
+}
+function tidyBannerHTML() {
+  const d = findDuplicates();
+  if (!d.length) return '';
+  const names = d.slice(0, 3).map(x => `“${esc(x.dup.name)}” → “${esc(x.keep.name)}”`).join(', ');
+  return `<div class="card tidy"><div class="row"><div style="flex:1;min-width:200px"><b>🧹 ${plural(d.length, 'duplicate')} in your library</b>
+    <div class="small muted">${names}${d.length > 3 ? '…' : ''}</div></div><button class="btn primary" data-tidy>Tidy up</button></div></div>`;
+}
+async function tidyUp() {
+  const d = findDuplicates();
+  if (!d.length) return;
+  const ok = await confirmBox('Tidy up the library?', `<p>These will be merged. Question sets, results and flashcards move to the kept item, and the duplicate is removed:</p>
+    <ul class="small">${d.map(x => `<li>${x.kind === 'subject' ? '📚' : '📂'} “${esc(x.dup.name)}” → “${esc(x.keep.name)}”</li>`).join('')}</ul>`, 'Merge all');
+  if (!ok) return;
+  await busy('Tidying up', async () => {
+    for (const x of d.filter(x => x.kind === 'subject')) await mergeSubjectInto(x.dup, x.keep);
+    for (let round = 0; round < 3; round++) { // merging subjects can reveal new topic duplicates
+      const td = findDuplicates().filter(x => x.kind === 'topic');
+      if (!td.length) break;
+      for (const x of td) await mergeTopicInto(x.dup, x.keep);
+    }
+  });
+  rerender();
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-tidy]')) { e.preventDefault(); tidyUp(); } });
+
+async function retargetCards(field, fromId, patch) {
+  try {
+    const cards = await store.query('cards', field, fromId);
+    await runPool(cards.map(c => () => store.merge('cards', c.id, patch)), 6);
+  } catch (e) { /* flashcards are optional (older Firestore rules) */ }
+}
+function retargetMocks(type, fromId, toId) {
+  return D.mocks.filter(m => m.sources.some(s => s.type === type && s.id === fromId)).map(m => {
+    m.sources = m.sources.map(s => s.type === type && s.id === fromId ? { ...s, id: toId } : s);
+    return save('mocks', m);
+  });
+}
+async function mergeTopicInto(src, dst) {
+  if (src.id === dst.id) return;
+  const jobs = [];
+  for (const x of D.sets.filter(x => x.topicId === src.id)) {
+    // the same set imported twice (same name and size) is dropped instead of duplicated
+    if (D.sets.some(y => y.topicId === dst.id && nameKey(y.name) === nameKey(x.name) && y.count === x.count)) {
+      jobs.push(async () => { await removeDocs('setq', [x.id]); await removeDocs('sets', [x.id]); });
+      continue;
+    }
+    x.topicId = dst.id; x.subjectId = dst.subjectId; jobs.push(() => save('sets', x));
+  }
+  for (const a of D.attempts.filter(a => a.topicId === src.id)) { a.topicId = dst.id; a.subjectId = dst.subjectId; jobs.push(() => save('attempts', a)); }
+  await runPool(jobs, 6);
+  await Promise.all(retargetMocks('topic', src.id, dst.id));
+  await retargetCards('topicId', src.id, { topicId: dst.id, subjectId: dst.subjectId });
+  if (!dst.plan && src.plan) { dst.plan = src.plan; await save('topics', dst); }
+  await removeDocs('topics', [src.id]);
+}
+async function moveTopicTo(t, subj) {
+  const twin = findTopic(subj.id, t.name, t.plan);
+  if (twin && twin.id !== t.id) return mergeTopicInto(t, twin);
+  t.subjectId = subj.id;
+  const jobs = [() => save('topics', t)];
+  D.sets.filter(x => x.topicId === t.id).forEach(x => { x.subjectId = subj.id; jobs.push(() => save('sets', x)); });
+  D.attempts.filter(a => a.topicId === t.id).forEach(a => { a.subjectId = subj.id; jobs.push(() => save('attempts', a)); });
+  await runPool(jobs, 6);
+  await retargetCards('topicId', t.id, { subjectId: subj.id });
+}
+async function mergeSubjectInto(src, dst) {
+  if (src.id === dst.id) return;
+  for (const t of D.topics.filter(t => t.subjectId === src.id)) await moveTopicTo(t, dst);
+  const jobs = [];
+  D.sets.filter(x => x.subjectId === src.id).forEach(x => { x.subjectId = dst.id; jobs.push(() => save('sets', x)); });
+  D.attempts.filter(a => a.subjectId === src.id).forEach(a => { a.subjectId = dst.id; jobs.push(() => save('attempts', a)); });
+  await runPool(jobs, 6);
+  await Promise.all(retargetMocks('subject', src.id, dst.id));
+  await removeDocs('subjects', [src.id]);
+}
+async function moveSetTo(set, topic) {
+  set.topicId = topic.id; set.subjectId = topic.subjectId;
+  const jobs = [() => save('sets', set)];
+  D.attempts.filter(a => a.setId === set.id).forEach(a => { a.topicId = topic.id; a.subjectId = topic.subjectId; jobs.push(() => save('attempts', a)); });
+  await runPool(jobs, 6);
+}
+// A searchable picker in the bottom-sheet style
+function pickFromList(title, items) {
+  return new Promise(res => {
+    openModal(`<h3>${esc(title)}</h3>${items.length > 8 ? '<input type="text" id="pickQ" placeholder="Search…" style="margin-bottom:8px">' : ''}
+      <div class="sheet pick">${items.map((it, i) => `<button class="sheet-item" data-i="${i}" data-k="${esc((it.label + ' ' + (it.sub || '')).toLowerCase())}">${it.icon || ''} ${esc(it.label)}${it.sub ? `<div class="small muted">${esc(it.sub)}</div>` : ''}</button>`).join('')}</div>`, [{ label: 'Cancel' }]);
+    modalOnClose = () => res(null);
+    $('#modal').querySelectorAll('.sheet-item').forEach(b => b.onclick = () => { modalOnClose = null; closeModal(); res(items[+b.dataset.i].value); });
+    const q = $('#pickQ');
+    if (q) q.oninput = () => { const v = q.value.toLowerCase(); $('#modal').querySelectorAll('.pick .sheet-item').forEach(b => { b.hidden = !b.dataset.k.includes(v); }); };
+  });
+}
+const pickSubject = (title, excludeId) => pickFromList(title, D.subjects.filter(s => s.id !== excludeId)
+  .map(s => ({ label: displayName(s), sub: paperOf(s) ? 'Paper ' + paperOf(s) : 'My subjects', icon: subjIcon(s), value: s })));
+async function pickTopic(title, excludeId) {
+  const s = await pickSubject(title + ': choose the subject');
+  if (!s) return null;
+  const ts = D.topics.filter(t => t.subjectId === s.id && t.id !== excludeId);
+  if (!ts.length) { toast('That subject has no topics yet', 'error'); return null; }
+  return pickFromList(title + ': choose the topic', ts.map(t => ({ label: t.name, sub: t.plan && t.plan.id ? t.plan.id : '', icon: '📂', value: t })));
+}
+async function busy(label, fn) {
+  toast(label + '…');
+  try { await fn(); toast(label + ' ✓'); return true; } catch (e) { toast(errText(e), 'error'); return false; }
+}
+
 function subjectMenu(s) {
   actionSheet(s.name, [
     { icon: '📂', label: 'Open', onClick: () => openSubject(s.id) },
     { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('subjects', s, 'subject')) rerender(); } },
     { icon: '🎨', label: 'Icon & colour', onClick: () => editAppearance(s) },
+    { icon: '⇢', label: 'Merge into another subject…', onClick: async () => {
+      const d = await pickSubject(`Merge “${displayName(s)}” into`, s.id);
+      if (!d || !(await confirmBox('Merge subjects?', `<p>All topics, question sets and results of <b>${esc(s.name)}</b> move into <b>${esc(d.name)}</b>. Topics with the same name are combined. Then “${esc(s.name)}” is removed.</p>`, 'Merge'))) return;
+      if (await busy('Merging', () => mergeSubjectInto(s, d))) openSubject(d.id);
+    } },
     { icon: '🗑', label: 'Delete subject', danger: true, onClick: () => deleteSubjectFlow(s) }
   ]);
 }
@@ -1226,6 +1411,15 @@ function topicMenu(t) {
     { icon: '📂', label: 'Open', onClick: () => openTopic(t.id) },
     { icon: '🃏', label: 'Revise (flashcards)', onClick: () => openRevision({ type: 'topic', id: t.id }) },
     { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('topics', t, 'topic')) rerender(); } },
+    { icon: '⇄', label: 'Move to another subject…', onClick: async () => {
+      const d = await pickSubject(`Move “${t.name}” to`, t.subjectId);
+      if (d && await busy('Moving', () => moveTopicTo(t, d))) openSubject(d.id);
+    } },
+    { icon: '⇢', label: 'Merge into another topic…', onClick: async () => {
+      const d = await pickTopic(`Merge “${t.name}” into`, t.id);
+      if (!d || !(await confirmBox('Merge topics?', `<p>All question sets and results of <b>${esc(t.name)}</b> move into <b>${esc(d.name)}</b>, then “${esc(t.name)}” is removed.</p>`, 'Merge'))) return;
+      if (await busy('Merging', () => mergeTopicInto(t, d))) openTopic(d.id);
+    } },
     { icon: '🗑', label: 'Delete topic', danger: true, onClick: () => deleteTopicFlow(t) }
   ]);
 }
@@ -1300,18 +1494,7 @@ function renderHome() {
     h += `<div class="card empty"><p>No subjects yet.</p><p class="small">Create a subject (e.g. “Ed. Psychology”), add topics to it, then add question sets to each topic. Every exam you take is saved, so you can track progress and practise your mistakes.</p>
       <button class="btn primary" id="hNewSubj2">+ Create your first subject</button></div>`;
   } else {
-    h += '<div class="cards">' + D.subjects.map(s => {
-      const nT = D.topics.filter(t => t.subjectId === s.id).length;
-      const sets = D.sets.filter(x => x.subjectId === s.id);
-      const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
-      const atts = D.attempts.filter(a => a.subjectId === s.id);
-      const avg = atts.length ? (atts.reduce((n, a) => n + pct(a), 0) / atts.length).toFixed(0) + '%' : '';
-      return `<div class="card subj" data-nav="subject:${s.id}" role="button" tabindex="0" style="--sc:${subjColor(s)}">
-        <div class="subj-head"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(s.name)}</b></div>
-        <button class="icon-btn subj-more" data-menu data-subjmenu="${s.id}" title="Subject options" aria-label="Options for ${esc(s.name)}">⋯</button>
-        <span class="small muted">${plural(nT, 'topic')} · ${plural(sets.length, 'set')} · ${plural(nQ, 'question')}</span>
-        <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></div>`;
-    }).join('') + '</div>';
+    h += tidyBannerHTML() + libraryHTML();
   }
   h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Recent attempts</h2>${D.attempts.length > 5 ? '<button class="btn ghost" id="hAllAtt">See all →</button>' : ''}</div>${attemptsTable(D.attempts, { where: true, limit: 5 })}</div>`;
   const el = $('#home');
@@ -1321,6 +1504,7 @@ function renderHome() {
   if ($('#hNewSubj2')) $('#hNewSubj2').onclick = newSubj;
   $('#hAddSet').onclick = () => openAdd({});
   $('#hBank').onclick = openBank;
+  wireLibraryGroups(el);
   bankBanner();
   $('#goalBtn').onclick = async () => {
     const v = await askText('Daily goal', 'Questions to practise per day (exams + flashcards)', String(D.prefs.dailyGoal || 30));
@@ -1365,6 +1549,245 @@ async function startSetFromId(setId, btn) {
   try { startSetup({ name: x.name, questions: await getSetQuestions(x.id), subjectId: x.subjectId, topicId: x.topicId, setId: x.id, mode: 'set' }); }
   catch (e) { toast(errText(e), 'error'); }
   finally { if (btn) btn.disabled = false; }
+}
+
+/* ============================================================
+   📅 Study plan: the Excel planner inside the app
+   D.plan  = prefs/studyPlan (sheets, calendar, marks, notes; imported from a pack)
+   D.planState = prefs/planState: { [rowId]: { s: status, r1, r2: 'Yes'|'No', c: 1-5, n: notes }, ['day:YYYY-MM-DD']: { d: true } }
+   ============================================================ */
+const PLAN_ST = ['Not Started', 'In Progress', 'Completed', 'Review Required'];
+const PL = { tab: 'today', q: '', filter: 'all', view: null };
+const planRows = key => !D.plan ? [] : (key ? [D.plan.sheets[key]] : [D.plan.sheets.p1, D.plan.sheets.p2])
+  .flatMap(sh => sh ? sh.groups.flatMap(g => g.rows) : []);
+let _rowIdx = null, _rowIdxOf = null;
+function planRow(id) {
+  if (_rowIdxOf !== D.plan) { _rowIdx = new Map(planRows().map(r => [r.id, r])); _rowIdxOf = D.plan; }
+  return _rowIdx.get(id);
+}
+function rowState(r) {
+  const s = D.planState[r.id] || {};
+  return { status: s.s ?? r.status ?? 'Not Started', rev1: s.r1 ?? r.rev1 ?? 'No', rev2: s.r2 ?? r.rev2 ?? 'No', conf: s.c !== undefined ? s.c : r.confidence, notes: s.n ?? r.notes ?? '' };
+}
+function planStatus(id) { const r = D.plan && planRow(id); return r ? rowState(r).status : null; }
+const isOverdue = (r, st) => !!r.target && r.target < dayKey() && st.status !== 'Completed';
+const stClass = st => ({ Completed: 'st-done', 'In Progress': 'st-prog', 'Review Required': 'st-rev' }[st] || '');
+const planTopic = id => D.topics.find(t => t.plan && t.plan.id === id);
+const fmtPD = d => d ? planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' }) : '—';
+async function setPlanField(id, field, value) {
+  D.planState[id] = { ...(D.planState[id] || {}), [field]: value };
+  try { await store.merge('prefs', 'planState', { [id]: { [field]: value } }); }
+  catch (e) { toast(errText(e), 'error'); }
+}
+function planStats(rows) {
+  const s = { total: rows.length, done: 0, prog: 0, rev: 0, not: 0, overdue: 0, r1: 0, r2: 0, cSum: 0, cN: 0, hours: 0, hoursDone: 0 };
+  for (const r of rows) {
+    const st = rowState(r);
+    if (st.status === 'Completed') { s.done++; s.hoursDone += r.hours || 0; }
+    else if (st.status === 'In Progress') s.prog++;
+    else if (st.status === 'Review Required') s.rev++;
+    else s.not++;
+    s.hours += r.hours || 0;
+    if (isOverdue(r, st)) s.overdue++;
+    if (st.rev1 === 'Yes') s.r1++;
+    if (st.rev2 === 'Yes') s.r2++;
+    if (st.conf) { s.cSum += +st.conf; s.cN++; }
+  }
+  s.pct = s.total ? Math.round(s.done / s.total * 100) : 0;
+  s.conf = s.cN ? (s.cSum / s.cN).toFixed(1) : '—';
+  s.label = s.done === s.total && s.total ? 'Completed ✓' : s.overdue ? `Behind (${s.overdue} overdue)` : (s.done + s.prog + s.rev) ? 'In progress' : 'Not started';
+  return s;
+}
+function readiness() { // Paper 1 marks-weighted readiness, as in the Tracker sheet
+  let w = 0, got = 0;
+  for (const g of (D.plan.sheets.p1 || { groups: [] }).groups) {
+    const m = D.plan.marks[g.rows[0] && g.rows[0].subject];
+    if (typeof m === 'number' && m >= 1) { w += m; got += m * planStats(g.rows).pct / 100; }
+  }
+  return w ? Math.round(got / w * 100) : 0;
+}
+
+function openPlan(tab) { if (tab) PL.tab = tab; renderPlan(); show('plan'); }
+function renderPlan() {
+  const el = $('#plan');
+  const tabs = [['today', 'Today'], ['p1', 'Paper 1'], ['p2', 'Paper 2'], ['tracker', 'Tracker'], ['calendar', 'Calendar'], ['progress', 'Progress']];
+  let h = '<div class="page-head"><h1>📅 Study plan</h1></div>';
+  if (!D.plan) {
+    h += `<div class="kind">Your planner and progress</div><div class="card"><h2>Load your study plan</h2>
+      <p class="small" style="margin-top:0">Import <b>“Study plan · CST 2026 (from your Excel planner)”</b> from the Question bank. All your planner rows, the tracker and the day-by-day calendar will appear here, and your status updates sync to all your devices.</p>
+      <button class="btn primary" data-open-bank>📦 Open question bank</button></div><h2 style="margin:18px 0 8px">Progress</h2><div id="planBody"></div>`;
+    el.innerHTML = h; renderProgress($('#planBody')); return;
+  }
+  if (!tabs.some(t => t[0] === PL.tab)) PL.tab = 'today';
+  const all = planStats(planRows()), p1 = planStats(planRows('p1')), p2 = planStats(planRows('p2'));
+  const left = D.plan.examDate ? Math.ceil((planDate(D.plan.examDate) - planDate(dayKey())) / 86400000) : null;
+  h += `<div class="kind">${esc(D.plan.title || 'Study plan')}${D.plan.examDate ? ' · exam ' + esc(planDate(D.plan.examDate).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })) : ''}</div>
+    <div class="stats plan-kpi">${statBox(left != null ? left : '—', 'Days left')}${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
+      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'Paper 1 readiness (marks-weighted)')}</div>
+    <div class="tabs plan-tabs">${tabs.map(([k, l]) => `<button class="tab ${PL.tab === k ? 'active' : ''}" data-ptab="${k}">${l}</button>`).join('')}</div><div id="planBody"></div>`;
+  el.innerHTML = h;
+  const body = $('#planBody');
+  if (PL.tab === 'today') body.innerHTML = planTodayHTML();
+  else if (PL.tab === 'p1' || PL.tab === 'p2') body.innerHTML = planSheetHTML(PL.tab);
+  else if (PL.tab === 'tracker') body.innerHTML = planTrackerHTML();
+  else if (PL.tab === 'calendar') { body.innerHTML = planCalendarHTML(); const t = $('#cal-' + dayKey()); if (t) setTimeout(() => t.scrollIntoView({ block: 'center' }), 50); }
+  else renderProgress(body);
+  const q = $('#plQ');
+  if (q) q.oninput = () => { PL.q = q.value; const pos = q.selectionStart; renderPlan(); const n = $('#plQ'); n.focus(); n.setSelectionRange(pos, pos); };
+  if ($('#plF')) $('#plF').onchange = () => { PL.filter = $('#plF').value; renderPlan(); };
+}
+
+function taskHTML(t) {
+  const m = /^(P[12]-[A-Z0-9]+-\d+)\s+(.*)$/.exec(t);
+  if (!m || !planRow(m[1])) return `<div class="task plain">${esc(t)}</div>`;
+  const r = planRow(m[1]), st = rowState(r), top = planTopic(r.id), n = top ? topicQuestionCount(top.id) : 0;
+  return `<div class="task ${stClass(st.status)}"><div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(m[2])}</div>
+    <select data-pf="s" data-id="${r.id}" aria-label="Status">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
+    ${top ? `<button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
+}
+function calRowFor(date) { return (D.plan.calendar || []).find(d => d.date === date); }
+function dayDone(d) { const s = D.planState['day:' + d.date]; return s && s.d !== undefined ? s.d : !!d.done; }
+function planTodayHTML() {
+  const cal = D.plan.calendar || [], today = dayKey();
+  let d = calRowFor(today), note = '';
+  if (!d && cal.length) {
+    d = cal.find(x => x.date > today) || cal[cal.length - 1];
+    note = today < cal[0].date ? `Your plan starts on ${fmtPD(cal[0].date)}. Here is the first day:` : 'Your plan has ended. Here is its last day:';
+  }
+  let h = '';
+  if (d) {
+    h += `<div class="card"><div class="row"><div style="flex:1"><h2 style="margin:0">${d.date === today ? 'Today' : esc(planDate(d.date).toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'short' }))}</h2>
+      <div class="small muted">${note ? esc(note) + ' · ' : ''}${esc(d.day)} · <span class="pill">${esc(d.phase)}</span> · ${d.hours} h planned</div></div>
+      <label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>
+      <h3 class="plan-h3">Paper 2 (Computer Science)</h3>${d.p2.map(taskHTML).join('') || '<p class="small muted">—</p>'}
+      <h3 class="plan-h3">Paper 1 (General)</h3>${d.p1.map(taskHTML).join('') || '<p class="small muted">—</p>'}
+      ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
+  }
+  const over = planRows().map(r => ({ r, st: rowState(r) })).filter(x => isOverdue(x.r, x.st)).sort((a, b) => a.r.target.localeCompare(b.r.target));
+  if (over.length) {
+    h += `<div class="card"><h2>⏰ Overdue (${over.length})</h2>${over.slice(0, 15).map(({ r, st }) => `<div class="task ${stClass(st.status)}">
+      <div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(r.topic)} <span class="small od">· due ${fmtPD(r.target)}</span></div>
+      <button class="btn" data-mark-done="${r.id}">✓ Completed</button></div>`).join('')}${over.length > 15 ? `<p class="small muted">…and ${over.length - 15} more in the Paper 1 / Paper 2 tabs.</p>` : ''}</div>`;
+  }
+  const next = cal.filter(x => x.date > (d ? d.date : today)).slice(0, 3);
+  if (next.length) h += `<div class="card"><h2>Coming up</h2>${next.map(x => `<div class="list-row"><div class="grow"><b>${esc(planDate(x.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b> <span class="pill">${esc(x.phase)}</span>
+    <div class="small muted">${x.p2.length + x.p1.length} tasks · ${x.hours} h</div></div></div>`).join('')}</div>`;
+  return h;
+}
+
+function planRowCard(r) {
+  const st = rowState(r), od = isOverdue(r, st), top = planTopic(r.id), n = top ? topicQuestionCount(top.id) : 0;
+  return `<div class="pr ${stClass(st.status)}">
+    <div class="pr-top"><span class="pill">${esc(r.id)}</span> <b>${esc(r.topic)}</b>${r.priority ? ` <span class="pill prio-${r.priority.toLowerCase()}">${esc(r.priority)}</span>` : ''}</div>
+    ${r.coverage ? `<div class="small muted">${esc(r.coverage)}</div>` : ''}
+    <div class="small">⏱ ${r.hours} h · 📅 ${fmtPD(r.start)} → <span class="${od ? 'od' : ''}">${fmtPD(r.target)}</span> (${esc(r.day)})${od ? ' · <b class="od">overdue</b>' : ''}</div>
+    ${r.tip ? `<div class="small">💡 ${esc(r.tip)}</div>` : ''}
+    <div class="pr-ctrl">
+      <select data-pf="s" data-id="${r.id}" aria-label="Status">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
+      <label class="check"><input type="checkbox" data-pf="r1" data-id="${r.id}" ${st.rev1 === 'Yes' ? 'checked' : ''}> Rev 1</label>
+      <label class="check"><input type="checkbox" data-pf="r2" data-id="${r.id}" ${st.rev2 === 'Yes' ? 'checked' : ''}> Rev 2</label>
+      <span class="conf" aria-label="Confidence 1 to 5">${[1, 2, 3, 4, 5].map(k => `<button type="button" data-conf="${k}" data-id="${r.id}" class="${+st.conf === k ? 'on' : ''}">${k}</button>`).join('')}</span>
+      ${top ? `<button class="btn" data-nav="topic:${top.id}">${n ? `Practise (${n})` : 'Open topic'}</button>` : ''}
+    </div>
+    <textarea class="pr-notes" data-pf="n" data-id="${r.id}" rows="1" placeholder="My notes…">${esc(st.notes)}</textarea></div>`;
+}
+function planRowTR(r) {
+  const st = rowState(r), od = isOverdue(r, st);
+  return `<tr class="${stClass(st.status)}"><td><b>${esc(r.id)}</b></td><td>${esc(r.topic)}</td><td class="small">${esc(r.coverage)}</td><td>${esc(r.priority)}</td><td class="num">${r.hours}</td>
+    <td>${fmtPD(r.start)}</td><td class="${od ? 'od' : ''}">${fmtPD(r.target)}</td><td>${esc(r.day)}</td>
+    <td><select data-pf="s" data-id="${r.id}">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select></td>
+    <td><input type="checkbox" data-pf="r1" data-id="${r.id}" ${st.rev1 === 'Yes' ? 'checked' : ''} aria-label="Revision 1"></td>
+    <td><input type="checkbox" data-pf="r2" data-id="${r.id}" ${st.rev2 === 'Yes' ? 'checked' : ''} aria-label="Revision 2"></td>
+    <td><select data-pf="c" data-id="${r.id}"><option value="">–</option>${[1, 2, 3, 4, 5].map(k => `<option ${+st.conf === k ? 'selected' : ''}>${k}</option>`).join('')}</select></td>
+    <td class="small">${esc(r.tip)}</td><td><textarea class="pr-notes" data-pf="n" data-id="${r.id}" rows="1">${esc(st.notes)}</textarea></td></tr>`;
+}
+function planSheetHTML(key) {
+  const sh = D.plan.sheets[key];
+  if (PL.view == null) PL.view = window.innerWidth >= 900 ? 'table' : 'cards';
+  const q = PL.q.trim().toLowerCase();
+  const pass = r => {
+    const st = rowState(r);
+    if (PL.filter === 'overdue' ? !isOverdue(r, st) : (PL.filter !== 'all' && st.status !== PL.filter)) return false;
+    return !q || (r.id + ' ' + r.topic + ' ' + r.coverage + ' ' + r.tip + ' ' + st.notes).toLowerCase().includes(q);
+  };
+  let h = `<div class="plan-tools"><input type="search" id="plQ" placeholder="Search topics, IDs, notes…" value="${esc(PL.q)}">
+    <select id="plF">${[['all', 'All statuses'], ...PLAN_ST.map(x => [x, x]), ['overdue', 'Overdue']].map(([v, l]) => `<option value="${v}" ${PL.filter === v ? 'selected' : ''}>${l}</option>`).join('')}</select>
+    <div class="seg"><button data-pview="cards" class="${PL.view === 'cards' ? 'on' : ''}">Cards</button><button data-pview="table" class="${PL.view === 'table' ? 'on' : ''}">Table</button></div></div>
+    <p class="small muted" style="margin:0 0 10px">${esc(sh.source || '')}</p>`;
+  let shown = 0;
+  for (const g of sh.groups) {
+    const rows = g.rows.filter(pass);
+    if (!rows.length) continue;
+    shown += rows.length;
+    const st = planStats(g.rows);
+    h += `<details class="pg" open><summary><div class="grow"><b>${esc(g.name)}</b> <span class="small muted">${esc(g.meta.join(' · '))}</span>
+        <div class="bar lib"><i style="width:${st.pct}%"></i></div></div><span class="small">${st.done}/${st.total} done${st.overdue ? ` · <span class="od">${st.overdue} overdue</span>` : ''}</span></summary>`;
+    h += PL.view === 'table'
+      ? `<div class="tbl-wrap"><table class="pt"><thead><tr><th>ID</th><th>Topic</th><th>Syllabus coverage</th><th>Priority</th><th class="num">Plan hrs</th><th>Start</th><th>Target</th><th>Day</th><th>Status</th><th>Rev 1</th><th>Rev 2</th><th>Confidence</th><th>Focus tip</th><th>My notes</th></tr></thead><tbody>${rows.map(planRowTR).join('')}</tbody></table></div>`
+      : rows.map(planRowCard).join('');
+    h += '</details>';
+  }
+  if (!shown) h += '<div class="card empty">No topics match this search or filter.</div>';
+  return h;
+}
+function planTrackerHTML() {
+  const table = (key, title, isMarks) => {
+    const sh = D.plan.sheets[key]; if (!sh) return '';
+    const rows = sh.groups.map(g => {
+      const s = planStats(g.rows), m = D.plan.marks[g.rows[0] && g.rows[0].subject];
+      const mk = typeof m === 'number' ? (isMarks ? m : Math.round(m * 100) + '%') : '—';
+      return `<tr><td>${esc(g.name)}</td><td class="num">${mk}</td><td class="num">${s.total}</td><td class="num">${s.done}</td><td class="num">${s.prog}</td><td class="num">${s.rev}</td><td class="num">${s.not}</td>
+        <td class="num"><b>${s.pct}%</b></td><td class="num ${s.overdue ? 'od' : ''}">${s.overdue}</td><td class="num">${s.r1}</td><td class="num">${s.r2}</td><td class="num">${s.conf}</td><td class="small">${s.label}</td></tr>`;
+    }).join('');
+    const t = planStats(planRows(key));
+    return `<div class="card"><h2>${title}</h2><div class="tbl-wrap"><table><thead><tr><th>Subject / Unit</th><th class="num">${isMarks ? 'Marks' : 'Weight'}</th><th class="num">Topics</th><th class="num">Completed</th><th class="num">In progress</th><th class="num">Review req.</th><th class="num">Not started</th><th class="num">% Complete</th><th class="num">Overdue</th><th class="num">Rev-1</th><th class="num">Rev-2</th><th class="num">Avg conf.</th><th>Status</th></tr></thead>
+      <tbody>${rows}<tr class="tot"><td><b>Total</b></td><td></td><td class="num">${t.total}</td><td class="num">${t.done}</td><td class="num">${t.prog}</td><td class="num">${t.rev}</td><td class="num">${t.not}</td><td class="num"><b>${t.pct}%</b></td><td class="num">${t.overdue}</td><td class="num">${t.r1}</td><td class="num">${t.r2}</td><td class="num">${t.conf}</td><td class="small">${t.label}</td></tr></tbody></table></div></div>`;
+  };
+  const all = planStats(planRows());
+  return `<div class="card"><h2>Study hours</h2><div class="small">${Math.round(all.hoursDone * 10) / 10} of ${Math.round(all.hours * 10) / 10} planned hours completed</div>
+      <div class="goal-bar" style="margin-top:8px"><i style="width:${all.hours ? Math.round(all.hoursDone / all.hours * 100) : 0}%"></i></div></div>`
+    + table('p1', 'Paper 1 — General (100 marks)', true) + table('p2', 'Paper 2 — Computer Science (unit weights estimated)', false)
+    + (D.plan.notes && D.plan.notes.length ? `<details class="card"><summary>How this plan was built</summary><ol class="small">${D.plan.notes.map(n => `<li>${esc(n.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol></details>` : '');
+}
+function planCalendarHTML() {
+  const today = dayKey();
+  return (D.plan.calendar || []).map(d => {
+    const done = dayDone(d), missed = d.date < today && !done;
+    return `<div class="cal ${d.date === today ? 'today' : ''} ${missed ? 'missed' : ''} ${done ? 'done' : ''}" id="cal-${d.date}">
+      <div class="cal-h"><b>${esc(planDate(d.date).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' }))}</b>
+        <span class="pill">${esc(d.phase)}</span><span class="small muted">${d.hours} h</span><span class="spacer"></span>
+        <label class="check"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Done</label></div>
+      <div class="small cal-t"><span class="muted">Paper 2:</span> ${d.p2.map(t => esc(t)).join(' · ') || '—'}</div>
+      <div class="small cal-t"><span class="muted">Paper 1:</span> ${d.p1.map(t => esc(t)).join(' · ') || '—'}</div></div>`;
+  }).join('');
+}
+
+// Plan interactions (work on the plan screen, the home card and topic pages)
+document.addEventListener('change', async e => {
+  const el = e.target;
+  if (el.matches('[data-pf]')) {
+    const f = el.dataset.pf, id = el.dataset.id;
+    const v = f === 'r1' || f === 'r2' ? (el.checked ? 'Yes' : 'No') : f === 'c' ? (el.value ? +el.value : null) : el.value;
+    await setPlanField(id, f, v);
+    if (f === 's' || f === 'c') refreshPlanViews();
+  } else if (el.matches('[data-daydone]')) {
+    await setPlanField('day:' + el.dataset.daydone, 'd', el.checked);
+    if (!$('#plan').hidden && PL.tab === 'calendar') renderPlan();
+  }
+});
+document.addEventListener('click', async e => {
+  const c = e.target.closest('[data-conf]');
+  if (c) { const id = c.dataset.id, cur = rowState(planRow(id)).conf; await setPlanField(id, 'c', +cur === +c.dataset.conf ? null : +c.dataset.conf); refreshPlanViews(); return; }
+  const m = e.target.closest('[data-mark-done]');
+  if (m) { await setPlanField(m.dataset.markDone, 's', 'Completed'); toast('Marked completed ✓'); refreshPlanViews(); return; }
+  const t = e.target.closest('[data-ptab]');
+  if (t) { PL.tab = t.dataset.ptab; PL.q = ''; PL.filter = 'all'; renderPlan(); return; }
+  const v = e.target.closest('[data-pview]');
+  if (v) { PL.view = v.dataset.pview; renderPlan(); }
+});
+function refreshPlanViews() {
+  if (!$('#plan').hidden) { const y = window.scrollY; renderPlan(); window.scrollTo(0, y); }
+  else if (!$('#home').hidden) renderHome();
 }
 
 /* ---------- Mock tests tab ---------- */
@@ -1414,8 +1837,8 @@ function renderRevHub() {
 }
 
 /* ---------- Progress tab ---------- */
-function openProgress() { renderProgress(); show('progress'); }
-function renderProgress() {
+function openProgress() { openPlan('progress'); }
+function renderProgress(target) {
   const atts = D.attempts, { streak } = streakInfo();
   const answered = atts.reduce((n, a) => n + a.correct + a.wrong + a.e, 0);
   let h = '<div class="page-head"><h1>Progress</h1></div><div class="kind">All subjects, exams and mock tests</div>';
@@ -1439,7 +1862,7 @@ function renderProgress() {
   }
   h += weakTopicsCard();
   h += `<div class="card"><h2>All attempts</h2>${attemptsTable(atts, { where: true, limit: 50 })}</div>`;
-  $('#progress').innerHTML = h;
+  (target || $('#progress')).innerHTML = h;
 }
 
 function todayCard() {
@@ -1572,6 +1995,11 @@ function renderTopic() {
   let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic', s);
   if (t.plan) {
     const p = t.plan, fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
+    const pr = D.plan && p.id && planRow(p.id), pst = pr && rowState(pr);
+    if (pr) h += `<div class="row small" style="margin:-4px 0 8px;gap:8px">Study plan status
+      <select data-pf="s" data-id="${esc(p.id)}" style="width:auto;padding:4px 8px">${PLAN_ST.map(x => `<option ${x === pst.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
+      <label class="check"><input type="checkbox" data-pf="r1" data-id="${esc(p.id)}" ${pst.rev1 === 'Yes' ? 'checked' : ''}> Rev 1</label>
+      <label class="check"><input type="checkbox" data-pf="r2" data-id="${esc(p.id)}" ${pst.rev2 === 'Yes' ? 'checked' : ''}> Rev 2</label></div>`;
     h += `<p class="small" style="margin:-4px 0 8px">📅 <span class="pill">${esc(p.id || 'Plan')}</span> ${p.start ? esc(fd(p.start)) + (p.end && p.end !== p.start ? ' → ' + esc(fd(p.end)) : '') : ''}${p.priority ? ' · ' + esc(p.priority) + ' priority' : ''}${p.tip ? ' · 💡 ' + esc(p.tip) : ''}</p>`;
   }
   h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
@@ -1584,6 +2012,7 @@ function renderTopic() {
       return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(x.name)}</b><div class="small muted">${plural(x.count, 'question')} · added ${esc(fmtDay(x.createdAt))}</div></div>
         <div class="small muted">${plural(a.length, 'attempt')} · best ${best}</div>
         <button class="btn primary" data-start="${x.id}">Start exam</button>
+        <button class="icon-btn" data-mvset="${x.id}" title="Move set to another topic" aria-label="Move set">⇄</button>
         <button class="icon-btn" data-ren="${x.id}" title="Rename set" aria-label="Rename set">✎</button>
         <button class="icon-btn" data-del="${x.id}" title="Delete set" aria-label="Delete set">🗑</button></div>`;
     }).join('');
@@ -1609,6 +2038,10 @@ function renderTopic() {
       const questions = await getSetQuestions(x.id);
       startSetup({ name: x.name, questions, subjectId: x.subjectId, topicId: x.topicId, setId: x.id, mode: 'set' });
     } catch (e) { toast(errText(e), 'error'); b.disabled = false; }
+  });
+  el.querySelectorAll('[data-mvset]').forEach(b => b.onclick = async () => {
+    const x = byId('sets', b.dataset.mvset), d = await pickTopic(`Move “${x.name}” to`, x.topicId);
+    if (d && await busy('Moving set', () => moveSetTo(x, d))) renderTopic();
   });
   el.querySelectorAll('[data-ren]').forEach(b => b.onclick = async () => { if (await renameItem('sets', byId('sets', b.dataset.ren), 'question set')) renderTopic(); });
   el.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
@@ -2044,7 +2477,7 @@ function renderPackSave() {
         <tr><td>New topics</td><td class="num"><b>${r.topics}</b></td></tr>
         <tr><td>Question sets added</td><td class="num"><b>${r.sets}</b> (${plural(r.questions, 'question')})</td></tr>
         <tr><td>Sets already present (skipped)</td><td class="num"><b>${r.skipped}</b></td></tr>
-        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>`, [{ label: 'Done', cls: 'primary' }]);
+        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>${r.plan ? '<p class="status ok">📅 Study plan loaded.</p>' : ''}${whereHTML(r)}`, [{ label: 'Done', cls: 'primary' }]);
     } catch (e) { toast(errText(e), 'error'); msg.textContent = ''; btn.disabled = false; }
   };
 }
@@ -2053,14 +2486,26 @@ async function runPool(tasks, n, onTick) {
   const worker = async () => { while (next < tasks.length) { const k = next++; await tasks[k](); done++; if (onTick) onTick(done, tasks.length); } };
   await Promise.all(Array.from({ length: Math.min(n, tasks.length) }, worker));
 }
+// Name matching that survives small differences: case, spacing, dashes, '&' vs 'and', punctuation,
+// and the 'P1 · ' / 'P2 · ' prefixes. Topics also match by study-plan ID first.
+const nameKey = s => normText(s).toLowerCase().normalize('NFKC').replace(/^p[12]\s*·\s*/, '').replace(/&/g, ' and ')
+  .replace(/\(.*?\)/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+const findSubject = name => D.subjects.find(x => normText(x.name).toLowerCase() === normText(name).toLowerCase())
+  || D.subjects.find(x => nameKey(x.name) === nameKey(name));
+function findTopic(subjectId, name, plan) {
+  const inSubj = D.topics.filter(t => t.subjectId === subjectId);
+  return (plan && plan.id && inSubj.find(t => t.plan && t.plan.id === plan.id))
+    || inSubj.find(t => normText(t.name).toLowerCase() === normText(name).toLowerCase())
+    || inSubj.find(t => nameKey(t.name) === nameKey(name));
+}
 async function importPack(pack, onTick) {
-  const res = { subjects: 0, topics: 0, sets: 0, questions: 0, skipped: 0, mocks: 0, topicsTouched: 0 };
-  const same = (a, b) => normText(a).toLowerCase() === normText(b).toLowerCase();
+  const res = { subjects: 0, topics: 0, sets: 0, questions: 0, skipped: 0, mocks: 0, topicsTouched: 0, plan: false, where: [] };
+  const same = (a, b) => nameKey(a) === nameKey(b);
   const tasks = [];
   for (const ps of pack.subjects) {
     const sname = normText(ps.name);
     if (!sname) continue;
-    let s = D.subjects.find(x => same(x.name, sname));
+    let s = findSubject(sname);
     if (!s) {
       s = { id: newId(), name: sname, createdAt: Date.now(), settings: { ...DEFAULT_SETTINGS, ...(ps.settings || {}) } };
       if (ps.icon) s.icon = String(ps.icon);
@@ -2070,8 +2515,8 @@ async function importPack(pack, onTick) {
     for (const pt of ps.topics || []) {
       const tname = normText(pt.name);
       if (!tname) continue;
-      let t = D.topics.find(x => x.subjectId === s.id && same(x.name, tname));
       const plan = pt.plan && typeof pt.plan === 'object' ? clone(pt.plan) : null;
+      let t = findTopic(s.id, tname, plan);
       if (!t) {
         t = { id: newId(), name: tname, subjectId: s.id, createdAt: Date.now() };
         if (plan) t.plan = plan;
@@ -2081,7 +2526,7 @@ async function importPack(pack, onTick) {
         t.plan = plan;
         const tt = t; tasks.push(() => save('topics', tt));
       }
-      let touched = false;
+      let added = 0;
       for (const pset of pt.sets || []) {
         const questions = (pset._valid || parseJSON(pset.questions || []).questions).map(q => ({ ...q, key: qKey(q) }));
         const name = normText(pset.name) || tname;
@@ -2089,10 +2534,10 @@ async function importPack(pack, onTick) {
         if (D.sets.some(x => x.topicId === t.id && same(x.name, name))) { res.skipped++; continue; }
         const set = { id: newId(), name, subjectId: s.id, topicId: t.id, count: questions.length, format: 'Study pack', createdAt: Date.now() };
         D.sets.push(set); qCache.set(set.id, questions);
-        res.sets++; res.questions += questions.length; touched = true;
+        res.sets++; res.questions += questions.length; added++;
         tasks.push(async () => { await store.put('setq', set.id, { questions }); await store.put('sets', set.id, (({ id, ...rest }) => rest)(set)); });
       }
-      if (touched) res.topicsTouched++;
+      if (added) { res.topicsTouched++; res.where.push({ subjectId: s.id, topicId: t.id, sets: added }); }
     }
   }
   try { await runPool(tasks, 6, onTick); }
@@ -2101,9 +2546,9 @@ async function importPack(pack, onTick) {
   for (const pm of pack.mocks || []) {
     const sources = [];
     for (const src of pm.sources || []) {
-      const s = D.subjects.find(x => same(x.name, src.subject || ''));
+      const s = findSubject(src.subject || '');
       if (!s) continue;
-      if (src.topic) { const t = D.topics.find(x => x.subjectId === s.id && same(x.name, src.topic)); if (t) sources.push({ type: 'topic', id: t.id, weight: +src.weight || 0 }); }
+      if (src.topic) { const t = findTopic(s.id, src.topic); if (t) sources.push({ type: 'topic', id: t.id, weight: +src.weight || 0 }); }
       else sources.push({ type: 'subject', id: s.id, weight: +src.weight || 0 });
     }
     if (!sources.length) continue;
@@ -2118,7 +2563,26 @@ async function importPack(pack, onTick) {
     await save('mocks', m); res.mocks++;
   }
   D.mocks.sort(byName);
+  // A study plan (converted from the Excel planner) is kept as one synced document; progress is kept separately
+  if (pack.studyPlan && pack.studyPlan.sheets) {
+    D.plan = { ...clone(pack.studyPlan), id: 'studyPlan' };
+    await store.put('prefs', 'studyPlan', pack.studyPlan);
+    res.plan = true;
+  }
   return res;
+}
+// "Where did it go?" list shown after an import
+function whereHTML(res) {
+  if (!res.where.length) return '';
+  const bySubj = new Map();
+  res.where.forEach(w => { if (!bySubj.has(w.subjectId)) bySubj.set(w.subjectId, []); bySubj.get(w.subjectId).push(w); });
+  return `<div class="where"><div class="small muted" style="margin:10px 0 4px">Added to your Library:</div>${[...bySubj].map(([sid, ws]) => {
+    const s = byId('subjects', sid);
+    return `<div class="where-s">${esc(subjIcon(s))} <b>${esc(displayName(s))}</b></div>` + ws.slice(0, 8).map(w => {
+      const t = byId('topics', w.topicId);
+      return `<a href="#" class="where-t" data-nav="topic:${w.topicId}">› ${esc(t ? t.name : '')} <span class="muted">+${plural(w.sets, 'set')}</span></a>`;
+    }).join('') + (ws.length > 8 ? `<div class="small muted where-t">… and ${ws.length - 8} more topics</div>` : '');
+  }).join('')}</div>`;
 }
 
 // 📦 Question bank: ready-made packs published alongside the app (packs/index.json)
@@ -2181,7 +2645,8 @@ async function quickImport(p, btn) {
       <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
       <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
       ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}</table>
-      <p class="small muted">Find them under <b>Library</b> → the subject → the topic.</p>`, [{ label: 'Stay here' }, { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
+      ${res.plan ? '<p class="status ok">📅 Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
+      [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('today') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }
   if (!$('#bank').hidden) renderBank();
 }
@@ -2199,6 +2664,7 @@ async function bankBanner() {
   } catch (e) { /* no bank when opened as a local file */ }
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-open-bank]')) { e.preventDefault(); openBank(); } });
+document.addEventListener('click', e => { if (e.target.closest('[data-go-plan]')) { e.preventDefault(); openPlan('today'); } });
 
 /* ---------- Study plan (topics that carry plan dates from a pack) ---------- */
 const planDate = d => new Date(d + 'T00:00:00');
@@ -2228,13 +2694,14 @@ function planCard() {
   list.sort((a, b) => String(a.plan.id || '').localeCompare(String(b.plan.id || ''), undefined, { numeric: true }));
   const rows = list.map(t => {
     const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id), carry = t.plan.start < today;
-    return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>
+    const ps = D.plan && planStatus(t.plan.id);
+    return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>${ps ? ` <span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}
         <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(planDate(t.plan.start).toLocaleDateString([], { day: 'numeric', month: 'short' })) : ''}</div>
         ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
         <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
   });
   const more = rows.length > 6;
-  return `<div class="card"><h2>${title}</h2>${rows.slice(0, 6).join('')}${more ? `<details><summary class="small" style="padding:8px 0">Show ${rows.length - 6} more</summary>${rows.slice(6).join('')}</details>` : ''}</div>`;
+  return `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">${title}</h2>${D.plan ? '<button class="btn ghost" data-go-plan>Study plan →</button>' : ''}</div>${rows.slice(0, 6).join('')}${more ? `<details><summary class="small" style="padding:8px 0">Show ${rows.length - 6} more</summary>${rows.slice(6).join('')}</details>` : ''}</div>`;
 }
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-practise]');

@@ -71,6 +71,21 @@ Split each planner topic into its syllabus sub-topics (from `GPT_P2.pdf`) × 30 
 verify topic names against the structure pack, add to `packs/index.json` (group "② Paper 2 · Computer Science…"),
 test the import in the browser (demo mode), bump the sw cache, commit, and tell the owner to push.
 
+### ⚠ In progress, uncommitted and untested (finish this first)
+The owner asked for: (1) a **📅 Study plan** tab in the bottom bar replacing Progress (Progress moves inside it), showing the Excel planner
+exactly (Today, Paper 1, Paper 2 with all 15 columns in card or table view, Tracker, Calendar, Progress; Status / Rev 1 / Rev 2 /
+Confidence / My notes editable and synced); (2) packs must land in the **same subject/topic** as the library grows, and the Library should be elegant.
+Done so far in `index.html` (NOT tested, NOT committed; do not push before testing):
+- `tools/make_plan.py` → `packs/gpstr-cst-2026-plan.json` (all planner rows, calendar, marks, notes; `studyPlan` key). **Not yet added to `packs/index.json`.**
+- Data layer: `store.merge`, `D.plan` (prefs/studyPlan) and `D.planState` (prefs/planState) loaded in `loadAll`.
+- `importPack` rewritten: `nameKey`/`findSubject`/`findTopic` (match by plan ID, then normalised name), `res.where` + `whereHTML()`, imports `studyPlan`.
+- Library: `libraryHTML()` grouped by Paper 1 / Paper 2 / My subjects, `displayName`, `paperOf`, `tidyBannerHTML()`/`tidyUp()`,
+  `mergeSubjectInto`, `mergeTopicInto`, `moveTopicTo`, `moveSetTo`, `pickFromList`/`pickSubject`/`pickTopic`; ⋯ menus got Move/Merge; sets got ⇄.
+- Study plan: `<section id="plan">`, nav item `data-go="plan"`, `openPlan()`, `renderPlan()` and its tab renderers, `setPlanField`, delegated handlers; `renderProgress(target)`; home plan card and topic page show plan status.
+Still to do: **CSS** for the new classes (lib-group, lib-title, bar.lib, tidy, where/where-s/where-t, plan-kpi, plan-tabs, plan-h3, task, pr/pr-top/pr-ctrl/pr-notes, conf, prio-high/medium/low,
+st-done/st-prog/st-rev, od, plan-tools, pg, pt, cal/cal-h/cal-t/today/missed/done, tot, pick), add the plan pack to `packs/index.json` ("① Start here"),
+test everything in demo mode (import plan + packs, tidy/merge, plan edits, phone width), bump sw cache, commit, tell the owner to push.
+
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;
 Firestore offline cache (keep cloud as the main copy); onboarding tour; skeleton loading.
