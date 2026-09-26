@@ -25,7 +25,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{margin:0}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Kannada",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:1rem;-webkit-text-size-adjust:100%}
 button,input,textarea,select{font:inherit;color:inherit}
 a{color:var(--primary)}
 h1,h2,h3{line-height:1.25;margin:0 0 .6em}
@@ -198,6 +198,39 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .mb-topics{display:flex;flex-direction:column;gap:8px;padding:10px 0 4px 28px}
 tfoot td{border-bottom:none}
 
+/* subject identity, menus, continue card */
+.subj{position:relative;border-left:5px solid var(--sc,var(--primary));cursor:pointer}
+.subj-head{display:flex;align-items:center;gap:10px;padding-right:34px}
+.subj-ic{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:10px;font-size:1.25rem;flex:0 0 auto;background:color-mix(in srgb,var(--sc,var(--primary)) 18%,transparent)}
+.subj-more{position:absolute;top:10px;right:10px;border:none;background:none}
+.icon-btn.sm{width:30px;height:30px;font-size:13px;border:none;background:none;opacity:.65}
+.icon-btn.sm:hover{opacity:1}
+.sheet{display:flex;flex-direction:column;gap:6px}
+.sheet-item{text-align:left;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;font-weight:600}
+.sheet-item:hover{border-color:var(--primary)}
+.sheet-item.danger{color:var(--red)}
+.swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.swatches button{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer}
+.swatches button.on{border-color:var(--text)}
+.cont{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.cont-item{display:flex;gap:12px;align-items:center;text-align:left;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);cursor:pointer}
+.cont-item:hover{border-color:var(--primary)}
+.cont-item b{display:block}
+.cont-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--primary-bg);font-size:1.2rem;flex:0 0 auto}
+
+/* results ring & celebration */
+.ring{width:104px;height:104px;flex:0 0 auto}
+.ring-bg{fill:none;stroke:var(--grey-bg);stroke-width:9}
+.ring-fg{fill:none;stroke:var(--primary);stroke-width:9;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;animation:ring .9s ease-out}
+.ring text{font-size:20px;font-weight:800;fill:var(--text)}
+@keyframes ring{from{stroke-dashoffset:var(--c)}}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden}
+.confetti i{position:absolute;top:-16px;width:8px;height:14px;border-radius:2px;animation:fall 1.9s ease-in forwards}
+@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(600deg)}}
+
+/* exam action bar (phones only) */
+.exam-bar{display:none}
+
 /* profile & AI */
 .ai-key{border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:10px;background:var(--bg)}
 .ai-explain{margin-top:10px}
@@ -242,6 +275,16 @@ tfoot td{border-bottom:none}
   .tb-add svg{color:var(--primary)}
   body.has-tabbar main{padding-bottom:92px}
   body.has-tabbar .toast{bottom:88px}
+  /* exams: big thumb-reach controls fixed at the bottom */
+  .exam-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--border);box-shadow:0 -2px 10px rgba(0,0,0,.06)}
+  .exam-bar .btn{flex:1;min-height:46px;padding:8px 6px}
+  #exam .qnav,#exam #markBtn{display:none}
+  #exam{padding-bottom:76px}
+}
+@media (max-width:520px){
+  /* menus and dialogs slide up from the bottom like Android sheets */
+  .modal-bg{place-items:end center;padding:0}
+  .modal{max-width:none;border-radius:18px 18px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom))}
 }
 @media (max-width:520px){
   main{padding:12px}
@@ -406,6 +449,12 @@ Explanation: RAM loses its contents without power.</pre>
       <div class="counts" id="palCounts"></div>
       <button class="btn danger" style="width:100%" id="submitBtn">Submit exam</button>
     </div>
+  </div>
+  <div class="exam-bar" id="examBar">
+    <button class="btn" id="ebPrev" aria-label="Previous question">◀</button>
+    <button class="btn" id="ebMark">☆ Mark</button>
+    <button class="btn" id="ebPal" aria-label="Question palette">☰ <span id="ebCount"></span></button>
+    <button class="btn primary" id="ebNext" aria-label="Next question">▶</button>
   </div>
 </section>
 
@@ -820,8 +869,9 @@ function historyMap(atts) {
 const dayKey = t => { const d = new Date(t ?? Date.now()); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
 function logPractice(n) {
   if (!(n > 0) || !store) return;
-  const k = dayKey();
-  D.days[k] = (D.days[k] || 0) + n;
+  const k = dayKey(), goal = D.prefs.dailyGoal || 30, before = D.days[k] || 0;
+  D.days[k] = before + n;
+  if (before < goal && D.days[k] >= goal) setTimeout(() => celebrate('🎯 Daily goal reached! ' + goal + ' questions today'), RES && RES.best ? 2200 : 300);
   store.bump('days', k, 'q', n).catch(e => { if (e && e.code === 'permission-denied') D.rulesOutdated = true; });
 }
 function streakInfo() {
@@ -859,6 +909,10 @@ const byId = (c, id) => D[c].find(x => x.id === id);
 function applyTheme(t) { document.documentElement.dataset.theme = t; }
 let theme = lsGet(LS_THEME, null) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 applyTheme(theme);
+const LS_TEXT = 'examsim.textsize';
+const TEXT_SIZES = { s: ['Small', '15px'], m: ['Medium', '16px'], l: ['Large', '18px'], xl: ['Extra large', '20px'] };
+function applyTextSize(v) { document.documentElement.style.fontSize = (TEXT_SIZES[v] || TEXT_SIZES.m)[1]; }
+applyTextSize(lsGet(LS_TEXT, 'm'));
 $('#themeBtn').onclick = () => { theme = theme === 'dark' ? 'light' : 'dark'; applyTheme(theme); lsSet(LS_THEME, theme); };
 
 let modalOnClose = null;
@@ -946,7 +1000,7 @@ $('#barLeft').onclick = () => { if (store && $('#exam').hidden) goHome(); };
 // Links like <a data-nav="topic:ID"> anywhere in the app
 document.addEventListener('click', e => {
   const a = e.target.closest('[data-nav]');
-  if (!a) return;
+  if (!a || e.target.closest('[data-menu]')) return; // ⋯ / 🗑 buttons inside a clickable card
   e.preventDefault();
   const [k, id] = a.dataset.nav.split(':');
   if (k === 'home') goHome();
@@ -1070,18 +1124,111 @@ function attemptsTable(atts, { where = false, limit = 20 } = {}) {
   const rows = [...atts].sort((a, b) => b.date - a.date).slice(0, limit);
   const modeTag = a => a.mode === 'mistakes' ? ' <span class="pill blank">mistakes</span>' : a.mode === 'all' ? ' <span class="pill">all sets</span>' : a.mode === 'mock' ? ' <span class="pill correct">mock</span>' : '';
   const whereTxt = a => { const s = byId('subjects', a.subjectId), t = byId('topics', a.topicId); return [s && s.name, t && t.name].filter(Boolean).join(' › ') || (a.mode === 'mock' ? 'Mixed' : '—'); };
-  return `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Set</th>${where ? '<th>Subject › Topic</th>' : ''}<th class="num">Score</th><th class="num">%</th><th class="num">✓</th><th class="num">✗</th><th class="num">Blank</th><th class="num">E</th><th class="num">Time</th></tr></thead><tbody>`
+  return `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Set</th>${where ? '<th>Subject › Topic</th>' : ''}<th class="num">Score</th><th class="num">%</th><th class="num">✓</th><th class="num">✗</th><th class="num">Blank</th><th class="num">E</th><th class="num">Time</th><th></th></tr></thead><tbody>`
     + rows.map(a => `<tr><td class="small">${esc(fmtDate(a.date))}</td><td>${esc(a.setName)}${modeTag(a)}</td>${where ? `<td class="small">${esc(whereTxt(a))}</td>` : ''}
       <td class="num"><b>${fmtScore(a.score)}</b><span class="muted small"> / ${fmtNum(a.max)}</span></td><td class="num">${pct(a).toFixed(0)}%</td>
-      <td class="num">${a.correct}</td><td class="num">${a.wrong}</td><td class="num">${a.blank}</td><td class="num">${a.e}</td><td class="num small">${fmtDuration(a.timeTaken)}</td></tr>`).join('')
+      <td class="num">${a.correct}</td><td class="num">${a.wrong}</td><td class="num">${a.blank}</td><td class="num">${a.e}</td><td class="num small">${fmtDuration(a.timeTaken)}</td>
+      <td><button class="icon-btn sm" data-menu data-delatt="${a.id}" title="Delete this result" aria-label="Delete this result">🗑</button></td></tr>`).join('')
     + '</tbody></table></div>' + (atts.length > limit ? `<p class="small muted">Showing the latest ${limit} of ${atts.length}.</p>` : '');
 }
 function progressCard(atts, where) {
   return `<div class="card"><h2>Progress</h2>${trendSvg(atts)}${attemptsTable(atts, { where })}</div>`;
 }
-function pageHead(name, kind) {
-  return `<div class="page-head"><h1>${esc(name)}</h1><button class="btn ghost" data-act="rename">Rename</button><button class="btn ghost" data-act="delete" style="color:var(--red)">Delete</button></div><div class="kind">${kind}</div>`;
+function pageHead(name, kind, subj) {
+  return `<div class="page-head">${subj ? `<span class="subj-ic" style="--sc:${subjColor(subj)}">${esc(subjIcon(subj))}</span>` : ''}<h1>${esc(name)}</h1>
+    <button class="btn ghost" data-act="rename">✎ Rename</button>${subj && kind === 'Subject' ? '<button class="btn ghost" data-act="look">🎨</button>' : ''}<button class="btn ghost" data-act="delete" style="color:var(--red)">🗑 Delete</button></div><div class="kind">${kind}</div>`;
 }
+
+/* ============================================================
+   Subject identity (icon + colour), menus, delete flows
+   ============================================================ */
+const SUBJ_COLORS = ['#2f6fed', '#1b9a52', '#e07f0b', '#c2410c', '#7c3aed', '#db2777', '#0891b2', '#65a30d'];
+const SUBJ_ICON_RULES = [[/psych|child|develop|learn/, '🧠'], [/comput|\bict\b|\bit\b|digital/, '💻'], [/math|arith|algebra|geometr|numer/, '➗'],
+  [/science|physic|chem|bio/, '🔬'], [/english|grammar|language|literat/, '📝'], [/kannada/, 'ಕ'], [/hindi|sanskrit/, 'अ'],
+  [/histor/, '🏛️'], [/geog/, '🌍'], [/pedagog|teach|method|education/, '🎓'], [/polit|civic|constitu/, '⚖️'], [/econ/, '📈'], [/general|\bgk\b|current/, '💡']];
+function subjIcon(s) {
+  if (!s) return '📚';
+  if (s.icon) return s.icon;
+  const n = s.name.toLowerCase();
+  for (const [re, ic] of SUBJ_ICON_RULES) if (re.test(n)) return ic;
+  return '📚';
+}
+const subjColor = s => (s && s.color) || SUBJ_COLORS[parseInt(hash(s ? s.id : 'x'), 36) % SUBJ_COLORS.length];
+
+// A list of actions; slides up from the bottom on phones
+function actionSheet(title, items) {
+  openModal(`<h3>${esc(title)}</h3><div class="sheet">${items.map((it, i) => `<button class="sheet-item${it.danger ? ' danger' : ''}" data-i="${i}">${it.icon || ''} ${esc(it.label)}</button>`).join('')}</div>`, [{ label: 'Cancel' }]);
+  $('#modal').querySelectorAll('.sheet-item').forEach(b => b.onclick = () => { closeModal(); items[+b.dataset.i].onClick(); });
+}
+// Re-render whichever library screen is open after an edit
+function rerender() {
+  if (!$('#home').hidden) renderHome();
+  else if (!$('#subject').hidden) renderSubject();
+  else if (!$('#topic').hidden) renderTopic();
+  else if (!$('#progress').hidden) renderProgress();
+  else if (!$('#mocks').hidden) renderMocksPage();
+  else if (!$('#revhub').hidden) renderRevHub();
+}
+function editAppearance(s) {
+  let color = subjColor(s);
+  openModal(`<h3>Icon &amp; colour</h3>
+    <label class="small muted">Icon (any emoji or a letter)<input type="text" id="apIcon" value="${esc(subjIcon(s))}" maxlength="4" style="font-size:1.4rem;width:90px"></label>
+    <div class="small muted" style="margin-top:12px">Colour</div>
+    <div class="swatches">${SUBJ_COLORS.map(c => `<button type="button" data-c="${c}" style="background:${c}" class="${c === color ? 'on' : ''}" aria-label="Colour ${c}"></button>`).join('')}</div>`, [
+    { label: 'Cancel' },
+    { label: 'Save', cls: 'primary', onClick: async m => {
+      const icon = normText($('#apIcon', m).value) || subjIcon({ name: s.name });
+      const old = { icon: s.icon, color: s.color };
+      Object.assign(s, { icon, color });
+      try { await save('subjects', s); rerender(); } catch (e) { Object.assign(s, old); toast(errText(e), 'error'); }
+    } }
+  ]);
+  $('#modal .swatches').onclick = e => {
+    const b = e.target.closest('[data-c]'); if (!b) return;
+    color = b.dataset.c;
+    $('#modal').querySelectorAll('.swatches button').forEach(x => x.classList.toggle('on', x === b));
+  };
+}
+async function deleteSubjectFlow(s) {
+  const nT = D.topics.filter(t => t.subjectId === s.id).length, nS = D.sets.filter(x => x.subjectId === s.id).length, nA = D.attempts.filter(a => a.subjectId === s.id).length;
+  const ok = await confirmBox(`Delete “${s.name}”?`, `<p>This permanently deletes ${plural(nT, 'topic')}, ${plural(nS, 'question set')} and ${plural(nA, 'exam result')} in this subject. This can't be undone.</p>`, 'Delete subject');
+  if (!ok) return;
+  try { await deleteCascade({ subjectId: s.id }); toast(`Deleted “${s.name}”`); if (!$('#subject').hidden) goHome(); else rerender(); } catch (e) { toast(errText(e), 'error'); }
+}
+async function deleteTopicFlow(t) {
+  const nS = D.sets.filter(x => x.topicId === t.id).length, nA = D.attempts.filter(a => a.topicId === t.id).length;
+  const ok = await confirmBox(`Delete “${t.name}”?`, `<p>This permanently deletes ${plural(nS, 'question set')} and ${plural(nA, 'exam result')} in this topic. This can't be undone.</p>`, 'Delete topic');
+  if (!ok) return;
+  try { await deleteCascade({ topicId: t.id }); toast(`Deleted “${t.name}”`); if (!$('#topic').hidden) openSubject(t.subjectId); else rerender(); } catch (e) { toast(errText(e), 'error'); }
+}
+function subjectMenu(s) {
+  actionSheet(s.name, [
+    { icon: '📂', label: 'Open', onClick: () => openSubject(s.id) },
+    { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('subjects', s, 'subject')) rerender(); } },
+    { icon: '🎨', label: 'Icon & colour', onClick: () => editAppearance(s) },
+    { icon: '🗑', label: 'Delete subject', danger: true, onClick: () => deleteSubjectFlow(s) }
+  ]);
+}
+function topicMenu(t) {
+  actionSheet(t.name, [
+    { icon: '📂', label: 'Open', onClick: () => openTopic(t.id) },
+    { icon: '🃏', label: 'Revise (flashcards)', onClick: () => openRevision({ type: 'topic', id: t.id }) },
+    { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('topics', t, 'topic')) rerender(); } },
+    { icon: '🗑', label: 'Delete topic', danger: true, onClick: () => deleteTopicFlow(t) }
+  ]);
+}
+document.addEventListener('click', async e => {
+  const m = e.target.closest('[data-subjmenu],[data-topicmenu],[data-delatt]');
+  if (!m) return;
+  e.preventDefault();
+  if (m.dataset.subjmenu) { const s = byId('subjects', m.dataset.subjmenu); if (s) subjectMenu(s); }
+  else if (m.dataset.topicmenu) { const t = byId('topics', m.dataset.topicmenu); if (t) topicMenu(t); }
+  else {
+    const a = byId('attempts', m.dataset.delatt);
+    if (!a || !(await confirmBox('Delete this result?', `<p>“${esc(a.setName)}” on ${esc(fmtDate(a.date))}, scored ${fmtScore(a.score)} / ${fmtNum(a.max)}. It will be removed from your history, averages and question stats.</p>`, 'Delete result'))) return;
+    try { await removeDocs('attempts', [a.id]); toast('Result deleted'); rerender(); } catch (err) { toast(errText(err), 'error'); }
+  }
+});
 
 /* ============================================================
    Library: create / rename / delete
@@ -1134,7 +1281,7 @@ function goHome() {
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
   if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
-  h += todayCard();
+  h += todayCard() + continueCard();
   h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
     <button class="btn" id="hNewSubj">+ New subject</button><button class="btn primary" id="hAddSet">+ Add question set</button></div>`;
   if (!D.subjects.length) {
@@ -1147,9 +1294,11 @@ function renderHome() {
       const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
       const atts = D.attempts.filter(a => a.subjectId === s.id);
       const avg = atts.length ? (atts.reduce((n, a) => n + pct(a), 0) / atts.length).toFixed(0) + '%' : '';
-      return `<button class="card subj" data-nav="subject:${s.id}"><b>${esc(s.name)}</b>
+      return `<div class="card subj" data-nav="subject:${s.id}" role="button" tabindex="0" style="--sc:${subjColor(s)}">
+        <div class="subj-head"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(s.name)}</b></div>
+        <button class="icon-btn subj-more" data-menu data-subjmenu="${s.id}" title="Subject options" aria-label="Options for ${esc(s.name)}">⋯</button>
         <span class="small muted">${plural(nT, 'topic')} · ${plural(sets.length, 'set')} · ${plural(nQ, 'question')}</span>
-        <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></button>`;
+        <span class="small">${atts.length ? `${plural(atts.length, 'attempt')} · average ${avg}` : 'No attempts yet'}</span></div>`;
     }).join('') + '</div>';
   }
   h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Recent attempts</h2>${D.attempts.length > 5 ? '<button class="btn ghost" id="hAllAtt">See all →</button>' : ''}</div>${attemptsTable(D.attempts, { where: true, limit: 5 })}</div>`;
@@ -1170,6 +1319,38 @@ function renderHome() {
     renderHome();
   };
   if ($('#hAllAtt')) $('#hAllAtt').onclick = openProgress;
+  el.querySelectorAll('[data-cont]').forEach(b => b.onclick = () => {
+    const [k, id] = b.dataset.cont.split(':');
+    if (k === 'set') startSetFromId(id, b);
+    else if (k === 'mock') { const m = byId('mocks', id); if (m) startMock(m, m.id); }
+    else if (k === 'topic') openTopic(id);
+    else if (k === 'revise') openRevision({ type: 'topic', id });
+  });
+}
+
+// One-tap shortcuts based on what you did last
+function continueCard() {
+  const items = [];
+  const last = [...D.attempts].sort((a, b) => b.date - a.date)[0];
+  if (last) {
+    const t = byId('topics', last.topicId);
+    if (last.mode === 'mock' && byId('mocks', last.mockId)) items.push({ icon: '🎯', title: 'Retake mock test', sub: `${last.setName} · last ${pct(last).toFixed(0)}%`, act: 'mock:' + last.mockId });
+    else if (last.setId && byId('sets', last.setId)) items.push({ icon: '↻', title: 'Retake last exam', sub: `${last.setName} · last ${pct(last).toFixed(0)}%`, act: 'set:' + last.setId });
+    if (t) items.push({ icon: '📂', title: 'Continue topic', sub: t.name, act: 'topic:' + t.id });
+  }
+  const acc = topicAccuracy();
+  const weak = D.topics.map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5).sort((a, b) => a.r.c / a.r.seen - b.r.c / b.r.seen)[0];
+  if (weak) items.push({ icon: '🃏', title: 'Revise weakest topic', sub: `${weak.t.name} · ${(weak.r.c / weak.r.seen * 100).toFixed(0)}% correct`, act: 'revise:' + weak.t.id });
+  if (!items.length) return '';
+  return `<div class="card"><h2>Continue</h2><div class="cont">${items.map(it => `<button class="cont-item" data-cont="${it.act}"><span class="cont-ic">${it.icon}</span><span><b>${esc(it.title)}</b><span class="small muted">${esc(it.sub)}</span></span></button>`).join('')}</div></div>`;
+}
+async function startSetFromId(setId, btn) {
+  const x = byId('sets', setId);
+  if (!x) return;
+  if (btn) btn.disabled = true;
+  try { startSetup({ name: x.name, questions: await getSetQuestions(x.id), subjectId: x.subjectId, topicId: x.topicId, setId: x.id, mode: 'set' }); }
+  catch (e) { toast(errText(e), 'error'); }
+  finally { if (btn) btn.disabled = false; }
 }
 
 /* ---------- Mock tests tab ---------- */
@@ -1207,7 +1388,7 @@ function renderRevHub() {
   h += D.subjects.map(s => {
     const ts = D.topics.filter(t => t.subjectId === s.id);
     const nQ = D.sets.filter(x => x.subjectId === s.id).reduce((n, x) => n + (x.count || 0), 0);
-    return `<div class="list-row" style="border-bottom:none;padding-bottom:4px"><div class="grow"><b>${esc(s.name)}</b> <span class="small muted">${plural(nQ, 'question')}</span></div>
+    return `<div class="list-row" style="border-bottom:none;padding-bottom:4px"><div class="grow">${esc(subjIcon(s))} <b>${esc(s.name)}</b> <span class="small muted">${plural(nQ, 'question')}</span></div>
         ${nQ ? `<button class="btn" data-revise="subject:${s.id}">🃏 Whole subject</button>` : ''}</div>`
       + ts.map(t => {
         const n = D.sets.filter(x => x.topicId === t.id).reduce((m, x) => m + (x.count || 0), 0);
@@ -1320,7 +1501,7 @@ function renderSubject() {
   const atts = D.attempts.filter(a => a.subjectId === s.id);
   const sets = D.sets.filter(x => x.subjectId === s.id);
   const st = { ...DEFAULT_SETTINGS, ...s.settings };
-  let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject');
+  let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject', s);
   h += statsRow(atts, [[topics.length, 'Topics'], [sets.reduce((n, x) => n + (x.count || 0), 0), 'Questions']]);
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
     ${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
@@ -1329,7 +1510,8 @@ function renderSubject() {
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${esc(t.name)}</button>
       <div class="small muted">${plural(tSets.length, 'set')} · ${plural(tSets.reduce((n, x) => n + (x.count || 0), 0), 'question')}</div></div>
-      <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button></div>`;
+      <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
+      <button class="icon-btn" data-menu data-topicmenu="${t.id}" title="Topic options" aria-label="Options for ${esc(t.name)}">⋯</button></div>`;
   }).join('') : '<div class="empty">No topics yet. Add one to start saving question sets.</div>';
   h += '</div>';
   h += progressCard(atts, true);
@@ -1341,11 +1523,8 @@ function renderSubject() {
   el.innerHTML = h;
   $('#sNewTopic').onclick = async () => { const t = await createTopic(s.id); if (t) openTopic(t.id); };
   $('[data-act=rename]', el).onclick = async () => { if (await renameItem('subjects', s, 'subject')) renderSubject(); };
-  $('[data-act=delete]', el).onclick = async () => {
-    const ok = await confirmBox(`Delete “${s.name}”?`, `<p>This permanently deletes ${plural(topics.length, 'topic')}, ${plural(sets.length, 'question set')} and ${plural(atts.length, 'exam result')} in this subject.</p>`, 'Delete subject');
-    if (!ok) return;
-    try { await deleteCascade({ subjectId: s.id }); toast('Subject deleted'); goHome(); } catch (e) { toast(errText(e), 'error'); }
-  };
+  $('[data-act=look]', el).onclick = () => editAppearance(s);
+  $('[data-act=delete]', el).onclick = () => deleteSubjectFlow(s);
   wireSettings('sd', () => {});
   $('#sdSave').onclick = async () => {
     const r = readSettings('sd', false);
@@ -1373,7 +1552,7 @@ function renderTopic() {
   const sets = D.sets.filter(x => x.topicId === t.id);
   const atts = D.attempts.filter(a => a.topicId === t.id);
   const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
-  let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic');
+  let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic', s);
   h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
   if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
@@ -1401,11 +1580,7 @@ function renderTopic() {
   el.innerHTML = h;
   $('#tAddSet').onclick = () => openAdd({ subjectId: t.subjectId, topicId: t.id });
   $('[data-act=rename]', el).onclick = async () => { if (await renameItem('topics', t, 'topic')) renderTopic(); };
-  $('[data-act=delete]', el).onclick = async () => {
-    const ok = await confirmBox(`Delete “${t.name}”?`, `<p>This permanently deletes ${plural(sets.length, 'question set')} and ${plural(atts.length, 'exam result')} in this topic.</p>`, 'Delete topic');
-    if (!ok) return;
-    try { await deleteCascade({ topicId: t.id }); toast('Topic deleted'); s ? openSubject(s.id) : goHome(); } catch (e) { toast(errText(e), 'error'); }
-  };
+  $('[data-act=delete]', el).onclick = () => deleteTopicFlow(t);
   el.querySelectorAll('[data-start]').forEach(b => b.onclick = async () => {
     const x = byId('sets', b.dataset.start);
     b.disabled = true;
@@ -2096,7 +2271,19 @@ function renderQuestion() {
   $('#clearBtn').disabled = !r.sel;
   $('#prevBtn').disabled = S.cur === 0;
   $('#nextBtn').disabled = S.cur === n - 1;
+  // phone action bar: on the last question "next" becomes "Submit"
+  const last = S.cur === n - 1;
+  $('#ebPrev').disabled = S.cur === 0;
+  $('#ebMark').textContent = r.marked ? '★ Marked' : '☆ Mark';
+  $('#ebMark').classList.toggle('marked', r.marked);
+  $('#ebNext').textContent = last ? 'Submit' : '▶';
+  $('#ebNext').classList.toggle('danger', last);
+  $('#ebNext').classList.toggle('primary', !last);
 }
+$('#ebPrev').onclick = () => go(S.cur - 1);
+$('#ebNext').onclick = () => S.cur === S.qs.length - 1 ? confirmSubmit() : go(S.cur + 1);
+$('#ebMark').onclick = () => $('#markBtn').click();
+$('#ebPal').onclick = () => $('#exam .palette-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 function palClass(i) {
   const r = S.resp[i];
@@ -2120,6 +2307,7 @@ function renderPalette() {
   [...grid.children].forEach((b, i) => { b.className = 'pal ' + palClass(i); });
   const t = tally();
   $('#palCounts').innerHTML = `Answered ${t.ans} · Option E ${t.e} · Marked ${t.mrk}<br>No answer ${t.emp} · Not visited ${t.nv}`;
+  $('#ebCount').textContent = `${t.ans + t.e}/${S.qs.length}`;
 }
 
 function select(L) {
@@ -2151,6 +2339,8 @@ function confirmSubmit() {
 
 document.addEventListener('keydown', e => {
   if (e.ctrlKey || e.metaKey || e.altKey) return;
+  // clickable cards (div role=button) respond to Enter/Space like buttons
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('div[data-nav]')) { e.preventDefault(); e.target.click(); return; }
   if (!$('#modalBg').hidden) { if (e.key === 'Escape') closeModal(); return; }
   if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
   if (!$('#exam').hidden && S && !S.done) {
@@ -2208,8 +2398,36 @@ function submitExam(auto) {
     // t = topic of each question, so mixed mock tests still feed per-topic stats
     answers: rows.map(r => ({ k: r.q.key, r: RES_CODE[r.res], s: origSel(r), t: r.q.topicId || S.info.topicId || null }))
   };
+  // Personal best: compare with earlier attempts of the same set or mock test
+  const same = D.attempts.filter(a => (S.info.setId && a.setId === S.info.setId) || (S.info.mockId && a.mockId === S.info.mockId));
+  RES.prevBest = same.length ? Math.max(...same.map(pct)) : null;
+  RES.best = RES.prevBest != null && pct(RES.attempt) > RES.prevBest + 1e-9;
   renderResults();
   saveAttempt();
+  if (RES.best) celebrate('🏆 New personal best!');
+}
+
+function scoreRing(p) {
+  const r = 42, c = 2 * Math.PI * r, v = Math.max(0, Math.min(100, p));
+  return `<svg class="ring" viewBox="0 0 100 100" role="img" aria-label="Score ${p.toFixed(0)} percent"><circle class="ring-bg" cx="50" cy="50" r="${r}"/>
+    <circle class="ring-fg" cx="50" cy="50" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - v / 100)}" style="--c:${c}"/>
+    <text x="50" y="57" text-anchor="middle">${p.toFixed(0)}%</text></svg>`;
+}
+function celebrate(msg) {
+  toast(msg);
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const box = document.createElement('div');
+  box.className = 'confetti';
+  for (let i = 0; i < 44; i++) {
+    const s = document.createElement('i');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.background = SUBJ_COLORS[i % SUBJ_COLORS.length];
+    s.style.animationDelay = (Math.random() * 0.35).toFixed(2) + 's';
+    s.style.setProperty('--dx', Math.round(Math.random() * 200 - 100) + 'px');
+    box.appendChild(s);
+  }
+  document.body.appendChild(box);
+  setTimeout(() => box.remove(), 2600);
 }
 
 async function saveAttempt() {
@@ -2239,9 +2457,11 @@ function renderResults() {
   const subjects = [...new Set(R.rows.map(r => r.q.subject).filter(Boolean))];
   let h = R.auto ? '<div class="banner">⏰ Time\'s up. Your exam was submitted automatically.</div>' : '';
   h += `<div class="card">
-    <div class="muted small">${esc(R.name)}</div>
-    <div class="score-big">${fmtScore(R.score)} <span class="muted" style="font-size:1.3rem;font-weight:600">/ ${fmtNum(R.max)}</span></div>
-    <div class="muted small">${R.max > 0 ? (R.score / R.max * 100).toFixed(1) + '% of maximum' : ''}</div>
+    <div class="row" style="gap:18px;flex-wrap:nowrap">${scoreRing(R.max > 0 ? R.score / R.max * 100 : 0)}<div style="min-width:0">
+      <div class="muted small" style="overflow-wrap:anywhere">${esc(R.name)}</div>
+      <div class="score-big">${fmtScore(R.score)} <span class="muted" style="font-size:1.3rem;font-weight:600">/ ${fmtNum(R.max)}</span></div>
+      <div class="small">${R.best ? '<b style="color:var(--green)">🏆 New personal best!</b>' : R.prevBest != null ? `<span class="muted">Your best: ${R.prevBest.toFixed(0)}%</span>` : '<span class="muted">First attempt</span>'}</div>
+    </div></div>
     <div class="small" id="saveMsg" style="margin-top:6px"></div>
     <div class="stats">
       <div class="stat"><b style="color:var(--green)">${R.correct}</b><span>Correct (+${fmtNum(R.correct * R.cfg.correct)})</span></div>
@@ -2398,7 +2618,9 @@ function renderProfile() {
       <select id="pfLang" style="width:auto;margin-left:6px">${['English', 'Kannada', 'Hindi', 'English and Kannada (bilingual)'].map(l => `<option ${cfg.lang === l ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>`;
   h += `<div class="card"><h2>⚙ Preferences</h2><div class="settings">
     <label>Daily goal (questions)<input type="number" id="pfGoal" min="1" max="1000" value="${D.prefs.dailyGoal || 30}"></label>
-    <label>Theme<select id="pfTheme"><option value="light" ${theme === 'light' ? 'selected' : ''}>Light</option><option value="dark" ${theme === 'dark' ? 'selected' : ''}>Dark</option></select></label></div></div>`;
+    <label>Theme<select id="pfTheme"><option value="light" ${theme === 'light' ? 'selected' : ''}>Light</option><option value="dark" ${theme === 'dark' ? 'selected' : ''}>Dark</option></select></label>
+    <label>Text size<select id="pfText">${Object.entries(TEXT_SIZES).map(([k, [l]]) => `<option value="${k}" ${lsGet(LS_TEXT, 'm') === k ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>
+    <p class="small muted" style="margin-bottom:0">Theme and text size are saved on this device.</p></div>`;
   const el = $('#profile');
   el.innerHTML = h;
 
@@ -2416,6 +2638,7 @@ function renderProfile() {
   ['gem', 'groq'].forEach(p => wireAiKey(p));
   $('#pfLang').onchange = () => setAiCfg({ lang: $('#pfLang').value });
   $('#pfTheme').onchange = () => { theme = $('#pfTheme').value; applyTheme(theme); lsSet(LS_THEME, theme); };
+  $('#pfText').onchange = () => { lsSet(LS_TEXT, $('#pfText').value); applyTextSize($('#pfText').value); };
   $('#pfGoal').onchange = async () => {
     const n = parseInt($('#pfGoal').value, 10);
     if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
