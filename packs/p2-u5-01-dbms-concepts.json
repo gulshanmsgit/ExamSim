@@ -1,0 +1,2208 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 5 DBMS — 1. Concepts & Architecture (180 Q)",
+ "description": "Database System Concepts and Architecture: data models; schemas and instances; three-schema architecture; data independence; database languages and interfaces; centralized and client/server architectures. 30 questions per sub-topic.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 5 – Database Management Systems",
+   "icon": "🗄️",
+   "topics": [
+    {
+     "name": "DBMS Concepts and Architecture",
+     "sets": [
+      {
+       "name": "1 · Data Models",
+       "questions": [
+        {
+         "question": "A data model is best defined as:",
+         "options": {
+          "A": "The physical file layout of a database on disk",
+          "B": "A diagram of the network connecting clients to the server",
+          "C": "A set of sample records used for testing",
+          "D": "A collection of concepts to describe the structure of a database (data types, relationships, constraints) together with basic operations on it"
+         },
+         "answer": "D",
+         "subject": "Data Models",
+         "explanation": "A data model describes structure (types, relationships, constraints) and usually a set of basic operations for retrievals and updates."
+        },
+        {
+         "question": "Which data model is classified as a high-level (conceptual) data model?",
+         "options": {
+          "A": "Relational model",
+          "B": "Network model",
+          "C": "Entity–Relationship model",
+          "D": "Hierarchical model"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "Conceptual models such as the ER model use concepts close to how users perceive data (entities, attributes, relationships)."
+        },
+        {
+         "question": "Representational (implementation) data models include:",
+         "options": {
+          "A": "ER model and UML class diagrams",
+          "B": "Relational, network and hierarchical models",
+          "C": "Only physical storage models",
+          "D": "Only object models"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "Representational models are understood by end users yet close to how data is organised in storage; the relational, network and hierarchical models are the classic ones."
+        },
+        {
+         "question": "Physical (low-level) data models describe:",
+         "options": {
+          "A": "Entities and relationships",
+          "B": "Record formats, record orderings and access paths on the storage medium",
+          "C": "Only the external views of users",
+          "D": "Business rules of the organisation"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "Physical data models describe how data is stored as files: record formats, orderings and access paths."
+        },
+        {
+         "question": "In database terminology, an 'access path' is:",
+         "options": {
+          "A": "A search structure, such as an index, that makes locating particular records efficient",
+          "B": "The login path of a user",
+          "C": "A network route between client and server",
+          "D": "The directory in which database files are stored"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "An access path (e.g. an index) speeds up searching for records that satisfy a condition."
+        },
+        {
+         "question": "In the hierarchical data model, data are organised as:",
+         "options": {
+          "A": "A general graph with many-to-many links",
+          "B": "Key–value pairs",
+          "C": "A tree structure in which each child record has exactly one parent",
+          "D": "Tables of rows and columns"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "The hierarchical model uses parent–child (1:N) relationships arranged as trees."
+        },
+        {
+         "question": "IBM's IMS (Information Management System) is based on the:",
+         "options": {
+          "A": "Hierarchical model",
+          "B": "Network model",
+          "C": "Relational model",
+          "D": "Object-oriented model"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "IMS, developed in the 1960s, is the best-known hierarchical DBMS; it uses the DL/I language."
+        },
+        {
+         "question": "How are many-to-many relationships handled in a pure hierarchical model?",
+         "options": {
+          "A": "They are supported directly",
+          "B": "They cannot be stored at all",
+          "C": "By using foreign keys",
+          "D": "By duplicating records or using virtual (logical) parent–child relationships"
+         },
+         "answer": "D",
+         "subject": "Data Models",
+         "explanation": "Since each child has one parent, M:N relationships lead to duplicated records unless virtual/logical pointers are used, which is a key weakness."
+        },
+        {
+         "question": "The network data model was standardised by the:",
+         "options": {
+          "A": "CODASYL Data Base Task Group (DBTG)",
+          "B": "ANSI/SPARC study group",
+          "C": "ODMG",
+          "D": "ISO SQL committee"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "The CODASYL DBTG report (1971) defined the network model; IDMS is a well-known implementation."
+        },
+        {
+         "question": "In the CODASYL network model, a 1:N relationship between record types is represented by a:",
+         "options": {
+          "A": "View",
+          "B": "Foreign key",
+          "C": "Set type with an owner record type and a member record type",
+          "D": "Class hierarchy"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "A set type links one owner record to many member records; M:N needs an intermediate (link) record type."
+        },
+        {
+         "question": "Which DBMS is based on the network model?",
+         "options": {
+          "A": "IDMS",
+          "B": "Oracle Database",
+          "C": "MongoDB",
+          "D": "IMS"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "IDMS (Integrated Database Management System) follows the CODASYL network model; IMS is hierarchical."
+        },
+        {
+         "question": "E. F. Codd proposed the relational model in 1970 in the paper titled:",
+         "options": {
+          "A": "The Entity–Relationship Model: Toward a Unified View of Data",
+          "B": "Structured Query Language",
+          "C": "A Relational Model of Data for Large Shared Data Banks",
+          "D": "Relational Completeness of Data Base Sublanguages"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "Codd's 1970 CACM paper introduced the relational model; Chen's 1976 paper introduced the ER model."
+        },
+        {
+         "question": "The formal foundation of the relational model is:",
+         "options": {
+          "A": "Probability theory",
+          "B": "Set theory and first-order predicate logic",
+          "C": "Graph theory",
+          "D": "Automata theory"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "Relations are sets of tuples, and relational algebra/calculus are based on set theory and first-order logic."
+        },
+        {
+         "question": "'Record-at-a-time', navigational data manipulation is characteristic of:",
+         "options": {
+          "A": "The relational model with SQL",
+          "B": "Key–value stores only",
+          "C": "The hierarchical and network models",
+          "D": "Data warehouses"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "Legacy models navigate from record to record using pointers (e.g. DL/I, CODASYL DML); SQL is set-at-a-time."
+        },
+        {
+         "question": "The Entity–Relationship model was proposed by:",
+         "options": {
+          "A": "E. F. Codd in 1970",
+          "B": "Peter Chen in 1976",
+          "C": "Charles Bachman in 1969",
+          "D": "Ted Codd in 1985"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "Peter P. Chen introduced the ER model in 1976; Bachman is known for the network model and Bachman diagrams."
+        },
+        {
+         "question": "Codd's well-known rules for judging a relational DBMS (1985) consist of:",
+         "options": {
+          "A": "12 rules numbered 1 to 12 only",
+          "B": "13 rules numbered 0 to 12",
+          "C": "10 rules numbered 1 to 10",
+          "D": "7 rules"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "They are called the '12 rules' but are numbered 0 (the foundation rule) to 12, i.e. 13 rules."
+        },
+        {
+         "question": "Which of the following is NOT a record-based data model?",
+         "options": {
+          "A": "Network model",
+          "B": "Relational model",
+          "C": "Hierarchical model",
+          "D": "Entity–Relationship model"
+         },
+         "answer": "D",
+         "subject": "Data Models",
+         "explanation": "The ER model is a conceptual (object-based) model; the other three structure the database as fixed-format records."
+        },
+        {
+         "question": "In a self-describing data model such as XML or many NoSQL systems:",
+         "options": {
+          "A": "Data must be in first normal form",
+          "B": "The schema is stored only in a separate catalog",
+          "C": "The description of the data is stored together with the data values",
+          "D": "No data can be stored"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "Self-describing models combine data and its description, e.g. XML tags or JSON keys."
+        },
+        {
+         "question": "MongoDB is an example of which type of NoSQL data model?",
+         "options": {
+          "A": "Key–value store",
+          "B": "Document store",
+          "C": "Graph database",
+          "D": "Column-family store"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "MongoDB stores JSON-like (BSON) documents, which can have nested structures."
+        },
+        {
+         "question": "Apache Cassandra and HBase are examples of:",
+         "options": {
+          "A": "Hierarchical DBMSs",
+          "B": "Wide-column (column-family) stores",
+          "C": "Graph databases",
+          "D": "Document stores"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "They organise data into column families, inspired by Google's Bigtable."
+        },
+        {
+         "question": "Neo4j stores data as nodes and relationships (edges) with properties. It is a:",
+         "options": {
+          "A": "Graph database",
+          "B": "Relational DBMS",
+          "C": "Key–value store",
+          "D": "Document store"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "Neo4j implements the property-graph data model."
+        },
+        {
+         "question": "A pure key–value store (for example Redis or Amazon DynamoDB in its basic form) accesses data mainly by:",
+         "options": {
+          "A": "Full-text search on all fields",
+          "B": "Complex joins on several columns",
+          "C": "A unique key, with the value largely opaque to the system",
+          "D": "Navigating parent–child pointers"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "Key–value stores give very fast lookups by key; the system usually does not interpret the value's structure."
+        },
+        {
+         "question": "Which feature is characteristic of the object data model?",
+         "options": {
+          "A": "Data are organised only as trees",
+          "B": "Relationships are stored only as foreign keys",
+          "C": "All attributes must be atomic",
+          "D": "Each object has a system-generated object identity (OID) independent of its attribute values"
+         },
+         "answer": "D",
+         "subject": "Data Models",
+         "explanation": "OIDs are immutable and unique; object models also support encapsulation, classes and inheritance."
+        },
+        {
+         "question": "The object–relational data model:",
+         "options": {
+          "A": "Extends the relational model with features such as user-defined types, inheritance and complex objects",
+          "B": "Replaces tables with files",
+          "C": "Supports only hierarchical data",
+          "D": "Is a NoSQL graph model"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "Object–relational features were standardised in SQL:1999 (and later), e.g. in Oracle and PostgreSQL."
+        },
+        {
+         "question": "Consider the statements:\nI. A data model specifies both the structure of a database and operations on it.\nII. Physical data models are mainly intended for end users.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "Physical models are for computer specialists, not end users; statement I is correct."
+        },
+        {
+         "question": "Assertion (A): The relational model offers better data independence than the network model.\nReason (R): In the relational model, relationships are represented by data values (keys) rather than by physical pointers.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "Because relationships are value-based, storage structures can change without affecting how relationships are expressed."
+        },
+        {
+         "question": "In the relational model, a relationship between two relations is represented by:",
+         "options": {
+          "A": "Matching values of attributes, typically a foreign key referring to a primary key",
+          "B": "Physical pointers between records",
+          "C": "Parent–child links",
+          "D": "Owner–member set types"
+         },
+         "answer": "A",
+         "subject": "Data Models",
+         "explanation": "Relational databases connect tables through values, e.g. EMPLOYEE.Dno referencing DEPARTMENT.Dnumber."
+        },
+        {
+         "question": "In the object data model, the behaviour (dynamic aspect) of objects is specified through:",
+         "options": {
+          "A": "Views",
+          "B": "Methods (operations) defined on classes",
+          "C": "Indexes",
+          "D": "Constraints"
+         },
+         "answer": "B",
+         "subject": "Data Models",
+         "explanation": "Object models bundle data with operations (methods); users invoke operations instead of accessing data directly."
+        },
+        {
+         "question": "Which statement about the pure hierarchical model is FALSE?",
+         "options": {
+          "A": "Access usually begins at the root and navigates downwards",
+          "B": "Each record type except the root has exactly one parent record type",
+          "C": "It naturally represents 1:N relationships",
+          "D": "A child record can have several parent records"
+         },
+         "answer": "D",
+         "subject": "Data Models",
+         "explanation": "In a pure hierarchy a child has only one parent, which is why M:N relationships are hard to model."
+        },
+        {
+         "question": "Conceptual data models such as the ER model are mainly used during:",
+         "options": {
+          "A": "Query optimisation",
+          "B": "The physical design phase",
+          "C": "Conceptual database design, independent of any specific DBMS",
+          "D": "Backup and recovery"
+         },
+         "answer": "C",
+         "subject": "Data Models",
+         "explanation": "The conceptual schema is later mapped to a representational model (e.g. relational) during logical design."
+        }
+       ]
+      },
+      {
+       "name": "2 · Schemas and Instances",
+       "questions": [
+        {
+         "question": "The description of a database, specified during database design and not expected to change frequently, is called the:",
+         "options": {
+          "A": "Database state",
+          "B": "Database snapshot",
+          "C": "Database schema",
+          "D": "Database instance"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "The schema describes the structure; the data stored at any moment is the state (instance)."
+        },
+        {
+         "question": "The data in a database at a particular moment in time is called the:",
+         "options": {
+          "A": "Schema",
+          "B": "Schema construct",
+          "C": "Database state (instance or snapshot)",
+          "D": "Meta-data"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "Every insert, delete or update produces a new database state."
+        },
+        {
+         "question": "The schema and the database state are also called, respectively, the:",
+         "options": {
+          "A": "Intension and extension",
+          "B": "Extension and intension",
+          "C": "Instance and snapshot",
+          "D": "Catalog and dictionary"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "Schema = intension; database state = extension of the schema."
+        },
+        {
+         "question": "When a new database is defined but no data has yet been loaded, it is in the:",
+         "options": {
+          "A": "Empty state",
+          "B": "Initial state",
+          "C": "Final state",
+          "D": "Valid state"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "Specifying the schema to the DBMS creates an empty database; loading data then gives the initial state."
+        },
+        {
+         "question": "The state of a database when it is first populated (loaded) with data is called the:",
+         "options": {
+          "A": "Current state",
+          "B": "Transition state",
+          "C": "Initial state",
+          "D": "Empty state"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "After defining the schema, the first loading of data produces the initial database state."
+        },
+        {
+         "question": "A database state that satisfies the structure and all the constraints specified in the schema is called a:",
+         "options": {
+          "A": "Snapshot",
+          "B": "Valid state",
+          "C": "Initial state",
+          "D": "Consistent schema"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "Every state should be valid; the DBMS enforces the constraints."
+        },
+        {
+         "question": "Who is primarily responsible for ensuring that every state of the database is a valid state?",
+         "options": {
+          "A": "The network administrator",
+          "B": "The end user",
+          "C": "The DBMS, by enforcing the constraints defined in the schema",
+          "D": "The operating system"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "The DBMS checks constraints such as keys, domains and referential integrity on each update."
+        },
+        {
+         "question": "In a DBMS, the database schema (meta-data) is stored in the:",
+         "options": {
+          "A": "Query results",
+          "B": "Application programs",
+          "C": "DBMS catalog (data dictionary)",
+          "D": "Transaction log only"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "The catalog stores the schema so the DBMS and its users can refer to it; this is the self-describing nature of databases."
+        },
+        {
+         "question": "Which of the following is typically NOT shown in a schema diagram?",
+         "options": {
+          "A": "Some constraints such as keys",
+          "B": "Names of data items (attributes)",
+          "C": "Actual data values of the records",
+          "D": "Names of record types (relations)"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "A schema diagram shows only aspects of the schema; data values belong to the database state."
+        },
+        {
+         "question": "Each object within a schema, such as STUDENT or COURSE, is called a:",
+         "options": {
+          "A": "Tuple",
+          "B": "Schema construct",
+          "C": "Domain",
+          "D": "Instance"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "Record types, data items and constraints in a schema are schema constructs."
+        },
+        {
+         "question": "Adding a new attribute such as Date_of_birth to the STUDENT record type after the database is in use is an example of:",
+         "options": {
+          "A": "A change of database state",
+          "B": "Schema evolution",
+          "C": "Data mining",
+          "D": "Recovery"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "Changes to the schema after the database is operational are called schema evolution; modern DBMSs allow some changes without reloading."
+        },
+        {
+         "question": "Which statement is correct?",
+         "options": {
+          "A": "The schema changes with every insertion",
+          "B": "The database state changes frequently, while the schema changes rarely",
+          "C": "Both change equally often",
+          "D": "Neither can change once created"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "Every update changes the state; the schema changes only when requirements change."
+        },
+        {
+         "question": "For a relation schema R(A1, A2, …, An), n is called the:",
+         "options": {
+          "A": "Key of R",
+          "B": "Degree (arity) of R",
+          "C": "Cardinality of R",
+          "D": "Domain of R"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "The degree is the number of attributes in the relation schema."
+        },
+        {
+         "question": "The number of tuples in a relation state r(R) is called its:",
+         "options": {
+          "A": "Degree",
+          "B": "Cardinality",
+          "C": "Arity",
+          "D": "Domain"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "Cardinality = number of tuples; degree = number of attributes."
+        },
+        {
+         "question": "A STUDENT relation has 6 attributes and currently holds 250 tuples. Its degree and cardinality are:",
+         "options": {
+          "A": "Degree 256, cardinality 250",
+          "B": "Degree 6, cardinality 6",
+          "C": "Degree 6, cardinality 250",
+          "D": "Degree 250, cardinality 6"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "Degree counts attributes (6) and cardinality counts tuples (250)."
+        },
+        {
+         "question": "Formally, a relation state r(R) of R(A1, …, An) is a subset of:",
+         "options": {
+          "A": "The catalog of R",
+          "B": "dom(A1) ∪ dom(A2) ∪ … ∪ dom(An)",
+          "C": "The power set of R",
+          "D": "dom(A1) × dom(A2) × … × dom(An)"
+         },
+         "answer": "D",
+         "subject": "Schemas and Instances",
+         "explanation": "A relation state is a subset of the Cartesian product of the attribute domains."
+        },
+        {
+         "question": "Relation R(A, B) has |dom(A)| = 3 and |dom(B)| = 4. How many different relation states r(R) are possible?",
+         "options": {
+          "A": "7",
+          "B": "3^4 = 81",
+          "C": "12",
+          "D": "2^12 = 4096"
+         },
+         "answer": "D",
+         "subject": "Schemas and Instances",
+         "explanation": "There are 3 × 4 = 12 possible tuples, and any subset of them is a possible state, so 2^12 = 4096 states."
+        },
+        {
+         "question": "Which statement about tuples in a relation is correct?",
+         "options": {
+          "A": "The ordering of tuples in a relation is not significant",
+          "B": "Tuples must be sorted by the primary key",
+          "C": "Two identical tuples are allowed",
+          "D": "Tuples are stored and must be retrieved in insertion order"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "A relation is a set of tuples, so there is no inherent order and no duplicate tuples."
+        },
+        {
+         "question": "Consider the statements:\nI. The order of tuples in a relation is not significant.\nII. If a tuple is defined as an ordered list of values, the order of values within a tuple matters.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "Both are correct; with the alternative definition as a set of (attribute, value) pairs, attribute order also becomes irrelevant."
+        },
+        {
+         "question": "A relation that currently contains no tuples is:",
+         "options": {
+          "A": "A schema without attributes",
+          "B": "Not allowed by the relational model",
+          "C": "A valid relation state (an empty relation)",
+          "D": "An invalid relation state"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "An empty set of tuples is a legitimate relation state."
+        },
+        {
+         "question": "Which SQL statement changes the database schema rather than only the database state?",
+         "options": {
+          "A": "UPDATE STUDENT SET Class = 2",
+          "B": "INSERT INTO STUDENT VALUES (…)",
+          "C": "DELETE FROM STUDENT",
+          "D": "ALTER TABLE STUDENT ADD Email VARCHAR(40)"
+         },
+         "answer": "D",
+         "subject": "Schemas and Instances",
+         "explanation": "ALTER TABLE is a DDL statement that modifies the schema; INSERT, UPDATE and DELETE change only the state."
+        },
+        {
+         "question": "In a programming-language analogy, a database schema corresponds to a:",
+         "options": {
+          "A": "Loop statement",
+          "B": "Type declaration of a variable",
+          "C": "Value stored in a variable",
+          "D": "Function call"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "The schema is like a type (the structure); the state is like the current value of a variable of that type."
+        },
+        {
+         "question": "'Meta-data' in a database system means:",
+         "options": {
+          "A": "Deleted data",
+          "B": "Very large data",
+          "C": "Encrypted data",
+          "D": "Data about data, such as the definitions of tables, columns and constraints"
+         },
+         "answer": "D",
+         "subject": "Schemas and Instances",
+         "explanation": "Meta-data describes the structure of the database and is stored in the catalog."
+        },
+        {
+         "question": "The term 'snapshot' in database terminology usually refers to:",
+         "options": {
+          "A": "A backup tape",
+          "B": "The external schema",
+          "C": "The database state at a particular moment",
+          "D": "The schema diagram"
+         },
+         "answer": "C",
+         "subject": "Schemas and Instances",
+         "explanation": "Database state, instance, occurrence and snapshot all mean the data at a particular time."
+        },
+        {
+         "question": "A constraint that must hold on every individual database state (for example, 'Ssn is unique') is called a:",
+         "options": {
+          "A": "State (static) constraint",
+          "B": "Access constraint",
+          "C": "Transition (dynamic) constraint",
+          "D": "Physical constraint"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "State constraints restrict each valid state; transition constraints restrict how the database may change from one state to another."
+        },
+        {
+         "question": "'An employee's salary can never decrease' is an example of a:",
+         "options": {
+          "A": "Transition (dynamic) constraint",
+          "B": "Entity integrity constraint",
+          "C": "Domain constraint",
+          "D": "Key constraint"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "It restricts the change from one state to the next, so it is a transition constraint, usually enforced with triggers or application code."
+        },
+        {
+         "question": "Assertion (A): The schema of a relation can remain the same while its state changes many times per second.\nReason (R): The schema is the intension, while the state is the extension of the database.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "The intension (structure) is stable; the extension (actual tuples) changes with every update."
+        },
+        {
+         "question": "Loading a large amount of existing data into a newly defined database to create its first state is typically done using:",
+         "options": {
+          "A": "A bulk-loading utility",
+          "B": "A view",
+          "C": "A recovery manager",
+          "D": "A trigger"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "DBMS loading utilities load existing files efficiently into the database to create the initial state."
+        },
+        {
+         "question": "In the SQL standard, schema information about tables and columns can be queried through the set of views called:",
+         "options": {
+          "A": "INFORMATION_SCHEMA",
+          "B": "DATA_STATE",
+          "C": "SYS_LOG",
+          "D": "META_BUFFER"
+         },
+         "answer": "A",
+         "subject": "Schemas and Instances",
+         "explanation": "The standard INFORMATION_SCHEMA views expose catalog information such as TABLES and COLUMNS."
+        },
+        {
+         "question": "The SQL statement  CREATE SCHEMA COMPANY AUTHORIZATION 'Jsmith';  does what?",
+         "options": {
+          "A": "Grants Jsmith access to all schemas",
+          "B": "Creates a schema named COMPANY owned by the user Jsmith",
+          "C": "Creates a table named COMPANY",
+          "D": "Creates a user called COMPANY"
+         },
+         "answer": "B",
+         "subject": "Schemas and Instances",
+         "explanation": "An SQL schema groups tables and other elements belonging to one application; AUTHORIZATION names its owner."
+        }
+       ]
+      },
+      {
+       "name": "3 · Three-Schema Architecture",
+       "questions": [
+        {
+         "question": "The three-schema architecture of a DBMS was proposed by the:",
+         "options": {
+          "A": "ANSI/SPARC Study Group on Database Management Systems",
+          "B": "IEEE",
+          "C": "CODASYL DBTG",
+          "D": "ODMG"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The ANSI/SPARC architecture (1975–78) introduced the external, conceptual and internal levels."
+        },
+        {
+         "question": "The main goal of the three-schema architecture is to:",
+         "options": {
+          "A": "Replace SQL",
+          "B": "Separate user applications from the physical database",
+          "C": "Reduce the number of users",
+          "D": "Increase disk capacity"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Separating the levels supports multiple user views and data independence."
+        },
+        {
+         "question": "The three levels of the ANSI/SPARC architecture, from the user side to the storage side, are:",
+         "options": {
+          "A": "External → Conceptual → Internal",
+          "B": "Internal → Conceptual → External",
+          "C": "Conceptual → External → Internal",
+          "D": "External → Internal → Conceptual"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "External level (user views), conceptual level (whole database) and internal level (physical storage)."
+        },
+        {
+         "question": "Which level describes the physical storage structures and access paths of the database?",
+         "options": {
+          "A": "Conceptual level",
+          "B": "Internal level",
+          "C": "View level",
+          "D": "External level"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The internal schema uses a physical data model to describe storage details."
+        },
+        {
+         "question": "Which level describes the structure of the whole database for a community of users, hiding physical storage details?",
+         "options": {
+          "A": "Physical level",
+          "B": "External level",
+          "C": "Internal level",
+          "D": "Conceptual level"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The conceptual schema describes entities, data types, relationships, user operations and constraints for the entire database."
+        },
+        {
+         "question": "Which level describes the part of the database that a particular user group is interested in?",
+         "options": {
+          "A": "External (view) level",
+          "B": "Internal level",
+          "C": "Conceptual level",
+          "D": "Storage level"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Each external schema (user view) hides the rest of the database from that group."
+        },
+        {
+         "question": "An index created on EMPLOYEE(Salary) to speed up queries is described at the:",
+         "options": {
+          "A": "External level",
+          "B": "User level",
+          "C": "Internal level",
+          "D": "Conceptual level"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Indexes are access paths, which belong to the internal schema."
+        },
+        {
+         "question": "A view that shows only student names and roll numbers to the library staff belongs to the:",
+         "options": {
+          "A": "Physical level",
+          "B": "Conceptual level",
+          "C": "External level",
+          "D": "Internal level"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "User views that hide other data are external schemas."
+        },
+        {
+         "question": "The definition 'DEPARTMENT(Dnumber, Dname, Mgr_ssn) with Dnumber as the primary key' is part of the:",
+         "options": {
+          "A": "Conceptual schema",
+          "B": "Storage schema",
+          "C": "Internal schema",
+          "D": "External schema"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Relations, attributes and constraints for the whole database are defined in the conceptual schema."
+        },
+        {
+         "question": "For a single database in the three-schema architecture, how many schemas of each kind exist?",
+         "options": {
+          "A": "One external, many conceptual, one internal",
+          "B": "Many of each",
+          "C": "Many external, one conceptual, one internal",
+          "D": "One of each"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "There are many user views but only one conceptual and one internal schema for a database."
+        },
+        {
+         "question": "The processes of transforming requests and results between the levels of the three-schema architecture are called:",
+         "options": {
+          "A": "Mappings",
+          "B": "Indexes",
+          "C": "Transactions",
+          "D": "Normalisations"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "External/conceptual and conceptual/internal mappings translate requests downward and results upward."
+        },
+        {
+         "question": "The two mappings defined in the three-schema architecture are:",
+         "options": {
+          "A": "View/table and table/index",
+          "B": "User/DBA and DBA/system",
+          "C": "External/internal and internal/physical",
+          "D": "External/conceptual and conceptual/internal"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Each external schema maps to the conceptual schema, which maps to the internal schema."
+        },
+        {
+         "question": "A disadvantage of a strict three-schema implementation is:",
+         "options": {
+          "A": "Data redundancy",
+          "B": "Loss of security",
+          "C": "The overhead of transforming requests and results between levels at run time",
+          "D": "Inability to support views"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Mapping between levels takes time; many DBMSs therefore do not separate the levels completely."
+        },
+        {
+         "question": "When implementing the three-schema architecture, the conceptual schema is usually described using:",
+         "options": {
+          "A": "A physical data model",
+          "B": "A representational (implementation) data model, such as the relational model",
+          "C": "Only natural language",
+          "D": "Machine code"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "In practice the conceptual schema is expressed in the DBMS's implementation data model, often derived from a high-level ER design."
+        },
+        {
+         "question": "In relational DBMSs, external schemas are mainly implemented using:",
+         "options": {
+          "A": "Views",
+          "B": "Clusters",
+          "C": "Triggers",
+          "D": "Indexes"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "SQL views present derived, restricted pictures of the base tables to different users."
+        },
+        {
+         "question": "Record placement, file organisation, compression and encryption of stored data are concerns of the:",
+         "options": {
+          "A": "Conceptual level",
+          "B": "External level",
+          "C": "Internal level",
+          "D": "View level"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "These are physical storage details described in the internal schema."
+        },
+        {
+         "question": "In the three-schema architecture, a query written against an external schema is processed by:",
+         "options": {
+          "A": "Ignoring the conceptual schema",
+          "B": "Sending it to every external schema",
+          "C": "Executing it directly on disk",
+          "D": "Transforming it into a request on the conceptual schema and then into a request on the internal schema"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The DBMS maps the request level by level down to the stored database, and maps results back up."
+        },
+        {
+         "question": "Which statement about the three-schema architecture is correct?",
+         "options": {
+          "A": "It removes the need for a catalog",
+          "B": "Most DBMSs support the architecture to some extent but do not separate the levels completely",
+          "C": "All commercial DBMSs separate the three levels strictly",
+          "D": "It applies only to hierarchical databases"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Many DBMSs mix conceptual and internal details in their DDL, although they support user views."
+        },
+        {
+         "question": "The schemas at all three levels are stored as meta-data in the:",
+         "options": {
+          "A": "Application code",
+          "B": "Transaction log",
+          "C": "DBMS catalog",
+          "D": "Query cache"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The catalog keeps the external, conceptual and internal schemas and the mappings between them."
+        },
+        {
+         "question": "Who is mainly responsible for defining the internal schema?",
+         "options": {
+          "A": "Database designers only through views",
+          "B": "Application end users",
+          "C": "Naive end users",
+          "D": "The database administrator (DBA)"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The DBA handles physical design decisions such as indexes and storage organisation."
+        },
+        {
+         "question": "Consider the statements:\nI. A user view may include data derived from stored data that is not physically stored.\nII. Different external schemas may present the same data differently.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Views can contain derived attributes (e.g. age from date of birth) and each user group can see its own representation."
+        },
+        {
+         "question": "Assertion (A): The three-schema architecture makes it possible to provide multiple user views of the same database.\nReason (R): The conceptual schema describes the whole database, from which each external schema is derived through a mapping.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Because every view is defined from the common conceptual schema, many different views can coexist."
+        },
+        {
+         "question": "The stored database on disk is described directly by the:",
+         "options": {
+          "A": "Mapping",
+          "B": "External schema",
+          "C": "Conceptual schema",
+          "D": "Internal schema"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The internal schema describes the physical storage of the database."
+        },
+        {
+         "question": "Which of the following changes is made at the conceptual level?",
+         "options": {
+          "A": "Changing the block size",
+          "B": "Creating a B+-tree index",
+          "C": "Adding a new entity type PROJECT with its attributes",
+          "D": "Moving files to another disk"
+         },
+         "answer": "C",
+         "subject": "Three-Schema Architecture",
+         "explanation": "New entity types, attributes and relationships change the conceptual schema; the other options are internal-level changes."
+        },
+        {
+         "question": "Which user is most likely to interact only with an external schema?",
+         "options": {
+          "A": "The DBA tuning storage parameters",
+          "B": "The DBMS designer",
+          "C": "The system programmer",
+          "D": "A bank teller using a banking application"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "End users see only the part of the database relevant to them through their application's view."
+        },
+        {
+         "question": "In the ANSI/SPARC architecture, security is enhanced because:",
+         "options": {
+          "A": "Indexes are hidden",
+          "B": "Each user can be restricted to their own external schema, hiding other data",
+          "C": "There is only one user",
+          "D": "Data are always encrypted"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Views hide data that a user group is not allowed to see."
+        },
+        {
+         "question": "A single conceptual schema supporting many external schemas mainly helps to:",
+         "options": {
+          "A": "Remove all constraints",
+          "B": "Eliminate the need for mappings",
+          "C": "Increase redundancy",
+          "D": "Integrate data in one place while serving diverse user requirements"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Data are integrated and stored once, while different users get customised views."
+        },
+        {
+         "question": "If only the internal schema changes (for example, a file is reorganised), what else must be changed?",
+         "options": {
+          "A": "All external schemas",
+          "B": "The conceptual/internal mapping only",
+          "C": "The conceptual schema",
+          "D": "All application programs"
+         },
+         "answer": "B",
+         "subject": "Three-Schema Architecture",
+         "explanation": "Only the mapping between the conceptual and internal levels is updated; this is physical data independence."
+        },
+        {
+         "question": "In the three-schema architecture, the level at which the DBMS describes 'what data are stored and the relationships among them' is the:",
+         "options": {
+          "A": "External level",
+          "B": "Internal level",
+          "C": "Hardware level",
+          "D": "Conceptual (logical) level"
+         },
+         "answer": "D",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The conceptual (logical) level describes what data exist; the internal level describes how they are stored."
+        },
+        {
+         "question": "Which layer interacts directly with the operating system's file manager and the disk?",
+         "options": {
+          "A": "Internal level",
+          "B": "User interface",
+          "C": "External level",
+          "D": "Conceptual level"
+         },
+         "answer": "A",
+         "subject": "Three-Schema Architecture",
+         "explanation": "The internal level deals with stored records and files on secondary storage."
+        }
+       ]
+      },
+      {
+       "name": "4 · Data Independence",
+       "questions": [
+        {
+         "question": "Data independence is defined as:",
+         "options": {
+          "A": "The capacity to change the schema at one level without having to change the schema at the next higher level",
+          "B": "Independence of the DBMS from the operating system",
+          "C": "The ability to store data without a DBMS",
+          "D": "The ability of users to work offline"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "Data independence follows from the three-schema architecture: only the mapping between two levels needs changing."
+        },
+        {
+         "question": "Logical data independence is the capacity to change the:",
+         "options": {
+          "A": "Internal schema without changing the conceptual schema",
+          "B": "Hardware without changing the software",
+          "C": "Conceptual schema without changing external schemas or application programs",
+          "D": "External schema without changing the conceptual schema"
+         },
+         "answer": "C",
+         "subject": "Data Independence",
+         "explanation": "Changes such as adding a record type or attribute should not affect users whose views do not use them."
+        },
+        {
+         "question": "Physical data independence is the capacity to change the:",
+         "options": {
+          "A": "Conceptual schema without changing external schemas",
+          "B": "External schemas without changing views",
+          "C": "Application programs without changing the DBMS",
+          "D": "Internal schema without changing the conceptual schema"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Reorganising files or adding access paths should not require changes to the conceptual (and hence external) schemas."
+        },
+        {
+         "question": "Which type of data independence is generally harder to achieve?",
+         "options": {
+          "A": "Physical data independence",
+          "B": "Logical data independence",
+          "C": "Both are equally easy",
+          "D": "Neither can be achieved"
+         },
+         "answer": "B",
+         "subject": "Data Independence",
+         "explanation": "Application programs depend heavily on the logical structure of the data they access, so logical changes are harder to hide."
+        },
+        {
+         "question": "Creating a new index on the ORDERS table to speed up queries requires which kind of data independence to avoid changing programs?",
+         "options": {
+          "A": "Physical",
+          "B": "External",
+          "C": "Logical",
+          "D": "Transactional"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "An index is an internal-level change."
+        },
+        {
+         "question": "Changing a file organisation from heap to hashed, without affecting queries, is an example of:",
+         "options": {
+          "A": "Physical data independence",
+          "B": "Logical data independence",
+          "C": "View resolution",
+          "D": "Schema evolution at the external level"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "The storage structure is part of the internal schema."
+        },
+        {
+         "question": "Adding a new attribute Email to the STUDENT relation without affecting existing applications is an example of:",
+         "options": {
+          "A": "Physical data independence",
+          "B": "Referential integrity",
+          "C": "Logical data independence",
+          "D": "Normalisation"
+         },
+         "answer": "C",
+         "subject": "Data Independence",
+         "explanation": "It changes the conceptual schema; existing views and programs that do not use Email need no change."
+        },
+        {
+         "question": "Splitting the relation EMPLOYEE into two relations and defining a view that reconstructs the original EMPLOYEE for old programs relies on:",
+         "options": {
+          "A": "Physical data independence",
+          "B": "Concurrency control",
+          "C": "Recovery",
+          "D": "Logical data independence"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "The conceptual schema changed, but the view (external schema) hides the change from applications."
+        },
+        {
+         "question": "Moving the database files to a faster SSD without changing any table definitions is an example of:",
+         "options": {
+          "A": "Logical data independence",
+          "B": "Distribution transparency",
+          "C": "Program–operation independence",
+          "D": "Physical data independence"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Only physical storage changed."
+        },
+        {
+         "question": "Data independence in the three-schema architecture is achieved mainly through:",
+         "options": {
+          "A": "The mappings between levels",
+          "B": "Replication",
+          "C": "Encryption",
+          "D": "Triggers"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "When a lower-level schema changes, only the mapping to the higher level is updated."
+        },
+        {
+         "question": "In traditional file-processing systems, why is there little data independence?",
+         "options": {
+          "A": "Files are stored on tape only",
+          "B": "Files are always encrypted",
+          "C": "Files cannot be shared",
+          "D": "The structure of data files is embedded in the application programs"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "A change in record format requires changes to every program that uses the file (program–data dependence)."
+        },
+        {
+         "question": "In object-oriented databases, 'program–operation independence' means that:",
+         "options": {
+          "A": "Programs run on any OS",
+          "B": "Every program has its own data",
+          "C": "The implementation of an operation can change without affecting the programs that invoke it",
+          "D": "Operations cannot be changed"
+         },
+         "answer": "C",
+         "subject": "Data Independence",
+         "explanation": "Users call an operation through its interface (signature); the method body is hidden (encapsulation)."
+        },
+        {
+         "question": "Which change requires logical data independence to avoid rewriting application programs?",
+         "options": {
+          "A": "Removing an attribute that some views do not use",
+          "B": "Compressing the data files",
+          "C": "Adding a B+-tree index",
+          "D": "Changing the disk block size"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "Removing an attribute changes the conceptual schema; it affects only views/programs that use it."
+        },
+        {
+         "question": "Consider the statements:\nI. Physical data independence implies that external schemas are also unaffected by internal changes.\nII. Logical data independence is usually easier to achieve than physical data independence.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "If the conceptual schema is unchanged, the external schemas are unaffected too. Statement II is false: logical independence is harder."
+        },
+        {
+         "question": "Assertion (A): In relational DBMSs, views help to provide logical data independence.\nReason (R): A view can present the old structure of data even after the underlying base tables have been restructured.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "Redefining the view over the new tables lets old programs keep working unchanged."
+        },
+        {
+         "question": "Why was physical data independence difficult in older network and hierarchical systems?",
+         "options": {
+          "A": "They did not allow data sharing",
+          "B": "Physical pointers and access paths were visible to and used by application programs",
+          "C": "They had no disks",
+          "D": "They had too many views"
+         },
+         "answer": "B",
+         "subject": "Data Independence",
+         "explanation": "Navigational programs followed pointers explicitly, so storage changes affected the programs."
+        },
+        {
+         "question": "Which of the following is an example of a change at the internal level?",
+         "options": {
+          "A": "Changing the data type of an attribute in the conceptual schema",
+          "B": "Defining a new view for managers",
+          "C": "Creating a clustered index on Emp_id",
+          "D": "Adding a new relation COURSE"
+         },
+         "answer": "C",
+         "subject": "Data Independence",
+         "explanation": "Clustered indexes are storage structures, i.e. internal level."
+        },
+        {
+         "question": "Which of the following is an example of a change at the conceptual level?",
+         "options": {
+          "A": "Changing the RAID level of the disks",
+          "B": "Adding an index",
+          "C": "Reorganising a file",
+          "D": "Adding a new relationship WORKS_ON between EMPLOYEE and PROJECT"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "New relationships change the logical structure of the whole database."
+        },
+        {
+         "question": "With physical data independence, when the internal schema changes, what must be changed?",
+         "options": {
+          "A": "The conceptual schema",
+          "B": "All application programs",
+          "C": "All user views",
+          "D": "The conceptual/internal mapping"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Only the mapping is updated so the conceptual schema continues to describe the same data."
+        },
+        {
+         "question": "With logical data independence, when the conceptual schema changes, what must be changed?",
+         "options": {
+          "A": "The internal schema",
+          "B": "Only the view definitions and external/conceptual mappings (where affected)",
+          "C": "All application programs",
+          "D": "The hardware"
+         },
+         "answer": "B",
+         "subject": "Data Independence",
+         "explanation": "Application programs referring to external schemas continue to work."
+        },
+        {
+         "question": "Data independence is valuable mainly because it:",
+         "options": {
+          "A": "Makes queries slower",
+          "B": "Reduces the maintenance effort when the database structure or storage changes",
+          "C": "Increases storage cost",
+          "D": "Eliminates the need for a DBA"
+         },
+         "answer": "B",
+         "subject": "Data Independence",
+         "explanation": "Programs are insulated from many changes, reducing costly rewrites."
+        },
+        {
+         "question": "Changing the order in which records are physically stored, while SQL queries remain unchanged, is possible because of:",
+         "options": {
+          "A": "Logical data independence",
+          "B": "Referential integrity",
+          "C": "Atomicity",
+          "D": "Physical data independence"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Physical record ordering is an internal-level detail."
+        },
+        {
+         "question": "A DBA merges two tables DEPT_A and DEPT_B into one DEPARTMENT table and provides views with the old names. This is an application of:",
+         "options": {
+          "A": "Program–operation independence",
+          "B": "Logical data independence",
+          "C": "Physical data independence",
+          "D": "Durability"
+         },
+         "answer": "B",
+         "subject": "Data Independence",
+         "explanation": "The conceptual schema changed, and views keep the external schemas unchanged."
+        },
+        {
+         "question": "The overhead of data independence mainly arises from:",
+         "options": {
+          "A": "Mapping requests and results between the levels at run time or compile time",
+          "B": "Encrypting data",
+          "C": "Running backups",
+          "D": "Checking passwords"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "More levels and mappings mean more work for the DBMS when processing requests."
+        },
+        {
+         "question": "Which of the following does NOT depend on data independence?",
+         "options": {
+          "A": "Adding an index without changing programs",
+          "B": "Changing storage devices without changing programs",
+          "C": "Restructuring tables behind views",
+          "D": "Enforcing that each tuple has a unique primary key"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Key constraints are about integrity, not about insulating levels from changes."
+        },
+        {
+         "question": "In the three-schema architecture, physical data independence exists between the:",
+         "options": {
+          "A": "Conceptual and internal levels",
+          "B": "External and conceptual levels",
+          "C": "Client and server",
+          "D": "User and application"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "It is provided by the conceptual/internal mapping."
+        },
+        {
+         "question": "In the three-schema architecture, logical data independence exists between the:",
+         "options": {
+          "A": "External and conceptual levels",
+          "B": "Conceptual and internal levels",
+          "C": "Internal level and disk",
+          "D": "Two clients"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "It is provided by the external/conceptual mappings."
+        },
+        {
+         "question": "Which statement is TRUE?",
+         "options": {
+          "A": "Data independence means data can never be changed",
+          "B": "File systems provide full data independence",
+          "C": "Logical data independence is guaranteed for every schema change",
+          "D": "Most modern relational DBMSs provide physical data independence well; logical independence is provided mainly through views"
+         },
+         "answer": "D",
+         "subject": "Data Independence",
+         "explanation": "Not every conceptual change can be hidden (e.g. dropping an attribute a view uses), but views handle many cases."
+        },
+        {
+         "question": "A program uses the view EMP_PUBLIC(Name, Dept). The base table EMPLOYEE is split into two tables and the view is redefined. The program needs:",
+         "options": {
+          "A": "No change",
+          "B": "A new external schema",
+          "C": "To be recompiled with new table names",
+          "D": "To be completely rewritten"
+         },
+         "answer": "A",
+         "subject": "Data Independence",
+         "explanation": "Because the view name and structure are unchanged, the program continues to work (logical data independence)."
+        },
+        {
+         "question": "Adding more RAM to the database server to increase the buffer pool size affects which level, if any, of the three-schema architecture?",
+         "options": {
+          "A": "The external level",
+          "B": "The conceptual level",
+          "C": "Only the internal/physical implementation, not the schemas seen by users",
+          "D": "All three levels"
+         },
+         "answer": "C",
+         "subject": "Data Independence",
+         "explanation": "Buffer and hardware tuning are physical concerns invisible to the conceptual and external levels."
+        }
+       ]
+      },
+      {
+       "name": "5 · Database Languages and Interfaces",
+       "questions": [
+        {
+         "question": "Which language is used by the DBA and database designers to define the conceptual schema?",
+         "options": {
+          "A": "DDL (Data Definition Language)",
+          "B": "TCL",
+          "C": "DCL",
+          "D": "DML"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The DDL compiler processes schema definitions and stores them in the catalog."
+        },
+        {
+         "question": "In a DBMS with a strict separation of levels, the language used to specify the internal schema is the:",
+         "options": {
+          "A": "Host language",
+          "B": "View definition language",
+          "C": "Storage definition language (SDL)",
+          "D": "Query language"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The SDL specifies internal (physical) storage; in most relational DBMSs this is done through parameters and commands rather than a separate language."
+        },
+        {
+         "question": "The language used to specify user views and their mappings to the conceptual schema is the:",
+         "options": {
+          "A": "Machine language",
+          "B": "SDL",
+          "C": "VDL (View Definition Language)",
+          "D": "DCL"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "In relational DBMSs, SQL itself serves as the VDL (CREATE VIEW)."
+        },
+        {
+         "question": "A high-level (non-procedural) DML such as SQL is also described as:",
+         "options": {
+          "A": "Pointer-based",
+          "B": "Record-at-a-time",
+          "C": "Navigational",
+          "D": "Set-at-a-time (declarative)"
+         },
+         "answer": "D",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Users specify what data they want, not how to retrieve it; one statement can process many records."
+        },
+        {
+         "question": "A low-level (procedural) DML is typically:",
+         "options": {
+          "A": "Used only for views",
+          "B": "Record-at-a-time and embedded in a general-purpose programming language",
+          "C": "Set-at-a-time and declarative",
+          "D": "Used only by naive users"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Procedural DMLs retrieve individual records and need loops and pointers, e.g. DL/I in IMS."
+        },
+        {
+         "question": "When DML statements are embedded in a general-purpose language such as C or Java, the general-purpose language is called the:",
+         "options": {
+          "A": "Object language",
+          "B": "Host language",
+          "C": "Query language",
+          "D": "Data sublanguage"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The DML is then the data sublanguage."
+        },
+        {
+         "question": "A high-level DML used on its own in an interactive manner is called a:",
+         "options": {
+          "A": "Assembly language",
+          "B": "Query language",
+          "C": "Storage language",
+          "D": "Host language"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "SQL used interactively (e.g. at a command prompt) is a query language."
+        },
+        {
+         "question": "Which of the following SQL commands is a DDL command?",
+         "options": {
+          "A": "INSERT",
+          "B": "CREATE TABLE",
+          "C": "SELECT",
+          "D": "GRANT"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "CREATE, ALTER and DROP are DDL; SELECT/INSERT are DML; GRANT is DCL."
+        },
+        {
+         "question": "GRANT and REVOKE belong to which category of SQL commands?",
+         "options": {
+          "A": "DDL",
+          "B": "DML",
+          "C": "DCL (Data Control Language)",
+          "D": "TCL"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "DCL commands control access privileges."
+        },
+        {
+         "question": "COMMIT, ROLLBACK and SAVEPOINT belong to which category of SQL commands?",
+         "options": {
+          "A": "TCL (Transaction Control Language)",
+          "B": "DDL",
+          "C": "DCL",
+          "D": "DML"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "They control the outcome of transactions."
+        },
+        {
+         "question": "Which statement about DELETE and TRUNCATE is correct?",
+         "options": {
+          "A": "Both are DDL commands",
+          "B": "DELETE is DML and can use a WHERE clause; TRUNCATE (usually treated as DDL) removes all rows",
+          "C": "TRUNCATE can remove selected rows using WHERE",
+          "D": "DELETE removes the table definition"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "DELETE removes chosen rows row by row; TRUNCATE quickly empties the whole table; DROP removes the table itself."
+        },
+        {
+         "question": "Which SQL statement removes both the data and the definition of a table?",
+         "options": {
+          "A": "TRUNCATE TABLE T",
+          "B": "DELETE FROM T",
+          "C": "DROP TABLE T",
+          "D": "ALTER TABLE T"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "DROP deletes the schema element itself."
+        },
+        {
+         "question": "The DBMS component that extracts DML commands from an application program written in a host language is the:",
+         "options": {
+          "A": "Precompiler",
+          "B": "Linker",
+          "C": "DDL compiler",
+          "D": "Runtime database processor"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The precompiler sends the extracted DML to the DML compiler; the rest goes to the host-language compiler."
+        },
+        {
+         "question": "In embedded SQL, the problem caused by SQL returning sets of rows while the host language processes one record at a time is called:",
+         "options": {
+          "A": "Impedance mismatch",
+          "B": "Lost update",
+          "C": "Phantom problem",
+          "D": "Deadlock"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Cursors bridge the gap by letting the program fetch the result set one row at a time."
+        },
+        {
+         "question": "In embedded SQL, which construct is used to process a multi-row query result one row at a time?",
+         "options": {
+          "A": "Assertion",
+          "B": "View",
+          "C": "Trigger",
+          "D": "Cursor"
+         },
+         "answer": "D",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "DECLARE CURSOR, OPEN, FETCH and CLOSE iterate over query results."
+        },
+        {
+         "question": "ODBC and JDBC are examples of:",
+         "options": {
+          "A": "Query optimisers",
+          "B": "Recovery techniques",
+          "C": "Call-level interfaces (APIs) through which programs access databases",
+          "D": "Storage structures"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Instead of precompiling embedded SQL, programs call library functions to send SQL to the DBMS."
+        },
+        {
+         "question": "Bank tellers who repeatedly perform a few operations using a small set of commands or function keys are called:",
+         "options": {
+          "A": "Parametric (naive) end users",
+          "B": "Sophisticated users",
+          "C": "DBAs",
+          "D": "Casual users"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Parametric users run 'canned transactions' through simple interfaces designed for them."
+        },
+        {
+         "question": "A DBMS interface that lets users choose options from lists step by step, without knowing any query language, is a:",
+         "options": {
+          "A": "Command-line interface",
+          "B": "Natural language interface",
+          "C": "Menu-based interface",
+          "D": "Storage interface"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Menu-based interfaces, often used for browsing, guide users through options."
+        },
+        {
+         "question": "An interface in which the user fills in the fields of a displayed template to insert or retrieve data is a:",
+         "options": {
+          "A": "Natural language interface",
+          "B": "Programming interface",
+          "C": "Speech interface",
+          "D": "Forms-based interface"
+         },
+         "answer": "D",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Forms-based interfaces are common for data entry by naive users."
+        },
+        {
+         "question": "A natural language interface to a database:",
+         "options": {
+          "A": "Works only with hierarchical databases",
+          "B": "Accepts requests written in English (or another natural language) and tries to interpret them",
+          "C": "Is used only by the DBA",
+          "D": "Requires users to write SQL"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "It uses its own schema of words and a dictionary to interpret requests and generate queries."
+        },
+        {
+         "question": "Privileged commands such as creating accounts, setting system parameters and changing schemas are available through:",
+         "options": {
+          "A": "Interfaces for parametric users",
+          "B": "Web browsers",
+          "C": "Interfaces for the DBA",
+          "D": "Menu-based interfaces"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "DBA interfaces allow commands that only DBA staff may use."
+        },
+        {
+         "question": "Which of the following is NOT a DML operation?",
+         "options": {
+          "A": "Insertion",
+          "B": "Retrieval",
+          "C": "Modification",
+          "D": "Defining a new relation"
+         },
+         "answer": "D",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Defining relations is a DDL function."
+        },
+        {
+         "question": "In a relational DBMS such as Oracle or MySQL, which statement is TRUE?",
+         "options": {
+          "A": "Separate DDL, VDL and SDL languages are always used",
+          "B": "SQL combines the roles of DDL, VDL and DML, and storage details are set through DBA commands and parameters",
+          "C": "Only a record-at-a-time DML is available",
+          "D": "Views cannot be created"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "SQL is a comprehensive language covering data definition, views, manipulation, constraints and access control."
+        },
+        {
+         "question": "The DBMS component that processes schema definitions and stores their descriptions in the catalog is the:",
+         "options": {
+          "A": "DDL compiler",
+          "B": "Query optimiser",
+          "C": "Recovery manager",
+          "D": "Buffer manager"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The catalog then provides the information needed by other modules."
+        },
+        {
+         "question": "Consider the statements:\nI. A non-procedural DML specifies what data to retrieve rather than how to retrieve it.\nII. A procedural DML requires the programmer to use loops to retrieve multiple records.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Both describe the difference between declarative (SQL) and navigational DMLs."
+        },
+        {
+         "question": "Assertion (A): SQL is called a declarative language.\nReason (R): In SQL the user specifies the conditions the result must satisfy, and the DBMS decides the access strategy.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The query optimiser chooses the execution plan, so the user need not describe how to retrieve data."
+        },
+        {
+         "question": "Which type of user typically writes complex queries directly in SQL to analyse data, without a canned application?",
+         "options": {
+          "A": "Parametric end users",
+          "B": "Sophisticated end users (e.g. analysts, scientists)",
+          "C": "Data entry operators",
+          "D": "Naive users"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "Sophisticated users know the DBMS facilities well and write their own requests."
+        },
+        {
+         "question": "Keyword-based database search, similar to web search engines, is an interface where users:",
+         "options": {
+          "A": "Draw ER diagrams",
+          "B": "Must write relational algebra",
+          "C": "Type keywords and receive ranked results without writing structured queries",
+          "D": "Use only function keys"
+         },
+         "answer": "C",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "It relies on information-retrieval techniques to match keywords with stored data."
+        },
+        {
+         "question": "Which of the following best describes the role of the runtime database processor?",
+         "options": {
+          "A": "It provides the graphical user interface",
+          "B": "It executes privileged commands, compiled queries and canned transactions, working with the stored data manager",
+          "C": "It designs the conceptual schema",
+          "D": "It compiles DDL statements"
+         },
+         "answer": "B",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "The runtime processor carries out execution plans and accesses the database through the stored data manager."
+        },
+        {
+         "question": "Which SQL command changes existing values in rows?",
+         "options": {
+          "A": "UPDATE",
+          "B": "MODIFY TABLE",
+          "C": "ALTER",
+          "D": "REPLACE SCHEMA"
+         },
+         "answer": "A",
+         "subject": "Database Languages and Interfaces",
+         "explanation": "UPDATE is DML and changes data; ALTER is DDL and changes the structure."
+        }
+       ]
+      },
+      {
+       "name": "6 · Centralized and Client/Server Architectures",
+       "questions": [
+        {
+         "question": "In a centralised DBMS architecture:",
+         "options": {
+          "A": "DBMS functions, application programs and the user interface all run on one central computer, with users connected through terminals",
+          "B": "Each user has a separate copy of the database",
+          "C": "Data is spread across many sites",
+          "D": "Only web browsers can access the data"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Early systems used mainframes with display terminals that had no processing power of their own."
+        },
+        {
+         "question": "A major disadvantage of a purely centralised database system is that:",
+         "options": {
+          "A": "It needs a network between sites",
+          "B": "Data cannot be shared",
+          "C": "It has no security",
+          "D": "The central computer is a single point of failure and a performance bottleneck"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "If the central machine fails or becomes overloaded, all users are affected."
+        },
+        {
+         "question": "In the basic client/server architecture, a 'server' is:",
+         "options": {
+          "A": "Any machine used by an end user",
+          "B": "A system with hardware and software that provides services, such as files, printing, web pages or database access, to clients",
+          "C": "Only a printer",
+          "D": "A device driver"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Specialised servers provide functionality to client machines over a network."
+        },
+        {
+         "question": "In a two-tier client/server DBMS architecture, the user interface and application programs usually run on the:",
+         "options": {
+          "A": "Web server",
+          "B": "Database server",
+          "C": "Router",
+          "D": "Client"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The client side handles the interface and application logic; the server side handles query and transaction processing."
+        },
+        {
+         "question": "In a two-tier architecture, the database server is often called a:",
+         "options": {
+          "A": "Query server or transaction server (an SQL server in relational systems)",
+          "B": "File server",
+          "C": "Mail server",
+          "D": "Web server"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The server provides query and transaction functionality related to SQL processing."
+        },
+        {
+         "question": "A client program in a two-tier architecture typically connects to the DBMS through a standard API such as:",
+         "options": {
+          "A": "SMTP",
+          "B": "ODBC or JDBC",
+          "C": "HTTP only",
+          "D": "FTP"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "ODBC and JDBC let client programs call a DBMS as long as both sides have the necessary software."
+        },
+        {
+         "question": "In the three-tier (web) architecture, the middle tier is the:",
+         "options": {
+          "A": "Application server or web server that runs business logic and accesses the database",
+          "B": "Client browser",
+          "C": "Disk controller",
+          "D": "Database server"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The middle tier stores business rules, checks client credentials and forwards requests to the database server."
+        },
+        {
+         "question": "Which is an advantage of the three-tier architecture over the two-tier architecture?",
+         "options": {
+          "A": "No network is needed",
+          "B": "Better security, since clients never access the database server directly, and easier scaling",
+          "C": "Clients access the database directly",
+          "D": "Business logic must be installed on every client"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The application server acts as a gatekeeper and business logic is maintained centrally."
+        },
+        {
+         "question": "A 'thin client' is one that:",
+         "options": {
+          "A": "Stores the whole database locally",
+          "B": "Mainly handles presentation, while most processing happens on servers",
+          "C": "Performs most of the processing itself",
+          "D": "Has no network connection"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Web browsers in three-tier systems are typical thin clients."
+        },
+        {
+         "question": "In a typical two-tier architecture with business logic on the client, the client is often described as a:",
+         "options": {
+          "A": "Thin client",
+          "B": "Fat (thick) client",
+          "C": "Dumb terminal",
+          "D": "Proxy"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Fat clients run substantial application logic and need more software installed."
+        },
+        {
+         "question": "An n-tier architecture:",
+         "options": {
+          "A": "Always has exactly three tiers",
+          "B": "Divides the layers between user and stored data further, e.g. separating business logic into several tiers",
+          "C": "Is the same as a centralised architecture",
+          "D": "Has no database server"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Additional tiers can be distributed across servers, for example in ERP and enterprise systems."
+        },
+        {
+         "question": "In the three-tier architecture, the correct flow of a request is:",
+         "options": {
+          "A": "Browser → database server → application server",
+          "B": "Browser (client) → application/web server → database server",
+          "C": "Database server → browser → application server",
+          "D": "Application server → browser → database server"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Results travel back the same way, formatted by the middle tier (e.g. as HTML) for the client."
+        },
+        {
+         "question": "Dumb terminals in early centralised systems:",
+         "options": {
+          "A": "Had powerful processors",
+          "B": "Ran web browsers",
+          "C": "Stored the database locally",
+          "D": "Provided only display and input, with all processing done on the central computer"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "They were simply screens and keyboards connected to the mainframe."
+        },
+        {
+         "question": "Why did DBMS architectures move from centralised to client/server designs?",
+         "options": {
+          "A": "Mainframes became cheaper than PCs",
+          "B": "Networks disappeared",
+          "C": "Falling hardware costs let PCs and workstations take over interface and processing work",
+          "D": "SQL was abolished"
+         },
+         "answer": "C",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Powerful, cheap client machines allowed processing to be moved away from the central computer."
+        },
+        {
+         "question": "Which of the following is typically handled by the database server in a two-tier architecture?",
+         "options": {
+          "A": "Query optimisation, transaction management, concurrency control and recovery",
+          "B": "Drawing the graphical user interface",
+          "C": "Spell-checking forms",
+          "D": "Printing reports on the client's printer"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "These core DBMS functions stay on the server."
+        },
+        {
+         "question": "Consider the statements:\nI. In a three-tier architecture, the application server can check a client's credentials before forwarding requests.\nII. In a three-tier architecture, business rules must be installed on every client.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Business rules live on the middle tier, which is one of its main advantages."
+        },
+        {
+         "question": "Assertion (A): In a three-tier architecture, changing a business rule usually requires no change on client machines.\nReason (R): Business logic resides in the middle tier rather than on the clients.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Updating the application server updates the logic for all clients at once."
+        },
+        {
+         "question": "A web-based online banking system in which customers use a browser, a bank application server applies business rules and an Oracle server stores data is an example of:",
+         "options": {
+          "A": "A peer-to-peer architecture",
+          "B": "A two-tier architecture",
+          "C": "A three-tier architecture",
+          "D": "A centralised architecture"
+         },
+         "answer": "C",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Browser (presentation), application server (business logic) and database server (data) form three tiers."
+        },
+        {
+         "question": "To protect sensitive data travelling between tiers over a network, three-tier systems commonly use:",
+         "options": {
+          "A": "Encryption and decryption of transmitted data (e.g. TLS/SSL)",
+          "B": "More indexes",
+          "C": "Normalisation",
+          "D": "Larger disks"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Encrypting data at the sender and decrypting it at the receiver protects it in transit."
+        },
+        {
+         "question": "In client/server terminology, 'middleware' refers to:",
+         "options": {
+          "A": "A type of index",
+          "B": "Software that connects clients to servers and manages communication between them (e.g. ODBC drivers, application servers)",
+          "C": "The hard disk in the middle of the server rack",
+          "D": "The operating system kernel"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Middleware sits between client applications and back-end services."
+        },
+        {
+         "question": "In a two-tier architecture using ODBC, which component must be present on the client side?",
+         "options": {
+          "A": "The database files",
+          "B": "The complete DBMS",
+          "C": "A web server",
+          "D": "The ODBC driver/client library for the target DBMS"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The client-side driver translates API calls into requests the DBMS server understands."
+        },
+        {
+         "question": "Which statement about centralised versus client/server architectures is correct?",
+         "options": {
+          "A": "Client/server systems cannot share data",
+          "B": "Client/server systems always use dumb terminals",
+          "C": "In client/server systems, processing is divided between client and server machines",
+          "D": "Centralised systems need no hardware"
+         },
+         "answer": "C",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Dividing functions between clients and servers is the essence of client/server design."
+        },
+        {
+         "question": "In a client/server DBMS, which of the following is most likely performed on the client in a two-tier design?",
+         "options": {
+          "A": "Buffer management of database pages",
+          "B": "Deadlock detection",
+          "C": "Writing log records to disk",
+          "D": "Validating form input and displaying query results"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Presentation and input handling are client-side tasks."
+        },
+        {
+         "question": "In some object DBMS client/server designs, the server supplies disk pages or objects and the client performs much of the processing. Such a server is called a:",
+         "options": {
+          "A": "Data server (page or object server)",
+          "B": "Query server",
+          "C": "Web server",
+          "D": "Print server"
+         },
+         "answer": "A",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "In the data-server approach, more DBMS functionality moves to the client; the server manages storage."
+        },
+        {
+         "question": "Which of these is a specialised server commonly found in client/server environments?",
+         "options": {
+          "A": "File server",
+          "B": "Print server",
+          "C": "Web server",
+          "D": "All of these"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Client/server systems include file, print, web, e-mail and database servers."
+        },
+        {
+         "question": "A key benefit of client/server DBMS architecture over file sharing on a network is that:",
+         "options": {
+          "A": "Whole files must be transferred to each client",
+          "B": "Only the query and its results travel over the network, reducing network traffic",
+          "C": "Clients need a copy of the DBMS",
+          "D": "No server is needed"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Processing happens on the server, so only the relevant results are sent to the client."
+        },
+        {
+         "question": "In a web-based three-tier application, the component that generates HTML pages from query results is usually the:",
+         "options": {
+          "A": "Disk controller",
+          "B": "Database server",
+          "C": "Client's operating system",
+          "D": "Application/web server"
+         },
+         "answer": "D",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "The middle tier formats data (e.g. as HTML or JSON) before sending it to the client."
+        },
+        {
+         "question": "Scalability in a three-tier architecture is improved because:",
+         "options": {
+          "A": "Only one user can connect",
+          "B": "Application servers can be replicated and load-balanced independently of the database server",
+          "C": "Clients hold all the data",
+          "D": "The database server does all the work"
+         },
+         "answer": "B",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "Each tier can be scaled separately, e.g. by adding more application servers."
+        },
+        {
+         "question": "A distributed DBMS differs from a client/server DBMS mainly in that:",
+         "options": {
+          "A": "It uses only dumb terminals",
+          "B": "It cannot use SQL",
+          "C": "The database itself is spread across several sites connected by a network",
+          "D": "It has no users"
+         },
+         "answer": "C",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "In client/server systems the data usually reside on one server; in a distributed DBMS the data are stored at multiple sites."
+        },
+        {
+         "question": "Which statement about a two-tier architecture is TRUE?",
+         "options": {
+          "A": "It requires three physical machines",
+          "B": "It always uses a web browser as the client",
+          "C": "The client communicates directly with the database server",
+          "D": "The client never communicates with the DBMS"
+         },
+         "answer": "C",
+         "subject": "Centralized and Client/Server Architectures",
+         "explanation": "In two-tier systems the client talks to the DBMS server directly, typically via ODBC/JDBC."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
