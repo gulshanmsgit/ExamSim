@@ -15,7 +15,8 @@ AR = ["Both A and R are true, and R is the correct explanation of A",
       "A is true, but R is false", "A is false, but R is true"]
 I_II = ["Only I", "Only II", "Both I and II", "Neither I nor II"]
 
-_ORDERED = re.compile(r"^(Only|Both|Neither|A is|a-\d|All of|None of)|→")
+# Only option sets whose order carries meaning stay fixed; sequences and matchings are self-contained, so they shuffle.
+_ORDERED = re.compile(r"^(Only|Both|Neither|A is|All of|None of)")
 
 
 def _keep_order(q, opts):

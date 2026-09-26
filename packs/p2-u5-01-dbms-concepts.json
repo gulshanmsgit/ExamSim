@@ -691,16 +691,16 @@
          "explanation": "It restricts the change from one state to the next, so it is a transition constraint, usually enforced with triggers or application code."
         },
         {
-         "question": "Assertion (A): The schema of a relation can remain the same while its state changes many times per second.\nReason (R): The schema is the intension, while the state is the extension of the database.",
+         "question": "Assertion (A): The schema of a relation can remain the same while its state changes many times per second.\nReason (R): The schema is stored only inside application programs, not in the DBMS catalog.",
          "options": {
           "A": "Both A and R are true, and R is the correct explanation of A",
           "B": "Both A and R are true, but R is not the correct explanation of A",
           "C": "A is true, but R is false",
           "D": "A is false, but R is true"
          },
-         "answer": "A",
+         "answer": "C",
          "subject": "Schemas and Instances",
-         "explanation": "The intension (structure) is stable; the extension (actual tuples) changes with every update."
+         "explanation": "A is true, but R is false: the schema (meta-data) is stored in the DBMS catalog. The real reason is that the schema is the intension and the state the extension."
         },
         {
          "question": "Loading a large amount of existing data into a newly defined database to create its first state is typically done using:",
@@ -1774,16 +1774,16 @@
          "explanation": "Both describe the difference between declarative (SQL) and navigational DMLs."
         },
         {
-         "question": "Assertion (A): SQL is called a declarative language.\nReason (R): In SQL the user specifies the conditions the result must satisfy, and the DBMS decides the access strategy.",
+         "question": "Assertion (A): SQL is called a declarative language.\nReason (R): SQL has been standardised by ANSI and ISO.",
          "options": {
           "A": "Both A and R are true, and R is the correct explanation of A",
           "B": "Both A and R are true, but R is not the correct explanation of A",
           "C": "A is true, but R is false",
           "D": "A is false, but R is true"
          },
-         "answer": "A",
+         "answer": "B",
          "subject": "Database Languages and Interfaces",
-         "explanation": "The query optimiser chooses the execution plan, so the user need not describe how to retrieve data."
+         "explanation": "Both are true, but standardisation does not explain why SQL is declarative; it is declarative because users state what they want and the DBMS decides how."
         },
         {
          "question": "Which type of user typically writes complex queries directly in SQL to analyse data, without a canned application?",
@@ -1973,12 +1973,12 @@
         {
          "question": "In the three-tier architecture, the correct flow of a request is:",
          "options": {
-          "A": "Browser → database server → application server",
-          "B": "Browser (client) → application/web server → database server",
-          "C": "Database server → browser → application server",
-          "D": "Application server → browser → database server"
+          "A": "Database server → browser → application server",
+          "B": "Application server → browser → database server",
+          "C": "Browser → database server → application server",
+          "D": "Browser (client) → application/web server → database server"
          },
-         "answer": "B",
+         "answer": "D",
          "subject": "Centralized and Client/Server Architectures",
          "explanation": "Results travel back the same way, formatted by the middle tier (e.g. as HTML) for the client."
         },
@@ -2031,16 +2031,16 @@
          "explanation": "Business rules live on the middle tier, which is one of its main advantages."
         },
         {
-         "question": "Assertion (A): In a three-tier architecture, changing a business rule usually requires no change on client machines.\nReason (R): Business logic resides in the middle tier rather than on the clients.",
+         "question": "Assertion (A): In a three-tier architecture, business rules must be installed on every client machine.\nReason (R): In a three-tier architecture, business logic resides in the middle tier.",
          "options": {
           "A": "Both A and R are true, and R is the correct explanation of A",
           "B": "Both A and R are true, but R is not the correct explanation of A",
           "C": "A is true, but R is false",
           "D": "A is false, but R is true"
          },
-         "answer": "A",
+         "answer": "D",
          "subject": "Centralized and Client/Server Architectures",
-         "explanation": "Updating the application server updates the logic for all clients at once."
+         "explanation": "A is false: that describes fat clients in two-tier systems. R is true."
         },
         {
          "question": "A web-based online banking system in which customers use a browser, a bank application server applies business rules and an Oracle server stores data is an example of:",
