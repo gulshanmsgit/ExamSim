@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 4 — Programming Languages & Web",
- "description": "6 of 9 topics so far (17 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2; Object Oriented Programming; Programming in C++ – Part 1. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "8 of 9 topics so far (24 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2; Object Oriented Programming; Programming in C++ – Part 1; Programming in C++ – Part 2; Web Programming – HTML, DHTML, CSS. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 4 – Programming Languages & Web",
@@ -6237,6 +6237,2571 @@
          "answer": "B",
          "subject": "Classes, Objects, Constructors and Destructors",
          "explanation": "This is the basis of the RAII idiom in C++."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Programming in C++ – Part 2",
+     "sets": [
+      {
+       "name": "1 · Function and Operator Overloading, and Virtual Functions",
+       "questions": [
+        {
+         "question": "Two overloaded C++ functions must differ in:",
+         "options": {
+          "A": "Their names",
+          "B": "The names of their parameters only",
+          "C": "Their return types only",
+          "D": "The number, types or order of their parameters"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "The return type alone is not part of what distinguishes overloads."
+        },
+        {
+         "question": "Which pair of declarations is INVALID as an overload in C++?",
+         "options": {
+          "A": "void f(char); and void f(int);",
+          "B": "int f(int); and double f(int);",
+          "C": "int f(int); and int f(double);",
+          "D": "int f(int); and int f(int, int);"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "They differ only in return type."
+        },
+        {
+         "question": "Given  void f(float);  and  void f(double); , the call  f(5);  is:",
+         "options": {
+          "A": "A run-time error",
+          "B": "Ambiguous – a compile error, since int converts equally well to float and to double",
+          "C": "A call to f(double)",
+          "D": "A call to f(float)"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Both need a floating-integral conversion of the same rank."
+        },
+        {
+         "question": "Given  void f(char);  and  void f(int); , the call  f('a');  calls:",
+         "options": {
+          "A": "f(char) – an exact match",
+          "B": "f(int)",
+          "C": "Both",
+          "D": "Neither – ambiguous"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "An exact match beats a promotion."
+        },
+        {
+         "question": "A binary operator overloaded as a MEMBER function of a class takes how many explicit parameters?",
+         "options": {
+          "A": "Three",
+          "B": "None",
+          "C": "One – the left operand is the object itself (this)",
+          "D": "Two"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "As a non-member (e.g. friend) it takes two."
+        },
+        {
+         "question": "The postfix increment operator (x++) is overloaded as a member function with the signature:",
+         "options": {
+          "A": "T operator++(T)",
+          "B": "void operator++(double)",
+          "C": "T& operator++()",
+          "D": "T operator++(int)"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "The dummy int parameter distinguishes postfix from prefix."
+        },
+        {
+         "question": "operator<< for printing an object with cout is normally written as a non-member (often friend) function because:",
+         "options": {
+          "A": "<< cannot be overloaded as a member of any class",
+          "B": "Member functions cannot return references",
+          "C": "Its left operand is an ostream, not an object of the class",
+          "D": "cout is a constant"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "A member operator's left operand must be an object of that class."
+        },
+        {
+         "question": "Which of these operators CAN be overloaded in C++?",
+         "options": {
+          "A": "sizeof",
+          "B": "?: (conditional)",
+          "C": ". (member access)",
+          "D": "() (function call)"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Overloading () creates function objects (functors)."
+        },
+        {
+         "question": "Operator overloading in C++ can NOT change an operator's:",
+         "options": {
+          "A": "Parameter types",
+          "B": "Precedence, associativity and number of operands",
+          "C": "Return type",
+          "D": "Meaning for user-defined types"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "It gives new meaning for class types but keeps the grammar."
+        },
+        {
+         "question": "An overloaded assignment operator usually returns *this by reference so that:",
+         "options": {
+          "A": "It becomes virtual",
+          "B": "It can be called without an object",
+          "C": "Assignments can be chained, as in a = b = c",
+          "D": "It runs faster than the default"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "The standard signature is T& operator=(const T&)."
+        },
+        {
+         "question": "Which operator must be overloaded as a member function (not as a non-member)?",
+         "options": {
+          "A": "==",
+          "B": "<<",
+          "C": "+",
+          "D": "= (assignment)"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "=, [], () and -> must be members."
+        },
+        {
+         "question": "Complex has an operator+ that adds the real and imaginary parts separately. With c1(1, 2) and c2(3, 4), c1 + c2 is:",
+         "options": {
+          "A": "(4, 2)",
+          "B": "(4, 6)",
+          "C": "(3, 8)",
+          "D": "(10, 0)"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Real parts 1 + 3, imaginary parts 2 + 4."
+        },
+        {
+         "question": "The C++11 specifier override on a member function:",
+         "options": {
+          "A": "Makes the function static",
+          "B": "Asks the compiler to check that the function really overrides a base-class virtual function",
+          "C": "Makes the function pure virtual",
+          "D": "Prevents the function from being overridden"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "final is the specifier that prevents further overriding."
+        },
+        {
+         "question": "What does this print?\nclass B { public: B() { f(); } virtual void f() { cout << \"B\"; } };\nclass D : public B { public: void f() override { cout << \"D\"; } };\nint main() { D d; }",
+         "options": {
+          "A": "BD",
+          "B": "Nothing",
+          "C": "B",
+          "D": "D"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "During B's constructor the object is still a B, so the virtual call resolves to B::f."
+        },
+        {
+         "question": "What does this print?\nclass B { public: virtual void f() { cout << \"B\"; } };\nclass D : public B { public: void f() override { cout << \"D\"; } };\nvoid show(B b) { b.f(); }\nint main() { D d; show(d); }",
+         "options": {
+          "A": "B",
+          "B": "BD",
+          "C": "Compile error",
+          "D": "D"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Passing by value copies only the B part (object slicing), so B::f runs."
+        },
+        {
+         "question": "With the same classes B and D as above, what does  void show(B &b) { b.f(); }  print for  show(d); ?",
+         "options": {
+          "A": "Compile error",
+          "B": "BD",
+          "C": "B",
+          "D": "D"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "A reference keeps the dynamic type, so the virtual call goes to D::f."
+        },
+        {
+         "question": "What does this print?\nclass B { public: void f(int) { cout << \"Bi\"; } };\nclass D : public B { public: void f(double) { cout << \"Dd\"; } };\nint main() { D d; d.f(1); }",
+         "options": {
+          "A": "Ambiguous – compile error",
+          "B": "Dd",
+          "C": "BiDd",
+          "D": "Bi"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "D::f hides every B::f (name hiding), so 1 is converted to double. 'using B::f;' would bring B::f back."
+        },
+        {
+         "question": "What does this print?\nclass B { public: virtual ~B() { cout << \"~B\"; } };\nclass D : public B { public: ~D() { cout << \"~D\"; } };\nint main() { B *p = new D; delete p; }",
+         "options": {
+          "A": "~B~D",
+          "B": "~B",
+          "C": "~D~B",
+          "D": "~D"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "With a virtual destructor the derived destructor runs first, then the base destructor."
+        },
+        {
+         "question": "Operator overloading can create a new operator symbol such as ** for power:",
+         "options": {
+          "A": "True, for any class",
+          "B": "True, only as friend functions",
+          "C": "True, but only inside templates",
+          "D": "False – only existing C++ operators can be overloaded"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "A named function such as pow() is used instead."
+        },
+        {
+         "question": "Match the overloaded operator with a typical use:\na. operator[]\nb. operator()\nc. operator<<\nd. operator==\n\n1. Indexing a container\n2. Comparing two objects\n3. Printing to a stream\n4. Making an object callable like a function",
+         "options": {
+          "A": "a-1, b-4, c-3, d-2",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-4, b-1, c-3, d-2",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "These make user-defined types behave like built-in ones."
+        },
+        {
+         "question": "Consider the statements:\nI. Overload resolution happens at compile time.\nII. Dispatch of a virtual function call through a base pointer happens at compile time.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Virtual dispatch happens at run time using the vtable."
+        },
+        {
+         "question": "Consider the statements:\nI. The postfix increment operator is overloaded as operator++(int).\nII. The int parameter of postfix operator++ carries the amount to increment by.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "The int is a dummy used only to tell postfix from prefix."
+        },
+        {
+         "question": "Consider the statements:\nI. A binary operator overloaded as a member function takes one explicit parameter.\nII. The same operator overloaded as a non-member function takes two parameters.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "The member version receives the left operand through this."
+        },
+        {
+         "question": "Assertion (A): The return type alone cannot distinguish overloaded functions.\nReason (R): In a call such as f(2), the compiler has no way to know which return type is wanted.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Overload resolution looks only at the arguments."
+        },
+        {
+         "question": "Assertion (A): Operator overloading can change an operator's precedence.\nReason (R): Precedence and associativity are fixed by the language grammar.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Because they are fixed, overloading cannot change them; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): operator<< for printing a class is usually a non-member function.\nReason (R): A member operator's left operand can be of any type.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "A is true; R is false – for a member operator the left operand must be an object of that class."
+        },
+        {
+         "question": "Assertion (A): A function declared virtual in a base class remains virtual in derived classes.\nReason (R): C++11 introduced the override specifier.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Both true; virtualness is inherited whether or not override is written."
+        },
+        {
+         "question": "A function object (functor) in C++ is:",
+         "options": {
+          "A": "A virtual base class",
+          "B": "An object of a class that overloads operator()",
+          "C": "A template parameter",
+          "D": "A pointer to a member variable"
+         },
+         "answer": "B",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Functors are often passed to STL algorithms."
+        },
+        {
+         "question": "Function overloading and virtual functions are examples of, respectively:",
+         "options": {
+          "A": "Compile-time and run-time polymorphism",
+          "B": "Run-time and compile-time polymorphism",
+          "C": "Encapsulation and inheritance",
+          "D": "Both compile-time polymorphism"
+         },
+         "answer": "A",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Overloading is resolved statically; virtual calls dynamically."
+        },
+        {
+         "question": "A virtual function called through an object (not a pointer or reference), as in  d.f(); , is bound:",
+         "options": {
+          "A": "At link time",
+          "B": "Never",
+          "C": "At compile time, using the object's static type",
+          "D": "At run time through the vtable only"
+         },
+         "answer": "C",
+         "subject": "Function and Operator Overloading, and Virtual Functions",
+         "explanation": "Dynamic binding matters only when the static and dynamic types can differ, i.e. through pointers or references."
+        }
+       ]
+      },
+      {
+       "name": "2 · Inheritance in C++",
+       "questions": [
+        {
+         "question": "With  class D : B { };  (no access specifier), B is inherited as:",
+         "options": {
+          "A": "virtual",
+          "B": "public",
+          "C": "protected",
+          "D": "private"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "For a struct the default is public."
+        },
+        {
+         "question": "A derived class passes an argument to its base-class constructor using:",
+         "options": {
+          "A": "A friend function",
+          "B": "The member initialiser list: D(int x) : B(x) { }",
+          "C": "A call B(x); in the constructor body",
+          "D": "The this pointer"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Base subobjects are constructed before the derived constructor body runs."
+        },
+        {
+         "question": "What does this print?\nclass A { public: A() { cout << \"A\"; } };\nclass B { public: B() { cout << \"B\"; } };\nclass C : public B, public A { public: C() { cout << \"C\"; } };\nint main() { C c; }",
+         "options": {
+          "A": "ABC",
+          "B": "BAC",
+          "C": "CAB",
+          "D": "CBA"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Base classes are constructed in the order they are listed in the derivation list, then the derived class."
+        },
+        {
+         "question": "In the diamond  B : A,  C : A,  D : B, C  WITHOUT virtual inheritance, a D object contains how many A subobjects?",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "One through B and one through C – hence the ambiguity."
+        },
+        {
+         "question": "In the same diamond with  B : virtual public A  and  C : virtual public A , a D object contains how many A subobjects?",
+         "options": {
+          "A": "0",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "Virtual inheritance shares one A subobject."
+        },
+        {
+         "question": "In a hierarchy with a virtual base class, the virtual base is constructed:",
+         "options": {
+          "A": "First, by the most-derived class, before any non-virtual bases",
+          "B": "Last",
+          "C": "Twice",
+          "D": "Only if explicitly called in main"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "The most-derived class is responsible for initialising virtual bases."
+        },
+        {
+         "question": "Diamond-shaped inheritance, where a class inherits the same base through two paths, is also called:",
+         "options": {
+          "A": "Hierarchical inheritance",
+          "B": "Private inheritance",
+          "C": "Multipath inheritance",
+          "D": "Single inheritance"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "It is a special case of hybrid inheritance."
+        },
+        {
+         "question": "A protected member of base class B can be accessed:",
+         "options": {
+          "A": "Inside member functions of B and of classes derived from B, but not through an object in main()",
+          "B": "From anywhere through an object",
+          "C": "Only inside B",
+          "D": "Only by friend functions of derived classes"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "protected is hidden from outside users of the class."
+        },
+        {
+         "question": "With  class D : protected B , the public members of B become in D:",
+         "options": {
+          "A": "public",
+          "B": "protected",
+          "C": "private",
+          "D": "inaccessible"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Public and protected members of B both become protected in D."
+        },
+        {
+         "question": "What does this print?\nclass B { public: void f() { cout << \"B\"; } };\nclass D : public B { public: void f() { B::f(); cout << \"D\"; } };\nint main() { D d; d.f(); }",
+         "options": {
+          "A": "DB",
+          "B": "B",
+          "C": "D",
+          "D": "BD"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "B::f() explicitly calls the base version from inside the derived function."
+        },
+        {
+         "question": "What does this print?\nclass A { public: int x = 1; };\nclass B : public A { public: int x = 2; };\nint main() { B b; cout << b.x << b.A::x; }",
+         "options": {
+          "A": "11",
+          "B": "12",
+          "C": "22",
+          "D": "21"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "B::x hides A::x; b.A::x reaches the hidden member."
+        },
+        {
+         "question": "Which of the following is NOT inherited by a derived class?",
+         "options": {
+          "A": "Public data members",
+          "B": "Friend functions of the base class",
+          "C": "Public member functions",
+          "D": "Protected data members"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Friendship is not inherited; constructors are also not inherited unless 'using Base::Base;' is written."
+        },
+        {
+         "question": "In C++11,  using B::B;  inside class D means:",
+         "options": {
+          "A": "D becomes an alias of B",
+          "B": "D cannot be instantiated",
+          "C": "D inherits B's constructors",
+          "D": "B's destructor is removed"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "These are called inheriting constructors."
+        },
+        {
+         "question": "B has one int data member and D (publicly derived from B, no virtual functions) adds one int. On a typical system, sizeof(D) is:",
+         "options": {
+          "A": "8",
+          "B": "16",
+          "C": "12",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "A D object contains the B subobject plus its own member."
+        },
+        {
+         "question": "With  class D : private B , the conversion  B *p = &d;  written in main() is:",
+         "options": {
+          "A": "Always allowed",
+          "B": "Not allowed – the base is inaccessible outside D",
+          "C": "Allowed with a warning only",
+          "D": "Allowed only for virtual functions"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Only public inheritance models 'is-a' for users of the class."
+        },
+        {
+         "question": "To model 'a Circle is a Shape' for all users of the classes, Circle should inherit from Shape using:",
+         "options": {
+          "A": "private inheritance",
+          "B": "friend inheritance",
+          "C": "public inheritance",
+          "D": "protected inheritance"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "Private and protected inheritance model 'implemented-in-terms-of'."
+        },
+        {
+         "question": "Containership (composition) in C++ means:",
+         "options": {
+          "A": "A class has only static members",
+          "B": "A class contains only virtual functions",
+          "C": "A class is derived from another",
+          "D": "A class has an object of another class as a data member"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "It models has-a; objects are built from other objects."
+        },
+        {
+         "question": "Match the inheritance mode with what a public member of the base becomes in the derived class:\na. public inheritance\nb. protected inheritance\nc. private inheritance\n\n1. public\n2. private\n3. protected",
+         "options": {
+          "A": "a-2, b-3, c-1",
+          "B": "a-1, b-3, c-2",
+          "C": "a-1, b-2, c-3",
+          "D": "a-3, b-1, c-2"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Private members of the base are never accessible in the derived class."
+        },
+        {
+         "question": "What does this print?\nclass A { public: A(int x) { cout << x; } };\nclass B : public A { public: B() : A(5) { cout << \"B\"; } };\nint main() { B b; }",
+         "options": {
+          "A": "5B",
+          "B": "B5",
+          "C": "Compile error",
+          "D": "B"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "A(5) runs first, then B's constructor body."
+        },
+        {
+         "question": "In a D object built from the non-virtual diamond (B : A, C : A, D : B, C), the expression  d.x  where x is a member of A is:",
+         "options": {
+          "A": "Always A's single x",
+          "B": "The x of D",
+          "C": "Ambiguous – it must be written d.B::x or d.C::x",
+          "D": "A run-time error"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "There are two copies of x, one through each path."
+        },
+        {
+         "question": "Consider the statements:\nI. In public inheritance, protected members of the base remain protected in the derived class.\nII. In public inheritance, private members of the base become protected in the derived class.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "Private members of the base stay inaccessible."
+        },
+        {
+         "question": "Consider the statements:\nI. A derived-class object can be assigned to a base-class object (the extra part is sliced off).\nII. A base-class object can be assigned to a derived-class object without any conversion.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "The base object has no values for the derived-class members."
+        },
+        {
+         "question": "Consider the statements:\nI. Constructors execute from the base class to the most-derived class.\nII. Destructors execute from the most-derived class to the base class.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "Destruction is the exact reverse of construction."
+        },
+        {
+         "question": "Assertion (A): In a diamond hierarchy without virtual inheritance, the most-derived object contains two copies of the top base class.\nReason (R): Each intermediate class contains its own base-class subobject.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Inheritance in C++",
+         "explanation": "Both intermediate classes bring their own copy of the base."
+        },
+        {
+         "question": "Assertion (A): Base-class constructors run after the body of the derived-class constructor.\nReason (R): Base-class subobjects are constructed before the derived-class constructor body runs.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "R describes the real order, which shows why A is false."
+        },
+        {
+         "question": "Assertion (A): A derived class can call the base version of an overridden function as B::f().\nReason (R): The scope resolution operator cannot be used with member functions.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "A is true; R is false – B::f() is exactly such a use."
+        },
+        {
+         "question": "Assertion (A):  struct D : B { };  inherits B publicly by default.\nReason (R): C++ supports multiple inheritance.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Inheritance in C++",
+         "explanation": "Both true, but the default access of struct is unrelated to multiple inheritance."
+        },
+        {
+         "question": "A derived class can add new members and also:",
+         "options": {
+          "A": "Change the base class's source code",
+          "B": "Remove inherited data members",
+          "C": "Make inherited private members public",
+          "D": "Redefine (override or hide) inherited member functions"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "Inherited data cannot be removed, only hidden."
+        },
+        {
+         "question": "Which statement about a pure virtual function declared in a base class is TRUE?",
+         "options": {
+          "A": "It makes all derived classes abstract forever",
+          "B": "It must be static",
+          "C": "It can never be overridden",
+          "D": "Every concrete class derived from it must provide an overriding definition"
+         },
+         "answer": "D",
+         "subject": "Inheritance in C++",
+         "explanation": "Until it is overridden, derived classes remain abstract."
+        },
+        {
+         "question": "In C++, if the base class has no default constructor, the derived class constructor must:",
+         "options": {
+          "A": "Declare the base class virtual",
+          "B": "Have no parameters",
+          "C": "Call a base-class constructor explicitly in its initialiser list",
+          "D": "Be a friend of the base"
+         },
+         "answer": "C",
+         "subject": "Inheritance in C++",
+         "explanation": "Otherwise the compiler cannot construct the base subobject."
+        }
+       ]
+      },
+      {
+       "name": "3 · Templates and Exception Handling",
+       "questions": [
+        {
+         "question": "Templates in C++ support:",
+         "options": {
+          "A": "Generic programming – writing code once for many types",
+          "B": "Only run-time polymorphism",
+          "C": "Only exception handling",
+          "D": "Only file handling"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "They are a form of parametric (compile-time) polymorphism."
+        },
+        {
+         "question": "The correct declaration of a function template is:",
+         "options": {
+          "A": "template T maxOf(T a, T b);",
+          "B": "generic <T> maxOf(T a, T b);",
+          "C": "T template maxOf(T a, T b);",
+          "D": "template <typename T> T maxOf(T a, T b);"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "class and typename are interchangeable in the parameter list."
+        },
+        {
+         "question": "Template code for a particular type is generated (instantiated):",
+         "options": {
+          "A": "At link time only",
+          "B": "At compile time, when the template is used with that type",
+          "C": "When the program is loaded",
+          "D": "At run time"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Each used type gets its own generated code."
+        },
+        {
+         "question": "Given  template <class T> T maxOf(T a, T b); , the call  maxOf(3, 4.5)  is:",
+         "options": {
+          "A": "Deduced as maxOf<int>",
+          "B": "Deduced as maxOf<double>",
+          "C": "A run-time error",
+          "D": "A compile error – T cannot be deduced as both int and double"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Writing maxOf<double>(3, 4.5) fixes it."
+        },
+        {
+         "question": "What does this print?\ntemplate <class T> T add(T a, T b) { return a + b; }\nint main() { cout << add(2, 3) << \" \" << add(1.5, 2.0); }",
+         "options": {
+          "A": "5.0 3.5",
+          "B": "Compile error",
+          "C": "5 3.5",
+          "D": "5 3"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "add<int> and add<double> are both instantiated."
+        },
+        {
+         "question": "What does this print?\ntemplate <int N> int twice() { return N * 2; }\nint main() { cout << twice<5>(); }",
+         "options": {
+          "A": "25",
+          "B": "10",
+          "C": "Compile error",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "N is a non-type template parameter known at compile time."
+        },
+        {
+         "question": "To create a stack of integers from  template <class T> class Stack { … }; , one writes:",
+         "options": {
+          "A": "Stack s<int>;",
+          "B": "Stack(int) s;",
+          "C": "Stack<int> s;",
+          "D": "template Stack<int>;"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Class template arguments are written in angle brackets."
+        },
+        {
+         "question": "Providing a separate definition of a template for one particular type, e.g. template <> class Stack<bool>, is called:",
+         "options": {
+          "A": "Overloading",
+          "B": "Explicit (full) specialisation",
+          "C": "Inheritance",
+          "D": "Instantiation by the user"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "It lets a type get an optimised or different implementation."
+        },
+        {
+         "question": "The three main components of the C++ Standard Template Library (STL) are:",
+         "options": {
+          "A": "Macros, headers and libraries",
+          "B": "Streams, files and buffers",
+          "C": "Classes, objects and methods",
+          "D": "Containers, algorithms and iterators"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Iterators connect algorithms to containers."
+        },
+        {
+         "question": "The three C++ keywords used for exception handling are:",
+         "options": {
+          "A": "begin, rescue and end",
+          "B": "try, except and raise",
+          "C": "error, handle and signal",
+          "D": "try, catch and throw"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Code that may fail goes in try; handlers are catch blocks."
+        },
+        {
+         "question": "What does this print?\ntry { throw 5; } catch (int e) { cout << e * 2; }",
+         "options": {
+          "A": "5",
+          "B": "Program terminates",
+          "C": "10",
+          "D": "Nothing"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "The int handler catches the thrown value 5."
+        },
+        {
+         "question": "What does this print?\ntry { throw 'a'; } catch (int) { cout << \"int\"; } catch (char) { cout << \"char\"; }",
+         "options": {
+          "A": "intchar",
+          "B": "char",
+          "C": "Program terminates",
+          "D": "int"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Exception matching does not apply the char-to-int promotion; the char handler matches exactly."
+        },
+        {
+         "question": "A handler written as  catch (...)  :",
+         "options": {
+          "A": "Catches only integer exceptions",
+          "B": "Must be the first handler",
+          "C": "Rethrows every exception",
+          "D": "Catches an exception of any type and should be the last handler"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Handlers are tried in order, so a catch-all placed first would hide the others."
+        },
+        {
+         "question": "If an exception is thrown and no matching handler is found anywhere, the program:",
+         "options": {
+          "A": "Calls std::terminate(), which normally aborts the program",
+          "B": "Ignores the exception",
+          "C": "Restarts main()",
+          "D": "Continues after the throw statement"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Uncaught exceptions end the program."
+        },
+        {
+         "question": "'Stack unwinding' during exception handling means that:",
+         "options": {
+          "A": "The program restarts",
+          "B": "The stack is printed on the screen",
+          "C": "Destructors of automatic objects are called as control leaves each scope between the throw and the handler",
+          "D": "All heap memory is freed automatically"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "This is why RAII objects release resources even when exceptions occur."
+        },
+        {
+         "question": "Inside a catch block, the statement  throw;  (with no operand):",
+         "options": {
+          "A": "Throws a null exception",
+          "B": "Rethrows the current exception to an outer handler",
+          "C": "Is a syntax error",
+          "D": "Ends the program"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "It lets an inner handler do partial work and pass the exception on."
+        },
+        {
+         "question": "The standard base class of C++ library exceptions, which provides the member function what(), is:",
+         "options": {
+          "A": "std::fault",
+          "B": "std::exception",
+          "C": "std::error",
+          "D": "std::throwable"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "E.g. std::out_of_range and std::bad_alloc derive from it."
+        },
+        {
+         "question": "Handlers are written  catch (Base &)  followed by  catch (Derived &) . A Derived object is thrown. Which handler runs?",
+         "options": {
+          "A": "catch (Base &), because it matches first",
+          "B": "catch (Derived &)",
+          "C": "Both",
+          "D": "Neither"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Handlers for derived classes must come before handlers for their bases."
+        },
+        {
+         "question": "Declaring a function noexcept means:",
+         "options": {
+          "A": "The function promises not to throw exceptions; if one escapes, std::terminate is called",
+          "B": "The function returns no value",
+          "C": "The function is inline",
+          "D": "The function cannot contain try blocks"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "It also enables some optimisations, e.g. in move operations."
+        },
+        {
+         "question": "Match the construct with its role:\na. try\nb. throw\nc. catch\nd. catch (...)\n\n1. Raises an exception\n2. Handler for a specific type\n3. Encloses code that may raise an exception\n4. Handler for any exception",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Together they separate error handling from normal code."
+        },
+        {
+         "question": "A key advantage of exceptions over returning error codes is that:",
+         "options": {
+          "A": "They make programs smaller in all cases",
+          "B": "They run faster than any if statement",
+          "C": "Error-handling code is separated from normal code and errors cannot be silently ignored",
+          "D": "They remove the need for testing"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "An unhandled exception cannot pass unnoticed."
+        },
+        {
+         "question": "Consider the statements:\nI. catch (...) can catch an exception of any type.\nII. catch (...) should be placed first among the handlers.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "It must be last, otherwise the more specific handlers would never be reached."
+        },
+        {
+         "question": "Consider the statements:\nI. The type argument of a function template can often be deduced from the call's arguments.\nII. Before C++17, the type argument of a class template had to be written explicitly.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "C++17 added class template argument deduction."
+        },
+        {
+         "question": "Consider the statements:\nI. Templates can reduce code duplication.\nII. Every template instantiation shares a single copy of machine code for all types.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Each type used generates its own code, which can increase program size ('code bloat')."
+        },
+        {
+         "question": "Assertion (A): Destructors of local objects run when an exception leaves their scope.\nReason (R): Stack unwinding destroys the automatic objects between the throw point and the handler.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Unwinding is the mechanism that calls those destructors."
+        },
+        {
+         "question": "Assertion (A): An exception of type int can be caught by catch (double).\nReason (R): Exception matching does not apply ordinary arithmetic conversions.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Because no int-to-double conversion is applied, catch (double) will not catch it; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Templates let one function definition work with many types.\nReason (R): Templates are instantiated at run time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Templates and Exception Handling",
+         "explanation": "A is true; R is false – instantiation happens at compile time."
+        },
+        {
+         "question": "Assertion (A): The STL provides generic containers such as vector and map.\nReason (R): C++ supports exception handling.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "Which STL container stores key–value pairs sorted by key?",
+         "options": {
+          "A": "map",
+          "B": "vector",
+          "C": "list",
+          "D": "stack"
+         },
+         "answer": "A",
+         "subject": "Templates and Exception Handling",
+         "explanation": "unordered_map stores them in a hash table instead."
+        },
+        {
+         "question": "What does this print?\nint divide(int a, int b) { if (b == 0) throw \"div0\"; return a / b; }\nint main() { try { cout << divide(8, 2); cout << divide(1, 0); } catch (const char *m) { cout << m; } }",
+         "options": {
+          "A": "40",
+          "B": "4div0",
+          "C": "div0",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Templates and Exception Handling",
+         "explanation": "The first call prints 4; the second throws before printing, and the handler prints the message."
+        }
+       ]
+      },
+      {
+       "name": "4 · Streams, Files and Event Handling",
+       "questions": [
+        {
+         "question": "In C++, cin and cout are objects of the classes:",
+         "options": {
+          "A": "istream and ostream",
+          "B": "FILE and stdout",
+          "C": "ifstream and ofstream",
+          "D": "string and char"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "They are declared in <iostream>."
+        },
+        {
+         "question": "The header needed for file stream classes such as ifstream and ofstream is:",
+         "options": {
+          "A": "<cstdio>",
+          "B": "<file>",
+          "C": "<iostream> only",
+          "D": "<fstream>"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "fstream supports both reading and writing."
+        },
+        {
+         "question": "Which stream is unbuffered and meant for error messages?",
+         "options": {
+          "A": "cin",
+          "B": "cerr",
+          "C": "clog",
+          "D": "cout"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "clog is also for diagnostics but is buffered."
+        },
+        {
+         "question": "To open a file so that new data is written at its end, the open mode is:",
+         "options": {
+          "A": "ios::trunc",
+          "B": "ios::nocreate",
+          "C": "ios::in",
+          "D": "ios::app"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "ios::ate also starts at the end, but allows later seeking."
+        },
+        {
+         "question": "Which mode is used to read or write raw bytes, such as whole structures, without newline translation?",
+         "options": {
+          "A": "ios::binary",
+          "B": "ios::raw",
+          "C": "ios::text",
+          "D": "ios::app"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "Used with read() and write()."
+        },
+        {
+         "question": "Given  string s;  and the input  Hello World , the statement  cin >> s;  stores in s:",
+         "options": {
+          "A": "\"World\"",
+          "B": "\"Hello World\"",
+          "C": "An empty string",
+          "D": "\"Hello\""
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": ">> stops at white space; getline(cin, s) reads the whole line."
+        },
+        {
+         "question": "What does  cout << fixed << setprecision(2) << 3.14159;  print?",
+         "options": {
+          "A": "3.14",
+          "B": "3.14159",
+          "C": "3.1",
+          "D": "3.141"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "fixed with setprecision(2) prints 2 digits after the decimal point; <iomanip> is needed."
+        },
+        {
+         "question": "What does  cout << setw(5) << 42;  print (· shows a space)?",
+         "options": {
+          "A": "42",
+          "B": "···42",
+          "C": "00042",
+          "D": "42···"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "setw sets the field width; numbers are right-justified by default."
+        },
+        {
+         "question": "To write a structure variable rec to a binary file stream out, one writes:",
+         "options": {
+          "A": "out.put(rec);",
+          "B": "write(out, rec);",
+          "C": "out.write((char *)&rec, sizeof(rec));",
+          "D": "out << rec; (always, for any struct)"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "read() works the same way for input."
+        },
+        {
+         "question": "The functions seekg() and tellg() work with the:",
+         "options": {
+          "A": "Put (write) position of an output stream",
+          "B": "Standard error stream",
+          "C": "Console only",
+          "D": "Get (read) position of an input stream"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "seekp() and tellp() work with the put position."
+        },
+        {
+         "question": "A common way to read integers from ifstream fin until the end of the file is:",
+         "options": {
+          "A": "fin.readAll(x);",
+          "B": "while (fin >> x) { … }",
+          "C": "while (!fin.eof()) fin >> x;  (always correct)",
+          "D": "for (;;) fin >> x;"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "The extraction returns the stream, which becomes false when a read fails, e.g. at end of file."
+        },
+        {
+         "question": "What does this print?\nofstream f(\"a.txt\"); f << 10 << \" \" << 20; f.close();\nifstream g(\"a.txt\"); int x, y; g >> x >> y; cout << x + y;",
+         "options": {
+          "A": "30",
+          "B": "10",
+          "C": "1020",
+          "D": "20"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "The two numbers written are read back and added."
+        },
+        {
+         "question": "A file contains the text  to be or not . How many times does  while (fin >> w) count++;  add 1 (w is a string)?",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "4",
+          "D": "12"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "Each extraction reads one white-space-separated word."
+        },
+        {
+         "question": "Which stream-state function reports whether a stream is still usable (no error flags set)?",
+         "options": {
+          "A": "good()",
+          "B": "flush()",
+          "C": "bad() only",
+          "D": "open()"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "eof(), fail() and bad() test specific error conditions."
+        },
+        {
+         "question": "A file stream object that goes out of scope:",
+         "options": {
+          "A": "Must be closed with fclose()",
+          "B": "Deletes the file",
+          "C": "Closes its file automatically in its destructor",
+          "D": "Leaves the file open until the computer restarts"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "Calling close() explicitly is still useful to reuse the object or check errors."
+        },
+        {
+         "question": "The << operator used with cout returns ostream& so that:",
+         "options": {
+          "A": "It flushes after every item",
+          "B": "Several outputs can be chained in one statement",
+          "C": "It can print only numbers",
+          "D": "It can open files"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "cout << a << b is (cout << a) << b."
+        },
+        {
+         "question": "In event-driven programming, the flow of the program is determined mainly by:",
+         "options": {
+          "A": "The order of lines in main() only",
+          "B": "Compile-time templates",
+          "C": "The file system",
+          "D": "Events such as mouse clicks, key presses and messages, handled by event handlers"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "An event loop waits for events and dispatches them to handlers."
+        },
+        {
+         "question": "In Java's event delegation model, a class that wants to respond to button clicks implements the interface:",
+         "options": {
+          "A": "Serializable",
+          "B": "ActionListener, with the method actionPerformed(ActionEvent e)",
+          "C": "Runnable, with run()",
+          "D": "Comparable, with compareTo()"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "It is registered with button.addActionListener(listener)."
+        },
+        {
+         "question": "In the event delegation model, the three participants are:",
+         "options": {
+          "A": "Event source, event object and event listener (handler)",
+          "B": "Client, server and database",
+          "C": "try, catch and throw",
+          "D": "Compiler, linker and loader"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "The source generates the event object and notifies registered listeners."
+        },
+        {
+         "question": "A function passed to another function to be called later when something happens is called a:",
+         "options": {
+          "A": "Destructor",
+          "B": "Template",
+          "C": "Callback",
+          "D": "Macro"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "In C++ callbacks are passed as function pointers, function objects or lambdas."
+        },
+        {
+         "question": "Match the class with its use:\na. ifstream\nb. ofstream\nc. fstream\nd. stringstream\n\n1. Writing to a file\n2. Reading and writing strings in memory as a stream\n3. Both reading and writing a file\n4. Reading from a file",
+         "options": {
+          "A": "a-1, b-4, c-3, d-2",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "stringstream is declared in <sstream>."
+        },
+        {
+         "question": "Consider the statements:\nI. seekg() moves the get (read) position of an input stream.\nII. tellp() returns the current put (write) position of an output stream.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "g stands for get and p for put."
+        },
+        {
+         "question": "Consider the statements:\nI. cerr is buffered.\nII. clog is buffered.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "cerr is unbuffered so that error messages appear immediately."
+        },
+        {
+         "question": "Consider the statements:\nI. getline(cin, s) can read a line that contains spaces.\nII. cin >> n followed directly by getline(cin, s) may read an empty line, because the newline is left in the buffer.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "cin.ignore() is used to discard the leftover newline."
+        },
+        {
+         "question": "Assertion (A): Opening an existing file with ofstream in its default mode erases its old contents.\nReason (R): The default mode of ofstream is ios::out, which truncates the file.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "Use ios::app to keep old contents and append."
+        },
+        {
+         "question": "Assertion (A):  cin >> s  reads a whole line, including spaces, into a string.\nReason (R): The >> operator stops reading a string at white space.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "R is the rule, and it shows why A is false."
+        },
+        {
+         "question": "Assertion (A): C++ file streams are closed automatically when the stream object goes out of scope.\nReason (R): C++ file streams must always be closed with fclose().",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "A is true; R is false – fclose() is for C FILE* streams."
+        },
+        {
+         "question": "Assertion (A): In event-driven programs the order of execution depends on user actions.\nReason (R): Java provides the ActionListener interface.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "Both true; ActionListener is one tool for handling events, not the reason for event-driven order."
+        },
+        {
+         "question": "Text mode and binary mode files differ in that:",
+         "options": {
+          "A": "There is no difference on any system",
+          "B": "Text mode stores data in hexadecimal",
+          "C": "Text mode may translate newline characters; binary mode transfers bytes exactly",
+          "D": "Binary mode files cannot be read"
+         },
+         "answer": "C",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "On Windows, text mode converts '\\n' to CR-LF."
+        },
+        {
+         "question": "The manipulator used to discard the rest of an input line, for example after cin >> n, is:",
+         "options": {
+          "A": "cin.flush()",
+          "B": "cin.ignore()",
+          "C": "cin.close()",
+          "D": "cin.clear() only"
+         },
+         "answer": "B",
+         "subject": "Streams, Files and Event Handling",
+         "explanation": "clear() resets error flags; ignore() skips characters."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Web Programming – HTML, DHTML, CSS",
+     "sets": [
+      {
+       "name": "1 · HTML: Structure, Text, Links, Lists and Images",
+       "questions": [
+        {
+         "question": "HTML stands for:",
+         "options": {
+          "A": "High-Level Text Machine Language",
+          "B": "HyperText Markup Language",
+          "C": "Hyperlink and Text Management Language",
+          "D": "Home Tool Markup Language"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "It was created by Tim Berners-Lee at CERN."
+        },
+        {
+         "question": "Which is the correct basic structure of an HTML5 document?",
+         "options": {
+          "A": "<body> <html> … </html> </body>",
+          "B": "<head> <html> <body> … </body> </html> </head>",
+          "C": "<!DOCTYPE html> <html> <head> … </head> <body> … </body> </html>",
+          "D": "<html> <body> <head> … </head> </body> </html>"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "The head holds information about the page; the body holds its visible content."
+        },
+        {
+         "question": "The text of the <title> element appears:",
+         "options": {
+          "A": "In the browser's title bar or tab",
+          "B": "As the largest heading on the page",
+          "C": "At the bottom of the page",
+          "D": "Only in the page source, nowhere else"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "<title> must be inside <head>."
+        },
+        {
+         "question": "Which heading tag produces the largest (most important) heading?",
+         "options": {
+          "A": "<h6>",
+          "B": "<head>",
+          "C": "<heading>",
+          "D": "<h1>"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "There are six levels, <h1> to <h6>."
+        },
+        {
+         "question": "Which of the following is an empty (void) element with no closing tag?",
+         "options": {
+          "A": "<ul>",
+          "B": "<br>",
+          "C": "<p>",
+          "D": "<table>"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "<hr>, <img>, <input> and <meta> are also void elements."
+        },
+        {
+         "question": "<strong> and <em> differ from <b> and <i> in that they:",
+         "options": {
+          "A": "Work only in tables",
+          "B": "Are not supported by HTML5",
+          "C": "Cannot be styled",
+          "D": "Carry meaning (strong importance and emphasis), which screen readers can convey"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "<b> and <i> are presentational."
+        },
+        {
+         "question": "The correct way to create a hyperlink to https://example.com that opens in a new tab is:",
+         "options": {
+          "A": "<link url=\"https://example.com\" new>Visit</link>",
+          "B": "<a href=\"https://example.com\" target=\"_blank\">Visit</a>",
+          "C": "<a src=\"https://example.com\">Visit</a>",
+          "D": "<href a=\"https://example.com\">Visit</href>"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "href gives the destination; target=\"_blank\" opens a new browsing context."
+        },
+        {
+         "question": "To link to a section with id=\"contact\" on the same page, the href value is:",
+         "options": {
+          "A": "@contact",
+          "B": "?contact",
+          "C": "#contact",
+          "D": "contact.html"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "A fragment identifier jumps to the element with that id."
+        },
+        {
+         "question": "A link written as  <a href=\"mailto:office@school.in\">  :",
+         "options": {
+          "A": "Opens the user's e-mail program with that address filled in",
+          "B": "Sends an e-mail automatically",
+          "C": "Downloads a file",
+          "D": "Opens a new web page called mailto"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "mailto: is a URL scheme for e-mail addresses."
+        },
+        {
+         "question": "The alt attribute of an <img> element:",
+         "options": {
+          "A": "Gives the image file path",
+          "B": "Sets the image's alignment",
+          "C": "Sets the image's altitude on the page",
+          "D": "Gives alternative text shown if the image cannot load and read by screen readers"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "src gives the image's location."
+        },
+        {
+         "question": "Which tags create an unordered (bulleted) list with one item?",
+         "options": {
+          "A": "<ol><li>Item</li></ol>",
+          "B": "<ul><item>Item</item></ul>",
+          "C": "<ul><li>Item</li></ul>",
+          "D": "<list><item>Item</item></list>"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "<ol> creates an ordered (numbered) list."
+        },
+        {
+         "question": "An ordered list written as  <ol type=\"A\" start=\"3\">  labels its first item:",
+         "options": {
+          "A": "C",
+          "B": "iii",
+          "C": "A",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "type=\"A\" uses capital letters, and start=\"3\" begins at the third one."
+        },
+        {
+         "question": "A description list uses the tags:",
+         "options": {
+          "A": "<ul>, <li> and <dd>",
+          "B": "<dl>, <dt> and <dd>",
+          "C": "<dl>, <li> and <dt>",
+          "D": "<desc>, <term> and <def>"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "<dt> is the term and <dd> its description."
+        },
+        {
+         "question": "A comment in HTML is written as:",
+         "options": {
+          "A": "/* comment */",
+          "B": "// comment",
+          "C": "# comment",
+          "D": "<!-- comment -->"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Browsers do not display comments."
+        },
+        {
+         "question": "To display the character < as text in HTML, one writes the entity:",
+         "options": {
+          "A": "&gt;",
+          "B": "&lt;",
+          "C": "&amp;",
+          "D": "&nbsp;"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "&gt; is >, &amp; is & and &nbsp; is a non-breaking space."
+        },
+        {
+         "question": "<div> and <span> differ in that:",
+         "options": {
+          "A": "<div> is a block-level element, while <span> is an inline element",
+          "B": "They are identical",
+          "C": "<span> always starts on a new line",
+          "D": "<div> cannot contain text"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Both are generic containers used mainly with CSS."
+        },
+        {
+         "question": "The <pre> element:",
+         "options": {
+          "A": "Makes text bold",
+          "B": "Creates a paragraph",
+          "C": "Displays text with its spaces and line breaks preserved, usually in a monospace font",
+          "D": "Previews a web page"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Useful for code and poems."
+        },
+        {
+         "question": "Which HTML5 elements are semantic elements that describe parts of a page?",
+         "options": {
+          "A": "<header>, <nav>, <article> and <footer>",
+          "B": "<div> and <span>",
+          "C": "<b>, <i> and <u>",
+          "D": "<font> and <center>"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "They help search engines and assistive technology understand the page."
+        },
+        {
+         "question": "The HTML5 elements used to embed sound and video without plug-ins are:",
+         "options": {
+          "A": "<sound> and <movie>",
+          "B": "<audio> and <video>",
+          "C": "<embed> only",
+          "D": "<media> and <film>"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "The controls attribute shows play/pause buttons."
+        },
+        {
+         "question": "The tag  <meta charset=\"UTF-8\">  is placed in:",
+         "options": {
+          "A": "<footer> only",
+          "B": "Any table cell",
+          "C": "<body>, to show a heading",
+          "D": "<head>, to declare the page's character encoding"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "UTF-8 supports Kannada and other scripts."
+        },
+        {
+         "question": "A link written as  href=\"notes/unit4.html\"  is an example of a:",
+         "options": {
+          "A": "mailto link",
+          "B": "Fragment identifier",
+          "C": "Relative URL",
+          "D": "Absolute URL"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "It is resolved relative to the current page's location; an absolute URL starts with a scheme such as https://."
+        },
+        {
+         "question": "Match the tag with its use:\na. <hr>\nb. <br>\nc. <p>\nd. <img>\n\n1. Paragraph\n2. Horizontal (thematic) break line\n3. Embeds a picture\n4. Line break",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Only <p> of these has a closing tag."
+        },
+        {
+         "question": "An attribute in HTML is written:",
+         "options": {
+          "A": "Inside the start tag as name=\"value\"",
+          "B": "Inside the end tag",
+          "C": "Between the start and end tags as text",
+          "D": "Only in a separate file"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "E.g. <img src=\"a.png\" alt=\"Logo\">."
+        },
+        {
+         "question": "Consider the statements:\nI. <strong> indicates strong importance.\nII. <em> indicates stress emphasis.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Both are semantic phrase elements."
+        },
+        {
+         "question": "Consider the statements:\nI. <ul> produces a numbered list by default.\nII. <ol> produces a bulleted list by default.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "It is the other way round: <ul> is bulleted, <ol> is numbered."
+        },
+        {
+         "question": "Assertion (A): The alt attribute of <img> improves accessibility.\nReason (R): Screen readers read the alt text aloud to visually impaired users.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "That is the main purpose of alt text."
+        },
+        {
+         "question": "Assertion (A): HTML is a programming language with variables and loops.\nReason (R): HTML is a markup language that describes the structure of a document.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Because it only marks up structure, it is not a programming language; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): <br> is an empty element.\nReason (R): Every HTML element must have a closing tag.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "A is true; R is false – void elements such as <br> and <img> have no closing tag."
+        },
+        {
+         "question": "Assertion (A): <h1> is used for the most important heading of a page.\nReason (R): HTML was developed by Tim Berners-Lee.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "How many list items are displayed by:\n<ul><li>A</li><li>B<ul><li>B1</li><li>B2</li></ul></li><li>C</li></ul>",
+         "options": {
+          "A": "5",
+          "B": "3",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "HTML: Structure, Text, Links, Lists and Images",
+         "explanation": "A, B, C at the outer level plus B1 and B2 in the nested list."
+        }
+       ]
+      },
+      {
+       "name": "2 · HTML Tables and Forms",
+       "questions": [
+        {
+         "question": "In an HTML table, the tags <tr>, <td> and <th> stand for:",
+         "options": {
+          "A": "Table row, table data cell and table header cell",
+          "B": "Table reference, table division and table header",
+          "C": "Top row, total data and table height",
+          "D": "Table rule, text data and table heading"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "<th> cells are bold and centred by default."
+        },
+        {
+         "question": "A cell written as  <td colspan=\"3\">  :",
+         "options": {
+          "A": "Spans three rows",
+          "B": "Spans three columns",
+          "C": "Is repeated three times",
+          "D": "Has a border 3 pixels wide"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "rowspan merges cells vertically."
+        },
+        {
+         "question": "A table has 3 <tr> rows, and each row has 4 <td> cells with no colspan or rowspan. How many cells does it have?",
+         "options": {
+          "A": "7",
+          "B": "3",
+          "C": "4",
+          "D": "12"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "3 × 4."
+        },
+        {
+         "question": "The first row of a 2-column table is  <td rowspan=\"2\">A</td><td>B</td> . How many <td> elements does the second row need?",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Cell A already occupies the first column of row 2."
+        },
+        {
+         "question": "The <caption> element in a table:",
+         "options": {
+          "A": "Gives the table a title",
+          "B": "Merges two cells",
+          "C": "Adds a footer row",
+          "D": "Sets the border colour"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "It must be the first child of <table>."
+        },
+        {
+         "question": "The table sections <thead>, <tbody> and <tfoot>:",
+         "options": {
+          "A": "Set column widths",
+          "B": "Are used only in forms",
+          "C": "Group the header rows, body rows and footer rows of a table",
+          "D": "Create three separate tables"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "They help styling, printing and accessibility."
+        },
+        {
+         "question": "In HTML tables, cellpadding and cellspacing refer respectively to:",
+         "options": {
+          "A": "Space between cells; space inside a cell",
+          "B": "Row height; column width",
+          "C": "Border width; border colour",
+          "D": "Space between a cell's border and its content; space between adjacent cells"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "In modern pages these are set with CSS (padding and border-spacing)."
+        },
+        {
+         "question": "The action attribute of a <form> element specifies:",
+         "options": {
+          "A": "The URL to which the form data is sent",
+          "B": "The colour of the form",
+          "C": "The number of input fields",
+          "D": "The encryption key"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "method says how the data is sent (get or post)."
+        },
+        {
+         "question": "Compared with method=\"get\", method=\"post\" for a form:",
+         "options": {
+          "A": "Appends the data to the URL",
+          "B": "Works only with e-mail",
+          "C": "Sends the data in the request body instead of the URL, so it is better for passwords and large data",
+          "D": "Cannot send any data"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "GET data is visible in the address bar, history and logs."
+        },
+        {
+         "question": "An <input type=\"password\"> field:",
+         "options": {
+          "A": "Cannot be submitted",
+          "B": "Hides the typed characters on the screen but does not encrypt them by itself",
+          "C": "Accepts only numbers",
+          "D": "Encrypts the data automatically"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Secure transmission needs HTTPS."
+        },
+        {
+         "question": "Radio buttons allow only one choice from a group when:",
+         "options": {
+          "A": "They use type=\"checkbox\"",
+          "B": "They are inside a table",
+          "C": "They share the same name attribute",
+          "D": "They have different ids"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Checkboxes allow several independent choices."
+        },
+        {
+         "question": "The elements used to create a drop-down list are:",
+         "options": {
+          "A": "<input type=\"dropdown\">",
+          "B": "<select> with <option> elements",
+          "C": "<ul> with <li> elements",
+          "D": "<list> with <item> elements"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Adding the multiple attribute allows several selections."
+        },
+        {
+         "question": "A multi-line text input box is created with:",
+         "options": {
+          "A": "<textarea>",
+          "B": "<input type=\"text\">",
+          "C": "<input type=\"lines\">",
+          "D": "<text>"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Its rows and cols attributes set its visible size."
+        },
+        {
+         "question": "The <label for=\"email\"> element:",
+         "options": {
+          "A": "Validates the e-mail address",
+          "B": "Creates an e-mail field",
+          "C": "Sends an e-mail",
+          "D": "Associates a caption with the control whose id is \"email\", so clicking the label focuses it"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Labels improve usability and accessibility."
+        },
+        {
+         "question": "The HTML5 attribute that prevents a form from being submitted while a field is empty is:",
+         "options": {
+          "A": "autofocus",
+          "B": "required",
+          "C": "readonly",
+          "D": "placeholder"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "placeholder only shows a hint inside the field."
+        },
+        {
+         "question": "A form that uploads files must use:",
+         "options": {
+          "A": "enctype=\"text/plain\"",
+          "B": "method=\"get\" only",
+          "C": "method=\"post\" and enctype=\"multipart/form-data\"",
+          "D": "No special attributes"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Along with <input type=\"file\">."
+        },
+        {
+         "question": "An <input type=\"hidden\"> field:",
+         "options": {
+          "A": "Cannot hold a value",
+          "B": "Hides the whole form",
+          "C": "Is a password field",
+          "D": "Sends a value with the form without showing it to the user"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Hidden is not secret: the value is visible in the page source."
+        },
+        {
+         "question": "The data sent to the server for each form control is identified by the control's:",
+         "options": {
+          "A": "name attribute",
+          "B": "class attribute",
+          "C": "id attribute only",
+          "D": "style attribute"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Controls without a name are not submitted."
+        },
+        {
+         "question": "The <fieldset> and <legend> elements are used to:",
+         "options": {
+          "A": "Upload files",
+          "B": "Group related form controls and give the group a caption",
+          "C": "Create tables",
+          "D": "Make hyperlinks"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Browsers draw a box around a fieldset."
+        },
+        {
+         "question": "Match the input type with the control it creates:\na. checkbox\nb. radio\nc. submit\nd. reset\n\n1. Independent on/off choice\n2. Clears the form to its initial values\n3. One choice among a group\n4. Sends the form data",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "HTML5 also added types such as email, number and date."
+        },
+        {
+         "question": "Which HTML5 input type shows a date picker in modern browsers?",
+         "options": {
+          "A": "day",
+          "B": "calendar",
+          "C": "time-picker",
+          "D": "date"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Other HTML5 types include email, number, range and color."
+        },
+        {
+         "question": "A checkbox that should appear ticked when the page loads is written with the attribute:",
+         "options": {
+          "A": "checked",
+          "B": "selected",
+          "C": "on",
+          "D": "active"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "selected is used for <option> elements."
+        },
+        {
+         "question": "Consider the statements:\nI. colspan merges cells horizontally.\nII. rowspan merges cells vertically.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Both statements are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. A reset button sends the form data to the server.\nII. A submit button clears the form.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "It is the other way round."
+        },
+        {
+         "question": "Assertion (A): Passwords should be sent with method=\"post\" rather than method=\"get\".\nReason (R): With GET, form data appears in the URL.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Data in the URL can be seen in the address bar, history and server logs."
+        },
+        {
+         "question": "Assertion (A): Radio buttons with different name attributes allow only one of them to be selected.\nReason (R): Only radio buttons that share the same name form a group with a single selection.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "With different names each button is its own group; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): <th> cells are displayed bold and centred by default.\nReason (R): <th> can be used only in the first column of a table.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "HTML Tables and Forms",
+         "explanation": "A is true; R is false – header cells can be used in any row or column."
+        },
+        {
+         "question": "Assertion (A): The <select> element creates a drop-down list.\nReason (R): The <textarea> element creates a multi-line text box.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "HTML Tables and Forms",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "A marks table must show the heading \"Marks\" once above the two columns \"Theory\" and \"Practical\". The \"Marks\" header cell should use:",
+         "options": {
+          "A": "colspan=\"2\"",
+          "B": "cellspacing=\"2\"",
+          "C": "border=\"2\"",
+          "D": "rowspan=\"2\""
+         },
+         "answer": "A",
+         "subject": "HTML Tables and Forms",
+         "explanation": "It spans the two columns below it."
+        },
+        {
+         "question": "The value attribute of <input type=\"text\">:",
+         "options": {
+          "A": "Sets its width",
+          "B": "Makes it compulsory",
+          "C": "Hides the field",
+          "D": "Sets the field's initial content"
+         },
+         "answer": "D",
+         "subject": "HTML Tables and Forms",
+         "explanation": "For buttons it sets the text shown on the button."
+        }
+       ]
+      },
+      {
+       "name": "3 · DHTML and CSS",
+       "questions": [
+        {
+         "question": "DHTML (Dynamic HTML) is:",
+         "options": {
+          "A": "A new markup language that replaced HTML",
+          "B": "A combination of HTML, CSS, JavaScript and the DOM used to make pages interactive without reloading",
+          "C": "A browser made by Microsoft only",
+          "D": "A server-side database"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "It is a technique, not a separate language."
+        },
+        {
+         "question": "The Document Object Model (DOM) represents a web page as:",
+         "options": {
+          "A": "A single string of text",
+          "B": "An image",
+          "C": "A table of CSS rules only",
+          "D": "A tree of objects that scripts can read and change"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "E.g. document.getElementById('x').innerHTML = 'Hi';"
+        },
+        {
+         "question": "CSS stands for:",
+         "options": {
+          "A": "Computer Style Sheets",
+          "B": "Cascading Style Sheets",
+          "C": "Creative Style System",
+          "D": "Colourful Style Sheets"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "CSS separates presentation from content (HTML)."
+        },
+        {
+         "question": "Match the way of adding CSS with its form:\na. Inline\nb. Internal\nc. External\n\n1. <style> … </style> in the head\n2. <link rel=\"stylesheet\" href=\"site.css\">\n3. style=\"…\" attribute on an element",
+         "options": {
+          "A": "a-2, b-1, c-3",
+          "B": "a-1, b-3, c-2",
+          "C": "a-3, b-2, c-1",
+          "D": "a-3, b-1, c-2"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "An external sheet can style a whole website."
+        },
+        {
+         "question": "Which CSS selector selects all elements with class=\"note\"?",
+         "options": {
+          "A": "#note",
+          "B": "*note",
+          "C": ".note",
+          "D": "note"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "#note selects the element with id=\"note\"."
+        },
+        {
+         "question": "For  <p id=\"x\" class=\"y\">Text</p>  with the rules  p { color: red; }  .y { color: green; }  #x { color: blue; } , the text colour is:",
+         "options": {
+          "A": "red",
+          "B": "blue",
+          "C": "black",
+          "D": "green"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "Specificity: id > class > element."
+        },
+        {
+         "question": "The CSS box model, from the inside out, consists of:",
+         "options": {
+          "A": "Content, padding, border, margin",
+          "B": "Margin, border, padding, content",
+          "C": "Padding, content, border, margin",
+          "D": "Content, margin, padding, border"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "Padding is inside the border; margin is outside it."
+        },
+        {
+         "question": "An element has  width: 200px; padding: 10px; border: 5px solid; margin: 20px;  with the default box-sizing (content-box). The total horizontal space it occupies is:",
+         "options": {
+          "A": "200px",
+          "B": "250px",
+          "C": "270px",
+          "D": "230px"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "200 + 2×10 + 2×5 + 2×20 = 270; its border-box width is 230px."
+        },
+        {
+         "question": "With  box-sizing: border-box; , the width property includes:",
+         "options": {
+          "A": "Content and margin",
+          "B": "Margin only",
+          "C": "Content only",
+          "D": "Content, padding and border"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "This makes layouts easier to calculate."
+        },
+        {
+         "question": "display: none and visibility: hidden differ in that:",
+         "options": {
+          "A": "They are identical",
+          "B": "visibility: hidden deletes the element from the DOM",
+          "C": "display: none keeps the element's space",
+          "D": "display: none removes the element from the layout, while visibility: hidden hides it but keeps its space"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "Both hide the element from view."
+        },
+        {
+         "question": "An element with position: absolute is positioned relative to:",
+         "options": {
+          "A": "Its nearest positioned (non-static) ancestor, or the initial containing block if there is none",
+          "B": "Always the browser window",
+          "C": "The next sibling",
+          "D": "Its own normal position"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "position: fixed is relative to the viewport."
+        },
+        {
+         "question": "The default value of the CSS position property is:",
+         "options": {
+          "A": "fixed",
+          "B": "static",
+          "C": "relative",
+          "D": "absolute"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "top, left and so on have no effect on static elements."
+        },
+        {
+         "question": "The colour #FF0000 in CSS is:",
+         "options": {
+          "A": "White",
+          "B": "Blue",
+          "C": "Red",
+          "D": "Green"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "The pairs are red, green and blue in hexadecimal; FF is full intensity."
+        },
+        {
+         "question": "If the root element's font size is 16px, an element with font-size: 1.5rem is:",
+         "options": {
+          "A": "16px",
+          "B": "32px",
+          "C": "24px",
+          "D": "1.5px"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "rem is relative to the root font size: 1.5 × 16."
+        },
+        {
+         "question": "Which CSS property is normally inherited by child elements?",
+         "options": {
+          "A": "color",
+          "B": "margin",
+          "C": "padding",
+          "D": "border"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "Text properties such as color and font-family are inherited; box properties are not."
+        },
+        {
+         "question": "The CSS rule  a:hover { color: red; }  uses a:",
+         "options": {
+          "A": "Class selector",
+          "B": "Id selector",
+          "C": "Pseudo-element",
+          "D": "Pseudo-class"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "::first-letter and ::before are pseudo-elements."
+        },
+        {
+         "question": "Media queries such as  @media (max-width: 600px) { … }  are used mainly for:",
+         "options": {
+          "A": "Playing audio",
+          "B": "Responsive design – different styles for different screen sizes",
+          "C": "Querying databases",
+          "D": "Loading JavaScript"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "They help pages work on phones and desktops."
+        },
+        {
+         "question": "In a flex container (display: flex) with the default row direction, justify-content aligns items along the ______ axis and align-items along the ______ axis.",
+         "options": {
+          "A": "cross; main",
+          "B": "vertical; horizontal",
+          "C": "z; x",
+          "D": "main (horizontal); cross (vertical)"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "The main axis follows flex-direction."
+        },
+        {
+         "question": "The z-index property controls:",
+         "options": {
+          "A": "The font size",
+          "B": "The stacking order of overlapping positioned elements",
+          "C": "The zoom level of the page",
+          "D": "The order of CSS files"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "Higher values appear in front."
+        },
+        {
+         "question": "A comment in a CSS file is written as:",
+         "options": {
+          "A": "/* comment */",
+          "B": "<!-- comment -->",
+          "C": "# comment",
+          "D": "// comment only"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "HTML comments do not work inside CSS."
+        },
+        {
+         "question": "The word 'cascading' in CSS refers to:",
+         "options": {
+          "A": "Linking many HTML files",
+          "B": "Animations only",
+          "C": "The rules for resolving conflicts when several style rules apply to the same element",
+          "D": "Pages falling like a waterfall"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "Importance, specificity and source order decide which rule wins."
+        },
+        {
+         "question": "A typical DHTML effect is:",
+         "options": {
+          "A": "Compiling C programs in the browser",
+          "B": "Sending e-mail from HTML alone",
+          "C": "Changing an image when the mouse moves over it (a rollover) using JavaScript and CSS",
+          "D": "Storing data in a database with HTML tags"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "Scripts react to events such as onmouseover and change the DOM or styles."
+        },
+        {
+         "question": "Consider the statements:\nI. Without !important, an inline style overrides a conflicting rule in an internal style sheet.\nII. The margin lies inside the border in the CSS box model.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "Margin is outside the border; padding is inside it."
+        },
+        {
+         "question": "Consider the statements:\nI. em is relative to the font size of the element (or its parent, when used for font-size).\nII. rem is relative to the font size of the root (html) element.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "rem avoids the compounding effect of nested em values."
+        },
+        {
+         "question": "Consider the statements:\nI. A grouping selector such as  h1, h2 { … }  applies the rule to both elements.\nII. The selector  div > p  selects every p anywhere inside a div, however deep.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "div > p selects only direct children; div p (descendant selector) selects all nested p elements."
+        },
+        {
+         "question": "Assertion (A): One external style sheet can style many pages at once.\nReason (R): Every page can link to the same .css file.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "Changing that one file updates the look of all linked pages."
+        },
+        {
+         "question": "Assertion (A): A class selector is more specific than an id selector.\nReason (R): An id selector is more specific than a class selector.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "DHTML and CSS",
+         "explanation": "R is correct, which makes A false."
+        },
+        {
+         "question": "Assertion (A): display: none hides an element and removes it from the layout.\nReason (R): visibility: hidden also removes the element's space from the layout.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "DHTML and CSS",
+         "explanation": "A is true; R is false – visibility: hidden keeps the space."
+        },
+        {
+         "question": "Assertion (A): DHTML pages can change their content without reloading.\nReason (R): CSS stands for Cascading Style Sheets.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "DHTML and CSS",
+         "explanation": "Both true but unrelated; the dynamic behaviour comes from JavaScript manipulating the DOM."
+        },
+        {
+         "question": "Which rule makes every paragraph's text centred and 18 pixels high?",
+         "options": {
+          "A": "p { text-align: center; font-size: 18px; }",
+          "B": "<p style=center 18>",
+          "C": "p { align: center; size: 18; }",
+          "D": "p = center, 18px;"
+         },
+         "answer": "A",
+         "subject": "DHTML and CSS",
+         "explanation": "Declarations are property: value pairs separated by semicolons inside braces."
         }
        ]
       }
