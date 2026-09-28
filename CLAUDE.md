@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v13; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v15; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -108,6 +108,14 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
   Auto-import (`D.prefs.autoImport`, default on; `tdAutoImport`) quietly imports the bank packs for the chosen day and the next one, once per day per session.
   Also: exam countdown, topic progress with a status dropdown per topic, daily-goal stat, and "Revise earlier days" (1/3/7 days before).
   Home keeps only a short Today summary (`planHomeCard`) with "Open Today". Tab labels: Today · Library · Mocks · Add · Revise · Study plan.
+
+### Syllabus, plan links, PDF notes, design (built 28 Sep 2026)
+- `packs/syllabus.json` (by `tools/make_syllabus.py`, also run by `build_subject.py`): official syllabus text per subject from `tools/syllabus_src/p1.txt`/`p2.txt`
+  (`pdftotext -enc UTF-8 -layout` of the PDFs; Kannada-script parts don't extract, so General Kannada shows planner topics only) + planner topics + sub-topics.
+  Screen `syllabus` (`openSyllabus(subjectId)`, 📜 buttons on Today subject blocks and subject pages). Today topic rows show the planner coverage and sub-topic chips (`topicSubs`: the topic's numbered sets, else the syllabus map).
+- `repairPlanLinks()` (after loadAll) re-links planner rows to library topics by name when a topic has no plan; tasks still unmatched show a **Fix** button (re-imports the structure pack). Current affairs show as their own line.
+- Notes → A4 PDF: `printNotes()` builds `#printArea` and calls `window.print()`; `@media print` + `body.print-notes` prints only the notes (`@page size A4`).
+- Design refresh block at the end of `<style>` (Inter + Noto Sans Kannada from Google Fonts, indigo/violet tokens, Today gradient header `.td-hero` with progress ring). Tabs: Today · Library · Mocks · Add · Revise · Plan.
 
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;

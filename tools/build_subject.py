@@ -88,3 +88,4 @@ if __name__ == "__main__":
         print(f"== {k}")
         build(k)
     subprocess.run([sys.executable, str(TOOLS / "make_index.py")], check=True)
+    subprocess.run([sys.executable, str(TOOLS / "make_syllabus.py")], check=True, stdout=subprocess.DEVNULL)  # sub-topics shown in the app
