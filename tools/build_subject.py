@@ -30,7 +30,14 @@ PACKS = {
     "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b"]},
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b"]},
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a"]},
+    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_2026"]},
 }
+
+# Subjects that are not in the planner. Current affairs: one topic per month ("January 2026", …) with a
+# Karnataka set (30 Q) and a National set (10 Q) – the owner's 75% Karnataka / 25% national rule.
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": [f"{m} {y}" for y in (2026, 2027) for m in MONTHS],
+                                          "sizes": {"Karnataka": 30, "National": 10}, "group": "③ Current affairs (monthly · 75% Karnataka, 25% national)"}}
 
 
 def build(key):
@@ -38,7 +45,8 @@ def build(key):
     subject = cfg["subject"]
     structure = json.loads((ROOT / "packs" / "gpstr-cst-2026-00-structure.json").read_text(encoding="utf-8"))
     smap = json.loads((TOOLS / "syllabus_map.json").read_text(encoding="utf-8"))
-    ssub = next(s for s in structure["subjects"] if s["name"] == subject)
+    extra = EXTRA_SUBJECTS.get(subject)
+    ssub = {"icon": extra["icon"], "topics": [{"name": t} for t in extra["topics"]]} if extra else next(s for s in structure["subjects"] if s["name"] == subject)
     planned = [t["name"] for t in ssub["topics"]]
     size = 30 if subject.startswith("P2") else 20
     content = {}
@@ -54,7 +62,8 @@ def build(key):
         for i, (name, qs) in enumerate(content[t], 1):
             num, sub = name.split(" · ", 1)
             assert num == str(i), f"{t} / {name}: sets must be numbered 1, 2, 3…"
-            assert len(qs) == size, f"{t} / {name}: {len(qs)} questions, expected {size}"
+            want_n = extra["sizes"][sub] if extra else size
+            assert len(qs) == want_n, f"{t} / {name}: {len(qs)} questions, expected {want_n}"
             sets.append({"name": name, "tag": sub, "questions": qs})
         want = smap.get(subject, {}).get(t)
         assert want == [s["tag"] for s in sets], f"{t}: sets {[s['tag'] for s in sets]} differ from syllabus_map {want}"
@@ -64,6 +73,9 @@ def build(key):
     covered = "all topics" if len(topics) == len(planned) else f"{len(topics)} of {len(planned)} topics"
     desc = (f"{covered.capitalize()} so far ({n_sets} sets × {size} questions): " + "; ".join(t["name"] for t in topics)
             + ". More topics are added to this pack as the plan goes on; re-importing only adds the new sets.")
+    if extra:
+        desc = ("Month-by-month current affairs from January 2026: 75% Karnataka and 25% national, including important schemes. "
+                "Facts checked against news sources, which are named in the explanations. Months so far: " + ", ".join(t["name"] for t in topics) + ".")
     out = ROOT / "packs" / f"{key}.json"
     build_pack(out, title, desc, [{"name": subject, "icon": ssub.get("icon", ""), "topics": topics}])
 
@@ -73,7 +85,7 @@ def build(key):
     if not entry:
         entry = {"file": out.name}
         idx["packs"].append(entry)
-    entry.update({"group": P2_GROUP if subject.startswith("P2") else P1_GROUP, "name": title, "description": desc})
+    entry.update({"group": extra["group"] if extra else P2_GROUP if subject.startswith("P2") else P1_GROUP, "name": title, "description": desc})
     # keep groups together in the Question bank: start, Paper 1, Paper 2, daily practice
     order = lambda p: ("①" not in p["group"], "Paper 2" in p["group"], "③" in p["group"])
     idx["packs"].sort(key=order)
