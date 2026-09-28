@@ -1,0 +1,1478 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 8 — Data Structures & Algorithms",
+ "description": "1 of 10 topics so far (4 sets × 30 questions): Linear Data Structures. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 8 – Data Structures & Algorithms",
+   "icon": "🌳",
+   "topics": [
+    {
+     "name": "Linear Data Structures",
+     "sets": [
+      {
+       "name": "1 · Arrays and Sparse Matrices",
+       "questions": [
+        {
+         "question": "Accessing the i-th element of an array takes constant time because:",
+         "options": {
+          "A": "The array is searched from the start",
+          "B": "Arrays are always sorted",
+          "C": "Arrays are stored as linked lists",
+          "D": "Elements are stored contiguously, so the address is computed directly from the index"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Address = base + i × element size."
+        },
+        {
+         "question": "An array A[5..50] of 4-byte elements starts at address 1000. The address of A[20] is:",
+         "options": {
+          "A": "1080",
+          "B": "1060",
+          "C": "1076",
+          "D": "1020"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "1000 + 4 × (20 − 5) = 1060."
+        },
+        {
+         "question": "How many elements does the array A[−5..20] have?",
+         "options": {
+          "A": "15",
+          "B": "20",
+          "C": "26",
+          "D": "25"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "20 − (−5) + 1 = 26."
+        },
+        {
+         "question": "A[1..10][1..15] is stored in row-major order from address 500 with 2 bytes per element. The address of A[4][6] is:",
+         "options": {
+          "A": "598",
+          "B": "600",
+          "C": "560",
+          "D": "606"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "500 + 2 × ((4 − 1) × 15 + (6 − 1)) = 500 + 2 × 50."
+        },
+        {
+         "question": "The same array A[1..10][1..15] (base 500, 2 bytes per element) stored in column-major order puts A[4][6] at address:",
+         "options": {
+          "A": "600",
+          "B": "596",
+          "C": "610",
+          "D": "606"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "500 + 2 × ((6 − 1) × 10 + (4 − 1)) = 500 + 2 × 53."
+        },
+        {
+         "question": "How many elements does the 3-D array int A[2][3][4] have?",
+         "options": {
+          "A": "12",
+          "B": "24",
+          "C": "9",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "2 × 3 × 4."
+        },
+        {
+         "question": "Inserting a new element at the beginning of an array holding n elements requires, in the worst case:",
+         "options": {
+          "A": "Shifting all n elements – O(n)",
+          "B": "O(log n) time",
+          "C": "O(n²) time",
+          "D": "O(1) time"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Every element moves one place to the right."
+        },
+        {
+         "question": "Binary search on an array requires that the array be:",
+         "options": {
+          "A": "Unsorted",
+          "B": "Of even length",
+          "C": "Sorted, and it then takes O(log n) comparisons",
+          "D": "Stored as a linked list"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Linear search works on any array but takes O(n)."
+        },
+        {
+         "question": "A sparse matrix is a matrix in which:",
+         "options": {
+          "A": "No element is zero",
+          "B": "The number of rows equals the number of columns",
+          "C": "All elements are equal",
+          "D": "Most of the elements are zero"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Storing only the non-zero elements saves memory."
+        },
+        {
+         "question": "A 100 × 100 sparse matrix has 50 non-zero elements. In the triplet (row, column, value) form with one header row, how many values are stored?",
+         "options": {
+          "A": "300",
+          "B": "153",
+          "C": "10,000",
+          "D": "150"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "(50 + 1) rows × 3 columns = 153, instead of 10,000."
+        },
+        {
+         "question": "The 'fast transpose' algorithm for a sparse matrix in triplet form runs in time proportional to:",
+         "options": {
+          "A": "terms²",
+          "B": "columns × number of terms",
+          "C": "rows × columns",
+          "D": "columns + number of non-zero terms"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "It first counts the terms in each column and computes their starting positions."
+        },
+        {
+         "question": "A lower triangular n × n matrix has how many elements on or below the main diagonal?",
+         "options": {
+          "A": "n²",
+          "B": "n(n − 1)/2",
+          "C": "n(n + 1)/2",
+          "D": "2n − 1"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "For n = 10 this is 55."
+        },
+        {
+         "question": "A 10 × 10 lower triangular matrix is stored row by row, keeping only elements on or below the diagonal (1-based indices). How many elements come before A[5][3]?",
+         "options": {
+          "A": "12",
+          "B": "13",
+          "C": "22",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Rows 1–4 contribute 1 + 2 + 3 + 4 = 10, plus 2 elements before A[5][3] in row 5."
+        },
+        {
+         "question": "A tridiagonal n × n matrix has at most how many non-zero elements?",
+         "options": {
+          "A": "n²/3",
+          "B": "2n − 1",
+          "C": "3n − 2",
+          "D": "3n"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "The main diagonal (n) plus the diagonals above and below it (n − 1 each); for n = 10, 28."
+        },
+        {
+         "question": "The polynomial 3x⁵ + 2x² + 7 is stored in an array indexed by exponent. The array needs at least:",
+         "options": {
+          "A": "3 elements",
+          "B": "5 elements",
+          "C": "7 elements",
+          "D": "6 elements (exponents 0 to 5)"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "This form wastes space for sparse polynomials, where a list of (coefficient, exponent) pairs is better."
+        },
+        {
+         "question": "A dynamic array that doubles its capacity when it is full gives an append operation that costs:",
+         "options": {
+          "A": "O(1) amortised",
+          "B": "O(n) every time",
+          "C": "O(log n) every time",
+          "D": "O(n²) amortised"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Occasional O(n) copies are spread over many cheap appends."
+        },
+        {
+         "question": "Match the array operation with its time complexity (n elements):\na. Access by index\nb. Linear search\nc. Binary search on sorted data\nd. Insert at the front\n\n1. O(n) because of shifting\n2. O(1)\n3. O(log n)\n4. O(n)",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Arrays trade fast access for slow insertion and deletion."
+        },
+        {
+         "question": "Which of the following is a typical application of arrays?",
+         "options": {
+          "A": "Implementing recursion only",
+          "B": "Representing matrices, polynomials and lookup tables",
+          "C": "Undo operations only",
+          "D": "Storing hierarchical data only"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Arrays also implement stacks, queues and heaps."
+        },
+        {
+         "question": "Deleting the element at index k from an array of n elements (keeping the order) needs how many shifts?",
+         "options": {
+          "A": "n − k − 1",
+          "B": "k",
+          "C": "1",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Every element after position k moves one place left."
+        },
+        {
+         "question": "Consider the statements:\nI. Arrays allow random access to elements.\nII. The size of a static array can grow automatically at run time.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "A static array's size is fixed when it is created."
+        },
+        {
+         "question": "Consider the statements:\nI. Row-major order stores all elements of a row together.\nII. C stores two-dimensional arrays in column-major order.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "C uses row-major order; FORTRAN uses column-major order."
+        },
+        {
+         "question": "Consider the statements:\nI. The triplet representation saves space only when the matrix is sparse.\nII. Matrix addition in triplet form can be done by merging the two triplet lists.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Merging by (row, column) order adds matching terms."
+        },
+        {
+         "question": "Assertion (A): Access to any array element takes O(1) time.\nReason (R): The address of an element is computed directly from the base address and the index.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "No searching is needed."
+        },
+        {
+         "question": "Assertion (A): Inserting into the middle of an array is as fast as appending at the end.\nReason (R): Inserting in the middle requires shifting the later elements.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Shifting makes middle insertion O(n) while appending is O(1); R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Storing a sparse matrix in triplet form saves memory.\nReason (R): The triplet form stores every zero element as well.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "A is true; R is false – only non-zero elements are stored."
+        },
+        {
+         "question": "Assertion (A): Binary search needs a sorted array.\nReason (R): Arrays are stored in contiguous memory.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Both true; binary search needs sorting to discard half the range, which contiguity does not explain."
+        },
+        {
+         "question": "For  int A[3][4]  in C (row-major, 4-byte int) starting at address 2000, the address of A[2][1] is:",
+         "options": {
+          "A": "2044",
+          "B": "2024",
+          "C": "2036",
+          "D": "2028"
+         },
+         "answer": "C",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "2000 + 4 × (2 × 4 + 1) = 2036."
+        },
+        {
+         "question": "An upper triangular 5 × 5 matrix stored compactly needs how many memory locations?",
+         "options": {
+          "A": "10",
+          "B": "20",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "5 × 6 / 2 = 15."
+        },
+        {
+         "question": "A symmetric n × n matrix can be stored using how many elements?",
+         "options": {
+          "A": "n(n + 1)/2, storing only one triangle",
+          "B": "2n",
+          "C": "n",
+          "D": "n²"
+         },
+         "answer": "A",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "A[i][j] = A[j][i], so one triangle is enough."
+        },
+        {
+         "question": "In C, the name of a 1-D array used in an expression represents:",
+         "options": {
+          "A": "The number of elements",
+          "B": "The sum of its elements",
+          "C": "The last element",
+          "D": "The address of its first element"
+         },
+         "answer": "D",
+         "subject": "Arrays and Sparse Matrices",
+         "explanation": "Hence A[i] ≡ *(A + i)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Stacks and Their Applications",
+       "questions": [
+        {
+         "question": "A stack follows the principle:",
+         "options": {
+          "A": "Random access",
+          "B": "First In, First Out (FIFO)",
+          "C": "Highest priority first",
+          "D": "Last In, First Out (LIFO)"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Insertion (push) and deletion (pop) happen at the same end, the top."
+        },
+        {
+         "question": "Starting with an empty stack, the operations push 1, push 2, push 3, pop, push 4, pop, pop remove the elements in the order:",
+         "options": {
+          "A": "1, 2, 3",
+          "B": "3, 4, 2",
+          "C": "3, 2, 4",
+          "D": "4, 3, 2"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "After popping 3, 4 is pushed on top of 2, so 4 and then 2 come out."
+        },
+        {
+         "question": "Elements 1, 2, 3, 4 are pushed in this order, with pops allowed at any time. Which output sequence is IMPOSSIBLE?",
+         "options": {
+          "A": "2, 1, 4, 3",
+          "B": "1, 2, 3, 4",
+          "C": "3, 2, 4, 1",
+          "D": "4, 1, 3, 2"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Popping 4 first leaves 3 on top, so 1 cannot come next."
+        },
+        {
+         "question": "How many different output sequences can be produced by passing 1, 2, 3 through a stack?",
+         "options": {
+          "A": "6",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "The count is the Catalan number C₃ = 5; only 3, 1, 2 is impossible."
+        },
+        {
+         "question": "With n = 4 elements pushed in order through a stack, the number of possible output permutations is:",
+         "options": {
+          "A": "24",
+          "B": "14",
+          "C": "16",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Catalan number C₄ = 14."
+        },
+        {
+         "question": "The postfix form of  A + B * C − D  is:",
+         "options": {
+          "A": "A B C D * + −",
+          "B": "A B C * + D −",
+          "C": "A B + C * D −",
+          "D": "+ A * B C − D"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "B * C is formed first, then added to A, then D is subtracted."
+        },
+        {
+         "question": "The postfix form of  (A + B) * (C − D)  is:",
+         "options": {
+          "A": "* + A B − C D",
+          "B": "A B C D + − *",
+          "C": "A B + C D − *",
+          "D": "A + B C − D *"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "The prefix form would be * + A B − C D."
+        },
+        {
+         "question": "The value of the postfix expression  6 2 3 + − 3 8 2 / + *  is:",
+         "options": {
+          "A": "5",
+          "B": "1",
+          "C": "49",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "2 + 3 = 5; 6 − 5 = 1; 8 / 2 = 4; 3 + 4 = 7; 1 × 7 = 7."
+        },
+        {
+         "question": "The value of the prefix expression  − * 2 3 4  is:",
+         "options": {
+          "A": "−2",
+          "B": "2",
+          "C": "14",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "(2 × 3) − 4 = 2."
+        },
+        {
+         "question": "The prefix form of  A * B + C  is:",
+         "options": {
+          "A": "+ A * B C",
+          "B": "* A + B C",
+          "C": "+ * A B C",
+          "D": "A B * C +"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "The last operator applied, +, comes first."
+        },
+        {
+         "question": "While evaluating the postfix expression  2 3 4 * +  with a stack, the maximum number of elements on the stack at one time is:",
+         "options": {
+          "A": "5",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "2, 3 and 4 are all on the stack before * is applied."
+        },
+        {
+         "question": "Which string of brackets is balanced?",
+         "options": {
+          "A": "{[()]}",
+          "B": "{[}]",
+          "C": "((]",
+          "D": "([)]"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Each closing bracket must match the most recent unmatched opening bracket – checked with a stack."
+        },
+        {
+         "question": "In an array implementation of a stack of size MAX (0-based), with top = −1 meaning empty, the stack is full when:",
+         "options": {
+          "A": "top == MAX − 1",
+          "B": "top == MAX",
+          "C": "top == −1",
+          "D": "top == 0"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Pushing when full causes overflow; popping when empty causes underflow."
+        },
+        {
+         "question": "Two stacks share one array of size n by growing from opposite ends. Overflow occurs only when:",
+         "options": {
+          "A": "The total number of elements in both stacks reaches n",
+          "B": "Either stack holds n/2 elements",
+          "C": "One stack becomes empty",
+          "D": "Both stacks hold the same number of elements"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "This uses the space more flexibly than a fixed half each."
+        },
+        {
+         "question": "Pushing onto a stack implemented as a singly linked list, with the top at the head, takes:",
+         "options": {
+          "A": "O(n²) time",
+          "B": "O(n) time",
+          "C": "O(log n) time",
+          "D": "O(1) time"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "The new node simply becomes the new head."
+        },
+        {
+         "question": "The Tower of Hanoi with 5 discs needs a minimum of how many moves?",
+         "options": {
+          "A": "32",
+          "B": "31",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "2ⁿ − 1 = 31; the recursive solution uses the call stack."
+        },
+        {
+         "question": "Which of the following does NOT typically use a stack?",
+         "options": {
+          "A": "Function calls and recursion",
+          "B": "Undo in a text editor",
+          "C": "Breadth-first search of a graph",
+          "D": "Evaluating postfix expressions"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "BFS uses a queue; depth-first search uses a stack."
+        },
+        {
+         "question": "Match the application with the data structure it mainly uses:\na. Function-call management\nb. Printer job scheduling\nc. Depth-first search\nd. Browser Back button history\n\n1. Stack (explicit or recursion)\n2. Call stack\n3. Queue\n4. Stack of visited pages",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "LIFO suits anything that must be undone in reverse order."
+        },
+        {
+         "question": "During infix-to-postfix conversion, an operator on the stack is popped to the output when the incoming operator has:",
+         "options": {
+          "A": "The same symbol only",
+          "B": "Higher precedence",
+          "C": "No precedence",
+          "D": "Lower or equal precedence (for left-associative operators)"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Right-associative ^ is handled differently."
+        },
+        {
+         "question": "A stack can be simulated using:",
+         "options": {
+          "A": "Two queues",
+          "B": "Only one variable",
+          "C": "A hash table only",
+          "D": "A binary search tree only"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Similarly, a queue can be built from two stacks."
+        },
+        {
+         "question": "What does the stack contain (bottom → top) after: push 5, push 7, pop, push 2, push 9, pop?",
+         "options": {
+          "A": "5, 7, 2",
+          "B": "5, 2",
+          "C": "5, 9",
+          "D": "2, 9"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "7 and 9 are removed."
+        },
+        {
+         "question": "Consider the statements:\nI. Recursion is implemented with a stack of activation records.\nII. Every recursive program can be converted into an iterative one using an explicit stack.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Both are standard results."
+        },
+        {
+         "question": "Consider the statements:\nI. Popping from an empty stack causes underflow.\nII. Pushing onto an empty stack causes overflow.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Overflow happens when pushing onto a full stack."
+        },
+        {
+         "question": "Assertion (A): A stack is used to check balanced parentheses.\nReason (R): The most recently opened bracket must be the first one to be closed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Stacks and Their Applications",
+         "explanation": "That LIFO property matches the stack exactly."
+        },
+        {
+         "question": "Assertion (A): Postfix expressions need parentheses to show the order of operations.\nReason (R): In postfix notation the order of operators alone fixes the order of evaluation.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Because the order is already fixed, postfix needs no parentheses; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Push and pop on an array-based stack take O(1) time.\nReason (R): Elements of a stack are always kept in sorted order.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "A is true; R is false – stacks keep insertion order, not sorted order."
+        },
+        {
+         "question": "Assertion (A): Depth-first search can be implemented with a stack.\nReason (R): A stack can be implemented with a linked list.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Stacks and Their Applications",
+         "explanation": "Both true, but the implementation detail does not explain why DFS uses a stack."
+        },
+        {
+         "question": "The infix form of the postfix expression  a b c * + d −  is:",
+         "options": {
+          "A": "a * b + c − d",
+          "B": "a + b * (c − d)",
+          "C": "a + b * c − d",
+          "D": "(a + b) * c − d"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "b c * becomes b * c, then a + (b * c), then − d."
+        },
+        {
+         "question": "The value of the postfix expression  5 1 2 + 4 * + 3 −  is:",
+         "options": {
+          "A": "20",
+          "B": "12",
+          "C": "18",
+          "D": "14"
+         },
+         "answer": "D",
+         "subject": "Stacks and Their Applications",
+         "explanation": "1 + 2 = 3; 3 × 4 = 12; 5 + 12 = 17; 17 − 3 = 14."
+        },
+        {
+         "question": "The peek (top) operation on a stack:",
+         "options": {
+          "A": "Removes the top element",
+          "B": "Removes the bottom element",
+          "C": "Returns the top element without removing it",
+          "D": "Returns the number of elements"
+         },
+         "answer": "C",
+         "subject": "Stacks and Their Applications",
+         "explanation": "pop both returns and removes it."
+        }
+       ]
+      },
+      {
+       "name": "3 · Queues and Priority Queues",
+       "questions": [
+        {
+         "question": "A queue follows the principle:",
+         "options": {
+          "A": "Highest priority first",
+          "B": "First In, First Out (FIFO)",
+          "C": "Random removal",
+          "D": "Last In, First Out (LIFO)"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Elements are added at the rear and removed from the front."
+        },
+        {
+         "question": "Enqueue 1, enqueue 2, enqueue 3, dequeue, enqueue 4, dequeue. Which element is now at the front?",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "1 and 2 have been removed; 3 then 4 remain."
+        },
+        {
+         "question": "The main drawback of a simple (linear) array queue is that:",
+         "options": {
+          "A": "Dequeue takes O(n) always",
+          "B": "It cannot store integers",
+          "C": "It must be sorted",
+          "D": "Space freed at the front cannot be reused once rear reaches the end"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "A circular queue wraps the indices around to reuse the space."
+        },
+        {
+         "question": "In a circular queue of size n that keeps one slot empty, the queue is full when:",
+         "options": {
+          "A": "rear == front",
+          "B": "rear == n − 1",
+          "C": "(rear + 1) % n == front",
+          "D": "front == 0"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "So such a queue can hold at most n − 1 elements; rear == front means empty."
+        },
+        {
+         "question": "A circular queue has 5 slots (indices 0–4). front points to the first element and rear points to the slot after the last element. If front = 3 and rear = 1, how many elements are in the queue?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "(rear − front + n) % n = (1 − 3 + 5) % 5 = 3 (slots 3, 4 and 0)."
+        },
+        {
+         "question": "A double-ended queue (deque) allows:",
+         "options": {
+          "A": "Insertion and deletion at both ends",
+          "B": "Insertion only at the front",
+          "C": "Deletion only in the middle",
+          "D": "Only priority-based removal"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "An input-restricted deque allows insertion at one end only; an output-restricted deque allows deletion at one end only."
+        },
+        {
+         "question": "In a priority queue, the element removed first is:",
+         "options": {
+          "A": "The one inserted first",
+          "B": "The one with the highest priority",
+          "C": "The one inserted last",
+          "D": "A random one"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Equal priorities are often served in arrival order."
+        },
+        {
+         "question": "With a binary heap, the priority-queue operations insert and delete-max take:",
+         "options": {
+          "A": "O(n log n) each",
+          "B": "O(1) each",
+          "C": "O(n) each",
+          "D": "O(log n) each, while find-max takes O(1)"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "The heap's height is ⌊log₂ n⌋."
+        },
+        {
+         "question": "A priority queue kept as an UNSORTED array has insert and delete-max costs of:",
+         "options": {
+          "A": "O(1) and O(1)",
+          "B": "O(n) and O(1)",
+          "C": "O(1) and O(n)",
+          "D": "O(log n) and O(log n)"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "A sorted array reverses this: O(n) insert and O(1) delete."
+        },
+        {
+         "question": "In an array-based binary heap with 0-based indices, the children of the node at index i are at:",
+         "options": {
+          "A": "2i + 1 and 2i + 2",
+          "B": "i/2 and i/2 + 1",
+          "C": "i + 1 and i + 2",
+          "D": "2i and 2i + 1"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "The parent of i is at ⌊(i − 1)/2⌋."
+        },
+        {
+         "question": "45 is inserted into the max-heap stored as [50, 30, 40, 10, 20]. The resulting array is:",
+         "options": {
+          "A": "[45, 50, 40, 10, 20, 30]",
+          "B": "[50, 30, 45, 10, 20, 40]",
+          "C": "[50, 45, 40, 10, 20, 30]",
+          "D": "[50, 30, 40, 10, 20, 45]"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "45 is placed at index 5; its parent (index 2) is 40, so they swap; its new parent 50 is larger, so it stops."
+        },
+        {
+         "question": "The maximum is deleted from the max-heap [50, 30, 45, 10, 20, 40]. The resulting array is:",
+         "options": {
+          "A": "[45, 40, 30, 10, 20]",
+          "B": "[40, 30, 45, 10, 20]",
+          "C": "[45, 30, 40, 10, 20]",
+          "D": "[30, 45, 40, 10, 20]"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "The last element 40 moves to the root and sifts down past its larger child 45."
+        },
+        {
+         "question": "Building a binary heap from n unsorted elements with the bottom-up (heapify) method takes:",
+         "options": {
+          "A": "O(n) time",
+          "B": "O(log n) time",
+          "C": "O(n log n) time always",
+          "D": "O(n²) time"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Most nodes are near the bottom and need little work."
+        },
+        {
+         "question": "Round-robin CPU scheduling is naturally implemented with a:",
+         "options": {
+          "A": "Hash table",
+          "B": "Binary search tree",
+          "C": "Stack",
+          "D": "Circular queue"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Each process gets a time slice and then goes to the back of the queue."
+        },
+        {
+         "question": "Which algorithm uses a priority queue?",
+         "options": {
+          "A": "Bubble sort",
+          "B": "Depth-first search",
+          "C": "Linear search",
+          "D": "Dijkstra's shortest-path algorithm"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Huffman coding and Prim's algorithm also use priority queues."
+        },
+        {
+         "question": "Breadth-first search of a graph uses a:",
+         "options": {
+          "A": "Stack",
+          "B": "Priority queue only",
+          "C": "Queue",
+          "D": "Deque only"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Vertices are visited level by level."
+        },
+        {
+         "question": "A queue implemented as a linked list with front and rear pointers supports enqueue and dequeue in:",
+         "options": {
+          "A": "O(1) enqueue and O(n) dequeue always",
+          "B": "O(1) time each",
+          "C": "O(n) time each",
+          "D": "O(log n) time each"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "New nodes are added after rear; nodes are removed at front."
+        },
+        {
+         "question": "A queue can be implemented with two stacks so that each operation takes:",
+         "options": {
+          "A": "O(1) amortised time",
+          "B": "O(n²) time",
+          "C": "O(n) time for every operation",
+          "D": "O(log n) time"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Elements are moved from the input stack to the output stack only when the output stack is empty."
+        },
+        {
+         "question": "Match the structure with its typical use:\na. Queue\nb. Priority queue\nc. Deque\nd. Circular queue\n\n1. Buffer that reuses space in a fixed-size array\n2. Event simulation by earliest time\n3. Sliding-window algorithms needing both ends\n4. Printer spooling in arrival order",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "All are variations of the queue idea."
+        },
+        {
+         "question": "A circular queue has 8 slots, front = 6 and rear = 2 (rear points after the last element). How many free slots remain if one slot is always kept empty?",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Elements = (2 − 6 + 8) % 8 = 4; usable capacity 7; free = 7 − 4 = 3."
+        },
+        {
+         "question": "Consider the statements:\nI. In a circular queue, front == rear usually indicates an empty queue.\nII. A circular queue avoids the wasted space of a simple array queue.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Both are correct under the one-empty-slot convention."
+        },
+        {
+         "question": "Consider the statements:\nI. A max-heap stores the largest element at the root.\nII. In a max-heap every level is sorted from left to right.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Only the parent–child order is guaranteed, not the order among siblings."
+        },
+        {
+         "question": "Assertion (A): A priority queue is usually implemented with a binary heap.\nReason (R): A heap supports insert and delete-max in O(log n) time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "That balance of costs is why heaps are used."
+        },
+        {
+         "question": "Assertion (A): A queue removes the most recently inserted element first.\nReason (R): A queue follows the FIFO principle.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Queues and Priority Queues",
+         "explanation": "FIFO removes the oldest element, so A is false; R explains why."
+        },
+        {
+         "question": "Assertion (A): Breadth-first search visits vertices level by level.\nReason (R): Breadth-first search uses a stack.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "A is true; R is false – BFS uses a queue."
+        },
+        {
+         "question": "Assertion (A): A deque can be used as either a stack or a queue.\nReason (R): Circular queues are used in round-robin scheduling.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "In an array-based max-heap (0-based), the parent of the element at index 9 is at index:",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Queues and Priority Queues",
+         "explanation": "⌊(9 − 1)/2⌋ = 4."
+        },
+        {
+         "question": "The maximum number of nodes in a binary heap of height 3 (a single root has height 0) is:",
+         "options": {
+          "A": "16",
+          "B": "15",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "2^(h + 1) − 1 = 15."
+        },
+        {
+         "question": "Heap sort sorts n elements in:",
+         "options": {
+          "A": "O(n) always",
+          "B": "O(log n)",
+          "C": "O(n log n) time in every case",
+          "D": "O(n²) in the worst case"
+         },
+         "answer": "C",
+         "subject": "Queues and Priority Queues",
+         "explanation": "It builds a heap and repeatedly removes the maximum."
+        },
+        {
+         "question": "An output-restricted deque allows:",
+         "options": {
+          "A": "Insertion only in the middle",
+          "B": "Insertion at both ends but deletion at one end only",
+          "C": "Deletion at both ends but insertion at one end only",
+          "D": "No deletions"
+         },
+         "answer": "B",
+         "subject": "Queues and Priority Queues",
+         "explanation": "An input-restricted deque is the reverse."
+        }
+       ]
+      },
+      {
+       "name": "4 · Linked Lists",
+       "questions": [
+        {
+         "question": "Each node of a singly linked list contains:",
+         "options": {
+          "A": "Data and a pointer to the next node",
+          "B": "Only data",
+          "C": "Pointers to the previous and next nodes",
+          "D": "An index into an array"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "The last node's next pointer is NULL."
+        },
+        {
+         "question": "Accessing the k-th element of a singly linked list takes:",
+         "options": {
+          "A": "O(log k) time",
+          "B": "O(k²) time",
+          "C": "O(1) time",
+          "D": "O(k) time, because the list must be traversed from the head"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "Linked lists have no random access."
+        },
+        {
+         "question": "Inserting a node at the END of a singly linked list with only a head pointer takes ______; with a tail pointer it takes ______.",
+         "options": {
+          "A": "O(n); O(n)",
+          "B": "O(log n); O(1)",
+          "C": "O(1); O(n)",
+          "D": "O(n); O(1)"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "The tail pointer avoids walking the whole list."
+        },
+        {
+         "question": "Given only a pointer to a node (not the last one) of a singly linked list, that node can be deleted in O(1) by:",
+         "options": {
+          "A": "Setting the pointer to NULL",
+          "B": "Copying the next node's data into it and deleting the next node",
+          "C": "It cannot be done",
+          "D": "Walking from the head to find its predecessor"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "This trick fails for the last node."
+        },
+        {
+         "question": "The main advantage of a doubly linked list over a singly linked list is that:",
+         "options": {
+          "A": "It uses less memory",
+          "B": "It allows random access",
+          "C": "It can be traversed in both directions, and a given node can be deleted in O(1)",
+          "D": "It never needs pointers"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "The cost is one extra pointer per node."
+        },
+        {
+         "question": "Inserting a new node between two existing nodes of a doubly linked list requires setting how many pointer fields?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "6",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "The new node's prev and next, the left neighbour's next and the right neighbour's prev."
+        },
+        {
+         "question": "In a circular singly linked list:",
+         "options": {
+          "A": "There is no last node",
+          "B": "The last node points back to the first node",
+          "C": "The first node points to NULL",
+          "D": "Every node points to itself"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "Keeping a pointer to the last node gives O(1) access to both ends."
+        },
+        {
+         "question": "Reversing a singly linked list of n nodes iteratively takes:",
+         "options": {
+          "A": "O(n) time and O(1) extra space",
+          "B": "O(n²) time",
+          "C": "O(log n) time",
+          "D": "O(n) extra space always"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "Three pointers (previous, current, next) are enough."
+        },
+        {
+         "question": "Floyd's 'tortoise and hare' method is used to:",
+         "options": {
+          "A": "Search a sorted array",
+          "B": "Sort a linked list",
+          "C": "Detect a cycle in a linked list",
+          "D": "Reverse a linked list"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "A slow and a fast pointer meet if and only if there is a cycle."
+        },
+        {
+         "question": "The middle node of a singly linked list can be found in one pass by:",
+         "options": {
+          "A": "Moving one pointer one step and another two steps at a time",
+          "B": "Sorting the list",
+          "C": "Counting nodes twice",
+          "D": "Using binary search"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "When the fast pointer reaches the end, the slow pointer is in the middle."
+        },
+        {
+         "question": "For the list 1 → 2 → 3 → 4 → 5, a loop that prints the current node and then skips the next one (p = p->next->next, checking for NULL) prints:",
+         "options": {
+          "A": "2 4",
+          "B": "5 3 1",
+          "C": "1 3 5",
+          "D": "1 2 3 4 5"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "It visits every alternate node from the head."
+        },
+        {
+         "question": "What does this print for the list 1 → 2 → 3?\nvoid f(struct node *p) { if (p == NULL) return; f(p->next); printf(\"%d \", p->data); }",
+         "options": {
+          "A": "3",
+          "B": "3 2 1",
+          "C": "1 3",
+          "D": "1 2 3"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "The recursive call comes before printf, so the list is printed in reverse."
+        },
+        {
+         "question": "Merging two sorted linked lists of lengths m and n into one sorted list takes:",
+         "options": {
+          "A": "O(log(m + n)) time",
+          "B": "O((m + n)²) time",
+          "C": "O(m × n) time",
+          "D": "O(m + n) time"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "Nodes are relinked; no new nodes are needed."
+        },
+        {
+         "question": "Compared with arrays, linked lists:",
+         "options": {
+          "A": "Need their size fixed in advance",
+          "B": "Allow easy insertion and deletion but use extra memory for pointers and have poor cache locality",
+          "C": "Always use less memory",
+          "D": "Allow O(1) random access"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "Arrays are better for indexed access."
+        },
+        {
+         "question": "After  p = head; while (p->next != NULL) p = p->next;  on a non-empty list, p points to:",
+         "options": {
+          "A": "The last node",
+          "B": "NULL",
+          "C": "The first node",
+          "D": "The second-last node"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "The loop stops when p has no successor."
+        },
+        {
+         "question": "A header (sentinel) node in a linked list is used to:",
+         "options": {
+          "A": "Store the largest element",
+          "B": "Speed up searching to O(1)",
+          "C": "Simplify insertion and deletion by removing special cases for an empty list or the first node",
+          "D": "Make the list circular"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "It holds no real data (sometimes a count)."
+        },
+        {
+         "question": "Polynomials such as 5x⁸ + 3x² + 1 are well represented by a linked list because:",
+         "options": {
+          "A": "Only non-zero terms are stored, each as a (coefficient, exponent) node",
+          "B": "Linked lists are faster than arrays for everything",
+          "C": "Polynomials must be sorted by coefficient",
+          "D": "Arrays cannot store integers"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "Addition walks both lists in exponent order."
+        },
+        {
+         "question": "Given a pointer to the LAST node of a circular singly linked list, deleting the first node takes:",
+         "options": {
+          "A": "O(log n) time",
+          "B": "O(n²) time",
+          "C": "O(n) time",
+          "D": "O(1) time"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "The first node is last->next, so it can be unlinked directly."
+        },
+        {
+         "question": "A structure such as  struct node { int data; struct node *next; };  is called:",
+         "options": {
+          "A": "An array of structures",
+          "B": "A self-referential structure",
+          "C": "A union",
+          "D": "A bit field"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "It contains a pointer to its own type."
+        },
+        {
+         "question": "Match the list operation with its cost (singly linked list, head pointer only, n nodes):\na. Insert at the head\nb. Search for a value\nc. Delete the last node\nd. Read the head's data\n\n1. O(1) – a new node becomes the head\n2. O(1)\n3. O(n)\n4. O(n) – the predecessor must be found",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "Only operations near the head are constant time."
+        },
+        {
+         "question": "Consider the statements:\nI. Binary search is efficient on a singly linked list.\nII. Linked lists allocate memory dynamically as nodes are added.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "Binary search needs random access, which linked lists lack."
+        },
+        {
+         "question": "Consider the statements:\nI. In a doubly linked list, a node can be deleted in O(1) if a pointer to it is given.\nII. A circular list can be traversed starting from any node.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "Both statements are correct."
+        },
+        {
+         "question": "Assertion (A): Inserting at the head of a linked list takes O(1) time.\nReason (R): Only the new node's next pointer and the head pointer change.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "No other node is touched."
+        },
+        {
+         "question": "Assertion (A): Linked lists allow random access to any element in O(1).\nReason (R): Nodes of a linked list are reached by following pointers from the head.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "Following pointers makes access O(n); R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Doubly linked lists use more memory per node than singly linked lists.\nReason (R): Doubly linked lists cannot be traversed backwards.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "A is true (an extra prev pointer); R is false."
+        },
+        {
+         "question": "Assertion (A): Circular linked lists are useful for round-robin scheduling.\nReason (R): A singly linked list node contains data and a next pointer.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Linked Lists",
+         "explanation": "Both true, but R does not explain A; the circular link does."
+        },
+        {
+         "question": "The number of NULL pointers in a doubly linked list of n ≥ 1 nodes (not circular) is:",
+         "options": {
+          "A": "n + 1",
+          "B": "n",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Linked Lists",
+         "explanation": "The first node's prev and the last node's next."
+        },
+        {
+         "question": "To delete the node after node p in a singly linked list, one writes:",
+         "options": {
+          "A": "p->next = NULL;",
+          "B": "free(p->next); p->next = p;",
+          "C": "q = p->next; p->next = q->next; free(q);",
+          "D": "p = p->next; free(p);"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "The node is unlinked before it is freed."
+        },
+        {
+         "question": "An orthogonal (cross) linked list is commonly used to represent:",
+         "options": {
+          "A": "A sparse matrix, linking the non-zero elements by row and by column",
+          "B": "A stack",
+          "C": "A queue of print jobs",
+          "D": "A string"
+         },
+         "answer": "A",
+         "subject": "Linked Lists",
+         "explanation": "Each node belongs to one row list and one column list."
+        },
+        {
+         "question": "The time to concatenate two circular singly linked lists, given pointers to their last nodes, is:",
+         "options": {
+          "A": "O(m + n)",
+          "B": "O(log n)",
+          "C": "O(1)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Linked Lists",
+         "explanation": "Only a few pointers need to be exchanged."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

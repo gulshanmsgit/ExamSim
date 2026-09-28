@@ -58,7 +58,7 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 - Paper 1 General Kannada: questions in Kannada (KTBS textbook basis). No current affairs anywhere.
 - Accuracy first: if unsure of a fact, write a different question. Sources: syllabus reference books (Sinha, Rosen, Elmasri & Navathe, Silberschatz, Forouzan, Mano, Pressman, Russell & Norvig…).
 
-### Status (as of 26 Sep 2026 — plan Days 1–6 complete)
+### Status (as of 28 Sep 2026 — plan Days 1–7 complete)
 | Pack | Status |
 |---|---|
 | Structure (syllabus + plan) | done |
@@ -66,10 +66,11 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 | P2 Unit 1 – Fundamentals (7 topics, 20 sub-topics, 600 Q) | done |
 | P2 Unit 2 – Discrete Structures (9 topics, 29 sub-topics, 870 Q) | done |
 | P2 Unit 5 – DBMS: only topic "DBMS Concepts and Architecture" (6 sub-topics, 180 Q) | partial — 9 more topics to do |
-| P2 Unit 4 – Programming Languages & Web: U4-01…08 (Language design, Data types, C Part 1 & 2, OOP, C++ Part 1 & 2, HTML/DHTML/CSS; 24 sets, 720 Q) → `packs/p2-u4.json` (modules p2u4_a…d) | partial — U4-09 Web: XML, scripting, JavaScript to do |
+| P2 Unit 4 – Programming Languages & Web: all 9 topics (27 sets, 810 Q) → `packs/p2-u4.json` (modules p2u4_a…e) | done |
+| P2 Unit 8 – Data Structures: U8-01 Linear Data Structures (4 sets, 120 Q) → `packs/p2-u8.json` (p2u8_a) | partial |
 | P2 Units 3, 6, 7, 8, 9, 10 | **not started** |
 | P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`.  + `packs/p1-kannada-mocks.json` (10 mocks × 20 Q, topic "Mock tests"). |
-| P1 Days 1–6 topics: PSY-01/02/03, GK-01/02/03, CL-01/02, ENG-01/02, HE-01, VE-01 (25 sets × 20 = 500 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–6 fully covered, except current affairs by design) |
+| P1 Days 1–7 topics: PSY-01/02/03, GK-01/02/03, CL-01/02, ENG-01/02, HE-01/02, VE-01 (27 sets × 20 = 540 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–7 fully covered, except current affairs by design) |
 | Other Paper 1 topics | only the Days 1–2 sample |
 
 ### Next steps (owner's current request)
@@ -104,6 +105,8 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 - **Today tab** (screen `today`, `openToday(date)`, first tab; the app opens on it when a study plan is loaded): date switcher (◀ Yesterday/Today/Tomorrow ▶ + date
   picker, `TD.date`), day stats, "Exams for this day" (day practice, week mock, mistakes to fix via the error log, import packs), active subjects
   (`dayGroups`/`dayGroupsHTML`: Paper 2 / Paper 1 → subject → topic rows with 📝 notes, Open, Practise) and "Done on this date" (attempts that day).
+  Auto-import (`D.prefs.autoImport`, default on; `tdAutoImport`) quietly imports the bank packs for the chosen day and the next one, once per day per session.
+  Also: exam countdown, topic progress with a status dropdown per topic, daily-goal stat, and "Revise earlier days" (1/3/7 days before).
   Home keeps only a short Today summary (`planHomeCard`) with "Open Today". Tab labels: Today · Library · Mocks · Add · Revise · Study plan.
 
 ### Ideas discussed but not built

@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 4 — Programming Languages & Web",
- "description": "8 of 9 topics so far (24 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2; Object Oriented Programming; Programming in C++ – Part 1; Programming in C++ – Part 2; Web Programming – HTML, DHTML, CSS. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (27 sets × 30 questions): Language Design and Translation Issues; Elementary Data Types; Programming in C – Part 1; Programming in C – Part 2; Object Oriented Programming; Programming in C++ – Part 1; Programming in C++ – Part 2; Web Programming – HTML, DHTML, CSS; Web Programming – XML, Scripting, JavaScript. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 4 – Programming Languages & Web",
@@ -8802,6 +8802,1106 @@
          "answer": "A",
          "subject": "DHTML and CSS",
          "explanation": "Declarations are property: value pairs separated by semicolons inside braces."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Web Programming – XML, Scripting, JavaScript",
+     "sets": [
+      {
+       "name": "1 · XML",
+       "questions": [
+        {
+         "question": "XML stands for:",
+         "options": {
+          "A": "eXtra Modern Link Language",
+          "B": "eXecutable Machine Language",
+          "C": "eXternal Markup Library",
+          "D": "eXtensible Markup Language"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "XML 1.0 became a W3C Recommendation in 1998."
+        },
+        {
+         "question": "The main purpose of XML, compared with HTML, is to:",
+         "options": {
+          "A": "Style web pages",
+          "B": "Describe, store and carry data with author-defined tags",
+          "C": "Replace JavaScript",
+          "D": "Display data with a fixed set of tags"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "HTML focuses on presentation with predefined tags; XML focuses on data."
+        },
+        {
+         "question": "Which of the following is NOT well-formed XML?",
+         "options": {
+          "A": "<a><b>text</b></a>",
+          "B": "<a><b>text</a></b>",
+          "C": "<a><!-- note --></a>",
+          "D": "<a b=\"1\"/>"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "Elements must be properly nested: b opens inside a, so it must close before a closes."
+        },
+        {
+         "question": "A well-formed XML document must have:",
+         "options": {
+          "A": "Exactly one root element that contains all other elements",
+          "B": "At least two root elements",
+          "C": "A DTD",
+          "D": "Only lower-case tags"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "XML is case-sensitive, but mixed case is allowed."
+        },
+        {
+         "question": "An XML document is called VALID when it is:",
+         "options": {
+          "A": "Well-formed and also conforms to its DTD or XML Schema",
+          "B": "Only well-formed",
+          "C": "Written without attributes",
+          "D": "Displayed correctly by a browser"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "Every valid document is well-formed, but not every well-formed document is valid."
+        },
+        {
+         "question": "The correct XML declaration is:",
+         "options": {
+          "A": "<xml version=\"1.0\">",
+          "B": "<?XML 1.0?>",
+          "C": "<!xml version=\"1.0\">",
+          "D": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "If present, it must be the very first thing in the document."
+        },
+        {
+         "question": "In the DTD declaration  <!ELEMENT note (to, from, body)> , the element note must contain:",
+         "options": {
+          "A": "The elements to, from and body, in that order",
+          "B": "Any elements in any order",
+          "C": "Only text",
+          "D": "Nothing (it is empty)"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "A comma means sequence; | means choice."
+        },
+        {
+         "question": "In a DTD, #PCDATA means:",
+         "options": {
+          "A": "A number",
+          "B": "An empty element",
+          "C": "Parsed character data – text that the parser will examine for markup and entities",
+          "D": "Unparsed binary data"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "CDATA sections contain text that is not parsed."
+        },
+        {
+         "question": "Match the DTD occurrence indicator with its meaning:\na. *\nb. +\nc. ?\nd. (no indicator)\n\n1. Zero or one time\n2. Exactly once\n3. One or more times\n4. Zero or more times",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-3, b-4, c-1, d-2",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "The same symbols are used in regular expressions."
+        },
+        {
+         "question": "An advantage of XML Schema (XSD) over a DTD is that XSD:",
+         "options": {
+          "A": "Cannot express element order",
+          "B": "Does not support namespaces",
+          "C": "Is shorter than any DTD",
+          "D": "Is itself written in XML and supports data types such as integer and date"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "It also supports namespaces and more precise constraints."
+        },
+        {
+         "question": "XML namespaces, declared with an attribute such as xmlns:bk=\"http://example.com/books\", are used to:",
+         "options": {
+          "A": "Compress the file",
+          "B": "Encrypt the document",
+          "C": "Avoid name conflicts between elements from different vocabularies",
+          "D": "Make tags case-insensitive"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "bk:title and html:title can then be told apart."
+        },
+        {
+         "question": "Text placed inside  <![CDATA[ … ]]>  is:",
+         "options": {
+          "A": "Deleted by the parser",
+          "B": "Always displayed in bold",
+          "C": "Not parsed as markup, so characters such as < and & can be written directly",
+          "D": "Treated as a comment"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "Useful for embedding code in XML."
+        },
+        {
+         "question": "XML has exactly five predefined entities. They represent:",
+         "options": {
+          "A": "< > & \" and ' (written &lt; &gt; &amp; &quot; &apos;)",
+          "B": "All HTML entities such as &nbsp; and &copy;",
+          "C": "Only < and >",
+          "D": "Digits 0–4"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "Others must be declared in a DTD."
+        },
+        {
+         "question": "A DOM parser differs from a SAX parser in that the DOM parser:",
+         "options": {
+          "A": "Reads the document as a stream of events without building a tree",
+          "B": "Works only with HTML",
+          "C": "Cannot read attributes",
+          "D": "Loads the whole document into memory as a tree that can be navigated and changed"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "SAX uses little memory and suits very large files."
+        },
+        {
+         "question": "XPath is used to ______, and XSLT is used to ______.",
+         "options": {
+          "A": "style XML; validate XML",
+          "B": "select nodes in an XML document; transform XML into other formats such as HTML",
+          "C": "compress XML; encrypt XML",
+          "D": "send XML; receive XML"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "XSLT uses XPath expressions to choose what to transform."
+        },
+        {
+         "question": "The XPath expression  /bookstore/book[1]/title  selects:",
+         "options": {
+          "A": "The last book",
+          "B": "The first title anywhere",
+          "C": "The title of the first book child of the root bookstore",
+          "D": "All titles in the document"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "XPath positions start at 1."
+        },
+        {
+         "question": "The XPath expression  //title  selects:",
+         "options": {
+          "A": "All title elements anywhere in the document",
+          "B": "Only the root's title child",
+          "C": "The first title only",
+          "D": "Attributes named title"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "// means descendant-or-self at any depth; @title would select attributes."
+        },
+        {
+         "question": "How many elements are in this document?\n<library><book><title/><author/></book><book><title/></book></library>",
+         "options": {
+          "A": "7",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "library (1) + book (2) + title (2) + author (1) = 6."
+        },
+        {
+         "question": "Which statement about XML is TRUE?",
+         "options": {
+          "A": "XML does not allow attributes",
+          "B": "<Note> and <note> are different elements because XML is case-sensitive",
+          "C": "XML ignores the order of elements",
+          "D": "XML tags are predefined like HTML"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "Element and attribute names are case-sensitive."
+        },
+        {
+         "question": "Which of the following commonly uses XML?",
+         "options": {
+          "A": "RSS feeds, SOAP web services, configuration files and Office documents (e.g. .docx is zipped XML)",
+          "B": "Only databases",
+          "C": "Only images",
+          "D": "Only C programs"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "JSON is now more common for web APIs, but XML is still widely used."
+        },
+        {
+         "question": "In the DTD declaration  <!ATTLIST book id ID #REQUIRED> , the attribute id:",
+         "options": {
+          "A": "Has a fixed default value",
+          "B": "Can contain child elements",
+          "C": "Must be present on every book and its value must be unique in the document",
+          "D": "Is optional"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "#IMPLIED would make it optional."
+        },
+        {
+         "question": "Match the XML technology with its purpose:\na. DTD\nb. XSLT\nc. XPath\nd. XSD\n\n1. Transforming XML documents\n2. Schema with data types, written in XML\n3. Defining allowed structure (older, non-XML syntax)\n4. Navigating and selecting nodes",
+         "options": {
+          "A": "a-3, b-4, c-1, d-2",
+          "B": "a-3, b-1, c-4, d-2",
+          "C": "a-3, b-1, c-2, d-4",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "Together they form the core XML family of standards."
+        },
+        {
+         "question": "Consider the statements:\nI. XML attribute values must be enclosed in quotes.\nII. An XML element name may begin with a digit.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "Names must start with a letter or underscore."
+        },
+        {
+         "question": "Consider the statements:\nI. JSON is often used instead of XML for web APIs because it is lighter.\nII. XML carries data but has no built-in way of displaying it as HTML does.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "Display needs a style sheet (CSS or XSLT)."
+        },
+        {
+         "question": "Consider the statements:\nI. An empty element can be written as <br/>.\nII. XML comments are written as // comment.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "XML comments use <!-- … -->."
+        },
+        {
+         "question": "Assertion (A): Every well-formed XML document has exactly one root element.\nReason (R): An XML document forms a tree, and a tree has a single root.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "XML",
+         "explanation": "The single root contains all other elements."
+        },
+        {
+         "question": "Assertion (A): A valid XML document need not be well-formed.\nReason (R): A valid document is well-formed and also conforms to a DTD or schema.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "R is the definition, and it shows that A is false."
+        },
+        {
+         "question": "Assertion (A): SAX parsers are suitable for very large XML files.\nReason (R): SAX loads the whole document into memory as a tree.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "XML",
+         "explanation": "A is true; R is false – SAX streams events and keeps little in memory (that description fits DOM)."
+        },
+        {
+         "question": "Assertion (A): In XML, the tags are defined by the document's author.\nReason (R): XML was standardised by the W3C.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "XML",
+         "explanation": "Both true, but W3C standardisation does not explain author-defined tags."
+        },
+        {
+         "question": "Which attribute usage is well-formed XML?",
+         "options": {
+          "A": "<book \"lang\"=\"en\">",
+          "B": "<book lang>",
+          "C": "<book lang=en>",
+          "D": "<book lang=\"en\">"
+         },
+         "answer": "D",
+         "subject": "XML",
+         "explanation": "Every attribute needs a name and a quoted value."
+        }
+       ]
+      },
+      {
+       "name": "2 · Scripting and JavaScript Fundamentals",
+       "questions": [
+        {
+         "question": "JavaScript was created in 1995 at Netscape by:",
+         "options": {
+          "A": "James Gosling",
+          "B": "Guido van Rossum",
+          "C": "Brendan Eich",
+          "D": "Tim Berners-Lee"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "James Gosling created Java; the two languages are unrelated in design."
+        },
+        {
+         "question": "Client-side scripting differs from server-side scripting in that client-side scripts:",
+         "options": {
+          "A": "Need a database",
+          "B": "Cannot change the page",
+          "C": "Run on the web server, e.g. PHP",
+          "D": "Run in the user's browser, e.g. JavaScript"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Server-side scripts (PHP, JSP, ASP.NET, Node.js) produce the page on the server."
+        },
+        {
+         "question": "An external JavaScript file app.js is included in an HTML page with:",
+         "options": {
+          "A": "<link src=\"app.js\">",
+          "B": "<script src=\"app.js\"></script>",
+          "C": "<javascript href=\"app.js\">",
+          "D": "<script href=\"app.js\"/>"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Inline code goes between <script> and </script>."
+        },
+        {
+         "question": "var, let and const differ in that:",
+         "options": {
+          "A": "let is function-scoped",
+          "B": "var is function-scoped, while let and const are block-scoped; const cannot be reassigned",
+          "C": "const can be reassigned freely",
+          "D": "All three are block-scoped"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "let and const were added in ES6 (2015)."
+        },
+        {
+         "question": "What are  typeof null  and  typeof NaN  in JavaScript?",
+         "options": {
+          "A": "\"null\" and \"NaN\"",
+          "B": "\"object\" and \"undefined\"",
+          "C": "\"object\" and \"number\"",
+          "D": "\"undefined\" and \"number\""
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "typeof null being \"object\" is a long-standing quirk of the language."
+        },
+        {
+         "question": "What are the values of  \"5\" + 3 ,  \"5\" - 3  and  \"5\" * \"2\" ?",
+         "options": {
+          "A": "8, 2 and 10",
+          "B": "\"53\", \"2\" and \"10\"",
+          "C": "8, \"53\" and 10",
+          "D": "\"53\", 2 and 10"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "+ with a string concatenates; - and * convert strings to numbers."
+        },
+        {
+         "question": "What are the values of  0 == \"0\" ,  0 === \"0\"  and  null == undefined ?",
+         "options": {
+          "A": "true, true, false",
+          "B": "true, false, false",
+          "C": "false, false, true",
+          "D": "true, false, true"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "== converts types before comparing; === does not."
+        },
+        {
+         "question": "Which of the following values is truthy in JavaScript?",
+         "options": {
+          "A": "null",
+          "B": "\"0\" (a non-empty string)",
+          "C": "\"\" (empty string)",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "The falsy values are false, 0, \"\", null, undefined and NaN (and 0n, -0)."
+        },
+        {
+         "question": "What do  parseInt(\"08px\")  and  Number(\"08px\")  return?",
+         "options": {
+          "A": "NaN and NaN",
+          "B": "8 and 8",
+          "C": "8 and NaN",
+          "D": "NaN and 8"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "parseInt reads digits until the first invalid character; Number needs the whole string to be numeric."
+        },
+        {
+         "question": "The function prompt() returns:",
+         "options": {
+          "A": "Nothing",
+          "B": "A boolean",
+          "C": "Always a number",
+          "D": "The text typed by the user as a string (or null if cancelled)"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "confirm() returns true or false."
+        },
+        {
+         "question": "What is printed?\nlet s = 0;\nfor (let i = 0; i < 5; i++) { if (i === 2) continue; s += i; }\nconsole.log(s);",
+         "options": {
+          "A": "10",
+          "B": "6",
+          "C": "8",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "0 + 1 + 3 + 4 = 8."
+        },
+        {
+         "question": "What is printed?\nlet a = [1, 2, 3];\na[5] = 6;\nconsole.log(a.length);",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "length is one more than the highest index; a[3] and a[4] are empty slots."
+        },
+        {
+         "question": "What is printed?\nlet x;\nconsole.log(x);",
+         "options": {
+          "A": "ReferenceError",
+          "B": "undefined",
+          "C": "null",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "A declared but unassigned variable is undefined."
+        },
+        {
+         "question": "What happens when this runs?\nconsole.log(y);\nlet y = 5;",
+         "options": {
+          "A": "A ReferenceError, because y is in its temporal dead zone",
+          "B": "It prints 5",
+          "C": "It prints undefined",
+          "D": "It prints null"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "With var y the output would be undefined because of hoisting."
+        },
+        {
+         "question": "What are  Math.floor(3.7) ,  Math.round(2.5)  and  Math.ceil(4.1) ?",
+         "options": {
+          "A": "3, 2 and 5",
+          "B": "3, 3 and 4",
+          "C": "3, 3 and 5",
+          "D": "4, 2 and 4"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Math.round rounds halves up in JavaScript."
+        },
+        {
+         "question": "The expression  NaN === NaN  evaluates to:",
+         "options": {
+          "A": "NaN",
+          "B": "false – NaN is not equal to anything, even itself",
+          "C": "true",
+          "D": "undefined"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Use Number.isNaN(x) to test for NaN."
+        },
+        {
+         "question": "0.1 + 0.2 === 0.3 in JavaScript gives:",
+         "options": {
+          "A": "true",
+          "B": "An error",
+          "C": "NaN",
+          "D": "false, because of binary floating-point rounding"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "0.1 + 0.2 is 0.30000000000000004."
+        },
+        {
+         "question": "The template literal  `Sum: ${2 + 3}`  produces:",
+         "options": {
+          "A": "An error",
+          "B": "\"Sum: ${2 + 3}\"",
+          "C": "\"Sum: 23\"",
+          "D": "\"Sum: 5\""
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Template literals (backticks) were added in ES6."
+        },
+        {
+         "question": "A JavaScript switch statement compares the expression with each case value using:",
+         "options": {
+          "A": "Greater than",
+          "B": "Strict equality (===)",
+          "C": "String length",
+          "D": "Loose equality (==)"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "So switch(\"1\") does not match case 1."
+        },
+        {
+         "question": "JavaScript is best described as:",
+         "options": {
+          "A": "Statically and strongly typed like Java",
+          "B": "A compiled language that produces .exe files",
+          "C": "Dynamically and weakly typed – variables have no fixed type and values are converted implicitly",
+          "D": "A markup language"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Types belong to values, not variables."
+        },
+        {
+         "question": "Match the function with what it does:\na. alert()\nb. confirm()\nc. prompt()\nd. console.log()\n\n1. Asks OK/Cancel and returns true or false\n2. Asks for text input\n3. Writes to the browser's developer console\n4. Shows a message with an OK button",
+         "options": {
+          "A": "a-4, b-1, c-2, d-3",
+          "B": "a-1, b-4, c-2, d-3",
+          "C": "a-4, b-1, c-3, d-2",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "alert, confirm and prompt block the page until the user responds."
+        },
+        {
+         "question": "Which string method returns the position of the first occurrence of a substring, or −1 if it is absent?",
+         "options": {
+          "A": "charAt()",
+          "B": "slice()",
+          "C": "indexOf()",
+          "D": "search() only for numbers"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "\"hello\".indexOf(\"l\") is 2."
+        },
+        {
+         "question": "Consider the statements:\nI. null == undefined is true.\nII. null === undefined is true.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "They are loosely equal but of different types."
+        },
+        {
+         "question": "Consider the statements:\nI. const prevents the variable from being reassigned.\nII. const makes the properties of an object it holds unchangeable.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "const obj = {a: 1}; obj.a = 2; is allowed; Object.freeze() makes properties read-only."
+        },
+        {
+         "question": "Consider the statements:\nI. JavaScript can run on servers using Node.js.\nII. JavaScript code runs only after the whole page has loaded.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Scripts run when the browser reaches them, unless defer/async or load events are used."
+        },
+        {
+         "question": "Assertion (A):  \"5\" + 3  evaluates to \"53\".\nReason (R): When one operand of + is a string, JavaScript converts the other operand to a string and concatenates.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "R describes exactly what + does with a string operand."
+        },
+        {
+         "question": "Assertion (A): JavaScript is compiled like C into an .exe file before it runs.\nReason (R): JavaScript engines run code inside the browser, interpreting or JIT-compiling it at run time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "R describes how JavaScript actually runs, which shows why A is false."
+        },
+        {
+         "question": "Assertion (A): let declarations are block-scoped.\nReason (R): A let variable can be redeclared with let in the same scope.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "A is true; R is false – redeclaring with let in the same scope is a SyntaxError."
+        },
+        {
+         "question": "Assertion (A): Java and JavaScript are different languages.\nReason (R): JavaScript was created by Brendan Eich.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "Both true, but who created JavaScript does not explain why the languages differ."
+        },
+        {
+         "question": "Which statement about JavaScript comments is correct?",
+         "options": {
+          "A": "<!-- --> is the only comment form",
+          "B": "// starts a single-line comment and /* … */ encloses a multi-line comment",
+          "C": "# starts a comment",
+          "D": "JavaScript has no comments"
+         },
+         "answer": "B",
+         "subject": "Scripting and JavaScript Fundamentals",
+         "explanation": "The same forms are used in C, C++ and Java."
+        }
+       ]
+      },
+      {
+       "name": "3 · JavaScript Functions, Objects, DOM and Events",
+       "questions": [
+        {
+         "question": "An arrow function that returns the square of x is written:",
+         "options": {
+          "A": "const sq = (x) -> x * x;",
+          "B": "arrow sq(x) { x * x }",
+          "C": "const sq = function => x * x;",
+          "D": "const sq = x => x * x;"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Arrow functions were added in ES6."
+        },
+        {
+         "question": "What is printed?\nfunction counter() { let c = 0; return () => ++c; }\nconst f = counter(); f(); f();\nconsole.log(f());",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "0",
+          "D": "undefined"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "The returned function keeps access to c through a closure, so c keeps growing."
+        },
+        {
+         "question": "What does  f(3)  return for  function f(a, b = 2) { return a * b; } ?",
+         "options": {
+          "A": "3",
+          "B": "5",
+          "C": "NaN",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "b takes its default value 2."
+        },
+        {
+         "question": "For  const student = { name: \"Ravi\", age: 20 }; , which expressions both give \"Ravi\"?",
+         "options": {
+          "A": "student.name and student[\"name\"]",
+          "B": "student(name) and student.name()",
+          "C": "student[name] and student.get(\"name\")",
+          "D": "student->name and student::name"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Bracket notation is needed when the property name is in a variable."
+        },
+        {
+         "question": "JSON.stringify() and JSON.parse() respectively:",
+         "options": {
+          "A": "Convert an object to a JSON string, and a JSON string back to an object",
+          "B": "Encrypt and decrypt data",
+          "C": "Parse and stringify HTML",
+          "D": "Send and receive data"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "JSON = JavaScript Object Notation."
+        },
+        {
+         "question": "What are the results of  [1, 2, 3, 4].filter(x => x % 2 === 0)  and  [1, 2, 3].map(x => x * 2) ?",
+         "options": {
+          "A": "[2, 4] and [1, 4, 9]",
+          "B": "[1, 3] and [2, 4, 6]",
+          "C": "[2, 4] and [2, 4, 6]",
+          "D": "true and [2, 4, 6]"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "filter keeps elements that pass the test; map transforms every element."
+        },
+        {
+         "question": "What does  [1, 2, 3, 4].reduce((acc, x) => acc + x, 0)  return?",
+         "options": {
+          "A": "0",
+          "B": "10",
+          "C": "24",
+          "D": "[1, 3, 6, 10]"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "reduce combines all elements into one value."
+        },
+        {
+         "question": "document.querySelector(\".item\") returns:",
+         "options": {
+          "A": "The element with id item",
+          "B": "null always",
+          "C": "All elements with class item",
+          "D": "The first element with class item"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "querySelectorAll returns all matches as a NodeList."
+        },
+        {
+         "question": "Which statement changes the text colour of the element with id \"msg\" to red?",
+         "options": {
+          "A": "#msg.style = red;",
+          "B": "document.msg.color = \"red\";",
+          "C": "getElement(\"msg\").colour(\"red\");",
+          "D": "document.getElementById(\"msg\").style.color = \"red\";"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "CSS properties are available through the style object."
+        },
+        {
+         "question": "What does the page show after  document.getElementById(\"demo\").innerHTML = 5 + 6;  ?",
+         "options": {
+          "A": "Nothing",
+          "B": "11",
+          "C": "56",
+          "D": "5 + 6"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "5 + 6 is evaluated as a number before it is assigned."
+        },
+        {
+         "question": "To add a new list item to an existing <ul id=\"list\">, a script can use:",
+         "options": {
+          "A": "const li = document.createElement(\"li\"); li.textContent = \"New\"; document.getElementById(\"list\").appendChild(li);",
+          "B": "list.add(\"li\");",
+          "C": "new li(\"New\");",
+          "D": "document.write(\"list.li\");"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "The DOM can be changed without reloading the page."
+        },
+        {
+         "question": "The event that fires when a page has finished loading is:",
+         "options": {
+          "A": "change",
+          "B": "click",
+          "C": "load (window.onload)",
+          "D": "submit"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "DOMContentLoaded fires earlier, when the HTML has been parsed."
+        },
+        {
+         "question": "Match the event with when it occurs:\na. click\nb. change\nc. mouseover\nd. submit\n\n1. A form is being sent\n2. An element is clicked\n3. The pointer moves onto an element\n4. The value of an input changes and is committed",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Handlers are attached with addEventListener or on… attributes."
+        },
+        {
+         "question": "Calling  event.preventDefault()  inside a form's submit handler:",
+         "options": {
+          "A": "Deletes the form",
+          "B": "Stops the browser from submitting the form (e.g. when validation fails)",
+          "C": "Reloads the page",
+          "D": "Stops the event from bubbling"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "stopPropagation() is what stops bubbling."
+        },
+        {
+         "question": "What is printed?\nconsole.log(1);\nsetTimeout(() => console.log(2), 0);\nconsole.log(3);",
+         "options": {
+          "A": "2 1 3",
+          "B": "1 2 3",
+          "C": "3 2 1",
+          "D": "1 3 2"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "The callback waits in the task queue until the current script has finished."
+        },
+        {
+         "question": "setTimeout and setInterval differ in that:",
+         "options": {
+          "A": "setTimeout repeats forever",
+          "B": "They are identical",
+          "C": "setTimeout runs a function once after a delay; setInterval runs it repeatedly at that interval",
+          "D": "setInterval runs once"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "clearInterval stops a repeating timer."
+        },
+        {
+         "question": "localStorage in a browser:",
+         "options": {
+          "A": "Can hold only numbers",
+          "B": "Stores key–value strings that persist after the browser is closed",
+          "C": "Is cleared when the tab is closed",
+          "D": "Stores data on the server"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "sessionStorage is cleared when the tab closes."
+        },
+        {
+         "question": "window.location.href = \"https://example.com\";  causes the browser to:",
+         "options": {
+          "A": "Close the tab",
+          "B": "Download a file",
+          "C": "Print the page",
+          "D": "Navigate to that address"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "location is part of the Browser Object Model (BOM)."
+        },
+        {
+         "question": "What is printed?\nconst o = { a: 1 };\nconst p = o;\np.a = 5;\nconsole.log(o.a);",
+         "options": {
+          "A": "5",
+          "B": "1",
+          "C": "undefined",
+          "D": "An error"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Objects are assigned by reference; o and p refer to the same object."
+        },
+        {
+         "question": "fetch(url) in modern JavaScript:",
+         "options": {
+          "A": "Makes an asynchronous HTTP request and returns a Promise",
+          "B": "Reloads the page",
+          "C": "Runs synchronously and blocks the page",
+          "D": "Only works with XML"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "It replaced most uses of XMLHttpRequest (AJAX)."
+        },
+        {
+         "question": "The three states of a JavaScript Promise are:",
+         "options": {
+          "A": "Waiting, sleeping and done",
+          "B": "Open, closed and error",
+          "C": "Pending, fulfilled and rejected",
+          "D": "Start, run and stop"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "then() handles fulfilment and catch() handles rejection."
+        },
+        {
+         "question": "Consider the statements:\nI. querySelector returns the first matching element.\nII. querySelectorAll returns all matching elements.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Both statements are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. Arrow functions have their own this binding.\nII. Arrow functions can be written without the function keyword.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Arrow functions take this from the surrounding scope."
+        },
+        {
+         "question": "Consider the statements:\nI. textContent treats the assigned string as plain text.\nII. innerHTML parses the assigned string as HTML.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Assigning user input to innerHTML can be a security risk (XSS)."
+        },
+        {
+         "question": "Assertion (A): Clicking a button inside a div also triggers the div's click handler.\nReason (R): Events bubble up from the target element to its ancestors.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Bubbling carries the event to the parent div."
+        },
+        {
+         "question": "Assertion (A): addEventListener can attach several handlers for the same event on one element.\nReason (R): Assigning to element.onclick replaces any earlier onclick handler.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Both true; R describes a different mechanism and does not explain A."
+        },
+        {
+         "question": "Assertion (A): setTimeout(f, 0) runs f only after the current script has finished.\nReason (R): setTimeout(f, 0) runs f immediately, before the next statement.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "A is true; R is false – the callback is queued and runs later."
+        },
+        {
+         "question": "Assertion (A): Assigning \"<b>Hi</b>\" to textContent shows the word Hi in bold.\nReason (R): textContent inserts text without interpreting HTML tags.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "The tags are shown literally, so A is false; R explains why."
+        },
+        {
+         "question": "event.stopPropagation() is used to:",
+         "options": {
+          "A": "Cancel the default browser action",
+          "B": "Stop the event from bubbling up to ancestor elements",
+          "C": "Remove all event listeners",
+          "D": "Stop all timers"
+         },
+         "answer": "B",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "preventDefault() cancels the default action."
+        },
+        {
+         "question": "A function that is passed to another function and called later, for example the handler in addEventListener(\"click\", handler), is called a:",
+         "options": {
+          "A": "Callback function",
+          "B": "Prototype",
+          "C": "Constructor",
+          "D": "Getter"
+         },
+         "answer": "A",
+         "subject": "JavaScript Functions, Objects, DOM and Events",
+         "explanation": "Callbacks are central to event-driven JavaScript."
         }
        ]
       }
