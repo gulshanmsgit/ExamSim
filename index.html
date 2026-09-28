@@ -617,6 +617,38 @@ input[type=text],input[type=number],select,textarea{border-radius:10px}
 @media (pointer:coarse){.btn{min-height:44px}.btn.sm{min-height:40px}.icon-btn{width:44px;height:44px}.chip,.chips button{min-height:34px}.check input{width:22px;height:22px}}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 button:focus:not(:focus-visible){outline:none}
+
+/* results: answer sheet */
+.as-legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;color:var(--muted)}
+.as-legend span{display:inline-flex;align-items:center;gap:6px}
+.lg{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid var(--border)}
+.lg.r-correct{background:var(--green);border-color:var(--green)}.lg.r-wrong{background:var(--red);border-color:var(--red)}
+.lg.r-blank{background:var(--orange-bg);border-color:var(--orange)}.lg.r-e{background:var(--grey-bg)}
+.as-grid{max-height:none;margin-bottom:12px}
+.as-filter{display:flex;flex-wrap:wrap;margin-bottom:10px}
+.as-filter button{flex:1 1 auto}
+.as-row{border:1px solid var(--border);border-left:5px solid var(--border);border-radius:12px;margin-bottom:8px;background:var(--card);transition:box-shadow .3s}
+.as-row.r-correct{border-left-color:var(--green)}.as-row.r-wrong{border-left-color:var(--red)}.as-row.r-blank{border-left-color:var(--orange)}.as-row.r-e{border-left-color:var(--muted)}
+.as-row.flash{box-shadow:0 0 0 3px var(--primary)}
+.as-row>summary{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;list-style:none;cursor:pointer}
+.as-row>summary::-webkit-details-marker{display:none}
+.as-row>summary .grow{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.as-row>summary>.ic{color:var(--muted);transition:transform .15s;margin-top:2px}
+.as-row[open]>summary>.ic{transform:rotate(180deg)}
+.as-row[open] .clamp2{display:none}
+.as-n{flex:0 0 auto;min-width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:.85rem;background:var(--grey-bg)}
+.as-row.r-correct .as-n{background:var(--green);color:#fff}.as-row.r-wrong .as-n{background:var(--red);color:#fff}.as-row.r-blank .as-n{background:var(--orange-bg);color:var(--orange)}
+.as-meta{color:var(--muted)}
+.as-q{font-size:1rem;margin:0 12px 8px}
+.as-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--border);border-radius:10px;margin:0 12px 6px}
+.as-opt .key{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.85rem;background:var(--grey-bg)}
+.as-opt .grow{flex:1;min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.as-opt.right{border-color:var(--green);background:var(--green-bg)}.as-opt.right .key{background:var(--green);color:#fff}
+.as-opt.bad{border-color:var(--red);background:var(--red-bg)}.as-opt.bad .key{background:var(--red);color:#fff}
+.as-opt.sel{border-style:dashed}
+.as-tag{font-size:.75rem;white-space:nowrap;margin-left:auto}
+.as-opt.right .as-tag{color:var(--green)}.as-opt.bad .as-tag{color:var(--red)}
+.as-row .expl{margin:8px 12px 12px}
 </style>
 </head>
 <body>
@@ -4212,6 +4244,7 @@ function topicMenuSheet(t) {
     ...(n ? [{ icon: I('play'), label: 'Practise', onClick: () => practiseTopic(t.id) }] : []),
     { icon: I('notes'), label: topicNoteCount(t) ? `Notes (${topicNoteCount(t)})` : 'Notes', onClick: () => openNotes(t.id) },
     { icon: I('clipboard'), label: 'Paste a note from AI', onClick: () => openNotes(t.id, { edit: { id: null } }) },
+    ...(n ? [{ icon: I('cards'), label: 'Flashcards', onClick: () => openRevision({ type: 'topic', id: t.id }) }] : []),
     ...(s ? [{ icon: I('book'), label: 'Syllabus of ' + displayName(s), onClick: () => openSyllabus(s.id) }] : []),
     ...(t.plan && t.plan.id && D.plan ? [{ icon: I('check'), label: planStatus(t.plan.id) === 'Completed' ? 'Mark as not started' : 'Mark as done', onClick: async () => { await setPlanField(t.plan.id, 's', planStatus(t.plan.id) === 'Completed' ? 'Not Started' : 'Completed'); refreshPlanViews(); } }] : [])
   ]);
@@ -4424,6 +4457,46 @@ document.addEventListener('click', e => {
   const orig = new Map((RES.info.questions || []).map(q => [q.key || qKey(q), q]));  // original option order, so history letters stay right
   const qs = RES.rows.filter(r => r.res !== 'correct').map(r => orig.get(r.q.key) || r.q);
   startSetup({ name: 'Mistakes: ' + RES.name, questions: qs, subjectId: RES.info.subjectId, topicId: RES.info.topicId, setId: null, mode: 'mistakes', settingsSubjectId: RES.info.settingsSubjectId });
+});
+
+
+/* ---------- Results: answer sheet – every question with your answer and the correct one, colour-coded ---------- */
+const AS = { filter: 'all' };
+function answerSheetHTML(R) {
+  const n = k => R.rows.filter(r => r.res === k).length;
+  const tabs = [['all', 'All', R.rows.length], ['wrong', 'Wrong', n('wrong')], ['blank', 'Blank', n('blank')], ['e', 'Skipped (E)', n('e')], ['correct', 'Correct', n('correct')]].filter(([k, , c]) => k === 'all' || c);
+  const optLine = (q, L, cls, tag) => `<div class="as-opt ${cls}"><span class="key">${L}</span><span class="grow">${esc(L === 'E' ? E_LABEL : q.options[L])}</span>${tag ? `<b class="as-tag">${tag}</b>` : ''}</div>`;
+  const rows = R.rows.map((r, i) => {
+    if (AS.filter !== 'all' && r.res !== AS.filter) return '';
+    const q = r.q, your = r.sel ? `${r.sel}${r.sel === 'E' ? ' (skipped)' : ''}` : '—';
+    const status = { correct: 'Correct', wrong: 'Wrong', blank: r.visited ? 'Blank' : 'Not visited', e: 'Skipped (E)' }[r.res];
+    return `<details class="as-row r-${r.res}" id="as-${i}"><summary><span class="as-n">${i + 1}</span><span class="grow"><span class="clamp2">${esc(q.question)}</span>
+        <span class="small as-meta"><span class="pill ${r.res === 'correct' ? 'correct' : r.res === 'wrong' ? 'wrong' : 'blank'}">${status}</span> Your answer: <b>${esc(your)}</b> · Correct: <b>${esc(q.answer)}</b></span></span>${I('chevd')}</summary>
+      <div class="qtext as-q">${esc(q.question)}</div>
+      ${LETTERS.map(L => { const ok = L === q.answer, mine = L === r.sel; return optLine(q, L, ok ? 'right' : mine ? 'bad' : '', ok && mine ? 'Your answer ✓' : ok ? 'Correct answer' : mine ? 'Your answer' : ''); }).join('')}
+      ${r.sel === 'E' ? optLine(q, 'E', 'sel', 'Your choice') : ''}
+      ${q.explanation ? `<div class="expl"><b>Explanation</b>\n${esc(q.explanation)}</div>` : ''}</details>`;
+  }).join('');
+  return `<div class="card answer-sheet"><div class="row" style="margin-bottom:8px"><h2 style="margin:0;flex:1">Answer sheet</h2>
+      <button class="btn ghost sm" data-as-open>${I('list')} Expand all</button></div>
+    <div class="as-legend small"><span><i class="lg r-correct"></i>Correct</span><span><i class="lg r-wrong"></i>Wrong</span><span><i class="lg r-blank"></i>Blank</span><span><i class="lg r-e"></i>Skipped (E)</span></div>
+    <div class="pal-grid as-grid">${R.rows.map((r, i) => `<button class="pal r-${r.res}" data-as-jump="${i}" title="Question ${i + 1}">${i + 1}</button>`).join('')}</div>
+    <div class="seg as-filter">${tabs.map(([k, l, c]) => `<button data-as-filter="${k}" class="${AS.filter === k ? 'on' : ''}">${l} ${c}</button>`).join('')}</div>
+    <div id="asList">${rows || '<p class="small muted">No questions in this group.</p>'}</div></div>`;
+}
+document.addEventListener('click', e => {
+  if ($('#results').hidden || !RES) return;
+  const f = e.target.closest('[data-as-filter]');
+  if (f) { AS.filter = f.dataset.asFilter; const y = window.scrollY; $('.answer-sheet').outerHTML = answerSheetHTML(RES); window.scrollTo(0, y); return; }
+  const j = e.target.closest('[data-as-jump]');
+  if (j) {
+    const i = +j.dataset.asJump;
+    if (AS.filter !== 'all' && RES.rows[i].res !== AS.filter) { AS.filter = 'all'; $('.answer-sheet').outerHTML = answerSheetHTML(RES); }
+    const row = $('#as-' + i); row.open = true; row.scrollIntoView({ block: 'center', behavior: 'smooth' }); row.classList.add('flash'); setTimeout(() => row.classList.remove('flash'), 1200);
+    return;
+  }
+  const o = e.target.closest('[data-as-open]');
+  if (o) { const rows = [...document.querySelectorAll('#asList details')], open = rows.some(d => !d.open); rows.forEach(d => { d.open = open; }); o.innerHTML = `${I('list')} ${open ? 'Collapse all' : 'Expand all'}`; }
 });
 
 /* ---------- Offline notice ---------- */
@@ -4752,7 +4825,7 @@ function renderResults() {
       <div class="stat"><b style="font-size:1.1rem;padding-top:4px">${fmtDuration(R.timeTaken)}</b><span>Time taken of ${fmtDuration(R.cfg.minutes * 60000)}</span></div>
     </div>
     <div class="row">
-      <button class="btn primary" id="toReview">Review all questions</button>
+      <button class="btn primary" id="toReview">Review one by one</button>
       <button class="btn" id="csvBtn"><svg class=ic><use href=#i-download></use></svg> Download CSV</button>
       <button class="btn" id="retakeBtn">↻ Retake</button>
       ${R.wrong ? `<button class="btn" data-errlog title="Wrong answers are collected in My mistakes automatically"><svg class=ic><use href=#i-alert></use></svg> My mistakes (+${R.wrong})</button>` : ''}
@@ -4762,6 +4835,8 @@ function renderResults() {
     </div>
   </div>`;
   h += nextStepsHTML(R);
+  AS.filter = R.wrong ? 'wrong' : 'all';
+  h += answerSheetHTML(R);
   if (subjects.length) {
     const groups = new Map();
     R.rows.forEach(r => {
