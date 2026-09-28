@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ExamSim — MCQ Exam Simulator</title>
 <meta name="description" content="MCQ mock-exam simulator with negative marking, organised by subject and topic, synced through Firebase.">
-<meta name="theme-color" content="#2f6fed">
+<meta name="theme-color" content="#4f46e5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;600;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -298,10 +301,10 @@ tr.tot td{border-top:2px solid var(--border)}
 .td-seg button{padding:7px 10px}
 .td-stats{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
 @media (max-width:600px){.td-stats{grid-template-columns:repeat(2,1fr);gap:6px}.td-stats .stat{padding:8px}.td-stats .stat b{font-size:1.1rem}}
-.td-prog{margin:4px 0 0}
+.td-prog{padding:14px 16px}
 .stat b small{font-size:.6em;color:var(--muted);font-weight:600}
 .st-sel{width:auto;padding:5px 8px;border-left:4px solid var(--border)}
-.td-ic{flex:0 0 auto;font-size:1.3rem;width:28px;text-align:center}
+.td-ic{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:1rem;background:var(--primary-bg);color:var(--primary)}
 .back-btn{margin-right:8px;width:34px;height:34px;vertical-align:middle;font-size:18px;line-height:1}
 .lbl{display:block;font-weight:600;font-size:.9rem;margin-top:8px}
 .lbl input,.lbl select{display:block;width:100%;margin-top:4px;font-weight:400}
@@ -310,11 +313,12 @@ tr.tot td{border-top:2px solid var(--border)}
 .tp-subj{border:1px solid var(--border);border-radius:12px;padding:8px 10px;margin-bottom:8px}
 .tp-subj .subj-ic{width:30px;height:30px;font-size:1rem;border-radius:8px}
 .tp-subj-h{display:flex;align-items:center;gap:8px}
-.tp-subj-h b{flex:1;min-width:0;overflow-wrap:anywhere}
-.tp-subj-h .btn{padding:4px 10px;flex:0 0 auto}
+.tp-subj-h{flex-wrap:wrap}
+.tp-subj-h b{flex:1 1 170px;min-width:0;overflow-wrap:break-word}
+.tp-subj-h .btn{padding:4px 10px;flex:0 0 auto;min-height:34px;font-size:.86rem}
 .chips .subj-chip{border-color:color-mix(in srgb,var(--sc,var(--primary)) 55%,var(--border));padding:4px 12px}
-.note-h{display:flex;gap:6px;align-items:center;margin-bottom:6px}
-.note-h .grow{flex:1;min-width:0;overflow-wrap:anywhere}
+.note-h{display:flex;gap:6px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.note-h .grow{flex:1 1 150px;min-width:0;overflow-wrap:break-word}
 .merge-bar{position:sticky;top:60px;z-index:6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px;margin-bottom:10px;border:1px solid var(--primary);border-radius:12px;background:var(--primary-bg)}
 .md{line-height:1.6;overflow-wrap:anywhere}
 .md>:first-child{margin-top:0}.md>:last-child{margin-bottom:0}
@@ -421,6 +425,112 @@ tr.tot td{border-top:2px solid var(--border)}
   .hero h1{font-size:1.5rem}
   .page-head h1{font-size:1.3rem}
 }
+
+/* ============================================================
+   Design refresh: one palette, one type scale, soft elevation.
+   Overrides the base tokens above; components below use only tokens.
+   ============================================================ */
+:root{
+  --bg:#f5f6fa;--card:#ffffff;--text:#101828;--muted:#667085;--border:#e4e7ec;
+  --primary:#4f46e5;--primary-2:#7c3aed;--primary-bg:#eef2ff;
+  --green:#079455;--green-bg:#ecfdf3;--red:#d92d20;--red-bg:#fef3f2;--orange:#dc6803;--orange-bg:#fffaeb;
+  --grey-bg:#f2f4f7;--shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.07);
+  --shadow-lg:0 12px 28px -10px rgba(40,30,120,.35);--radius:16px;
+}
+[data-theme=dark]{
+  --bg:#0b0d14;--card:#151823;--text:#eceef4;--muted:#98a2b3;--border:#262b3a;
+  --primary:#8b8df8;--primary-2:#b18cf9;--primary-bg:#1f2040;
+  --green:#32d583;--green-bg:#0f2a1e;--red:#f97066;--red-bg:#3a1614;--orange:#fdb022;--orange-bg:#33240b;
+  --grey-bg:#1d2130;--shadow:0 1px 2px rgba(0,0,0,.35);--shadow-lg:0 12px 28px -10px rgba(0,0,0,.6);
+}
+body{font-family:"Inter","Noto Sans Kannada",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-feature-settings:"cv11","ss01";letter-spacing:-.005em}
+h1,h2,h3{letter-spacing:-.015em}
+h2{font-size:1.08rem;font-weight:700}
+.page-head h1{font-weight:800;font-size:1.55rem;letter-spacing:-.025em}
+.kind{color:var(--primary);opacity:.85;letter-spacing:.08em}
+.card{border-radius:var(--radius);border-color:var(--border);box-shadow:var(--shadow);padding:18px 18px}
+.btn{border-radius:10px;transition:transform .12s ease,box-shadow .12s ease,border-color .12s,background .12s;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.btn:hover{border-color:color-mix(in srgb,var(--primary) 55%,var(--border))}
+.btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));border-color:transparent;box-shadow:0 1px 2px rgba(79,70,229,.25),0 4px 10px -4px rgba(79,70,229,.45)}
+.btn.primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn.ghost{box-shadow:none}
+.icon-btn{border-radius:10px;transition:border-color .12s}
+.icon-btn:hover{border-color:var(--primary)}
+input[type=text],input[type=number],select,textarea{border-radius:10px}
+.topbar{background:color-mix(in srgb,var(--card) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
+.logo{background:linear-gradient(135deg,var(--primary),var(--primary-2));box-shadow:0 2px 6px -2px rgba(79,70,229,.6)}
+.tb-item.on{color:var(--primary)}
+.stat{border-radius:12px}
+.card .stat{background:var(--grey-bg);border-color:transparent}
+.pill{border-radius:99px}
+.tabs .tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+.goal-bar i{background:linear-gradient(90deg,var(--primary),var(--primary-2))}
+.chips .subj-chip{background:color-mix(in srgb,var(--sc,var(--primary)) 10%,var(--card));border-color:color-mix(in srgb,var(--sc,var(--primary)) 35%,var(--border));font-weight:600}
+.subj{border-top:3px solid var(--sc,var(--primary))}
+
+/* Today: header card */
+.td-hero{position:relative;overflow:hidden;border-radius:22px;padding:18px 18px 14px;margin:0 0 14px;color:#fff;
+  background:radial-gradient(120% 140% at 100% 0%,#db2777 0%,transparent 55%),linear-gradient(135deg,#4338ca 0%,#6d28d9 70%);box-shadow:var(--shadow-lg)}
+.td-hero-top{display:flex;gap:14px;align-items:center}
+.td-hero-top .grow{flex:1;min-width:0}
+.td-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.td-hero h1{margin:2px 0 2px;font-size:1.6rem;font-weight:800;letter-spacing:-.025em;color:#fff}
+.td-sub{font-size:.92rem;opacity:.92}
+.ring{--p:0;position:relative;flex:0 0 auto;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;align-content:center;
+  background:conic-gradient(#fff calc(var(--p)*1%),rgba(255,255,255,.22) 0)}
+.ring::before{content:"";position:absolute;inset:7px;border-radius:50%;background:#5b2fd6}
+.ring span,.ring small{position:relative;line-height:1.05;text-align:center}
+.ring span{font-weight:800;font-size:1.05rem}
+.ring small{font-size:.66rem;opacity:.85;text-transform:uppercase;letter-spacing:.06em}
+.td-hero .td-nav{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr auto;gap:8px}
+.td-hero .td-seg{display:flex}
+.td-hero .td-seg button{flex:1;padding:7px 6px}
+.td-hero input[type=date]{grid-column:1/-1;width:100%!important}
+.td-stats{grid-template-columns:repeat(3,1fr)!important}
+.td-hero .icon-btn,.td-hero .seg,.td-hero input[type=date]{background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.28)!important;color:#fff!important}
+.td-hero .seg button{background:transparent;color:#fff}
+.td-hero .seg button.on{background:#fff;color:#4338ca}
+.td-hero input[type=date]{color-scheme:dark}
+
+/* Today: subjects, topics, syllabus */
+.tp-subj{border:1px solid var(--border);border-left:4px solid var(--sc,var(--primary));border-radius:14px;padding:0;margin-bottom:12px;overflow:hidden;background:var(--card)}
+.tp-subj-h{padding:10px 12px;background:color-mix(in srgb,var(--sc,var(--primary)) 9%,var(--card));border-bottom:1px solid var(--border)}
+.tp-subj .list-row{padding:12px}
+.tp-h{color:var(--primary)}
+.cov{font-size:.86rem;color:var(--muted);margin-top:3px}
+.cov::before{content:"Syllabus: ";font-weight:600;color:var(--text)}
+.subs{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.sub{font-size:.74rem;font-weight:600;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--sc,var(--primary)) 11%,transparent);border:1px solid color-mix(in srgb,var(--sc,var(--primary)) 28%,transparent)}
+.tip{margin-top:4px}
+.unlinked{border-left:4px solid var(--orange);background:var(--orange-bg);border-radius:12px;padding:10px 12px;margin:0 0 10px}
+.ca-row{background:var(--grey-bg);border-radius:12px;padding:9px 12px;margin:0 0 10px}
+.syl-head{font-weight:700;color:var(--muted);margin-bottom:6px}
+.syl-list{margin:0;padding-left:1.3em}
+.syl-list li{padding:6px 0;border-bottom:1px dashed var(--border)}
+.syl-list li:last-child{border-bottom:none}
+.syl-list li div{font-size:.92rem;color:var(--muted)}
+.syl-topic{border:1px solid var(--border);border-left:4px solid var(--border);border-radius:14px;padding:12px;margin-bottom:10px}
+.syl-topic.is-today{border-color:var(--primary);background:var(--primary-bg)}
+.syl-topic .grow{flex:1;min-width:160px}
+
+/* Notes → A4 PDF */
+#printArea{display:none}
+@media print{
+  @page{size:A4;margin:16mm 14mm 18mm}
+  body.print-notes{background:#fff!important}
+  body.print-notes>*:not(#printArea){display:none!important}
+  body.print-notes #printArea{display:block!important;--text:#111827;--muted:#4b5563;--border:#d0d5dd;--grey-bg:#f2f4f7;--primary:#4f46e5;--primary-bg:#eef2ff;color:#111827;background:#fff;font-size:11pt}
+  #printArea *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pa-head{border-bottom:2px solid #4f46e5;padding-bottom:8px;margin-bottom:14px}
+  .pa-brand{color:#4f46e5;font-weight:700;font-size:8.5pt;text-transform:uppercase;letter-spacing:.1em}
+  .pa-head h1{font-size:20pt;margin:3px 0;color:#111827}
+  .pa-meta{color:#4b5563;font-size:9.5pt}
+  .pa-note+.pa-note{margin-top:18px;border-top:1px solid #d0d5dd;padding-top:12px}
+  .pa-title{font-size:14pt;color:#312e81;margin:0 0 6px}
+  #printArea pre,#printArea table,#printArea blockquote,#printArea .katex-display,#printArea img{break-inside:avoid}
+  #printArea h1,#printArea h2,#printArea h3,#printArea h4{break-after:avoid}
+  #printArea .tbl-wrap{overflow:visible}
+}
 </style>
 </head>
 <body>
@@ -438,7 +548,7 @@ tr.tot td{border-top:2px solid var(--border)}
   <button class="tb-item" data-go="mocks"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 12.5l2 2 4-4"/></svg><span>Mocks</span></button>
   <button class="tb-item tb-add" data-go="add"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Add</span></button>
   <button class="tb-item" data-go="revhub"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg><span>Revise</span></button>
-  <button class="tb-item" data-go="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg><span>Study plan</span></button>
+  <button class="tb-item" data-go="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg><span>Plan</span></button>
 </nav>
 
 <main>
@@ -552,6 +662,7 @@ Explanation: RAM loses its contents without power.</pre>
 <section id="revhub" hidden></section>
 <section id="errlog" hidden></section>
 <section id="notes" hidden></section>
+<section id="syllabus" hidden></section>
 <section id="progress" hidden></section>
 <section id="plan" hidden></section>
 <section id="mock" hidden></section>
@@ -998,6 +1109,7 @@ async function loadAll() {
   });
   delete D.planState.id;
   delete D.errNotes.id;
+  repairPlanLinks();
   qCache.clear();
 }
 // Questions from several sets, de-duplicated, each tagged with where it came from
@@ -1117,9 +1229,9 @@ function confirmBox(title, html, okLabel) {
   });
 }
 
-const SCREENS = ['connect', 'today', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'notes', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
+const SCREENS = ['connect', 'today', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'notes', 'syllabus', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { today: 'today', home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', notes: 'home', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
+const TAB_OF = { today: 'today', home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', notes: 'home', syllabus: 'home', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
 function show(id) {
   navPush(id);
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
@@ -2226,7 +2338,7 @@ function renderSubject() {
   const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(p => !packImported(p));
   if (packsNew) h += packsCard;
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
-    ${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
+    <button class="btn" data-syl="${s.id}">📜 Syllabus</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
@@ -2982,7 +3094,9 @@ function planTopicRow(t, carry) {
   const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t);
   return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>
       <div class="small muted">${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
-      ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+      ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
+      ${(subs => subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : '')(topicSubs(t))}
+      ${t.plan.tip ? `<div class="small tip">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
       ${ps ? `<select class="st-sel ${stClass(ps)}" data-pf="s" data-id="${esc(t.plan.id)}" aria-label="Study status">${PLAN_ST.map(x => `<option ${x === ps ? 'selected' : ''}>${x}</option>`).join('')}</select>` : ''}
       <button class="btn" data-notes="${t.id}" title="Notes for this topic">📝${nn ? ' ' + nn : ''}</button>
       <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
@@ -2991,22 +3105,24 @@ function planTopicRow(t, carry) {
 function dayGroups(d) {
   const out = [];
   for (const [k, label] of [['p2', 'Paper 2 · Computer Science'], ['p1', 'Paper 1 · General']]) {
-    const subs = new Map(), extra = [];
+    const subs = new Map(), extra = [], missing = [];
     for (const task of dayTasks(d, k)) {
-      const id = taskId(task), t = id && planTopic(id);
-      if (!t) { extra.push(task.replace(/^P[12]-[A-Z0-9]+-\d+\s+/, '')); continue; }
+      const id = taskId(task), t = id && planTopic(id), name = task.replace(/^P[12]-[A-Z0-9]+-\d+\s+/, '');
+      if (!t) { (id && !/^P1-CA-/.test(id) ? missing : extra).push(id && !/^P1-CA-/.test(id) ? { id, name } : name); continue; }
       if (!subs.has(t.subjectId)) subs.set(t.subjectId, { s: byId('subjects', t.subjectId), topics: [] });
       subs.get(t.subjectId).topics.push(t);
     }
-    if (subs.size || extra.length) out.push({ label, subs: [...subs.values()], extra });
+    if (subs.size || extra.length || missing.length) out.push({ label, subs: [...subs.values()], extra, missing });
   }
   return out;
 }
 function dayGroupsHTML(d) {
   return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h">${esc(g.label)}</div>`
-    + g.subs.map(({ s, topics }) => `<div class="tp-subj"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
-        <button class="btn ghost" data-nav="subject:${s.id}" title="Open subject">Open ›</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
-    + (g.extra.length ? `<div class="small muted" style="padding:6px 2px">🗞 Also: ${esc(g.extra.join(' · '))}</div>` : '') + '</div>').join('');
+    + g.subs.map(({ s, topics }) => `<div class="tp-subj" style="--sc:${subjColor(s)}"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
+        <button class="btn ghost" data-syl="${s.id}" title="Full syllabus of this subject">📜 Syllabus</button><button class="btn ghost" data-nav="subject:${s.id}" title="Open subject">Open ›</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
+    + (g.missing || []).map(m => `<div class="list-row unlinked"><div class="grow"><span class="pill">${esc(m.id)}</span> <b>${esc(m.name)}</b>
+        <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary" data-fix-links>Fix</button></div>`).join('')
+    + (g.extra.length ? `<div class="ca-row small">🗞 <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news; no question packs by design</span></div>` : '') + '</div>').join('');
 }
 // Home: a short summary of today's plan; the full day (exams, subjects, notes, any date) is in the Today tab
 function planHomeCard() {
@@ -3035,12 +3151,18 @@ function renderToday() {
   ensureBank(); // the question-bank index is needed to know which packs cover the day
   const date = TD.date, pd = planDate(date);
   const rel = date === today ? 'Today' : date === addDays(today, -1) ? 'Yesterday' : date === addDays(today, 1) ? 'Tomorrow' : '';
-  let h = `<div class="page-head"><h1>☀️ ${rel || 'Study day'}</h1></div>
-    <div class="kind">${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }))}${D.plan && D.plan.examDate && today <= D.plan.examDate ? ` · ⏳ ${plural(Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000), 'day')} to the exam` : ''}</div>
+  const cal0 = (D.plan && D.plan.calendar) || [], i0 = cal0.findIndex(x => x.date === date), d0 = cal0[i0];
+  const left = D.plan && D.plan.examDate && today <= D.plan.examDate ? Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
+  const pr0 = d0 ? dayPlanIds(d0).map(planRow).filter(Boolean) : [], pc0 = pr0.length ? Math.round(pr0.filter(r => rowState(r).status === 'Completed').length / pr0.length * 100) : 0;
+  let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
+      <div class="td-eyebrow">${esc(rel || 'Study day')}${d0 ? ` · Day ${i0 + 1} of ${cal0.length} · Week ${Math.floor(i0 / 7) + 1}` : ''}</div>
+      <h1>${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))}</h1>
+      <div class="td-sub">${d0 ? esc(d0.phase) + ' phase · ' + d0.hours + ' h planned' : 'Outside the study plan'}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
+      ${d0 ? `<div class="ring" style="--p:${pc0}" title="Topics completed on this day"><span>${pc0}%</span><small>done</small></div>` : ''}</div>
     <div class="td-nav"><button class="icon-btn" data-td-step="-1" title="Previous day" aria-label="Previous day">◀</button>
       <div class="seg td-seg">${[['yest', 'Yesterday', addDays(today, -1)], ['today', 'Today', today], ['tom', 'Tomorrow', addDays(today, 1)]].map(([k, l, d]) => `<button data-td="${d}" class="${date === d ? 'on' : ''}">${l}</button>`).join('')}</div>
       <button class="icon-btn" data-td-step="1" title="Next day" aria-label="Next day">▶</button>
-      <input type="date" id="tdDate" value="${date}" aria-label="Choose a date"></div>`;
+      <input type="date" id="tdDate" value="${date}" aria-label="Choose a date"></div></div>`;
   if (!D.plan) {
     el.innerHTML = h + `<div class="card empty"><p>Load your study plan to see what to study each day.</p><button class="btn primary" data-open-bank>📦 Open question bank</button></div>` + tdDoneHTML(date);
     return;
@@ -3057,11 +3179,11 @@ function renderToday() {
   const wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
   const errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || {}).plan?.id));
   const done = dayDone(d), practised = D.days[date] || 0;
-  h += `<div class="stats td-stats">${statBox('Day ' + (i + 1), 'of ' + cal.length + ' · Week ' + week)}${statBox(esc(d.phase), d.hours + ' h planned')}${statBox(ids.length, plural(ids.length, 'topic').replace(/^\d+ /, '') + ' to study')}${date === today ? statBox(`${practised}<small> / ${D.prefs.dailyGoal || 30}</small>`, practised >= (D.prefs.dailyGoal || 30) ? 'daily goal reached 🎯' : 'daily goal (questions)') : statBox(practised, 'questions practised')}</div>`;
+  h += `<div class="stats td-stats">${statBox(ids.length, plural(ids.length, 'topic').replace(/^\d+ /, '') + ' to study')}${statBox(nQ, 'questions available')}${date === today ? statBox(`${practised}<small> / ${D.prefs.dailyGoal || 30}</small>`, practised >= (D.prefs.dailyGoal || 30) ? 'daily goal reached 🎯' : 'daily goal (questions)') : statBox(practised, 'questions practised')}</div>`;
   const pRows = ids.map(planRow).filter(Boolean), pDone = pRows.filter(r => rowState(r).status === 'Completed').length;
-  if (pRows.length) h += `<div class="td-prog"><div class="row small" style="justify-content:space-between"><span>Topics completed</span><b>${pDone} / ${pRows.length}</b></div>
-    <div class="goal-bar"><i style="width:${Math.round(pDone / pRows.length * 100)}%"></i></div></div>`;
-  h += `<label class="check" style="margin:8px 0 12px"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Mark this day as done</label>`;
+  h += `<div class="card td-prog">${pRows.length ? `<div class="row small" style="justify-content:space-between"><span>Topics completed</span><b>${pDone} / ${pRows.length}</b></div>
+    <div class="goal-bar"><i style="width:${Math.round(pDone / pRows.length * 100)}%"></i></div>` : ''}
+    <label class="check" style="margin-top:10px"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Mark this day as done</label></div>`;
   // Exams for this day
   const rows = [];
   if (nQ) rows.push(['▶', `Day ${i + 1} practice`, `Up to 40 questions from this day's ${plural(info.withQ.length, 'topic')}, questions you have not attempted first`, `<button class="btn primary" data-day-practise="${d.date}">Start (${Math.min(40, nQ)} Q)</button>`]);
@@ -3734,6 +3856,7 @@ function renderNotes() {
   const n = topicQuestionCount(t.id);
   h += `<div class="row" style="margin-bottom:12px"><button class="btn primary" data-note-new>📋 Paste from AI</button><button class="btn" data-note-write>✎ Write a note</button>
     ${n ? `<button class="btn" data-practise="${t.id}">▶ Practise this topic (${n} Q)</button>` : ''}
+    ${NT.notes.length ? `<button class="btn" data-note-pdf="all" title="Print or save as an A4 PDF">⬇ PDF (A4)${NT.sel.size ? ' – ' + plural(NT.sel.size, 'selected note') : ''}</button>` : ''}
     ${NT.notes.length > 1 ? `<span class="spacer"></span><button class="btn ghost" data-note-openall>${NT.openAll ? 'Collapse all' : 'Expand all'}</button>` : ''}</div>`;
   if (!NT.notes.length) {
     h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Ask ChatGPT, Gemini or Claude to explain this topic, press its <b>Copy</b> button, then tap <b>📋 Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
@@ -3745,6 +3868,7 @@ function renderNotes() {
         <div class="grow"><b>${esc(x.title || 'Note')}</b><div class="small muted">${x.source ? esc(x.source) + ' · ' : ''}${esc(fmtDay(x.updatedAt || x.createdAt))}</div></div>
         <button class="icon-btn" data-note-up="${x.id}" ${i ? '' : 'disabled'} title="Move up" aria-label="Move up">↑</button>
         <button class="icon-btn" data-note-down="${x.id}" ${i < NT.notes.length - 1 ? '' : 'disabled'} title="Move down" aria-label="Move down">↓</button>
+        <button class="icon-btn" data-note-pdf="${x.id}" title="Save this note as an A4 PDF" aria-label="Save as PDF">⬇</button>
         <button class="icon-btn" data-note-edit="${x.id}" title="Edit" aria-label="Edit">✎</button>
         <button class="icon-btn" data-note-del="${x.id}" title="Delete" aria-label="Delete">🗑</button></div>
       <div class="md ${NT.openAll || NT.notes.length === 1 ? '' : 'md-clip'}" data-md="${x.id}"><p class="small muted">Formatting…</p></div>
@@ -3877,7 +4001,7 @@ function topicNotesHTML(t) {
    phone's back gesture/button step back through the app. Screens that cannot be rebuilt (exam, settings, flashcard
    session, add form) are skipped on the way back; leaving a running exam asks first. */
 const NAV = { restoring: false, ignore: false };
-const routeOf = id => id === 'subject' ? 'subject:' + cur.subjectId : id === 'topic' ? 'topic:' + cur.topicId : id === 'notes' ? 'notes:' + NT.topicId : id;
+const routeOf = id => id === 'subject' ? 'subject:' + cur.subjectId : id === 'topic' ? 'topic:' + cur.topicId : id === 'notes' ? 'notes:' + NT.topicId : id === 'syllabus' ? 'syllabus:' + cur.subjectId : id;
 function navPush(id) {
   if (NAV.restoring || !store || id === 'connect') return;
   const r = routeOf(id), st = history.state;
@@ -3893,6 +4017,7 @@ function openRoute(r) {
     subject: () => byId('subjects', id) ? openSubject(id) : goHome(),
     topic: () => byId('topics', id) ? openTopic(id) : goHome(),
     notes: () => byId('topics', id) ? openNotes(id) : goHome(),
+    syllabus: () => byId('subjects', id) ? openSyllabus(id) : goHome(),
     results: () => RES ? renderResults() : false,
     review: () => RES ? openReview() : false
   }[k];
@@ -3913,6 +4038,114 @@ window.addEventListener('popstate', async e => {
     return;
   }
   if (!openRoute(r)) history.back(); // a screen that cannot be rebuilt: skip it
+});
+
+/* ---------- Plan links: planner topics whose library topic lost its plan (e.g. created by an older pack) are re-linked by name ---------- */
+function repairPlanLinks() {
+  if (!D.plan) return 0;
+  const linked = new Set(D.topics.filter(t => t.plan && t.plan.id).map(t => t.plan.id));
+  let n = 0;
+  for (const r of planRows()) {
+    if (linked.has(r.id) || /^P1-CA-/.test(r.id)) continue;
+    const k = nameKey(r.topic), t = D.topics.find(x => (!x.plan || !x.plan.id) && nameKey(x.name) === k);
+    if (!t) continue;
+    t.plan = { id: r.id, start: r.start, end: r.target || r.start, priority: r.priority || '', coverage: r.coverage || '', ...(r.tip ? { tip: r.tip } : {}) };
+    save('topics', t).catch(() => {});
+    linked.add(r.id); n++;
+  }
+  return n;
+}
+// "Fix" on an unlinked task: re-import the syllabus structure (creates missing topics and restores plan links), then re-link by name
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-fix-links]');
+  if (!b) return;
+  e.preventDefault(); b.disabled = true; b.textContent = 'Fixing…';
+  try {
+    await getPackIndex();
+    const p = packIndex.packs.find(x => x.file === packs0File());
+    if (p) await quickImport(p, null, true);
+    repairPlanLinks();
+    toast('Study-plan topics linked ✓');
+  } catch (err) { toast(errText(err), 'error'); }
+  rerender();
+});
+
+/* ---------- Syllabus: official text (from the syllabus PDFs) + the plan's topics and sub-topics, from packs/syllabus.json ---------- */
+let SYL = null, sylLoading = null;
+function loadSyllabus() {
+  if (SYL) return Promise.resolve(SYL);
+  return sylLoading || (sylLoading = fetch('packs/syllabus.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('Could not load the syllabus'); return r.json(); })
+    .then(j => (SYL = j)).finally(() => { sylLoading = null; }));
+}
+const sylSubject = s => SYL && s && (SYL.subjects[s.name] || Object.entries(SYL.subjects).find(([k]) => nameKey(k) === nameKey(s.name))?.[1]);
+// Sub-topics of a topic: its question sets (numbered "1 · …"), or the syllabus map when it has no sets yet
+function topicSubs(t) {
+  const fromSets = D.sets.filter(x => x.topicId === t.id).map(x => x.name).filter(n => /^\d+ · /.test(n) && !/Days? \d/.test(n)).map(n => n.replace(/^\d+ · /, ''));
+  if (fromSets.length) return fromSets;
+  const st = sylSubject(byId('subjects', t.subjectId)), tt = st && st.topics.find(x => x.id === (t.plan && t.plan.id));
+  return (tt && tt.subs) || [];
+}
+function openSyllabus(subjectId) {
+  cur.subjectId = subjectId;
+  $('#syllabus').innerHTML = '<div class="loading">Loading syllabus…</div>';
+  show('syllabus');
+  loadSyllabus().then(renderSyllabus).catch(e => { $('#syllabus').innerHTML = `<div class="status error">${esc(errText(e))}</div>`; });
+}
+function renderSyllabus() {
+  const s = byId('subjects', cur.subjectId);
+  if (!s) return goHome();
+  const st = sylSubject(s), off = st && st.official, day = TD.date || dayKey(), dayIds = new Set((calRowFor(day) && dayPlanIds(calRowFor(day))) || []);
+  let h = crumbs([['Library', 'home'], [s.name, 'subject:' + s.id], ['Syllabus']])
+    + `<div class="page-head"><h1>${esc(subjIcon(s))} ${esc(displayName(s))}</h1></div><div class="kind">Syllabus · ${esc(s.name.startsWith('P2') ? 'Paper 2 · Computer Science' : 'Paper 1 · General')}</div>`;
+  if (off) {
+    h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Official syllabus</h2><span class="small muted">GPSTR / CST 2026</span></div>
+      ${off.heading ? `<div class="syl-head">${esc(off.heading)}</div>` : ''}
+      <ol class="syl-list">${off.sections.map(x => `<li><b>${esc(x.title)}</b>${x.text && x.text !== x.title && x.text.replace(/\.$/, '') !== x.title ? `<div>${esc(x.text.startsWith(x.title) ? x.text.slice(x.title.length).replace(/^\s*[:–-]\s*/, '') : x.text)}</div>` : ''}</li>`).join('')}</ol>
+      ${off.note ? `<p class="small muted" style="margin:6px 0 0">${esc(off.note)}</p>` : ''}</div>`;
+  } else {
+    h += `<div class="card"><p class="small muted" style="margin:0">The official syllabus text for this subject is in Kannada script in the PDF and could not be extracted; the topics below follow it exactly.</p></div>`;
+  }
+  const topics = D.topics.filter(t => t.subjectId === s.id && t.plan && t.plan.id).sort((a, b) => String(a.plan.start || '').localeCompare(String(b.plan.start || '')) || String(a.plan.id).localeCompare(String(b.plan.id), undefined, { numeric: true }));
+  h += `<div class="card"><h2>Topics in your study plan</h2>${topics.map(t => {
+    const ps = D.plan && planStatus(t.plan.id), subs = topicSubs(t), n = topicQuestionCount(t.id), today = dayIds.has(t.plan.id);
+    return `<div class="syl-topic ${today ? 'is-today' : ''} ${ps ? stClass(ps) : ''}"><div class="row" style="gap:8px"><span class="pill">${esc(t.plan.id)}</span><b class="grow">${esc(t.name)}</b>
+        ${today ? '<span class="pill pk">On the chosen day</span>' : ''}${ps ? `<span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}</div>
+      <div class="small muted">📅 ${esc(fmtPD(t.plan.start))}${t.plan.end && t.plan.end !== t.plan.start ? ' – ' + esc(fmtPD(t.plan.end)) : ''}${t.plan.priority ? ' · ' + esc(t.plan.priority) + ' priority' : ''} · ${n ? plural(n, 'question') : 'no questions yet'}</div>
+      ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
+      ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
+      <div class="row" style="margin-top:8px;gap:6px"><button class="btn" data-notes="${t.id}">📝 Notes${topicNoteCount(t) ? ' (' + topicNoteCount(t) + ')' : ''}</button><button class="btn" data-nav="topic:${t.id}">Open topic</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div></div>`;
+  }).join('') || '<p class="small muted">No planned topics in this subject.</p>'}</div>`;
+  $('#syllabus').innerHTML = h;
+  const hl = $('#syllabus .syl-topic.is-today');
+  if (hl) setTimeout(() => hl.scrollIntoView({ block: 'center' }), 60);
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-syl]');
+  if (b) { e.preventDefault(); openSyllabus(b.dataset.syl); }
+});
+
+/* ---------- Notes → A4 PDF: print only the notes, laid out for A4 paper ("Save as PDF" in the print dialog) ---------- */
+async function printNotes(ids) {
+  const t = byId('topics', NT.topicId), s = t && byId('subjects', t.subjectId);
+  const list = NT.notes.filter(n => !ids || ids.includes(n.id));
+  if (!list.length) return;
+  let area = $('#printArea');
+  if (!area) { area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = `<header class="pa-head"><div class="pa-brand">ExamSim · Notes</div><h1>${esc(t ? t.name : 'Notes')}</h1>
+    <div class="pa-meta">${esc(s ? s.name : '')}${t && t.plan && t.plan.id ? ' · ' + esc(t.plan.id) : ''} · ${esc(new Date().toLocaleDateString([], { day: 'numeric', month: 'long', year: 'numeric' }))}</div></header>`
+    + list.map(n => `<section class="pa-note">${noteTitleFrom(n.md) === (n.title || '') ? '' : `<h2 class="pa-title">${esc(n.title || 'Note')}</h2>`}<div class="md" data-pa="${n.id}"></div></section>`).join('');
+  toast('Preparing A4 PDF…');
+  await Promise.all(list.map(n => renderMdInto(area.querySelector(`[data-pa="${n.id}"]`), n.md)));
+  document.body.classList.add('print-notes');
+  const done = () => { document.body.classList.remove('print-notes'); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  setTimeout(() => window.print(), 150); // .print-notes only affects print media, so leaving it on is harmless
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-note-pdf]');
+  if (!b) return;
+  e.preventDefault();
+  printNotes(b.dataset.notePdf === 'all' ? (NT.sel.size ? [...NT.sel] : null) : [b.dataset.notePdf]);
 });
 
 /* ============================================================

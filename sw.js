@@ -2,9 +2,9 @@
 // Network-first, so a new version on GitHub Pages is picked up on the next load.
 // Versioned libraries from cdn.jsdelivr.net / cdnjs (Markdown, maths, pdf.js) are cached on first use so notes render offline;
 // Firebase and other cross-origin requests are not touched.
-const CACHE = 'examsim-v14';
+const CACHE = 'examsim-v15';
 const LIB_CACHE = 'examsim-libs';  // kept across releases: its URLs contain version numbers
-const LIB_HOSTS = ['cdn.jsdelivr.net', 'cdnjs.cloudflare.com'];
+const LIB_HOSTS = ['cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png'];
 
 self.addEventListener('install', e => {
