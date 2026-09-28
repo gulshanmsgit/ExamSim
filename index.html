@@ -298,6 +298,9 @@ tr.tot td{border-top:2px solid var(--border)}
 .td-seg button{padding:7px 10px}
 .td-stats{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
 @media (max-width:600px){.td-stats{grid-template-columns:repeat(2,1fr);gap:6px}.td-stats .stat{padding:8px}.td-stats .stat b{font-size:1.1rem}}
+.td-prog{margin:4px 0 0}
+.stat b small{font-size:.6em;color:var(--muted);font-weight:600}
+.st-sel{width:auto;padding:5px 8px;border-left:4px solid var(--border)}
 .td-ic{flex:0 0 auto;font-size:1.3rem;width:28px;text-align:center}
 .back-btn{margin-right:8px;width:34px;height:34px;vertical-align:middle;font-size:18px;line-height:1}
 .lbl{display:block;font-weight:600;font-size:.9rem;margin-top:8px}
@@ -2977,9 +2980,10 @@ async function practiseTopic(tid, btn) {
 }
 function planTopicRow(t, carry) {
   const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t);
-  return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>${ps ? ` <span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}
+  return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>
       <div class="small muted">${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
       ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+      ${ps ? `<select class="st-sel ${stClass(ps)}" data-pf="s" data-id="${esc(t.plan.id)}" aria-label="Study status">${PLAN_ST.map(x => `<option ${x === ps ? 'selected' : ''}>${x}</option>`).join('')}</select>` : ''}
       <button class="btn" data-notes="${t.id}" title="Notes for this topic">📝${nn ? ' ' + nn : ''}</button>
       <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
 }
@@ -3023,15 +3027,16 @@ function planHomeCard() {
    Today tab: one study-plan day at a time (any date can be chosen) – its exams, active subjects with
    topics and notes, mistakes to fix, and what was done on that date.
    ============================================================ */
-const TD = { date: null };
+const TD = { date: null, auto: new Set(), importing: false };
 function openToday(date) { if (date) TD.date = date; renderToday(); show('today'); }
 function renderToday() {
   const el = $('#today'), today = dayKey();
   if (!TD.date) TD.date = today;
+  ensureBank(); // the question-bank index is needed to know which packs cover the day
   const date = TD.date, pd = planDate(date);
   const rel = date === today ? 'Today' : date === addDays(today, -1) ? 'Yesterday' : date === addDays(today, 1) ? 'Tomorrow' : '';
   let h = `<div class="page-head"><h1>☀️ ${rel || 'Study day'}</h1></div>
-    <div class="kind">${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }))}</div>
+    <div class="kind">${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }))}${D.plan && D.plan.examDate && today <= D.plan.examDate ? ` · ⏳ ${plural(Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000), 'day')} to the exam` : ''}</div>
     <div class="td-nav"><button class="icon-btn" data-td-step="-1" title="Previous day" aria-label="Previous day">◀</button>
       <div class="seg td-seg">${[['yest', 'Yesterday', addDays(today, -1)], ['today', 'Today', today], ['tom', 'Tomorrow', addDays(today, 1)]].map(([k, l, d]) => `<button data-td="${d}" class="${date === d ? 'on' : ''}">${l}</button>`).join('')}</div>
       <button class="icon-btn" data-td-step="1" title="Next day" aria-label="Next day">▶</button>
@@ -3052,23 +3057,59 @@ function renderToday() {
   const wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
   const errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || {}).plan?.id));
   const done = dayDone(d), practised = D.days[date] || 0;
-  h += `<div class="stats td-stats">${statBox('Day ' + (i + 1), 'of ' + cal.length + ' · Week ' + week)}${statBox(esc(d.phase), d.hours + ' h planned')}${statBox(ids.length, plural(ids.length, 'topic').replace(/^\d+ /, '') + ' to study')}${statBox(practised, 'questions practised')}</div>
-    <label class="check" style="margin:0 0 12px"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Mark this day as done</label>`;
+  h += `<div class="stats td-stats">${statBox('Day ' + (i + 1), 'of ' + cal.length + ' · Week ' + week)}${statBox(esc(d.phase), d.hours + ' h planned')}${statBox(ids.length, plural(ids.length, 'topic').replace(/^\d+ /, '') + ' to study')}${date === today ? statBox(`${practised}<small> / ${D.prefs.dailyGoal || 30}</small>`, practised >= (D.prefs.dailyGoal || 30) ? 'daily goal reached 🎯' : 'daily goal (questions)') : statBox(practised, 'questions practised')}</div>`;
+  const pRows = ids.map(planRow).filter(Boolean), pDone = pRows.filter(r => rowState(r).status === 'Completed').length;
+  if (pRows.length) h += `<div class="td-prog"><div class="row small" style="justify-content:space-between"><span>Topics completed</span><b>${pDone} / ${pRows.length}</b></div>
+    <div class="goal-bar"><i style="width:${Math.round(pDone / pRows.length * 100)}%"></i></div></div>`;
+  h += `<label class="check" style="margin:8px 0 12px"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Mark this day as done</label>`;
   // Exams for this day
   const rows = [];
   if (nQ) rows.push(['▶', `Day ${i + 1} practice`, `Up to 40 questions from this day's ${plural(info.withQ.length, 'topic')}, questions you have not attempted first`, `<button class="btn primary" data-day-practise="${d.date}">Start (${Math.min(40, nQ)} Q)</button>`]);
   if (wkInfo.withQ.length) rows.push(['🎯', `Week ${week} mock test`, `Up to 50 questions from ${plural(wkInfo.withQ.length, 'topic')} of ${esc(dayLabel(wk[0]))} – ${esc(dayLabel(wk[wk.length - 1]))}`, `<button class="btn" data-week-mock="${week}">Start</button>`]);
   if (errs.length) rows.push(['📕', 'Mistakes to fix', `${plural(errs.length, 'question')} you got wrong earlier in these topics`, `<button class="btn" data-elpractise="day:${d.date}">Practise ${errs.length}</button>`]);
-  if (info.packs.length) rows.push(['📦', 'Questions ready in the bank', `${plural(info.packs.length, 'pack')} with questions for this day ${info.missing.length ? '(some topics have none yet)' : '(more sets for these topics)'}`, `<button class="btn" data-day-import="${d.date}">Import</button>`]);
-  h += `<div class="card"><h2>Exams for this day</h2>${rows.length ? rows.map(([ic, t, sub, btn]) => `<div class="list-row"><span class="td-ic">${ic}</span><div class="grow"><b>${t}</b><div class="small muted">${sub}</div></div>${btn}</div>`).join('')
+  if (TD.importing) rows.push(['📥', 'Importing questions…', 'Adding the question packs for this day and the next to your library', '<span class="small muted">Please wait</span>']);
+  else if (info.packs.length) rows.push(['📦', 'Questions ready in the bank', `${plural(info.packs.length, 'pack')} with questions for this day ${info.missing.length ? '(some topics have none yet)' : '(more sets for these topics)'}`, `<button class="btn" data-day-import="${d.date}">Import</button>`]);
+  h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Exams for this day</h2>
+    <label class="check small" title="Import the question packs for the chosen day and the next day automatically"><input type="checkbox" id="tdAuto" ${D.prefs.autoImport !== false ? 'checked' : ''}> Auto-import</label></div>${rows.length ? rows.map(([ic, t, sub, btn]) => `<div class="list-row"><span class="td-ic">${ic}</span><div class="grow"><b>${t}</b><div class="small muted">${sub}</div></div>${btn}</div>`).join('')
     : '<p class="small muted" style="margin:0">No questions for this day yet. They appear here as the question bank grows.</p>'}</div>`;
   // Active subjects with their topics, notes and practice
   const groups = dayGroups(d);
   const chips = groups.flatMap(g => g.subs.map(({ s }) => `<button class="chip subj-chip" data-nav="subject:${s.id}" style="--sc:${subjColor(s)}">${esc(subjIcon(s))} ${esc(displayName(s))}</button>`)).join('');
   h += `<div class="card"><h2>Active subjects</h2>${chips ? `<div class="chips" style="margin:0 0 4px">${chips}</div>` : ''}${dayGroupsHTML(d) || '<p class="small muted">No topics on this day.</p>'}
     ${d.habit ? `<p class="small" style="margin:10px 0 0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
+  const rev = [[1, 'Yesterday'], [3, '3 days ago'], [7, 'A week ago']].map(([k, l]) => {
+    const dd = calRowFor(addDays(date, -k)); if (!dd) return null;
+    const tp = idsQuestionInfo(dayPlanIds(dd)).withQ;
+    return tp.length ? { l, dd, tp } : null;
+  }).filter(Boolean);
+  if (rev.length) h += `<div class="card"><h2>🔁 Revise earlier days</h2><p class="small muted" style="margin-top:0">A short practice 1, 3 and 7 days after studying a topic fixes it in memory (spaced repetition).</p>
+    ${rev.map(({ l, dd, tp }) => `<div class="list-row"><div class="grow"><b>${l}</b> <span class="small muted">· Day ${cal.indexOf(dd) + 1} · ${esc(dayLabel(dd))}</span>
+      <div class="small muted clamp2">${tp.map(t => esc(t.name)).join(' · ')}</div></div>
+      <button class="btn ghost" data-td="${dd.date}">View</button><button class="btn" data-day-practise="${dd.date}">Practise</button></div>`).join('')}</div>`;
   el.innerHTML = h + tdDoneHTML(date);
   wireToday();
+  setTimeout(() => tdAutoImport([date, addDays(date, 1)]), 0);
+}
+// Auto-import: quietly import the bank packs covering the chosen day and the next one (once per day per session)
+async function tdAutoImport(dates) {
+  if (TD.importing || D.prefs.autoImport === false || !packIndex || !D.plan) return;
+  const packs = new Map();
+  for (const dt of dates) {
+    const dd = calRowFor(dt);
+    if (!dd || TD.auto.has(dt)) continue;
+    TD.auto.add(dt);
+    idsQuestionInfo(dayPlanIds(dd)).packs.forEach(p => packs.set(p.file, p));
+  }
+  if (!packs.size) return;
+  TD.importing = true;
+  if (!$('#today').hidden) renderToday();
+  try {
+    for (const p of packs.values()) await quickImport(p, null, true);
+    toast(`📥 Imported ${plural(packs.size, 'question pack')} for your plan`);
+  } finally {
+    TD.importing = false;
+    if (!$('#today').hidden) { const y = window.scrollY; renderToday(); window.scrollTo(0, y); }
+  }
 }
 // Exams taken on the chosen date
 function tdDoneHTML(date) {
@@ -3081,6 +3122,12 @@ function tdDoneHTML(date) {
 function wireToday() {
   const inp = $('#tdDate');
   if (inp) inp.onchange = () => { if (inp.value) { TD.date = inp.value; renderToday(); } };
+  const au = $('#tdAuto');
+  if (au) au.onchange = () => {
+    D.prefs.autoImport = au.checked;
+    savePrefs().catch(e => toast(errText(e), 'error'));
+    if (au.checked) { TD.auto.clear(); renderToday(); }
+  };
 }
 document.addEventListener('click', e => {
   if ($('#today').hidden) return;
