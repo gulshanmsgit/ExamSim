@@ -531,9 +531,131 @@ input[type=text],input[type=number],select,textarea{border-radius:10px}
   #printArea h1,#printArea h2,#printArea h3,#printArea h4{break-after:avoid}
   #printArea .tbl-wrap{overflow:visible}
 }
+
+/* ============================================================
+   UX pass: icons, compact topic rows, sticky action, search, skeletons,
+   paper colours, touch targets, onboarding, next steps.
+   ============================================================ */
+:root{--p1:#0d9488;--p1-bg:#e6f6f4;--p2:#4f46e5;--p2-bg:#eef2ff}
+[data-theme=dark]{--p1:#2dd4bf;--p1-bg:#0d2a28;--p2:#8b8df8;--p2-bg:#1f2040}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em;flex:0 0 auto}
+.btn .ic,.icon-btn .ic{vertical-align:middle}
+.icon-btn{display:inline-grid;place-items:center}
+.btn.sm{min-height:36px;padding:6px 12px;font-size:.9rem}
+/* paper colours */
+.pill.pid.p1{background:var(--p1-bg);color:var(--p1)}
+.pill.pid.p2{background:var(--p2-bg);color:var(--p2)}
+.tp-h.p1{color:var(--p1)}.tp-h.p2{color:var(--p2)}
+.lib-group[data-paper="1"] .lib-title{color:var(--p1)}
+.lib-group[data-paper="2"] .lib-title{color:var(--p2)}
+.pbadge{font-size:.68rem;font-weight:800;letter-spacing:.04em;padding:1px 7px;border-radius:6px;margin-left:auto}
+.pbadge.p1{background:var(--p1-bg);color:var(--p1)}.pbadge.p2{background:var(--p2-bg);color:var(--p2)}
+/* compact topic rows */
+.trow{display:flex;gap:10px;align-items:flex-start;padding:12px;border-top:1px solid var(--border);cursor:pointer;transition:background .12s}
+.trow:first-of-type{border-top:none}
+.trow:hover{background:color-mix(in srgb,var(--primary) 4%,transparent)}
+.trow:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
+.trow .grow{flex:1;min-width:0}
+.trow-top{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.trow-top b{overflow-wrap:break-word}
+.trow-act{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:0 0 auto}
+.hot{color:var(--orange);font-weight:600}
+.st-chip{border:1px solid var(--border);background:var(--grey-bg);color:var(--muted);border-radius:99px;padding:4px 11px;font-size:.76rem;font-weight:700;cursor:pointer;white-space:nowrap;min-height:30px}
+.st-chip.st-prog{background:#fdf6d8;color:#9a7a00;border-color:#f1dc8a}
+.st-chip.st-done{background:var(--green-bg);color:var(--green);border-color:color-mix(in srgb,var(--green) 35%,transparent)}
+.st-chip.st-rev{background:var(--orange-bg);color:var(--orange);border-color:color-mix(in srgb,var(--orange) 35%,transparent)}
+[data-theme=dark] .st-chip.st-prog{background:#3a3210;color:#f5d34c;border-color:#5b4d17}
+.sheet-item .ic{margin-right:6px;color:var(--primary)}
+/* Today */
+.td-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.td-facts>span,.td-fact-btn{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;padding:6px 10px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff}
+.td-fact-btn{cursor:pointer;min-height:34px}
+.td-fact-btn.on{background:#fff;color:#15803d}
+.ring span{font-size:.95rem}
+.fold>summary{display:flex;align-items:center;gap:10px;list-style:none;cursor:pointer;margin:-4px 0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary .grow{flex:1;min-width:0}
+.fold>summary>.ic{transition:transform .15s;color:var(--muted)}
+.fold[open]>summary>.ic{transform:rotate(180deg)}
+.fold[open]>summary{margin-bottom:10px}
+.sticky-cta{position:sticky;bottom:12px;z-index:8;display:flex;justify-content:center;padding-top:6px;pointer-events:none}
+.sticky-cta .btn{pointer-events:auto;box-shadow:0 10px 24px -8px rgba(79,70,229,.6);width:min(520px,100%)}
+@media (max-width:640px){.sticky-cta{bottom:84px}}
+/* onboarding */
+.onboard{border-color:color-mix(in srgb,var(--primary) 35%,var(--border))}
+.ob-step{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--border)}
+.ob-step .grow{flex:1}
+.ob-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:grid;place-items:center;flex:0 0 auto}
+.ob-step.ok{color:var(--muted);text-decoration:line-through}
+.ob-step.ok .ob-dot{background:var(--green);border-color:var(--green);color:#fff}
+.ob-dot .ic{width:14px;height:14px;stroke-width:3}
+/* search */
+.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:4px 12px;margin:0 0 14px;box-shadow:var(--shadow)}
+.search .ic{color:var(--muted)}
+.search input{border:none;background:transparent;padding:10px 0;flex:1;min-width:0;outline:none;font-size:1rem}
+.search:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-bg)}
+.list-row[role=button]{cursor:pointer}
+.subj-ic.sm{width:30px;height:30px;font-size:1rem;border-radius:8px}
+/* topic overview */
+.topic-ov{border-left:4px solid var(--sc,var(--primary))}
+.adv>summary{padding:6px 2px;color:var(--muted)}
+/* results: next steps */
+.ns-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.ns{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;border-radius:14px;border:1px solid var(--border);background:var(--card);cursor:pointer;font:inherit;color:inherit;transition:border-color .12s,transform .12s}
+.ns:hover{border-color:var(--primary);transform:translateY(-1px)}
+.ns .ic{width:22px;height:22px;color:var(--primary)}
+.ns span{font-size:.85rem;color:var(--muted)}
+.ns.done .ic{color:var(--green)}
+/* skeleton loading and offline notice */
+.loading{position:relative;color:transparent!important;min-height:160px;margin:8px 0;border-radius:16px;overflow:hidden;
+  background:linear-gradient(90deg,var(--grey-bg) 25%,color-mix(in srgb,var(--grey-bg) 55%,var(--card)) 37%,var(--grey-bg) 63%);background-size:400% 100%;animation:skel 1.3s ease infinite}
+@keyframes skel{0%{background-position:100% 50%}100%{background-position:0 50%}}
+@media (prefers-reduced-motion:reduce){.loading{animation:none}}
+.offline{position:sticky;top:57px;z-index:19;display:flex;gap:8px;align-items:center;justify-content:center;padding:7px 12px;font-size:.85rem;font-weight:600;background:var(--orange-bg);color:var(--orange);border-bottom:1px solid color-mix(in srgb,var(--orange) 30%,transparent)}
+/* touch targets and focus */
+@media (pointer:coarse){.btn{min-height:44px}.btn.sm{min-height:40px}.icon-btn{width:44px;height:44px}.chip,.chips button{min-height:34px}.check input{width:22px;height:22px}}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+button:focus:not(:focus-visible){outline:none}
 </style>
 </head>
 <body>
+<!-- Line icons used across the app: <svg class=ic><use href=#i-NAME></use></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+<symbol id="i-notes" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h5"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-news" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5M8 16h3"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01" stroke-width="3.2"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="i-chevd" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM14 6l4 4"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3 4.5 5 4.5 9.5a4.5 4.5 0 0 1-9 0c0-2 1-3.3 2-4.2 0 2 .8 3.2 2 3.2 0-3.2-.8-5.5.5-8.5z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01" stroke-width="2.2"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 11h6M9 15h4"/></symbol>
+<symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+<symbol id="i-cloudoff" viewBox="0 0 24 24"><path d="M3 3l18 18M8.5 8.5A5 5 0 0 0 6 18h11M18.7 16.3A4 4 0 0 0 17 9h-.3A6 6 0 0 0 10 6.1"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8 21h8M9.5 17h5v4h-5z"/></symbol>
+</defs></svg>
+<div class="offline" id="offline" hidden><svg class=ic><use href=#i-cloudoff></use></svg> You are offline – saved screens still work; new changes will sync when you are back online.</div>
 
 <header class="topbar">
   <div class="bar-left" id="barLeft"></div>
@@ -579,7 +701,7 @@ input[type=text],input[type=number],select,textarea{border-radius:10px}
       <button class="tab active" data-tab="upload">Upload</button>
       <button class="tab" data-tab="paste">Paste</button>
       <button class="tab" data-tab="ai">✨ AI</button>
-      <button class="tab" data-tab="packs">📦 Packs</button>
+      <button class="tab" data-tab="packs"><svg class=ic><use href=#i-download></use></svg> Packs</button>
     </div>
     <div id="tab-packs" hidden><div id="packList"><p class="small muted">Loading study packs…</p></div></div>
     <div id="tab-upload">
@@ -1272,7 +1394,7 @@ $('#barLeft').onclick = () => { if (store && $('#exam').hidden) goHome(); };
 // Links like <a data-nav="topic:ID"> anywhere in the app
 document.addEventListener('click', e => {
   const a = e.target.closest('[data-nav]');
-  if (!a || e.target.closest('[data-menu]')) return; // ⋯ / 🗑 buttons inside a clickable card
+  if (!a || e.target.closest('[data-menu]')) return; // ⋯ / <svg class=ic><use href=#i-trash></use></svg> buttons inside a clickable card
   e.preventDefault();
   const [k, id] = a.dataset.nav.split(':');
   if (k === 'home') goHome();
@@ -1295,6 +1417,7 @@ function crumbs(items) {
    Connect / workspace
    ============================================================ */
 async function boot() {
+  updateOnline();
   renderBar();
   const m = location.hash.match(/ws=([a-z0-9-]+)/i);
   const code = (m && m[1].toLowerCase()) || lsGet(LS_WS, null);
@@ -1400,7 +1523,7 @@ function attemptsTable(atts, { where = false, limit = 20 } = {}) {
     + rows.map(a => `<tr><td class="small">${esc(fmtDate(a.date))}</td><td>${esc(a.setName)}${modeTag(a)}</td>${where ? `<td class="small">${esc(whereTxt(a))}</td>` : ''}
       <td class="num"><b>${fmtScore(a.score)}</b><span class="muted small"> / ${fmtNum(a.max)}</span></td><td class="num">${pct(a).toFixed(0)}%</td>
       <td class="num">${a.correct}</td><td class="num">${a.wrong}</td><td class="num">${a.blank}</td><td class="num">${a.e}</td><td class="num small">${fmtDuration(a.timeTaken)}</td>
-      <td><button class="icon-btn sm" data-menu data-delatt="${a.id}" title="Delete this result" aria-label="Delete this result">🗑</button></td></tr>`).join('')
+      <td><button class="icon-btn sm" data-menu data-delatt="${a.id}" title="Delete this result" aria-label="Delete this result"><svg class=ic><use href=#i-trash></use></svg></button></td></tr>`).join('')
     + '</tbody></table></div>' + (atts.length > limit ? `<p class="small muted">Showing the latest ${limit} of ${atts.length}.</p>` : '');
 }
 function progressCard(atts, where) {
@@ -1408,7 +1531,7 @@ function progressCard(atts, where) {
 }
 function pageHead(name, kind, subj) {
   return `<div class="page-head">${subj ? `<span class="subj-ic" style="--sc:${subjColor(subj)}">${esc(subjIcon(subj))}</span>` : ''}<h1>${esc(name)}</h1>
-    <button class="btn ghost" data-act="rename">✎ Rename</button>${subj && kind === 'Subject' ? '<button class="btn ghost" data-act="look">🎨</button>' : ''}<button class="btn ghost" data-act="delete" style="color:var(--red)">🗑 Delete</button></div><div class="kind">${kind}</div>`;
+    <button class="btn ghost" data-act="rename"><svg class=ic><use href=#i-edit></use></svg> Rename</button>${subj && kind === 'Subject' ? '<button class="btn ghost" data-act="look">🎨</button>' : ''}<button class="btn ghost" data-act="delete" style="color:var(--red)"><svg class=ic><use href=#i-trash></use></svg> Delete</button></div><div class="kind">${kind}</div>`;
 }
 
 /* ============================================================
@@ -1493,10 +1616,10 @@ function subjectStats(s) {
 function subjectCard(s) {
   const st = subjectStats(s), ready = st.topics ? Math.round(st.ready / st.topics * 100) : 0;
   const bits = [];
-  if (D.plan && st.planned) bits.push(`📅 ${st.done}/${st.planned} studied`);
+  if (D.plan && st.planned) bits.push(`<svg class=ic><use href=#i-calendar></use></svg> ${st.done}/${st.planned} studied`);
   bits.push(st.atts ? `${plural(st.atts, 'attempt')} · avg ${st.avg}%` : 'No attempts yet');
   return `<div class="card subj" data-nav="subject:${s.id}" role="button" tabindex="0" style="--sc:${subjColor(s)}">
-    <div class="subj-head"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b></div>
+    <div class="subj-head"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>${paperOf(s) ? `<span class="pbadge p${paperOf(s)}">P${paperOf(s)}</span>` : ''}</div>
     <button class="icon-btn subj-more" data-menu data-subjmenu="${s.id}" title="Subject options" aria-label="Options for ${esc(s.name)}">⋯</button>
     <span class="small muted">${st.nQ ? `${plural(st.nQ, 'question')} · ` : ''}${st.ready}/${st.topics} topics with questions</span>
     <div class="bar lib" title="${ready}% of topics have questions"><i style="width:${ready}%"></i></div>
@@ -1554,7 +1677,7 @@ async function tidyUp() {
   const d = findDuplicates();
   if (!d.length) return;
   const ok = await confirmBox('Tidy up the library?', `<p>These will be merged. Question sets, results and flashcards move to the kept item, and the duplicate is removed:</p>
-    <ul class="small">${d.map(x => `<li>${x.kind === 'subject' ? '📚' : '📂'} “${esc(x.dup.name)}” → “${esc(x.keep.name)}”</li>`).join('')}</ul>`, 'Merge all');
+    <ul class="small">${d.map(x => `<li>${x.kind === 'subject' ? '<svg class=ic><use href=#i-book></use></svg>' : '<svg class=ic><use href=#i-folder></use></svg>'} “${esc(x.dup.name)}” → “${esc(x.keep.name)}”</li>`).join('')}</ul>`, 'Merge all');
   if (!ok) return;
   await busy('Tidying up', async () => {
     for (const x of d.filter(x => x.kind === 'subject')) await mergeSubjectInto(x.dup, x.keep);
@@ -1647,7 +1770,7 @@ async function pickTopic(title, excludeId) {
   if (!s) return null;
   const ts = D.topics.filter(t => t.subjectId === s.id && t.id !== excludeId);
   if (!ts.length) { toast('That subject has no topics yet', 'error'); return null; }
-  return pickFromList(title + ': choose the topic', ts.map(t => ({ label: t.name, sub: t.plan && t.plan.id ? t.plan.id : '', icon: '📂', value: t })));
+  return pickFromList(title + ': choose the topic', ts.map(t => ({ label: t.name, sub: t.plan && t.plan.id ? t.plan.id : '', icon: '<svg class=ic><use href=#i-folder></use></svg>', value: t })));
 }
 async function busy(label, fn) {
   toast(label + '…');
@@ -1656,22 +1779,22 @@ async function busy(label, fn) {
 
 function subjectMenu(s) {
   actionSheet(s.name, [
-    { icon: '📂', label: 'Open', onClick: () => openSubject(s.id) },
-    { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('subjects', s, 'subject')) rerender(); } },
+    { icon: '<svg class=ic><use href=#i-folder></use></svg>', label: 'Open', onClick: () => openSubject(s.id) },
+    { icon: '<svg class=ic><use href=#i-edit></use></svg>', label: 'Rename', onClick: async () => { if (await renameItem('subjects', s, 'subject')) rerender(); } },
     { icon: '🎨', label: 'Icon & colour', onClick: () => editAppearance(s) },
     { icon: '⇢', label: 'Merge into another subject…', onClick: async () => {
       const d = await pickSubject(`Merge “${displayName(s)}” into`, s.id);
       if (!d || !(await confirmBox('Merge subjects?', `<p>All topics, question sets and results of <b>${esc(s.name)}</b> move into <b>${esc(d.name)}</b>. Topics with the same name are combined. Then “${esc(s.name)}” is removed.</p>`, 'Merge'))) return;
       if (await busy('Merging', () => mergeSubjectInto(s, d))) openSubject(d.id);
     } },
-    { icon: '🗑', label: 'Delete subject', danger: true, onClick: () => deleteSubjectFlow(s) }
+    { icon: '<svg class=ic><use href=#i-trash></use></svg>', label: 'Delete subject', danger: true, onClick: () => deleteSubjectFlow(s) }
   ]);
 }
 function topicMenu(t) {
   actionSheet(t.name, [
-    { icon: '📂', label: 'Open', onClick: () => openTopic(t.id) },
-    { icon: '🃏', label: 'Revise (flashcards)', onClick: () => openRevision({ type: 'topic', id: t.id }) },
-    { icon: '✎', label: 'Rename', onClick: async () => { if (await renameItem('topics', t, 'topic')) rerender(); } },
+    { icon: '<svg class=ic><use href=#i-folder></use></svg>', label: 'Open', onClick: () => openTopic(t.id) },
+    { icon: '<svg class=ic><use href=#i-cards></use></svg>', label: 'Revise (flashcards)', onClick: () => openRevision({ type: 'topic', id: t.id }) },
+    { icon: '<svg class=ic><use href=#i-edit></use></svg>', label: 'Rename', onClick: async () => { if (await renameItem('topics', t, 'topic')) rerender(); } },
     { icon: '⇄', label: 'Move to another subject…', onClick: async () => {
       const d = await pickSubject(`Move “${t.name}” to`, t.subjectId);
       if (d && await busy('Moving', () => moveTopicTo(t, d))) openSubject(d.id);
@@ -1681,7 +1804,7 @@ function topicMenu(t) {
       if (!d || !(await confirmBox('Merge topics?', `<p>All question sets and results of <b>${esc(t.name)}</b> move into <b>${esc(d.name)}</b>, then “${esc(t.name)}” is removed.</p>`, 'Merge'))) return;
       if (await busy('Merging', () => mergeTopicInto(t, d))) openTopic(d.id);
     } },
-    { icon: '🗑', label: 'Delete topic', danger: true, onClick: () => deleteTopicFlow(t) }
+    { icon: '<svg class=ic><use href=#i-trash></use></svg>', label: 'Delete topic', danger: true, onClick: () => deleteTopicFlow(t) }
   ]);
 }
 document.addEventListener('click', async e => {
@@ -1751,18 +1874,19 @@ function goHome() {
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
   if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
-  h += '<div id="bankBanner"></div>' + todayCard() + planCard() + continueCard();
+  h += '<div id="bankBanner"></div>' + continueCard();
   h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
-    <button class="btn primary" id="hBank">📦 Question bank</button><button class="btn" id="hNewSubj">+ New subject</button><button class="btn" id="hAddSet">+ Add question set</button></div>`;
+    <button class="btn primary" id="hBank"><svg class=ic><use href=#i-download></use></svg> Question bank</button><button class="btn" id="hNewSubj">+ New subject</button><button class="btn" id="hAddSet">+ Add practice set</button></div>` + libSearchHTML() + '<div id="libMain">';
   if (!D.subjects.length) {
     h += `<div class="card empty"><p>No subjects yet.</p><p class="small">Create a subject (e.g. “Ed. Psychology”), add topics to it, then add question sets to each topic. Every exam you take is saved, so you can track progress and practise your mistakes.</p>
       <button class="btn primary" id="hNewSubj2">+ Create your first subject</button></div>`;
   } else {
     h += tidyBannerHTML() + libraryHTML();
   }
-  h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Recent attempts</h2>${D.attempts.length > 5 ? '<button class="btn ghost" id="hAllAtt">See all →</button>' : ''}</div>${attemptsTable(D.attempts, { where: true, limit: 5 })}</div>`;
+  h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Recent tests</h2>${D.attempts.length > 5 ? '<button class="btn ghost" id="hAllAtt">See all →</button>' : ''}</div>${attemptsTable(D.attempts, { where: true, limit: 5 })}</div></div>`;
   const el = $('#home');
   el.innerHTML = h;
+  wireLibSearch();
   const newSubj = async () => { const s = await createSubject(); if (s) openSubject(s.id); };
   $('#hNewSubj').onclick = newSubj;
   if ($('#hNewSubj2')) $('#hNewSubj2').onclick = newSubj;
@@ -1770,7 +1894,7 @@ function renderHome() {
   $('#hBank').onclick = openBank;
   wireLibraryGroups(el);
   bankBanner();
-  $('#goalBtn').onclick = async () => {
+  if ($('#goalBtn')) $('#goalBtn').onclick = async () => {
     const v = await askText('Daily goal', 'Questions to practise per day (exams + flashcards)', String(D.prefs.dailyGoal || 30));
     const n = parseInt(v, 10);
     if (!v) return;
@@ -1797,15 +1921,15 @@ function continueCard() {
   const last = [...D.attempts].sort((a, b) => b.date - a.date)[0];
   if (last) {
     const t = byId('topics', last.topicId);
-    if (last.mode === 'mock' && byId('mocks', last.mockId)) items.push({ icon: '🎯', title: 'Retake mock test', sub: `${last.setName} · last ${pct(last).toFixed(0)}%`, act: 'mock:' + last.mockId });
+    if (last.mode === 'mock' && byId('mocks', last.mockId)) items.push({ icon: '<svg class=ic><use href=#i-target></use></svg>', title: 'Retake mock test', sub: `${last.setName} · last ${pct(last).toFixed(0)}%`, act: 'mock:' + last.mockId });
     else if (last.setId && byId('sets', last.setId)) items.push({ icon: '↻', title: 'Retake last exam', sub: `${last.setName} · last ${pct(last).toFixed(0)}%`, act: 'set:' + last.setId });
-    if (t) items.push({ icon: '📂', title: 'Continue topic', sub: t.name, act: 'topic:' + t.id });
+    if (t) items.push({ icon: '<svg class=ic><use href=#i-folder></use></svg>', title: 'Continue topic', sub: t.name, act: 'topic:' + t.id });
   }
   const acc = topicAccuracy();
   const weak = D.topics.map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5).sort((a, b) => a.r.c / a.r.seen - b.r.c / b.r.seen)[0];
   const errOpen = errorLogData().filter(r => r.open).length;
-  if (errOpen) items.push({ icon: '📕', title: 'Error log', sub: plural(errOpen, 'mistake') + ' to fix', act: 'errlog:' });
-  if (weak) items.push({ icon: '🃏', title: 'Revise weakest topic', sub: `${weak.t.name} · ${(weak.r.c / weak.r.seen * 100).toFixed(0)}% correct`, act: 'revise:' + weak.t.id });
+  if (errOpen) items.push({ icon: '<svg class=ic><use href=#i-alert></use></svg>', title: 'My mistakes', sub: plural(errOpen, 'mistake') + ' to fix', act: 'errlog:' });
+  if (weak) items.push({ icon: '<svg class=ic><use href=#i-cards></use></svg>', title: 'Revise weakest topic', sub: `${weak.t.name} · ${(weak.r.c / weak.r.seen * 100).toFixed(0)}% correct`, act: 'revise:' + weak.t.id });
   if (!items.length) return '';
   return `<div class="card"><h2>Continue</h2><div class="cont">${items.map(it => `<button class="cont-item" data-cont="${it.act}"><span class="cont-ic">${it.icon}</span><span><b>${esc(it.title)}</b><span class="small muted">${esc(it.sub)}</span></span></button>`).join('')}</div></div>`;
 }
@@ -1819,7 +1943,7 @@ async function startSetFromId(setId, btn) {
 }
 
 /* ============================================================
-   📅 Study plan: the Excel planner inside the app
+   <svg class=ic><use href=#i-calendar></use></svg> Study plan: the Excel planner inside the app
    D.plan  = prefs/studyPlan (sheets, calendar, marks, notes; imported from a pack)
    D.planState = prefs/planState: { [rowId]: { s: status, r1, r2: 'Yes'|'No', c: 1-5, n: notes }, ['day:YYYY-MM-DD']: { d: true } }
    ============================================================ */
@@ -1880,13 +2004,13 @@ const dayLabel = x => planDate(x.date).toLocaleDateString([], { weekday: 'short'
 function renderPlan() {
   const el = $('#plan');
   // Three views: the days (like a diary), the subjects (like the Library) and progress
-  const tabs = [['days', '📆 Days'], ['subjects', '📚 Subjects'], ['progress', '📈 Progress']];
+  const tabs = [['days', 'Days'], ['subjects', 'Subjects'], ['progress', 'Progress']];
   PL.tab = { today: 'days', calendar: 'days', p1: 'subjects', p2: 'subjects', tracker: 'progress' }[PL.tab] || PL.tab;
-  let h = '<div class="page-head"><h1>📅 Study plan</h1></div>';
+  let h = '<div class="page-head"><h1><svg class=ic><use href=#i-calendar></use></svg> Study plan</h1></div>';
   if (!D.plan) {
     h += `<div class="kind">Your planner and progress</div><div class="card"><h2>Load your study plan</h2>
       <p class="small" style="margin-top:0">Import <b>“Study plan · CST 2026 (from your Excel planner)”</b> from the Question bank. All your planner rows, the tracker and the day-by-day calendar will appear here, and your status updates sync to all your devices.</p>
-      <button class="btn primary" data-open-bank>📦 Open question bank</button></div><h2 style="margin:18px 0 8px">Progress</h2><div id="planBody"></div>`;
+      <button class="btn primary" data-open-bank><svg class=ic><use href=#i-download></use></svg> Open question bank</button></div><h2 style="margin:18px 0 8px">Progress</h2><div id="planBody"></div>`;
     el.innerHTML = h; renderProgress($('#planBody')); return;
   }
   if (!tabs.some(t => t[0] === PL.tab)) PL.tab = 'days';
@@ -1908,7 +2032,7 @@ function renderPlan() {
   } else {
     const p1 = planStats(planRows('p1')), p2 = planStats(planRows('p2'));
     body.innerHTML = `<div class="stats plan-kpi">${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
-      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div>${planTrackerHTML()}<div id="plProg"></div>`;
+      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div><details class="adv"><summary>Detailed tracker tables (advanced)</summary>${planTrackerHTML()}</details><div id="plProg"></div>`;
     renderProgress($('#plProg'));
   }
   const q = $('#plQ');
@@ -1922,7 +2046,7 @@ function taskHTML(t) {
   const r = planRow(m[1]), st = rowState(r), top = planTopic(r.id), n = top ? topicQuestionCount(top.id) : 0;
   return `<div class="task ${stClass(st.status)}"><div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(m[2])}</div>
     <select data-pf="s" data-id="${r.id}" aria-label="Status">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
-    ${top ? `<button class="btn" data-notes="${top.id}" title="Notes">📝${topicNoteCount(top) ? ' ' + topicNoteCount(top) : ''}</button><button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
+    ${top ? `<button class="btn" data-notes="${top.id}" title="Notes"><svg class=ic><use href=#i-notes></use></svg>${topicNoteCount(top) ? ' ' + topicNoteCount(top) : ''}</button><button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
 }
 function calRowFor(date) { return (D.plan.calendar || []).find(d => d.date === date); }
 function dayDone(d) { const s = D.planState['day:' + d.date]; return s && s.d !== undefined ? s.d : !!d.done; }
@@ -1957,13 +2081,13 @@ function dayBlockHTML(d, i, open) {
 }
 function dayBodyHTML(d) {
   const ids = dayPlanIds(d), info = idsQuestionInfo(ids), nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
-  let h = `<div class="row" style="margin:0 0 8px">${nQ ? `<button class="btn primary" data-day-practise="${d.date}">▶ Practise this day (${Math.min(40, nQ)} Q)</button>` : ''}
-    ${info.packs.length ? `<button class="btn" data-day-import="${d.date}">📦 Import questions for this day (${plural(info.packs.length, 'pack')})</button>` : ''}
+  let h = `<div class="row" style="margin:0 0 8px"><button class="btn" data-go-today="${d.date}"><svg class=ic><use href=#i-sun></use></svg> Open in Today</button>${nQ ? `<button class="btn primary" data-day-practise="${d.date}"><svg class=ic><use href=#i-play></use></svg> Practise this day (${Math.min(40, nQ)} Q)</button>` : ''}
+    ${info.packs.length ? `<button class="btn" data-day-import="${d.date}"><svg class=ic><use href=#i-download></use></svg> Download questions for this day</button>` : ''}
     <span class="spacer"></span><label class="check"><input type="checkbox" data-daydone="${d.date}" ${dayDone(d) ? 'checked' : ''}> Day done</label></div>`;
   if (ids.length && info.withQ.length < ids.length) h += `<p class="small muted" style="margin:0 0 8px">${info.withQ.length} of ${ids.length} topics have questions${info.packs.length ? '' : '; the rest will come as the question bank grows'}.</p>`;
   h += `<h3 class="plan-h3">Paper 2 (Computer Science) · ${d.hours} h planned today</h3>${dayTasks(d, 'p2').map(taskHTML).join('') || '<p class="small muted">—</p>'}
     <h3 class="plan-h3">Paper 1 (General)</h3>${dayTasks(d, 'p1').map(taskHTML).join('') || '<p class="small muted">—</p>'}
-    ${d.habit ? `<p class="small" style="margin-bottom:0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}`;
+    ${d.habit ? `<p class="small" style="margin-bottom:0"><svg class=ic><use href=#i-news></use></svg> Daily habit: ${esc(d.habit)}</p>` : ''}`;
   return h;
 }
 function wireDayBlocks(root) {
@@ -1977,11 +2101,6 @@ function planDaysHTML() {
   let ti = cal.findIndex(x => x.date === today);
   if (ti < 0 && today < cal[0].date) ti = 0;
   let h = '';
-  if (ti >= 0) {
-    h += '<h2 class="plan-h2">Up next</h2>' + [ti, ti + 1].filter(k => cal[k]).map(k => dayBlockHTML(cal[k], k, true)).join('');
-    const ids = [...new Set([ti, ti + 1].filter(k => cal[k]).flatMap(k => dayPlanIds(cal[k])))], errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || { plan: {} }).plan?.id));
-    if (errs.length) h += `<div class="task"><div class="grow">📕 <b>${plural(errs.length, 'mistake')}</b> from earlier practice are in today's and tomorrow's topics</div><button class="btn" data-errlog>Review in Error log</button></div>`;
-  }
   const weeks = [];
   for (let w = 0; w * 7 < cal.length; w++) weeks.push(cal.slice(w * 7, w * 7 + 7));
   h += `<h2 class="plan-h2">All ${cal.length} days</h2>` + weeks.map((wk, w) => {
@@ -1990,12 +2109,12 @@ function planDaysHTML() {
     return `<details class="lib-group" data-day="week${w + 1}" ${cur ? 'open' : ''}><summary><span class="lib-title">Week ${w + 1}</span>
       <span class="small muted">${esc(dayLabel(wk[0]))} – ${esc(dayLabel(wk[wk.length - 1]))} · ${esc(phases)} · ${doneN}/${wk.length} days done</span></summary>
       ${wk.map((d, k) => dayBlockHTML(d, w * 7 + k, false)).join('')}
-      <div class="task"><div class="grow">🎯 <b>Week ${w + 1} mock test</b><div class="small muted">Up to 50 Q from this week's topics, weighted by how often they are scheduled · ${wkInfo.withQ.length} topics with questions</div></div>
+      <div class="task"><div class="grow"><svg class=ic><use href=#i-target></use></svg> <b>Week ${w + 1} mock test</b><div class="small muted">Up to 50 Q from this week's topics, weighted by how often they are scheduled · ${wkInfo.withQ.length} topics with questions</div></div>
       <button class="btn" data-week-mock="${w + 1}" ${wkInfo.withQ.length ? '' : 'disabled'}>Start</button></div></details>`;
   }).join('');
   const over = planRows().map(r => ({ r, st: rowState(r) })).filter(x => isOverdue(x.r, x.st)).sort((a, b) => a.r.target.localeCompare(b.r.target));
   if (over.length) {
-    h += `<div class="card"><h2>⏰ Overdue (${over.length})</h2>${over.slice(0, 15).map(({ r, st }) => `<div class="task ${stClass(st.status)}">
+    h += `<div class="card"><h2><svg class=ic><use href=#i-clock></use></svg> Overdue (${over.length})</h2>${over.slice(0, 15).map(({ r, st }) => `<div class="task ${stClass(st.status)}">
       <div class="grow"><span class="pill">${esc(r.id)}</span> ${esc(r.topic)} <span class="small od">· due ${fmtPD(r.target)}</span></div>
       <button class="btn" data-mark-done="${r.id}">✓ Completed</button></div>`).join('')}${over.length > 15 ? `<p class="small muted">…and ${over.length - 15} more in the By subject tab.</p>` : ''}</div>`;
   }
@@ -2048,15 +2167,15 @@ function subjectPacksHTML(s) {
       <div class="small muted clamp2">${esc(p.description || '')}</div><div class="small">${plural(p.questions || 0, 'question')} · ${plural(p.topics || 0, 'topic')}</div></div>
       <button class="btn ${packImported(p) ? '' : 'primary'}" data-bankfile="${esc(p.file)}">${packImported(p) ? 'Re-import' : 'Import'}</button></div>`).join('')
     : '<p class="small muted" style="margin:0">No ready-made packs for this subject yet. They will appear here as the question bank grows.</p>';
-  return `<div class="card"><h2>📦 Question packs for this subject</h2>${body}</div>`;
+  return `<div class="card"><h2><svg class=ic><use href=#i-download></use></svg> Question packs for this subject</h2>${body}</div>`;
 }
 function topicAvailHTML(t) {
   ensureBank();
   if (!packIndex || !t.plan || !t.plan.id) return '';
   const p = packsForPlanId(t.plan.id).filter(x => !packImported(x)), has = topicQuestionCount(t.id);
   if (!p.length && has) return '';
-  if (!p.length) return `<div class="card"><p class="small muted" style="margin:0">📦 No questions for this topic in the question bank yet. They will appear here when a pack covering <b>${esc(t.plan.id)}</b> is published.</p></div>`;
-  return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b>📦 ${has ? 'More questions' : 'Questions'} for this topic are ready</b>
+  if (!p.length) return `<div class="card"><p class="small muted" style="margin:0"><svg class=ic><use href=#i-download></use></svg> No questions for this topic in the question bank yet. They will appear here when a pack covering <b>${esc(t.plan.id)}</b> is published.</p></div>`;
+  return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b><svg class=ic><use href=#i-download></use></svg> ${has ? 'More questions' : 'Questions'} for this topic are available</b>
     <div class="small">In “${esc(p[0].name)}” (${plural(p[0].questions || 0, 'question')})${p.length > 1 ? ` and ${p.length - 1} more pack(s)` : ''}.</div></div>
     <button class="btn primary" data-bankfile="${esc(p[0].file)}">Import</button></div></div>`;
 }
@@ -2074,8 +2193,8 @@ function planRowCard(r) {
   return `<div class="pr ${stClass(st.status)}">
     <div class="pr-top"><span class="pill">${esc(r.id)}</span> <b>${esc(r.topic)}</b>${r.priority ? ` <span class="pill prio-${r.priority.toLowerCase()}">${esc(r.priority)}</span>` : ''}</div>
     ${r.coverage ? `<div class="small muted">${esc(r.coverage)}</div>` : ''}
-    <div class="small">⏱ ${r.hours} h · 📅 ${fmtPD(r.start)} → <span class="${od ? 'od' : ''}">${fmtPD(r.target)}</span> (${esc(r.day)})${od ? ' · <b class="od">overdue</b>' : ''}</div>
-    ${r.tip ? `<div class="small">💡 ${esc(r.tip)}</div>` : ''}
+    <div class="small">⏱ ${r.hours} h · <svg class=ic><use href=#i-calendar></use></svg> ${fmtPD(r.start)} → <span class="${od ? 'od' : ''}">${fmtPD(r.target)}</span> (${esc(r.day)})${od ? ' · <b class="od">overdue</b>' : ''}</div>
+    ${r.tip ? `<div class="small"><svg class=ic><use href=#i-bulb></use></svg> ${esc(r.tip)}</div>` : ''}
     <div class="pr-ctrl">
       <select data-pf="s" data-id="${r.id}" aria-label="Status">${PLAN_ST.map(x => `<option ${x === st.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
       <label class="check"><input type="checkbox" data-pf="r1" data-id="${r.id}" ${st.rev1 === 'Yes' ? 'checked' : ''}> Rev 1</label>
@@ -2097,7 +2216,7 @@ function planRowTR(r) {
 }
 function planSheetHTML(key) {
   const sh = D.plan.sheets[key];
-  if (PL.view == null) PL.view = window.innerWidth >= 900 ? 'table' : 'cards';
+  if (PL.view == null) PL.view = 'cards';
   const q = PL.q.trim().toLowerCase();
   const pass = r => {
     const st = rowState(r);
@@ -2106,7 +2225,7 @@ function planSheetHTML(key) {
   };
   let h = `<div class="plan-tools"><input type="search" id="plQ" placeholder="Search topics, IDs, notes…" value="${esc(PL.q)}">
     <select id="plF">${[['all', 'All statuses'], ...PLAN_ST.map(x => [x, x]), ['overdue', 'Overdue']].map(([v, l]) => `<option value="${v}" ${PL.filter === v ? 'selected' : ''}>${l}</option>`).join('')}</select>
-    <div class="seg"><button data-pview="cards" class="${PL.view === 'cards' ? 'on' : ''}">Cards</button><button data-pview="table" class="${PL.view === 'table' ? 'on' : ''}">Table</button></div></div>
+    <div class="seg"><button data-pview="cards" class="${PL.view === 'cards' ? 'on' : ''}">Simple</button><button data-pview="table" class="${PL.view === 'table' ? 'on' : ''}">Table (advanced)</button></div></div>
     <p class="small muted" style="margin:0 0 10px">${esc(sh.source || '')}</p>`;
   let shown = 0;
   for (const g of sh.groups) {
@@ -2176,6 +2295,8 @@ function refreshPlanViews() {
     window.scrollTo(0, y);
   }
   else if (!$('#home').hidden) renderHome();
+  else if (!$('#topic').hidden) renderTopic();
+  else if (!$('#syllabus').hidden) renderSyllabus();
   else if (!$('#today').hidden) { const y = window.scrollY; renderToday(); window.scrollTo(0, y); }
 }
 
@@ -2210,18 +2331,18 @@ function renderRevHub() {
     return;
   }
   const errOpen = errorLogData().filter(r => r.open).length;
-  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">📕 Error log</h2><div class="small muted">${errOpen ? plural(errOpen, 'mistake') + ' to fix, by subject or by study-plan day' : 'Your wrong answers from every exam collect here automatically'}</div></div><button class="btn primary" data-errlog>Open error log</button></div></div>`;
+  h += `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0"><svg class=ic><use href=#i-alert></use></svg> My mistakes</h2><div class="small muted">${errOpen ? plural(errOpen, 'mistake') + ' to fix, by subject or by study-plan day' : 'Your wrong answers from every exam collect here automatically'}</div></div><button class="btn primary" data-errlog>Open my mistakes</button></div></div>`;
   h += weakTopicsCard();
   h += '<div class="card"><h2>All subjects and topics</h2><p class="small muted" style="margin-top:0">Each session shows the cards that are due plus up to 20 new ones.</p>';
   h += D.subjects.map(s => {
     const ts = D.topics.filter(t => t.subjectId === s.id);
     const nQ = D.sets.filter(x => x.subjectId === s.id).reduce((n, x) => n + (x.count || 0), 0);
     return `<div class="list-row" style="border-bottom:none;padding-bottom:4px"><div class="grow">${esc(subjIcon(s))} <b>${esc(s.name)}</b> <span class="small muted">${plural(nQ, 'question')}</span></div>
-        ${nQ ? `<button class="btn" data-revise="subject:${s.id}">🃏 Whole subject</button>` : ''}</div>`
+        ${nQ ? `<button class="btn" data-revise="subject:${s.id}"><svg class=ic><use href=#i-cards></use></svg> Whole subject</button>` : ''}</div>`
       + ts.map(t => {
         const n = D.sets.filter(x => x.topicId === t.id).reduce((m, x) => m + (x.count || 0), 0);
         return `<div class="list-row" style="padding-left:18px"><div class="grow">${esc(t.name)} <span class="small muted">${plural(n, 'question')}</span></div>
-          <button class="btn" data-revise="topic:${t.id}" ${n ? '' : 'disabled'}>🃏 Revise</button></div>`;
+          <button class="btn" data-revise="topic:${t.id}" ${n ? '' : 'disabled'}><svg class=ic><use href=#i-cards></use></svg> Revise</button></div>`;
       }).join('');
   }).join('') + '</div>';
   $('#revhub').innerHTML = h;
@@ -2233,7 +2354,7 @@ function renderProgress(target) {
   const atts = D.attempts, { streak } = streakInfo();
   const answered = atts.reduce((n, a) => n + a.correct + a.wrong + a.e, 0);
   let h = '<div class="page-head"><h1>Progress</h1></div><div class="kind">All subjects, exams and mock tests</div>';
-  h += statsRow(atts, [[streak ? '🔥 ' + streak : '0', 'Day streak'], [answered, 'Questions answered']]);
+  h += statsRow(atts, [[streak ? '<svg class=ic><use href=#i-flame></use></svg> ' + streak : '0', 'Day streak'], [answered, 'Questions answered']]);
   h += `<div class="card"><h2>Score trend</h2>${trendSvg(atts)}</div>`;
   if (D.subjects.length) {
     // accuracy per subject from individual answers, so mixed mock tests count too
@@ -2265,8 +2386,8 @@ function todayCard() {
   });
   const top = Math.max(goal, ...week.map(d => d.q));
   return `<div class="card"><div class="row" style="margin-bottom:10px"><h2 style="margin:0;flex:1">Today</h2>
-      <span class="streak">${streak ? '🔥 ' + plural(streak, 'day') + ' streak' : 'No streak yet'}</span>
-      <button class="btn ghost" id="goalBtn" title="Change daily goal">Goal: ${goal}/day ✎</button></div>
+      <span class="streak">${streak ? '<svg class=ic><use href=#i-flame></use></svg> ' + plural(streak, 'day') + ' streak' : 'No streak yet'}</span>
+      <button class="btn ghost" id="goalBtn" title="Change daily goal">Goal: ${goal}/day <svg class=ic><use href=#i-edit></use></svg></button></div>
     <div class="goal-bar"><i style="width:${Math.min(100, todayQ / goal * 100)}%"></i></div>
     <div class="row small" style="margin-top:8px;align-items:flex-end">
       <span><b>${todayQ}</b> / ${goal} questions today${todayQ >= goal ? ' · <span style="color:var(--green)">✓ goal met</span>' : ''}</span><span class="spacer"></span>
@@ -2298,12 +2419,12 @@ function weakTopicsCard() {
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${esc(t.name)}</button> <span class="small muted">${esc(s ? s.name : '')}</span>
       <div class="bar"><i style="width:${p}%"></i></div>
       <div class="small muted">${p.toFixed(0)}% correct of ${r.seen} answered · ✗ ${r.w} wrong · ${r.b + r.e} blank/E</div></div>
-      <button class="btn" data-revise="topic:${t.id}">🃏 Revise</button><button class="btn" data-nav="topic:${t.id}">Practise →</button></div>`;
+      <button class="btn" data-revise="topic:${t.id}"><svg class=ic><use href=#i-cards></use></svg> Revise</button><button class="btn" data-nav="topic:${t.id}">Practise →</button></div>`;
   }).join('') + '</div>';
 }
 
 function mocksCard() {
-  let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Mock tests</h2><button class="btn primary" id="hMock">🎯 Build mock test</button></div>`;
+  let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Mock tests</h2><button class="btn primary" id="hMock"><svg class=ic><use href=#i-target></use></svg> Build mock test</button></div>`;
   if (!D.mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
   return h + D.mocks.map(m => {
     const parts = m.sources.filter(srcName).map(s => `${srcName(s).replace(' (whole subject)', '')} ${m.mode === 'pct' ? s.weight + '%' : s.weight + 'q'}`);
@@ -2315,8 +2436,8 @@ function mocksCard() {
     return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(m.name)}</b><div class="small muted">${size} · ${esc(parts.join(' + '))}</div></div>
       <div class="small muted">${plural(atts.length, 'attempt')} · best ${best}</div>
       <button class="btn primary" data-mockstart="${m.id}">Start</button>
-      <button class="icon-btn" data-mockedit="${m.id}" title="Edit mock test" aria-label="Edit mock test">✎</button>
-      <button class="icon-btn" data-mockdel="${m.id}" title="Delete mock test" aria-label="Delete mock test">🗑</button></div>`;
+      <button class="icon-btn" data-mockedit="${m.id}" title="Edit mock test" aria-label="Edit mock test"><svg class=ic><use href=#i-edit></use></svg></button>
+      <button class="icon-btn" data-mockdel="${m.id}" title="Delete mock test" aria-label="Delete mock test"><svg class=ic><use href=#i-trash></use></svg></button></div>`;
   }).join('') + '</div>';
 }
 
@@ -2338,13 +2459,13 @@ function renderSubject() {
   const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(p => !packImported(p));
   if (packsNew) h += packsCard;
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
-    <button class="btn" data-syl="${s.id}">📜 Syllabus</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}">🃏 Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
+    <button class="btn" data-syl="${s.id}"><svg class=ic><use href=#i-book></use></svg> Syllabus</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}"><svg class=ic><use href=#i-cards></use></svg> Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
     const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>
-      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${t.notes ? ' · 📝 ' + t.notes : ''}${ready ? ' · <span class="pill pk">📦 ready in the bank</span>' : ''}</div></div>
+      <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${t.notes ? ' · <svg class=ic><use href=#i-notes></use></svg> ' + t.notes : ''}${ready ? ' · <span class="pill pk"><svg class=ic><use href=#i-download></use></svg> ready in the bank</span>' : ''}</div></div>
       <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
       <button class="icon-btn" data-menu data-topicmenu="${t.id}" title="Topic options" aria-label="Options for ${esc(t.name)}">⋯</button></div>`;
   }).join('') : '<div class="empty">No topics yet. Add one to start saving question sets.</div>';
@@ -2389,35 +2510,46 @@ function renderTopic() {
   const atts = D.attempts.filter(a => a.topicId === t.id);
   const nQ = sets.reduce((n, x) => n + (x.count || 0), 0);
   let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic', s);
-  if (t.plan) {
+  {
+    const p = t.plan || {}, pr = D.plan && p.id && planRow(p.id), pst = pr && rowState(pr), subs = topicSubs(t), fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
+    h += `<div class="card topic-ov" style="--sc:${subjColor(s)}">
+      ${p.id ? `<div class="row small muted" style="gap:8px">${pidPill(p.id)}${p.start ? `<span>${I('calendar')} ${esc(fd(p.start))}${p.end && p.end !== p.start ? ' – ' + esc(fd(p.end)) : ''}</span>` : ''}${p.priority ? `<span>${esc(p.priority)} priority</span>` : ''}
+        ${pst ? `<span class="spacer"></span><button class="st-chip ${stClass(pst.status)}" data-cycle="${esc(p.id)}" title="Status – tap to change">${esc(ST_SHORT[pst.status] || pst.status)}</button>` : ''}</div>` : ''}
+      ${p.coverage ? `<div class="cov" style="margin-top:8px">${esc(p.coverage)}</div>` : ''}
+      ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
+      ${p.tip ? `<div class="small tip">${I('bulb')} ${esc(p.tip)}</div>` : ''}
+      ${pst ? `<div class="row small" style="margin-top:8px;gap:14px"><label class="check"><input type="checkbox" data-pf="r1" data-id="${esc(p.id)}" ${pst.rev1 === 'Yes' ? 'checked' : ''}> Revision 1 done</label>
+        <label class="check"><input type="checkbox" data-pf="r2" data-id="${esc(p.id)}" ${pst.rev2 === 'Yes' ? 'checked' : ''}> Revision 2 done</label></div>` : ''}
+      <div class="row" style="margin-top:12px">${nQ ? `<button class="btn primary big" data-practise="${t.id}">${I('play')} Practise this topic · ${nQ} Q</button>` : ''}
+        ${nQ ? `<button class="btn" id="tMistakes" disabled>${I('alert')} My mistakes</button><button class="btn" data-revise="topic:${t.id}">${I('cards')} Flashcards</button>` : ''}
+        ${s ? `<button class="btn ghost" data-syl="${s.id}">${I('book')} Syllabus</button>` : ''}</div></div>`;
+  }
+  if (false) {
     const p = t.plan, fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
     const pr = D.plan && p.id && planRow(p.id), pst = pr && rowState(pr);
     if (pr) h += `<div class="row small" style="margin:-4px 0 8px;gap:8px">Study plan status
       <select data-pf="s" data-id="${esc(p.id)}" style="width:auto;padding:4px 8px">${PLAN_ST.map(x => `<option ${x === pst.status ? 'selected' : ''}>${x}</option>`).join('')}</select>
       <label class="check"><input type="checkbox" data-pf="r1" data-id="${esc(p.id)}" ${pst.rev1 === 'Yes' ? 'checked' : ''}> Rev 1</label>
       <label class="check"><input type="checkbox" data-pf="r2" data-id="${esc(p.id)}" ${pst.rev2 === 'Yes' ? 'checked' : ''}> Rev 2</label></div>`;
-    h += `<p class="small" style="margin:-4px 0 8px">📅 <span class="pill">${esc(p.id || 'Plan')}</span> ${p.start ? esc(fd(p.start)) + (p.end && p.end !== p.start ? ' → ' + esc(fd(p.end)) : '') : ''}${p.priority ? ' · ' + esc(p.priority) + ' priority' : ''}${p.tip ? ' · 💡 ' + esc(p.tip) : ''}</p>`;
+    h += `<p class="small" style="margin:-4px 0 8px"><svg class=ic><use href=#i-calendar></use></svg> <span class="pill">${esc(p.id || 'Plan')}</span> ${p.start ? esc(fd(p.start)) + (p.end && p.end !== p.start ? ' → ' + esc(fd(p.end)) : '') : ''}${p.priority ? ' · ' + esc(p.priority) + ' priority' : ''}${p.tip ? ' · <svg class=ic><use href=#i-bulb></use></svg> ' + esc(p.tip) : ''}</p>`;
   }
-  h += statsRow(atts, [[sets.length, 'Question sets'], [nQ, 'Questions']]);
+  h += statsRow(atts, [[sets.length, 'Practice sets'], [nQ, 'Questions']]);
   h += topicAvailHTML(t);
   h += topicNotesHTML(t);
-  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Question sets</h2><button class="btn primary" id="tAddSet">+ Add question set</button></div>`;
-  if (!sets.length) h += '<div class="empty">No question sets in this topic yet.</div>';
+  h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Practice sets</h2><button class="btn" id="tAddSet">+ Add practice set</button></div>`;
+  if (!sets.length) h += '<div class="empty">No practice sets in this topic yet.</div>';
   else {
     h += sets.map(x => {
       const a = D.attempts.filter(y => y.setId === x.id);
       const best = a.length ? Math.max(...a.map(pct)).toFixed(0) + '%' : '—';
       return `<div class="list-row"><div class="grow"><b style="overflow-wrap:anywhere">${esc(x.name)}</b><div class="small muted">${plural(x.count, 'question')} · added ${esc(fmtDay(x.createdAt))}</div></div>
         <div class="small muted">${plural(a.length, 'attempt')} · best ${best}</div>
-        <button class="btn primary" data-start="${x.id}">Start exam</button>
+        <button class="btn sm" data-start="${x.id}">${I('play')} Start</button>
         <button class="icon-btn" data-mvset="${x.id}" title="Move set to another topic" aria-label="Move set">⇄</button>
-        <button class="icon-btn" data-ren="${x.id}" title="Rename set" aria-label="Rename set">✎</button>
-        <button class="icon-btn" data-del="${x.id}" title="Delete set" aria-label="Delete set">🗑</button></div>`;
+        <button class="icon-btn" data-ren="${x.id}" title="Rename set" aria-label="Rename set"><svg class=ic><use href=#i-edit></use></svg></button>
+        <button class="icon-btn" data-del="${x.id}" title="Delete set" aria-label="Delete set"><svg class=ic><use href=#i-trash></use></svg></button></div>`;
     }).join('');
-    h += `<div class="row" style="margin-top:12px"><button class="btn" id="tMistakes" disabled>Practise mistakes</button>
-      ${sets.length > 1 ? `<button class="btn" id="tAll" disabled>Exam from all sets (${nQ})</button>` : ''}
-      <button class="btn" data-revise="topic:${t.id}">🃏 Revise (flashcards)</button></div>
-      <p class="small muted" style="margin-bottom:0">“Practise mistakes” uses questions you got wrong, left blank or skipped with E the last time you saw them.</p>`;
+    h += `<p class="small muted" style="margin:10px 0 0">“My mistakes” uses questions you got wrong, left blank or skipped with E the last time you saw them.</p>`;
   }
   h += '</div>';
   h += progressCard(atts, false);
@@ -2464,7 +2596,7 @@ async function loadTopicHistory(t, sets) {
     const mb = $('#tMistakes');
     if (mb) {
       mb.disabled = !mistakes.length;
-      mb.textContent = mistakes.length ? `Practise mistakes (${mistakes.length})` : 'No mistakes to practise';
+      mb.innerHTML = mistakes.length ? `${I('alert')} My mistakes (${mistakes.length})` : `${I('check')} No mistakes`;
       mb.onclick = () => startSetup({ name: 'Mistakes: ' + t.name, questions: mistakes, subjectId: t.subjectId, topicId: t.id, setId: null, mode: 'mistakes' });
     }
     const ab = $('#tAll');
@@ -2849,7 +2981,7 @@ function summarizePack(p) {
 }
 function packPreviewHTML() {
   const { pack, sum } = loaded;
-  return `<h2>📦 ${esc(loaded.name)}</h2>${pack.description ? `<p class="small muted" style="margin-top:0">${esc(pack.description)}</p>` : ''}
+  return `<h2><svg class=ic><use href=#i-download></use></svg> ${esc(loaded.name)}</h2>${pack.description ? `<p class="small muted" style="margin-top:0">${esc(pack.description)}</p>` : ''}
     <div class="stats">${statBox(sum.questions, 'Questions')}${statBox(sum.topics, 'Topics')}${statBox(pack.subjects.length, 'Subjects')}${statBox(sum.mocks, 'Mock presets')}</div>
     ${sum.bad ? `<p class="small" style="color:var(--orange)">⚠ ${plural(sum.bad, 'question')} in this pack are invalid and will be skipped.</p>` : ''}
     <div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Topics</th><th class="num">Questions</th></tr></thead><tbody>
@@ -2859,7 +2991,7 @@ function renderPackSave() {
   const sc = $('#saveCard');
   sc.innerHTML = `<h2>3. Import study pack</h2>
     <p class="small muted" style="margin-top:0">Subjects and topics are matched by name, and missing ones are created. A question set already in a topic (same name) is skipped, so importing again is safe.</p>
-    <div class="row"><button class="btn primary big" id="pkImport">📦 Import everything</button><span class="small muted" id="pkMsg"></span></div>`;
+    <div class="row"><button class="btn primary big" id="pkImport"><svg class=ic><use href=#i-download></use></svg> Import everything</button><span class="small muted" id="pkMsg"></span></div>`;
   sc.hidden = false;
   $('#pkImport').onclick = async () => {
     const btn = $('#pkImport'), msg = $('#pkMsg');
@@ -2870,12 +3002,12 @@ function renderPackSave() {
       toast(`Imported: ${plural(r.questions, 'question')} into ${plural(r.topicsTouched, 'topic')}`);
       openAdd({});
       goHome();
-      openModal(`<h3>📦 Pack imported</h3><table>
+      openModal(`<h3><svg class=ic><use href=#i-download></use></svg> Pack imported</h3><table>
         <tr><td>New subjects</td><td class="num"><b>${r.subjects}</b></td></tr>
         <tr><td>New topics</td><td class="num"><b>${r.topics}</b></td></tr>
         <tr><td>Question sets added</td><td class="num"><b>${r.sets}</b> (${plural(r.questions, 'question')})</td></tr>
         <tr><td>Sets already present (skipped)</td><td class="num"><b>${r.skipped}</b></td></tr>
-        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>${r.plan ? '<p class="status ok">📅 Study plan loaded.</p>' : ''}${whereHTML(r)}`, [{ label: 'Done', cls: 'primary' }]);
+        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>${r.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Study plan loaded.</p>' : ''}${whereHTML(r)}`, [{ label: 'Done', cls: 'primary' }]);
     } catch (e) { toast(errText(e), 'error'); msg.textContent = ''; btn.disabled = false; }
   };
 }
@@ -3008,7 +3140,7 @@ function savePrefs() { const { id, ...p } = D.prefs; return store.put('prefs', '
 function openBank() { renderBank(); show('bank'); }
 async function renderBank() {
   const el = $('#bank');
-  const head = crumbs([['Library', 'home'], ['Question bank']]) + '<div class="page-head"><h1>📦 Question bank</h1></div><div class="kind">Ready-made question packs · one tap to import</div>';
+  const head = crumbs([['Library', 'home'], ['Question bank']]) + '<div class="page-head"><h1><svg class=ic><use href=#i-download></use></svg> Question bank</h1></div><div class="kind">Ready-made question packs · one tap to import</div>';
   el.innerHTML = head + '<div class="loading">Loading packs…</div>';
   let idx;
   try { idx = await getPackIndex(); }
@@ -3049,13 +3181,13 @@ async function quickImport(p, btn, quiet) {
     const res = await importPack(pack, (d, n) => say(`Saving ${Math.round(d / n * 100)}%`));
     D.prefs.packs = { ...importedPacks(), [p.file]: Date.now() };
     await savePrefs().catch(() => {});
-    if (!quiet) openModal(`<h3>📦 ${esc(p.name)}</h3><table>
+    if (!quiet) openModal(`<h3><svg class=ic><use href=#i-download></use></svg> ${esc(p.name)}</h3><table>
       <tr><td>Questions added</td><td class="num"><b>${res.questions}</b></td></tr>
       <tr><td>Question sets added</td><td class="num"><b>${res.sets}</b></td></tr>
       <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
       <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
       ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}</table>
-      ${res.plan ? '<p class="status ok">📅 Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
+      ${res.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
       [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('days') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }
   document.querySelectorAll('[data-bankfile]').forEach(b => b.disabled = false);
@@ -3069,7 +3201,7 @@ async function bankBanner() {
     const n = (idx.packs || []).filter(p => !done[p.file]).length;
     const slot = $('#bankBanner');
     if (!slot || $('#home').hidden) return;
-    slot.innerHTML = n ? `<div class="card" style="border-color:var(--primary);background:var(--primary-bg)"><div class="row"><div style="flex:1;min-width:200px"><b>📦 ${plural(n, 'question pack')} ready to import</b>
+    slot.innerHTML = n ? `<div class="card" style="border-color:var(--primary);background:var(--primary-bg)"><div class="row"><div style="flex:1;min-width:200px"><b><svg class=ic><use href=#i-download></use></svg> ${plural(n, 'question pack')} ready to import</b>
       <div class="small">Syllabus-based questions for your exam, sorted into subjects and topics automatically.</div></div>
       <button class="btn primary" data-open-bank>Open question bank</button></div></div>` : '';
   } catch (e) { /* no bank when opened as a local file */ }
@@ -3090,17 +3222,6 @@ async function practiseTopic(tid, btn) {
   catch (e) { toast(errText(e), 'error'); }
   finally { if (btn) btn.disabled = false; }
 }
-function planTopicRow(t, carry) {
-  const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t);
-  return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>
-      <div class="small muted">${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}</div>
-      ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
-      ${(subs => subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : '')(topicSubs(t))}
-      ${t.plan.tip ? `<div class="small tip">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
-      ${ps ? `<select class="st-sel ${stClass(ps)}" data-pf="s" data-id="${esc(t.plan.id)}" aria-label="Study status">${PLAN_ST.map(x => `<option ${x === ps ? 'selected' : ''}>${x}</option>`).join('')}</select>` : ''}
-      <button class="btn" data-notes="${t.id}" title="Notes for this topic">📝${nn ? ' ' + nn : ''}</button>
-      <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
-}
 // A calendar day's tasks grouped by paper and subject, so it is clear which subjects are active that day
 function dayGroups(d) {
   const out = [];
@@ -3116,14 +3237,6 @@ function dayGroups(d) {
   }
   return out;
 }
-function dayGroupsHTML(d) {
-  return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h">${esc(g.label)}</div>`
-    + g.subs.map(({ s, topics }) => `<div class="tp-subj" style="--sc:${subjColor(s)}"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
-        <button class="btn ghost" data-syl="${s.id}" title="Full syllabus of this subject">📜 Syllabus</button><button class="btn ghost" data-nav="subject:${s.id}" title="Open subject">Open ›</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
-    + (g.missing || []).map(m => `<div class="list-row unlinked"><div class="grow"><span class="pill">${esc(m.id)}</span> <b>${esc(m.name)}</b>
-        <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary" data-fix-links>Fix</button></div>`).join('')
-    + (g.extra.length ? `<div class="ca-row small">🗞 <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news; no question packs by design</span></div>` : '') + '</div>').join('');
-}
 // Home: a short summary of today's plan; the full day (exams, subjects, notes, any date) is in the Today tab
 function planHomeCard() {
   const cal = D.plan.calendar, today = dayKey();
@@ -3133,11 +3246,11 @@ function planHomeCard() {
   if (before) i = 0;
   const d = cal[i], nQ = idsQuestionInfo(dayPlanIds(d)).withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
   const chips = dayGroups(d).flatMap(g => g.subs.map(({ s }) => `<button class="chip subj-chip" data-nav="subject:${s.id}" style="--sc:${subjColor(s)}">${esc(subjIcon(s))} ${esc(displayName(s))}</button>`)).join('');
-  const title = before ? `📅 Your plan starts ${esc(dayLabel(d))}` : `📅 Today · Day ${i + 1} of ${cal.length}`;
+  const title = before ? `<svg class=ic><use href=#i-calendar></use></svg> Your plan starts ${esc(dayLabel(d))}` : `<svg class=ic><use href=#i-calendar></use></svg> Today · Day ${i + 1} of ${cal.length}`;
   return `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">${title}</h2>
-      ${nQ ? `<button class="btn" data-day-practise="${d.date}">▶ Practise (${Math.min(40, nQ)} Q)</button>` : ''}</div>
+      ${nQ ? `<button class="btn" data-day-practise="${d.date}"><svg class=ic><use href=#i-play></use></svg> Practise (${Math.min(40, nQ)} Q)</button>` : ''}</div>
     ${chips ? `<div class="small muted">Active subjects · ${plural(dayPlanIds(d).length, 'topic')}</div><div class="chips">${chips}</div>` : ''}
-    <div class="row" style="margin-top:10px"><button class="btn primary" data-go-today="${d.date}">☀️ Open Today</button><button class="btn" data-go-plan>📆 All ${cal.length} days</button></div></div>`;
+    <div class="row" style="margin-top:10px"><button class="btn primary" data-go-today="${d.date}"><svg class=ic><use href=#i-sun></use></svg> Open Today</button><button class="btn" data-go-plan><svg class=ic><use href=#i-calendar></use></svg> All ${cal.length} days</button></div></div>`;
 }
 /* ============================================================
    Today tab: one study-plan day at a time (any date can be chosen) – its exams, active subjects with
@@ -3145,73 +3258,6 @@ function planHomeCard() {
    ============================================================ */
 const TD = { date: null, auto: new Set(), importing: false };
 function openToday(date) { if (date) TD.date = date; renderToday(); show('today'); }
-function renderToday() {
-  const el = $('#today'), today = dayKey();
-  if (!TD.date) TD.date = today;
-  ensureBank(); // the question-bank index is needed to know which packs cover the day
-  const date = TD.date, pd = planDate(date);
-  const rel = date === today ? 'Today' : date === addDays(today, -1) ? 'Yesterday' : date === addDays(today, 1) ? 'Tomorrow' : '';
-  const cal0 = (D.plan && D.plan.calendar) || [], i0 = cal0.findIndex(x => x.date === date), d0 = cal0[i0];
-  const left = D.plan && D.plan.examDate && today <= D.plan.examDate ? Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
-  const pr0 = d0 ? dayPlanIds(d0).map(planRow).filter(Boolean) : [], pc0 = pr0.length ? Math.round(pr0.filter(r => rowState(r).status === 'Completed').length / pr0.length * 100) : 0;
-  let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
-      <div class="td-eyebrow">${esc(rel || 'Study day')}${d0 ? ` · Day ${i0 + 1} of ${cal0.length} · Week ${Math.floor(i0 / 7) + 1}` : ''}</div>
-      <h1>${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))}</h1>
-      <div class="td-sub">${d0 ? esc(d0.phase) + ' phase · ' + d0.hours + ' h planned' : 'Outside the study plan'}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
-      ${d0 ? `<div class="ring" style="--p:${pc0}" title="Topics completed on this day"><span>${pc0}%</span><small>done</small></div>` : ''}</div>
-    <div class="td-nav"><button class="icon-btn" data-td-step="-1" title="Previous day" aria-label="Previous day">◀</button>
-      <div class="seg td-seg">${[['yest', 'Yesterday', addDays(today, -1)], ['today', 'Today', today], ['tom', 'Tomorrow', addDays(today, 1)]].map(([k, l, d]) => `<button data-td="${d}" class="${date === d ? 'on' : ''}">${l}</button>`).join('')}</div>
-      <button class="icon-btn" data-td-step="1" title="Next day" aria-label="Next day">▶</button>
-      <input type="date" id="tdDate" value="${date}" aria-label="Choose a date"></div></div>`;
-  if (!D.plan) {
-    el.innerHTML = h + `<div class="card empty"><p>Load your study plan to see what to study each day.</p><button class="btn primary" data-open-bank>📦 Open question bank</button></div>` + tdDoneHTML(date);
-    return;
-  }
-  const cal = D.plan.calendar || [], i = cal.findIndex(x => x.date === date), d = cal[i];
-  if (!d) {
-    const first = cal[0], last = cal[cal.length - 1];
-    h += `<div class="card empty"><p><b>No study-plan day on this date.</b></p><p class="small">Your plan runs from ${esc(dayLabel(first))} to ${esc(dayLabel(last))}${D.plan.examDate ? ' (exam on ' + esc(fmtPD(D.plan.examDate)) + ')' : ''}.</p>
-      <div class="row" style="justify-content:center"><button class="btn" data-td="${date < first.date ? first.date : last.date}">Go to ${date < first.date ? 'the first' : 'the last'} plan day</button></div></div>`;
-    el.innerHTML = h + tdDoneHTML(date); wireToday(); return;
-  }
-  const week = Math.floor(i / 7) + 1, ids = dayPlanIds(d), info = idsQuestionInfo(ids);
-  const nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
-  const wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
-  const errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || {}).plan?.id));
-  const done = dayDone(d), practised = D.days[date] || 0;
-  h += `<div class="stats td-stats">${statBox(ids.length, plural(ids.length, 'topic').replace(/^\d+ /, '') + ' to study')}${statBox(nQ, 'questions available')}${date === today ? statBox(`${practised}<small> / ${D.prefs.dailyGoal || 30}</small>`, practised >= (D.prefs.dailyGoal || 30) ? 'daily goal reached 🎯' : 'daily goal (questions)') : statBox(practised, 'questions practised')}</div>`;
-  const pRows = ids.map(planRow).filter(Boolean), pDone = pRows.filter(r => rowState(r).status === 'Completed').length;
-  h += `<div class="card td-prog">${pRows.length ? `<div class="row small" style="justify-content:space-between"><span>Topics completed</span><b>${pDone} / ${pRows.length}</b></div>
-    <div class="goal-bar"><i style="width:${Math.round(pDone / pRows.length * 100)}%"></i></div>` : ''}
-    <label class="check" style="margin-top:10px"><input type="checkbox" data-daydone="${d.date}" ${done ? 'checked' : ''}> Mark this day as done</label></div>`;
-  // Exams for this day
-  const rows = [];
-  if (nQ) rows.push(['▶', `Day ${i + 1} practice`, `Up to 40 questions from this day's ${plural(info.withQ.length, 'topic')}, questions you have not attempted first`, `<button class="btn primary" data-day-practise="${d.date}">Start (${Math.min(40, nQ)} Q)</button>`]);
-  if (wkInfo.withQ.length) rows.push(['🎯', `Week ${week} mock test`, `Up to 50 questions from ${plural(wkInfo.withQ.length, 'topic')} of ${esc(dayLabel(wk[0]))} – ${esc(dayLabel(wk[wk.length - 1]))}`, `<button class="btn" data-week-mock="${week}">Start</button>`]);
-  if (errs.length) rows.push(['📕', 'Mistakes to fix', `${plural(errs.length, 'question')} you got wrong earlier in these topics`, `<button class="btn" data-elpractise="day:${d.date}">Practise ${errs.length}</button>`]);
-  if (TD.importing) rows.push(['📥', 'Importing questions…', 'Adding the question packs for this day and the next to your library', '<span class="small muted">Please wait</span>']);
-  else if (info.packs.length) rows.push(['📦', 'Questions ready in the bank', `${plural(info.packs.length, 'pack')} with questions for this day ${info.missing.length ? '(some topics have none yet)' : '(more sets for these topics)'}`, `<button class="btn" data-day-import="${d.date}">Import</button>`]);
-  h += `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Exams for this day</h2>
-    <label class="check small" title="Import the question packs for the chosen day and the next day automatically"><input type="checkbox" id="tdAuto" ${D.prefs.autoImport !== false ? 'checked' : ''}> Auto-import</label></div>${rows.length ? rows.map(([ic, t, sub, btn]) => `<div class="list-row"><span class="td-ic">${ic}</span><div class="grow"><b>${t}</b><div class="small muted">${sub}</div></div>${btn}</div>`).join('')
-    : '<p class="small muted" style="margin:0">No questions for this day yet. They appear here as the question bank grows.</p>'}</div>`;
-  // Active subjects with their topics, notes and practice
-  const groups = dayGroups(d);
-  const chips = groups.flatMap(g => g.subs.map(({ s }) => `<button class="chip subj-chip" data-nav="subject:${s.id}" style="--sc:${subjColor(s)}">${esc(subjIcon(s))} ${esc(displayName(s))}</button>`)).join('');
-  h += `<div class="card"><h2>Active subjects</h2>${chips ? `<div class="chips" style="margin:0 0 4px">${chips}</div>` : ''}${dayGroupsHTML(d) || '<p class="small muted">No topics on this day.</p>'}
-    ${d.habit ? `<p class="small" style="margin:10px 0 0">🗞 Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
-  const rev = [[1, 'Yesterday'], [3, '3 days ago'], [7, 'A week ago']].map(([k, l]) => {
-    const dd = calRowFor(addDays(date, -k)); if (!dd) return null;
-    const tp = idsQuestionInfo(dayPlanIds(dd)).withQ;
-    return tp.length ? { l, dd, tp } : null;
-  }).filter(Boolean);
-  if (rev.length) h += `<div class="card"><h2>🔁 Revise earlier days</h2><p class="small muted" style="margin-top:0">A short practice 1, 3 and 7 days after studying a topic fixes it in memory (spaced repetition).</p>
-    ${rev.map(({ l, dd, tp }) => `<div class="list-row"><div class="grow"><b>${l}</b> <span class="small muted">· Day ${cal.indexOf(dd) + 1} · ${esc(dayLabel(dd))}</span>
-      <div class="small muted clamp2">${tp.map(t => esc(t.name)).join(' · ')}</div></div>
-      <button class="btn ghost" data-td="${dd.date}">View</button><button class="btn" data-day-practise="${dd.date}">Practise</button></div>`).join('')}</div>`;
-  el.innerHTML = h + tdDoneHTML(date);
-  wireToday();
-  setTimeout(() => tdAutoImport([date, addDays(date, 1)]), 0);
-}
 // Auto-import: quietly import the bank packs covering the chosen day and the next one (once per day per session)
 async function tdAutoImport(dates) {
   if (TD.importing || D.prefs.autoImport === false || !packIndex || !D.plan) return;
@@ -3232,14 +3278,6 @@ async function tdAutoImport(dates) {
     TD.importing = false;
     if (!$('#today').hidden) { const y = window.scrollY; renderToday(); window.scrollTo(0, y); }
   }
-}
-// Exams taken on the chosen date
-function tdDoneHTML(date) {
-  const atts = D.attempts.filter(a => dayKey(a.date) === date);
-  const practised = D.days[date] || 0;
-  if (date > dayKey()) return '';
-  return `<div class="card"><h2>Done on this date</h2>${atts.length ? attemptsTable(atts, { where: true, limit: 30 })
-    : `<p class="small muted" style="margin:0">${practised ? plural(practised, 'question') + ' practised (flashcards or exams).' : 'Nothing practised on this date.'}</p>`}</div>`;
 }
 function wireToday() {
   const inp = $('#tdDate');
@@ -3265,21 +3303,21 @@ function planCard() {
   const planned = D.topics.filter(t => t.plan && t.plan.start);
   if (!planned.length) return '';
   let list = planned.filter(t => t.plan.start <= today && today <= (t.plan.end || t.plan.start));
-  let title = "📅 Today's plan";
+  let title = "<svg class=ic><use href=#i-calendar></use></svg> Today's plan";
   if (!list.length) {
     const upcoming = planned.filter(t => t.plan.start > today).sort((a, b) => a.plan.start.localeCompare(b.plan.start));
     if (!upcoming.length) return '';
     const d = upcoming[0].plan.start;
     list = upcoming.filter(t => t.plan.start === d);
-    title = '📅 Next in your plan · ' + planDate(d).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
+    title = '<svg class=ic><use href=#i-calendar></use></svg> Next in your plan · ' + planDate(d).toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
   }
   list.sort((a, b) => String(a.plan.id || '').localeCompare(String(b.plan.id || ''), undefined, { numeric: true }));
   const rows = list.map(t => {
     const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id), carry = t.plan.start < today;
     const ps = D.plan && planStatus(t.plan.id);
     return `<div class="list-row"><div class="grow"><span class="pill">${esc(t.plan.id || '')}</span> <b>${esc(t.name)}</b>${ps ? ` <span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}
-        <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · 🔥 high priority' : ''}${carry ? ' · continues from ' + esc(planDate(t.plan.start).toLocaleDateString([], { day: 'numeric', month: 'short' })) : ''}</div>
-        ${t.plan.tip ? `<div class="small">💡 ${esc(t.plan.tip)}</div>` : ''}</div>
+        <div class="small muted">${esc(subjIcon(s))} ${esc(s ? s.name : '')} · ${n ? plural(n, 'question') : 'no questions yet'}${t.plan.priority === 'High' ? ' · <svg class=ic><use href=#i-flame></use></svg> high priority' : ''}${carry ? ' · continues from ' + esc(planDate(t.plan.start).toLocaleDateString([], { day: 'numeric', month: 'short' })) : ''}</div>
+        ${t.plan.tip ? `<div class="small"><svg class=ic><use href=#i-bulb></use></svg> ${esc(t.plan.tip)}</div>` : ''}</div>
         <button class="btn" data-nav="topic:${t.id}">Open</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div>`;
   });
   const more = rows.length > 6;
@@ -3496,7 +3534,7 @@ function renderRevision() {
   if (isTopic) items.push([R.obj.name, 'topic:' + R.obj.id]);
   items.push(['Revision']);
   const back = (isTopic ? 'topic:' : 'subject:') + R.obj.id;
-  let h = crumbs(items) + `<div class="page-head"><h1>🃏 ${esc(R.obj.name)}</h1></div><div class="kind">Revision · flashcards</div>`;
+  let h = crumbs(items) + `<div class="page-head"><h1><svg class=ic><use href=#i-cards></use></svg> ${esc(R.obj.name)}</h1></div><div class="kind">Revision · flashcards</div>`;
   if (R.i >= R.queue.length) {
     const mastered = [...R.cards.values()].filter(c => c.box >= 4).length;
     if (!R.queue.length) {
@@ -3580,7 +3618,7 @@ async function renderErrLog() {
   const whyCount = {};
   all.forEach(r => { const w = D.errNotes[r.k]; if (w) whyCount[w] = (whyCount[w] || 0) + 1; });
   const topWhy = Object.entries(whyCount).sort((a, b) => b[1] - a[1])[0];
-  let h = `<div class="page-head"><h1>📕 Error log</h1></div><div class="kind">Your mistakes, collected automatically from every exam</div>
+  let h = `<div class="page-head"><h1><svg class=ic><use href=#i-alert></use></svg> My mistakes</h1></div><div class="kind">Your mistakes, collected automatically from every exam</div>
     <div class="stats">${statBox(open.length, 'To fix')}${statBox(fixed, 'Fixed since')}${statBox(topWhy ? esc(topWhy[0]) : '—', 'Most common reason')}</div>`;
   if (!all.length) {
     el.innerHTML = h + `<div class="card empty"><p><b>No mistakes logged yet.</b></p><p class="small">Every question you answer wrong in an exam, day practice or mock test lands here automatically, sorted by subject and study-plan day. Answer it correctly later and it moves to “Fixed”.</p>
@@ -3846,7 +3884,7 @@ function renderNotes() {
   if (!t) return goHome();
   const s = byId('subjects', t.subjectId);
   let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name, 'topic:' + t.id], ['Notes']])
-    + `<div class="page-head"><h1>📝 ${esc(t.name)}</h1></div><div class="kind">Notes${t.plan && t.plan.id ? ' · ' + esc(t.plan.id) : ''} · ${plural(NT.notes.length, 'note')}</div>`;
+    + `<div class="page-head"><h1><svg class=ic><use href=#i-notes></use></svg> ${esc(t.name)}</h1></div><div class="kind">Notes${t.plan && t.plan.id ? ' · ' + esc(t.plan.id) : ''} · ${plural(NT.notes.length, 'note')}</div>`;
   if (NT.err === 'rules') {
     h += `<div class="banner">Notes need one update in Firebase: open the Firebase console → Firestore Database → Rules, paste the new contents of <b>firestore.rules</b> (it now includes <b>notes</b>), click <b>Publish</b>, then reload this page.</div>`;
     $('#notes').innerHTML = h; return;
@@ -3854,12 +3892,12 @@ function renderNotes() {
   if (NT.err) { $('#notes').innerHTML = h + `<div class="status error">Could not load notes: ${esc(NT.err)}</div>`; return; }
   if (NT.edit) { $('#notes').innerHTML = h + noteEditorHTML(); wireNoteEditor(); return; }
   const n = topicQuestionCount(t.id);
-  h += `<div class="row" style="margin-bottom:12px"><button class="btn primary" data-note-new>📋 Paste from AI</button><button class="btn" data-note-write>✎ Write a note</button>
-    ${n ? `<button class="btn" data-practise="${t.id}">▶ Practise this topic (${n} Q)</button>` : ''}
-    ${NT.notes.length ? `<button class="btn" data-note-pdf="all" title="Print or save as an A4 PDF">⬇ PDF (A4)${NT.sel.size ? ' – ' + plural(NT.sel.size, 'selected note') : ''}</button>` : ''}
+  h += `<div class="row" style="margin-bottom:12px"><button class="btn primary" data-note-new><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</button><button class="btn" data-note-write><svg class=ic><use href=#i-edit></use></svg> Write a note</button>
+    ${n ? `<button class="btn" data-practise="${t.id}"><svg class=ic><use href=#i-play></use></svg> Practise this topic (${n} Q)</button>` : ''}
+    ${NT.notes.length ? `<button class="btn" data-note-pdf="all" title="Print or save as an A4 PDF"><svg class=ic><use href=#i-download></use></svg> PDF (A4)${NT.sel.size ? ' – ' + plural(NT.sel.size, 'selected note') : ''}</button>` : ''}
     ${NT.notes.length > 1 ? `<span class="spacer"></span><button class="btn ghost" data-note-openall>${NT.openAll ? 'Collapse all' : 'Expand all'}</button>` : ''}</div>`;
   if (!NT.notes.length) {
-    h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Ask ChatGPT, Gemini or Claude to explain this topic, press its <b>Copy</b> button, then tap <b>📋 Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
+    h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Ask ChatGPT, Gemini or Claude to explain this topic, press its <b>Copy</b> button, then tap <b><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
   } else {
     if (NT.sel.size) h += `<div class="merge-bar"><span>${plural(NT.sel.size, 'note')} selected</span><span class="spacer"></span>
       ${NT.sel.size > 1 ? `<button class="btn primary" data-note-merge>⇲ Merge into one note</button>` : '<span class="small muted">Select one more note to merge</span>'}<button class="btn ghost" data-note-unsel>Clear</button></div>`;
@@ -3868,9 +3906,9 @@ function renderNotes() {
         <div class="grow"><b>${esc(x.title || 'Note')}</b><div class="small muted">${x.source ? esc(x.source) + ' · ' : ''}${esc(fmtDay(x.updatedAt || x.createdAt))}</div></div>
         <button class="icon-btn" data-note-up="${x.id}" ${i ? '' : 'disabled'} title="Move up" aria-label="Move up">↑</button>
         <button class="icon-btn" data-note-down="${x.id}" ${i < NT.notes.length - 1 ? '' : 'disabled'} title="Move down" aria-label="Move down">↓</button>
-        <button class="icon-btn" data-note-pdf="${x.id}" title="Save this note as an A4 PDF" aria-label="Save as PDF">⬇</button>
-        <button class="icon-btn" data-note-edit="${x.id}" title="Edit" aria-label="Edit">✎</button>
-        <button class="icon-btn" data-note-del="${x.id}" title="Delete" aria-label="Delete">🗑</button></div>
+        <button class="icon-btn" data-note-pdf="${x.id}" title="Save this note as an A4 PDF" aria-label="Save as PDF"><svg class=ic><use href=#i-download></use></svg></button>
+        <button class="icon-btn" data-note-edit="${x.id}" title="Edit" aria-label="Edit"><svg class=ic><use href=#i-edit></use></svg></button>
+        <button class="icon-btn" data-note-del="${x.id}" title="Delete" aria-label="Delete"><svg class=ic><use href=#i-trash></use></svg></button></div>
       <div class="md ${NT.openAll || NT.notes.length === 1 ? '' : 'md-clip'}" data-md="${x.id}"><p class="small muted">Formatting…</p></div>
       <button class="btn ghost md-more" data-note-more="${x.id}" hidden>Show all ▾</button></div>`).join('');
   }
@@ -3892,7 +3930,7 @@ function noteEditorHTML() {
     <label class="lbl">Title<input id="ntTitle" placeholder="Taken from the first heading if left empty" value="${esc(x ? x.title : '')}"></label>
     <div class="row" style="gap:8px;margin:10px 0 6px">
       <div class="seg"><button data-ntab="write" class="on">Write</button><button data-ntab="preview">Preview</button></div>
-      <button class="btn" id="ntClip">📋 Paste from clipboard</button><span class="spacer"></span>
+      <button class="btn" id="ntClip"><svg class=ic><use href=#i-clipboard></use></svg> Paste from clipboard</button><span class="spacer"></span>
       <select id="ntSource" style="width:auto" aria-label="Source"><option value="">Source…</option>${NOTE_SOURCES.map(v => `<option ${x && x.source === v ? 'selected' : ''}>${v}</option>`).join('')}</select></div>
     <textarea id="ntText" class="nt-text" rows="16" spellcheck="false" placeholder="Paste or type here. Markdown works: # Heading, **bold**, - list, | table |, \`code\`, $formula$">${esc(x ? x.md : '')}</textarea>
     <div id="ntPrev" class="md nt-prev" hidden></div>
@@ -3991,9 +4029,9 @@ document.addEventListener('change', e => {
 // Topic page card
 function topicNotesHTML(t) {
   const n = topicNoteCount(t);
-  return `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0">📝 Notes</h2>
+  return `<div class="card"><div class="row"><div style="flex:1;min-width:200px"><h2 style="margin:0"><svg class=ic><use href=#i-notes></use></svg> Notes</h2>
     <div class="small muted">${n ? plural(n, 'note') + ' for this topic' : 'Paste explanations from ChatGPT, Gemini or Claude – formatting is kept'}</div></div>
-    ${n ? `<button class="btn primary" data-notes="${t.id}">Open notes</button>` : ''}<button class="btn ${n ? '' : 'primary'}" data-notes-paste="${t.id}">📋 Paste from AI</button></div></div>`;
+    ${n ? `<button class="btn primary" data-notes="${t.id}">Open notes</button>` : ''}<button class="btn ${n ? '' : 'primary'}" data-notes-paste="${t.id}"><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</button></div></div>`;
 }
 
 /* ---------- Back navigation ----------
@@ -4110,10 +4148,10 @@ function renderSyllabus() {
     const ps = D.plan && planStatus(t.plan.id), subs = topicSubs(t), n = topicQuestionCount(t.id), today = dayIds.has(t.plan.id);
     return `<div class="syl-topic ${today ? 'is-today' : ''} ${ps ? stClass(ps) : ''}"><div class="row" style="gap:8px"><span class="pill">${esc(t.plan.id)}</span><b class="grow">${esc(t.name)}</b>
         ${today ? '<span class="pill pk">On the chosen day</span>' : ''}${ps ? `<span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}</div>
-      <div class="small muted">📅 ${esc(fmtPD(t.plan.start))}${t.plan.end && t.plan.end !== t.plan.start ? ' – ' + esc(fmtPD(t.plan.end)) : ''}${t.plan.priority ? ' · ' + esc(t.plan.priority) + ' priority' : ''} · ${n ? plural(n, 'question') : 'no questions yet'}</div>
+      <div class="small muted"><svg class=ic><use href=#i-calendar></use></svg> ${esc(fmtPD(t.plan.start))}${t.plan.end && t.plan.end !== t.plan.start ? ' – ' + esc(fmtPD(t.plan.end)) : ''}${t.plan.priority ? ' · ' + esc(t.plan.priority) + ' priority' : ''} · ${n ? plural(n, 'question') : 'no questions yet'}</div>
       ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
       ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
-      <div class="row" style="margin-top:8px;gap:6px"><button class="btn" data-notes="${t.id}">📝 Notes${topicNoteCount(t) ? ' (' + topicNoteCount(t) + ')' : ''}</button><button class="btn" data-nav="topic:${t.id}">Open topic</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div></div>`;
+      <div class="row" style="margin-top:8px;gap:6px"><button class="btn" data-notes="${t.id}"><svg class=ic><use href=#i-notes></use></svg> Notes${topicNoteCount(t) ? ' (' + topicNoteCount(t) + ')' : ''}</button><button class="btn" data-nav="topic:${t.id}">Open topic</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div></div>`;
   }).join('') || '<p class="small muted">No planned topics in this subject.</p>'}</div>`;
   $('#syllabus').innerHTML = h;
   const hl = $('#syllabus .syl-topic.is-today');
@@ -4147,6 +4185,244 @@ document.addEventListener('click', e => {
   e.preventDefault();
   printNotes(b.dataset.notePdf === 'all' ? (NT.sel.size ? [...NT.sel] : null) : [b.dataset.notePdf]);
 });
+
+/* ---------- UI helpers: line icons (SVG sprite in <body>), plan-ID pills coloured by paper, status chips ---------- */
+const I = n => `<svg class=ic><use href=#i-${n}></use></svg>`;
+const pidPill = id => id ? `<span class="pill pid ${/^P1/.test(id) ? 'p1' : 'p2'}">${esc(id)}</span>` : '';
+const ST_NEXT = { 'Not Started': 'In Progress', 'In Progress': 'Completed', Completed: 'Review Required', 'Review Required': 'Not Started' };
+const ST_SHORT = { 'Not Started': 'Not started', 'In Progress': 'In progress', Completed: 'Done', 'Review Required': 'Review' };
+// One topic of a study day: tap the row to open the topic; one main action (Practise); status chip cycles on tap; the rest is in ⋯
+function planTopicRow(t, carry) {
+  const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t), subs = topicSubs(t);
+  return `<div class="trow" data-open-topic="${t.id}" tabindex="0" role="button" aria-label="Open ${esc(t.name)}">
+    <div class="grow"><div class="trow-top">${pidPill(t.plan.id)}<b>${esc(t.name)}</b></div>
+      <div class="small muted">${n ? plural(n, 'question') : 'No questions yet'}${t.plan.priority === 'High' ? ` · <span class="hot">${I('flame')} High priority</span>` : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}${nn ? ` · ${I('notes')} ${plural(nn, 'note')}` : ''}</div>
+      ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
+      ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
+      ${t.plan.tip ? `<div class="small tip">${I('bulb')} ${esc(t.plan.tip)}</div>` : ''}</div>
+    <div class="trow-act">${ps ? `<button class="st-chip ${stClass(ps)}" data-cycle="${esc(t.plan.id)}" title="Status – tap to change">${esc(ST_SHORT[ps] || ps)}</button>` : ''}
+      ${n ? `<button class="btn primary sm" data-practise="${t.id}">${I('play')} Practise</button>` : ''}
+      <button class="icon-btn" data-tmenu="${t.id}" title="More options" aria-label="More options for ${esc(t.name)}">${I('more')}</button></div></div>`;
+}
+function topicMenuSheet(t) {
+  const s = byId('subjects', t.subjectId), n = topicQuestionCount(t.id);
+  actionSheet(t.name, [
+    { icon: I('folder'), label: 'Open topic', onClick: () => openTopic(t.id) },
+    ...(n ? [{ icon: I('play'), label: 'Practise', onClick: () => practiseTopic(t.id) }] : []),
+    { icon: I('notes'), label: topicNoteCount(t) ? `Notes (${topicNoteCount(t)})` : 'Notes', onClick: () => openNotes(t.id) },
+    { icon: I('clipboard'), label: 'Paste a note from AI', onClick: () => openNotes(t.id, { edit: { id: null } }) },
+    ...(s ? [{ icon: I('book'), label: 'Syllabus of ' + displayName(s), onClick: () => openSyllabus(s.id) }] : []),
+    ...(t.plan && t.plan.id && D.plan ? [{ icon: I('check'), label: planStatus(t.plan.id) === 'Completed' ? 'Mark as not started' : 'Mark as done', onClick: async () => { await setPlanField(t.plan.id, 's', planStatus(t.plan.id) === 'Completed' ? 'Not Started' : 'Completed'); refreshPlanViews(); } }] : [])
+  ]);
+}
+document.addEventListener('click', async e => {
+  const c = e.target.closest('[data-cycle]');
+  if (c) { e.preventDefault(); e.stopPropagation(); const id = c.dataset.cycle; await setPlanField(id, 's', ST_NEXT[planStatus(id)] || 'In Progress'); refreshPlanViews(); return; }
+  const m = e.target.closest('[data-tmenu]');
+  if (m) { e.preventDefault(); const t = byId('topics', m.dataset.tmenu); if (t) topicMenuSheet(t); return; }
+  const r = e.target.closest('[data-open-topic]');
+  if (r && !e.target.closest('button, a, select, input, label')) openTopic(r.dataset.openTopic);
+});
+document.addEventListener('keydown', e => {
+  const r = e.target.closest && e.target.closest('[data-open-topic]');
+  if (r && e.target === r && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openTopic(r.dataset.openTopic); }
+});
+function dayGroupsHTML(d) {
+  return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h ${/^Paper 1/.test(g.label) ? 'p1' : 'p2'}">${esc(g.label)}</div>`
+    + g.subs.map(({ s, topics }) => `<div class="tp-subj" style="--sc:${subjColor(s)}"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
+        <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
+    + (g.missing || []).map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.name)}</b>
+        <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('')
+    + (g.extra.length ? `<div class="ca-row small">${I('news')} <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news; no questions by design</span></div>` : '') + '</div>').join('');
+}
+
+/* ---------- Today ---------- */
+function renderToday() {
+  const el = $('#today'), today = dayKey();
+  if (!TD.date) TD.date = today;
+  ensureBank(); // the question-bank index is needed to know which packs cover the day
+  const date = TD.date, pd = planDate(date), goal = D.prefs.dailyGoal || 30;
+  const rel = date === today ? 'Today' : date === addDays(today, -1) ? 'Yesterday' : date === addDays(today, 1) ? 'Tomorrow' : '';
+  const cal = (D.plan && D.plan.calendar) || [], i = cal.findIndex(x => x.date === date), d = cal[i];
+  const left = D.plan && D.plan.examDate && today <= D.plan.examDate ? Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
+  const ids = d ? dayPlanIds(d) : [], info = idsQuestionInfo(ids), nQ = info.withQ.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+  const pRows = ids.map(planRow).filter(Boolean), pDone = pRows.filter(r => rowState(r).status === 'Completed').length, pc = pRows.length ? Math.round(pDone / pRows.length * 100) : 0;
+  const practised = D.days[date] || 0, done = d && dayDone(d);
+  let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
+      <div class="td-eyebrow">${esc(rel || 'Study day')}${d ? ` · Day ${i + 1} of ${cal.length} · Week ${Math.floor(i / 7) + 1}` : ''}</div>
+      <h1>${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))}</h1>
+      <div class="td-sub">${d ? esc(d.phase) + ' phase · ' + d.hours + ' h planned' : 'Outside the study plan'}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
+      ${d ? `<div class="ring" style="--p:${pc}" title="${pDone} of ${pRows.length} topics done"><span>${pDone}/${pRows.length}</span><small>topics</small></div>` : ''}</div>
+    ${d ? `<div class="td-facts"><span>${I('list')} ${plural(ids.length, 'topic')}</span><span>${I('help')} ${plural(nQ, 'question')}</span>
+      <button class="td-fact-btn" data-edit-goal title="Change your daily goal">${I('target')} ${practised} / ${goal} ${date === today ? 'today' : 'that day'} ${I('edit')}</button>
+      <button class="td-fact-btn ${done ? 'on' : ''}" data-daydone-toggle="${d.date}">${I('check')} ${done ? 'Day done' : 'Mark day done'}</button></div>` : ''}
+    <div class="td-nav"><button class="icon-btn" data-td-step="-1" title="Previous day" aria-label="Previous day">${I('chevl')}</button>
+      <div class="seg td-seg">${[['Yesterday', addDays(today, -1)], ['Today', today], ['Tomorrow', addDays(today, 1)]].map(([l, x]) => `<button data-td="${x}" class="${date === x ? 'on' : ''}">${l}</button>`).join('')}</div>
+      <button class="icon-btn" data-td-step="1" title="Next day" aria-label="Next day">${I('chev')}</button>
+      <input type="date" id="tdDate" value="${date}" aria-label="Choose a date"></div></div>`;
+  h += onboardingHTML();
+  if (!D.plan) {
+    el.innerHTML = h + `<div class="card empty"><p>Load your study plan to see what to study each day.</p><button class="btn primary" data-open-bank>${I('download')} Open question bank</button></div>` + tdDoneHTML(date);
+    wireToday(); return;
+  }
+  if (!d) {
+    const first = cal[0], last = cal[cal.length - 1];
+    h += `<div class="card empty"><p><b>No study-plan day on this date.</b></p><p class="small">Your plan runs from ${esc(dayLabel(first))} to ${esc(dayLabel(last))}${D.plan.examDate ? ' (exam on ' + esc(fmtPD(D.plan.examDate)) + ')' : ''}.</p>
+      <div class="row" style="justify-content:center"><button class="btn" data-td="${date < first.date ? first.date : last.date}">Go to ${date < first.date ? 'the first' : 'the last'} plan day</button></div></div>`;
+    el.innerHTML = h + tdDoneHTML(date); wireToday(); return;
+  }
+  // 1. What to study
+  const groups = dayGroups(d);
+  h += `<div class="card"><h2>${date === today ? "Today's subjects" : 'Subjects for this day'}</h2>${dayGroupsHTML(d) || '<p class="small muted">No topics on this day.</p>'}
+    ${d.habit ? `<p class="small muted" style="margin:10px 0 0">${I('news')} Daily habit: ${esc(d.habit)}</p>` : ''}</div>`;
+  // 2. Tests for this day
+  const week = Math.floor(i / 7) + 1, wk = cal.slice((week - 1) * 7, week * 7), wkInfo = idsQuestionInfo([...new Set(wk.flatMap(dayPlanIds))]);
+  const errs = errorLogData().filter(r => r.open && ids.includes((byId('topics', r.t) || {}).plan?.id));
+  const rows = [];
+  if (nQ) rows.push(['play', `Day ${i + 1} practice`, `Up to 40 questions from this day's ${plural(info.withQ.length, 'topic')}, new ones first`, `<button class="btn primary sm" data-day-practise="${d.date}">Start</button>`]);
+  if (wkInfo.withQ.length) rows.push(['target', `Week ${week} mock test`, `Up to 50 questions from ${plural(wkInfo.withQ.length, 'topic')} of ${esc(dayLabel(wk[0]))} – ${esc(dayLabel(wk[wk.length - 1]))}`, `<button class="btn sm" data-week-mock="${week}">Start</button>`]);
+  if (errs.length) rows.push(['alert', 'My mistakes in these topics', `${plural(errs.length, 'question')} you got wrong earlier`, `<button class="btn sm" data-elpractise="day:${d.date}">Practise ${errs.length}</button>`]);
+  if (TD.importing) rows.push(['download', 'Getting questions…', 'Downloading the questions for this day and the next', '<span class="small muted">Please wait</span>']);
+  else if (info.packs.length) rows.push(['download', 'New questions available', `${info.missing.length ? 'Some topics of this day have no questions yet' : 'More practice sets for these topics'}`, `<button class="btn sm" data-day-import="${d.date}">Download questions</button>`]);
+  h += `<div class="card"><h2>Tests for this day</h2>${rows.length ? rows.map(([ic, t, sub, btn]) => `<div class="list-row"><span class="td-ic">${I(ic)}</span><div class="grow"><b>${t}</b><div class="small muted">${sub}</div></div>${btn}</div>`).join('')
+    : '<p class="small muted" style="margin:0">No questions for this day yet. They appear here as the question bank grows.</p>'}
+    <label class="check small" style="margin-top:10px" title="Download the questions for the chosen day and the next day automatically"><input type="checkbox" id="tdAuto" ${D.prefs.autoImport !== false ? 'checked' : ''}> Get questions automatically</label></div>`;
+  // 3. Secondary: revision and history (collapsed)
+  const rev = [[1, 'Yesterday'], [3, '3 days ago'], [7, 'A week ago']].map(([k, l]) => {
+    const dd = calRowFor(addDays(date, -k)); if (!dd) return null;
+    const tp = idsQuestionInfo(dayPlanIds(dd)).withQ;
+    return tp.length ? { l, dd, tp } : null;
+  }).filter(Boolean);
+  if (rev.length) h += `<details class="card fold"><summary><span class="td-ic">${I('refresh')}</span><span class="grow"><b>Revise earlier days</b><span class="small muted"> · spaced revision</span></span>${I('chevd')}</summary>
+    <p class="small muted">A short practice 1, 3 and 7 days after studying a topic fixes it in memory.</p>
+    ${rev.map(({ l, dd, tp }) => `<div class="list-row"><div class="grow"><b>${l}</b> <span class="small muted">· Day ${cal.indexOf(dd) + 1} · ${esc(dayLabel(dd))}</span>
+      <div class="small muted clamp2">${tp.map(t => esc(t.name)).join(' · ')}</div></div>
+      <button class="btn ghost sm" data-td="${dd.date}">View</button><button class="btn sm" data-day-practise="${dd.date}">Practise</button></div>`).join('')}</details>`;
+  h += tdDoneHTML(date);
+  if (nQ) h += `<div class="sticky-cta"><button class="btn primary big" data-day-practise="${d.date}">${I('play')} Start ${date === today ? "today's" : `Day ${i + 1}`} practice · ${Math.min(40, nQ)} Q</button></div>`;
+  el.innerHTML = h;
+  wireToday();
+  setTimeout(() => tdAutoImport([date, addDays(date, 1)]), 0);
+}
+function tdDoneHTML(date) {
+  if (date > dayKey()) return '';
+  const atts = D.attempts.filter(a => dayKey(a.date) === date), practised = D.days[date] || 0;
+  return `<details class="card fold" ${atts.length && date === dayKey() ? 'open' : ''}><summary><span class="td-ic">${I('clock')}</span><span class="grow"><b>Done on this date</b><span class="small muted"> · ${atts.length ? plural(atts.length, 'test') : practised ? plural(practised, 'question') : 'nothing yet'}</span></span>${I('chevd')}</summary>
+    ${atts.length ? attemptsTable(atts, { where: true, limit: 30 }) : `<p class="small muted" style="margin:0">${practised ? plural(practised, 'question') + ' practised (flashcards or tests).' : 'Nothing practised on this date.'}</p>`}</details>`;
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-daydone-toggle]');
+  if (b) { e.preventDefault(); const dt = b.dataset.daydoneToggle, d = calRowFor(dt); await setPlanField('day:' + dt, 'd', !dayDone(d)); refreshPlanViews(); return; }
+  if (e.target.closest('[data-edit-goal]')) {
+    e.preventDefault();
+    const v = await askText('Daily goal', 'Questions to practise per day (tests + flashcards)', String(D.prefs.dailyGoal || 30));
+    const n = parseInt(v, 10);
+    if (!v) return;
+    if (!(n >= 1 && n <= 1000)) { toast('Enter a number between 1 and 1000', 'error'); return; }
+    D.prefs.dailyGoal = n; savePrefs().catch(err => toast(errText(err), 'error')); rerender();
+  }
+});
+
+/* ---------- First-time checklist (Today): disappears when every step is done, or when dismissed ---------- */
+const OB = { rules: null };
+function checkNotesRules() {
+  if (OB.rules !== null || !store) return;
+  if (store.kind === 'demo') { OB.rules = true; return; }
+  OB.rules = 'checking';
+  store.query('notes', 'topicId', '__rules_check__').then(() => { OB.rules = true; }).catch(e => { OB.rules = !(e && e.code === 'permission-denied'); })
+    .finally(() => { if (!$('#today').hidden) renderToday(); });
+}
+function onboardingHTML() {
+  if (D.prefs.onboardDone) return '';
+  checkNotesRules();
+  const steps = [
+    ['Load the syllabus and study plan', !!(D.plan && D.topics.some(t => t.plan)), `<button class="btn sm" data-open-bank>Open question bank</button>`],
+    ['Allow notes in Firebase (one-time)', OB.rules === true, `<button class="btn sm" data-rules-help>How?</button>`],
+    ['Take your first practice test', D.attempts.length > 0, ''],
+    ['Save your first note', D.topics.some(t => t.notes > 0), '']
+  ];
+  const left = steps.filter(s => !s[1]).length;
+  if (!left) return '';
+  return `<div class="card onboard"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1">Get started</h2><span class="small muted">${steps.length - left} of ${steps.length} done</span>
+      <button class="icon-btn" data-ob-hide title="Hide this checklist" aria-label="Hide checklist">${I('x')}</button></div>
+    ${steps.map(([l, ok, act]) => `<div class="ob-step ${ok ? 'ok' : ''}"><span class="ob-dot">${ok ? I('check') : ''}</span><span class="grow">${l}</span>${ok ? '' : act}</div>`).join('')}</div>`;
+}
+document.addEventListener('click', e => {
+  if (e.target.closest('[data-ob-hide]')) { D.prefs.onboardDone = true; savePrefs().catch(() => {}); rerender(); return; }
+  if (e.target.closest('[data-rules-help]')) {
+    openModal(`<h3>Allow notes in Firebase</h3><ol class="small" style="padding-left:1.2em">
+      <li>Open <b>console.firebase.google.com</b> → project <b>examsim-4db41</b>.</li><li>Go to <b>Firestore Database → Rules</b>.</li>
+      <li>Replace the rules with the contents of <b>firestore.rules</b> from your project folder (it lists <code>'notes'</code> at the end).</li><li>Click <b>Publish</b>, then reopen the app.</li></ol>`, [{ label: 'OK', cls: 'primary' }]);
+  }
+});
+
+/* ---------- Library search: subjects, topics and sub-topics instantly; notes and questions on request ---------- */
+const LSQ = { q: '', notes: null, qs: null, loading: false };
+function libSearchHTML() {
+  return `<div class="search">${I('search')}<input id="libQ" type="search" placeholder="Search subjects, topics, notes and questions" value="${esc(LSQ.q)}" autocomplete="off"></div><div id="libResults"></div>`;
+}
+function wireLibSearch() {
+  const q = $('#libQ');
+  if (!q) return;
+  q.oninput = () => { LSQ.q = q.value; renderLibResults(); };
+  if (LSQ.q) renderLibResults();
+}
+function renderLibResults() {
+  const box = $('#libResults'), main = $('#libMain'), k = LSQ.q.trim().toLowerCase();
+  if (!box || !main) return;
+  if (k.length < 2) { box.innerHTML = ''; main.hidden = false; return; }
+  main.hidden = true;
+  const has = t => String(t || '').toLowerCase().includes(k);
+  const subs = D.subjects.filter(s => has(s.name));
+  const tops = D.topics.filter(t => has(t.name) || has(t.plan && t.plan.id) || has(t.plan && t.plan.coverage) || topicSubs(t).some(has)).slice(0, 40);
+  const notes = LSQ.notes ? LSQ.notes.filter(n => has(n.title) || has(n.md)).slice(0, 20) : null;
+  const qs = LSQ.qs ? LSQ.qs.filter(x => has(x.question) || Object.values(x.options || {}).some(has)).slice(0, 30) : null;
+  const sec = (title, n, body) => `<div class="card"><h2>${title} <span class="small muted">${n}</span></h2>${body}</div>`;
+  let h = '';
+  if (subs.length) h += sec('Subjects', subs.length, subs.map(s => `<div class="list-row" data-nav="subject:${s.id}" role="button"><span class="subj-ic sm" style="--sc:${subjColor(s)}">${esc(subjIcon(s))}</span><div class="grow"><b>${esc(s.name)}</b></div>${I('chev')}</div>`).join(''));
+  h += sec('Topics', tops.length, tops.map(t => { const s = byId('subjects', t.subjectId); return `<div class="list-row" data-nav="topic:${t.id}" role="button"><div class="grow">${pidPill(t.plan && t.plan.id)} <b>${esc(t.name)}</b><div class="small muted">${esc(s ? s.name : '')} · ${plural(topicQuestionCount(t.id), 'question')}</div></div>${I('chev')}</div>`; }).join('') || '<p class="small muted" style="margin:0">No matching topics.</p>');
+  h += sec('Notes', notes ? notes.length : '', notes ? (notes.map(n => { const t = byId('topics', n.topicId); return `<div class="list-row" data-notes="${n.topicId}" role="button"><span class="td-ic">${I('notes')}</span><div class="grow"><b>${esc(n.title || 'Note')}</b><div class="small muted">${esc(t ? t.name : '')}</div></div>${I('chev')}</div>`; }).join('') || '<p class="small muted" style="margin:0">No matching notes.</p>')
+    : `<button class="btn sm" data-search-more="notes">${I('search')} Search my notes</button>`);
+  h += sec('Questions', qs ? qs.length + (qs.length === 30 ? '+' : '') : '', qs ? (qs.map(x => { const t = byId('topics', x.topicId); return `<div class="list-row" data-nav="topic:${x.topicId}" role="button"><div class="grow"><div class="clamp2">${esc(x.question)}</div><div class="small muted">${esc(t ? t.name : '')} · answer ${esc(x.answer)}: ${esc((x.options || {})[x.answer] || '')}</div></div></div>`; }).join('') || '<p class="small muted" style="margin:0">No matching questions.</p>')
+    : `<button class="btn sm" data-search-more="questions" ${LSQ.loading ? 'disabled' : ''}>${I('search')} ${LSQ.loading ? 'Loading questions…' : `Search all ${D.sets.reduce((n, x) => n + (x.count || 0), 0).toLocaleString()} questions`}</button>`);
+  box.innerHTML = h;
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-search-more]');
+  if (!b) return;
+  e.preventDefault();
+  LSQ.loading = true; renderLibResults();
+  try {
+    if (b.dataset.searchMore === 'notes') LSQ.notes = await store.list('notes').catch(() => []);
+    else LSQ.qs = await sourceQuestions(D.sets);
+  } catch (err) { toast(errText(err), 'error'); }
+  LSQ.loading = false; renderLibResults();
+});
+
+/* ---------- Results: what to do next ---------- */
+function nextStepsHTML(R) {
+  const missed = R.rows.filter(r => r.res !== 'correct').length, t = R.info.topicId && byId('topics', R.info.topicId);
+  let next = null;
+  if (t && t.plan && D.plan) {  // the next topic in the plan after this one
+    const all = D.topics.filter(x => x.plan && x.plan.start && x.id !== t.id && x.plan.start >= t.plan.start).sort((a, b) => a.plan.start.localeCompare(b.plan.start) || String(a.plan.id).localeCompare(String(b.plan.id), undefined, { numeric: true }));
+    next = all.find(x => topicQuestionCount(x.id) && planStatus(x.plan.id) !== 'Completed');
+  }
+  return `<div class="card next-steps"><h2>What next?</h2><div class="ns-grid">
+    ${missed ? `<button class="ns" data-retry-missed>${I('alert')}<b>Practise ${plural(missed, 'missed question')}</b><span>${R.wrong} wrong · ${R.blank} blank · ${R.e} skipped in this test</span></button>` : `<div class="ns done">${I('check')}<b>No mistakes</b><span>Every question was answered correctly</span></div>`}
+    ${next ? `<button class="ns" data-practise="${next.id}">${I('play')}<b>Next topic</b><span>${esc(next.name)}</span></button>` : `<button class="ns" data-nav="home">${I('book')}<b>Library</b><span>Choose another topic</span></button>`}
+    <button class="ns" data-go-today="${dayKey()}">${I('sun')}<b>Back to Today</b><span>See the rest of today's plan</span></button></div></div>`;
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('[data-retry-missed]') || !RES) return;
+  const orig = new Map((RES.info.questions || []).map(q => [q.key || qKey(q), q]));  // original option order, so history letters stay right
+  const qs = RES.rows.filter(r => r.res !== 'correct').map(r => orig.get(r.q.key) || r.q);
+  startSetup({ name: 'Mistakes: ' + RES.name, questions: qs, subjectId: RES.info.subjectId, topicId: RES.info.topicId, setId: null, mode: 'mistakes', settingsSubjectId: RES.info.settingsSubjectId });
+});
+
+/* ---------- Offline notice ---------- */
+function updateOnline() { const b = $('#offline'); if (b) b.hidden = navigator.onLine !== false; }
+window.addEventListener('online', updateOnline);
+window.addEventListener('offline', updateOnline);
 
 /* ============================================================
    Exam setup
@@ -4452,12 +4728,12 @@ function renderResults() {
   const acc = attempted ? (R.correct / attempted * 100).toFixed(1) + '%' : '—';
   const notVisited = R.rows.filter(r => r.res === 'blank' && !r.visited).length;
   const subjects = [...new Set(R.rows.map(r => r.q.subject).filter(Boolean))];
-  let h = R.auto ? '<div class="banner">⏰ Time\'s up. Your exam was submitted automatically.</div>' : '';
+  let h = R.auto ? '<div class="banner"><svg class=ic><use href=#i-clock></use></svg> Time\'s up. Your exam was submitted automatically.</div>' : '';
   h += `<div class="card">
     <div class="row" style="gap:18px;flex-wrap:nowrap">${scoreRing(R.max > 0 ? R.score / R.max * 100 : 0)}<div style="min-width:0">
       <div class="muted small" style="overflow-wrap:anywhere">${esc(R.name)}</div>
       <div class="score-big">${fmtScore(R.score)} <span class="muted" style="font-size:1.3rem;font-weight:600">/ ${fmtNum(R.max)}</span></div>
-      <div class="small">${R.best ? '<b style="color:var(--green)">🏆 New personal best!</b>' : R.prevBest != null ? `<span class="muted">Your best: ${R.prevBest.toFixed(0)}%</span>` : '<span class="muted">First attempt</span>'}</div>
+      <div class="small">${R.best ? '<b style="color:var(--green)"><svg class=ic><use href=#i-trophy></use></svg> New personal best!</b>' : R.prevBest != null ? `<span class="muted">Your best: ${R.prevBest.toFixed(0)}%</span>` : '<span class="muted">First attempt</span>'}</div>
     </div></div>
     <div class="small" id="saveMsg" style="margin-top:6px"></div>
     <div class="stats">
@@ -4470,14 +4746,15 @@ function renderResults() {
     </div>
     <div class="row">
       <button class="btn primary" id="toReview">Review all questions</button>
-      <button class="btn" id="csvBtn">⬇ Download CSV</button>
+      <button class="btn" id="csvBtn"><svg class=ic><use href=#i-download></use></svg> Download CSV</button>
       <button class="btn" id="retakeBtn">↻ Retake</button>
-      ${R.wrong ? `<button class="btn" data-errlog title="Wrong answers are added to your error log automatically">📕 Error log (+${R.wrong})</button>` : ''}
+      ${R.wrong ? `<button class="btn" data-errlog title="Wrong answers are collected in My mistakes automatically"><svg class=ic><use href=#i-alert></use></svg> My mistakes (+${R.wrong})</button>` : ''}
       <span class="spacer"></span>
       ${R.info.topicId ? `<button class="btn ghost" data-nav="topic:${R.info.topicId}">Back to topic</button>` : ''}
       <button class="btn ghost" data-nav="home">Library</button>
     </div>
   </div>`;
+  h += nextStepsHTML(R);
   if (subjects.length) {
     const groups = new Map();
     R.rows.forEach(r => {
@@ -4817,7 +5094,7 @@ Explain in plain text, 60-120 words, with no headings or tables:
 3. One short memory tip.
 Treat the given correct answer as the answer key. Only if you are confident the key is wrong, say so politely in one final sentence.`;
 function explainBlock() {
-  return `<div class="ai-explain"><button class="btn ghost" data-explain>💡 Explain with AI</button><div class="ai-out"></div></div>`;
+  return `<div class="ai-explain"><button class="btn ghost" data-explain><svg class=ic><use href=#i-bulb></use></svg> Explain with AI</button><div class="ai-out"></div></div>`;
 }
 async function explainWithAI(container, q, sel) {
   const out = $('.ai-out', container), btn = $('[data-explain]', container);
@@ -4826,7 +5103,7 @@ async function explainWithAI(container, q, sel) {
   const cacheKey = q.key + '|' + (sel || '') + '|' + (lang || '');
   const render = txt => {
     // light formatting: **bold** only, everything else escaped
-    out.innerHTML = `<div class="expl ai"><b>💡 AI explanation</b> <span class="small muted">(${esc(groqModel)}, may contain mistakes)</span>\n${esc(txt).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^#+\s*/gm, '')}</div>`;
+    out.innerHTML = `<div class="expl ai"><b><svg class=ic><use href=#i-bulb></use></svg> AI explanation</b> <span class="small muted">(${esc(groqModel)}, may contain mistakes)</span>\n${esc(txt).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^#+\s*/gm, '')}</div>`;
   };
   if (explainCache.has(cacheKey)) { render(explainCache.get(cacheKey)); btn.hidden = true; return; }
   btn.disabled = true; btn.textContent = '💡 Thinking…';

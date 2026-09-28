@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v15; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v16; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -116,6 +116,17 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 - `repairPlanLinks()` (after loadAll) re-links planner rows to library topics by name when a topic has no plan; tasks still unmatched show a **Fix** button (re-imports the structure pack). Current affairs show as their own line.
 - Notes → A4 PDF: `printNotes()` builds `#printArea` and calls `window.print()`; `@media print` + `body.print-notes` prints only the notes (`@page size A4`).
 - Design refresh block at the end of `<style>` (Inter + Noto Sans Kannada from Google Fonts, indigo/violet tokens, Today gradient header `.td-hero` with progress ring). Tabs: Today · Library · Mocks · Add · Revise · Plan.
+
+### UX pass (built 28 Sep 2026)
+- Icons: SVG sprite after `<body>` (`#i-play`, `#i-notes`, …); in code `I('name')` or the quote-free markup `<svg class=ic><use href=#i-name></use></svg>`
+  (safe inside any JS string). Keep emojis only for subject icons, toasts and celebrations.
+- Topic rows (`planTopicRow`): tap row → topic; status chip `[data-cycle]` cycles Not started → In progress → Done → Review; one Practise button; ⋯ → `topicMenuSheet`.
+- Today: hero with fact chips (topics, questions, daily goal ✎ `[data-edit-goal]`, `[data-daydone-toggle]`), first-time checklist (`onboardingHTML`, hides via
+  `prefs.onboardDone`), Today's subjects → Tests for this day → folded "Revise earlier days" and "Done on this date", sticky "Start today's practice".
+- Library: search (`libSearchHTML`/`renderLibResults`; notes and all questions load on request); Today summary and daily-goal card removed from Library.
+- Plan: calendar and progress only ("Open in Today" per day; tables are "advanced"). Results: "What next?" (`nextStepsHTML`, `[data-retry-missed]`).
+- Wording: My mistakes (error log), Practice sets, Download questions, Get questions automatically. Paper colours: `--p1` teal, `--p2` indigo (`pidPill`).
+- Skeleton `.loading`, offline notice `#offline`, 44 px touch targets on touch screens, focus rings.
 
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;
