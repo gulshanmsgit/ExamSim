@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v12; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v13; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -79,7 +79,7 @@ module, add it to `PACKS` in `tools/build_subject.py`, build, run `tools/check_p
 browser (demo mode), bump the sw cache, commit and tell the owner to push. Merging closely related sub-topics into one set is fine (owner's OK).
 
 ### Study plan & pack workflow (built, tested, committed 26 Sep 2026)
-- Bottom bar: Library · Mock tests · Add · Revise · **📅 Study plan**. Study plan has 3 tabs: **Days** (default: "Up next" = today + tomorrow open, then all 63 days grouped by week, each day a collapsible block filled on open; week mock button per week; overdue list), **Subjects** (Paper 1 / Paper 2 toggle → the planner sheets as cards/table with Status/Rev/Confidence/notes, synced via `prefs/planState`), **Progress** (KPIs, tracker, progress stats). Old tab keys (today/calendar/p1/p2/tracker) map onto these.
+- Bottom bar: **☀️ Today** · Library · Mocks · Add · Revise · **📅 Study plan**. Study plan has 3 tabs: **Days** (default: "Up next" = today + tomorrow open, then all 63 days grouped by week, each day a collapsible block filled on open; week mock button per week; overdue list), **Subjects** (Paper 1 / Paper 2 toggle → the planner sheets as cards/table with Status/Rev/Confidence/notes, synced via `prefs/planState`), **Progress** (KPIs, tracker, progress stats). Old tab keys (today/calendar/p1/p2/tracker) map onto these.
 - Home "Today's plan" card comes from the plan calendar (today's tasks + a Tomorrow section + "See all days"); falls back to topic plan dates without a plan.
 - Per day: "Practise this day" (≤40 Q, unseen first, mode `day`), "Import questions for this day" (bank packs whose `planIds` cover the day's tasks), "Day done". Calendar cells hold several tasks separated by `
 ` → always use `dayTasks(d, 'p1'|'p2')`.
@@ -101,8 +101,10 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
   **`firestore.rules` now includes `notes` – the owner must republish the rules once** (the notes screen shows instructions if not).
 - **Back navigation**: `show()` → `navPush()` adds a history entry `{r: route, d: depth}` per screen; ← button in the top bar when `d > 0`, and the phone's
   back gesture works via `popstate` → `openRoute()`. Non-rebuildable screens (exam, setup, add, revise, mock builder) are skipped; leaving a running exam asks first.
-- **Home "Today" card** (`planHomeCard` / `dayGroups`): active subjects of the day as chips, then Paper 2 / Paper 1 → subject → topic rows (📝 notes,
-  Open, Practise), plus a collapsible Tomorrow section.
+- **Today tab** (screen `today`, `openToday(date)`, first tab; the app opens on it when a study plan is loaded): date switcher (◀ Yesterday/Today/Tomorrow ▶ + date
+  picker, `TD.date`), day stats, "Exams for this day" (day practice, week mock, mistakes to fix via the error log, import packs), active subjects
+  (`dayGroups`/`dayGroupsHTML`: Paper 2 / Paper 1 → subject → topic rows with 📝 notes, Open, Practise) and "Done on this date" (attempts that day).
+  Home keeps only a short Today summary (`planHomeCard`) with "Open Today". Tab labels: Today · Library · Mocks · Add · Revise · Study plan.
 
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;
