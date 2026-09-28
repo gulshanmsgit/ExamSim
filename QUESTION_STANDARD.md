@@ -112,3 +112,14 @@ A topic "has questions" when its sets exist in a pack listed in `packs/index.jso
   still show up under "Import questions for this day".
 - Start every request by printing the chosen topics with their plan IDs, dates and planned sub-topic sets, then do the work
   without waiting (unless something is ambiguous). End with: topics done, question count, what is left, `git push origin main`.
+
+## 7. Current affairs (monthly, from January 2026)
+
+- Subject **P1 · Current Affairs** (not a planner subject; declared in `EXTRA_SUBJECTS` in `tools/build_subject.py`). One topic per month
+  named `January 2026`, `February 2026`, … with exactly two sets: `1 · Karnataka` (30 Q) and `2 · National` (10 Q) = the owner's
+  **75% Karnataka / 25% national** rule. Important schemes (Karnataka guarantees, central schemes) are included.
+- Content module `tools/p1_ca_2026.py` (`JAN26_KARNATAKA`, `JAN26_NATIONAL`, …); build with `python tools/build_subject.py p1-ca`.
+- **Never write current-affairs facts from memory.** Research each month on the web (PIB, All India Radio News, Deccan Herald, The Hindu,
+  Drishti IAS/GKToday monthly pages, Wikipedia "2026 in India"), keep only facts that are dated in that month (older decisions only as
+  scheme questions), cross-check anything that looks odd with a second source, and name the source in every explanation.
+- Watch for anachronisms: use the office-holders of that month (e.g. Karnataka CM in January 2026 = Siddaramaiah).

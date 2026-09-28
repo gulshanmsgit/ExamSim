@@ -503,7 +503,8 @@ input[type=text],input[type=number],select,textarea{border-radius:10px}
 .sub{font-size:.74rem;font-weight:600;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--sc,var(--primary)) 11%,transparent);border:1px solid color-mix(in srgb,var(--sc,var(--primary)) 28%,transparent)}
 .tip{margin-top:4px}
 .unlinked{border-left:4px solid var(--orange);background:var(--orange-bg);border-radius:12px;padding:10px 12px;margin:0 0 10px}
-.ca-row{background:var(--grey-bg);border-radius:12px;padding:9px 12px;margin:0 0 10px}
+.ca-row{background:var(--grey-bg);border-radius:12px;padding:9px 12px;margin:0 0 10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ca-row .grow{flex:1;min-width:180px}
 .syl-head{font-weight:700;color:var(--muted);margin-bottom:6px}
 .syl-list{margin:0;padding-left:1.3em}
 .syl-list li{padding:6px 0;border-bottom:1px dashed var(--border)}
@@ -4227,13 +4228,19 @@ document.addEventListener('keydown', e => {
   const r = e.target.closest && e.target.closest('[data-open-topic]');
   if (r && e.target === r && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openTopic(r.dataset.openTopic); }
 });
+// Monthly current-affairs practice (subject "P1 · Current Affairs", pack p1-ca.json): open it, or download it first
+function caButton() {
+  const subj = D.subjects.find(x => x.name === 'P1 · Current Affairs'), pack = packIndex && packIndex.packs.find(x => x.file === 'p1-ca.json');
+  if (subj && D.sets.some(x => x.subjectId === subj.id)) return `<button class="btn sm" data-nav="subject:${subj.id}">${I('play')} Practise</button>`;
+  return pack ? `<button class="btn sm" data-bankfile="p1-ca.json">${I('download')} Download</button>` : '';
+}
 function dayGroupsHTML(d) {
   return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h ${/^Paper 1/.test(g.label) ? 'p1' : 'p2'}">${esc(g.label)}</div>`
     + g.subs.map(({ s, topics }) => `<div class="tp-subj" style="--sc:${subjColor(s)}"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
         <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
     + (g.missing || []).map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.name)}</b>
         <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('')
-    + (g.extra.length ? `<div class="ca-row small">${I('news')} <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news; no questions by design</span></div>` : '') + '</div>').join('');
+    + (g.extra.length ? `<div class="ca-row small"><span class="grow">${I('news')} <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news, then practise the monthly set</span></span>${caButton()}</div>` : '') + '</div>').join('');
 }
 
 /* ---------- Today ---------- */

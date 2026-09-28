@@ -22,6 +22,10 @@ KANNADA = re.compile(r"[ಀ-೿]")
 
 structure = json.loads((PACKS / "gpstr-cst-2026-00-structure.json").read_text(encoding="utf-8"))
 planned = {s["name"]: {t["name"] for t in s["topics"]} for s in structure["subjects"]}
+sys.path.insert(0, str(ROOT / "tools"))
+from build_subject import EXTRA_SUBJECTS  # non-planner subjects such as monthly current affairs
+for _n, _x in EXTRA_SUBJECTS.items():
+    planned[_n] = set(_x["topics"])
 smap = json.loads((ROOT / "tools" / "syllabus_map.json").read_text(encoding="utf-8"))
 index = json.loads((PACKS / "index.json").read_text(encoding="utf-8"))
 listed = {p["file"] for p in index["packs"]}
@@ -70,7 +74,7 @@ for f in sorted(listed):
             for st in sets:
                 where = f"{f}: {tname} / {st['name']}"
                 qs = st.get("questions", [])
-                size = 30 if paper2 else 20
+                size = EXTRA_SUBJECTS[sname]["sizes"].get(st["name"].split(" · ", 1)[-1], 20) if sname in EXTRA_SUBJECTS else 30 if paper2 else 20
                 if not legacy and len(qs) != size:
                     err(f"{where}: {len(qs)} questions, expected {size}")
                 letters, ar = Counter(), Counter()
