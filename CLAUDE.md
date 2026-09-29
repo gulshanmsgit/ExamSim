@@ -78,7 +78,12 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 - Owner asked for genuine KEA/KSET questions. 12 papers (8 CS, 4 general) + 7 key/notice files downloaded with the owner's OK into
   `sources/pyq/` (git-ignored; re-download from the URLs in each module's docstring). All are scanned → `tools/pyq_ocr.py`
   (PyMuPDF + RapidOCR, `pip install pymupdf rapidocr_onnxruntime`) makes OCR drafts + page images; transcribe against the images.
-- Done: **KSET 2024 CS&A** (`tools/pyq_kset2024_csa.py`, 90 of 100 Q; 10 ambiguous ones skipped; answers ExamSim-solved – KEA
+- 29 Sep (later): owner asked for many more years/exams → 50 more papers approved and downloaded (62 total: 20 Paper 2 CS incl. PGCET
+  M.Tech CS/MCA 2023–26, Legislative Council programmer/operator papers, GTTC; 42 Paper 1: KEA GK and Kannada-English-Computer papers
+  2025–26, KSET/GFGC English, Education and General papers, VAO, PSI, UPSC-coaching GK, Dalayath, KRIES entrance 2024–26).
+  Every paper's exam/year/URL is in `tools/pyq_manifest.tsv`; `python tools/pyq_fetch.py` re-downloads missing ones; then run
+  `python tools/pyq_ocr.py` (OCRs every PDF without a draft).
+- Done: **KSET 2023 CS&A** (`tools/pyq_kset2023_csa.py`, 88 Q; Q30/Q74 from KEA's revised key, rest ExamSim-solved) and **KSET 2024 CS&A** (`tools/pyq_kset2024_csa.py`, 90 of 100 Q; 10 ambiguous ones skipped; answers ExamSim-solved – KEA
   has no full key online). Built by `tools/build_pyq.py` → `packs/pyq-p2.json`, subject "P2 · Previous-Year Papers (KEA/KSET)",
   one topic per paper, sets of 25 by question number, plus a full-paper mock preset.
 - To do (owner's order: CS papers, then Paper 1 with official keys): KSET 2023 CS&A, KSET 2025 CS&A, KEA CS Paper 2 (5 Jul 2026),
