@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 8 — Data Structures & Algorithms",
- "description": "8 of 10 topics so far (20 sets × 30 questions): Linear Data Structures; Trees; Sets & Graph Representation; Sorting and Searching; Hashing; Performance Analysis & Recurrences; Design Techniques – Divide & Conquer, Greedy; Design Techniques – DP, Backtracking, Branch & Bound. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (25 sets × 30 questions): Linear Data Structures; Trees; Sets & Graph Representation; Sorting and Searching; Hashing; Performance Analysis & Recurrences; Design Techniques – Divide & Conquer, Greedy; Design Techniques – DP, Backtracking, Branch & Bound; Graph Algorithms; Complexity Theory. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 8 – Data Structures & Algorithms",
@@ -7342,6 +7342,1841 @@
          "answer": "C",
          "subject": "Backtracking and Branch and Bound",
          "explanation": "It explores one path deeply and undoes moves on failure."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Graph Algorithms",
+     "sets": [
+      {
+       "name": "1 · Breadth-First and Depth-First Search",
+       "questions": [
+        {
+         "question": "Breadth-first search is implemented using a:",
+         "options": {
+          "A": "Priority queue",
+          "B": "Queue",
+          "C": "Hash table",
+          "D": "Stack"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Vertices are processed in the order they are discovered, level by level."
+        },
+        {
+         "question": "Depth-first search is implemented using:",
+         "options": {
+          "A": "A circular buffer only",
+          "B": "A min-heap",
+          "C": "A stack or recursion",
+          "D": "A queue"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It goes as deep as possible before backtracking."
+        },
+        {
+         "question": "In an unweighted graph, BFS from s finds:",
+         "options": {
+          "A": "A minimum spanning tree of a weighted graph",
+          "B": "Shortest paths (fewest edges) from s to every reachable vertex",
+          "C": "Longest paths",
+          "D": "All cycles"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A vertex first discovered at level k is at distance k."
+        },
+        {
+         "question": "DFS on a graph stored as an adjacency matrix takes:",
+         "options": {
+          "A": "O(V³) time",
+          "B": "O(V + E) time",
+          "C": "O(E log V) time",
+          "D": "O(V²) time"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Each vertex's whole row must be scanned for neighbours."
+        },
+        {
+         "question": "Undirected graph edges: A–B, A–C, B–D, C–D, D–E. BFS from A, visiting neighbours in alphabetical order, gives:",
+         "options": {
+          "A": "A, B, C, D, E",
+          "B": "A, C, B, D, E",
+          "C": "A, B, D, E, C",
+          "D": "A, B, D, C, E"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Level 0: A; level 1: B, C; level 2: D; level 3: E."
+        },
+        {
+         "question": "Same graph (A–B, A–C, B–D, C–D, D–E). DFS from A, visiting neighbours in alphabetical order, gives:",
+         "options": {
+          "A": "A, B, D, E, C",
+          "B": "A, C, D, B, E",
+          "C": "A, B, D, C, E",
+          "D": "A, B, C, D, E"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "A → B → D → C (D's first unvisited neighbour); back to D → E."
+        },
+        {
+         "question": "A directed graph contains a cycle if and only if a DFS of it finds a:",
+         "options": {
+          "A": "Forward edge",
+          "B": "Tree edge only",
+          "C": "Cross edge",
+          "D": "Back edge"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A back edge goes to an ancestor that is still on the recursion stack."
+        },
+        {
+         "question": "In a DFS of an undirected graph, the edges are classified only as:",
+         "options": {
+          "A": "Cross edges only",
+          "B": "Tree edges and back edges",
+          "C": "Tree, forward and cross edges",
+          "D": "Forward edges only"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Forward and cross edges cannot occur in undirected DFS."
+        },
+        {
+         "question": "Topological sorting is possible only for:",
+         "options": {
+          "A": "Complete graphs",
+          "B": "Graphs with cycles",
+          "C": "Directed acyclic graphs (DAGs)",
+          "D": "Undirected graphs"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A cycle would require a vertex to come before itself."
+        },
+        {
+         "question": "DAG edges: A → B, A → C, B → D, C → D. Which is a valid topological order?",
+         "options": {
+          "A": "A, D, B, C",
+          "B": "A, C, B, D",
+          "C": "B, A, C, D",
+          "D": "D, C, B, A"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Every edge must go from left to right."
+        },
+        {
+         "question": "How many different topological orders does the DAG A → B, A → C, B → D, C → D have?",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "A first, D last; B and C in either order."
+        },
+        {
+         "question": "Kahn's algorithm for topological sorting repeatedly removes vertices with:",
+         "options": {
+          "A": "In-degree 0",
+          "B": "The largest degree",
+          "C": "Out-degree 0 only",
+          "D": "Odd degree"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "If some vertices are never removed, the graph has a cycle."
+        },
+        {
+         "question": "Using DFS, a topological order is obtained by listing vertices in:",
+         "options": {
+          "A": "Increasing order of discovery time",
+          "B": "Increasing order of degree",
+          "C": "Decreasing order of finishing time",
+          "D": "Alphabetical order"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "A vertex finishes only after all vertices reachable from it."
+        },
+        {
+         "question": "The number of connected components of an undirected graph can be found by:",
+         "options": {
+          "A": "Sorting the edges",
+          "B": "Running BFS or DFS from each unvisited vertex and counting the runs",
+          "C": "Computing the adjacency matrix's determinant",
+          "D": "Dijkstra's algorithm only"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Each new start vertex begins a new component."
+        },
+        {
+         "question": "A graph is bipartite if and only if it has no:",
+         "options": {
+          "A": "Odd-length cycle",
+          "B": "Vertex of degree 2",
+          "C": "Even-length cycle",
+          "D": "Tree as a subgraph"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). BFS 2-colouring detects an odd cycle when two adjacent vertices get the same colour."
+        },
+        {
+         "question": "Kosaraju's algorithm for strongly connected components uses:",
+         "options": {
+          "A": "Sorting of edges by weight",
+          "B": "One BFS pass only",
+          "C": "Dijkstra's algorithm",
+          "D": "Two DFS passes, the second on the transposed graph"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "It runs in O(V + E); Tarjan's algorithm uses a single DFS."
+        },
+        {
+         "question": "An articulation point (cut vertex) of a connected graph is a vertex whose removal:",
+         "options": {
+          "A": "Creates a cycle",
+          "B": "Disconnects the graph",
+          "C": "Makes the graph complete",
+          "D": "Removes all edges"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "A bridge is an edge whose removal disconnects the graph."
+        },
+        {
+         "question": "A BFS tree of a connected graph with n vertices has:",
+         "options": {
+          "A": "n edges",
+          "B": "n(n − 1)/2 edges",
+          "C": "n − 1 edges",
+          "D": "2n edges"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "It is a spanning tree."
+        },
+        {
+         "question": "The extra space used by BFS is:",
+         "options": {
+          "A": "O(E²)",
+          "B": "O(V³)",
+          "C": "O(1)",
+          "D": "O(V) for the queue and visited marks"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "In the worst case almost all vertices can be in the queue."
+        },
+        {
+         "question": "Which traversal is better suited to finding a vertex that is close to the start vertex in a huge graph?",
+         "options": {
+          "A": "BFS",
+          "B": "DFS",
+          "C": "Both are always equal",
+          "D": "Neither can do it"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "BFS explores nearer vertices first."
+        },
+        {
+         "question": "Which is NOT an application of DFS?",
+         "options": {
+          "A": "Finding shortest paths in a weighted graph",
+          "B": "Finding strongly connected components",
+          "C": "Detecting cycles",
+          "D": "Topological sorting"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Weighted shortest paths need Dijkstra or Bellman–Ford."
+        },
+        {
+         "question": "Consider the statements:\nI. BFS uses a queue.\nII. DFS can be written recursively.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. Every directed graph has a topological order.\nII. A DAG always has at least one vertex of in-degree 0.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Graphs with cycles have no topological order."
+        },
+        {
+         "question": "Consider the statements:\nI. DFS of an undirected graph can produce cross edges.\nII. BFS gives shortest paths in weighted graphs.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Neither is correct."
+        },
+        {
+         "question": "Assertion (A): BFS finds shortest paths in unweighted graphs.\nReason (R): BFS visits vertices in increasing order of their distance from the source.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "It finishes one level before starting the next."
+        },
+        {
+         "question": "Assertion (A): A DAG can have more than one topological order.\nReason (R): A DAG always has exactly one source vertex.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "A is true; R is false – a DAG can have several sources."
+        },
+        {
+         "question": "Assertion (A): Topological sort is possible for a graph with a directed cycle.\nReason (R): In a directed cycle, every vertex must come before another vertex of the cycle.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Because of R, no order can satisfy a cycle; A is false."
+        },
+        {
+         "question": "Match the problem with the algorithm:\na. Strongly connected components\nb. Topological order\nc. Shortest paths in unweighted graphs\nd. Bipartite testing\n\n1. Kosaraju's algorithm\n2. BFS from the source\n3. BFS 2-colouring\n4. Kahn's algorithm",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-4, b-1, c-2, d-3"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "All run in O(V + E) with adjacency lists."
+        },
+        {
+         "question": "Match the DFS edge type (directed graph) with its description:\na. Tree edge\nb. Back edge\nc. Forward edge\nd. Cross edge\n\n1. Between vertices with no ancestor–descendant relation\n2. To an ancestor\n3. To a descendant that is not a child\n4. Edge used to discover a new vertex",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-4, b-2, c-1, d-3",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "B",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). CLRS edge classification."
+        },
+        {
+         "question": "In BFS of an undirected graph from vertex s, if u is at distance 3 and (u, v) is an edge, the distance of v from s can be:",
+         "options": {
+          "A": "2, 3 or 4",
+          "B": "Only 4",
+          "C": "Any value",
+          "D": "Only 3"
+         },
+         "answer": "A",
+         "subject": "Breadth-First and Depth-First Search",
+         "explanation": "Adjacent vertices differ in BFS level by at most 1 (undirected graph)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Shortest Paths",
+       "questions": [
+        {
+         "question": "Dijkstra's algorithm solves:",
+         "options": {
+          "A": "Minimum spanning tree",
+          "B": "All-pairs shortest paths with negative cycles",
+          "C": "Maximum flow",
+          "D": "Single-source shortest paths with non-negative edge weights"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is a greedy algorithm."
+        },
+        {
+         "question": "Dijkstra's algorithm implemented with a simple array (no heap) runs in:",
+         "options": {
+          "A": "O(V³) time",
+          "B": "O(V + E) time",
+          "C": "O(V²) time",
+          "D": "O(E log E) time"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "Suitable for dense graphs; a binary heap gives O((V + E) log V)."
+        },
+        {
+         "question": "Edges: S→A 4, S→B 1, B→A 2, A→C 1, B→C 5. The shortest distance from S to C is:",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "3",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "S → B → A → C = 1 + 2 + 1 = 4."
+        },
+        {
+         "question": "For the same graph (S→A 4, S→B 1, B→A 2, A→C 1, B→C 5), Dijkstra's algorithm finalises the vertices in the order:",
+         "options": {
+          "A": "S, A, B, C",
+          "B": "S, B, C, A",
+          "C": "S, B, A, C",
+          "D": "S, C, A, B"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "Distances when finalised: S 0, B 1, A 3, C 4."
+        },
+        {
+         "question": "Relaxing edge (u, v) with weight w means:",
+         "options": {
+          "A": "Doubling the weight",
+          "B": "Deleting the edge",
+          "C": "Setting d[v] = 0",
+          "D": "If d[v] > d[u] + w, set d[v] = d[u] + w and π[v] = u"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). All single-source algorithms are built on relaxation."
+        },
+        {
+         "question": "Bellman–Ford on a graph with 6 vertices relaxes all edges how many times (before the negative-cycle check)?",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "36",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "V − 1 passes, because a shortest simple path has at most V − 1 edges."
+        },
+        {
+         "question": "Bellman–Ford detects a negative-weight cycle reachable from the source when:",
+         "options": {
+          "A": "All distances become 0",
+          "B": "An edge can still be relaxed after V − 1 passes",
+          "C": "The first pass changes nothing",
+          "D": "The graph has no edges"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Shortest paths are then undefined."
+        },
+        {
+         "question": "Edges: S→A 2, S→B 5, B→A −4. Dijkstra's algorithm, which never changes a vertex's distance after removing it from the queue, reports d(A) =",
+         "options": {
+          "A": "2, although the true shortest distance is 1",
+          "B": "5",
+          "C": "−4",
+          "D": "1, the correct value"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "A is finalised with 2; the cheaper path S → B → A (5 − 4 = 1) is found too late."
+        },
+        {
+         "question": "The Floyd–Warshall update is:",
+         "options": {
+          "A": "d(i, j) = max(d(i, j), d(i, k))",
+          "B": "d(i, j) = d(i, k) × d(k, j)",
+          "C": "d(i, j) = min(d(i, j), d(i, k) + d(k, j))",
+          "D": "d(i, j) = d(j, i)"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). k runs over the allowed intermediate vertices."
+        },
+        {
+         "question": "Floyd–Warshall reveals a negative cycle when, at the end:",
+         "options": {
+          "A": "The matrix is symmetric",
+          "B": "Some diagonal entry d(i, i) is negative",
+          "C": "All entries are positive",
+          "D": "Some entry is ∞"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "A vertex can reach itself with negative total weight."
+        },
+        {
+         "question": "Three vertices: d(1, 2) = 3, d(2, 3) = 4, d(1, 3) = 10 initially. After Floyd–Warshall considers vertex 2 as an intermediate, d(1, 3) becomes:",
+         "options": {
+          "A": "7",
+          "B": "4",
+          "C": "10",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "min(10, 3 + 4) = 7."
+        },
+        {
+         "question": "Floyd–Warshall on 5 vertices executes its outermost loop (over k) how many times?",
+         "options": {
+          "A": "125",
+          "B": "25",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "Once for each possible intermediate vertex."
+        },
+        {
+         "question": "Johnson's algorithm for all-pairs shortest paths in sparse graphs:",
+         "options": {
+          "A": "Uses Kruskal's algorithm",
+          "B": "Runs BFS only",
+          "C": "Reweights edges using Bellman–Ford, then runs Dijkstra from every vertex",
+          "D": "Works only on trees"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "It runs in O(VE log V) with a binary heap."
+        },
+        {
+         "question": "Single-source shortest paths in a DAG (even with negative weights) can be found in:",
+         "options": {
+          "A": "O(VE) time only",
+          "B": "Exponential time",
+          "C": "O(V + E) time by relaxing edges in topological order",
+          "D": "O(V³) time only"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "No cycles means no negative cycles."
+        },
+        {
+         "question": "Shortest paths from one source in an unweighted graph are best found by:",
+         "options": {
+          "A": "Bellman–Ford",
+          "B": "Floyd–Warshall",
+          "C": "Prim's algorithm",
+          "D": "BFS"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "It runs in O(V + E)."
+        },
+        {
+         "question": "The optimal-substructure property of shortest paths says that:",
+         "options": {
+          "A": "Every subpath of a shortest path is itself a shortest path",
+          "B": "Every shortest path uses the heaviest edge",
+          "C": "Shortest paths never share vertices",
+          "D": "Shortest paths are unique"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "This is why both greedy and DP methods work."
+        },
+        {
+         "question": "In the A* search algorithm, f(n) = g(n) + h(n). The heuristic h is admissible if it:",
+         "options": {
+          "A": "Is negative",
+          "B": "Never overestimates the true cost to reach the goal",
+          "C": "Is always zero",
+          "D": "Always overestimates"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "With an admissible (and consistent) heuristic, A* finds optimal paths."
+        },
+        {
+         "question": "After running a single-source algorithm, the actual shortest path to v is recovered using:",
+         "options": {
+          "A": "Sorting the distances",
+          "B": "A second run of the algorithm",
+          "C": "The predecessor array π, followed back from v to the source",
+          "D": "The adjacency matrix only"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "π[v] is the vertex before v on the shortest path."
+        },
+        {
+         "question": "The Floyd–Warshall algorithm needs space:",
+         "options": {
+          "A": "O(V³)",
+          "B": "O(V²)",
+          "C": "O(V)",
+          "D": "O(E)"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "One V × V distance matrix (updated in place)."
+        },
+        {
+         "question": "If a graph has a negative-weight cycle reachable from s, the shortest distance from s to vertices reachable from that cycle is:",
+         "options": {
+          "A": "Undefined (−∞)",
+          "B": "The number of edges",
+          "C": "Always positive",
+          "D": "Zero"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "Going around the cycle again always lowers the cost."
+        },
+        {
+         "question": "Dijkstra's algorithm with a Fibonacci heap runs in:",
+         "options": {
+          "A": "O(VE)",
+          "B": "O(V²)",
+          "C": "O(V³)",
+          "D": "O(E + V log V)"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "DECREASE-KEY becomes O(1) amortised."
+        },
+        {
+         "question": "Consider the statements:\nI. Dijkstra's algorithm can handle negative edge weights.\nII. Bellman–Ford can handle negative edge weights.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "Only Bellman–Ford handles them correctly."
+        },
+        {
+         "question": "Consider the statements:\nI. Floyd–Warshall computes shortest paths between all pairs.\nII. Floyd–Warshall runs in Θ(V³) time.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. Adding the same positive constant to every edge weight never changes the shortest path between two vertices.\nII. Shortest paths can be found in O(V + E) time in a DAG.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "Adding a constant penalises paths with more edges, so shortest paths can change."
+        },
+        {
+         "question": "Assertion (A): Dijkstra's algorithm can fail with negative edges.\nReason (R): Once a vertex is finalised, Dijkstra's algorithm never updates its distance again.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "A later negative edge might have given a shorter path."
+        },
+        {
+         "question": "Assertion (A): Bellman–Ford needs V − 1 passes over the edges.\nReason (R): A shortest simple path contains at most V − 1 edges.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Shortest Paths",
+         "explanation": "Each pass fixes at least one more edge of every shortest path."
+        },
+        {
+         "question": "Assertion (A): Floyd–Warshall is a greedy algorithm.\nReason (R): Floyd–Warshall runs in Θ(V³) time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Shortest Paths",
+         "explanation": "It is a dynamic-programming algorithm; A is false, R is true."
+        },
+        {
+         "question": "Assertion (A): BFS finds shortest paths in unweighted graphs in linear time.\nReason (R): A* search was introduced in 1968.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Match the algorithm with its time complexity:\na. Dijkstra (binary heap)\nb. Bellman–Ford\nc. Floyd–Warshall\nd. DAG shortest paths\n\n1. Θ(V³)\n2. O(V + E)\n3. O(VE)\n4. O((V + E) log V)",
+         "options": {
+          "A": "a-3, b-4, c-1, d-2",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "Shortest Paths",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Standard shortest-path complexities."
+        },
+        {
+         "question": "Match the situation with the best algorithm:\na. Non-negative weights, one source\nb. Negative weights, one source\nc. All pairs, dense graph\nd. Unweighted graph, one source\n\n1. Bellman–Ford\n2. Floyd–Warshall\n3. Dijkstra\n4. BFS",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-1, c-2, d-4",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "C",
+         "subject": "Shortest Paths",
+         "explanation": "Choosing the right algorithm is a common question."
+        }
+       ]
+      },
+      {
+       "name": "3 · Minimum Spanning Trees and Maximum Flow",
+       "questions": [
+        {
+         "question": "A minimum spanning tree of a connected weighted graph is:",
+         "options": {
+          "A": "A tree containing only the lightest edge",
+          "B": "Any spanning tree",
+          "C": "The shortest path between two vertices",
+          "D": "A spanning tree whose total edge weight is as small as possible"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "It connects all vertices without cycles."
+        },
+        {
+         "question": "The cut property states that for any cut of the graph:",
+         "options": {
+          "A": "A lightest edge crossing the cut belongs to some MST",
+          "B": "All crossing edges are in the MST",
+          "C": "No edge crossing the cut is in an MST",
+          "D": "The heaviest edge crossing the cut is in every MST"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Both Prim's and Kruskal's algorithms rely on it."
+        },
+        {
+         "question": "The cycle property states that:",
+         "options": {
+          "A": "The lightest edge on a cycle is never in the MST",
+          "B": "MSTs contain exactly one cycle",
+          "C": "Every cycle edge is in the MST",
+          "D": "The unique heaviest edge on any cycle is not in any MST"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Removing it keeps connectivity at lower cost."
+        },
+        {
+         "question": "If all edge weights of a connected graph are distinct, then its MST is:",
+         "options": {
+          "A": "Impossible to find",
+          "B": "Not unique",
+          "C": "Unique",
+          "D": "Always a path"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). With ties, several MSTs may exist."
+        },
+        {
+         "question": "Edges: A–B 1, B–C 2, A–C 3, C–D 4, B–D 5. The weight of the MST is:",
+         "options": {
+          "A": "10",
+          "B": "8",
+          "C": "7",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Kruskal picks A–B (1), B–C (2), skips A–C (cycle), picks C–D (4): 1 + 2 + 4 = 7."
+        },
+        {
+         "question": "For the same graph (A–B 1, B–C 2, A–C 3, C–D 4, B–D 5), Prim's algorithm from A adds edges in the order:",
+         "options": {
+          "A": "A–B, A–C, C–D",
+          "B": "A–B, B–C, C–D",
+          "C": "A–B, B–D, C–D",
+          "D": "A–C, B–C, C–D"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "At each step it adds the cheapest edge leaving the current tree."
+        },
+        {
+         "question": "The number of spanning trees of the complete graph K₄ is:",
+         "options": {
+          "A": "16",
+          "B": "24",
+          "C": "4",
+          "D": "12"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Cayley's formula: nⁿ⁻² = 4² = 16."
+        },
+        {
+         "question": "If every edge weight of a graph is increased by the same constant, the minimum spanning tree:",
+         "options": {
+          "A": "Disappears",
+          "B": "Always changes",
+          "C": "Becomes a path",
+          "D": "Stays the same set of edges"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Every spanning tree has n − 1 edges, so all totals rise equally."
+        },
+        {
+         "question": "For a dense graph, which implementation of Prim's algorithm is efficient?",
+         "options": {
+          "A": "Adjacency matrix with an array of keys, O(V²)",
+          "B": "BFS only",
+          "C": "Adjacency list with no priority queue, O(V³)",
+          "D": "Edge list sorted by weight, O(E²)"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "O(V²) is optimal when E ≈ V²."
+        },
+        {
+         "question": "The earliest known MST algorithm (1926), which repeatedly adds the cheapest edge leaving each component, is due to:",
+         "options": {
+          "A": "Robert Prim",
+          "B": "Otakar Borůvka",
+          "C": "Joseph Kruskal",
+          "D": "Edsger Dijkstra"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "It is useful in parallel computation."
+        },
+        {
+         "question": "In a flow network, the capacity constraint says that the flow on each edge must satisfy:",
+         "options": {
+          "A": "f(u, v) < 0",
+          "B": "f(u, v) > c(u, v)",
+          "C": "0 ≤ f(u, v) ≤ c(u, v)",
+          "D": "f(u, v) = c(u, v) always"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Flow cannot exceed capacity."
+        },
+        {
+         "question": "Flow conservation says that, for every vertex other than the source and sink:",
+         "options": {
+          "A": "No flow enters",
+          "B": "Flow in is double the flow out",
+          "C": "Flow out is zero",
+          "D": "Total flow in equals total flow out"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Only the source produces and only the sink absorbs flow."
+        },
+        {
+         "question": "The Ford–Fulkerson method finds maximum flow by:",
+         "options": {
+          "A": "Running DFS once",
+          "B": "Sorting edges by capacity",
+          "C": "Repeatedly pushing flow along augmenting paths in the residual network",
+          "D": "Finding an MST"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It stops when no augmenting path remains."
+        },
+        {
+         "question": "The max-flow min-cut theorem states that:",
+         "options": {
+          "A": "The value of a maximum flow equals the capacity of a minimum s–t cut",
+          "B": "Max flow is always twice the min cut",
+          "C": "Max flow equals the number of vertices",
+          "D": "Min cut is always zero"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is the central theorem of network flows."
+        },
+        {
+         "question": "The Edmonds–Karp algorithm is Ford–Fulkerson with augmenting paths found by BFS. It runs in:",
+         "options": {
+          "A": "Exponential time",
+          "B": "O(V + E) time",
+          "C": "O(E log V) time",
+          "D": "O(VE²) time"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Using shortest augmenting paths bounds the number of iterations."
+        },
+        {
+         "question": "Network: s→a 3, s→b 2, a→t 2, b→t 3, a→b 1. The maximum flow from s to t is:",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Send 2 on s→a→t, 1 on s→a→b→t and 2 on s→b→t; the cut {s} has capacity 3 + 2 = 5."
+        },
+        {
+         "question": "In the same network (s→a 3, s→b 2, a→t 2, b→t 3, a→b 1), the capacity of the cut ({s, a}, {b, t}) is:",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "4",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Edges leaving {s, a}: s→b 2, a→t 2, a→b 1 → 5."
+        },
+        {
+         "question": "An edge has capacity 10 and carries flow 7. In the residual network it gives:",
+         "options": {
+          "A": "A forward residual capacity of 3 and a backward residual capacity of 7",
+          "B": "Only a forward capacity of 10",
+          "C": "A forward capacity of 7 and backward 3",
+          "D": "No residual edges"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "The backward edge allows flow to be cancelled."
+        },
+        {
+         "question": "If all capacities are integers, Ford–Fulkerson finds a maximum flow that is:",
+         "options": {
+          "A": "Negative on some edges",
+          "B": "Integer-valued on every edge",
+          "C": "Always zero",
+          "D": "Always fractional"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "This is the integrality theorem, used for matching problems."
+        },
+        {
+         "question": "Maximum bipartite matching can be solved by:",
+         "options": {
+          "A": "Heap sort",
+          "B": "Topological sorting",
+          "C": "Dijkstra's algorithm",
+          "D": "Converting it to a maximum-flow problem with unit capacities"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Add a source to one side and a sink to the other."
+        },
+        {
+         "question": "Kruskal's algorithm is preferred over Prim's when the graph is:",
+         "options": {
+          "A": "A single vertex",
+          "B": "Very dense and stored as a matrix",
+          "C": "Sparse, with edges readily available as a list",
+          "D": "Unweighted"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Sorting E edges is cheap when E is small."
+        },
+        {
+         "question": "Consider the statements:\nI. A graph can have more than one MST when weights repeat.\nII. An MST of a graph with n vertices has n − 1 edges.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. The MST always contains the shortest path between every pair of vertices.\nII. The lightest edge of a graph with distinct weights is always in the MST.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "MST and shortest-path trees can differ; the lightest edge is always in the MST."
+        },
+        {
+         "question": "Consider the statements:\nI. Ford–Fulkerson always terminates with irrational capacities.\nII. The value of any flow is at most the capacity of any s–t cut.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "With irrational capacities it may not terminate; II is weak duality."
+        },
+        {
+         "question": "Assertion (A): Kruskal's algorithm produces a minimum spanning tree.\nReason (R): Each edge it adds is a lightest edge crossing some cut.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "That is the cut property."
+        },
+        {
+         "question": "Assertion (A): Increasing all edge weights by 5 changes the MST.\nReason (R): Every spanning tree has the same number of edges.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Because every tree has n − 1 edges, all totals rise by 5(n − 1) and the MST is unchanged; A is false."
+        },
+        {
+         "question": "Assertion (A): Maximum flow equals the minimum cut capacity.\nReason (R): Edmonds–Karp uses DFS to find augmenting paths.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "A is true; R is false – Edmonds–Karp uses BFS."
+        },
+        {
+         "question": "Assertion (A): Borůvka's algorithm is suitable for parallel computers.\nReason (R): Borůvka published his algorithm in 1926.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Both true, but the date does not explain suitability for parallelism."
+        },
+        {
+         "question": "Match the concept with its description:\na. Residual network\nb. Augmenting path\nc. Min cut\nd. Flow conservation\n\n1. Graph of remaining capacities\n2. s–t path with spare capacity\n3. Smallest-capacity s–t partition\n4. In-flow equals out-flow",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Network-flow vocabulary."
+        },
+        {
+         "question": "Match the algorithm with the problem it solves:\na. Prim\nb. Edmonds–Karp\nc. Kosaraju\nd. Floyd–Warshall\n\n1. All-pairs shortest paths\n2. Strongly connected components\n3. Maximum flow\n4. Minimum spanning tree",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-4, b-3, c-2, d-1",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "B",
+         "subject": "Minimum Spanning Trees and Maximum Flow",
+         "explanation": "Graph algorithms at a glance."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Complexity Theory",
+     "sets": [
+      {
+       "name": "1 · P and NP Classes",
+       "questions": [
+        {
+         "question": "The class P consists of decision problems that:",
+         "options": {
+          "A": "Need exponential time",
+          "B": "Can be solved by a deterministic algorithm in polynomial time",
+          "C": "Are undecidable",
+          "D": "Can be verified but never solved"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Examples: sorting, shortest paths, MST (as decision problems)."
+        },
+        {
+         "question": "The class NP consists of decision problems whose 'yes' answers:",
+         "options": {
+          "A": "Can never be verified",
+          "B": "Can be verified in polynomial time given a certificate",
+          "C": "Are always 'no'",
+          "D": "Always need exponential time to verify"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Equivalently, solvable in polynomial time by a nondeterministic machine."
+        },
+        {
+         "question": "NP stands for:",
+         "options": {
+          "A": "Negative polynomial",
+          "B": "Non-polynomial",
+          "C": "Nondeterministic polynomial time",
+          "D": "Not possible"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "A common misconception is that it means 'non-polynomial'."
+        },
+        {
+         "question": "Which relation between P and NP is known to be true?",
+         "options": {
+          "A": "NP ⊆ P, proven",
+          "B": "P = NP, proven",
+          "C": "P and NP are disjoint",
+          "D": "P ⊆ NP"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Whether P = NP is still an open question."
+        },
+        {
+         "question": "The P versus NP question is one of the Millennium Prize Problems of the:",
+         "options": {
+          "A": "ACM",
+          "B": "Turing Award committee",
+          "C": "Clay Mathematics Institute",
+          "D": "Nobel Foundation"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "It carries a prize of US $1 million."
+        },
+        {
+         "question": "A certificate for the Hamiltonian-cycle problem is:",
+         "options": {
+          "A": "A spanning tree",
+          "B": "An ordering of the vertices, checked in polynomial time",
+          "C": "The adjacency matrix",
+          "D": "The number of edges"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "Checking that consecutive vertices are adjacent and all appear once is easy."
+        },
+        {
+         "question": "Which problem is known to be in P?",
+         "options": {
+          "A": "Hamiltonian cycle",
+          "B": "3-SAT",
+          "C": "0/1 knapsack (decision)",
+          "D": "2-SAT"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 2-SAT is solvable in linear time using implication graphs."
+        },
+        {
+         "question": "Which graph problem is known to be solvable in polynomial time?",
+         "options": {
+          "A": "Graph 3-colouring",
+          "B": "Checking whether a graph has a Hamiltonian cycle",
+          "C": "Checking whether a graph has an Euler circuit",
+          "D": "Travelling salesman (decision)"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Connected graph with every vertex of even degree – easy to check."
+        },
+        {
+         "question": "Primality testing (is n prime?) was shown to be in P in 2002 by:",
+         "options": {
+          "A": "Agrawal, Kayal and Saxena (AKS)",
+          "B": "Cook and Levin",
+          "C": "Rivest, Shamir and Adleman",
+          "D": "Karp"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "The AKS test came from IIT Kanpur."
+        },
+        {
+         "question": "Linear programming is in P, as first shown by Khachiyan's ellipsoid method (1979). Integer linear programming is:",
+         "options": {
+          "A": "Solvable in O(n)",
+          "B": "NP-hard",
+          "C": "Undecidable",
+          "D": "In P"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "Requiring integer solutions makes it much harder."
+        },
+        {
+         "question": "Graph 2-colouring is in P. Graph 3-colouring is:",
+         "options": {
+          "A": "Undecidable",
+          "B": "Solvable by BFS",
+          "C": "In P",
+          "D": "NP-complete"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "2-colouring is just bipartiteness testing."
+        },
+        {
+         "question": "Finding a shortest simple path is in P. Finding a longest simple path is:",
+         "options": {
+          "A": "Trivial",
+          "B": "NP-hard",
+          "C": "Undecidable",
+          "D": "In P"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "Longest path generalises the Hamiltonian-path problem."
+        },
+        {
+         "question": "The complement class co-NP contains problems whose:",
+         "options": {
+          "A": "Solutions are always yes",
+          "B": "'Yes' answers can be verified",
+          "C": "Solutions are undecidable",
+          "D": "'No' answers have polynomial-time verifiable certificates"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "Example: TAUTOLOGY (is a formula true under every assignment?)."
+        },
+        {
+         "question": "The halting problem is:",
+         "options": {
+          "A": "Undecidable, and therefore not in NP",
+          "B": "In co-NP",
+          "C": "NP-complete",
+          "D": "In P"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is NP-hard but not in NP, because it cannot be decided at all."
+        },
+        {
+         "question": "The 0/1 knapsack problem has an O(nW) algorithm, yet it is NP-complete because:",
+         "options": {
+          "A": "O(nW) is truly polynomial",
+          "B": "It is undecidable",
+          "C": "O(nW) is exponential in the number of bits needed to write W",
+          "D": "It is not in NP"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "Such algorithms are called pseudo-polynomial."
+        },
+        {
+         "question": "By the time hierarchy theorem, which is proven?",
+         "options": {
+          "A": "NP = EXPTIME",
+          "B": "P = PSPACE",
+          "C": "P ≠ EXPTIME",
+          "D": "P = NP"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "P ⊆ NP ⊆ PSPACE ⊆ EXPTIME with at least P ≠ EXPTIME."
+        },
+        {
+         "question": "A nondeterministic algorithm can be thought of as working in two stages:",
+         "options": {
+          "A": "Dividing and combining",
+          "B": "Compiling and linking",
+          "C": "Sorting and searching",
+          "D": "Guessing a candidate solution and then verifying it deterministically"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "Accepts if some guess verifies."
+        },
+        {
+         "question": "The Cobham–Edmonds thesis says that:",
+         "options": {
+          "A": "All problems are in P",
+          "B": "Problems solvable in polynomial time are the feasibly (efficiently) computable ones",
+          "C": "Exponential algorithms are efficient",
+          "D": "NP problems are undecidable"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "It identifies 'efficient' with 'polynomial time'."
+        },
+        {
+         "question": "Complexity classes such as P and NP are usually defined for:",
+         "options": {
+          "A": "Decision problems (yes/no questions)",
+          "B": "Only optimisation problems",
+          "C": "Only sorting",
+          "D": "Only numerical problems"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "Optimisation problems are turned into decision versions with a bound k."
+        },
+        {
+         "question": "If P = NP were proved, one important consequence would be that:",
+         "options": {
+          "A": "Many public-key cryptosystems based on hard problems could become insecure",
+          "B": "Sorting would need exponential time",
+          "C": "No algorithm could be verified",
+          "D": "All problems would become undecidable"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "Their security assumes certain problems cannot be solved efficiently."
+        },
+        {
+         "question": "Sorting, stated as a decision problem, belongs to:",
+         "options": {
+          "A": "Both P and NP",
+          "B": "NP but not P",
+          "C": "Neither P nor NP",
+          "D": "co-NP but not NP"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "Every problem in P is also in NP (and in co-NP)."
+        },
+        {
+         "question": "Consider the statements:\nI. Every problem in P is also in NP.\nII. It has been proved that P ≠ NP.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "P ≠ NP is widely believed but unproven."
+        },
+        {
+         "question": "Consider the statements:\nI. Graph 2-colouring is in P.\nII. Euler-circuit testing is in P.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "Both are polynomial."
+        },
+        {
+         "question": "Consider the statements:\nI. The halting problem is in NP.\nII. The Hamiltonian-cycle problem is known to be in P.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "The halting problem is undecidable; Hamiltonian cycle is NP-complete."
+        },
+        {
+         "question": "Assertion (A): SAT is in NP.\nReason (R): A satisfying assignment can be checked in polynomial time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "The assignment is the certificate."
+        },
+        {
+         "question": "Assertion (A): NP means 'non-polynomial time'.\nReason (R): NP contains every problem in P.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "P and NP Classes",
+         "explanation": "NP means nondeterministic polynomial; A is false, R is true."
+        },
+        {
+         "question": "Assertion (A): Primality testing is in P.\nReason (R): Integer factorisation is known to be NP-complete.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "P and NP Classes",
+         "explanation": "A is true (AKS); R is false – factorisation is not known to be NP-complete."
+        },
+        {
+         "question": "Assertion (A): Euler-circuit testing is easy.\nReason (R): Euler studied the Königsberg bridges in 1736.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "Both true, but R does not explain A; the degree condition does."
+        },
+        {
+         "question": "Match the problem with its known status:\na. Sorting\nb. SAT\nc. Halting problem\nd. Graph isomorphism\n\n1. In NP, not known to be in P or NP-complete\n2. In P\n3. NP-complete\n4. Undecidable",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-3, b-2, c-4, d-1",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "B",
+         "subject": "P and NP Classes",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Graph isomorphism has a quasi-polynomial algorithm (Babai, 2015)."
+        },
+        {
+         "question": "Match the easy problem with its hard relative:\na. 2-SAT\nb. Euler circuit\nc. Shortest path\nd. 2-colouring\n\n1. 3-SAT\n2. Hamiltonian cycle\n3. Longest path\n4. 3-colouring",
+         "options": {
+          "A": "a-1, b-2, c-3, d-4",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "A",
+         "subject": "P and NP Classes",
+         "explanation": "Small changes to a problem can move it from P to NP-complete."
+        }
+       ]
+      },
+      {
+       "name": "2 · NP-Completeness and Reducibility",
+       "questions": [
+        {
+         "question": "A decision problem L is NP-complete if:",
+         "options": {
+          "A": "L is in P",
+          "B": "L is in NP and every problem in NP is polynomial-time reducible to L",
+          "C": "L can be solved in exponential time",
+          "D": "L is undecidable"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). NP-complete problems are the hardest problems in NP."
+        },
+        {
+         "question": "A problem is NP-hard if:",
+         "options": {
+          "A": "It has no solution",
+          "B": "It is in NP and in P",
+          "C": "It is in P",
+          "D": "Every problem in NP reduces to it in polynomial time (it need not be in NP)"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). NP-complete = NP-hard ∩ NP."
+        },
+        {
+         "question": "The first problem proved NP-complete (Cook–Levin theorem, 1971) was:",
+         "options": {
+          "A": "Graph colouring",
+          "B": "Boolean satisfiability (SAT)",
+          "C": "Travelling salesman",
+          "D": "Vertex cover"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). All other NP-completeness proofs build on it."
+        },
+        {
+         "question": "In 1972 Richard Karp showed that how many well-known combinatorial problems are NP-complete?",
+         "options": {
+          "A": "100",
+          "B": "21",
+          "C": "7",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "The paper 'Reducibility Among Combinatorial Problems'."
+        },
+        {
+         "question": "If A ≤p B (A reduces to B in polynomial time) and B is in P, then:",
+         "options": {
+          "A": "A is in P",
+          "B": "B is NP-hard",
+          "C": "A is undecidable",
+          "D": "Nothing can be concluded"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Solve A by transforming it and solving B."
+        },
+        {
+         "question": "If A ≤p B and A is NP-hard, then:",
+         "options": {
+          "A": "B is NP-hard",
+          "B": "A is in P",
+          "C": "B is in P",
+          "D": "B is undecidable"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). B is at least as hard as A – note the direction of the reduction."
+        },
+        {
+         "question": "To prove a new problem X is NP-complete, one must show that X is in NP and:",
+         "options": {
+          "A": "X has a DP solution",
+          "B": "X reduces to a problem in P",
+          "C": "A known NP-complete problem reduces to X in polynomial time",
+          "D": "X can be solved in exponential time"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Reducing X to a known problem proves nothing about X's hardness."
+        },
+        {
+         "question": "If any NP-complete problem is solved in polynomial time, then:",
+         "options": {
+          "A": "All problems become undecidable",
+          "B": "NP becomes empty",
+          "C": "P ≠ NP",
+          "D": "P = NP"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Every NP problem reduces to it."
+        },
+        {
+         "question": "A set S is an independent set of G if and only if V − S is a:",
+         "options": {
+          "A": "Clique",
+          "B": "Vertex cover",
+          "C": "Spanning tree",
+          "D": "Matching"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "No edge has both ends in S ⇔ every edge has an end in V − S."
+        },
+        {
+         "question": "A graph has 7 vertices and its largest independent set has 3 vertices. Its smallest vertex cover has:",
+         "options": {
+          "A": "10 vertices",
+          "B": "3 vertices",
+          "C": "4 vertices",
+          "D": "7 vertices"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Minimum vertex cover = n − maximum independent set = 7 − 3."
+        },
+        {
+         "question": "S is a clique in G if and only if S is an independent set in:",
+         "options": {
+          "A": "The line graph of G",
+          "B": "G itself",
+          "C": "A spanning tree of G",
+          "D": "The complement of G"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Edges and non-edges swap in the complement."
+        },
+        {
+         "question": "The decision version of the travelling salesman problem is NP-complete; the optimisation version is:",
+         "options": {
+          "A": "Trivial",
+          "B": "Undecidable",
+          "C": "In P",
+          "D": "NP-hard"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Optimisation versions are at least as hard as their decision versions."
+        },
+        {
+         "question": "In 3-SAT, each clause of the CNF formula contains:",
+         "options": {
+          "A": "Exactly 1 literal",
+          "B": "Any number of literals",
+          "C": "Exactly 3 literals",
+          "D": "At most 2 literals"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "3-SAT is NP-complete; SAT reduces to it."
+        },
+        {
+         "question": "A formula in conjunctive normal form (CNF) is:",
+         "options": {
+          "A": "A formula with no variables",
+          "B": "An AND of clauses, each clause an OR of literals",
+          "C": "A single literal only",
+          "D": "An OR of ANDs"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "(x ∨ ¬y) ∧ (y ∨ z) is in CNF."
+        },
+        {
+         "question": "A simple 2-approximation for minimum vertex cover is obtained by:",
+         "options": {
+          "A": "Taking a random vertex",
+          "B": "Taking both endpoints of the edges of a maximal matching",
+          "C": "Taking the vertex of largest degree only once",
+          "D": "Taking all vertices"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Any cover must contain at least one endpoint of each matching edge."
+        },
+        {
+         "question": "For metric TSP (triangle inequality holds), Christofides' algorithm gives a tour at most how many times the optimum?",
+         "options": {
+          "A": "1",
+          "B": "log n",
+          "C": "2",
+          "D": "1.5"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "It combines an MST with a minimum-weight perfect matching."
+        },
+        {
+         "question": "Polynomial-time reducibility is:",
+         "options": {
+          "A": "Transitive: if A ≤p B and B ≤p C, then A ≤p C",
+          "B": "Symmetric always",
+          "C": "Undefined for decision problems",
+          "D": "Only for problems in P"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Composing two polynomial transformations is polynomial."
+        },
+        {
+         "question": "If A ≤p B and B is in NP, then:",
+         "options": {
+          "A": "A is in NP",
+          "B": "A is NP-complete",
+          "C": "B is in P",
+          "D": "A is undecidable"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Verify A by transforming it to B."
+        },
+        {
+         "question": "Which of the following is NOT NP-complete (assuming P ≠ NP)?",
+         "options": {
+          "A": "3-SAT",
+          "B": "Vertex cover",
+          "C": "2-SAT",
+          "D": "Subset sum"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "2-SAT is in P."
+        },
+        {
+         "question": "Which problem is NP-complete?",
+         "options": {
+          "A": "Shortest path",
+          "B": "Minimum spanning tree",
+          "C": "Sorting",
+          "D": "Subset sum"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "The others are in P."
+        },
+        {
+         "question": "A polynomial-time reduction used in NP-completeness proofs must:",
+         "options": {
+          "A": "Run in exponential time",
+          "B": "Change yes answers to no",
+          "C": "Run in polynomial time and preserve yes/no answers",
+          "D": "Solve the problem directly"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "x ∈ A ⇔ f(x) ∈ B."
+        },
+        {
+         "question": "With respect to NP, the halting problem is best classified as:",
+         "options": {
+          "A": "NP-complete",
+          "B": "NP-hard but not NP-complete",
+          "C": "In NP but not NP-hard",
+          "D": "In P"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). SAT reduces to it, but it is not in NP."
+        },
+        {
+         "question": "Consider the statements:\nI. Every NP-complete problem is NP-hard.\nII. Every NP-hard problem is in NP.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "NP-hard problems such as the halting problem lie outside NP."
+        },
+        {
+         "question": "Consider the statements:\nI. Vertex cover is NP-complete.\nII. Clique is NP-complete.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Both are among Karp's 21 problems."
+        },
+        {
+         "question": "Consider the statements:\nI. If 3-SAT ≤p X, then X is NP-hard.\nII. If X ≤p 3-SAT, then X is NP-hard.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Hardness flows towards the problem being reduced to."
+        },
+        {
+         "question": "Assertion (A): If vertex cover is solvable in polynomial time, then P = NP.\nReason (R): Vertex cover is NP-complete.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Every NP problem reduces to an NP-complete one."
+        },
+        {
+         "question": "Assertion (A): To show X is NP-hard, it suffices to reduce X to SAT.\nReason (R): SAT is NP-complete.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "The reduction must go from SAT to X; A is false, R is true."
+        },
+        {
+         "question": "Assertion (A): The optimisation version of TSP is NP-hard.\nReason (R): The optimisation version of TSP is in NP.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "A is true; R is false – optimisation problems are not decision problems, so they are not in NP."
+        },
+        {
+         "question": "Match the problem with a problem it is commonly reduced from in NP-completeness proofs:\na. 3-SAT\nb. Clique\nc. Vertex cover\nd. Hamiltonian cycle\n\n1. 3-SAT\n2. Vertex cover\n3. SAT\n4. Independent set",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "C",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). The classic chain: SAT → 3-SAT → Clique → Independent set → Vertex cover → Hamiltonian cycle."
+        },
+        {
+         "question": "Match the term with its meaning:\na. NP-hard\nb. NP-complete\nc. Reduction\nd. Certificate\n\n1. At least as hard as every NP problem\n2. In NP and NP-hard\n3. Transformation between problems\n4. Evidence checked by a verifier",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-2, c-4, d-3"
+         },
+         "answer": "B",
+         "subject": "NP-Completeness and Reducibility",
+         "explanation": "Core complexity vocabulary."
         }
        ]
       }
