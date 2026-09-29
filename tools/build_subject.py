@@ -23,13 +23,13 @@ P2_GROUP = "② Paper 2 · Computer Science (30 questions per sub-topic)"
 # key: subject (exact planner name) and its content modules, in planner order
 PACKS = {
     "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e"]},
-    "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a"]},
-    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b"]},
+    "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c"]},
+    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c"]},
     "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b"]},
-    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b"]},
-    "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b"]},
+    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c"]},
+    "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c"]},
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b"]},
-    "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a"]},
+    "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b"]},
     "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_2026"]},
 }
 
