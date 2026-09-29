@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v21; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v22; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -73,6 +73,20 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 | P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`.  + `packs/p1-kannada-mocks.json` (10 mocks × 20 Q, topic "Mock tests"). |
 | P1 Days 1–11 topics: PSY-01…06, GK-01…05, CL-01…04, ENG-01/02/03, HE-01/02/03, VE-01/02 (48 sets × 20 = 960 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–11 fully covered, except current affairs by design) |
 | Other Paper 1 topics | only the Days 1–2 sample |
+
+### Real previous-year papers (started 29 Sep 2026)
+- Owner asked for genuine KEA/KSET questions. 12 papers (8 CS, 4 general) + 7 key/notice files downloaded with the owner's OK into
+  `sources/pyq/` (git-ignored; re-download from the URLs in each module's docstring). All are scanned → `tools/pyq_ocr.py`
+  (PyMuPDF + RapidOCR, `pip install pymupdf rapidocr_onnxruntime`) makes OCR drafts + page images; transcribe against the images.
+- Done: **KSET 2024 CS&A** (`tools/pyq_kset2024_csa.py`, 90 of 100 Q; 10 ambiguous ones skipped; answers ExamSim-solved – KEA
+  has no full key online). Built by `tools/build_pyq.py` → `packs/pyq-p2.json`, subject "P2 · Previous-Year Papers (KEA/KSET)",
+  one topic per paper, sets of 25 by question number, plus a full-paper mock preset.
+- To do (owner's order: CS papers, then Paper 1 with official keys): KSET 2023 CS&A, KSET 2025 CS&A, KEA CS Paper 2 (5 Jul 2026),
+  GTTC Lecturer CS 2024 (key in GBOREC2024_GTTC_revisedkey…pdf), Legislative Council programmer P2 2024 (key in klc2024_KLC_REVISED_KEY…pdf),
+  Raichur Univ. CS&A 2024, GFGC CS 2021-22; then KEA GK 2026 ×2, Kannada/English/Computer 2026, KSET General Paper 2025
+  (their keys still need finding on the exam pages). QUESTION_STANDARD.md §8 has the rules.
+- App: questions may carry `source`; `pyqBadge(q)` shows "PYQ · <source>" (real) or "PYQ pattern" (generated, explanation starts
+  with "PYQ pattern") in the exam, review and answer sheet. packlib: 5th tuple item = source; set `keep_order: True` keeps printed option order.
 
 ### Next steps (owner's current request)
 Questions are now generated **by study-plan day, in calendar order** (QUESTION_STANDARD.md §6: `Generate: next` / `Generate: day …`).

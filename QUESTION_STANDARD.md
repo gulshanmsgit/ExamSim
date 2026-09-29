@@ -128,3 +128,21 @@ A topic "has questions" when its sets exist in a pack listed in `packs/index.jso
   Drishti IAS/GKToday monthly pages, Wikipedia "2026 in India"), keep only facts that are dated in that month (older decisions only as
   scheme questions), cross-check anything that looks odd with a second source, and name the source in every explanation.
 - Watch for anachronisms: use the office-holders of that month (e.g. Karnataka CM in January 2026 = Siddaramaiah).
+
+## 8. Real previous-year papers (KEA / KSET)
+
+- **Source**: KEA's archive, cetonline.karnataka.gov.in/kea/Qpaper → QP2021…QP2026.aspx (year pages list every PDF by exam).
+  Keys, where published, are on the exam's own page (kset2023.aspx, klc2024.aspx, GBOREC2024.aspx, …). Download only with
+  the owner's OK; PDFs go to `sources/pyq/` (git-ignored) and `sources/pyq/keys/`.
+- The PDFs are **scanned images**. `python tools/pyq_ocr.py` writes an OCR draft (`sources/pyq/ocr/<paper>.txt`) and page
+  images (`sources/pyq/img/<paper>/pNN.png`). OCR drops overbars, ¬, ↔ and misreads (ii) as (i), so every question is
+  checked against the page image.
+- **One module per paper**, `tools/pyq_<exam><year>_<subject>.py`: a docstring with the source URL, version code and
+  what was skipped; `TOPIC` (e.g. "KSET 2024 – Computer Science & Application"); `Q = {number: (question, [4 options],
+  answer_index, explanation)}`; `sets()` in blocks of 25 by question number. Keep the paper's wording and option order
+  (fix only obvious typos such as "Leg G" → "Let G"; say so in the explanation when a symbol had to be interpreted).
+- **Answers**: use KEA's final/revised key when it exists. Otherwise solve it and add the note "(Answer worked out by
+  ExamSim; not KEA's official key.)". Questions with no clearly correct option, or that are under-specified, are
+  **skipped** and listed in the docstring, never guessed.
+- Every question gets `source` = "<exam> <year> <subject> · Q<n>" (the app shows it as a PYQ badge). Register the module
+  in `PYQ_PACKS` in `tools/build_pyq.py`, run it (it also creates a full-paper mock), then `tools/check_packs.py`.

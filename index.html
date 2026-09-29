@@ -649,6 +649,10 @@ button:focus:not(:focus-visible){outline:none}
 .as-tag{font-size:.75rem;white-space:nowrap;margin-left:auto}
 .as-opt.right .as-tag{color:var(--green)}.as-opt.bad .as-tag{color:var(--red)}
 .as-row .expl{margin:8px 12px 12px}
+/* previous-year badges */
+.pill.pyq{background:var(--orange-bg);color:var(--orange);border-color:var(--orange);font-weight:600}
+.pill.pyq-pat{background:transparent;color:var(--orange);border:1px dashed var(--orange)}
+#qPyq:empty{display:none}
 </style>
 </head>
 <body>
@@ -831,6 +835,7 @@ Explanation: RAM loses its contents without power.</pre>
       <div class="qhead">
         <b id="qLabel"></b>
         <span class="pill" id="qSubject" hidden></span>
+        <span id="qPyq"></span>
       </div>
       <div class="qtext" id="qText"></div>
       <div id="qOpts"></div>
@@ -1067,7 +1072,8 @@ function parseJSON(data) {
     else if (!ans) issues.push({ label, reason: 'no valid answer key (A–D)', snippet });
     else questions.push({
       id: it.id ?? i + 1, question: q, options: o, answer: ans,
-      subject: normText(it.subject), explanation: String(it.explanation ?? '').trim()
+      subject: normText(it.subject), explanation: String(it.explanation ?? '').trim(),
+      ...(it.source ? { source: normText(it.source) } : {})
     });
   });
   return { format: 'JSON', questions, issues };
@@ -4462,6 +4468,13 @@ document.addEventListener('click', e => {
 
 /* ---------- Results: answer sheet – every question with your answer and the correct one, colour-coded ---------- */
 const AS = { filter: 'all' };
+/* Previous-year questions: q.source names a real paper ("KSET 2024 · CS&A · Q17"); generated questions written to a
+   recurring exam pattern start their explanation with "PYQ pattern" (QUESTION_STANDARD.md §3) */
+function pyqBadge(q) {
+  if (q.source) return `<span class="pill pyq" title="Previous-year question">PYQ · ${esc(q.source)}</span>`;
+  if (/^PYQ pattern/.test(q.explanation || '')) return `<span class="pill pyq-pat" title="Written to a question pattern that recurs in past papers">PYQ pattern</span>`;
+  return '';
+}
 function answerSheetHTML(R) {
   const n = k => R.rows.filter(r => r.res === k).length;
   const tabs = [['all', 'All', R.rows.length], ['wrong', 'Wrong', n('wrong')], ['blank', 'Blank', n('blank')], ['e', 'Skipped (E)', n('e')], ['correct', 'Correct', n('correct')]].filter(([k, , c]) => k === 'all' || c);
@@ -4471,7 +4484,7 @@ function answerSheetHTML(R) {
     const q = r.q, your = r.sel ? `${r.sel}${r.sel === 'E' ? ' (skipped)' : ''}` : '—';
     const status = { correct: 'Correct', wrong: 'Wrong', blank: r.visited ? 'Blank' : 'Not visited', e: 'Skipped (E)' }[r.res];
     return `<details class="as-row r-${r.res}" id="as-${i}"><summary><span class="as-n">${i + 1}</span><span class="grow"><span class="clamp2">${esc(q.question)}</span>
-        <span class="small as-meta"><span class="pill ${r.res === 'correct' ? 'correct' : r.res === 'wrong' ? 'wrong' : 'blank'}">${status}</span> Your answer: <b>${esc(your)}</b> · Correct: <b>${esc(q.answer)}</b></span></span>${I('chevd')}</summary>
+        <span class="small as-meta"><span class="pill ${r.res === 'correct' ? 'correct' : r.res === 'wrong' ? 'wrong' : 'blank'}">${status}</span> Your answer: <b>${esc(your)}</b> · Correct: <b>${esc(q.answer)}</b> ${pyqBadge(q)}</span></span>${I('chevd')}</summary>
       <div class="qtext as-q">${esc(q.question)}</div>
       ${LETTERS.map(L => { const ok = L === q.answer, mine = L === r.sel; return optLine(q, L, ok ? 'right' : mine ? 'bad' : '', ok && mine ? 'Your answer ✓' : ok ? 'Correct answer' : mine ? 'Your answer' : ''); }).join('')}
       ${r.sel === 'E' ? optLine(q, 'E', 'sel', 'Your choice') : ''}
@@ -4613,6 +4626,7 @@ function renderQuestion() {
   $('#barRight').innerHTML = `<span class="qcount">Q ${S.cur + 1} / ${n}</span>`;
   $('#qLabel').textContent = `Question ${S.cur + 1}`;
   $('#qSubject').hidden = !q.subject; $('#qSubject').textContent = q.subject || '';
+  $('#qPyq').innerHTML = pyqBadge(q);
   $('#qText').textContent = q.question;
   $('#qOpts').innerHTML = [...LETTERS, 'E'].map(L => {
     const txt = L === 'E' ? E_LABEL : q.options[L];
@@ -4916,7 +4930,7 @@ function renderReview() {
   $('#rvLabel').textContent = `Question ${i + 1} of ${RES.rows.length}` + (RV.filter !== 'all' ? ` (${RV.pos + 1}/${RV.list.length} ${RESULT_LABEL[RV.filter].toLowerCase()})` : '');
   const blankTxt = r.res === 'blank' ? (r.visited ? 'Blank' : 'Not visited') : RESULT_LABEL[r.res];
   $('#rvBadge').innerHTML = `<span class="pill ${r.res}">${blankTxt} · ${r.marks > 0 ? '+' : ''}${fmtNum(r.marks)}</span>`;
-  $('#rvSubject').textContent = [q.subject, 'ID ' + q.id].filter(Boolean).join(' · ');
+  $('#rvSubject').innerHTML = esc([q.subject, 'ID ' + q.id].filter(Boolean).join(' · ')) + ' ' + pyqBadge(q);
   $('#rvText').textContent = q.question;
   $('#rvOpts').innerHTML = [...LETTERS, 'E'].map(L => {
     const isAns = L === q.answer, isSel = L === r.sel;
