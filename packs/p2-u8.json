@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 8 — Data Structures & Algorithms",
- "description": "4 of 10 topics so far (12 sets × 30 questions): Linear Data Structures; Trees; Sets & Graph Representation; Sorting and Searching. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "8 of 10 topics so far (20 sets × 30 questions): Linear Data Structures; Trees; Sets & Graph Representation; Sorting and Searching; Hashing; Performance Analysis & Recurrences; Design Techniques – Divide & Conquer, Greedy; Design Techniques – DP, Backtracking, Branch & Bound. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 8 – Data Structures & Algorithms",
@@ -4402,6 +4402,2946 @@
          "answer": "A",
          "subject": "Advanced Sorting Algorithms",
          "explanation": "It exploits existing sorted runs in real-world data."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Hashing",
+     "sets": [
+      {
+       "name": "1 · Hash Functions and Hash Tables",
+       "questions": [
+        {
+         "question": "In the division method of hashing, h(k) = k mod m. Which choice of m is usually recommended?",
+         "options": {
+          "A": "A prime number not too close to a power of 2",
+          "B": "Any even number",
+          "C": "A power of 10",
+          "D": "A power of 2"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). If m = 2^p, h(k) depends only on the lowest p bits of the key."
+        },
+        {
+         "question": "With h(k) = k mod 11, the key 47 is stored in slot:",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "47 = 4 × 11 + 3."
+        },
+        {
+         "question": "With h(k) = k mod 7, the key 50 is stored in slot:",
+         "options": {
+          "A": "6",
+          "B": "7",
+          "C": "1",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "50 = 7 × 7 + 1."
+        },
+        {
+         "question": "The load factor α of a hash table with n keys and m slots is:",
+         "options": {
+          "A": "n / m",
+          "B": "m / n",
+          "C": "n − m",
+          "D": "n × m"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is the average number of keys per slot."
+        },
+        {
+         "question": "In the mid-square method, the key 4567 is squared to 20857489 and the middle two digits are taken. The hash value is:",
+         "options": {
+          "A": "08",
+          "B": "57",
+          "C": "85",
+          "D": "74"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Digits 2 0 8 5 7 4 8 9 → the 4th and 5th digits are 5 and 7."
+        },
+        {
+         "question": "Using fold-shift hashing with 3-digit parts and a table of 1000 slots, the key 123456789 hashes to:",
+         "options": {
+          "A": "368",
+          "B": "789",
+          "C": "1368",
+          "D": "456"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "123 + 456 + 789 = 1368; keep the last 3 digits → 368."
+        },
+        {
+         "question": "In the multiplication method h(k) = ⌊m (kA mod 1)⌋, Knuth suggests A ≈:",
+         "options": {
+          "A": "0.5",
+          "B": "1.414",
+          "C": "(√5 − 1)/2 ≈ 0.618",
+          "D": "π/4"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "The golden-ratio constant spreads keys well; m can then be a power of 2."
+        },
+        {
+         "question": "An ideal hash function should:",
+         "options": {
+          "A": "Depend on the table's current contents",
+          "B": "Distribute keys uniformly over the slots and be fast to compute",
+          "C": "Map all keys to slot 0",
+          "D": "Keep the keys in sorted order"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "This is the simple uniform hashing assumption."
+        },
+        {
+         "question": "A perfect hash function is one that:",
+         "options": {
+          "A": "Sorts the keys",
+          "B": "Never needs to be computed",
+          "C": "Works only for strings",
+          "D": "Maps a fixed set of keys to slots with no collisions"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "It is possible when the key set is known in advance, e.g. reserved words of a language."
+        },
+        {
+         "question": "A collision in hashing occurs when:",
+         "options": {
+          "A": "The hash function is slow",
+          "B": "The table is empty",
+          "C": "Two different keys hash to the same slot",
+          "D": "A key hashes outside the table"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). By the pigeonhole principle, collisions are unavoidable when the universe is larger than the table."
+        },
+        {
+         "question": "With h(k) = k mod 10, the keys 12, 22 and 32 all collide in slot:",
+         "options": {
+          "A": "0",
+          "B": "3",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "This also shows why m = 10 is a poor choice for keys with the same last digit."
+        },
+        {
+         "question": "The expected time to search a well-designed hash table is O(1), but the worst case is:",
+         "options": {
+          "A": "O(n)",
+          "B": "O(log n)",
+          "C": "O(n log n)",
+          "D": "O(1)"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). In the worst case all keys fall into one slot."
+        },
+        {
+         "question": "For which task is a hash table a poor choice compared with a balanced BST?",
+         "options": {
+          "A": "Checking whether a key exists",
+          "B": "Listing keys in sorted order or answering range queries",
+          "C": "Inserting a new key",
+          "D": "Counting word frequencies"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Hashing scatters keys, so it keeps no order."
+        },
+        {
+         "question": "A direct-address table (one slot per possible key) is practical when:",
+         "options": {
+          "A": "Keys are negative real numbers",
+          "B": "Keys are long strings",
+          "C": "The universe of keys is small",
+          "D": "The universe is huge but few keys are used"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "It gives O(1) worst-case operations but needs a slot for every possible key."
+        },
+        {
+         "question": "Universal hashing means:",
+         "options": {
+          "A": "Using the same hash function in every program",
+          "B": "Using a table of infinite size",
+          "C": "Hashing only universal constants",
+          "D": "Choosing the hash function at random from a carefully designed family"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "No fixed input can then force bad behaviour on average."
+        },
+        {
+         "question": "Rehashing is done when:",
+         "options": {
+          "A": "The load factor exceeds a threshold, so a larger table is created and all keys are re-inserted",
+          "B": "A key is searched twice",
+          "C": "A key is deleted",
+          "D": "The table is empty"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "The table size is usually about doubled."
+        },
+        {
+         "question": "The default load factor threshold at which Java's HashMap resizes is:",
+         "options": {
+          "A": "1.0",
+          "B": "0.75",
+          "C": "0.25",
+          "D": "0.5"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "It balances memory use against collision chains."
+        },
+        {
+         "question": "A hash table is used by a compiler mainly for its:",
+         "options": {
+          "A": "Parse tree",
+          "B": "Object code",
+          "C": "Register allocation",
+          "D": "Symbol table"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Identifiers are looked up constantly, so O(1) lookup matters."
+        },
+        {
+         "question": "Extendible hashing, used for database files, handles growth by:",
+         "options": {
+          "A": "Doubling a directory of bucket pointers and splitting only the overflowing bucket",
+          "B": "Sorting the file",
+          "C": "Rebuilding the entire file each time",
+          "D": "Using a single linked list"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "It avoids full reorganisation of the file."
+        },
+        {
+         "question": "Consider the statements:\nI. A hash table keeps keys in sorted order.\nII. A good hash function spreads keys uniformly.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Hash tables keep no order."
+        },
+        {
+         "question": "Consider the statements:\nI. In the division method, a table size that is a power of 2 uses only the low-order bits of the key.\nII. A perfect hash function has no collisions for its key set.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. The load factor of a table with 30 keys and 10 slots is 0.33.\nII. The worst-case search time in hashing is O(1).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "α = 30/10 = 3; the worst case is O(n)."
+        },
+        {
+         "question": "Assertion (A): Hashing gives O(1) expected search time.\nReason (R): The hash function computes the likely position of a key directly from the key.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "No comparisons with other keys are needed to reach the slot."
+        },
+        {
+         "question": "Assertion (A): Collisions can be completely avoided for arbitrary keys by choosing a clever hash function.\nReason (R): The universe of keys is usually much larger than the number of slots.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Because the universe is larger than the table, collisions are unavoidable in general; A is false."
+        },
+        {
+         "question": "Assertion (A): m = 2^p is a poor table size for the division method.\nReason (R): The multiplication method was suggested by Knuth.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Both true, but R does not explain A; A is explained by h(k) depending only on the low-order bits."
+        },
+        {
+         "question": "Assertion (A): Hash tables are suitable for range queries.\nReason (R): Hash tables give O(1) expected lookup of a single key.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "A is false – adjacent keys are scattered; R is true."
+        },
+        {
+         "question": "Match the hashing method with its description:\na. Division\nb. Mid-square\nc. Folding\nd. Multiplication\n\n1. Square the key and take middle digits\n2. ⌊m (kA mod 1)⌋\n3. k mod m\n4. Split the key into parts and add them",
+         "options": {
+          "A": "a-3, b-1, c-2, d-4",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "These are the standard hash functions for integer keys."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Load factor\nb. Collision\nc. Rehashing\nd. Perfect hashing\n\n1. No collisions for a fixed key set\n2. Two keys mapped to the same slot\n3. Moving all keys to a larger table\n4. n/m",
+         "options": {
+          "A": "a-4, b-3, c-2, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-2, b-4, c-3, d-1",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "Core hashing vocabulary."
+        },
+        {
+         "question": "With h(k) = k mod 13, which two keys collide?",
+         "options": {
+          "A": "27 and 41",
+          "B": "40 and 52",
+          "C": "27 and 40",
+          "D": "13 and 27"
+         },
+         "answer": "C",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "27 mod 13 = 1 and 40 mod 13 = 1."
+        },
+        {
+         "question": "A hash table of 100 slots stores 75 keys. Its load factor is:",
+         "options": {
+          "A": "0.25",
+          "B": "1.33",
+          "C": "75",
+          "D": "0.75"
+         },
+         "answer": "D",
+         "subject": "Hash Functions and Hash Tables",
+         "explanation": "α = 75 / 100."
+        }
+       ]
+      },
+      {
+       "name": "2 · Collision Resolution",
+       "questions": [
+        {
+         "question": "In separate chaining, each slot of the hash table holds:",
+         "options": {
+          "A": "Exactly one key",
+          "B": "A binary heap",
+          "C": "A copy of the whole table",
+          "D": "A linked list (chain) of all keys hashing to that slot"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Colliding keys are simply added to the slot's list."
+        },
+        {
+         "question": "In linear probing, the probe sequence for key k is:",
+         "options": {
+          "A": "h(k, i) = (h'(k) + i²) mod m",
+          "B": "h(k, i) = h'(k) × i",
+          "C": "h(k, i) = (h'(k) + i) mod m",
+          "D": "h(k, i) = (h₁(k) + i·h₂(k)) mod m"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "Consecutive slots are tried one after another."
+        },
+        {
+         "question": "Primary clustering is a problem mainly of:",
+         "options": {
+          "A": "Direct addressing",
+          "B": "Separate chaining",
+          "C": "Double hashing",
+          "D": "Linear probing"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Long runs of occupied slots form and keep growing."
+        },
+        {
+         "question": "Secondary clustering (keys with the same home slot follow the same probe sequence) occurs in:",
+         "options": {
+          "A": "Perfect hashing",
+          "B": "Quadratic probing",
+          "C": "Separate chaining",
+          "D": "Double hashing"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "The sequence depends only on the home slot."
+        },
+        {
+         "question": "In double hashing h(k, i) = (h₁(k) + i·h₂(k)) mod m, the second function h₂ must:",
+         "options": {
+          "A": "Always equal h₁",
+          "B": "Never be 0 and be relatively prime to m",
+          "C": "Return only even values",
+          "D": "Be the identity function"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "Otherwise the probe sequence cannot reach every slot."
+        },
+        {
+         "question": "Which open-addressing technique comes closest to uniform hashing and avoids both kinds of clustering?",
+         "options": {
+          "A": "Double hashing",
+          "B": "Chaining",
+          "C": "Quadratic probing",
+          "D": "Linear probing"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "The step size depends on the key itself."
+        },
+        {
+         "question": "Keys 12, 22, 32, 42 are inserted into an empty table of size 10 with h(k) = k mod 10 and linear probing. Where does 42 go?",
+         "options": {
+          "A": "Slot 2",
+          "B": "Slot 4",
+          "C": "Slot 5",
+          "D": "Slot 6"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "12 → 2, 22 → 3, 32 → 4, 42 → 2, 3, 4 taken → 5."
+        },
+        {
+         "question": "Keys 50, 700, 76, 85, 92, 73, 101 are inserted in that order into an empty table of size 7 with h(k) = k mod 7 and linear probing. In which slot is 101?",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 50→1, 700→0, 76→6, 85→2, 92→3, 73→4, 101: 3, 4 taken → 5."
+        },
+        {
+         "question": "Keys 89, 18, 49, 58, 69 are inserted in that order into an empty table of size 10 with h(k) = k mod 10 and linear probing. In which slot is 69?",
+         "options": {
+          "A": "2",
+          "B": "9",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "89→9, 18→8, 49→0 (wraps), 58→1, 69: 9, 0, 1 taken → 2."
+        },
+        {
+         "question": "Keys 22, 33, 44 are inserted into an empty table of size 11 with h(k) = k mod 11 and quadratic probing (h + i²) mod 11. Where does 44 go?",
+         "options": {
+          "A": "Slot 3",
+          "B": "Slot 2",
+          "C": "Slot 1",
+          "D": "Slot 4"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "All hash to 0. 22 → 0; 33 → 0 + 1 = 1; 44 → 0 + 1 taken, 0 + 4 = 4."
+        },
+        {
+         "question": "With h₁(k) = k mod 13 and h₂(k) = 7 − (k mod 7), key 18 is already in slot 5. Using double hashing, where does 44 go?",
+         "options": {
+          "A": "Slot 6",
+          "B": "Slot 9",
+          "C": "Slot 10",
+          "D": "Slot 12"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "h₁(44) = 5 (taken); h₂(44) = 7 − 2 = 5; (5 + 5) mod 13 = 10."
+        },
+        {
+         "question": "Keys 3, 8, 13 and 7 are inserted into a chained table of 5 slots with h(k) = k mod 5. How many keys are in slot 3?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "3, 8 and 13 all give 3; 7 goes to slot 2."
+        },
+        {
+         "question": "In separate chaining with load factor α, an unsuccessful search takes on average:",
+         "options": {
+          "A": "Θ(1 + α)",
+          "B": "Θ(log α)",
+          "C": "Θ(α²)",
+          "D": "Θ(n)"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Compute the hash, then scan a chain of expected length α."
+        },
+        {
+         "question": "100 keys are stored in a chained hash table with 25 slots under uniform hashing. The expected chain length is:",
+         "options": {
+          "A": "0.25",
+          "B": "4",
+          "C": "100",
+          "D": "25"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "α = 100 / 25 = 4."
+        },
+        {
+         "question": "Under uniform hashing, an unsuccessful search in an open-addressing table with load factor α makes at most about how many probes?",
+         "options": {
+          "A": "log(1/α)",
+          "B": "1 + α",
+          "C": "1 / (1 − α)",
+          "D": "α / 2"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). For α = 0.5 that is 2 probes; for α = 0.9 it is 10."
+        },
+        {
+         "question": "An open-addressing table is 90% full (α = 0.9). The expected number of probes for an unsuccessful search under uniform hashing is about:",
+         "options": {
+          "A": "2",
+          "B": "1.9",
+          "C": "0.9",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "1 / (1 − 0.9) = 10 – performance collapses as the table fills."
+        },
+        {
+         "question": "Which statement about load factor is correct?",
+         "options": {
+          "A": "Chaining allows α > 1, but open addressing needs α ≤ 1",
+          "B": "Open addressing allows α > 1",
+          "C": "Both require α < 0.5",
+          "D": "Neither depends on α"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "In open addressing every key is stored in the table itself."
+        },
+        {
+         "question": "When a key is deleted from an open-addressing table, its slot is marked 'deleted' (a tombstone) rather than 'empty' because:",
+         "options": {
+          "A": "An empty slot would stop later searches for keys that probed past it",
+          "B": "Empty slots cannot be reused",
+          "C": "It saves memory",
+          "D": "Deletion is not allowed"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "Searches continue past tombstones; insertions may reuse them."
+        },
+        {
+         "question": "A practical advantage of linear probing over chaining is:",
+         "options": {
+          "A": "No need for a hash function",
+          "B": "No clustering ever",
+          "C": "Better cache performance, since probes touch adjacent memory",
+          "D": "Unlimited load factor"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "Chains follow pointers scattered in memory."
+        },
+        {
+         "question": "Quadratic probing is guaranteed to find an empty slot if:",
+         "options": {
+          "A": "The table size is a power of 2 and full",
+          "B": "Never",
+          "C": "The keys are sorted",
+          "D": "The table size is prime and the table is less than half full"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "Otherwise the probe sequence may cycle among occupied slots."
+        },
+        {
+         "question": "The worst-case search time in separate chaining occurs when:",
+         "options": {
+          "A": "The table is empty",
+          "B": "All keys hash to the same slot, giving O(n)",
+          "C": "Each slot has exactly one key",
+          "D": "The load factor is below 1"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "The chain then becomes one long list."
+        },
+        {
+         "question": "Consider the statements:\nI. Chaining needs extra memory for pointers.\nII. Open addressing stores every key inside the table array.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. Linear probing suffers from primary clustering.\nII. Double hashing suffers from primary clustering.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "Double hashing's key-dependent step size avoids it."
+        },
+        {
+         "question": "Consider the statements:\nI. In open addressing, a deleted slot can simply be marked empty.\nII. In chaining, deletion removes a node from a list.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "Open addressing needs a 'deleted' marker."
+        },
+        {
+         "question": "Assertion (A): Linear probing tends to form long runs of occupied slots.\nReason (R): A key hashing anywhere into a run is placed at the end of the run, making it longer.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "That is primary clustering."
+        },
+        {
+         "question": "Assertion (A): Open addressing can store more keys than slots.\nReason (R): In open addressing all keys are stored in the table array itself.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "Because keys are in the array, n ≤ m; A is false."
+        },
+        {
+         "question": "Assertion (A): Double hashing gives a different probe sequence for keys with the same home slot.\nReason (R): Double hashing uses h₂(k) = 0 for every key.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Collision Resolution",
+         "explanation": "A is true; R is false – h₂ must never be 0."
+        },
+        {
+         "question": "Assertion (A): Performance of open addressing degrades sharply as α approaches 1.\nReason (R): Separate chaining uses linked lists.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Collision Resolution",
+         "explanation": "Both true, but R does not explain A; the 1/(1 − α) probe count does."
+        },
+        {
+         "question": "Match the collision technique with its property:\na. Separate chaining\nb. Linear probing\nc. Quadratic probing\nd. Double hashing\n\n1. Lists outside the table\n2. Primary clustering\n3. Step size depends on the key\n4. Secondary clustering",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-2, b-1, c-4, d-3",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "A",
+         "subject": "Collision Resolution",
+         "explanation": "Each technique handles collisions differently."
+        },
+        {
+         "question": "Match the load factor (open addressing, uniform hashing) with the expected probes for an unsuccessful search:\na. α = 0.5\nb. α = 0.75\nc. α = 0.8\nd. α = 0.9\n\n1. 5\n2. 4\n3. 10\n4. 2",
+         "options": {
+          "A": "a-2, b-4, c-1, d-3",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "D",
+         "subject": "Collision Resolution",
+         "explanation": "1 / (1 − α): 2, 4, 5, 10."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Performance Analysis & Recurrences",
+     "sets": [
+      {
+       "name": "1 · Time and Space Complexity, Asymptotic Notation",
+       "questions": [
+        {
+         "question": "f(n) = O(g(n)) means that g(n) is:",
+         "options": {
+          "A": "An asymptotic lower bound of f(n)",
+          "B": "An asymptotic upper bound of f(n)",
+          "C": "An exact (tight) bound only",
+          "D": "Unrelated to f(n)"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). f(n) ≤ c·g(n) for all n ≥ n₀, for some constants c > 0 and n₀."
+        },
+        {
+         "question": "f(n) = Θ(g(n)) means that:",
+         "options": {
+          "A": "g(n) is only a lower bound",
+          "B": "g(n) is both an upper and a lower bound of f(n) (a tight bound)",
+          "C": "g(n) is only an upper bound",
+          "D": "f(n) grows faster than g(n)"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "c₁g(n) ≤ f(n) ≤ c₂g(n) for large n."
+        },
+        {
+         "question": "f(n) = Ω(g(n)) means that g(n) is:",
+         "options": {
+          "A": "Always equal to f(n)",
+          "B": "An asymptotic lower bound of f(n)",
+          "C": "An asymptotic upper bound of f(n)",
+          "D": "Smaller only for small n"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "f(n) ≥ c·g(n) for large n."
+        },
+        {
+         "question": "f(n) = 3n² + 5n + 2 is:",
+         "options": {
+          "A": "Θ(n³)",
+          "B": "Θ(n)",
+          "C": "Θ(n log n)",
+          "D": "Θ(n²)"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "The highest-order term dominates; constants are ignored."
+        },
+        {
+         "question": "Which is the correct increasing order of growth?",
+         "options": {
+          "A": "n, log n, √n, n², n log n, 2ⁿ, n!",
+          "B": "√n, log n, n, n², n log n, n!, 2ⁿ",
+          "C": "log n, √n, n, n log n, n², 2ⁿ, n!",
+          "D": "log n, n, √n, n log n, 2ⁿ, n², n!"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A standard ordering to memorise."
+        },
+        {
+         "question": "Which function grows fastest for large n?",
+         "options": {
+          "A": "n^(log n)",
+          "B": "n¹⁰",
+          "C": "2ⁿ",
+          "D": "n!"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "n¹⁰ < n^(log n) < 2ⁿ < n! for large n."
+        },
+        {
+         "question": "What is the time complexity of this loop?\ni = 1;\nwhile (i < n) i = i * 2;",
+         "options": {
+          "A": "O(√n)",
+          "B": "O(log n)",
+          "C": "O(n log n)",
+          "D": "O(n)"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). i doubles each time, so the loop runs about log₂ n times."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i <= n; i++)\n  for (j = 1; j <= i; j++)\n    count++;",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n log n)",
+          "C": "O(n²)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "1 + 2 + … + n = n(n + 1)/2."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i <= n; i++)\n  for (j = 1; j < n; j = j * 2)\n    count++;",
+         "options": {
+          "A": "O(log² n)",
+          "B": "O(n²)",
+          "C": "O(n log n)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "The outer loop runs n times and the inner about log₂ n times."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = n; i > 0; i = i / 2)\n  for (j = 0; j < i; j++)\n    count++;",
+         "options": {
+          "A": "O(n log n)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). n + n/2 + n/4 + … < 2n."
+        },
+        {
+         "question": "An algorithm with running time n² takes 1 second for n = 1000. For n = 2000 it will take about:",
+         "options": {
+          "A": "4 seconds",
+          "B": "8 seconds",
+          "C": "2 seconds",
+          "D": "1 second"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "Doubling n multiplies n² by 4."
+        },
+        {
+         "question": "Which is TRUE?",
+         "options": {
+          "A": "n² = O(n)",
+          "B": "2ⁿ⁺¹ = O(2ⁿ)",
+          "C": "n! = O(2ⁿ)",
+          "D": "2²ⁿ = O(2ⁿ)"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 2ⁿ⁺¹ = 2·2ⁿ, but 2²ⁿ = 4ⁿ grows faster than any constant times 2ⁿ."
+        },
+        {
+         "question": "log(n!) is:",
+         "options": {
+          "A": "Θ(n log n)",
+          "B": "Θ(n)",
+          "C": "Θ(n²)",
+          "D": "Θ(log n)"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "By Stirling's approximation; this gives the sorting lower bound."
+        },
+        {
+         "question": "log₂ n and log₁₀ n are:",
+         "options": {
+          "A": "Of the same order Θ(log n), since they differ by a constant factor",
+          "B": "Of different orders",
+          "C": "Both Θ(n)",
+          "D": "Unrelated"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "log₂ n = log₁₀ n / log₁₀ 2."
+        },
+        {
+         "question": "The harmonic sum 1 + 1/2 + 1/3 + … + 1/n is:",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(log n)",
+          "C": "Θ(1)",
+          "D": "Θ(n²)"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "It is approximately ln n."
+        },
+        {
+         "question": "The space complexity of a program consists of:",
+         "options": {
+          "A": "A fixed part (code, constants, simple variables) and a variable part (depending on the instance, e.g. recursion stack)",
+          "B": "Only the size of the input",
+          "C": "Only the code size",
+          "D": "Only the output size"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "This is the Horowitz–Sahni definition."
+        },
+        {
+         "question": "The recursive function fact(n) = n × fact(n − 1) uses stack space:",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(1)",
+          "C": "O(n)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "n calls are active at the deepest point."
+        },
+        {
+         "question": "Appending n items to a dynamic array that doubles its capacity when full costs:",
+         "options": {
+          "A": "O(n²) per append",
+          "B": "O(log n) per append",
+          "C": "O(n) per append always",
+          "D": "O(1) amortised per append"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "The occasional O(n) copy is spread over many cheap appends."
+        },
+        {
+         "question": "Which statement about little-o is correct?",
+         "options": {
+          "A": "n = o(n²), since n grows strictly slower than n²",
+          "B": "o means the same as Θ",
+          "C": "n² = o(n)",
+          "D": "n² = o(n²)"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "f = o(g) means f/g → 0."
+        },
+        {
+         "question": "If f(n) = O(g(n)) and g(n) = O(h(n)), then f(n) = O(h(n)). This property is:",
+         "options": {
+          "A": "Transpose symmetry",
+          "B": "Symmetry",
+          "C": "Transitivity",
+          "D": "Reflexivity only"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "Θ is also symmetric; O is not."
+        },
+        {
+         "question": "Problems solvable by polynomial-time algorithms are generally called:",
+         "options": {
+          "A": "Intractable",
+          "B": "Tractable",
+          "C": "Undecidable",
+          "D": "Exponential"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "Exponential-time problems quickly become impractical."
+        },
+        {
+         "question": "Consider the statements:\nI. n log n = O(n^1.5).\nII. n^1.5 = O(n log n).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "log n grows slower than n^0.5."
+        },
+        {
+         "question": "Consider the statements:\nI. Big-O gives an upper bound.\nII. The worst-case running time of an algorithm can be written with Big-O.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. 100n² is Θ(n³).\nII. n³ is O(n²).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "100n² is Θ(n²); n³ is not O(n²)."
+        },
+        {
+         "question": "Assertion (A): Constant factors are ignored in asymptotic analysis.\nReason (R): For large n, the growth rate matters more than constant multipliers.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "That is why 5n and 100n are both Θ(n)."
+        },
+        {
+         "question": "Assertion (A): An O(n²) algorithm is always slower than an O(n log n) algorithm.\nReason (R): Asymptotic notation hides constant factors and lower-order terms.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "For small n or large constants the O(n²) algorithm can be faster; A is false."
+        },
+        {
+         "question": "Assertion (A): Linear search has Θ(1) best-case time.\nReason (R): Linear search has Θ(log n) worst-case time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "A is true; R is false – the worst case is Θ(n)."
+        },
+        {
+         "question": "Match the code pattern with its complexity:\na. Single loop i = 1 … n\nb. Two nested loops 1 … n\nc. i = i * 2 up to n\nd. Accessing A[i]\n\n1. O(1)\n2. O(log n)\n3. O(n)\n4. O(n²)",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-3, b-4, c-2, d-1"
+         },
+         "answer": "D",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "These are the basic patterns of loop analysis."
+        },
+        {
+         "question": "Match the notation with its meaning:\na. O\nb. Ω\nc. Θ\nd. o\n\n1. Upper bound\n2. Tight bound\n3. Lower bound\n4. Strictly smaller order",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "B",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "ω (little-omega) is the strict lower bound."
+        },
+        {
+         "question": "The sum 1 + 2 + 3 + … + n is:",
+         "options": {
+          "A": "Θ(2ⁿ)",
+          "B": "Θ(n log n)",
+          "C": "Θ(n²)",
+          "D": "Θ(n)"
+         },
+         "answer": "C",
+         "subject": "Time and Space Complexity, Asymptotic Notation",
+         "explanation": "n(n + 1)/2."
+        }
+       ]
+      },
+      {
+       "name": "2 · Recurrence Relations",
+       "questions": [
+        {
+         "question": "The master theorem applies to recurrences of the form:",
+         "options": {
+          "A": "T(n) = aT(n/b) + f(n), with a ≥ 1 and b > 1",
+          "B": "T(n) = n T(n − 1)",
+          "C": "T(n) = T(n − 1) + T(n − 2)",
+          "D": "T(n) = T(n − 1) + n only"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It compares f(n) with n^(log_b a)."
+        },
+        {
+         "question": "Solve T(n) = 4T(n/2) + n.",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(n²)",
+          "C": "Θ(n² log n)",
+          "D": "Θ(n log n)"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₂4) = n² dominates f(n) = n (case 1)."
+        },
+        {
+         "question": "Solve T(n) = T(n/2) + 1.",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(1)",
+          "C": "Θ(n log n)",
+          "D": "Θ(log n)"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₂1) = 1 = f(n) (case 2) → Θ(log n)."
+        },
+        {
+         "question": "Solve T(n) = 2T(n/2) + 1.",
+         "options": {
+          "A": "Θ(n²)",
+          "B": "Θ(n)",
+          "C": "Θ(n log n)",
+          "D": "Θ(log n)"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₂2) = n dominates f(n) = 1 (case 1)."
+        },
+        {
+         "question": "Solve T(n) = T(n − 1) + n, T(1) = 1.",
+         "options": {
+          "A": "Θ(n log n)",
+          "B": "Θ(2ⁿ)",
+          "C": "Θ(n²)",
+          "D": "Θ(n)"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). T(n) = 1 + 2 + … + n = n(n + 1)/2."
+        },
+        {
+         "question": "Solve T(n) = T(n − 1) + 1, T(1) = 1.",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(n²)",
+          "C": "Θ(1)",
+          "D": "Θ(log n)"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "Each level adds a constant."
+        },
+        {
+         "question": "The recurrence T(n) = 2T(n − 1) + 1, T(1) = 1 (Tower of Hanoi) solves to:",
+         "options": {
+          "A": "2n − 1",
+          "B": "n²",
+          "C": "n log n",
+          "D": "2ⁿ − 1"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). T(1) = 1, T(2) = 3, T(3) = 7, …"
+        },
+        {
+         "question": "The minimum number of moves to solve the Tower of Hanoi with 5 disks is:",
+         "options": {
+          "A": "15",
+          "B": "32",
+          "C": "25",
+          "D": "31"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "2⁵ − 1 = 31."
+        },
+        {
+         "question": "Solve T(n) = 3T(n/2) + n (Karatsuba multiplication).",
+         "options": {
+          "A": "Θ(n^(log₂3)) ≈ Θ(n^1.585)",
+          "B": "Θ(n)",
+          "C": "Θ(n²)",
+          "D": "Θ(n log n)"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₂3) dominates n (case 1)."
+        },
+        {
+         "question": "Solve T(n) = 7T(n/2) + n² (Strassen's matrix multiplication).",
+         "options": {
+          "A": "Θ(n³)",
+          "B": "Θ(n^(log₂7)) ≈ Θ(n^2.81)",
+          "C": "Θ(n²)",
+          "D": "Θ(n² log n)"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). log₂7 ≈ 2.81 > 2, so case 1 applies."
+        },
+        {
+         "question": "Solve T(n) = 2T(n/2) + n².",
+         "options": {
+          "A": "Θ(n log n)",
+          "B": "Θ(n³)",
+          "C": "Θ(n²)",
+          "D": "Θ(n² log n)"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "f(n) = n² dominates n^(log₂2) = n and satisfies the regularity condition (case 3)."
+        },
+        {
+         "question": "Solve T(n) = 8T(n/2) + n².",
+         "options": {
+          "A": "Θ(n³)",
+          "B": "Θ(n⁴)",
+          "C": "Θ(n² log n)",
+          "D": "Θ(n²)"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₂8) = n³ dominates n² (case 1)."
+        },
+        {
+         "question": "Solve T(n) = 9T(n/3) + n.",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(n²)",
+          "C": "Θ(n³)",
+          "D": "Θ(n log n)"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "n^(log₃9) = n² dominates n."
+        },
+        {
+         "question": "Solve T(n) = T(n/2) + n.",
+         "options": {
+          "A": "Θ(n²)",
+          "B": "Θ(n log n)",
+          "C": "Θ(n)",
+          "D": "Θ(log n)"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "n + n/2 + n/4 + … < 2n (case 3)."
+        },
+        {
+         "question": "Solve T(n) = T(√n) + 1.",
+         "options": {
+          "A": "Θ(log n)",
+          "B": "Θ(√n)",
+          "C": "Θ(1)",
+          "D": "Θ(log log n)"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Put n = 2^m: S(m) = S(m/2) + 1 = Θ(log m) = Θ(log log n)."
+        },
+        {
+         "question": "Solve T(n) = T(n/3) + T(2n/3) + n.",
+         "options": {
+          "A": "Θ(log n)",
+          "B": "Θ(n log n)",
+          "C": "Θ(n²)",
+          "D": "Θ(n)"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "Each level of the recursion tree costs n and there are Θ(log n) levels."
+        },
+        {
+         "question": "T(n) = 2T(n/2) + n log n does not fit the three basic master-theorem cases. Its solution is:",
+         "options": {
+          "A": "Θ(n²)",
+          "B": "Θ(n log n)",
+          "C": "Θ(n log² n)",
+          "D": "Θ(n)"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "The extended case 2 gives Θ(n^(log_b a) log^(k+1) n) with k = 1."
+        },
+        {
+         "question": "The naive recursive Fibonacci function T(n) = T(n − 1) + T(n − 2) + 1 takes:",
+         "options": {
+          "A": "Θ(n) time",
+          "B": "Θ(n²) time",
+          "C": "Θ(log n) time",
+          "D": "Exponential time, about Θ(φⁿ) where φ ≈ 1.618"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "It recomputes the same subproblems many times; DP makes it Θ(n)."
+        },
+        {
+         "question": "The recurrence aₙ = 2aₙ₋₁ with a₀ = 3 has the solution:",
+         "options": {
+          "A": "aₙ = 3 · 2ⁿ",
+          "B": "aₙ = 3n + 2",
+          "C": "aₙ = 2 · 3ⁿ",
+          "D": "aₙ = 6ⁿ"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "Each term doubles the previous one."
+        },
+        {
+         "question": "The general solution of aₙ = 5aₙ₋₁ − 6aₙ₋₂ is:",
+         "options": {
+          "A": "aₙ = (c₁ + c₂n)·2ⁿ",
+          "B": "aₙ = c₁·5ⁿ + c₂·6ⁿ",
+          "C": "aₙ = c₁·2ⁿ + c₂·3ⁿ",
+          "D": "aₙ = c₁·(−2)ⁿ + c₂·(−3)ⁿ"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). The characteristic equation r² − 5r + 6 = 0 has roots 2 and 3."
+        },
+        {
+         "question": "T(n) = T(n − 1) + 2 with T(1) = 1. What is T(5)?",
+         "options": {
+          "A": "9",
+          "B": "7",
+          "C": "11",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "1, 3, 5, 7, 9."
+        },
+        {
+         "question": "In the recursion-tree method for T(n) = 2T(n/2) + n, each level costs n and the number of levels is about:",
+         "options": {
+          "A": "2",
+          "B": "log₂ n",
+          "C": "√n",
+          "D": "n"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "So the total is n log₂ n."
+        },
+        {
+         "question": "The substitution method for solving recurrences consists of:",
+         "options": {
+          "A": "Drawing a tree only",
+          "B": "Running the program and timing it",
+          "C": "Applying the master theorem directly",
+          "D": "Guessing the form of the solution and proving it by mathematical induction"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "It works even where the master theorem does not apply."
+        },
+        {
+         "question": "Consider the statements:\nI. The master theorem can solve T(n) = T(n − 1) + n.\nII. The master theorem can solve T(n) = 2T(n/2) + n.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Recurrence Relations",
+         "explanation": "T(n − 1) is not of the form aT(n/b)."
+        },
+        {
+         "question": "Consider the statements:\nI. T(n) = 2T(n/2) + n describes merge sort.\nII. T(n) = T(n/2) + 1 describes binary search.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): T(n) = 2T(n/2) + n is Θ(n log n).\nReason (R): Its recursion tree has about log n levels, each costing n.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Recurrence Relations",
+         "explanation": "Total cost = n per level × log n levels."
+        },
+        {
+         "question": "Assertion (A): The Tower of Hanoi with n disks needs 2ⁿ moves.\nReason (R): Its recurrence is T(n) = 2T(n − 1) + 1.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "It needs 2ⁿ − 1 moves; A is false, R is true."
+        },
+        {
+         "question": "Assertion (A): Strassen's algorithm is asymptotically faster than ordinary matrix multiplication.\nReason (R): Strassen's recurrence is T(n) = 8T(n/2) + n².",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "A is true; R is false – Strassen uses 7 subproblems, not 8."
+        },
+        {
+         "question": "Match the recurrence with its solution:\na. T(n) = 2T(n/2) + n\nb. T(n) = T(n/2) + 1\nc. T(n) = T(n − 1) + n\nd. T(n) = 2T(n − 1) + 1\n\n1. Θ(n log n)\n2. Θ(log n)\n3. Θ(n²)\n4. Θ(2ⁿ)",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-3, c-2, d-4",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Recurrence Relations",
+         "explanation": "Four recurrences every candidate should know."
+        },
+        {
+         "question": "Match the algorithm with its recurrence:\na. Merge sort\nb. Binary search\nc. Strassen\nd. Karatsuba\n\n1. 3T(n/2) + n\n2. 7T(n/2) + n²\n3. 2T(n/2) + n\n4. T(n/2) + 1",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-4, b-3, c-2, d-1",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-3, b-4, c-1, d-2"
+         },
+         "answer": "C",
+         "subject": "Recurrence Relations",
+         "explanation": "Each comes from how the algorithm divides and combines."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Design Techniques – Divide & Conquer, Greedy",
+     "sets": [
+      {
+       "name": "1 · Divide and Conquer",
+       "questions": [
+        {
+         "question": "The three steps of the divide-and-conquer strategy are:",
+         "options": {
+          "A": "Sort, search and merge only",
+          "B": "Guess, check and repeat",
+          "C": "Select, reject and bound",
+          "D": "Divide, conquer (solve subproblems recursively) and combine"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Merge sort is the textbook example."
+        },
+        {
+         "question": "Which of the following algorithms does NOT use divide and conquer?",
+         "options": {
+          "A": "Quick sort",
+          "B": "Prim's minimum spanning tree algorithm",
+          "C": "Merge sort",
+          "D": "Strassen's matrix multiplication"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Prim's algorithm is greedy."
+        },
+        {
+         "question": "In merge sort the real work is in the combine step, while in quick sort the real work is in the:",
+         "options": {
+          "A": "Combine step",
+          "B": "Base case",
+          "C": "Recursion depth",
+          "D": "Divide (partition) step"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "Quick sort needs no combine step once the parts are sorted in place."
+        },
+        {
+         "question": "Ordinary multiplication of two n × n matrices takes:",
+         "options": {
+          "A": "Θ(n^2.81) time",
+          "B": "Θ(n³) time",
+          "C": "Θ(n²) time",
+          "D": "Θ(n log n) time"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "n² entries, each a sum of n products."
+        },
+        {
+         "question": "Strassen's algorithm multiplies two 2 × 2 (block) matrices using how many multiplications?",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It trades one multiplication for extra additions, giving Θ(n^2.81)."
+        },
+        {
+         "question": "Applying Strassen's method recursively down to 1 × 1 blocks, how many scalar multiplications are needed for two 4 × 4 matrices?",
+         "options": {
+          "A": "16",
+          "B": "49",
+          "C": "64",
+          "D": "56"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "7 multiplications of 2 × 2 blocks, each using 7: 7 × 7 = 49 (ordinary method: 4³ = 64)."
+        },
+        {
+         "question": "Karatsuba's algorithm multiplies two n-digit numbers using how many half-size multiplications?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "2",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "This gives Θ(n^(log₂3)) ≈ Θ(n^1.585)."
+        },
+        {
+         "question": "Finding both the maximum and the minimum of n elements by divide and conquer needs how many comparisons (n a power of 2)?",
+         "options": {
+          "A": "n − 1",
+          "B": "2n − 2",
+          "C": "n log n",
+          "D": "3n/2 − 2"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). The recurrence is T(n) = 2T(n/2) + 2, T(2) = 1."
+        },
+        {
+         "question": "Using the divide-and-conquer max–min algorithm, how many comparisons are needed for 8 elements?",
+         "options": {
+          "A": "12",
+          "B": "14",
+          "C": "10",
+          "D": "7"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "3 × 8 / 2 − 2 = 10 (the naive method uses 2 × 8 − 2 = 14)."
+        },
+        {
+         "question": "Computing xⁿ by repeated squaring (xⁿ = (x^(n/2))²) needs:",
+         "options": {
+          "A": "O(1) multiplications",
+          "B": "O(n²) multiplications",
+          "C": "O(n) multiplications",
+          "D": "O(log n) multiplications"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "Each step halves the exponent."
+        },
+        {
+         "question": "How many multiplications does repeated squaring need to compute a¹⁶?",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "15",
+          "D": "16"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "a² , a⁴, a⁸, a¹⁶."
+        },
+        {
+         "question": "The closest pair of points among n points in a plane can be found by divide and conquer in:",
+         "options": {
+          "A": "O(n²) time only",
+          "B": "O(n) time",
+          "C": "O(n log n) time",
+          "D": "O(log n) time"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "The brute-force method checks all pairs in O(n²)."
+        },
+        {
+         "question": "The number of inversions in an array can be counted in O(n log n) time using a modified:",
+         "options": {
+          "A": "Heap insertion",
+          "B": "Merge sort",
+          "C": "Linear search",
+          "D": "Bubble sort"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "Inversions between halves are counted during merging."
+        },
+        {
+         "question": "Binary search is sometimes called 'decrease and conquer' because:",
+         "options": {
+          "A": "It needs dynamic programming",
+          "B": "It solves both halves",
+          "C": "It reduces the problem to only one subproblem of half the size",
+          "D": "It uses no comparisons"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "Only one half is searched further."
+        },
+        {
+         "question": "The key difference between divide and conquer and dynamic programming is that in divide and conquer the subproblems are:",
+         "options": {
+          "A": "Independent (not overlapping)",
+          "B": "Solved greedily",
+          "C": "Always overlapping",
+          "D": "Never recursive"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). When subproblems overlap, DP stores their solutions to avoid recomputation."
+        },
+        {
+         "question": "The maximum-subarray problem can be solved by divide and conquer in O(n log n); Kadane's algorithm solves it in:",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(n)",
+          "C": "O(log n)",
+          "D": "O(n³)"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "Kadane's algorithm is a simple dynamic-programming scan."
+        },
+        {
+         "question": "The median-of-medians (BFPRT) selection algorithm finds the k-th smallest element in:",
+         "options": {
+          "A": "O(n²) worst-case time",
+          "B": "O(log n) time",
+          "C": "O(n log n) average only",
+          "D": "O(n) worst-case time"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "It guarantees a good pivot by recursively taking medians of groups of 5."
+        },
+        {
+         "question": "Quickselect (quick-sort-style selection) finds the k-th smallest element in:",
+         "options": {
+          "A": "O(1) time",
+          "B": "O(n) expected time",
+          "C": "O(log n) time",
+          "D": "O(n log n) worst-case time"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "It recurses into only one partition; its worst case is O(n²)."
+        },
+        {
+         "question": "How many merge operations does merge sort perform on 8 elements?",
+         "options": {
+          "A": "24",
+          "B": "3",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "The recursion tree has n − 1 = 7 internal nodes, one merge each."
+        },
+        {
+         "question": "The Fast Fourier Transform multiplies two polynomials of degree n in:",
+         "options": {
+          "A": "O(n log n) time",
+          "B": "O(n) time",
+          "C": "O(n²) time",
+          "D": "O(n³) time"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "It is a divide-and-conquer evaluation at roots of unity."
+        },
+        {
+         "question": "Divide-and-conquer algorithms are well suited to parallel computers because:",
+         "options": {
+          "A": "They need no memory",
+          "B": "They never use recursion",
+          "C": "They always run in O(1)",
+          "D": "Independent subproblems can be solved at the same time on different processors"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "Merge sort and quick sort parallelise naturally."
+        },
+        {
+         "question": "Consider the statements:\nI. Quick sort and merge sort are both divide-and-conquer algorithms.\nII. Kruskal's algorithm is a divide-and-conquer algorithm.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "Kruskal's algorithm is greedy."
+        },
+        {
+         "question": "Consider the statements:\nI. Strassen's algorithm is asymptotically faster than the ordinary method.\nII. Strassen's algorithm is always faster in practice for small matrices.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "Extra additions and overheads make it slower for small n."
+        },
+        {
+         "question": "Consider the statements:\nI. Divide and conquer usually leads to recursive algorithms.\nII. Their running time is often described by recurrence relations.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Merge sort is a divide-and-conquer algorithm.\nReason (R): It splits the array into halves, sorts them recursively and merges the results.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "Divide, conquer, combine."
+        },
+        {
+         "question": "Assertion (A): Divide and conquer is efficient for computing Fibonacci numbers recursively.\nReason (R): The recursive Fibonacci subproblems overlap heavily.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "Because subproblems overlap, plain recursion is exponential; A is false and R is true."
+        },
+        {
+         "question": "Assertion (A): Binary search takes O(log n) time.\nReason (R): Binary search solves both halves of the array recursively.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Divide and Conquer",
+         "explanation": "A is true; R is false – only one half is searched."
+        },
+        {
+         "question": "Assertion (A): Karatsuba multiplication is faster than school multiplication for large numbers.\nReason (R): The FFT can multiply polynomials in O(n log n).",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Divide and Conquer",
+         "explanation": "Both true, but R does not explain A; A is explained by using 3 instead of 4 half-size multiplications."
+        },
+        {
+         "question": "Match the problem with its divide-and-conquer complexity:\na. Merge sort\nb. Binary search\nc. Strassen multiplication\nd. Karatsuba multiplication\n\n1. Θ(n^2.81)\n2. Θ(log n)\n3. Θ(n log n)\n4. Θ(n^1.585)",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-3, b-1, c-2, d-4",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "D",
+         "subject": "Divide and Conquer",
+         "explanation": "All follow from the master theorem."
+        },
+        {
+         "question": "Match the algorithm with its design technique:\na. Merge sort\nb. Kruskal's MST\nc. Floyd–Warshall\nd. N-Queens\n\n1. Divide and conquer\n2. Dynamic programming\n3. Backtracking\n4. Greedy",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Divide and Conquer",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A common matching question."
+        }
+       ]
+      },
+      {
+       "name": "2 · Greedy Algorithms",
+       "questions": [
+        {
+         "question": "A greedy algorithm:",
+         "options": {
+          "A": "Solves subproblems independently and combines them",
+          "B": "Tries all possible solutions",
+          "C": "Always uses recursion with memoisation",
+          "D": "Makes the locally best choice at each step, hoping to reach a global optimum"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It never reconsiders a choice once made."
+        },
+        {
+         "question": "A greedy algorithm gives an optimal solution when the problem has:",
+         "options": {
+          "A": "No constraints",
+          "B": "Exponentially many solutions",
+          "C": "Overlapping subproblems only",
+          "D": "The greedy-choice property and optimal substructure"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "Both properties are needed for correctness."
+        },
+        {
+         "question": "Fractional knapsack: capacity 50; items (value, weight) = (60, 10), (100, 20), (120, 30). The maximum value is:",
+         "options": {
+          "A": "160",
+          "B": "180",
+          "C": "240",
+          "D": "220"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Ratios 6, 5, 4: take items 1 and 2 (160, weight 30), then 20/30 of item 3 (80). Total 240."
+        },
+        {
+         "question": "For the same items as 0/1 knapsack (capacity 50; (60, 10), (100, 20), (120, 30)), the optimal value is 220. Greedy by value/weight ratio gives:",
+         "options": {
+          "A": "160",
+          "B": "180",
+          "C": "240",
+          "D": "220"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "Greedy takes items 1 and 2 (160) and item 3 no longer fits; the optimum is items 2 and 3. Greedy fails for 0/1 knapsack."
+        },
+        {
+         "question": "The fractional knapsack problem is solved optimally by taking items in decreasing order of:",
+         "options": {
+          "A": "Item number",
+          "B": "Value per unit weight",
+          "C": "Value",
+          "D": "Weight"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "Sorting makes it O(n log n)."
+        },
+        {
+         "question": "In the activity-selection problem, the greedy rule that gives an optimal solution is to pick the activity with the:",
+         "options": {
+          "A": "Earliest finish time",
+          "B": "Earliest start time",
+          "C": "Latest start time only",
+          "D": "Shortest duration"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It leaves the most room for the remaining activities."
+        },
+        {
+         "question": "Activities (start, finish): (1,4), (3,5), (0,6), (5,7), (3,9), (5,9), (6,10), (8,11), (8,12), (2,14), (12,16). The maximum number of non-overlapping activities is:",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "Greedy by finish time picks (1,4), (5,7), (8,11), (12,16)."
+        },
+        {
+         "question": "Jobs (profit, deadline): J1 (100, 2), J2 (19, 1), J3 (27, 2), J4 (25, 1), J5 (15, 3); each job takes one unit of time. The maximum profit is:",
+         "options": {
+          "A": "144",
+          "B": "127",
+          "C": "152",
+          "D": "142"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Take jobs by profit: J1 → slot 2, J3 → slot 1, J4 and J2 have no free slot, J5 → slot 3. 100 + 27 + 15 = 142."
+        },
+        {
+         "question": "Huffman coding builds an optimal prefix code by repeatedly:",
+         "options": {
+          "A": "Assigning equal-length codes",
+          "B": "Merging the two least frequent symbols (trees)",
+          "C": "Sorting symbols alphabetically",
+          "D": "Merging the two most frequent symbols"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A min-priority queue gives O(n log n) time."
+        },
+        {
+         "question": "Frequencies: a 5, b 9, c 12, d 13, e 16, f 45. In the Huffman code, the length of the codeword for f is:",
+         "options": {
+          "A": "1 bit",
+          "B": "3 bits",
+          "C": "4 bits",
+          "D": "2 bits"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "Merges: a + b = 14, c + d = 25, 14 + e = 30, 25 + 30 = 55, then f + 55 = 100, so f hangs directly from the root."
+        },
+        {
+         "question": "With the same frequencies (a 5, b 9, c 12, d 13, e 16, f 45), the codeword for a has length:",
+         "options": {
+          "A": "3 bits",
+          "B": "4 bits",
+          "C": "5 bits",
+          "D": "2 bits"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "a and b merge first (14), then with e (30), then with the c–d subtree (55) → a is at depth 4."
+        },
+        {
+         "question": "A prefix code means that:",
+         "options": {
+          "A": "Every codeword starts with 0",
+          "B": "Codes are assigned alphabetically",
+          "C": "All codewords have the same length",
+          "D": "No codeword is a prefix of another codeword"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "This makes decoding unambiguous without separators."
+        },
+        {
+         "question": "Using coins {1, 3, 4}, greedy change-making for 6 gives 4 + 1 + 1 (3 coins). The optimal number of coins is:",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "3 + 3; greedy is not optimal for every coin system."
+        },
+        {
+         "question": "Optimal merge pattern: files of sizes 20, 30 and 10 are merged two at a time. The minimum total merge cost is:",
+         "options": {
+          "A": "110",
+          "B": "60",
+          "C": "90",
+          "D": "100"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "Merge 10 + 20 = 30 (cost 30), then 30 + 30 = 60 (cost 60): total 90."
+        },
+        {
+         "question": "Kruskal's algorithm runs in:",
+         "options": {
+          "A": "O(V + E) time",
+          "B": "O(E²) time",
+          "C": "O(V³) time",
+          "D": "O(E log E) time"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Sorting the edges dominates; union–find handles cycle checks."
+        },
+        {
+         "question": "Prim's algorithm with a binary heap runs in:",
+         "options": {
+          "A": "O(V³) time",
+          "B": "O(E log V) time",
+          "C": "O(E²) time",
+          "D": "O(log V) time"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "With an adjacency matrix and no heap it is O(V²)."
+        },
+        {
+         "question": "Dijkstra's shortest-path algorithm may give wrong answers when the graph has:",
+         "options": {
+          "A": "Negative edge weights",
+          "B": "Only positive weights",
+          "C": "Cycles with positive weights",
+          "D": "More than 100 vertices"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Bellman–Ford handles negative edges."
+        },
+        {
+         "question": "A minimum spanning tree of a connected graph with n vertices has:",
+         "options": {
+          "A": "n − 1 edges",
+          "B": "n(n − 1)/2 edges",
+          "C": "n edges",
+          "D": "2n − 1 edges"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "Every spanning tree has n − 1 edges."
+        },
+        {
+         "question": "A triangle has edges of weight 1, 2 and 3. The weight of its minimum spanning tree is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "6",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "Take the edges 1 and 2."
+        },
+        {
+         "question": "Which problem is NOT solved optimally by a greedy method in general?",
+         "options": {
+          "A": "Fractional knapsack",
+          "B": "Activity selection",
+          "C": "0/1 knapsack",
+          "D": "Minimum spanning tree"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "0/1 knapsack needs dynamic programming or branch and bound."
+        },
+        {
+         "question": "The main difference between Prim's and Kruskal's algorithms is that:",
+         "options": {
+          "A": "Prim's sorts all edges first",
+          "B": "Prim's grows a single tree from a start vertex, while Kruskal's adds the cheapest edges and may keep a forest",
+          "C": "Kruskal's needs a start vertex",
+          "D": "Prim's handles only directed graphs"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "Both give a minimum spanning tree."
+        },
+        {
+         "question": "Consider the statements:\nI. Greedy algorithms always find optimal solutions.\nII. Dijkstra's algorithm is a greedy algorithm.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "Greedy methods are optimal only for problems with the greedy-choice property."
+        },
+        {
+         "question": "Consider the statements:\nI. Huffman coding is a greedy algorithm.\nII. Huffman codes are prefix codes.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Greedy selection by earliest finish time solves activity selection optimally.\nReason (R): Choosing the earliest finishing activity leaves the maximum time for the remaining activities.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "This exchange argument proves optimality."
+        },
+        {
+         "question": "Assertion (A): Greedy by value/weight ratio is optimal for the 0/1 knapsack problem.\nReason (R): In 0/1 knapsack an item cannot be split.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "Because items cannot be split, the greedy choice can leave capacity unused; A is false."
+        },
+        {
+         "question": "Assertion (A): Kruskal's algorithm uses a disjoint-set structure.\nReason (R): Kruskal's algorithm processes vertices in order of their degree.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Greedy Algorithms",
+         "explanation": "A is true; R is false – it processes edges in order of weight."
+        },
+        {
+         "question": "Assertion (A): Dijkstra's algorithm fails with negative edge weights.\nReason (R): Dijkstra's algorithm was published in 1959.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Greedy Algorithms",
+         "explanation": "Both true, but the date does not explain A; A is explained by finalised vertices never being revisited."
+        },
+        {
+         "question": "Match the greedy algorithm with its problem:\na. Kruskal\nb. Dijkstra\nc. Huffman\nd. Earliest finish time\n\n1. Single-source shortest paths\n2. Activity selection\n3. Optimal prefix codes\n4. Minimum spanning tree",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). All are greedy."
+        },
+        {
+         "question": "Match the algorithm with its time complexity:\na. Kruskal\nb. Prim (binary heap)\nc. Huffman\nd. Fractional knapsack\n\n1. O(E log E)\n2. O(n log n) for n symbols\n3. O(E log V)\n4. O(n log n) for n items",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "A",
+         "subject": "Greedy Algorithms",
+         "explanation": "Sorting or a priority queue dominates each."
+        },
+        {
+         "question": "Greedy change-making with Indian coins and notes (1, 2, 5, 10, 20, 50, 100 …) for ₹88 uses how many pieces?",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Greedy Algorithms",
+         "explanation": "50 + 20 + 10 + 5 + 2 + 1 = 88; greedy is optimal for this currency system."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Design Techniques – DP, Backtracking, Branch & Bound",
+     "sets": [
+      {
+       "name": "1 · Dynamic Programming",
+       "questions": [
+        {
+         "question": "A problem is suitable for dynamic programming when it has:",
+         "options": {
+          "A": "Optimal substructure and overlapping subproblems",
+          "B": "Only independent subproblems",
+          "C": "The greedy-choice property only",
+          "D": "No recursive structure"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Solutions to repeated subproblems are stored and reused."
+        },
+        {
+         "question": "Memoisation is:",
+         "options": {
+          "A": "A greedy technique",
+          "B": "Top-down DP: recursion that stores results of subproblems in a table",
+          "C": "Bottom-up filling of a table",
+          "D": "A sorting method"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "Tabulation is the bottom-up form."
+        },
+        {
+         "question": "The 'principle of optimality', the basis of dynamic programming, was stated by:",
+         "options": {
+          "A": "Alan Turing",
+          "B": "Edsger Dijkstra",
+          "C": "Donald Knuth",
+          "D": "Richard Bellman"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). An optimal policy has optimal sub-policies."
+        },
+        {
+         "question": "Computing the n-th Fibonacci number with dynamic programming takes:",
+         "options": {
+          "A": "O(n²) time",
+          "B": "O(2ⁿ) time",
+          "C": "O(log n) time",
+          "D": "O(n) time"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "Each value is computed once from the previous two."
+        },
+        {
+         "question": "The DP solution of the 0/1 knapsack problem with n items and capacity W runs in:",
+         "options": {
+          "A": "O(n) time",
+          "B": "O(nW) time – pseudo-polynomial",
+          "C": "O(n log n) time",
+          "D": "O(2ⁿ) time always"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is polynomial in the numeric value W, not in the number of bits of W."
+        },
+        {
+         "question": "0/1 knapsack: capacity 5; items (weight, value) = (2, 3), (3, 4), (4, 5), (5, 6). The maximum value is:",
+         "options": {
+          "A": "8",
+          "B": "6",
+          "C": "7",
+          "D": "9"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "Items 1 and 2: weight 5, value 7."
+        },
+        {
+         "question": "The length of the longest common subsequence of 'ABCBDAB' and 'BDCABA' is:",
+         "options": {
+          "A": "3",
+          "B": "5",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). For example 'BCBA' (CLRS example)."
+        },
+        {
+         "question": "The DP algorithm for LCS of strings of lengths m and n takes:",
+         "options": {
+          "A": "O(mn) time",
+          "B": "O(m log n) time",
+          "C": "O(m + n) time",
+          "D": "O(2^(m+n)) time"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "It fills an (m + 1) × (n + 1) table."
+        },
+        {
+         "question": "Matrices A₁ (10 × 100), A₂ (100 × 5), A₃ (5 × 50). The minimum number of scalar multiplications to compute A₁A₂A₃ is:",
+         "options": {
+          "A": "75,000",
+          "B": "7,500",
+          "C": "5,000",
+          "D": "25,000"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). (A₁A₂)A₃ = 10·100·5 + 10·5·50 = 5,000 + 2,500 = 7,500; A₁(A₂A₃) = 75,000."
+        },
+        {
+         "question": "The number of ways to fully parenthesise a product of 4 matrices is:",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "The Catalan number C₃ = 5."
+        },
+        {
+         "question": "The matrix-chain multiplication DP algorithm for n matrices runs in:",
+         "options": {
+          "A": "O(n³) time",
+          "B": "O(n log n) time",
+          "C": "O(n²) time",
+          "D": "O(2ⁿ) time"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "O(n²) subproblems, each trying O(n) split points."
+        },
+        {
+         "question": "The Floyd–Warshall algorithm finds all-pairs shortest paths in:",
+         "options": {
+          "A": "Θ(E log V) time",
+          "B": "Θ(V²) time",
+          "C": "Θ(V + E) time",
+          "D": "Θ(V³) time"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is a DP over allowed intermediate vertices."
+        },
+        {
+         "question": "The Bellman–Ford algorithm runs in O(VE) time and, unlike Dijkstra's algorithm, can:",
+         "options": {
+          "A": "Run in O(V) time",
+          "B": "Handle negative edge weights and detect negative cycles",
+          "C": "Work only on trees",
+          "D": "Handle only unweighted graphs"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "It relaxes all edges V − 1 times."
+        },
+        {
+         "question": "The edit (Levenshtein) distance between 'kitten' and 'sitting' is:",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "k→s, e→i, insert g."
+        },
+        {
+         "question": "How many ways can the amount 4 be made from coins {1, 2, 3} (order does not matter)?",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "5",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "1+1+1+1, 1+1+2, 2+2, 1+3."
+        },
+        {
+         "question": "The length of the longest increasing subsequence of [10, 9, 2, 5, 3, 7, 101, 18] is:",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "For example 2, 3, 7, 18."
+        },
+        {
+         "question": "Rod cutting: prices for lengths 1, 2, 3, 4 are 1, 5, 8, 9. The best revenue for a rod of length 4 is:",
+         "options": {
+          "A": "11",
+          "B": "9",
+          "C": "10",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "Cut into 2 + 2: 5 + 5 = 10 (CLRS example)."
+        },
+        {
+         "question": "The Held–Karp dynamic-programming algorithm for the travelling salesman problem takes:",
+         "options": {
+          "A": "O(n!) time",
+          "B": "O(n² 2ⁿ) time",
+          "C": "O(n³) time",
+          "D": "O(n log n) time"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "Much better than n!, but still exponential."
+        },
+        {
+         "question": "The optimal binary search tree problem for n keys is solved by DP in:",
+         "options": {
+          "A": "O(n³) time (O(n²) with Knuth's improvement)",
+          "B": "O(n) time",
+          "C": "O(2ⁿ) time only",
+          "D": "O(log n) time"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "It minimises the expected search cost."
+        },
+        {
+         "question": "Computing C(5, 2) with Pascal's rule C(n, k) = C(n − 1, k − 1) + C(n − 1, k) gives:",
+         "options": {
+          "A": "20",
+          "B": "15",
+          "C": "5",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "A classic small DP table."
+        },
+        {
+         "question": "A multistage graph shortest-path problem is typically solved using:",
+         "options": {
+          "A": "Backtracking only",
+          "B": "Hashing",
+          "C": "Dynamic programming (forward or backward approach)",
+          "D": "Binary search"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "Horowitz–Sahni treat it as a DP example."
+        },
+        {
+         "question": "Consider the statements:\nI. Dynamic programming stores solutions of subproblems to avoid recomputation.\nII. Dynamic programming always uses less memory than plain recursion.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "DP usually trades extra memory (the table) for time."
+        },
+        {
+         "question": "Consider the statements:\nI. Floyd–Warshall is a dynamic-programming algorithm.\nII. Bellman–Ford is a dynamic-programming algorithm.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "Both build solutions from smaller subproblems."
+        },
+        {
+         "question": "Assertion (A): DP computes the n-th Fibonacci number in linear time.\nReason (R): Each subproblem is solved once and its result reused.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "Plain recursion recomputes subproblems exponentially many times."
+        },
+        {
+         "question": "Assertion (A): The 0/1 knapsack DP algorithm runs in polynomial time in the input size.\nReason (R): Its running time is O(nW).",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Dynamic Programming",
+         "explanation": "O(nW) is exponential in the number of bits of W – pseudo-polynomial; A is false."
+        },
+        {
+         "question": "Assertion (A): Matrix-chain order affects the number of multiplications.\nReason (R): Matrix multiplication is commutative.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Dynamic Programming",
+         "explanation": "A is true; R is false – matrix multiplication is associative but not commutative."
+        },
+        {
+         "question": "Assertion (A): LCS can be solved using dynamic programming.\nReason (R): LCS is used in the Unix diff utility.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "Both true, but the use in diff does not explain why DP applies."
+        },
+        {
+         "question": "Match the problem with its DP time complexity:\na. LCS (lengths m, n)\nb. 0/1 knapsack\nc. Matrix chain\nd. Floyd–Warshall\n\n1. O(V³)\n2. O(nW)\n3. O(n³)\n4. O(mn)",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-4, b-2, c-1, d-3",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Standard DP complexities."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Memoisation\nb. Tabulation\nc. Optimal substructure\nd. Overlapping subproblems\n\n1. Bottom-up table filling\n2. Top-down with caching\n3. The same subproblems recur many times\n4. An optimal solution contains optimal solutions to subproblems",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "A",
+         "subject": "Dynamic Programming",
+         "explanation": "Core DP vocabulary."
+        },
+        {
+         "question": "Subset sum (is there a subset of n numbers adding to S?) can be solved by DP in:",
+         "options": {
+          "A": "O(S) time",
+          "B": "O(nS) time",
+          "C": "O(n log n) time",
+          "D": "O(n) time"
+         },
+         "answer": "B",
+         "subject": "Dynamic Programming",
+         "explanation": "Also pseudo-polynomial; the problem is NP-complete."
+        }
+       ]
+      },
+      {
+       "name": "2 · Backtracking and Branch and Bound",
+       "questions": [
+        {
+         "question": "Backtracking builds a solution step by step and:",
+         "options": {
+          "A": "Solves subproblems bottom-up",
+          "B": "Always tries every complete solution without pruning",
+          "C": "Uses only greedy choices",
+          "D": "Abandons a partial solution as soon as it cannot lead to a valid solution"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Abandoning hopeless branches is called pruning."
+        },
+        {
+         "question": "The tree of all choices explored by backtracking is called the:",
+         "options": {
+          "A": "B-tree",
+          "B": "Heap",
+          "C": "State-space tree",
+          "D": "Parse tree"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Each node is a partial solution."
+        },
+        {
+         "question": "Backtracking explores the state-space tree in:",
+         "options": {
+          "A": "Random order",
+          "B": "Order of increasing cost only",
+          "C": "Breadth-first order only",
+          "D": "Depth-first order"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Branch and bound commonly uses BFS or least-cost order."
+        },
+        {
+         "question": "How many distinct solutions does the 4-Queens problem have?",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "1",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). The two solutions are mirror images."
+        },
+        {
+         "question": "How many distinct solutions does the 8-Queens problem have?",
+         "options": {
+          "A": "64",
+          "B": "92",
+          "C": "12",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 12 of them are fundamentally different up to rotation and reflection."
+        },
+        {
+         "question": "In the N-Queens problem, queens at (i, j) and (k, l) are on the same diagonal if:",
+         "options": {
+          "A": "j = l",
+          "B": "i = k",
+          "C": "|i − k| = |j − l|",
+          "D": "i + j = k − l"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Rows and columns are checked separately."
+        },
+        {
+         "question": "Sum of subsets: from {3, 5, 6, 7}, which subset has sum exactly 15?",
+         "options": {
+          "A": "{3, 6, 7}",
+          "B": "{3, 5, 6}",
+          "C": "{5, 6, 7}",
+          "D": "{3, 5, 7}"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "3 + 5 + 7 = 15."
+        },
+        {
+         "question": "In the state-space tree of the subset problem with n items (include/exclude each), the number of leaves is:",
+         "options": {
+          "A": "n!",
+          "B": "2ⁿ",
+          "C": "n",
+          "D": "n²"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Each item doubles the number of paths."
+        },
+        {
+         "question": "For n = 4 items, the complete include/exclude state-space tree has how many leaves?",
+         "options": {
+          "A": "16",
+          "B": "4",
+          "C": "8",
+          "D": "24"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "2⁴ = 16."
+        },
+        {
+         "question": "The graph m-colouring problem asks whether:",
+         "options": {
+          "A": "The graph is a tree",
+          "B": "A path visits every edge once",
+          "C": "The vertices can be coloured with at most m colours so that adjacent vertices differ",
+          "D": "The edges can be sorted by weight"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). It is solved by backtracking; the least such m is the chromatic number."
+        },
+        {
+         "question": "The minimum number of colours needed for the complete graph K₄ is:",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Every pair of vertices is adjacent."
+        },
+        {
+         "question": "Which problem is typically solved with backtracking?",
+         "options": {
+          "A": "Computing a hash value",
+          "B": "Finding a minimum spanning tree",
+          "C": "Sorting an array",
+          "D": "Finding a Hamiltonian cycle"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Paths are extended vertex by vertex and abandoned at dead ends."
+        },
+        {
+         "question": "Branch and bound is used mainly for:",
+         "options": {
+          "A": "Optimisation problems, pruning nodes whose bound is no better than the best solution found",
+          "B": "Sorting problems",
+          "C": "Only decision problems with no costs",
+          "D": "Hashing"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 0/1 knapsack, TSP and job assignment are classic examples."
+        },
+        {
+         "question": "In branch and bound, the node currently being expanded is called the:",
+         "options": {
+          "A": "Dead node",
+          "B": "E-node",
+          "C": "Answer node only",
+          "D": "Leaf node"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Live nodes are waiting to be expanded; dead nodes are pruned or fully expanded."
+        },
+        {
+         "question": "FIFO branch and bound keeps live nodes in a:",
+         "options": {
+          "A": "Stack",
+          "B": "Binary search tree",
+          "C": "Queue",
+          "D": "Hash table"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "LIFO branch and bound uses a stack."
+        },
+        {
+         "question": "Least-cost (LC) branch and bound selects the next E-node using:",
+         "options": {
+          "A": "An estimated cost function ĉ (the most promising node first)",
+          "B": "Random choice",
+          "C": "Alphabetical order",
+          "D": "The order of creation only"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "A priority queue holds the live nodes."
+        },
+        {
+         "question": "In branch and bound for the travelling salesman problem, a common lower bound comes from:",
+         "options": {
+          "A": "Hashing the tour",
+          "B": "Counting the edges",
+          "C": "Sorting the cities by name",
+          "D": "Reducing the cost matrix (subtracting row and column minima)"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "The total reduction is a lower bound on any tour."
+        },
+        {
+         "question": "A bounding function in backtracking is used to:",
+         "options": {
+          "A": "Sort the input",
+          "B": "Kill nodes that cannot lead to a feasible or better solution",
+          "C": "Allocate memory",
+          "D": "Print the solutions"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Good bounds greatly reduce the search."
+        },
+        {
+         "question": "The worst-case time of backtracking algorithms is usually:",
+         "options": {
+          "A": "O(1)",
+          "B": "Always O(n log n)",
+          "C": "Exponential, although pruning often makes them fast in practice",
+          "D": "Always O(n)"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "The state-space tree can be exponentially large."
+        },
+        {
+         "question": "A typical example of backtracking in everyday puzzles is solving a:",
+         "options": {
+          "A": "Binary search",
+          "B": "Queue simulation",
+          "C": "Bubble sort",
+          "D": "Sudoku"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Fill a cell, and undo it when a conflict arises."
+        },
+        {
+         "question": "Placing one queen per row, a brute-force 8-Queens search that also keeps one queen per column checks at most:",
+         "options": {
+          "A": "8⁸ arrangements",
+          "B": "8! = 40,320 arrangements",
+          "C": "64 arrangements",
+          "D": "92 arrangements"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Backtracking prunes far more than this."
+        },
+        {
+         "question": "Consider the statements:\nI. Backtracking uses depth-first search of the state-space tree.\nII. Branch and bound can use breadth-first or least-cost search.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. Backtracking always runs in polynomial time.\nII. The 8-Queens problem can be solved by backtracking.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Backtracking is exponential in the worst case."
+        },
+        {
+         "question": "Assertion (A): Pruning makes backtracking faster than exhaustive search.\nReason (R): Pruned subtrees are never explored.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Whole subtrees of hopeless candidates are skipped."
+        },
+        {
+         "question": "Assertion (A): Branch and bound is mainly used for finding all solutions of a decision problem.\nReason (R): Branch and bound uses bounds on the objective value to prune nodes.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Because it uses objective bounds, it is mainly for optimisation problems; A is false."
+        },
+        {
+         "question": "Assertion (A): The 4-Queens problem has two solutions.\nReason (R): Two queens attack each other only if they are in the same row.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "A is true; R is false – queens also attack along columns and diagonals."
+        },
+        {
+         "question": "Assertion (A): Sudoku can be solved by backtracking.\nReason (R): Sudoku was popularised in Japan.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Live node\nb. E-node\nc. Dead node\nd. Bounding function\n\n1. Generated node whose children are not all generated\n2. Used to kill nodes\n3. Node not to be expanded further\n4. Node being expanded now",
+         "options": {
+          "A": "a-1, b-4, c-3, d-2",
+          "B": "a-1, b-4, c-2, d-3",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). Horowitz–Sahni terminology."
+        },
+        {
+         "question": "Match the problem with the usual technique:\na. N-Queens\nb. TSP with a lower bound\nc. Matrix-chain order\nd. Activity selection\n\n1. Dynamic programming\n2. Greedy\n3. Branch and bound\n4. Backtracking",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-3, b-4, c-1, d-2"
+         },
+         "answer": "B",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "Recognising the technique is a frequent exam question."
+        },
+        {
+         "question": "A rat-in-a-maze problem, where the rat retreats from dead ends and tries another path, is solved by:",
+         "options": {
+          "A": "Radix sort",
+          "B": "Hashing",
+          "C": "Backtracking",
+          "D": "Greedy MST"
+         },
+         "answer": "C",
+         "subject": "Backtracking and Branch and Bound",
+         "explanation": "It explores one path deeply and undoes moves on failure."
         }
        ]
       }

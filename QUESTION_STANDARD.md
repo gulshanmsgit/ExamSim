@@ -49,6 +49,11 @@ Every set, both papers:
   and I/II answers must not all be "Only I". No letter above 40% of a set.
 - **Four distinct, plausible options.** Distractors are real mistakes (common misconception, wrong formula, off-by-one), never joke options.
   Use "All of the above" / "None of the above" at most twice per set.
+- **Previous-year pattern (PYQ) questions: about 20–30% of every set** (≥ 5 of 20, ≥ 7 of 30 where the topic has them). These are the
+  classic questions that recur in KPSC / KEA (GPSTR, KARTET, FDA/SDA) / SSC papers for Paper 1 and UGC-NET CS / GATE / KEA papers
+  for Paper 2 (standard facts, named theorists, textbook numericals). Mark each by starting its explanation with
+  `PYQ pattern (<exams>). ` via a `PYQ` constant in the module. Never claim a specific paper or year ("KPSC 2019") unless it was
+  verified from an official or credible source, and never copy a question from a copyrighted guide word for word – write it fresh.
 - **Explanation for every question**: 1–3 sentences saying why the answer is right (and for numericals, the worked steps).
 - **Accuracy first.** If unsure about a fact, write a different question. No questions on things that differ between textbooks
   unless the question names the convention (e.g. "according to Morris Mano…").

@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v19; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v20; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -68,15 +68,15 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
 | P2 Unit 2 – Discrete Structures (9 topics, 29 sub-topics, 870 Q) | done |
 | P2 Unit 5 – DBMS: only topic "DBMS Concepts and Architecture" (6 sub-topics, 180 Q) | partial — 9 more topics to do |
 | P2 Unit 4 – Programming Languages & Web: all 9 topics (27 sets, 810 Q) → `packs/p2-u4.json` (modules p2u4_a…e) | done |
-| P2 Unit 8 – Data Structures: U8-01 Linear DS, U8-02 Trees, U8-03 Sets & Graph Representation, U8-04 Sorting and Searching (12 sets, 360 Q) → `packs/p2-u8.json` (p2u8_a/b/c) | partial (U8-05…08 next) |
+| P2 Unit 8 – Data Structures: U8-01…U8-08 (Linear DS, Trees, Sets & Graph Representation, Sorting & Searching, Hashing, Performance Analysis & Recurrences, D&C/Greedy, DP/Backtracking/B&B) (20 sets, 600 Q) → `packs/p2-u8.json` (p2u8_a…e) | partial (U8-09 Graph Algorithms, U8-10 Complexity Theory left) |
 | P2 Units 3, 6, 7, 8, 9, 10 | **not started** |
 | P1 General Kannada (ಸಾಮಾನ್ಯ ಕನ್ನಡ) | built by a parallel session: `tools/p1_kan_a…d.py` + `tools/pack_p1_kannada.py` → `packs/p1-kannada-complete.json` (17 topics, 18 sets × 20 = 360 Q), listed in `packs/index.json`.  + `packs/p1-kannada-mocks.json` (10 mocks × 20 Q, topic "Mock tests"). |
-| P1 Days 1–8 topics: PSY-01…04, GK-01/02/03, CL-01/02/03, ENG-01/02/03, HE-01/02, VE-01/02 (35 sets × 20 = 700 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–8 fully covered, except current affairs by design) |
+| P1 Days 1–9 topics: PSY-01…06, GK-01…04, CL-01/02/03, ENG-01/02/03, HE-01/02, VE-01/02 (41 sets × 20 = 820 Q) → `packs/p1-psy/gk/cl/eng/he/ve.json` | done (Days 1–9 fully covered, except current affairs by design) |
 | Other Paper 1 topics | only the Days 1–2 sample |
 
 ### Next steps (owner's current request)
 Questions are now generated **by study-plan day, in calendar order** (QUESTION_STANDARD.md §6: `Generate: next` / `Generate: day …`).
-Days 1–8 are complete (Day 3 needed nothing new). Next: **Day 9** (U8-05 Hashing, U8-06 Performance Analysis & Recurrences, U8-07 Divide & Conquer / Greedy, U8-08 DP / Backtracking / Branch & Bound, GK-04 Health and Hygiene, PSY-05 Adolescence, PSY-06 Individual Differences). For each topic, fill `tools/syllabus_map.json` from the syllabus PDF, write the content
+Days 1–9 are complete (Day 3 needed nothing new). Next: **Day 10** – read its tasks from the plan calendar. From Day 9 on, every set carries ~20–30% previous-year-pattern questions marked `PYQ pattern (…)` in the explanation (QUESTION_STANDARD.md §3, owner's request 29 Sep 2026). For each topic, fill `tools/syllabus_map.json` from the syllabus PDF, write the content
 module, add it to `PACKS` in `tools/build_subject.py`, build, run `tools/check_packs.py`, test "Import questions for this day" in the
 browser (demo mode), bump the sw cache, commit and tell the owner to push. Merging closely related sub-topics into one set is fine (owner's OK).
 
