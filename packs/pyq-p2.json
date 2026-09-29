@@ -1,12 +1,1181 @@
 {
  "examsimPack": 1,
  "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)",
- "description": "Real questions from past KEA / KSET papers (90 so far): KSET 2024 – Computer Science & Application. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
+ "description": "Real questions from past KEA / KSET papers (178 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
  "subjects": [
   {
    "name": "P2 · Previous-Year Papers (KEA/KSET)",
    "icon": "📜",
    "topics": [
+    {
+     "name": "KSET 2023 – Computer Science & Application",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Read the code and predict the value of x.\n#include <stdio.h>\nint main()\n{\n  int x;\n  x = 5 > 8 ? 10 : 1 != 2 < 5 ? 20 : 30;\n  printf(\"%d\", x);\n  return 0;\n}",
+         "options": {
+          "A": "20",
+          "B": "30",
+          "C": "8",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "5 > 8 is false, so the second conditional is evaluated. < binds tighter than !=, so 2 < 5 = 1 and 1 != 1 = 0 (false) → x = 30. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q2"
+        },
+        {
+         "question": "What is the output of the following C code?\nint main()\n{\n  int ary[] = {1, 3, 5};\n  printf(\"%d %d\", ary[-1], ary[4]);\n  return 0;\n}",
+         "options": {
+          "A": "1 5",
+          "B": "0 0",
+          "C": "Compile error",
+          "D": "Garbage value"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "C does no bounds checking: ary[-1] and ary[4] read memory outside the array (undefined behaviour), so unpredictable 'garbage' values are printed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q3"
+        },
+        {
+         "question": "Predict the output of the following C++ code.\n#include <iostream>\nusing namespace std;\ntemplate <typename T>\nT max(T &p, T &q)\n{\n  return (p > q ? p : q);\n}\nint main()\n{\n  int x = 55, y = 60, m;\n  long a = 105, b = 53, n;\n  m = max(x, y);\n  n = max(a, b);\n  cout << m << endl;\n  cout << n << endl;\n  return 0;\n}",
+         "options": {
+          "A": "60 60",
+          "B": "60 105",
+          "C": "50 105",
+          "D": "60 53"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "The template is instantiated for int (max(55, 60) = 60) and for long (max(105, 53) = 105). (With some compilers the call can clash with std::max; the intended answer is 60 and 105.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q4"
+        },
+        {
+         "question": "Which of the following can be considered as the correct syntax for declaring an array of pointers of integers that has a size of 20 in C++?",
+         "options": {
+          "A": "int arr = new int[20];",
+          "B": "int *arr = new int *[20];",
+          "C": "int **arr = new int *[20];",
+          "D": "int *arr = new int[20];"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "new int*[20] allocates 20 int pointers and returns int**. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q5"
+        },
+        {
+         "question": "Which of the following tag is used for inserting the largest heading in HTML?",
+         "options": {
+          "A": "<h3>",
+          "B": "<h1>",
+          "C": "<h5>",
+          "D": "<h6>"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "<h1> is the largest heading level; <h6> is the smallest. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q6"
+        },
+        {
+         "question": "Which is not a method in the life-cycle of Java servlet?",
+         "options": {
+          "A": "init()",
+          "B": "call()",
+          "C": "service()",
+          "D": "destroy()"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "A servlet's life cycle is init() → service() (for each request) → destroy(). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q7"
+        },
+        {
+         "question": "In true color RGB, the number of bits for color depth is",
+         "options": {
+          "A": "32",
+          "B": "24",
+          "C": "56",
+          "D": "18"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "True colour uses 8 bits for each of R, G and B = 24 bits (about 16.7 million colours). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q10"
+        },
+        {
+         "question": "____ translates the DML statements embedded in an application program to normal procedure calls in the host language.",
+         "options": {
+          "A": "DDL Compiler",
+          "B": "DML Pre-compiler",
+          "C": "DML Compiler",
+          "D": "DDL Interpreter"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "The DML pre-compiler converts embedded DML into host-language procedure calls (Silberschatz / Navathe). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q11"
+        },
+        {
+         "question": "Identify the correctness of the following statements:\nI. The aggregate functions like sum, count, etc., can be performed with the basic relational algebraic operations of relational calculus formulas.\nII. Relational calculus is a formal query language where the queries are expressed as variables and formulas on these variables.\nIII. The queries in the relational algebra are procedural.",
+         "options": {
+          "A": "I is correct; II and III are incorrect",
+          "B": "I is incorrect; II and III are correct",
+          "C": "I and II are correct; III is incorrect",
+          "D": "I and II are incorrect; III is correct"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Aggregates are an extension beyond basic relational algebra/calculus; calculus is declarative with variables and formulas; algebra is procedural. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q12"
+        },
+        {
+         "question": "Which one of the following statements is false?",
+         "options": {
+          "A": "Triggers prevent invalid transactions",
+          "B": "Triggers does not provide transparent event logging",
+          "C": "Triggers provide transparent event logging",
+          "D": "Triggers provide complex security authorization"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Triggers are used to enforce complex security, prevent invalid transactions and log events transparently. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q13"
+        },
+        {
+         "question": "Which one of the following is not a desirable property of transaction?",
+         "options": {
+          "A": "Atomicity",
+          "B": "Consistency",
+          "C": "Durability",
+          "D": "Normalization"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "The ACID properties are Atomicity, Consistency, Isolation and Durability; normalization is a schema-design process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q14"
+        },
+        {
+         "question": "Identify the correctness of the statements:\nI. Object-Relational Databases are schema-less\nII. Object-Relational Databases store objects as rows in tables\nIII. Object-Relational Databases make use of pessimistic and optimistic locking",
+         "options": {
+          "A": "I is correct; II and III are incorrect",
+          "B": "I is incorrect; II and III are correct",
+          "C": "I and II are correct; III is incorrect",
+          "D": "I and II are incorrect; III is correct"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "ORDBs keep a relational schema (not schema-less), store objects as rows, and use the usual concurrency-control methods. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q15"
+        },
+        {
+         "question": "A clustering index is defined on the fields which are of the type:",
+         "options": {
+          "A": "Non-key and ordering",
+          "B": "Non-key and non-ordering",
+          "C": "Key and ordering",
+          "D": "Key and non-ordering"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "A clustering index is on a non-key field by which the file is physically ordered; a primary index is on an ordering key field. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q16"
+        },
+        {
+         "question": "The system of data warehousing is mostly used for:",
+         "options": {
+          "A": "Data mining and data storage",
+          "B": "Data integration and data storage",
+          "C": "Reporting and data analysis",
+          "D": "Data cleaning and data storage"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "A data warehouse is designed for querying, reporting and analysis (OLAP) rather than transaction processing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q17"
+        },
+        {
+         "question": "The process of data scrubbing deals with the process to:",
+         "options": {
+          "A": "Upgrade the quality of data after it is moved into a data warehouse.",
+          "B": "Reject data from the data warehouse and to create the necessary indexes.",
+          "C": "Load data into data warehouse and to create necessary indexes.",
+          "D": "Clean and upgrade the quality of data, before it is moved into a data warehouse."
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Scrubbing (cleansing) fixes errors and inconsistencies before loading into the warehouse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q18"
+        },
+        {
+         "question": "Which of the following statement(s) is/are true?\nI. Facebook has the world's largest Hadoop cluster\nII. Hadoop 2.0 allows live stream processing of real-time data.",
+         "options": {
+          "A": "I only",
+          "B": "II only",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Both are standard textbook statements: Facebook ran the largest Hadoop cluster, and Hadoop 2.0 (YARN) supports stream-processing engines alongside MapReduce. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q19"
+        },
+        {
+         "question": "Which of the following is a NoSQL type?",
+         "options": {
+          "A": "SQL",
+          "B": "JSON",
+          "C": "Document database",
+          "D": "Image database"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "NoSQL types: document, key-value, column-family and graph databases. JSON is a data format. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q20"
+        },
+        {
+         "question": "____ translates the high-level language program into machine language.",
+         "options": {
+          "A": "Assembler",
+          "B": "Compiler",
+          "C": "Loader",
+          "D": "Linker"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "A compiler translates high-level source code; an assembler translates assembly language. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q21"
+        },
+        {
+         "question": "____ is invoked when there is a need to perform process scheduling, that is when a process from the ready queue is to be selected for dispatching to the CPU.",
+         "options": {
+          "A": "Long-Term Scheduler",
+          "B": "Medium-Term Scheduler",
+          "C": "Short-Term Scheduler",
+          "D": "Non-preemptive Scheduler"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "The short-term (CPU) scheduler picks the next ready process for the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q22"
+        },
+        {
+         "question": "A thread is a",
+         "options": {
+          "A": "Task",
+          "B": "Process",
+          "C": "Lightweight process",
+          "D": "Program"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "A thread shares its process's code, data and files but has its own registers and stack – a lightweight process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q23"
+        },
+        {
+         "question": "Which one of the following is not a deadlock recovery method?",
+         "options": {
+          "A": "Resource preemption",
+          "B": "Abort the process",
+          "C": "Hold and wait",
+          "D": "Rollback"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Hold and wait is one of the four necessary conditions for deadlock, not a recovery method. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q24"
+        },
+        {
+         "question": "____ helps to control memory wastage occurring in dynamic partitioning.",
+         "options": {
+          "A": "Fragmentation",
+          "B": "Compaction",
+          "C": "Garbage collection",
+          "D": "Segmentation"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Compaction shuffles memory contents to merge scattered free holes (external fragmentation) into one block. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "RAID level 4 provides:",
+         "options": {
+          "A": "Disk mirroring",
+          "B": "Memory style error-correcting code organization",
+          "C": "Block-interleaved parity organization",
+          "D": "Bit-interleaved parity organization"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "RAID 1 = mirroring, RAID 2 = memory-style ECC, RAID 3 = bit-interleaved parity, RAID 4 = block-interleaved parity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q26"
+        },
+        {
+         "question": "____ is a general model of protection that provides a mechanism for protection without imposing a particular protection policy on the system or its users.",
+         "options": {
+          "A": "Global table",
+          "B": "Capability list",
+          "C": "Lock-key mechanism",
+          "D": "Access matrix"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Silberschatz: the access matrix separates mechanism from policy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q27"
+        },
+        {
+         "question": "____ is built into the software by the original programmer in order to gain access to any system without going through the usual security access procedure.",
+         "options": {
+          "A": "Trojan Horse",
+          "B": "Logic Bomb",
+          "C": "Trap Door",
+          "D": "Worm"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "A trap door (back door) is a hidden entry point left by the programmer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q28"
+        },
+        {
+         "question": "A ____ acts as a lightweight operating system that runs natively on the hardware and manages guest operating systems.",
+         "options": {
+          "A": "Type 0 Hypervisor",
+          "B": "Type 1 Hypervisor",
+          "C": "Type 2 Hypervisor",
+          "D": "Emulator"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Type 1 hypervisors are special-purpose OSs running on bare hardware; type 0 is firmware-based and type 2 runs on a host OS. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q29"
+        },
+        {
+         "question": "In a communication network, if a path from Site A to Site B is fixed for the duration of one session, the routing scheme adopted is called ____.",
+         "options": {
+          "A": "Fixed routing",
+          "B": "Virtual routing",
+          "C": "Dynamic routing",
+          "D": "Static routing"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Virtual routing fixes the path for one session; fixed routing always uses the same path; dynamic routing chooses per message. (Official answer: KEA revised key, 28 Mar 2024.)",
+         "source": "KSET 2023 CS&A · Q30"
+        },
+        {
+         "question": "In the software generic process model, ____ executes the activities in a circular manner.",
+         "options": {
+          "A": "Linear Process Flow",
+          "B": "Iterative Process Flow",
+          "C": "Evolutionary Process Flow",
+          "D": "Parallel Process Flow"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Pressman: an evolutionary process flow executes the activities in a circular manner; an iterative flow repeats activities before moving on. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q31"
+        },
+        {
+         "question": "____ defines a problem associated with a framework activity for the process.",
+         "options": {
+          "A": "Stage Pattern",
+          "B": "Task Pattern",
+          "C": "Phase Pattern",
+          "D": "Pattern Name"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Pressman: a stage pattern relates to a framework activity; a task pattern to a software engineering action; a phase pattern to the sequence of activities. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q32"
+        },
+        {
+         "question": "____ depicts the information domain for the problem.",
+         "options": {
+          "A": "Scenario-based Models",
+          "B": "Flow-Oriented Models",
+          "C": "Class-Oriented Models",
+          "D": "Data Models"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Pressman: data models depict the information domain for the problem. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q33"
+        },
+        {
+         "question": "____ architectural design model addresses the behavioural aspects of the program architecture, indicating how the structure or system configuration may change as a function of external events.",
+         "options": {
+          "A": "Dynamic",
+          "B": "Framework",
+          "C": "Process",
+          "D": "Functional"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Pressman lists structural, framework, dynamic, process and functional architectural models; dynamic models address behaviour. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q34"
+        },
+        {
+         "question": "____ is an indication of the relative functional strength of a module.",
+         "options": {
+          "A": "Coupling",
+          "B": "Refinement",
+          "C": "Aspects",
+          "D": "Cohesion"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Cohesion measures a module's functional strength; coupling measures interdependence between modules. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q35"
+        },
+        {
+         "question": "The extent to which a program can be expected to perform its intended function with the required precision. This definition belongs to ____ software quality factor.",
+         "options": {
+          "A": "Correctness",
+          "B": "Reliability",
+          "C": "Integrity",
+          "D": "Usability"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "McCall: reliability is performing the intended function with required precision; correctness is satisfying the specification. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q36"
+        },
+        {
+         "question": "The ____ is a dynamic multivariable model that assumes a specific distribution of effort over the life of a software development project.",
+         "options": {
+          "A": "COCOMO",
+          "B": "LOC",
+          "C": "Software Equation",
+          "D": "FP"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Putnam's software equation is the dynamic multivariable model described in Pressman. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q37"
+        },
+        {
+         "question": "____ is not related to Black-box Testing.",
+         "options": {
+          "A": "Equivalence Partitioning",
+          "B": "Boundary Value Analysis",
+          "C": "Orthogonal Array Testing",
+          "D": "Condition Testing"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Condition testing exercises the logical conditions in the code – a white-box technique. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q38"
+        },
+        {
+         "question": "The ____ is conducted at the developer's site by a representative group of end users.",
+         "options": {
+          "A": "Alpha Testing",
+          "B": "Beta Testing",
+          "C": "Configuration Review",
+          "D": "Recovery Testing"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Alpha tests happen at the developer's site; beta tests at the users' sites. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q39"
+        },
+        {
+         "question": "____ combines procedures and tools to manage different versions of configuration objects that are created during the software process.",
+         "options": {
+          "A": "Change Control",
+          "B": "Version Control",
+          "C": "Audit Trail",
+          "D": "Configuration Audit"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Pressman's definition of version control. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q40"
+        },
+        {
+         "question": "Which one of the following statements is true in the context of sparse array?",
+         "options": {
+          "A": "The matrices having regular non-zero elements are called unstructured non-zero region matrices.",
+          "B": "Addition of two sparse matrices is possible even if the order of the two matrices are unequal.",
+          "C": "Diagonal matrix and tridiagonal matrix are examples of structured non-zero region matrices.",
+          "D": "Non-zero entries that can occur only on the diagonal or on elements immediately above or below the diagonal is called triangular matrix."
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Diagonal and tridiagonal matrices have a fixed pattern of non-zero positions; option 4 describes a tridiagonal matrix, and matrices of unequal order cannot be added. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q41"
+        },
+        {
+         "question": "The maximum number of nodes of binary tree at level \"i\" is ____.",
+         "options": {
+          "A": "2^(i+2)",
+          "B": "2^(i+1)",
+          "C": "2^i",
+          "D": "i²"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Each level can have twice as many nodes as the one above: 2^i with the root at level 0 (2^(i−1) if the root is level 1). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q43"
+        },
+        {
+         "question": "Which one of the following is false in the context of Divide and Conquer method?",
+         "options": {
+          "A": "It is recursive",
+          "B": "It is a top-down approach",
+          "C": "It is a bottom-up approach",
+          "D": "Subproblems are independent of each other"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Divide and conquer splits the problem top-down; bottom-up table filling is typical of dynamic programming. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q44"
+        },
+        {
+         "question": "Which one of the following technique is not used by the Lower Bound theory for calculating lower bound?",
+         "options": {
+          "A": "Empirical Analysis",
+          "B": "Comparison Trees",
+          "C": "State-space method",
+          "D": "Oracle and adversary argument"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Horowitz–Sahni: comparison trees, oracles and adversary arguments, and state-space methods; empirical timing does not prove bounds. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q45"
+        },
+        {
+         "question": "Which one of the following statements is false?",
+         "options": {
+          "A": "NP problems are subset of P problems",
+          "B": "NP problems are non-deterministic in nature",
+          "C": "Solution to P class problem is easy to find",
+          "D": "Solutions to NP problems can be verified in polynomial time"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "P ⊆ NP; whether NP ⊆ P is the open P vs NP question. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q46"
+        },
+        {
+         "question": "In ____ every even integer greater than 2 can be expressed as the sum of 2 primes.",
+         "options": {
+          "A": "Fermat's last theorem",
+          "B": "Lemoine's conjecture",
+          "C": "Lychrel numbers",
+          "D": "Goldbach's conjecture"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Goldbach's conjecture; Lemoine's is about odd numbers as p + 2q. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q47"
+        },
+        {
+         "question": "Determine the correct statements from the following:\nI. An approximation algorithm guarantees to run in polynomial time.\nII. An approximation algorithm does not guarantee the most effective solution.\nIII. An approximation algorithm provides solution in exponential time.",
+         "options": {
+          "A": "I and II are incorrect; III is correct",
+          "B": "I is correct; II and III are incorrect",
+          "C": "I is incorrect; II and III are correct",
+          "D": "I and II are correct; III is incorrect"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Approximation algorithms run in polynomial time and give near-optimal, not necessarily optimal, solutions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q49"
+        },
+        {
+         "question": "In the vertex cover problem, the optimization problem is to find the vertex cover with ____ and the approximation problem is to find the vertex cover with ____.",
+         "options": {
+          "A": "few vertices, few vertices",
+          "B": "fewest vertices, fewest vertices",
+          "C": "fewest vertices, few vertices",
+          "D": "few vertices, fewest vertices"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Optimisation seeks the minimum (fewest) cover; an approximation settles for a small (few) one within a guaranteed factor. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "A DPDA is a PDA in which:",
+         "options": {
+          "A": "No state has two outgoing transitions",
+          "B": "More than one state can have two or more outgoing transitions",
+          "C": "At least one state has more than one transition",
+          "D": "No state has two incoming transitions"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Intended meaning: in a DPDA no configuration has a choice of move – no state has two applicable outgoing transitions for the same input and stack symbol. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q53"
+        },
+        {
+         "question": "The state of a Turing machine when the given input x is not defined on the current state and current input symbol is:",
+         "options": {
+          "A": "Moving",
+          "B": "Halting",
+          "C": "Looping",
+          "D": "Halting and Moving"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "If δ is undefined for the current state and symbol, the TM halts. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q54"
+        },
+        {
+         "question": "Consider the Lists A and B of three strings on {0, 1}. If:\nX: List A = 1, 10111, 10; List B = 111, 10, 0 and\nY: List A = 10, 011, 101; List B = 101, 11, 011\nthen which of the following is true?",
+         "options": {
+          "A": "Only PCP in X has solution",
+          "B": "Only PCP in Y has solution",
+          "C": "PCP in both X and Y has solution",
+          "D": "PCP neither in X nor in Y has solution"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "X: indices 2, 1, 1, 3 give 10111·1·1·10 = 101111110 = 10·111·111·0. Y can only start with pair 1 and then B always stays one symbol ahead – no solution (Hopcroft–Ullman). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q55"
+        },
+        {
+         "question": "Which of the following derivations is used by top-down parser?",
+         "options": {
+          "A": "Leftmost derivation",
+          "B": "Leftmost derivation in reverse",
+          "C": "Rightmost derivation",
+          "D": "Rightmost derivation in reverse"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q56"
+        },
+        {
+         "question": "Choose the correct statement suiting syntax directed definitions from the following:",
+         "options": {
+          "A": "Syntax directed definitions + Semantic rules = CFG",
+          "B": "Syntax directed definitions + CFG = Semantic rules",
+          "C": "CFG + Semantic rules = Syntax directed definitions",
+          "D": "CFG + flow graph = syntax directed definitions"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "An SDD is a context-free grammar together with attributes and semantic rules. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q57"
+        },
+        {
+         "question": "The idea of cache memory is based on the",
+         "options": {
+          "A": "Properties of optimizing speed",
+          "B": "Heuristic 90-10 rule",
+          "C": "Fact that references cluster",
+          "D": "Property of locality of reference"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Caches exploit temporal and spatial locality of reference. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q58"
+        },
+        {
+         "question": "Which of the following helps Assembler to deal with branching code?",
+         "options": {
+          "A": "One Pass Assembler",
+          "B": "Two Pass Assembler",
+          "C": "Debugger",
+          "D": "Interpreter"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "The first pass builds the symbol table, so forward branch targets are known in the second pass. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q59"
+        },
+        {
+         "question": "Which of the following optimization technique reduces the multiple jumps?",
+         "options": {
+          "A": "Latter optimization",
+          "B": "Peephole optimization",
+          "C": "Local optimization",
+          "D": "Loop optimization"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Peephole optimisation includes flow-of-control optimisation such as replacing jumps to jumps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q60"
+        },
+        {
+         "question": "Consider a CSMA/CD network that transmits data at the rate of 100 Mbps (10⁸ bits per second) over 1 km cable without repeaters. Let the minimum frame size required for this network be 1250 bytes. Compute the signal speed of the cable, in terms of km/sec.",
+         "options": {
+          "A": "10000",
+          "B": "20000",
+          "C": "15000",
+          "D": "24000"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Frame = 10,000 bits → transmission time 10⁻⁴ s = 2 × propagation time, so propagation = 5 × 10⁻⁵ s for 1 km → 20,000 km/s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q61"
+        },
+        {
+         "question": "In Ethernet that uses Manchester encoding, the bit rate is",
+         "options": {
+          "A": "thrice the baud rate",
+          "B": "twice the baud rate",
+          "C": "half the baud rate",
+          "D": "same as the baud rate"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Manchester needs two signal elements per bit, so the baud rate is twice the bit rate. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q62"
+        },
+        {
+         "question": "Which layer of OSI reference model is responsible for decomposition of messages and generation of sequence numbers, in order to ensure correct re-composition, from end-to-end of a network?",
+         "options": {
+          "A": "Physical",
+          "B": "Data-link",
+          "C": "Transport",
+          "D": "Application"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "The transport layer segments messages and numbers the segments for end-to-end reassembly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q63"
+        },
+        {
+         "question": "The divisor in a cyclic code is called",
+         "options": {
+          "A": "Degree",
+          "B": "Redundancy",
+          "C": "Connector",
+          "D": "Generator"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "The divisor in CRC is the generator polynomial. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q64"
+        },
+        {
+         "question": "In computer networks, the transmission media are generally categorized as:",
+         "options": {
+          "A": "Fixed or dynamic",
+          "B": "Deterministic or non-deterministic",
+          "C": "Guided or unguided",
+          "D": "Trained or untrained"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Guided (cables) and unguided (wireless) media. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q65"
+        },
+        {
+         "question": "The port number of POP is:",
+         "options": {
+          "A": "110",
+          "B": "220",
+          "C": "360",
+          "D": "490"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "POP3 uses TCP port 110 (995 over TLS). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q66"
+        },
+        {
+         "question": "A piece of icon or image on a webpage, associated with another webpage is called",
+         "options": {
+          "A": "URL",
+          "B": "Plug-in",
+          "C": "Hyper icon",
+          "D": "Hyperlink"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Any text or image that links to another resource is a hyperlink. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q67"
+        },
+        {
+         "question": "The acronym DVMRP stands for:",
+         "options": {
+          "A": "Distance Vector Multitask Routing Protocol",
+          "B": "Distance Vector Multicast Routing Protocol",
+          "C": "Distance Vector Mixed Routing Protocol",
+          "D": "Distance Vector Message Routing Protocol"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "DVMRP is a multicast routing protocol based on distance-vector routing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q70"
+        },
+        {
+         "question": "Artificial Intelligence is a ____ approach which can make decisions based on logical reasoning and problem solving strategies.",
+         "options": {
+          "A": "Heuristic search approach",
+          "B": "Greedy search approach",
+          "C": "State space approach",
+          "D": "Rational agent approach"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Russell & Norvig: AI as building rational agents that act to achieve the best expected outcome. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q71"
+        },
+        {
+         "question": "Identify the atomic proposition in the following statements:",
+         "options": {
+          "A": "Close the door",
+          "B": "Y > 20",
+          "C": "What a Large Camel!",
+          "D": "It is raining outside"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "A proposition is a declarative sentence that is true or false; commands, exclamations and open statements with variables are not. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q72"
+        },
+        {
+         "question": "____ search is performed by exploring all nodes at a given depth before proceeding to the next level.",
+         "options": {
+          "A": "Depth first search",
+          "B": "Depth first deepening search",
+          "C": "Breadth first search",
+          "D": "Best first search"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Breadth-first search expands level by level. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q73"
+        },
+        {
+         "question": "Which type of knowledge representation does not exhibit any learning capabilities?",
+         "options": {
+          "A": "Semantic Network",
+          "B": "Logical Representation",
+          "C": "Production Rules",
+          "D": "Frame Representation"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "This is the answer in KEA's revised key. (Official answer: KEA revised key, 28 Mar 2024.)",
+         "source": "KSET 2023 CS&A · Q74"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "What is the role of pragmatics in Natural Language Processing?",
+         "options": {
+          "A": "To analyze semantics of sentences",
+          "B": "To find contextual meaning and implied communication",
+          "C": "To identify syntax errors in the text",
+          "D": "To find morphological analysis of words"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Pragmatics interprets meaning in context (intent, implicature). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q76"
+        },
+        {
+         "question": "Which algorithm considers all moves from current state and selects the best move as the next state?",
+         "options": {
+          "A": "Steepest ascent hill climbing",
+          "B": "Branch and bound",
+          "C": "Means end analysis",
+          "D": "Constraint satisfaction"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Steepest-ascent hill climbing examines all neighbours and moves to the best one; simple hill climbing takes the first better one. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q77"
+        },
+        {
+         "question": "Backpropagation Neural Network is a technique used for:",
+         "options": {
+          "A": "Transmission of error back through the network to adjust the inputs",
+          "B": "Updating weights based on error propagation",
+          "C": "Updating the number of hidden layers",
+          "D": "Adjusting hyper parameter values"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Backpropagation propagates the error gradient backwards to update the weights (not the inputs). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q78"
+        },
+        {
+         "question": "Which of the following introduces non-linearity into neural network?",
+         "options": {
+          "A": "Binary step function",
+          "B": "ReLU function",
+          "C": "Convolution function",
+          "D": "Identity function"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "ReLU is the standard non-linear activation used in trainable networks; convolution and identity are linear, and the step function has no useful gradient. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q79"
+        },
+        {
+         "question": "The most appropriate logical expression for the sentence \"You cannot use the waterslide if you are under 48 inches in height unless you are older than 14 years old\" is (q: you can use the waterslide, r: you are under 48 inches, s: you are older than 14):",
+         "options": {
+          "A": "(r ∧ s) → ¬q",
+          "B": "(r ∧ ¬s) → ¬q",
+          "C": "(r ∧ ¬s) → q",
+          "D": "(r ∨ ¬s) → ¬q"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Rosen's example: if under 48 inches and not older than 14, then you cannot ride: (r ∧ ¬s) → ¬q. (The letters are Rosen's; the paper uses them without defining them.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q81"
+        },
+        {
+         "question": "Find out which rule of inference is used in the argument \"The meeting has been rescheduled and the conference room is empty now. Therefore, the meeting has been rescheduled now\".",
+         "options": {
+          "A": "Simplification rule",
+          "B": "Hypothetical syllogism",
+          "C": "Addition rule",
+          "D": "Conjunction rule"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "From p ∧ q conclude p – simplification. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q82"
+        },
+        {
+         "question": "A relation R on a set S is called ____ if it is reflexive, antisymmetric and transitive.",
+         "options": {
+          "A": "Partial ordering",
+          "B": "Equivalence relations",
+          "C": "Equivalence classes",
+          "D": "Transitive closure"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Reflexive + antisymmetric + transitive = partial order; reflexive + symmetric + transitive = equivalence relation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q83"
+        },
+        {
+         "question": "Consider the following relations on {1, 2, 3, 4}:\nR1 = {(1,1), (1,2), (2,1), (2,2), (3,4), (4,1), (4,4)},\nR2 = {(1,1), (1,2), (2,1)},\nR3 = {(1,1), (1,2), (1,4), (2,1), (2,2), (3,3), (4,1), (4,4)},\nR4 = {(2,1), (3,1), (3,2), (4,1), (4,2), (4,3)},\nR5 = {(1,1), (1,2), (1,3), (1,4), (2,2), (2,3), (2,4), (3,3), (3,4), (4,4)},\nR6 = {(3,4)}\nWhich of the relations are transitive?",
+         "options": {
+          "A": "R1, R2, R5, R6",
+          "B": "R4, R5, R6",
+          "C": "R1, R2, R3, R4, R5, R6",
+          "D": "R3, R4, R5"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "R1 lacks (3,1) for (3,4),(4,1); R2 lacks (2,2) for (2,1),(1,2); R3 lacks (4,2) for (4,1),(1,2). R4 (>), R5 (≤) and R6 are transitive. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q84"
+        },
+        {
+         "question": "In how many ways can 10 examination answer papers be arranged so that the best and worst papers never come together?",
+         "options": {
+          "A": "8 × 9!",
+          "B": "8 × 8!",
+          "C": "7 × 9!",
+          "D": "9 × 8!"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "All arrangements 10! minus those with the two together 2 × 9! = 9!(10 − 2) = 8 × 9!. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q85"
+        },
+        {
+         "question": "____ is not necessarily a property of a group.",
+         "options": {
+          "A": "Existence of inverse for every element",
+          "B": "Associativity",
+          "C": "Commutativity",
+          "D": "Existence of identity"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Groups need closure, associativity, identity and inverses; commutativity makes it abelian. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q86"
+        },
+        {
+         "question": "Consider the set S = {1, ω, ω²} where ω and ω² are cube roots of unity. If * denotes the multiplication operation, then the structure of (S, *) forms",
+         "options": {
+          "A": "A group",
+          "B": "An integral domain",
+          "C": "A ring",
+          "D": "A field"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "S is closed under multiplication (ω³ = 1), with identity 1 and inverses ω ↔ ω²; one operation only, so a group (cyclic of order 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q87"
+        },
+        {
+         "question": "Which of the following Euler circuit is impossible if number of vertices is greater than 2?",
+         "options": {
+          "A": "Cₙ",
+          "B": "Qₙ",
+          "C": "Kₙ",
+          "D": "Wₙ"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "In a wheel every rim vertex has degree 3 (odd), so no Euler circuit; Cₙ always has one, Kₙ for odd n, Qₙ for even n. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q88"
+        },
+        {
+         "question": "Consider a complete graph G with 5 vertices. The graph G has ____ spanning trees.",
+         "options": {
+          "A": "25",
+          "B": "625",
+          "C": "125",
+          "D": "525"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Cayley's formula nⁿ⁻² = 5³ = 125. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q89"
+        },
+        {
+         "question": "The amount of time by which an activity can be delayed without affecting project completion time is:",
+         "options": {
+          "A": "Free float",
+          "B": "Total float",
+          "C": "Independent float",
+          "D": "Activity float"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Total float is the delay that does not delay the project; free float does not delay the next activity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q90"
+        },
+        {
+         "question": "Select the equivalent of NOR gate from the following (the paper shows gate symbols):",
+         "options": {
+          "A": "NAND gate (AND with output bubble)",
+          "B": "AND gate with both inputs inverted",
+          "C": "OR gate with both inputs inverted",
+          "D": "AND gate with both inputs and the output inverted"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "De Morgan: (A + B)′ = A′·B′, an AND gate with inverted inputs. Option 3 equals NAND and option 4 equals OR. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q91"
+        },
+        {
+         "question": "The register used as a working area in CPU is",
+         "options": {
+          "A": "Program counter",
+          "B": "Instruction register",
+          "C": "Pipeline register",
+          "D": "Accumulator"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "The accumulator holds operands and intermediate results. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q93"
+        },
+        {
+         "question": "Which of the following architecture is used in Modern computers?",
+         "options": {
+          "A": "Microarchitecture",
+          "B": "Harvard architecture",
+          "C": "Von-Neumann architecture",
+          "D": "Macro architecture"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "General-purpose computers follow the stored-program von Neumann model (with Harvard-style split caches internally). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q94"
+        },
+        {
+         "question": "The primary objective of assembly language is:",
+         "options": {
+          "A": "To make programming more difficult.",
+          "B": "To simplify programming by providing high level language constructs.",
+          "C": "To provide a way to interact with hardware at a low level.",
+          "D": "To provide a way to interact with hardware at a high level."
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Assembly gives symbolic access to machine instructions and registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q95"
+        },
+        {
+         "question": "In Microprogrammed Control, the data register is sometimes called",
+         "options": {
+          "A": "Accumulator",
+          "B": "Branch register",
+          "C": "Sequence register",
+          "D": "Pipeline register"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Mano: the control data register is sometimes called a pipeline register. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q96"
+        },
+        {
+         "question": "Specify the control word to perform addition between R2 and R3 and the result will be stored in R1.",
+         "options": {
+          "A": "01001100100010",
+          "B": "00101001100100",
+          "C": "01101000100101",
+          "D": "01001100101010"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Mano's 14-bit control word SELA|SELB|SELD|OPR: R2 = 010, R3 = 011, R1 = 001, ADD = 00010 → 010 011 001 00010. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q97"
+        },
+        {
+         "question": "In which addressing mode, the effective address is equal to the address part of the instruction?",
+         "options": {
+          "A": "Indexed",
+          "B": "Relative",
+          "C": "Register",
+          "D": "Direct"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "In direct addressing the instruction's address field is the effective address. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q98"
+        },
+        {
+         "question": "In asynchronous serial data transfer, we use ____ number of flag bits.",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Each character is framed by a start bit and a stop bit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q99"
+        },
+        {
+         "question": "Hit ratio of cache memory is defined as",
+         "options": {
+          "A": "Number of hits divided by total number of hits and misses.",
+          "B": "Number of hits divided by number of misses.",
+          "C": "Number of hits plus misses divided by number of hits.",
+          "D": "Number of misses divided by number of hits."
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Hit ratio = hits / (hits + misses). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q100"
+        }
+       ]
+      }
+     ]
+    },
     {
      "name": "KSET 2024 – Computer Science & Application",
      "sets": [
@@ -1206,6 +2375,17 @@
   }
  ],
  "mocks": [
+  {
+   "name": "KSET 2023 – Computer Science & Application · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "KSET 2023 – Computer Science & Application",
+     "weight": 88
+    }
+   ]
+  },
   {
    "name": "KSET 2024 – Computer Science & Application · full paper",
    "mode": "count",
