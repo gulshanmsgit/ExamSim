@@ -59,7 +59,9 @@ def _renumber_match(q, opts):
 
 
 def build_pack(out_path, name, description, subjects):
-    """subjects: [{name, icon, topics: [{name, sets: [{name, questions: [(q, opts, ans, expl)], tag?}]}]}]"""
+    """subjects: [{name, icon, topics: [{name, sets: [{name, questions: [(q, opts, ans, expl[, source])], tag?, keep_order?}]}]}]
+    A 5th tuple item names a real previous-year paper ("KSET 2024 · CS&A · Q17") and is stored as `source`.
+    keep_order=True keeps every option where the paper printed it (for previous-year papers)."""
     problems, counts, seen = [], {"A": 0, "B": 0, "C": 0, "D": 0}, {}
     out_subjects = []
     for s in subjects:
@@ -70,20 +72,26 @@ def build_pack(out_path, name, description, subjects):
                 qs = []
                 # Balance A–D inside the set: fixed-order questions keep their letter; every other question puts its
                 # correct answer on the least-used letter so far (ties and distractor order decided by a hash of the text).
-                used = Counter("ABCD"[a] for q, o, a, _ in st["questions"] if _keep_order(q, o) and 0 <= a < 4)
-                for i, (q, opts, ans, expl) in enumerate(st["questions"]):
-                    q, opts = _renumber_match(q, opts)
+                fixed = lambda q, o: st.get("keep_order") or _keep_order(q, o)
+                used = Counter("ABCD"[it[2]] for it in st["questions"] if fixed(it[0], it[1]) and 0 <= it[2] < 4)
+                for i, item in enumerate(st["questions"]):
+                    q, opts, ans, expl = item[:4]
+                    source = item[4] if len(item) > 4 else None
+                    if not st.get("keep_order"):
+                        q, opts = _renumber_match(q, opts)
                     where = f"{t['name']} / {st['name']} Q{i + 1}"
                     if len(opts) != 4 or len(set(opts)) != 4:
                         problems.append(f"{where}: needs 4 distinct options")
                     if not 0 <= ans < 4:
                         problems.append(f"{where}: bad answer index")
                     key = re.sub(r"\s+", " ", q.strip().lower())
+                    if st.get("keep_order"):  # real papers reuse stems such as "Which statement is FALSE?"
+                        key += "|" + "|".join(opts)
                     if key in seen:
                         problems.append(f"{where}: duplicate of {seen[key]}")
                     seen[key] = where
                     order = list(range(4))
-                    if not _keep_order(q, opts) and 0 <= ans < 4:
+                    if not fixed(q, opts) and 0 <= ans < 4:
                         rng = random.Random(hashlib.md5(q.encode()).hexdigest())
                         others = [k for k in order if k != ans]
                         rng.shuffle(others)
@@ -93,7 +101,8 @@ def build_pack(out_path, name, description, subjects):
                     letter = "ABCD"[order.index(ans)] if 0 <= ans < 4 else "A"
                     counts[letter] += 1
                     qs.append({"question": q, "options": dict(zip("ABCD", [opts[k] for k in order])),
-                               "answer": letter, "subject": st.get("tag", st["name"]), "explanation": expl})
+                               "answer": letter, "subject": st.get("tag", st["name"]), "explanation": expl,
+                               **({"source": source} if source else {})})
                 out_sets.append({"name": st["name"], "questions": qs})
             out_topics.append({"name": t["name"], "sets": out_sets})
         out_subjects.append({"name": s["name"], "icon": s.get("icon", ""), "topics": out_topics})

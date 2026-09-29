@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_subject import EXTRA_SUBJECTS  # non-planner subjects such as monthly current affairs
 for _n, _x in EXTRA_SUBJECTS.items():
     planned[_n] = set(_x["topics"])
+from build_pyq import PYQ_SUBJECTS  # real previous-year papers: printed option order and length, not planner topics
 smap = json.loads((ROOT / "tools" / "syllabus_map.json").read_text(encoding="utf-8"))
 index = json.loads((PACKS / "index.json").read_text(encoding="utf-8"))
 listed = {p["file"] for p in index["packs"]}
@@ -53,6 +54,24 @@ for f in sorted(listed):
     legacy = f in LEGACY
     for s in pack.get("subjects", []):
         sname = s["name"]
+        if sname in PYQ_SUBJECTS:
+            for t in s.get("topics", []):
+                for st in t.get("sets", []):
+                    for i, q in enumerate(st.get("questions", []), 1):
+                        where = f"{f}: {t['name']} / {st['name']} Q{i}"
+                        vals = [q.get("options", {}).get(k, "") for k in "ABCD"]
+                        if len(set(vals)) != 4 or not all(v.strip() for v in vals):
+                            err(f"{where}: needs 4 distinct non-empty options")
+                        if q.get("answer") not in "ABCD" or not q.get("answer"):
+                            err(f"{where}: bad answer")
+                        if not q.get("source"):
+                            err(f"{where}: previous-year question without a source")
+                        k = app_key(q["question"], vals)
+                        if k in seen:
+                            warn(f"{where}: same as {seen[k]}")
+                        else:
+                            seen[k] = where
+            continue
         if sname not in planned:
             err(f"{f}: subject '{sname}' is not a planner subject")
             continue
