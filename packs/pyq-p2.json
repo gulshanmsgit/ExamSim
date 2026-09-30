@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)",
- "description": "Real questions from past KEA / KSET papers (178 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
+ "description": "Real questions from past KEA / KSET papers (367 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026). Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
  "subjects": [
   {
    "name": "P2 · Previous-Year Papers (KEA/KSET)",
@@ -2370,6 +2370,2513 @@
        ]
       }
      ]
+    },
+    {
+     "name": "KSET 2025 – Computer Science & Applications",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Given (¬P ∨ Q) ∧ (P ∨ Q), which of the following mathematical logics is considered as equivalent?",
+         "options": {
+          "A": "Q",
+          "B": "P ∧ Q",
+          "C": "P",
+          "D": "¬Q"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "By resolution (or cases on P): if P is true the first clause forces Q, if P is false the second forces Q. So the formula ≡ Q. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q1"
+        },
+        {
+         "question": "Match the following terms with their definitions:\na. Well-ordered Set\nb. Partial-ordered Set\nc. Totally-ordered Set\nd. Empty Set\n(i) A set where every pair of elements are comparable\n(ii) Every non-empty subset has a least element\n(iii) A set where every pair of elements not necessarily to be comparable\n(iv) A set with no elements",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Well-ordered: every non-empty subset has a least element; poset: not all pairs comparable; total order: every pair comparable. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q2"
+        },
+        {
+         "question": "Given U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, Let A = {1, 2, 3, 4, 5}; B = {1, 2, 4, 8}; C = {1, 2, 3, 5, 7} and D = {2, 4, 6, 8}. Determine (A ∪ B) − (C ∩ D).",
+         "options": {
+          "A": "{1, 3, 5, 7, 9, 10}",
+          "B": "{1, 3, 4, 5, 6, 7, 8, 9, 10}",
+          "C": "{1, 2, 3, 4, 5, 8}",
+          "D": "{1, 3, 4, 5, 8}"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "A ∪ B = {1, 2, 3, 4, 5, 8}; C ∩ D = {2}; removing 2 gives {1, 3, 4, 5, 8}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q3"
+        },
+        {
+         "question": "What is the probability of an odd sum when two dice are rolled?",
+         "options": {
+          "A": "12/36",
+          "B": "18/36",
+          "C": "24/36",
+          "D": "9/12"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "The sum is odd when one die is odd and the other even: 2 × 3 × 3 = 18 of 36 outcomes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q4"
+        },
+        {
+         "question": "A party of n persons sit at a round table, find the odds against two specific individuals sitting next to each other.",
+         "options": {
+          "A": "(n − 3) : 2",
+          "B": "(n − 3) : 8",
+          "C": "(n + 3) : 4",
+          "D": "(n + 3) : 16"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "P(adjacent) = 2/(n − 1), so the odds against are (n − 1 − 2) : 2 = (n − 3) : 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q5"
+        },
+        {
+         "question": "Consider a connected, undirected graph G = (V, E) where |V| = n and |E| = m. Which of the following statements must be true for a spanning tree of G?\na. A spanning tree of G will always have exactly m − n + 1 edges\nb. Any subgraph of G with exactly n − 1 edges is guaranteed to be a spanning tree\nc. The number of spanning trees in G can be computed using Kirchhoff's matrix tree theorem\nd. A spanning tree of G is always unique for any given graph",
+         "options": {
+          "A": "(b) and (d) are correct",
+          "B": "only (c) is correct",
+          "C": "only (a) is correct",
+          "D": "(a) and (d) are correct"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "A spanning tree has n − 1 edges (m − n + 1 is the number of edges left out); n − 1 edges may contain a cycle; spanning trees are generally not unique. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q6"
+        },
+        {
+         "question": "Let G be a group defined by a * b = (ab/2); where the elements of G are nonzero real numbers. The solution of 3 * x = 4 is given by",
+         "options": {
+          "A": "8/3",
+          "B": "−4/5",
+          "C": "−3/8",
+          "D": "4/3"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "3x/2 = 4 gives x = 8/3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q7"
+        },
+        {
+         "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
+         "options": {
+          "A": "X̅",
+          "B": "Y",
+          "C": "X̅ + Y",
+          "D": "X + Z̅"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "XYZ + XYZ̅ = XY; XY + X̅Y = Y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q8"
+        },
+        {
+         "question": "Consider a weighted complete graph G on the vertex set {V₁, V₂, V₃, V₄, …, Vₙ} such that the weight of the edge (Vᵢ, Vⱼ) is 2|i − j|. The weight of minimum spanning tree of G is",
+         "options": {
+          "A": "n² − 1",
+          "B": "n²/2",
+          "C": "2n − 2",
+          "D": "n²"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "The path V₁–V₂–…–Vₙ uses the n − 1 cheapest possible edges, each of weight 2: total 2n − 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q9"
+        },
+        {
+         "question": "For given U = {1, 2, 3, 4, ….., 10}, Let A = {1, 2, 3, 4, 5}; B = {1, 2, 4, 8}; C = {1, 2, 3, 5, 7} and D = {2, 4, 6, 8}. Determine the following C̅ ∪ D̅.",
+         "options": {
+          "A": "{1, 3, 5, 7, 9, 10}",
+          "B": "{1, 3, 4, 5, 6, 7, 8, 9, 10}",
+          "C": "{1, 2, 3, 4, 5, 8}",
+          "D": "{1, 3, 4, 5, 8}"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "De Morgan: C̅ ∪ D̅ = complement of (C ∩ D) = U − {2}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q10"
+        },
+        {
+         "question": "The decimal equivalent of the hexadecimal number F3E is",
+         "options": {
+          "A": "8530",
+          "B": "8544",
+          "C": "3902",
+          "D": "3888"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "15 × 256 + 3 × 16 + 14 = 3840 + 48 + 14 = 3902. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q11"
+        },
+        {
+         "question": "Match the following:\na. MAR\nb. MBR\nc. IR\nd. PC\n(i) Holds the address of the next instruction to fetch\n(ii) Holds the instruction for decoding\n(iii) Holds the address of instruction or data\n(iv) Holds the data",
+         "options": {
+          "A": "a – iii, b – iv, c – i, d – ii",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "MAR holds a memory address, MBR the data, IR the current instruction and PC the address of the next instruction. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q12"
+        },
+        {
+         "question": "\"Sequential portion of the program does not change with respect to machine size, however, the parallel portion is evenly executed by 'n' processors results in a reduced time\" is",
+         "options": {
+          "A": "Moore's Law",
+          "B": "Flynn's Law",
+          "C": "Banker's Law",
+          "D": "Amdahl's Law"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Amdahl's law: speed-up = 1 / (s + (1 − s)/n) for a fixed workload with sequential fraction s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q13"
+        },
+        {
+         "question": "The first machine cycle of an instruction is always a ____ cycle.",
+         "options": {
+          "A": "Memory read",
+          "B": "Fetch",
+          "C": "I/O read",
+          "D": "Memory write"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Every instruction starts with the opcode fetch cycle. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q14"
+        },
+        {
+         "question": "If the operand is given explicitly in the instruction, the addressing mode is called",
+         "options": {
+          "A": "Immediate",
+          "B": "Absolute",
+          "C": "Direct",
+          "D": "Indirect"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "In immediate mode the operand itself is part of the instruction. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q15"
+        },
+        {
+         "question": "Consider cache with 128 blocks of 16 words, and main memory has 4096 blocks of 16 words, and assume 64 sets for the Set Associate Mapping. Match the addressing scheme for cache memory mapping:\na. Direct mapping\nb. Associate mapping\nc. Set associate mapping\n(i) 12 bit for tag and 4 bit for word\n(ii) 6 bit for tag, 6 bit for set and 4 bit for word\n(iii) 5 bit for tag, 7 bit for block and 4 bit for word",
+         "options": {
+          "A": "a → i, b → ii, c → iii",
+          "B": "a → iii, b → ii, c → i",
+          "C": "a → ii, b → iii, c → i",
+          "D": "a → iii, b → i, c → ii"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Address = 16 bits (4096 × 16 words), word = 4 bits. Direct: 7-bit block, 5-bit tag. Associative: 12-bit tag. 64 sets: 6-bit set, 6-bit tag. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q16"
+        },
+        {
+         "question": "Match the following:\na. Temporal locality of reference\nb. Spatial locality of reference\nc. Sequential locality of reference\n(i) If an instruction is executed now, more likely the instruction will be executed in future\n(ii) Instructions are executed one after the other\n(iii) If a group of instructions referred now, more likely that group of instructions will be referred in future",
+         "options": {
+          "A": "a – i, b – iii, c – ii",
+          "B": "a – iii, b – i, c – ii",
+          "C": "a – ii, b – iii, c – i",
+          "D": "a – ii, b – i, c – iii"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Temporal: the same item again; spatial: nearby items; sequential: one after another. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q17"
+        },
+        {
+         "question": "Match the following:\na. DRAM\nb. DMA\nc. Associative mapping\nd. Memory-mapped I/O\n(i) Offloads data transfer main memory to devices bypassing CPU\n(ii) Dynamic memory\n(iii) I/O devices treated as memory locations\n(iv) Flexible cache mapping by content",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "DRAM is dynamic memory, DMA bypasses the CPU, associative mapping places blocks anywhere, memory-mapped I/O uses memory addresses for devices. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q18"
+        },
+        {
+         "question": "In the absence of data and control hazards, the k-unit instruction unit pipeline with n instructions has speed up",
+         "options": {
+          "A": "nk / (k + (n − 1))",
+          "B": "(k + (n − 1)) / nk",
+          "C": "nk / ((k − 1)*n)",
+          "D": "k + n / (nk)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Non-pipelined time nk cycles; pipelined k + n − 1 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q19"
+        },
+        {
+         "question": "Consider the following statements regarding the interconnection topology.\ni. In star topology, if the master node is dead, the other nodes (processor) can still interact with each other.\nii. In bus topology, only two processors can interact with each other at any one given point in time.\niii. In hyper cube topology, two nodes are connected if there is change in two bits in their processor identity (processor id)",
+         "options": {
+          "A": "(i) is true, (ii) and (iii) are false",
+          "B": "(i) and (ii) are true, (iii) is false",
+          "C": "(ii) is true, (i) and (iii) are false",
+          "D": "(i) and (iii) are true, (ii) is false"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "In a star all traffic passes through the centre; a shared bus carries one transfer at a time; hypercube neighbours differ in exactly one bit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q20"
+        },
+        {
+         "question": "Match the following:\na. .wav\nb. .pdf\nc. .pcd\nd. .WMV\n(i) structured\n(ii) image\n(iii) video\n(iv) audio",
+         "options": {
+          "A": "a – iv, b – i, c – ii, d – iii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": ".wav is audio, .pdf a structured document, .pcd (Kodak Photo CD) an image and .wmv Windows Media Video. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q21"
+        },
+        {
+         "question": "What is the output of the following code snippet?\npublic class Test\n{\n  public int getData()   // getData() 1\n  { return 0; }\n  public long getData()  // getData() 2\n  { return 1; }\n  public static void main(String[] args)\n  {\n    Test t = new Test();\n    System.out.println(t.getData());\n  }\n}",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "Run time error",
+          "D": "Compilation error"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Java methods cannot be overloaded by return type alone: two getData() methods with the same parameter list do not compile. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q22"
+        },
+        {
+         "question": "What is the role of linker in compilation?",
+         "options": {
+          "A": "Translates source code to object code",
+          "B": "Generates intermediate code",
+          "C": "Combines different compiled modules",
+          "D": "Performs code optimization"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "The linker combines object modules and libraries into one executable, resolving external references. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q23"
+        },
+        {
+         "question": "What will be the output of the following code snippet?\n#include <stdio.h>\nvoid solve()\n{\n  int x = 2;\n  printf(\"%d \", (x << 1) + (x >> 1));\n}\nint main()\n{\n  solve();\n  return 0;\n}",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "2 << 1 = 4 and 2 >> 1 = 1; 4 + 1 = 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q24"
+        },
+        {
+         "question": "What is the output of the following program?\n#include <stdio.h>\nint main()\n{\n  struct emp\n  {\n    char name[20];\n    int age;\n    float sal;\n  };\n  struct emp e = {\"computer\", 0, 0};\n  printf(\"%d \\t %f \", e.age, e.sal);\n  return 0;\n}",
+         "options": {
+          "A": "Compiler error",
+          "B": "Computer, 0, 0.000000",
+          "C": "0 0.000000",
+          "D": "1 0.000000 computer"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Only age (0) and sal (0.000000) are printed, separated by a tab. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "What is the output of the following code?\n#include <stdio.h>\nunion u1\n{\n  int x;\n  char y;\n};\nunion u2\n{\n  int a[10];\n  char y1;\n};\nint main(){\n  printf(\"size of u1 = %ld/t\", sizeof(union u1));\n  printf(\"size of u2 = %ld\", sizeof(union u2));\n  return 0;\n}",
+         "options": {
+          "A": "2, 20",
+          "B": "4, 40",
+          "C": "2, 40",
+          "D": "4, 20"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "A union is as large as its largest member: int (4 bytes) and int[10] (40 bytes), with 4-byte ints. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q26"
+        },
+        {
+         "question": "A 16 × 16 array having only black and white pixels could be represented by ____",
+         "options": {
+          "A": "32 bytes",
+          "B": "64 bytes",
+          "C": "96 bytes",
+          "D": "128 bytes"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "256 pixels × 1 bit = 256 bits = 32 bytes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q27"
+        },
+        {
+         "question": "Which of the following matrix represents a 2D rotation by an angle θ?",
+         "options": {
+          "A": "[cos θ  −sin θ; sin θ  cos θ]",
+          "B": "[1  0; 0  1]",
+          "C": "[cos θ  sin θ; −sin θ  cos θ]",
+          "D": "[sin θ  cos θ; cos θ  −sin θ]"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Counter-clockwise rotation: x′ = x cos θ − y sin θ, y′ = x sin θ + y cos θ. (Option 3 rotates by −θ.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q28"
+        },
+        {
+         "question": "How much memory is required to implement a z-buffer for a 512 × 512 image with 24-bit depth?",
+         "options": {
+          "A": "1 MB",
+          "B": "1.5 MB",
+          "C": "500 KB",
+          "D": "768 KB"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "512 × 512 × 3 bytes = 786,432 bytes = 768 KB. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q29"
+        },
+        {
+         "question": "Given 3D-triangle with co-ordinate points A(3, 4, 1), B(6, 4, 2) and C(5, 6, 3). Apply the reflection on the XY plane and find out new co-ordinates of the object.",
+         "options": {
+          "A": "A(3, 4, −1), B(6, 4, −2) and C(5, 6, −3)",
+          "B": "A(3, −4, 1), B(6, −4, 2) and C(5, −6, 3)",
+          "C": "A(−3, 4, 1), B(−6, 4, 2) and C(−5, 6, 3)",
+          "D": "A(3, 4, 1), B(6, 4, −2) and C(−5, 6, 3)"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Reflection in the XY plane negates z. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q30"
+        },
+        {
+         "question": "Identify the correctness of the following statements?\ni. Logical data independence is the ability to modify the logical schema without transforming the application programs\nii. Logical data independence modifies the logical schema as well as the application programs\niii. Logical data independence is complicated to achieve than the physical data independence",
+         "options": {
+          "A": "(i) and (ii) are correct and (iii) is incorrect",
+          "B": "(i) and (iii) are incorrect and (ii) is correct",
+          "C": "(i) and (iii) are correct and (ii) is incorrect",
+          "D": "(i) and (ii) are incorrect and (iii) is correct"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Logical independence means applications need not change; it is harder to achieve than physical independence. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q31"
+        },
+        {
+         "question": "Identify the correctness of the following statements:\ni. The project operation is a unary operation which extracts attributes from a relation\nii. The project operation allows us to locate tuples that are in one relation but not in another relation\niii. The project operation connects the data across the relations",
+         "options": {
+          "A": "(i) and (ii) are incorrect and (iii) is correct",
+          "B": "(i) and (ii) are correct and (iii) is incorrect",
+          "C": "(i) is correct and (ii) and (iii) are incorrect",
+          "D": "(i) is incorrect and (ii) and (iii) are correct"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "(ii) describes set difference and (iii) describes join. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q32"
+        },
+        {
+         "question": "Consider the following statements:\ni. Stored procedures can be used to process multiple databases\nii. Extended stored procedures are compiled as dynamic link library files\niii. Local stored procedures are stored on user-built databases\nChoose the correct statement from the options given below:",
+         "options": {
+          "A": "(i), (ii) and (iii) are incorrect",
+          "B": "(i) is correct, (ii) and (iii) are incorrect",
+          "C": "(i) is incorrect, (ii) and (iii) are correct",
+          "D": "(i), (ii) and (iii) are correct"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "All three hold, e.g. in SQL Server: procedures can reference several databases, extended procedures are DLLs, and local procedures live in user databases. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q33"
+        },
+        {
+         "question": "____ eliminates relations between candidate keys.",
+         "options": {
+          "A": "First Normal Form",
+          "B": "Second Normal Form",
+          "C": "Third Normal Form",
+          "D": "Boyce-Codd Normal Form"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "BCNF removes the anomalies 3NF allows when candidate keys overlap: every determinant must be a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q34"
+        },
+        {
+         "question": "In ____, whenever a new update is made, multiple versions of the data items are produced.",
+         "options": {
+          "A": "Normalization",
+          "B": "Write Ahead Logging",
+          "C": "Shadow Paging",
+          "D": "Serializability"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Shadow paging writes updates to new page copies while the shadow (old) version is kept until commit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q35"
+        },
+        {
+         "question": "Match the following:\na. BCNF iff\nb. 5 NF iff\nc. 1 NF iff\nd. 4 NF iff\n(i) every JD is implied by the candidate keys\n(ii) every MVD is implied by the candidate keys\n(iii) all underlying domains contain scalar values only\n(iv) every FD is implied by the candidate keys",
+         "options": {
+          "A": "a – iii, b – ii, c – i, d – iv",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – iv, b – i, c – iii, d – ii",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "BCNF: FDs; 4NF: MVDs; 5NF: JDs; 1NF: atomic domains. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q36"
+        },
+        {
+         "question": "Match the following:\na. Data warehouse\nb. Data mining\nc. OLAP\nd. Aggregation\n(i) which allows users to analyse data from multiple database systems at once\n(ii) is the summarization of fact related data\n(iii) central repository of information that can be analyzed to make more informed decisions\n(iv) is a process used to discover patterns and relationships in datasets",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iii, b – ii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Warehouse = central repository; mining = pattern discovery; OLAP = multi-dimensional analysis; aggregation = summarisation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q37"
+        },
+        {
+         "question": "Which of the following refers to the problem of finding abstracted patterns (structures) in the unlabelled data?",
+         "options": {
+          "A": "Supervised learning",
+          "B": "Unsupervised learning",
+          "C": "Hybrid learning",
+          "D": "Reinforcement learning"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Unsupervised learning finds structure in data without labels. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q38"
+        },
+        {
+         "question": "Match the following relation R and S:\na. Theta Join\nb. Equi Join\nc. Left outer Join\nd. Right outer Join\n(i) If no matching tuples found in S, then the attributes of S are filled with NULL\n(ii) If no matching tuples found in R, then the attributes of R are filled with NULL\n(iii) Combinations of tuples of R and S that satisfies join condition\n(iv) Combinations of tuples of R and S that satisfies equality comparisons",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Theta join: any condition; equi join: equality only; R ⟕ S pads S's attributes; R ⟖ S pads R's. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q39"
+        },
+        {
+         "question": "Given the following entries of a table State_tb:\nState_id | Region | Population\nUP | N | 28\nMP | N | 08\nKAR | S | 06\nTN | S | 07\nthe SQL statement\nSELECT Sum(Population)\nFROM State_tb\nGROUP BY Region;",
+         "options": {
+          "A": "is syntactically wrong",
+          "B": "gives total sum of population of all the regions",
+          "C": "gives sum of population of S and N separately",
+          "D": "gives population of each state"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "GROUP BY Region returns one sum per region: N = 36, S = 13. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q40"
+        },
+        {
+         "question": "In the process of macro expansion given:\nS₁: lexical substitution implies replacement of a character string by another string during program generation\nS₂: lexical substitution is employed to replace occurrences of formal parameters by some random values\nWhich of the following holds good?",
+         "options": {
+          "A": "Both S₁ and S₂ are true",
+          "B": "Both S₁ and S₂ are false",
+          "C": "S₁ is false and S₂ is true",
+          "D": "S₁ is true and S₂ is false"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Formal parameters are replaced by the actual parameters of the call, not by random values (Dhamdhere). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q41"
+        },
+        {
+         "question": "Consider a single processor system with four processes A, B, C and D represented as given below, where for each process the first value is its arrival time and second value is its CPU burst time\nA(0, 10), B(2, 6), C(4, 3) and D(6, 7)\nWhich of the following options gives the average waiting time when preemptive Shortest Remaining Time First (SRTF) and the Non-Preemptive Shortest Job First (NP-SJF) CPU scheduling algorithms are applied to the process?",
+         "options": {
+          "A": "SRTF = 6  NP-SJF = 7",
+          "B": "SRTF = 6  NP-SJF = 7.5",
+          "C": "SRTF = 7  NP-SJF = 7.5",
+          "D": "SRTF = 7  NP-SJF = 8.5"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "SRTF: A 0–2, B 2–4, C 4–7, B 7–11, D 11–18, A 18–26 → waits 16, 3, 0, 5 → 6. NP-SJF: A 0–10, C 10–13, B 13–19, D 19–26 → waits 0, 11, 6, 13 → 7.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q42"
+        },
+        {
+         "question": "Match the following:\na. Critical region\nb. Wait signal\nc. Working set\nd. Deadlock\n(i) Hoare's monitor\n(ii) Mutual exclusion\n(iii) Principle of locality\n(iv) Circular wait",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Critical regions need mutual exclusion; wait/signal are Hoare-monitor operations; the working set rests on locality; deadlock needs circular wait. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q43"
+        },
+        {
+         "question": "In a system using paging with Translation Lookaside Buffer (TLB), what will be the Effective Memory Access Time (EMAT), if the memory access time is 100 ns, TLB access time is 20 ns, and the TLB hit ratio is 80%?\nAssume TLB hit requires one memory access and TLB miss requires two.",
+         "options": {
+          "A": "120 ns",
+          "B": "140 ns",
+          "C": "160 ns",
+          "D": "180 ns"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "0.8 × (20 + 100) + 0.2 × (20 + 200) = 96 + 44 = 140 ns. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q44"
+        },
+        {
+         "question": "Match the following with respect to various memory management:\na. Demand paging\nb. Segmentation\nc. Dynamic partitions\nd. Fixed partitions\n(i) Degree of multiprogramming\n(ii) Working set\n(iii) Supports user view of memory\n(iv) Compaction",
+         "options": {
+          "A": "a – ii, b – iv, c – iii, d – i",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Demand paging uses working sets; segmentation matches the user's view; dynamic partitions need compaction; fixed partitions fix the degree of multiprogramming. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q45"
+        },
+        {
+         "question": "Which of the following is not correct about the virtual memory management?",
+         "options": {
+          "A": "It is not necessary to load all of the segments of a process",
+          "B": "It has no internal fragmentation",
+          "C": "It has large virtual address space",
+          "D": "It provides lower degree of multiprogramming"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Virtual memory raises the degree of multiprogramming, since only part of each process need be in memory. (Option 2 holds for segmented virtual memory, which the question refers to.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q46"
+        },
+        {
+         "question": "Match the following:\ni. Kernel\nii. Belady's anomaly\niii. Paging\niv. Free-space management\n(a) Ensures efficient storage utilization\n(b) Avoids external fragmentation\n(c) Provides basic low-level operations\n(d) Increase in the number of page frames leads to increase in the number of page faults",
+         "options": {
+          "A": "i – d, ii – c, iii – b, iv – a",
+          "B": "i – b, ii – d, iii – a, iv – c",
+          "C": "i – c, ii – d, iii – b, iv – a",
+          "D": "i – b, ii – a, iii – d, iv – c"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Kernel = low-level services; Belady = more frames, more faults (FIFO); paging avoids external fragmentation; free-space management uses storage well. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q47"
+        },
+        {
+         "question": "Match the following:\ni. Context switching\nii. Semaphores\niii. Process synchronization\niv. Message passing\n(a) process communicate by sending and receiving messages\n(b) co-ordination of the execution of multiple processes sharing the resources\n(c) enables multiple processes to share a single CPU\n(d) helps to prevent race condition",
+         "options": {
+          "A": "i – a, ii – b, iii – c, iv – d",
+          "B": "i – b, ii – c, iii – d, iv – a",
+          "C": "i – c, ii – d, iii – b, iv – a",
+          "D": "i – c, ii – d, iii – a, iv – b"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Context switching shares the CPU; semaphores prevent races; synchronisation coordinates; message passing communicates. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q48"
+        },
+        {
+         "question": "Which of the following disk scheduling algorithms may result in starvation?",
+         "options": {
+          "A": "SCAN",
+          "B": "LOOK",
+          "C": "SSTF",
+          "D": "C-SCAN"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "SSTF keeps serving nearby requests, so far-away requests can wait indefinitely. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q49"
+        },
+        {
+         "question": "Match the following:\ni. User authentication\nii. Firewalls\niii. Access control\niv. Encryption\n(a) controls incoming and outgoing traffic in a network\n(b) converts readable information into an unreadable format\n(c) process of verifying the identity of a user attempting to gain access to a computer network\n(d) authorizing the users to access the resources in a computer network",
+         "options": {
+          "A": "i – b, ii – c, iii – d, iv – a",
+          "B": "i – c, ii – a, iii – d, iv – b",
+          "C": "i – d, ii – a, iii – b, iv – c",
+          "D": "i – c, ii – d, iii – a, iv – b"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Authentication verifies identity, firewalls filter traffic, access control authorises, encryption makes data unreadable. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "Arrange the component-based development process activities in the correct order:\na. Requirement analysis\nb. Component qualification\nc. System design with reuse\nd. Component adaptation\ne. Component composition\nf. Component discovery\ng. System integration and testing",
+         "options": {
+          "A": "f, a, b, c, d, g, e",
+          "B": "a, c, f, b, d, e, g",
+          "C": "b, a, f, c, d, e, g",
+          "D": "a, f, c, b, d, g, e"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Requirements first, then architectural design with reuse, then find, qualify, adapt and compose components, and finally integrate and test. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q51"
+        },
+        {
+         "question": "In a spiral model cycle, the probability of failure for each iteration due to risk is 10%. If there are 4 cycles, then what is the probability that the project completes all cycles without failure?",
+         "options": {
+          "A": "0.6561",
+          "B": "0.9",
+          "C": "0.3439",
+          "D": "0.9999"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "0.9⁴ = 0.6561. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q52"
+        },
+        {
+         "question": "Match the Agile practices with their corresponding principles or benefits:\na. Pair Programming\nb. Test-driven Development\nc. Continuous Integration\nd. Refactoring\n(i) Avoids integration issues by validating changes frequently in shared repositories.\n(ii) Ensures correctness through automated specification before implementation.\n(iii) Facilitates early problem discovery and real-time code review.\n(iv) Improves internal code quality without altering external behaviour",
+         "options": {
+          "A": "a → i, b → ii, c → iii, d → iv",
+          "B": "a → ii, b → iii, c → iv, d → i",
+          "C": "a → iv, b → i, c → ii, d → iii",
+          "D": "a → iii, b → ii, c → i, d → iv"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Pair programming = continuous review; TDD = tests first; CI = frequent integration; refactoring = better structure, same behaviour. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q53"
+        },
+        {
+         "question": "Assertion (A): High cohesion within a module and low coupling between modules result in increased maintainability and reusability of a software system.\nReason (R): High cohesion implies that each module performs multiple unrelated tasks, increasing its independence from other modules.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "High cohesion means a module does one closely related job; R describes low (coincidental) cohesion. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q54"
+        },
+        {
+         "question": "In basic path testing, the number of independent paths through the code is computed using cyclomatic complexity. Which of the following statements is correct regarding cyclomatic complexity?",
+         "options": {
+          "A": "Cyclomatic complexity = number of nodes − number of edges + 1.",
+          "B": "Cyclomatic complexity provides an upper bound on the number of required performance tests.",
+          "C": "Cyclomatic complexity helps in identifying infeasible test cases for black-box testing.",
+          "D": "Cyclomatic complexity = E − N + 2P, where P is the number of connected components in the control flow graph."
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "V(G) = E − N + 2P; it bounds the number of basis-path tests, a white-box measure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q55"
+        },
+        {
+         "question": "Assertion (A): White-box testing is essential for detecting logic errors that may not be exposed through black-box testing, especially in safety-critical systems such as avionics or medical devices.\nReason (R): White-box testing allows analysis of control structures including decision points, loops and internal data flow, ensuring thorough coverage of execution paths.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Because white-box tests exercise the internal logic, they can reveal errors that input/output tests miss. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q56"
+        },
+        {
+         "question": "Which of the following best describes the purpose of a Time-Line (Gantt) chart in project scheduling?",
+         "options": {
+          "A": "To define critical paths and slack times between tasks",
+          "B": "To graphically represent task dependencies with nodes and arrows",
+          "C": "To display resource availability across overlapping activities",
+          "D": "To map task durations along a horizontal time scale for visual tracking"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "A Gantt chart shows tasks as bars against a time axis; networks (PERT/CPM) show dependencies and critical paths. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q57"
+        },
+        {
+         "question": "Which of the following best captures the distinction between change control and version control in software configuration management?",
+         "options": {
+          "A": "Change control handles concurrent file updates, version control manages customer requirement changes.",
+          "B": "Change control deals with evaluating and approving changes, version control maintains the history and integrity of source artifacts.",
+          "C": "Change control is applied only during testing, version control is applied during development.",
+          "D": "Change control eliminates the needs, version control is applied in agile environments."
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Change control decides which changes are made; version control records and manages the versions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q58"
+        },
+        {
+         "question": "In object-oriented design, what is the primary purpose of information hiding?",
+         "options": {
+          "A": "Increase execution speed by avoiding modularization.",
+          "B": "Prevent subclassing and inheritance.",
+          "C": "Limit the exposure of internal module details to reduce system complexity and error propagation.",
+          "D": "Allow direct modification of all class members by other objects."
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Parnas: hide design decisions behind interfaces so that changes and errors stay local. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q59"
+        },
+        {
+         "question": "Assume a software team applies COCOMO II Early Design Model. If the system is later migrated to a cloud-native microservices architecture, then which cost driver becomes the most volatile and error-prone in recalculating effort?",
+         "options": {
+          "A": "Product Complexity",
+          "B": "Platform Volatility",
+          "C": "Required Software Reliability",
+          "D": "Database Size"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Changing the underlying platform is what platform volatility measures. (Strictly, PVOL belongs to the Post-Architecture model; this is the intended answer.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q60"
+        },
+        {
+         "question": "Assume the following priorities in evaluating an expression (1) parenthesis (2) exponentiation (3) division and multiplication (4) addition and subtraction (5) assignment. What is the equivalent post-fix expression of the infix expression a = b/c ^ d * (e + f) − g/h.",
+         "options": {
+          "A": "a b c d ↑ e f / + g h − * / =",
+          "B": "a b c d ↑ / e f + * g h / − =",
+          "C": "a b c d ↑ e f / * + g h / − =",
+          "D": "a b c d ↑ e f / + * g h − / ="
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "c ^ d first, then b/(c^d), times (e + f), minus g/h, then assign: a b c d ↑ / e f + * g h / − =. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q61"
+        },
+        {
+         "question": "Which one among the following are true about circular queue with queue capacity being n (numbered from 0 to n − 1), 'f' and 'r' being front and rear pointers to the first, and the last elements?\na. The Queue is full if (r + 1) mod n == f.\nb. The maximum number of elements that can be stored in a Queue is n − 1\nc. This is an efficient algorithm compared to linear Queue\nd. This is a non-linear data structure.",
+         "options": {
+          "A": "a, b and d",
+          "B": "b, c and d",
+          "C": "a, b and c",
+          "D": "a and b"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "With one slot left empty to tell full from empty, (r + 1) mod n == f means full and n − 1 elements fit; a queue is a linear structure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q62"
+        },
+        {
+         "question": "Which one of the following are true about Huffman Algorithm?\na. It is Dynamic Programming Algorithm\nb. It is a Greedy Algorithm\nc. Used for text compression\nd. Used for image compression",
+         "options": {
+          "A": "a and c only",
+          "B": "b and c only",
+          "C": "a and d only",
+          "D": "b and d only"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Huffman coding greedily merges the two least frequent symbols; it is the textbook text-compression method. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q63"
+        },
+        {
+         "question": "The cost of the Minimum spanning tree using Prim's Algorithm for the following graph is\n(edges: 1–2 = 2, 1–3 = 3, 2–3 = 2, 2–4 = 2, 3–4 = 3, 3–5 = 4, 4–5 = 1, 4–6 = 3, 5–6 = 4)",
+         "options": {
+          "A": "10",
+          "B": "11",
+          "C": "12",
+          "D": "17"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "MST edges: 4–5 (1), 1–2 (2), 2–3 (2), 2–4 (2), 4–6 (3) → 10. (Edge weights read from the figure in the paper.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q64"
+        },
+        {
+         "question": "Given the inorder of a tree as e, b, f, c, g, h, d and pre-order of the tree as c, b, e, f, d, g, h, the post-order of the tree is",
+         "options": {
+          "A": "e, f, b, h, c, g, d",
+          "B": "e, f, b, h, d, g, c",
+          "C": "f, e, b, h, g, d, c",
+          "D": "e, f, b, h, g, d, c"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Root c; left subtree b(e, f); right subtree d with left child g, which has right child h. Post-order: e f b h g d c. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q65"
+        },
+        {
+         "question": "The complexity of brute force algorithm to find all the substrings in a given string of 'm' characters and a substring of length 'n' (where m >> n) is",
+         "options": {
+          "A": "O(mn)",
+          "B": "O(m)",
+          "C": "O(n)",
+          "D": "O(mn²)"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Try each of about m starting positions and compare up to n characters: O(mn). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q67"
+        },
+        {
+         "question": "A model which uses the previously computed values for further computation is called",
+         "options": {
+          "A": "Greedy Algorithm",
+          "B": "Backtracking",
+          "C": "Branch and Bound",
+          "D": "Dynamic Programming"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Dynamic programming stores and reuses the results of subproblems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q68"
+        },
+        {
+         "question": "Match the following:\na. Prim's algorithm\nb. Queen's problem\nc. Quick sort\nd. Binomial coefficient\n(i) Dynamic Programming\n(ii) Divide and conquer\n(iii) Greedy Algorithm\n(iv) Backtracking",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Prim = greedy, N-Queens = backtracking, quick sort = divide and conquer, binomial coefficients = DP (Pascal's triangle). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q69"
+        },
+        {
+         "question": "In a multiprocessor environment, assume that there are n = 8 elements, and the number of processors given N = 4. If we use the Binary tree model to find the greatest of 'n' elements using parallel processing, then the time taken to find the greatest of 'n' elements is ____ (Assume the communication cost to be 0)",
+         "options": {
+          "A": "O(log₂ n)",
+          "B": "O(log₂ N)",
+          "C": "O(N log₂ n)",
+          "D": "O(n log₂ N)"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "With n/2 processors the tournament tree has log₂ n = 3 levels of parallel comparisons. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q70"
+        },
+        {
+         "question": "Select the invalid paradox type from the following:",
+         "options": {
+          "A": "Falsidical",
+          "B": "Veridical",
+          "C": "Antinomy",
+          "D": "Opposidical"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Quine's classification: veridical, falsidical and antinomies; 'opposidical' is not a paradox type. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q71"
+        },
+        {
+         "question": "If the languages L and ~L are recursive enumerable, then L is",
+         "options": {
+          "A": "Regular",
+          "B": "Context-free",
+          "C": "Context-sensitive",
+          "D": "Recursive"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Run the recognisers for L and its complement in parallel; one of them halts, so L is decidable (recursive). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q72"
+        },
+        {
+         "question": "A grammar is called ambiguous if",
+         "options": {
+          "A": "Two or more productions have the same non-terminal on the left-hand side.",
+          "B": "A derivation has more than one associated sentence",
+          "C": "A sentence having more than one derivation",
+          "D": "Productions having mostly terminal symbols"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Precisely: some sentence has more than one parse tree (more than one leftmost derivation). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q73"
+        },
+        {
+         "question": "A context-sensitive language is accepted by",
+         "options": {
+          "A": "Finite automata",
+          "B": "Linear-bounded automata",
+          "C": "NFA",
+          "D": "DFA"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Context-sensitive languages are exactly those accepted by linear-bounded automata. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q74"
+        },
+        {
+         "question": "Problems that can be solved in polynomial time are called",
+         "options": {
+          "A": "Tractable Problems",
+          "B": "Intractable Problems",
+          "C": "Decidable Problems",
+          "D": "Undecidable Problems"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Polynomial-time solvable problems are considered tractable. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q75"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "The time complexity of constructing an LR parser is ____, given |n| is the size of the grammar.",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n log n)",
+          "C": "O(2^|n|)",
+          "D": "O(n²)"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "The number of LR item sets (parser states) can grow exponentially with the grammar size. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q76"
+        },
+        {
+         "question": "The grammar S → XYZ with rules\nY.val = X.val\nY.val = S.val\nY.val = Z.val is",
+         "options": {
+          "A": "S-attributed Grammar",
+          "B": "L-attributed Grammar",
+          "C": "Neither S-attributed nor L-attributed Grammar",
+          "D": "Both S-attributed and L-attributed Grammar"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Y's attribute is inherited (so not S-attributed) and one rule uses Z, a sibling to Y's right (so not L-attributed). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q77"
+        },
+        {
+         "question": "Pick the right sequence of abstract machines according to their increasing order of the power.",
+         "options": {
+          "A": "FA → DPDA → NDPDA → TM",
+          "B": "FA → NDPDA → DPDA → TM",
+          "C": "FA → DPDA → TM → NDPDA",
+          "D": "TM → DPDA → NDPDA → FA"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Finite automata < deterministic PDA < nondeterministic PDA < Turing machine. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q78"
+        },
+        {
+         "question": "A symbol table in assembler contains",
+         "options": {
+          "A": "Mapping of variables and their memory addresses",
+          "B": "Program code and data",
+          "C": "Input and output instructions",
+          "D": "Machine instructions and opcodes."
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "The symbol table maps labels and symbols to addresses; opcodes are in the machine-opcode table. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q79"
+        },
+        {
+         "question": "Which of the following is not a common type of data flow analysis performed by compilers?",
+         "options": {
+          "A": "Constant propagation",
+          "B": "Dead code elimination",
+          "C": "Live variable analysis",
+          "D": "Type checking"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Type checking is semantic analysis on the syntax tree, not a data-flow analysis. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q80"
+        },
+        {
+         "question": "A system transmits data at 1200 bytes per second using 4 bits per signal limit. What is the baud rate?",
+         "options": {
+          "A": "2400 Baud",
+          "B": "9600 Baud",
+          "C": "38400 Baud",
+          "D": "4800 Baud"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "1200 × 8 = 9600 bps; 9600 / 4 bits per signal = 2400 baud. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q81"
+        },
+        {
+         "question": "____ is a digital modulation technique where the amplitude of a carrier wave is varied in accordance with the digital data being transferred, while frequency and phase remain constant.",
+         "options": {
+          "A": "Amplitude shift keying",
+          "B": "Phase shift keying",
+          "C": "Frequency shift keying",
+          "D": "Quadrature amplitude modulation"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "ASK varies only the amplitude. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q82"
+        },
+        {
+         "question": "The bandwidth of a noisy channel is 3000 Hz and whose signal to noise ratio is 3162. What will be the maximum data rate of the channel?",
+         "options": {
+          "A": "≅ 37524 bps",
+          "B": "≅ 36523 bps",
+          "C": "≅ 35922 bps",
+          "D": "≅ 34890 bps"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Shannon: C = 3000 × log₂(1 + 3162) ≈ 3000 × 11.63 ≈ 34,880 bps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q83"
+        },
+        {
+         "question": "A transmission uses CRC for error detection, the message is 1101011011 and the generator polynomial is G(x) = x⁴ + x + 1. What will be appended at the end of the message?",
+         "options": {
+          "A": "1111",
+          "B": "1110",
+          "C": "1101",
+          "D": "1100"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Divide 1101011011 0000 by 10011 (mod 2): the remainder is 1110 (Tanenbaum's example). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q84"
+        },
+        {
+         "question": "In a mesh topology with 100 devices, the number of physical connections required is ____.",
+         "options": {
+          "A": "9900",
+          "B": "4950",
+          "C": "200",
+          "D": "9801"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "n(n − 1)/2 = 100 × 99 / 2 = 4950. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q85"
+        },
+        {
+         "question": "If a file is encrypted and then transmitted over a network using TCP/IP, then which layer handles the encryption and which handles retransmission if the file is lost?",
+         "options": {
+          "A": "Application layer - Transport layer",
+          "B": "Presentation layer - Data link layer",
+          "C": "Session layer - Network layer",
+          "D": "Transport layer - Application layer"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "TCP/IP has no presentation layer, so encryption is done at the application layer; TCP (transport) retransmits lost segments. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q86"
+        },
+        {
+         "question": "Match the following:\ni. 0.0.0.0\nii. 127.255.255.255\niii. 192.0.2.0/24\niv. 224.0.0.1\n(a) Documentation/examples (RFC 5737)\n(b) Multicast address for all hosts on a subnet\n(c) Unknown or default route address\n(d) Local host loopback testing",
+         "options": {
+          "A": "i – c, ii – d, iii – a, iv – b",
+          "B": "i – d, ii – a, iii – b, iv – c",
+          "C": "i – b, ii – c, iii – a, iv – d",
+          "D": "i – b, ii – a, iii – d, iv – c"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "0.0.0.0 = default/unknown, 127.x.x.x = loopback, 192.0.2.0/24 = TEST-NET-1, 224.0.0.1 = all-hosts multicast. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q87"
+        },
+        {
+         "question": "In a columnar transposition cipher, the key is \"LARGE\". What will be the cipher text for the plain text \"COMPUTERSCIENCE\" (without space) using a simple columnar transposition?",
+         "options": {
+          "A": "CTIOEEMRNPSCUCE",
+          "B": "MRNCTIPSCUCEOEE",
+          "C": "OEEUCEPSCCTIMRN",
+          "D": "CETMPOIRECUSENC"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Rows COMPU / TERSC / IENCE under L A R G E; read columns in key order A, E, G, L, R: OEE UCE PSC CTI MRN. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q88"
+        },
+        {
+         "question": "In the RSA algorithm, let N = P × Q = 33, and let the decryption key D = 7. If the ciphertext corresponds to the letter \"E\", determine the original plaintext letter.\n(Assume A = 1, B = 2, ……, Z = 26).",
+         "options": {
+          "A": "S",
+          "B": "U",
+          "C": "N",
+          "D": "E"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "M = 5⁷ mod 33: 5² = 25, 5⁴ ≡ 31, 5⁷ ≡ 31 × 25 × 5 = 3875 ≡ 14 → N. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q89"
+        },
+        {
+         "question": "Five channels, each with a 100 kHz bandwidth are to be multiplexed together. What is the minimum bandwidth of the link if there is a need for a guard band of 10 kHz between the channels to prevent interference?",
+         "options": {
+          "A": "500 kHz",
+          "B": "540 kHz",
+          "C": "550 kHz",
+          "D": "100 kHz"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "5 × 100 + 4 guard bands × 10 = 540 kHz. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q90"
+        },
+        {
+         "question": "Determine which machine (M) passes the 'Turing Test', if it is subjected to 'imitation game'; conducted in 'Controlled Environment'.",
+         "options": {
+          "A": "M performs calculations quickly",
+          "B": "M generates random responses",
+          "C": "M identifies emotional intelligence",
+          "D": "M engages in conversation without identified as non-human"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "A machine passes if the interrogator cannot tell it from a human in conversation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q91"
+        },
+        {
+         "question": "Match the following 'Heuristic Search' with respect to \"Hill climbing\" Algorithm:\na. Steepest Ascent Hill Climbing\nb. Hill Climbing Algorithm\nc. Plateau\nd. Ridge\n(i) Variant of \"Generate and Test algorithm\"\n(ii) Gradient search\n(iii) Area higher than surrounding\n(iv) Flat area of the search space",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – i, b – iv, c – iii, d – ii",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Rich & Knight: hill climbing is a variant of generate-and-test; steepest ascent is gradient search; a plateau is flat; a ridge is higher than its surroundings. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q92"
+        },
+        {
+         "question": "Relate the AI methodologies of knowledge representation in right match.\na. NLP\nb. Representation in structured network\nc. Classes in ontology\nd. Expert system\n(i) Inference engine\n(ii) Abstract categories of related topics/concepts\n(iii) Semantic network\n(iv) Semantic analysis",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iv, b – ii, c – iii, d – i",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "NLP uses semantic analysis; a structured network is a semantic network; ontology classes are abstract categories; expert systems have inference engines. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q93"
+        },
+        {
+         "question": "If f(x) = x is my friend, and P(x) = x is perfect, then the correct logical translation of the statement \"Some of my friends are not perfect\" is ____.",
+         "options": {
+          "A": "∀x (f(x) ∧ ¬P(x))",
+          "B": "∃x (f(x) ∧ ¬P(x))",
+          "C": "¬(f(x) ∧ ¬P(x))",
+          "D": "∃x (¬f(x) ∧ ¬P(x))"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "'Some' is ∃ with ∧: there is someone who is my friend and not perfect. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q94"
+        },
+        {
+         "question": "Match the following List-I with List-II:\na. Fuzzy system\nb. Expert system\nc. Genetic algorithm operator\nd. Supervised technique\n(i) Decision tree\n(ii) Inversion\n(iii) Inference engine\n(iv) Dendral",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Dendral is a classic expert system, inversion is a GA operator, decision trees are supervised; fuzzy systems use a (fuzzy) inference engine. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q95"
+        },
+        {
+         "question": "Given two Fuzzy sets A and B with membership function μA(x) = {0.6, 0.5, 0.1, 0.7, 0.8}, μB(x) = {0.9, 0.2, 0.6, 0.8, 0.5}. Now calculate the value of μ(A ∪ B)′(x).",
+         "options": {
+          "A": "{0.1, 0.5, 0.4, 0.2, 0.3}",
+          "B": "{0.1, 0.5, 0.4, 0.2, 0.2}",
+          "C": "{0.1, 0.5, 0.4, 0.3, 0.2}",
+          "D": "{0.1, 0.5, 0.4, 0.3, 0.3}"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Union = max = {0.9, 0.5, 0.6, 0.8, 0.8}; complement = 1 − μ = {0.1, 0.5, 0.4, 0.2, 0.2}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q96"
+        },
+        {
+         "question": "Let the population of chromosomes in Genetic Algorithm is represented in terms of binary number. The strength of fitness of a chromosome in decimal form, x, is given by Sf(x) = f(x) / Σf(x) where f(x) = x².\nThe population is P = {(01101), (11000), (01000), (10011)}.\nCalculate the strength of fitness of chromosome (11000).",
+         "options": {
+          "A": "49.2%",
+          "B": "576.8%",
+          "C": "15.10%",
+          "D": "14.4%"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "x = 13, 24, 8, 19 → f = 169, 576, 64, 361, total 1170; 576 / 1170 ≈ 49.2%. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q97"
+        },
+        {
+         "question": "Given a \"feed forward\" ANN with 'n' inputs, 'h' hidden units and 'm' outputs. Compute how many trainable parameters (weights) are present in ANN, assuming there are no biases.",
+         "options": {
+          "A": "n + m × h",
+          "B": "n + h + m",
+          "C": "(n × h) + (h × m)",
+          "D": "n × h × m"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Input→hidden has n × h weights and hidden→output h × m. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q98"
+        },
+        {
+         "question": "The back propagation algorithm calculates the gradient of the 'Loss function' with respect to each weight in the network by which of the following mathematical techniques?",
+         "options": {
+          "A": "Lagrange multiplier",
+          "B": "Gradient descent",
+          "C": "K means algorithm",
+          "D": "Chain rule of calculus"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Backpropagation applies the chain rule layer by layer; gradient descent then uses those gradients. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q100"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "KEA 2026 – Computer Science Paper-2 (5 Jul 2026)",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Data structure used for finding whether a string is a palindrome or not is ____.",
+         "options": {
+          "A": "Heap",
+          "B": "Tree",
+          "C": "Priority queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Push the characters and pop them to get the reverse; compare with the original. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q1"
+        },
+        {
+         "question": "Which of the following is NOT a real world example of a stack?\n(a) Undo feature in text editors\n(b) Browser back button history\n(c) Breadth first search in programming\n(d) Queue at a ticket counter",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(a) and (b)",
+          "C": "(c) and (d)",
+          "D": "(d) and (a)"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "BFS and a ticket-counter queue are FIFO (queues); undo and back-button history are LIFO (stacks). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q2"
+        },
+        {
+         "question": "Match the following data structures in List-I with its concepts in List-II:\n(a) Binary search tree\n(b) Graph\n(c) Dynamic array\n(d) Max heap\n(i) Elements stored in contiguous memory location that can grow dynamically\n(ii) Tree where each node has at most two children\n(iii) Complete Binary tree where parent ≥ children\n(iv) Data structure consisting of nodes connected by edges can be cyclic.",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "A BST is a binary tree, a graph may contain cycles, a dynamic array is contiguous and growable, and a max heap is a complete tree with parent ≥ children. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q3"
+        },
+        {
+         "question": "Arrange the following data structures in increasing order of access time for retrieving the iᵗʰ-element (average case).\n(a) Array\n(b) Singly linked list\n(c) Binary search tree\n(d) Dynamic Array",
+         "options": {
+          "A": "(a), (d), (c), (b)",
+          "B": "(d), (a), (c), (b)",
+          "C": "(a), (d), (b), (c)",
+          "D": "(c), (b), (a), (d)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Arrays and dynamic arrays give O(1) indexed access (the plain array listed first), a BST O(log n), a linked list O(n). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q4"
+        },
+        {
+         "question": "In open addressing, if a collision occurs at index i, linear probing checks which index next?\n(a) i + 1\n(b) h(k)²\n(c) i/2\n(d) Random index",
+         "options": {
+          "A": "(a), (b), (c)",
+          "B": "Only (a)",
+          "C": "(a), (b), (d)",
+          "D": "Only (d)"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Linear probing tries (i + 1) mod m, then i + 2, and so on. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q5"
+        },
+        {
+         "question": "Find the time complexity for the given algorithm.\n1. Repeat for I = 1 to N:\n2.   Repeat for J = 1 to N:\n3.     Repeat for K = 1 to N:\n4.       Module A.\n        [End of step 3 loop.]\n      [End of step 2 loop.]\n    [End of step 1 loop.]\n5. Exit",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(n³)",
+          "C": "O(n)",
+          "D": "O(1)"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Three nested loops of N iterations each: N³ executions of Module A. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q6"
+        },
+        {
+         "question": "For the graph given, find the following:\n(a) In-degree of vertex (2)\n(b) Out-degree of vertex (3)\n(c) Set of vertices adjacent from vertex (2)\n(Directed edges in the figure: 1→2, 1→4, 4→3, 3→5, 3→2, 5→2)",
+         "options": {
+          "A": "a – 3, b – 2, c – {1, 5, 3}",
+          "B": "a – 3, b – 2, c – 0",
+          "C": "a – {1, 5, 3}, b – 2, c – 3",
+          "D": "a – {1, 2}, b – 2, c – 1"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Edges into 2 come from 1, 5 and 3; vertex 3 points to 5 and 2; vertex 2 has no outgoing edges, so nothing is adjacent from it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q7"
+        },
+        {
+         "question": "Find the output of the given POSTFIX expression 5 3 1 * + 4 2 / −",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "3 × 1 = 3; 5 + 3 = 8; 4 / 2 = 2; 8 − 2 = 6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q8"
+        },
+        {
+         "question": "For a given AVL tree with height H, the maximum number of nodes it can have is ____.",
+         "options": {
+          "A": "2^(H+1) − 1",
+          "B": "2^(H−1)",
+          "C": "H + H − 1",
+          "D": "2^H + 3"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "The maximum is a perfect binary tree: 2^(H+1) − 1 nodes (height counted from 0). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q9"
+        },
+        {
+         "question": "Consider a job scheduling problem with 4 jobs J1, J2, J3, J4 with deadlines (d₁, d₂, d₃, d₄) = (3, 1, 4, 2), each job takes 1 unit of time. Which of the following schedules is feasible without violating any deadline?\n(a) J2 → J4 → J1 → J3\n(b) J1 → J2 → J3 → J4\n(c) J4 → J3 → J1 → J2\n(d) J3 → J1 → J2 → J4",
+         "options": {
+          "A": "(a) only",
+          "B": "(a) and (b) only",
+          "C": "(c) and (d) only",
+          "D": "(a) and (d) only"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "In (a) the jobs finish at 1, 2, 3, 4 against deadlines 1, 2, 3, 4. In (b), (c) and (d), J2 (deadline 1) finishes later than time 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q11"
+        },
+        {
+         "question": "Match the following given concepts in List-I with the description in List-II.\n(a) AVL tree\n(b) B tree\n(c) Heap\n(d) Hashing\n(i) Direct access using hash function\n(ii) Complete binary tree used in priority queue\n(iii) Self balancing binary search tree\n(iv) Used in database indexing",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "AVL = self-balancing BST; B-tree = database indexes; heap = priority queue; hashing = direct access. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q12"
+        },
+        {
+         "question": "Let L₁ = {w ∈ {0, 1}* | w has at least as many occurrences of (110)'s as (011)'s}\nLet L₂ = {w ∈ {0, 1}* | w has at least as many occurrences of (000)'s as (111)'s}\nWhich one of the following is true?",
+         "options": {
+          "A": "Both L₁ and L₂ are regular",
+          "B": "L₂ is regular but not L₁",
+          "C": "L₁ is regular but not L₂",
+          "D": "Neither L₁ nor L₂ is regular"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Occurrences of 110 and 011 can differ by at most one, so a finite automaton can track L₁; comparing counts of 000 and 111 needs unbounded counting (GATE 2014). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q13"
+        },
+        {
+         "question": "Consider the following deterministic finite automata M (it accepts exactly the strings containing 001: start state loops on 1; 0 → second state; from there 1 returns to start and 0 → third state; third state loops on 0 and goes on 1 to the accepting state, which loops on 0, 1).\nLet S be the set of seven bit binary strings in which the first, the fourth and the last bit are 1. The number of strings in S that are accepted by M is",
+         "options": {
+          "A": "1",
+          "B": "7",
+          "C": "5",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Strings look like 1 b₂ b₃ 1 b₅ b₆ 1. They contain 001 exactly when b₂b₃ = 00 or b₅b₆ = 00: 4 + 4 − 1 = 7 (GATE 2003). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q14"
+        },
+        {
+         "question": "Match the following grammar machine (List-I) with its capability (List-II)\n(a) Deterministic PDA\n(b) Non-deterministic PDA\n(c) Finite Automata\n(d) Context Sensitive Grammar\n(i) Accepts exactly the class of context free languages\n(ii) Equivalent to the class of regular languages\n(iii) Accepts deterministic context-free language\n(iv) Requires a linear bounded automata",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iv, b – ii, c – iii, d – i",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "DPDA ↔ DCFL, NPDA ↔ CFL, FA ↔ regular, CSG ↔ linear-bounded automata. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q15"
+        },
+        {
+         "question": "Which of the following statements is/are false?\n(a) Turing recognizable languages are closed under union and intersection\n(b) Turing recognizable languages are closed under union and complementation\n(c) Turing decidable languages are closed under intersection and complementation\n(d) For every non-deterministic turing machine, there exists an equivalent deterministic turing machine",
+         "options": {
+          "A": "Only (b)",
+          "B": "(a) and (b)",
+          "C": "(b) and (d)",
+          "D": "(c) and (d)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Recognisable languages are not closed under complement (the halting problem's complement is not recognisable); the rest are true. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q16"
+        },
+        {
+         "question": "For the given non-deterministic finite automata (A loops on 0, A –ε→ B, B loops on 1, B –ε→ C, C loops on 2; A is the start state and C is the final state), what are the final states of the deterministic finite automata (DFA) generated?",
+         "options": {
+          "A": "[A, B], [A, C], [ ]",
+          "B": "[B, C], [A], [ ]",
+          "C": "{{A, B, C}, {B, C}, {C}}",
+          "D": "{B, C, A}"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Start = ε-closure(A) = {A, B, C}; on 1 → {B, C}; on 2 → {C}. All three contain C, so all are final. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q17"
+        },
+        {
+         "question": "Match the grammar types (List-I) with their properties (List-II).\n(a) Type regular grammar\n(b) Unrestricted grammar\n(c) Context-sensitive grammar\n(d) Type 0 grammar\n(i) No restriction on production length\n(ii) Linear bounded automaton\n(iii) Most restrictive grammar\n(iv) Generate RE language",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – ii, b – iv, c – i, d – iii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Regular grammars are the most restricted; unrestricted grammars have no length limit; CSGs match LBAs; type-0 grammars generate RE languages. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q18"
+        },
+        {
+         "question": "For the DFA transition table given below, give the final state for the input string \"aa\".\nState | a | b\nq0 | q1 | q0\nq1 | q2 | q1\nq2 | q2 | q0",
+         "options": {
+          "A": "q1",
+          "B": "q0",
+          "C": "q0, q2",
+          "D": "q2"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "q0 –a→ q1 –a→ q2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q19"
+        },
+        {
+         "question": "Which of the following problems are decidable?\n(A) Does a given problem/program ever produce an output?\n(B) If L is a context-free language, then is L′ (complement of L) also context-free?\n(C) If L is a regular language, then is L′ also regular?\n(D) If L is a recursive language, then is L′ also recursive?",
+         "options": {
+          "A": "A, B and C",
+          "B": "B, C",
+          "C": "C, D",
+          "D": "A, C"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Regular and recursive languages are closed under complement (always 'yes'); the output problem and CFL-complement question are undecidable. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q20"
+        },
+        {
+         "question": "____ is caused because of a delay in the availability of instruction.",
+         "options": {
+          "A": "Data Hazard",
+          "B": "Instruction Hazard",
+          "C": "Interrupt Hazard",
+          "D": "Structural Hazard"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Hamacher: an instruction (control) hazard is a pipeline stall because the next instruction is not available, e.g. after a cache miss or branch. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q22"
+        },
+        {
+         "question": "In a variable entered K-MAP for a four-variable expression, if two variables are entered inside the map, how many cells/locations will the map contain?",
+         "options": {
+          "A": "4 locations",
+          "B": "8 locations",
+          "C": "16 locations",
+          "D": "2 locations"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Two of the four variables are entered in the cells, so the map is on the other two variables: 2² = 4 cells. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q23"
+        },
+        {
+         "question": "Give the minimal SOP expression for the following expression:\nf(A, B, C) = Σm(0, 2, 4, 6)",
+         "options": {
+          "A": "C",
+          "B": "C̅",
+          "C": "B̅C",
+          "D": "BC̅"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Minterms 0, 2, 4, 6 are exactly the even ones, where C = 0: f = C̅. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q24"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "A 16-bit computer which generates 16-bit addresses is capable of addressing ____ memory locations.",
+         "options": {
+          "A": "2³² = 4 G",
+          "B": "2⁴⁰ = 1 T",
+          "C": "2¹⁶ = 64 KB",
+          "D": "2⁴ = 256 bytes"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "16 address bits give 2¹⁶ = 65,536 locations (64 K). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q26"
+        },
+        {
+         "question": "Match the following.\n(a) SR flip flop\n(b) JK flip flop\n(c) D flip flop\n(d) T flip flop\n(i) Register\n(ii) Asynchronous counter design\n(iii) Race around condition\n(iv) Forbidden state",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – i, b – ii, c – iv, d – iii",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "SR has the forbidden S = R = 1 state; JK has race-around; D flip-flops build registers; T flip-flops build ripple counters. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q27"
+        },
+        {
+         "question": "Match the terms in List-I with List-II:\n(a) Decoders\n(b) Encoders\n(c) Multiplexer (Mux)\n(d) Demultiplexer (Demux)\n(i) n to 1\n(ii) 1 to n\n(iii) n to 2ⁿ line\n(iv) 2ⁿ to n line",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Decoder n → 2ⁿ, encoder 2ⁿ → n, MUX many-to-one, DEMUX one-to-many. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q28"
+        },
+        {
+         "question": "Arrange the following memory types in a memory hierarchy according to increasing speed:\n(a) Main memory\n(b) Secondary storage (magnetic disk)\n(c) Primary cache (L1)\n(d) Registers\n(e) Secondary cache (L2)",
+         "options": {
+          "A": "b, e, c, a, d",
+          "B": "a, b, d, c, e",
+          "C": "a, b, c, d, e",
+          "D": "b, a, e, c, d"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Disk < main memory < L2 < L1 < registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q29"
+        },
+        {
+         "question": "Arrange the following searching methods according to average case time complexity (best to worst):\n(a) Linear search\n(b) Binary search\n(c) Hashing",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(b), (c) and (a)",
+          "C": "(c), (b) and (a)",
+          "D": "(a), (c) and (b)"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Hashing O(1), binary search O(log n), linear search O(n). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q30"
+        },
+        {
+         "question": "Subtract the following numbers using 2's complement → 13 from 11: Perform the Subtraction 11 − 13 using two's complement method.",
+         "options": {
+          "A": "0010",
+          "B": "1110",
+          "C": "0001",
+          "D": "1101"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "1011 + 2's complement of 1101 (0011) = 1110, with no carry: the result is −(0010) = −2, shown as 1110. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q32"
+        },
+        {
+         "question": "What will be DFA for the given NFA? (NFA: q0 loops on a; q0 –b, c→ q1; q1 loops on a, c; q1 is final)",
+         "options": {
+          "A": "q0 loops on b, c; q0 –a→ q1 (final); q1 loops on a",
+          "B": "q0 loops on a; q0 –b→ q1 (final); q1 loops on c",
+          "C": "q0 loops on a; q0 –b, c→ q1 (final); q1 loops on b, c; q1 –a→ φ; φ loops on a, b, c",
+          "D": "q0 loops on a; q0 –b, c→ q1 (final); q1 loops on a, c; q1 –b→ φ (dead state); φ loops on a, b, c"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "The NFA is already deterministic except that q1 has no b-move; adding a dead state φ for that move completes the DFA. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q33"
+        },
+        {
+         "question": "For the given context-free grammar G, what is the language generated by G where S is the starting non-terminal symbol?\nS → aSb | T\nT → bT | b",
+         "options": {
+          "A": "{aᵐbⁿ : 0 < m < n}",
+          "B": "{aᵐbⁿ : 0 < n ≤ m}",
+          "C": "{aᵐbⁿ : 0 ≤ m < n}",
+          "D": "{aᵐbⁿ : 0 ≤ n}"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "S gives aᵐ T bᵐ and T gives at least one b, so n = m + k with k ≥ 1 and m ≥ 0. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q34"
+        },
+        {
+         "question": "Token recognition in a lexical analyzer is primarily based on ____.",
+         "options": {
+          "A": "Parse Trees",
+          "B": "Backtracking Algorithm",
+          "C": "Regular Expression",
+          "D": "Context-free Grammar"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Token patterns are regular expressions, implemented as finite automata. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q35"
+        },
+        {
+         "question": "Match the following lexical analysis concept (List-I) with characteristics (List-II)\n(a) DFA\n(b) NFA\n(c) Subset Construction\n(d) Lexical Error\n(e) Tokenization\n(i) Conversion method from NFA to DFA\n(ii) No ε-moves\n(iii) Process of breaking input into token\n(iv) Multiple transitions for same input possible\n(v) Invalid character sequence",
+         "options": {
+          "A": "a – iii, b – i, c – iv, d – v, e – ii",
+          "B": "a – ii, b – iv, c – i, d – v, e – iii",
+          "C": "a – i, b – ii, c – iv, d – iii, e – v",
+          "D": "a – v, b – iii, c – ii, d – i, e – iv"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "A DFA has no ε-moves, an NFA may have several moves on one symbol, subset construction converts NFA → DFA. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q36"
+        },
+        {
+         "question": "Which of the following statements is true with respect to parsers?",
+         "options": {
+          "A": "LALR (1) is more powerful than canonical LR (1)",
+          "B": "SLR is more powerful than LALR (1)",
+          "C": "Canonical LR (1) is more powerful than LALR (1)",
+          "D": "SLR and LALR (1) have the same power"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "SLR ⊂ LALR(1) ⊂ canonical LR(1). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q37"
+        },
+        {
+         "question": "Suppose activation records are stored in the heap instead of stack, which of the following properties is most likely affected?",
+         "options": {
+          "A": "Recursion support",
+          "B": "Parameter passing",
+          "C": "Automatic deallocation in LIFO order",
+          "D": "Contents of activation record"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Heap records are not freed automatically in last-in-first-out order when a call returns. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q38"
+        },
+        {
+         "question": "Match the parser type (List-I) with its characteristics (List-II)\n(a) LR (0)\n(b) SLR (1)\n(c) Canonical LR (1)\n(d) LALR (1)\n(i) Uses follow sets to decide reduce actions\n(ii) Most powerful among deterministic LR parsers with single lookahead\n(iii) Constructed by merging states having identical LR (0) cores\n(iv) Reduce action applied without lookahead symbols",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iv, b – ii, c – i, d – iii",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "LR(0) reduces without lookahead, SLR uses FOLLOW sets, CLR(1) is the most powerful, LALR merges states with equal cores. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q39"
+        },
+        {
+         "question": "Consider the following sequence of events for generating code for a function call:\n(i) Push arguments\n(ii) Allocate activation record\n(iii) Transfer control to callee\n(iv) Restore caller state\nWhich is the correct chronological order?",
+         "options": {
+          "A": "i → iii → ii → iv",
+          "B": "i → ii → iii → iv",
+          "C": "i → iv → ii → iii",
+          "D": "ii → i → iii → iv"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "The caller pushes arguments and jumps; the callee then sets up the rest of its activation record; on return the caller's state is restored. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q40"
+        },
+        {
+         "question": "A grammar contains direct left recursion\nE → E + T | T\nWhich parser type cannot handle this grammar directly?",
+         "options": {
+          "A": "LL (1) Parser",
+          "B": "LR (0) Parser",
+          "C": "SLR (1) Parser",
+          "D": "LALR (1) Parser"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Top-down LL parsers loop forever on left recursion; LR parsers handle it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q42"
+        },
+        {
+         "question": "Consider the following set of processes that arrive at time 0 with length of the CPU burst time given in milliseconds: P1 = 26, P2 = 4, P3 = 5. What is the average waiting time for the processes that arrive in the orders P1, P2, P3 and P2, P1, P3 under FCFS policy?",
+         "options": {
+          "A": "18.65 and 11.32",
+          "B": "18.66 and 11.33",
+          "C": "18.64 and 11.31",
+          "D": "18.63 and 11.32"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Order 1: waits 0, 26, 30 → 56/3 ≈ 18.67. Order 2: waits 0, 4, 30 → 34/3 ≈ 11.33. Option 2 is the closest (truncated) value. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q43"
+        },
+        {
+         "question": "Many-to-many multithreading Model multiplexes ____",
+         "options": {
+          "A": "Many-user-level threads to one kernel thread",
+          "B": "Many-user-level threads to small or equal number of kernel threads",
+          "C": "Each user thread to a kernel thread",
+          "D": "One kernel thread to many-user-level threads"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Silberschatz's definition of the many-to-many model. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q44"
+        },
+        {
+         "question": "Paging is a memory management scheme that permits\n(a) The physical address space of a process to be non-contiguous\n(b) Physical memory is divided into fixed sized blocks called pages\n(c) Eliminates the need for compaction\n(d) Logical memory is divided into blocks of the same size called frames\nWhich of the aforementioned statements are correct?",
+         "options": {
+          "A": "(a) and (d)",
+          "B": "(a) and (c)",
+          "C": "(b) and (d)",
+          "D": "(b) and (c)"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Physical blocks are frames and logical blocks are pages, so (b) and (d) swap the names; paging has no external fragmentation, so no compaction. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q45"
+        },
+        {
+         "question": "The information that are associated with an open file\n(a) Creating a file, Access rights\n(b) Opening a file, File pointer\n(c) File pointer, File open count\n(d) Disk location of the file, Access rights\nWhich of the aforementioned statements are correct?",
+         "options": {
+          "A": "(c) and (d)",
+          "B": "(a) and (d)",
+          "C": "(b) and (d)",
+          "D": "(a), (b) and (c)"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Silberschatz: file pointer, file-open count, disk location and access rights are kept for each open file. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q46"
+        },
+        {
+         "question": "Consider the following snapshot of a system (Banker's algorithm):\nProcess | Allocation A B C D | Max A B C D\nP0 | 0 0 1 2 | 0 0 1 2\nP1 | 1 0 0 0 | 1 7 5 0\nP2 | 1 3 5 4 | 2 3 5 6\nP3 | 0 6 3 2 | 0 6 5 2\nP4 | 0 0 1 4 | 0 6 5 6\nAvailable = 1 5 2 0.\nFor the processes (i) P0 (ii) P1 (iii) P2 (iv) P3 (v) P4, the correct safe sequence is",
+         "options": {
+          "A": "(i), (ii), (iv), (v), (iii)",
+          "B": "(i), (v), (ii), (iii), (iv)",
+          "C": "(i), (iii), (ii), (iv), (v)",
+          "D": "(i), (v), (iv), (ii), (iii)"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Need: P0 0000, P1 0750, P2 1002, P3 0020, P4 0642. P0 → avail 1532; P2 → 2886; P1 → 3886; P3 → 3 14 11 8; P4 finishes. P1 or P4 cannot run straight after P0. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q47"
+        },
+        {
+         "question": "If the page size is 2048 bytes and a process needs 72766 bytes, find the total number of frames allocated and what is the internal fragmentation?",
+         "options": {
+          "A": "35 Frames 1080 bytes",
+          "B": "35 Frames 962 bytes",
+          "C": "36 Frames 1086 bytes",
+          "D": "36 Frames 962 bytes"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "72766 / 2048 = 35.53 → 36 frames = 73728 bytes; 73728 − 72766 = 962 bytes wasted. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q48"
+        },
+        {
+         "question": "Consider the following steps in a DMA transfer:\n(i) Disk controller initiates DMA transfer\n(ii) Disk driver tells disk controller to transfer of bytes from disk to buffer\n(iii) Disk controller sends each byte to DMA controller\n(iv) Device driver is told to transfer disk data to buffer\nIdentify the correct sequence.",
+         "options": {
+          "A": "(iv), (i), (ii), (iii)",
+          "B": "(i), (ii), (iii), (iv)",
+          "C": "(i), (iii), (iv), (ii)",
+          "D": "(iv), (ii), (i), (iii)"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Silberschatz's six-step DMA example begins: driver told → driver tells controller → controller initiates DMA → controller sends bytes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q49"
+        },
+        {
+         "question": "Match List-I with List-II:\n(a) FCFS Scheduling\n(b) SJF Scheduling\n(c) Priority Scheduling\n(d) RR Scheduling\n(i) Shortest burst time\n(ii) Indefinite Blocking\n(iii) Time slice\n(iv) Convoy effect",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – iii, b – ii, c – iv, d – i",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – i, b – iii, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "FCFS suffers the convoy effect, SJF picks the shortest burst, priority scheduling risks starvation, RR uses a time quantum. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "Match List-I (Address binding & space) with List-II (Performed by):\n(a) Compile time\n(b) Load time\n(c) Logical address\n(d) Physical address\n(i) One loaded into the memory address register\n(ii) Generated by CPU\n(iii) Relocatable code must be generated by compiler\n(iv) Absolute code can be generated",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Silberschatz: compile-time binding gives absolute code, load-time binding needs relocatable code, the CPU generates logical addresses, and the MAR holds physical ones. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q51"
+        },
+        {
+         "question": "A relation is in 3 NF if it has following one of the properties.",
+         "options": {
+          "A": "It is in 1 NF and has no partial dependency",
+          "B": "It is in 2 NF and has no transitive dependency",
+          "C": "It has no repeating groups",
+          "D": "It has a candidate key"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "3NF = 2NF with no transitive dependency of non-key attributes on the key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q53"
+        },
+        {
+         "question": "An SQL command which is used to remove all rows from a table without disturbing the table structure is",
+         "options": {
+          "A": "DROP",
+          "B": "DELETE",
+          "C": "TRUNCATE",
+          "D": "REMOVE"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "TRUNCATE empties the table; DROP removes the table itself. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q55"
+        },
+        {
+         "question": "A TRC query containing ∃ t ∈ R is expressing",
+         "options": {
+          "A": "Join operation",
+          "B": "Universal condition on all tuples of R",
+          "C": "Projection of attributes",
+          "D": "Existence of at least one tuple in R satisfying the predicate"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "∃ is the existential quantifier; ∀ would express a universal condition. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q56"
+        },
+        {
+         "question": "Which relational algebra expression retrieves names of employees working in department 10?",
+         "options": {
+          "A": "π DeptNo (σ Name = 10 (Employee))",
+          "B": "σ Name = DeptNo (Employee)",
+          "C": "π Name (σ DeptNo = 10 (Employee))",
+          "D": "Employee ∩ DeptNo = 10"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Select the department-10 tuples, then project Name. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q57"
+        },
+        {
+         "question": "Match the following normal forms in List-I with their defining conditions mentioned in the List-II.\n(a) 1 NF\n(b) 2 NF\n(c) 3 NF\n(d) BCNF\n(i) No transitive dependency\n(ii) No partial dependency\n(iii) Atomic values only\n(iv) Every determinant is a candidate key",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – i, b – iv, c – iii, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "1NF atomic values (printed 'Automatic values'), 2NF no partial dependency, 3NF no transitive dependency, BCNF every determinant a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q58"
+        },
+        {
+         "question": "Match the following index structures given in List-I with characteristics given in List-II.\n(a) Index File\n(b) Sequential Files\n(c) B+ Trees\n(d) Sparse Index\n(i) Indexing large datasets\n(ii) Not all key values present\n(iii) Records accessed one after another\n(iv) Speeds up records retrieval",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "An index speeds retrieval, sequential files are read in order, B+ trees index large data, a sparse index holds only some key values. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q59"
+        },
+        {
+         "question": "In Multi-Data Item strict 2PL problem, the given transactions are\nT1: R(A); W(A); R(B); W(B)\nT2: R(B); W(B).\nFind the maximum locks held at peak.",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Under strict 2PL, T1 holds locks on A and B until it commits; T2 needs B and must wait, so at most 2 locks are held at once. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q60"
+        },
+        {
+         "question": "Consider a relation: Student (SID, Name, DeptID) with rows (1, Alice, CS), (2, Bob, EE), (3, Carol, CS). Find the relational algebra expression to find CS students.",
+         "options": {
+          "A": "π Name (σ DeptID = 'CS' (Student))",
+          "B": "π Name (DeptID = CS ('CS Student'))",
+          "C": "π Name (Name = EE ('EE Student'))",
+          "D": "'CS Student' ÷ DeptID"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Select the CS rows and project the names: Alice and Carol. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q62"
+        },
+        {
+         "question": "Assume the stop-and-wait system, the bandwidth of the line is 1 Mbps and 1 bit takes 20 milliseconds to make a round trip. Compute bandwidth-delay product if the system data packets are 1000 bits in length. What is the utilization percentage of the link?",
+         "options": {
+          "A": "2000 bits, 10%",
+          "B": "2,00,000 bits, 4.5%",
+          "C": "20,000 bits, 4.76%",
+          "D": "200 bits, 50%"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "BDP = 10⁶ × 0.02 = 20,000 bits. Sending 1000 bits takes 1 ms, so one cycle is 21 ms: 1/21 ≈ 4.76%. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q63"
+        },
+        {
+         "question": "A ____ server that transfers the complete information about a zone from another server and stores the file on its local disk with respect to DNS.",
+         "options": {
+          "A": "Primary server",
+          "B": "Root server",
+          "C": "Secondary server",
+          "D": "Load server"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "A secondary server obtains the zone by zone transfer from the primary. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q64"
+        },
+        {
+         "question": "Identify the type of the following destination addresses with respect to ethernet:\n(a) 4A:30:10:21:10:1A\n(b) 47:20:1B:2E:08:EE\n(c) FF:FF:FF:FF:FF:FF",
+         "options": {
+          "A": "(a) Unicast, (b) Multicast, (c) Broadcast",
+          "B": "(a) Multicast, (b) Unicast, (c) Broadcast",
+          "C": "(a) Broadcast, (b) Unicast, (c) Multicast",
+          "D": "(a) Unicast, (b) Broadcast, (c) Multicast"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "The least significant bit of the first byte is 0 for unicast (4A = …1010) and 1 for multicast (47 = …0111); all 1s is broadcast (Forouzan). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q66"
+        },
+        {
+         "question": "The data structure indicates types of datagrams that are to be processed by IPsec with respect to network layer security is",
+         "options": {
+          "A": "Security Association Database (SAD)",
+          "B": "Security Parameter Index (SPI)",
+          "C": "Security Policy Database (SPD)",
+          "D": "Security Datagram Database (SDD)"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "The SPD decides which packets get IPsec processing; the SAD holds the parameters of each security association. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q67"
+        },
+        {
+         "question": "The interaction sequence in DHCP client server is\n(a) DHCP Discover\n(b) DHCP Request\n(c) DHCP Offer\n(d) DHCP ACK",
+         "options": {
+          "A": "(a), (b), (c), (d)",
+          "B": "(a), (c), (b), (d)",
+          "C": "(a), (c), (d), (b)",
+          "D": "(d), (a), (b), (c)"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "DORA: Discover, Offer, Request, Acknowledge. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q68"
+        },
+        {
+         "question": "What is the type of address used in transport layer?",
+         "options": {
+          "A": "Logical address",
+          "B": "Names",
+          "C": "Port number",
+          "D": "Link layer address"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Transport-layer addresses are port numbers; IP addresses are logical (network-layer) addresses. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q69"
+        },
+        {
+         "question": "Datagram switching is done at",
+         "options": {
+          "A": "Data link layer",
+          "B": "Network layer",
+          "C": "Transport layer",
+          "D": "Physical layer"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Forouzan: datagram switching is normally done at the network layer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q70"
+        },
+        {
+         "question": "For the following encoding/decoding schemes, with respect to fast ethernet:\n(i) 100 Base-TX\n(ii) 100 Base-FX\n(iii) 100 Base-T4\nIdentify the medium support for each of the above.",
+         "options": {
+          "A": "Fiber, UTP or STP, UTP",
+          "B": "UTP or STP, Fiber, UTP",
+          "C": "UTP, UTP or STP, Fiber",
+          "D": "Fiber, UTP, UTP or STP"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "100Base-TX: two pairs of Cat 5 UTP or STP; 100Base-FX: fibre; 100Base-T4: four pairs of Cat 3 UTP. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q71"
+        },
+        {
+         "question": "Match the following with respect to FTP:\n(a) 200\n(b) 230\n(c) 501\n(d) 530\n(e) 425\n(i) User login OK\n(ii) Command OK\n(iii) Cannot open data connection\n(iv) Syntax error in parameters and arguments\n(v) User not logged in",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – v, e – iii",
+          "B": "a – iii, b – ii, c – v, d – i, e – iv",
+          "C": "a – v, b – iii, c – iv, d – ii, e – i",
+          "D": "a – i, b – iii, c – iv, d – ii, e – v"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "FTP replies: 200 command OK, 230 user logged in, 425 can't open data connection, 501 syntax error in arguments, 530 not logged in. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q72"
+        },
+        {
+         "question": "What is the DOM (Document Object Model) in HTML?",
+         "options": {
+          "A": "Language-dependent application programming",
+          "B": "ASP.NET object hierarchy",
+          "C": "API",
+          "D": "HTML document object representation and interaction convention"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "The DOM is a language-independent convention for representing and interacting with objects in HTML and XML documents. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q73"
+        },
+        {
+         "question": "Which of the following statements is/are correct regarding how XML data is described?\n(a) XML uses DTD to describe the data\n(b) XML uses XSL to describe the data\n(c) XML uses a description node to describe the data codes\n(d) XML uses URL to describe the data",
+         "options": {
+          "A": "(a) only",
+          "B": "(b) only",
+          "C": "(a) and (b)",
+          "D": "(a), (c) and (d)"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "A DTD (or schema) describes XML structure; XSL describes how to transform or present it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q74"
+        },
+        {
+         "question": "In a three-tier architecture, do the presentation tier and the data tier communicate directly with each other?",
+         "options": {
+          "A": "Yes always",
+          "B": "No, communication goes through the application tier",
+          "C": "Only when using specific protocol like FTP",
+          "D": "Yes, but only for image data"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "The middle (application/logic) tier sits between presentation and data. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q75"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "Which of the following are the life cycle events of ASP.NET pages?\n(a) Compile document and call constructor\n(b) Initialize control state with view state\n(c) Save control state in view state\n(d) Execute instance and return results to client",
+         "options": {
+          "A": "(a) and (b) are correct",
+          "B": "(b) and (c) are correct",
+          "C": "(a), (b) and (d) are correct",
+          "D": "(a), (b), (c) and (d) are correct"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Sebesta describes all four: compile and construct, restore state from view state, save state back into view state, and render the result to the client. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q76"
+        },
+        {
+         "question": "What problem does connection pooling solve in J2EE application?",
+         "options": {
+          "A": "Reduces servlet initialization time",
+          "B": "Minimizes database connection overhead",
+          "C": "Eliminates need for JDBC",
+          "D": "Avoids HTTP session tracking"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Opening database connections is costly; a pool reuses them. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q77"
+        },
+        {
+         "question": "Consider the following server-side code snippet.\nRemoteService service = new RemoteServiceImpl();\nNaming.rebind(\"rmi://localhost:1099/RemoteService\", service);\nSystem.out.println(\"service bound.\");\nNaming.unbind(\"service unbound.\");\nWhat happens to the remote object instance (service) on the server after \"Naming.unbind()\" is called, assuming no clients are actively holding references?",
+         "options": {
+          "A": "The object is immediately garbage collected",
+          "B": "The object becomes unreferenced in the registry but remains active in server JVM",
+          "C": "The server throws remote exception",
+          "D": "The stub is removed from the server, but skeleton remains bound"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "unbind only removes the registry entry; the object stays exported (and the local variable still refers to it) until unexported. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q78"
+        },
+        {
+         "question": "Match the REST architectural constraints with its meaning:\n(a) Stateless\n(b) Uniform interface\n(c) Layered system\n(d) Resource identification\n(i) Uniform resource manipulation\n(ii) No client context stored on server\n(iii) Intermediaries allowed\n(iv) URI-based access",
+         "options": {
+          "A": "a – i, b – iii, c – ii, d – iv",
+          "B": "a – iii, b – ii, c – iv, d – i",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Stateless servers keep no client context; the uniform interface standardises manipulation; layers allow intermediaries; resources are identified by URIs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q79"
+        },
+        {
+         "question": "Match the following JSP Internal mechanisms:\n(a) jspInit()\n(b) jsp:setProperty with property = \"*\"\n(c) PageContext object\n(d) isELIgnored=\"true\"\n(i) Forces a page re-evaluation by bypassing the translation phase\n(ii) Introspects request parameters to automatically populate bean fields\n(iii) User-defined initialization logic that runs once during the JSP lifecycle\n(iv) A unified interface to access all four scopes (Page, Request, Session, App)",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – i, b – iv, c – ii, d – iii",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "jspInit runs once, setProperty=\"*\" copies request parameters into bean properties, PageContext reaches all scopes; (d) is left for isELIgnored (which actually turns off EL evaluation). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q80"
+        },
+        {
+         "question": "What will be the output of the following program?\nint main()\n{\n  int x = 5, y = 7, z;\n  z = x + y;\n  printf(\"%d\", x);\n  printf(\"%d\", y);\n  printf(\"%d\", z);\n}",
+         "options": {
+          "A": "5 12 0",
+          "B": "0 7 12",
+          "C": "5 7 12",
+          "D": "12 12 12"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "It prints x = 5, y = 7 and z = 12 (with no spaces in the actual output: 5712). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q81"
+        },
+        {
+         "question": "Given\nint a[3] = {1, 2, 3};\nprintf(\"%d\", a[3]);\nChoose the correct answer.",
+         "options": {
+          "A": "3",
+          "B": "garbage",
+          "C": "error",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "a[3] is past the end of the array: undefined behaviour, typically a garbage value; C does no bounds checking. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q82"
+        },
+        {
+         "question": "Match the following functions in List-I with their purpose in List-II.\n(a) strcat(S1, S2)\n(b) strncmp(S1, S2, n)\n(c) strchr(S1, ch)\n(d) strstr(S1, S2)\n(i) Returns pointer to first occurrence ch in S1\n(ii) Returns pointer to first occurrence S2 in S1\n(iii) Concatenates S2 to S1\n(iv) Compares two strings based on n and returns a value",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – i, b – iii, c – iv, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "strcat appends, strncmp compares up to n characters, strchr finds a character, strstr finds a substring. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q83"
+        },
+        {
+         "question": "An array has been declared as int a[] = {1, 2, 3, 4, 5, ….}; How can you find the number of elements of the array without manually counting them?",
+         "options": {
+          "A": "printf(\"%d\", sizeof(n));",
+          "B": "printf(\"%d\", sizeof(a)/sizeof(a[0]));",
+          "C": "printf(\"%d\", sizeof(int[a]));",
+          "D": "printf(\"%d\", sizeof(a[0]));"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Total bytes of the array divided by the bytes of one element. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q84"
+        },
+        {
+         "question": "What will the following switch statement print?\nchar C = 'Y';\nswitch (C)\n{\n  case 'Y': printf(\"Yes/No\");\n  case 'N': printf(\"No/Yes\");\n            break;\n  default: printf(\"other\");\n}",
+         "options": {
+          "A": "Other",
+          "B": "Yes/No Other",
+          "C": "Other Yes/No",
+          "D": "Yes/No No/Yes"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "case 'Y' has no break, so control falls through into case 'N' and then breaks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q85"
+        },
+        {
+         "question": "The following is a graphical representation of function f(t) = { t, 0 < t < 1; 1 − t, 1 < t < 2 }",
+         "options": {
+          "A": "Rises from (0, 0) to (1, 1), then falls from (1, 0) to (2, −1)",
+          "B": "Rises from (0, 0) to (1, 1), then rises from (1, −1) to (2, 0)",
+          "C": "A single line falling from (0, 1) to (2, −1)",
+          "D": "Falls from (0, 0) to (1, −1), then rises to (2, 0)"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "On (0, 1) f = t rises to 1; on (1, 2) f = 1 − t starts at 0 and falls to −1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q86"
+        },
+        {
+         "question": "If n is a positive integer, then the z-transform of (n + 1)² is",
+         "options": {
+          "A": "(z² − z³)/(z − 1)²",
+          "B": "(z³ − z²)/(z + 1)²",
+          "C": "(z² + z³)/(z + 1)³",
+          "D": "(z³ + z²)/(z − 1)³"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Z{n²} = z(z + 1)/(z − 1)³; shifting left by one (x(0) = 0) multiplies by z: (z³ + z²)/(z − 1)³. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q87"
+        },
+        {
+         "question": "Match the following Probability Distributions with their Mean:\n(a) Binomial\n(b) Poisson\n(c) Normal\n(d) Discrete\n(i) Σxᵢp(xᵢ)\n(ii) μ\n(iii) λ\n(iv) np",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Binomial np, Poisson λ, normal μ, a discrete distribution Σ xᵢ p(xᵢ). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q88"
+        },
+        {
+         "question": "The following equations represent the equation of regression lines: x + 6y − 4 = 0; 2x + 3y + 1 = 0; then the correlation co-efficient 'r' is given by",
+         "options": {
+          "A": "r = 0.5",
+          "B": "r = −0.5",
+          "C": "r = 2",
+          "D": "r = −2"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Taking the first as y on x (b_yx = −1/6) and the second as x on y (b_xy = −3/2): r² = 1/4, and both slopes are negative, so r = −0.5. (The other assignment gives r² = 4, impossible.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q89"
+        },
+        {
+         "question": "What is the order of convergence of Newton-Raphson method?",
+         "options": {
+          "A": "1",
+          "B": "1.6",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Newton–Raphson converges quadratically (the secant method about 1.618). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q90"
+        },
+        {
+         "question": "Match the following:\n(a) Diagonal matrix A\n(b) Null matrix A\n(c) Determinant of a matrix A\n(d) Trace of a matrix A\n(i) Product of the eigen values of A\n(ii) No eigen values\n(iii) Sum of the eigen values of A\n(iv) Eigen values are diagonal elements",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iv, b – ii, c – i, d – iii",
+          "D": "a – i, b – iii, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Diagonal matrices have their diagonal entries as eigenvalues; det = product and trace = sum of eigenvalues. (Strictly, a null matrix has all eigenvalues 0; the paper pairs it with 'no eigenvalues'.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q91"
+        },
+        {
+         "question": "The system of linear equations is consistent if and only if",
+         "options": {
+          "A": "Rank of an augmented matrix is equal to Rank of co-efficient matrix of system of equations",
+          "B": "Rank of an augmented matrix is not equal to Rank of co-efficient matrix of system of equations",
+          "C": "Rank of an augmented matrix is greater than Rank of a co-efficient matrix of the system of equations",
+          "D": "Rank of an augmented matrix is less than Rank of a co-efficient matrix of the system of equations"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Rouché–Capelli theorem. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q92"
+        },
+        {
+         "question": "If z = x² + y² − axy, which of the following statements is true?",
+         "options": {
+          "A": "∂²z/∂x∂y = 0",
+          "B": "∂²z/∂x∂y = ∂²z/∂y∂x",
+          "C": "∂²z/∂x∂y = (∂z/∂x)(∂z/∂y)",
+          "D": "∂²z/∂x∂y = −∂²z/∂x∂y"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Both mixed partial derivatives equal −a. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q93"
+        },
+        {
+         "question": "If a periodic non-zero function f(x) in (−π, π) is even, then the Euler's co-efficients\n(i) a₀ = 0 and aₙ = 0\n(ii) bₙ ≠ 0\n(iii) bₙ = 0\n(iv) a₀ = 0, aₙ = 0, bₙ = 0",
+         "options": {
+          "A": "(i) and (ii) correct but (iii) and (iv) incorrect",
+          "B": "(i), (ii) and (iii) correct but (iv) incorrect",
+          "C": "(i), (ii) and (iv) incorrect but (iii) correct",
+          "D": "(i), (ii) and (iv) correct but (iii) incorrect"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "For an even function f(x) sin nx is odd, so every bₙ = 0; a₀ and aₙ are in general non-zero. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q94"
+        },
+        {
+         "question": "In a vector point function F = f₁(x, y, z)i + f₂(x, y, z)j + f₃(x, y, z)k, if ∇·F = 0 and ∇ × F = 0, then\n(i) F is solenoidal and F is irrotational\n(ii) F is solenoidal but not irrotational\n(iii) F is irrotational but not solenoidal\n(iv) F is neither solenoidal nor irrotational",
+         "options": {
+          "A": "(i) correct but (ii), (iii), (iv) not correct",
+          "B": "(ii) correct but (i), (iii), (iv) not correct",
+          "C": "(iii) correct but (i), (ii), (iv) not correct",
+          "D": "(iv) correct but (i), (ii), (iii) not correct"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Zero divergence = solenoidal; zero curl = irrotational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q95"
+        },
+        {
+         "question": "If φ(x, y), Ψ(x, y), φ_y and Ψ_x are continuous in a region E of the xy plane bounded by a closed curve C, then by Green's theorem",
+         "options": {
+          "A": "∮_C (φ dx + Ψ dy) = ∬_E (∂Ψ/∂x − ∂φ/∂y) dx dy",
+          "B": "∮_C (φ dx + Ψ dy) = ∬_E (∂Ψ/∂x + ∂φ/∂y) dx dy",
+          "C": "∮_C (φ dx ± Ψ dy) = ∬_E (∂Ψ/∂x ± ∂φ/∂y) dx dy",
+          "D": "∮_C (φ dx − Ψ dy) = ∬_E (∂Ψ/∂x + ∂φ/∂y) dx dy"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Green's theorem in the plane: ∮(M dx + N dy) = ∬(∂N/∂x − ∂M/∂y) dx dy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q96"
+        },
+        {
+         "question": "The complete solution of a differential equation d⁴r/dθ⁴ = a⁴r is",
+         "options": {
+          "A": "r = C₁e^(aθ) + C₂e^(−aθ) + (C₃ + C₄θ)e^(aθ/2)",
+          "B": "r = C₁cos aθ + C₂sin aθ + C₃cosh aθ + C₄sinh aθ",
+          "C": "r = (C₁cos aθ + C₂sin aθ) + θ² + 1",
+          "D": "r = (C₁ + C₂θ)e^(−aθ) + (C₃ + C₄θ)e^(aθ)"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "m⁴ = a⁴ gives m = ±a and ±ia: e^(±aθ) (cosh, sinh) and cos aθ, sin aθ. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q97"
+        },
+        {
+         "question": "The order and degree of the differential equation (d³y/dx³)² + x²(dy/dx)³ − 2x + 11 = 0 is",
+         "options": {
+          "A": "Order – 2; degree – 3",
+          "B": "Order – 1; degree – 3",
+          "C": "Order – 3; degree – 2",
+          "D": "Order – 3; degree – 1"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "The highest derivative is the third, raised to the power 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q98"
+        },
+        {
+         "question": "A partial differential equation obtained by eliminating arbitrary constant from the function z = x/a + y/b is",
+         "options": {
+          "A": "z = y ∂z/∂x + x ∂z/∂y",
+          "B": "z = x ∂z/∂x − y ∂z/∂y",
+          "C": "z = x ∂z/∂x + y ∂z/∂y",
+          "D": "z = x² ∂²z/∂x² + y² ∂²z/∂y²"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "p = 1/a and q = 1/b, so z = xp + yq. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q99"
+        },
+        {
+         "question": "Which of the following partial differential equation represents a one dimensional wave equation?",
+         "options": {
+          "A": "∂u/∂t = c² ∂²u/∂x²",
+          "B": "(∂u/∂t)² = c² ∂²u/∂x²",
+          "C": "∂²u/∂t² = c² (∂u/∂x)²",
+          "D": "∂²u/∂t² = c² ∂²u/∂x²"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "The wave equation is second order in time; option 1 is the heat equation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q100"
+        }
+       ]
+      }
+     ]
     }
    ]
   }
@@ -2394,6 +4901,28 @@
      "subject": "P2 · Previous-Year Papers (KEA/KSET)",
      "topic": "KSET 2024 – Computer Science & Application",
      "weight": 90
+    }
+   ]
+  },
+  {
+   "name": "KSET 2025 – Computer Science & Applications · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "KSET 2025 – Computer Science & Applications",
+     "weight": 98
+    }
+   ]
+  },
+  {
+   "name": "KEA 2026 – Computer Science Paper-2 (5 Jul 2026) · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "KEA 2026 – Computer Science Paper-2 (5 Jul 2026)",
+     "weight": 91
     }
    ]
   }
