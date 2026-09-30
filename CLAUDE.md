@@ -83,6 +83,7 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
   2025–26, KSET/GFGC English, Education and General papers, VAO, PSI, UPSC-coaching GK, Dalayath, KRIES entrance 2024–26).
   Every paper's exam/year/URL is in `tools/pyq_manifest.tsv`; `python tools/pyq_fetch.py` re-downloads missing ones; then run
   `python tools/pyq_ocr.py` (OCRs every PDF without a draft).
+- Done: **KSET 2025 CS&A** (`pyq_kset2025_csa.py`, 98 Q) and **KEA 2026 CS Paper-2, 5 Jul 2026** (`pyq_kea2026_cs.py`, 91 Q; negative marking ¼) – both ExamSim-solved (no keys online).
 - Done: **KSET 2023 CS&A** (`tools/pyq_kset2023_csa.py`, 88 Q; Q30/Q74 from KEA's revised key, rest ExamSim-solved) and **KSET 2024 CS&A** (`tools/pyq_kset2024_csa.py`, 90 of 100 Q; 10 ambiguous ones skipped; answers ExamSim-solved – KEA
   has no full key online). Built by `tools/build_pyq.py` → `packs/pyq-p2.json`, subject "P2 · Previous-Year Papers (KEA/KSET)",
   one topic per paper, sets of 25 by question number, plus a full-paper mock preset.
