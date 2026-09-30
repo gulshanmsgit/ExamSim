@@ -31,7 +31,7 @@ def add_two_up(out, src: Path):
 
 
 def main():
-    for old in (ROOT / "Booklets (print)", OUT):
+    for old in (OUT,):  # only its own output folder
         if old.exists():
             shutil.rmtree(old)
     OUT.mkdir(parents=True)
