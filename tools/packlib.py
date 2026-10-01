@@ -72,12 +72,13 @@ def build_pack(out_path, name, description, subjects):
                 qs = []
                 # Balance A–D inside the set: fixed-order questions keep their letter; every other question puts its
                 # correct answer on the least-used letter so far (ties and distractor order decided by a hash of the text).
-                fixed = lambda q, o: st.get("keep_order") or _keep_order(q, o)
-                used = Counter("ABCD"[it[2]] for it in st["questions"] if fixed(it[0], it[1]) and 0 <= it[2] < 4)
+                # real previous-year questions (5th item = source) keep the paper's printed option order
+                fixed = lambda q, o, src=None: st.get("keep_order") or bool(src) or _keep_order(q, o)
+                used = Counter("ABCD"[it[2]] for it in st["questions"] if fixed(it[0], it[1], it[4] if len(it) > 4 else None) and 0 <= it[2] < 4)
                 for i, item in enumerate(st["questions"]):
                     q, opts, ans, expl = item[:4]
                     source = item[4] if len(item) > 4 else None
-                    if not st.get("keep_order"):
+                    if not st.get("keep_order") and not source:
                         q, opts = _renumber_match(q, opts)
                     where = f"{t['name']} / {st['name']} Q{i + 1}"
                     if len(opts) != 4 or len(set(opts)) != 4:
@@ -85,13 +86,13 @@ def build_pack(out_path, name, description, subjects):
                     if not 0 <= ans < 4:
                         problems.append(f"{where}: bad answer index")
                     key = re.sub(r"\s+", " ", q.strip().lower())
-                    if st.get("keep_order"):  # real papers reuse stems such as "Which statement is FALSE?"
+                    if st.get("keep_order") or source:  # real papers reuse stems such as "Which statement is FALSE?"
                         key += "|" + "|".join(opts)
                     if key in seen:
                         problems.append(f"{where}: duplicate of {seen[key]}")
                     seen[key] = where
                     order = list(range(4))
-                    if not fixed(q, opts) and 0 <= ans < 4:
+                    if not fixed(q, opts, source) and 0 <= ans < 4:
                         rng = random.Random(hashlib.md5(q.encode()).hexdigest())
                         others = [k for k in order if k != ans]
                         rng.shuffle(others)
