@@ -1,0 +1,1483 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 5 — Database Management Systems",
+ "description": "2 of 10 topics so far (4 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 5 – Database Management Systems",
+   "icon": "🗄️",
+   "topics": [
+    {
+     "name": "ER Model & Relational Model",
+     "sets": [
+      {
+       "name": "1 · Entity-Relationship Model",
+       "questions": [
+        {
+         "question": "The Entity-Relationship (ER) model was proposed in 1976 by:",
+         "options": {
+          "A": "Raymond Boyce",
+          "B": "Peter Chen",
+          "C": "Charles Bachman",
+          "D": "E. F. Codd"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Codd proposed the relational model (1970)."
+        },
+        {
+         "question": "In an ER diagram, a rectangle represents a(n):",
+         "options": {
+          "A": "Primary key",
+          "B": "Relationship set",
+          "C": "Entity set",
+          "D": "Attribute"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Diamonds are relationships and ellipses are attributes."
+        },
+        {
+         "question": "In an ER diagram, a double line connecting an entity set to a relationship indicates:",
+         "options": {
+          "A": "A derived attribute",
+          "B": "Total participation of that entity set in the relationship",
+          "C": "A many-to-many relationship",
+          "D": "A recursive relationship"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Every entity in the set must take part in at least one relationship instance."
+        },
+        {
+         "question": "A weak entity set is one that:",
+         "options": {
+          "A": "Has more than one primary key",
+          "B": "Participates in no relationships",
+          "C": "Does not have a key of its own and is identified through an owner entity",
+          "D": "Has no attributes"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). It is shown as a double rectangle and linked by a double-diamond identifying relationship."
+        },
+        {
+         "question": "The partial key (discriminator) of a weak entity set is shown in an ER diagram by:",
+         "options": {
+          "A": "A dotted rectangle",
+          "B": "A double ellipse",
+          "C": "A double underline",
+          "D": "A dashed underline"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "The owner's key plus the discriminator form the weak entity's key."
+        },
+        {
+         "question": "PAYMENT is a weak entity owned by LOAN (key loan_no); payment_no distinguishes payments of the same loan. The primary key of the PAYMENT relation is:",
+         "options": {
+          "A": "{loan_no}",
+          "B": "{payment_no, amount}",
+          "C": "{loan_no, payment_no}",
+          "D": "{payment_no}"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Primary key of a weak entity = owner's primary key + discriminator."
+        },
+        {
+         "question": "An attribute such as Phone_numbers, which can hold several values for one entity, is called:",
+         "options": {
+          "A": "Multivalued attribute",
+          "B": "Key attribute",
+          "C": "Derived attribute",
+          "D": "Composite attribute"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "It is drawn as a double ellipse."
+        },
+        {
+         "question": "An attribute such as Age, computed from Date_of_birth, is a:",
+         "options": {
+          "A": "Multivalued attribute",
+          "B": "Composite attribute",
+          "C": "Key attribute",
+          "D": "Derived attribute"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Derived attributes are drawn with dashed ellipses and usually not stored."
+        },
+        {
+         "question": "An attribute such as Name, made up of First_name, Middle_name and Last_name, is a:",
+         "options": {
+          "A": "Simple attribute",
+          "B": "Composite attribute",
+          "C": "Multivalued attribute",
+          "D": "Derived attribute"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Composite attributes can be divided into smaller parts."
+        },
+        {
+         "question": "A relationship in which an EMPLOYEE supervises another EMPLOYEE is called a:",
+         "options": {
+          "A": "Ternary relationship",
+          "B": "Derived relationship",
+          "C": "Weak relationship",
+          "D": "Recursive (unary) relationship"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "The two participations are distinguished by role names (supervisor, supervisee)."
+        },
+        {
+         "question": "A relationship set that involves three entity sets is said to have degree:",
+         "options": {
+          "A": "3 (ternary)",
+          "B": "0",
+          "C": "1 (unary)",
+          "D": "2 (binary)"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Degree = number of participating entity sets."
+        },
+        {
+         "question": "In a 1 : N relationship between DEPARTMENT (1) and EMPLOYEE (N), when mapping to relations the foreign key is placed in:",
+         "options": {
+          "A": "EMPLOYEE, the N-side relation",
+          "B": "DEPARTMENT, the 1-side relation",
+          "C": "A separate third relation only",
+          "D": "Both relations"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Each employee row stores its department's key."
+        },
+        {
+         "question": "Entity sets A and B are related by a many-to-many relationship R with no attributes of its own. The minimum number of relations needed is:",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). One relation each for A and B, and one for R holding both keys."
+        },
+        {
+         "question": "Entity sets A and B have a one-to-many relationship R, and every B entity participates in R. The minimum number of relations needed is:",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "R is absorbed into B's relation as a foreign key."
+        },
+        {
+         "question": "A multivalued attribute of an entity is mapped to the relational model as:",
+         "options": {
+          "A": "A separate relation containing the attribute and the entity's key",
+          "B": "It is dropped",
+          "C": "A derived column",
+          "D": "Extra columns in the same relation"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Elmasri step 6 of the ER-to-relational mapping."
+        },
+        {
+         "question": "Designing lower-level entity sets from a higher-level entity set by identifying distinguishing features (top-down) is called:",
+         "options": {
+          "A": "Generalization",
+          "B": "Aggregation",
+          "C": "Specialization",
+          "D": "Normalization"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Generalization is the reverse (bottom-up) process."
+        },
+        {
+         "question": "Combining several entity sets that share features into a higher-level entity set (bottom-up) is called:",
+         "options": {
+          "A": "Specialization",
+          "B": "Generalization",
+          "C": "Decomposition",
+          "D": "Aggregation"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "E.g. CAR and TRUCK generalised into VEHICLE."
+        },
+        {
+         "question": "Aggregation in the ER model is used to:",
+         "options": {
+          "A": "Remove redundancy",
+          "B": "Split entity sets",
+          "C": "Compute sums of attributes",
+          "D": "Treat a relationship set as an entity so that it can take part in another relationship"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "E.g. a relationship between (EMPLOYEE works-on PROJECT) and MANAGER."
+        },
+        {
+         "question": "In (min, max) notation, (0, N) on an entity's participation in a relationship means:",
+         "options": {
+          "A": "Partial participation; an entity may take part many times",
+          "B": "Total participation, at most once",
+          "C": "No participation allowed",
+          "D": "Total participation, exactly once"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "min = 0 means participation is optional."
+        },
+        {
+         "question": "Hours_worked belongs to the M : N relationship WORKS_ON between EMPLOYEE and PROJECT. When mapped, Hours_worked goes into:",
+         "options": {
+          "A": "The EMPLOYEE relation",
+          "B": "The PROJECT relation",
+          "C": "The WORKS_ON relation",
+          "D": "Nowhere; it is dropped"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "It describes a pair (employee, project), not either entity alone."
+        },
+        {
+         "question": "Entity sets A and B have a one-to-one relationship with total participation on both sides. The minimum number of relations needed is:",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "0",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Both entity sets and the relationship can be merged into a single relation."
+        },
+        {
+         "question": "Consider the statements:\nI. A weak entity set always has total participation in its identifying relationship.\nII. A weak entity set can be identified without its owner entity.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Weak entities depend on their owner for identification."
+        },
+        {
+         "question": "Consider the statements:\nI. Specialization can be disjoint or overlapping.\nII. Specialization can be total or partial.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Both constraints apply to specialization/generalization."
+        },
+        {
+         "question": "Consider the statements:\nI. A derived attribute must always be stored in the database.\nII. A multivalued attribute is mapped into the same relation as extra columns.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Derived attributes are usually computed; multivalued attributes go to a separate relation."
+        },
+        {
+         "question": "Assertion (A): An M : N relationship needs its own relation when mapped.\nReason (R): A foreign key in either entity's relation could hold only one value per tuple.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "So the pairs must be stored in a separate relation."
+        },
+        {
+         "question": "Assertion (A): Every entity set in an ER diagram must have a key attribute.\nReason (R): Weak entity sets are identified using the key of an owner entity set.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Weak entity sets have no key of their own, so A is false."
+        },
+        {
+         "question": "Assertion (A): Double lines in an ER diagram show total participation.\nReason (R): Peter Chen proposed the ER model.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Match the ER symbol with its meaning:\na. Double rectangle\nb. Double ellipse\nc. Dashed ellipse\nd. Double diamond\n\n1. Weak entity set\n2. Multivalued attribute\n3. Derived attribute\n4. Identifying relationship",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Entity-Relationship Model",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Standard Elmasri/Chen notation."
+        },
+        {
+         "question": "Match the concept with an example:\na. Composite attribute\nb. Multivalued attribute\nc. Recursive relationship\nd. Weak entity\n\n1. DEPENDENT of an EMPLOYEE\n2. Address (street, city, PIN)\n3. EMPLOYEE supervises EMPLOYEE\n4. College_degrees of a person",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "A",
+         "subject": "Entity-Relationship Model",
+         "explanation": "Typical textbook examples."
+        },
+        {
+         "question": "In an EER diagram, a specialization is commonly shown using:",
+         "options": {
+          "A": "A dashed underline",
+          "B": "A circle (or triangle labelled ISA) connecting the superclass to its subclasses",
+          "C": "A double rectangle",
+          "D": "A diamond with double lines"
+         },
+         "answer": "B",
+         "subject": "Entity-Relationship Model",
+         "explanation": "'d' in the circle means disjoint and 'o' means overlapping."
+        }
+       ]
+      },
+      {
+       "name": "2 · Relational Model, Constraints and Update Operations",
+       "questions": [
+        {
+         "question": "In the relational model, a relation is formally a:",
+         "options": {
+          "A": "Set of foreign keys",
+          "B": "Subset of the Cartesian product of a list of tuples",
+          "C": "Sequence of records in a file",
+          "D": "Subset of the Cartesian product of a list of domains"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Each tuple takes one value from each attribute's domain."
+        },
+        {
+         "question": "The relational model of data was proposed in 1970 by:",
+         "options": {
+          "A": "Ronald Fagin",
+          "B": "E. F. Codd",
+          "C": "Peter Chen",
+          "D": "C. J. Date"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). In 'A Relational Model of Data for Large Shared Data Banks'."
+        },
+        {
+         "question": "The number of attributes in a relation is called its:",
+         "options": {
+          "A": "Schema size",
+          "B": "Cardinality",
+          "C": "Domain",
+          "D": "Degree (arity)"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "The number of tuples is its cardinality."
+        },
+        {
+         "question": "A relation instance has 6 attributes and 40 tuples. Its degree and cardinality are:",
+         "options": {
+          "A": "6 and 6",
+          "B": "40 and 6",
+          "C": "6 and 40",
+          "D": "46 and 240"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Degree counts columns; cardinality counts rows."
+        },
+        {
+         "question": "A domain in the relational model is:",
+         "options": {
+          "A": "A set of atomic values an attribute can take",
+          "B": "The primary key",
+          "C": "A group of tuples",
+          "D": "A set of relations"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "E.g. the set of valid 10-digit phone numbers."
+        },
+        {
+         "question": "Which property does a relation have?",
+         "options": {
+          "A": "Tuples must be stored in key order",
+          "B": "Duplicate tuples are allowed",
+          "C": "Attribute values may be lists",
+          "D": "Tuples are unordered and no two tuples are identical"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "A relation is a set of tuples (in the formal model)."
+        },
+        {
+         "question": "A minimal superkey is called a:",
+         "options": {
+          "A": "Foreign key",
+          "B": "Composite key only",
+          "C": "Candidate key",
+          "D": "Alternate key only"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "One candidate key is chosen as the primary key; the others are alternate keys."
+        },
+        {
+         "question": "Relation R(A, B, C, D) has A as its only candidate key. How many superkeys does R have?",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "16",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Any set containing A is a superkey: 2³ = 8 (choose any subset of B, C, D)."
+        },
+        {
+         "question": "Relation R(A, B, C) has two candidate keys, A and B. How many superkeys does R have?",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "3",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Sets containing A: 4; containing B: 4; containing both: 2 → 4 + 4 − 2 = 6."
+        },
+        {
+         "question": "The entity integrity constraint states that:",
+         "options": {
+          "A": "Every attribute must be unique",
+          "B": "Every foreign key must be NULL",
+          "C": "A relation must have at least one tuple",
+          "D": "No primary key value can be NULL"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Otherwise the tuple could not be identified."
+        },
+        {
+         "question": "The referential integrity constraint states that a foreign key value must:",
+         "options": {
+          "A": "Be larger than the primary key",
+          "B": "Be unique in the referencing relation",
+          "C": "Match a primary-key value in the referenced relation, or be NULL",
+          "D": "Always be NULL"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). It keeps references between relations consistent."
+        },
+        {
+         "question": "ENROL(roll_no) references STUDENT(roll_no). Which operation can violate referential integrity?",
+         "options": {
+          "A": "Deleting a STUDENT tuple whose roll_no appears in ENROL",
+          "B": "Reading STUDENT tuples",
+          "C": "Deleting an ENROL tuple",
+          "D": "Inserting a new STUDENT tuple"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Inserting into ENROL with an unknown roll_no is the other way to violate it."
+        },
+        {
+         "question": "Inserting a new tuple into a relation can violate:",
+         "options": {
+          "A": "Domain, key, entity integrity and referential integrity constraints",
+          "B": "Only key constraints",
+          "C": "Only referential integrity",
+          "D": "No constraints"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Elmasri: insertion can violate all four kinds of constraints."
+        },
+        {
+         "question": "A foreign key defined with ON DELETE CASCADE means that when the referenced tuple is deleted:",
+         "options": {
+          "A": "The foreign keys are set to NULL",
+          "B": "The deletion is rejected",
+          "C": "Nothing happens",
+          "D": "The referencing tuples are also deleted"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "ON DELETE SET NULL would instead set the foreign keys to NULL."
+        },
+        {
+         "question": "Employee.supervisor_ssn referring to Employee.ssn is an example of a:",
+         "options": {
+          "A": "Composite primary key",
+          "B": "Candidate key",
+          "C": "Self-referencing (recursive) foreign key",
+          "D": "Domain constraint"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "A foreign key may refer to its own relation."
+        },
+        {
+         "question": "In the relational model, NULL can mean:",
+         "options": {
+          "A": "Zero",
+          "B": "Unknown, unavailable or not applicable",
+          "C": "An empty string only",
+          "D": "A duplicate value"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Its several meanings are why NULLs complicate design."
+        },
+        {
+         "question": "The description of a database (relation schemas and constraints), which changes rarely, is the database:",
+         "options": {
+          "A": "Schema",
+          "B": "Snapshot",
+          "C": "Tuple",
+          "D": "State (instance)"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "The state is the data at a particular moment."
+        },
+        {
+         "question": "Elmasri lists how many informal guidelines (measures of quality) for relation schema design?",
+         "options": {
+          "A": "6",
+          "B": "7",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Clear semantics; no update anomalies; few NULLs; no spurious tuples."
+        },
+        {
+         "question": "Storing EMPLOYEE and DEPARTMENT data in one relation EMP_DEPT, so that a new department cannot be added until it has an employee, is an example of:",
+         "options": {
+          "A": "Insertion anomaly",
+          "B": "Referential integrity",
+          "C": "Modification anomaly",
+          "D": "Deletion anomaly"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Deleting the last employee of a department would be a deletion anomaly."
+        },
+        {
+         "question": "A key constraint (uniqueness constraint) states that:",
+         "options": {
+          "A": "Every attribute is a key",
+          "B": "No two tuples can have the same value for the key",
+          "C": "Keys cannot be composite",
+          "D": "Keys must be integers"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Candidate keys uniquely identify tuples."
+        },
+        {
+         "question": "A domain constraint is violated when:",
+         "options": {
+          "A": "A table has no rows",
+          "B": "A foreign key is NULL",
+          "C": "An attribute value is not from the attribute's domain, e.g. text in a numeric Age field",
+          "D": "A key is duplicated"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Domains define allowed values and types."
+        },
+        {
+         "question": "Consider the statements:\nI. A relation can have more than one candidate key.\nII. A primary key may contain NULL in one of its attributes.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Entity integrity forbids NULL in any primary-key attribute."
+        },
+        {
+         "question": "Consider the statements:\nI. Deleting a tuple from the referencing relation can violate referential integrity.\nII. Deleting a tuple from the referenced relation can violate referential integrity.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Removing a referencing tuple leaves no dangling reference."
+        },
+        {
+         "question": "Consider the statements:\nI. A foreign key may be NULL unless declared NOT NULL.\nII. A foreign key must refer to the primary key (or a candidate key) of the referenced relation.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Duplicate tuples are not allowed in a relation (in the formal model).\nReason (R): A relation is defined as a set of tuples.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Sets have no duplicate elements."
+        },
+        {
+         "question": "Assertion (A): A superkey is always a candidate key.\nReason (R): A candidate key is a minimal superkey.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "A superkey need not be minimal, so A is false."
+        },
+        {
+         "question": "Assertion (A): Entity integrity prevents NULL primary keys.\nReason (R): Foreign keys can never be NULL.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "A is true; R is false – foreign keys may be NULL."
+        },
+        {
+         "question": "Assertion (A): Insertion anomalies arise in poorly designed relations.\nReason (R): The relational model was proposed by E. F. Codd.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Degree\nb. Cardinality\nc. Candidate key\nd. Foreign key\n\n1. Number of tuples\n2. Number of attributes\n3. Minimal superkey\n4. Refers to a key in another (or the same) relation",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-1, c-4, d-3",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Basic relational terminology."
+        },
+        {
+         "question": "Match the constraint with what violates it:\na. Domain\nb. Key\nc. Entity integrity\nd. Referential integrity\n\n1. NULL primary key\n2. Value outside the allowed set\n3. Two tuples with the same key\n4. Foreign key pointing to a non-existent tuple",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-3, b-2, c-1, d-4",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "A",
+         "subject": "Relational Model, Constraints and Update Operations",
+         "explanation": "The four basic relational constraints."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Relational Algebra and Relational Calculus",
+     "sets": [
+      {
+       "name": "1 · Relational Algebra",
+       "questions": [
+        {
+         "question": "Which of the following is NOT a fundamental (basic) operation of relational algebra?",
+         "options": {
+          "A": "Set difference",
+          "B": "Natural join",
+          "C": "Cartesian product",
+          "D": "Union"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Basic operations: select, project, union, set difference, Cartesian product, rename. Joins, intersection and division are derived."
+        },
+        {
+         "question": "The selection operation σ in relational algebra:",
+         "options": {
+          "A": "Chooses tuples that satisfy a condition (a horizontal subset)",
+          "B": "Chooses columns (a vertical subset)",
+          "C": "Renames a relation",
+          "D": "Joins two relations"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "Projection π chooses columns."
+        },
+        {
+         "question": "Relation R has 10 tuples, and attribute City has 3 distinct values. How many tuples does π_City(R) return (set semantics)?",
+         "options": {
+          "A": "10",
+          "B": "3",
+          "C": "30",
+          "D": "13"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "Projection removes duplicate tuples."
+        },
+        {
+         "question": "R has 3 attributes and 10 tuples; S has 4 attributes and 5 tuples. R × S has:",
+         "options": {
+          "A": "7 attributes and 15 tuples",
+          "B": "12 attributes and 50 tuples",
+          "C": "12 attributes and 15 tuples",
+          "D": "7 attributes and 50 tuples"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Degrees add; cardinalities multiply."
+        },
+        {
+         "question": "For R ∪ S, R − S or R ∩ S to be valid, R and S must be:",
+         "options": {
+          "A": "Of the same cardinality",
+          "B": "Sorted",
+          "C": "Union compatible (same number of attributes with matching domains)",
+          "D": "Joined first"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "Also called type compatible."
+        },
+        {
+         "question": "If R has 10 tuples and S has 6 tuples (union compatible), the number of tuples in R ∪ S lies between:",
+         "options": {
+          "A": "0 and 16",
+          "B": "10 and 16",
+          "C": "6 and 10",
+          "D": "16 and 60"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Minimum when S ⊆ R; maximum when they share no tuples."
+        },
+        {
+         "question": "If R has 10 tuples and S has 6 tuples (union compatible), the maximum number of tuples in R − S is:",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "10",
+          "D": "16"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "When R and S share no tuples, nothing is removed."
+        },
+        {
+         "question": "Intersection can be expressed using basic operations as:",
+         "options": {
+          "A": "R ∩ S = R − (R − S)",
+          "B": "R ∩ S = σ(R) − S",
+          "C": "R ∩ S = R ∪ S",
+          "D": "R ∩ S = R × S"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "Hence intersection is not a fundamental operation."
+        },
+        {
+         "question": "A theta join R ⋈_θ S is equivalent to:",
+         "options": {
+          "A": "π_θ(R ∪ S)",
+          "B": "R − S",
+          "C": "σ_θ(R) ∪ σ_θ(S)",
+          "D": "σ_θ(R × S)"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "Selection applied on the Cartesian product."
+        },
+        {
+         "question": "If R and S have no common attributes, the natural join R ⋈ S is the same as:",
+         "options": {
+          "A": "R × S",
+          "B": "The empty relation",
+          "C": "R ∪ S",
+          "D": "R ∩ S"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "There is no condition to match on."
+        },
+        {
+         "question": "R(A, B) = {(1, a), (2, b), (3, a)} and S(B, C) = {(a, x), (a, y), (c, z)}. How many tuples are in R ⋈ S?",
+         "options": {
+          "A": "9",
+          "B": "4",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "Matches on B = a: (1, a, x), (1, a, y), (3, a, x), (3, a, y)."
+        },
+        {
+         "question": "R(A, B) = {(a1, b1), (a1, b2), (a2, b1), (a3, b2)} and S(B) = {b1, b2}. R ÷ S is:",
+         "options": {
+          "A": "{a1, a2, a3}",
+          "B": "{ }",
+          "C": "{a1}",
+          "D": "{a1, a2}"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "Only a1 is paired with every value of S."
+        },
+        {
+         "question": "The division operator is typically used for queries containing the phrase:",
+         "options": {
+          "A": "'at least one'",
+          "B": "'grouped by'",
+          "C": "'sorted by'",
+          "D": "'for all' (e.g. students who took all courses)"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "Division expresses universal quantification."
+        },
+        {
+         "question": "A left outer join R ⟕ S:",
+         "options": {
+          "A": "Keeps only matching tuples",
+          "B": "Keeps every tuple of S",
+          "C": "Removes all NULLs",
+          "D": "Keeps every tuple of R, padding S's attributes with NULL where there is no match"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "The right outer join keeps every tuple of S."
+        },
+        {
+         "question": "The rename operator in relational algebra is:",
+         "options": {
+          "A": "ρ (rho)",
+          "B": "σ (sigma)",
+          "C": "÷ (division)",
+          "D": "π (pi)"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "It renames a relation or its attributes."
+        },
+        {
+         "question": "Which equivalence of selections is valid?",
+         "options": {
+          "A": "σ_c(R × S) = σ_c(R) × S always",
+          "B": "σ_c1 ∨ c2(R) = σ_c1(σ_c2(R))",
+          "C": "σ_c1 ∧ c2(R) = σ_c1(σ_c2(R))",
+          "D": "π_A(σ_c(R)) = σ_c(R) always"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "Cascade of selections; selections also commute."
+        },
+        {
+         "question": "Which expression gives the names of employees in department 5 earning more than 50,000?",
+         "options": {
+          "A": "σ_Name(π_Dno = 5(EMPLOYEE))",
+          "B": "π_Name(σ_Dno = 5 ∧ Salary > 50000(EMPLOYEE))",
+          "C": "π_Dno = 5(σ_Name(EMPLOYEE))",
+          "D": "EMPLOYEE ÷ Salary"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "Select the rows, then project the column."
+        },
+        {
+         "question": "Relational algebra is:",
+         "options": {
+          "A": "A procedural query language",
+          "B": "A data-definition language",
+          "C": "A non-procedural query language",
+          "D": "A host programming language"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Relational calculus is the non-procedural counterpart."
+        },
+        {
+         "question": "Aggregate functions such as SUM and COUNT are provided in:",
+         "options": {
+          "A": "No query language",
+          "B": "Basic tuple relational calculus",
+          "C": "Extended relational algebra (the grouping operator 𝒢)",
+          "D": "Basic relational algebra"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "They go beyond the basic algebra."
+        },
+        {
+         "question": "The maximum number of tuples in a natural join of R (m tuples) and S (n tuples) is:",
+         "options": {
+          "A": "max(m, n)",
+          "B": "m × n",
+          "C": "m + n",
+          "D": "min(m, n)"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "When every tuple matches every tuple; the minimum is 0."
+        },
+        {
+         "question": "Which operation is unary?",
+         "options": {
+          "A": "Natural join",
+          "B": "Cartesian product",
+          "C": "Union",
+          "D": "Projection"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "Selection, projection and rename are unary; the others are binary."
+        },
+        {
+         "question": "Consider the statements:\nI. Projection may reduce the number of tuples.\nII. Selection may reduce the number of attributes.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "Projection removes duplicates; selection keeps all attributes."
+        },
+        {
+         "question": "Consider the statements:\nI. Division can be expressed using π, × and −.\nII. Natural join can be expressed using ×, σ and π.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "Both are derived operations."
+        },
+        {
+         "question": "Consider the statements:\nI. Union is defined for any two relations regardless of their attributes.\nII. R × S is defined only if R and S are union compatible.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "Union needs compatibility; the Cartesian product does not."
+        },
+        {
+         "question": "Assertion (A): Intersection is not a fundamental relational-algebra operation.\nReason (R): It can be expressed as R − (R − S).",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Relational Algebra",
+         "explanation": "Anything expressible by basic operations is derived."
+        },
+        {
+         "question": "Assertion (A): σ_City='Mysuru'(R) can return more tuples than R.\nReason (R): Selection returns a subset of the tuples of R.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Relational Algebra",
+         "explanation": "A subset cannot be larger, so A is false."
+        },
+        {
+         "question": "Assertion (A): R ⋈ S equals R × S when R and S share no attributes.\nReason (R): The natural join always removes all tuples with NULLs.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "A is true; R is false."
+        },
+        {
+         "question": "Assertion (A): Relational algebra is procedural.\nReason (R): Codd introduced relational algebra in 1970.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "Both true, but R does not explain A; A holds because an algebra expression states the order of operations."
+        },
+        {
+         "question": "Match the operator with its meaning:\na. σ\nb. π\nc. ρ\nd. ÷\n\n1. 'For all' queries\n2. Choose rows\n3. Rename\n4. Choose columns",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-3, c-4, d-1"
+         },
+         "answer": "B",
+         "subject": "Relational Algebra",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Common matching question."
+        },
+        {
+         "question": "Match the operation with its result size (R: m tuples, S: n tuples):\na. R × S\nb. R ∪ S (max)\nc. R − S (max)\nd. R ⋈ S (min)\n\n1. 0\n2. m + n\n3. m\n4. m × n",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-3, c-2, d-1",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "C",
+         "subject": "Relational Algebra",
+         "explanation": "Bounds on result sizes."
+        }
+       ]
+      },
+      {
+       "name": "2 · Tuple and Domain Relational Calculus",
+       "questions": [
+        {
+         "question": "A tuple relational calculus (TRC) query has the general form:",
+         "options": {
+          "A": "{<x₁, …, xₙ> | P(x₁, …, xₙ)}",
+          "B": "{t | P(t)}",
+          "C": "π_A(σ_c(R))",
+          "D": "SELECT * FROM R"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "t is a tuple variable and P a formula."
+        },
+        {
+         "question": "A domain relational calculus (DRC) query has the general form:",
+         "options": {
+          "A": "σ_c(R)",
+          "B": "R ÷ S",
+          "C": "{t | P(t)}",
+          "D": "{<x₁, x₂, …, xₙ> | P(x₁, x₂, …, xₙ)}"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Variables range over attribute domains."
+        },
+        {
+         "question": "Relational calculus is:",
+         "options": {
+          "A": "A storage structure",
+          "B": "A transaction protocol",
+          "C": "Declarative (non-procedural): it states what to retrieve, not how",
+          "D": "Procedural"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Relational algebra is procedural."
+        },
+        {
+         "question": "Codd's theorem states that relational algebra and safe relational calculus are:",
+         "options": {
+          "A": "Equivalent in expressive power",
+          "B": "Unrelated",
+          "C": "Both procedural",
+          "D": "Both unable to express joins"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Any query in one can be written in the other."
+        },
+        {
+         "question": "A query language is called relationally complete if it can express:",
+         "options": {
+          "A": "Every query expressible in relational algebra",
+          "B": "Every possible computation",
+          "C": "Recursive queries",
+          "D": "Only selection queries"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "SQL is relationally complete (and more)."
+        },
+        {
+         "question": "Which TRC expression is unsafe?",
+         "options": {
+          "A": "{t | EMPLOYEE(t) ∧ t.Salary > 50000}",
+          "B": "{t | ¬EMPLOYEE(t)}",
+          "C": "{t.Name | EMPLOYEE(t)}",
+          "D": "{t | EMPLOYEE(t) ∧ t.Dno = 5}"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "It describes infinitely many tuples not in EMPLOYEE."
+        },
+        {
+         "question": "A calculus expression is safe if:",
+         "options": {
+          "A": "It uses no quantifiers",
+          "B": "It uses only ∀",
+          "C": "Its result is finite and all values come from the domains of the database",
+          "D": "It returns exactly one tuple"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Safe expressions are the ones equivalent to algebra queries."
+        },
+        {
+         "question": "Which TRC query finds names of employees earning more than 50,000?",
+         "options": {
+          "A": "{t.Name | ∀t (t.Salary > 50000)}",
+          "B": "{t.Name | EMPLOYEE(t) ∧ t.Salary > 50000}",
+          "C": "{t.Name | ¬EMPLOYEE(t)}",
+          "D": "{t | t.Salary > 50000}"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Range the variable over EMPLOYEE, then apply the condition."
+        },
+        {
+         "question": "The relational-algebra query π_A(σ_B = 5(R)) in TRC is:",
+         "options": {
+          "A": "{t | t.A = 5}",
+          "B": "{t.A | ¬R(t) ∧ t.B = 5}",
+          "C": "{t.B | R(t) ∧ t.A = 5}",
+          "D": "{t.A | R(t) ∧ t.B = 5}"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Select with the condition and output only attribute A."
+        },
+        {
+         "question": "The universal quantifier ∀ in relational calculus corresponds to which relational-algebra operation?",
+         "options": {
+          "A": "Union",
+          "B": "Rename",
+          "C": "Division",
+          "D": "Projection"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "'For all' queries need ÷ in the algebra."
+        },
+        {
+         "question": "Which identity is used to remove ∀ from a calculus formula?",
+         "options": {
+          "A": "∀x P(x) ≡ ¬∃x ¬P(x)",
+          "B": "∀x P(x) ≡ ∃x P(x)",
+          "C": "∀x P(x) ≡ P(x) ∨ ¬P(x)",
+          "D": "∀x P(x) ≡ ¬P(x)"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Universal = not exists a counter-example."
+        },
+        {
+         "question": "In a calculus formula, P ⇒ Q is equivalent to:",
+         "options": {
+          "A": "P ∧ ¬Q",
+          "B": "P ∨ Q",
+          "C": "¬P ∧ Q",
+          "D": "¬P ∨ Q"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Implication rewritten with OR."
+        },
+        {
+         "question": "Query-By-Example (QBE) is based on:",
+         "options": {
+          "A": "Relational algebra only",
+          "B": "Domain relational calculus",
+          "C": "Tuple relational calculus",
+          "D": "Network data model"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). SQL draws largely on tuple relational calculus."
+        },
+        {
+         "question": "QUEL, the query language of the Ingres DBMS, was based on:",
+         "options": {
+          "A": "Domain relational calculus",
+          "B": "Datalog",
+          "C": "Hierarchical model",
+          "D": "Tuple relational calculus"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Like SQL, it uses tuple variables."
+        },
+        {
+         "question": "A variable in a calculus formula that is not quantified by ∃ or ∀ is called:",
+         "options": {
+          "A": "Constant",
+          "B": "Free",
+          "C": "Bound",
+          "D": "Safe"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Only the free tuple variable(s) appear in the result."
+        },
+        {
+         "question": "Which of the following CANNOT be expressed in basic relational algebra or safe relational calculus?",
+         "options": {
+          "A": "Join of two relations",
+          "B": "Projection of attributes",
+          "C": "Transitive closure (e.g. all direct and indirect managers)",
+          "D": "Selection on a condition"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Recursive queries need extensions such as recursive SQL or Datalog."
+        },
+        {
+         "question": "An atom of the form t ∈ R (or R(t)) in TRC means:",
+         "options": {
+          "A": "Tuple variable t ranges over relation R",
+          "B": "t is NULL",
+          "C": "R is empty",
+          "D": "t is a primary key of R"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Other atoms compare attributes with each other or with constants."
+        },
+        {
+         "question": "Which DRC query finds names of employees in department 5 from EMP(Name, Dno)?",
+         "options": {
+          "A": "{<n, d> | d ≠ 5}",
+          "B": "{<d> | ∃n (n = 5)}",
+          "C": "{<n> | <n, d> ∉ EMP}",
+          "D": "{<n> | ∃d (<n, d> ∈ EMP ∧ d = 5)}"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Bind d with ∃ and test it; output n."
+        },
+        {
+         "question": "Aggregate functions such as AVG are:",
+         "options": {
+          "A": "Not part of pure relational calculus (they are extensions)",
+          "B": "The basis of relational calculus",
+          "C": "Only in DRC",
+          "D": "Only in TRC"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Like basic algebra, pure calculus has no aggregates."
+        },
+        {
+         "question": "A tuple variable in TRC ranges over:",
+         "options": {
+          "A": "Tuples of a relation",
+          "B": "Values of a single domain",
+          "C": "Attributes",
+          "D": "Indexes"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "In DRC, variables range over domain values."
+        },
+        {
+         "question": "Consider the statements:\nI. Tuple relational calculus is non-procedural.\nII. Every safe calculus query has an equivalent relational-algebra query.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Codd's theorem."
+        },
+        {
+         "question": "Consider the statements:\nI. {t | ¬R(t)} is a safe expression.\nII. Safe expressions always give finite results.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Complements of a relation are infinite, hence unsafe."
+        },
+        {
+         "question": "Consider the statements:\nI. QBE is based on tuple relational calculus.\nII. Relational calculus can express transitive closure.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "QBE is DRC-based; transitive closure is not expressible."
+        },
+        {
+         "question": "Assertion (A): Relational calculus queries describe what data is wanted, not how to get it.\nReason (R): Calculus formulas specify properties of the result rather than a sequence of operations.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "That is what non-procedural means."
+        },
+        {
+         "question": "Assertion (A): Safe relational calculus is more powerful than relational algebra.\nReason (R): Calculus uses quantifiers ∃ and ∀.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "By Codd's theorem they are equally powerful; A is false."
+        },
+        {
+         "question": "Assertion (A): Division in the algebra corresponds to ∀ in the calculus.\nReason (R): QBE is based on tuple relational calculus.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "A is true; R is false – QBE is based on DRC."
+        },
+        {
+         "question": "Match the language with its basis:\na. SQL\nb. QBE\nc. QUEL\nd. Relational algebra\n\n1. Procedural operators on relations\n2. Largely tuple relational calculus\n3. Domain relational calculus\n4. Tuple relational calculus (Ingres)",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-3, b-2, c-4, d-1",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "B",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "PYQ pattern (KSET / KEA / GTTC papers). Query languages and their foundations."
+        },
+        {
+         "question": "Match the calculus construct with its meaning:\na. ∃t\nb. ∀t\nc. Free variable\nd. Unsafe expression\n\n1. Appears in the result\n2. Result is infinite\n3. There exists a tuple\n4. For every tuple",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-3, b-4, c-1, d-2",
+          "D": "a-3, b-1, c-4, d-2"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "Core calculus vocabulary."
+        },
+        {
+         "question": "Which TRC query finds students enrolled in every course (ENROL(sid, cid), COURSE(cid))?",
+         "options": {
+          "A": "{s.sid | STUDENT(s) ∧ ∀c (COURSE(c) ⇒ ∃e (ENROL(e) ∧ e.sid = s.sid ∧ e.cid = c.cid))}",
+          "B": "{s.sid | ¬STUDENT(s)}",
+          "C": "{s.sid | ∀c ¬COURSE(c)}",
+          "D": "{s.sid | STUDENT(s) ∧ ∃c COURSE(c)}"
+         },
+         "answer": "A",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "'Every course' needs ∀ with implication."
+        },
+        {
+         "question": "In TRC, the formula ∃s (DEPT(s) ∧ s.Dno = t.Dno) used inside a query on t acts like a:",
+         "options": {
+          "A": "Projection",
+          "B": "Rename",
+          "C": "Join condition (semi-join) between t's relation and DEPT",
+          "D": "Union"
+         },
+         "answer": "C",
+         "subject": "Tuple and Domain Relational Calculus",
+         "explanation": "The existential quantifier links two relations."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
