@@ -146,3 +146,12 @@ A topic "has questions" when its sets exist in a pack listed in `packs/index.jso
   **skipped** and listed in the docstring, never guessed.
 - Every question gets `source` = "<exam> <year> <subject> · Q<n>" (the app shows it as a PYQ badge). Register the module
   in `PYQ_PACKS` in `tools/build_pyq.py`, run it (it also creates a full-paper mock), then `tools/check_packs.py`.
+
+### 8.1 Real previous-year questions inside topic sets (owner's request, 2 Oct 2026)
+- When generating a topic, first search `sources/pyq/ocr/*.txt` for real questions on it and use them **word for word**
+  (check against the page image; fix only obvious typos), as a 5th tuple item `source` ("Legislative Council 2024
+  Computer Operator P2 · Q19"). packlib keeps their printed option order and does not renumber their match lists.
+- Prefer papers with official keys: `python tools/pyq_keys.py` parses KEA's FINAL key PDFs (`sources/pyq/keys/final_*.pdf`)
+  into JSON per booklet version (A1/B1/C1/D1) – use the column of the booklet's own version code. Note the official answer
+  in the explanation; otherwise solve it and mark it unofficial. Skip questions whose key says GRACE or "1 or 2".
+- Fill the rest of the set with new questions as usual (still ~25% "PYQ pattern" themes).

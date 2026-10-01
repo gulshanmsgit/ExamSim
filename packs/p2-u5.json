@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 5 — Database Management Systems",
- "description": "2 of 10 topics so far (4 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "3 of 10 topics so far (6 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus; SQL – Part 1. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 5 – Database Management Systems",
@@ -1472,6 +1472,758 @@
          "answer": "C",
          "subject": "Tuple and Domain Relational Calculus",
          "explanation": "The existential quantifier links two relations."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "SQL – Part 1",
+     "sets": [
+      {
+       "name": "1 · Data Definition, Data Types and Constraints",
+       "questions": [
+        {
+         "question": "Which of the following command is used to remove all the records from a table in SQL without removing the table structure?",
+         "options": {
+          "A": "DELETE",
+          "B": "TRUNCATE",
+          "C": "DROP",
+          "D": "REMOVE"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "TRUNCATE empties the table but keeps its definition; DROP removes the table itself. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q19"
+        },
+        {
+         "question": "Match the following.\nList-1: (a) DDL  (b) DML  (c) Normal form  (d) View\nList-2: i) Virtual table  ii) Organising the data  iii) Set of operations  iv) Defining database",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iii, b – i, c – iv, d – ii",
+          "C": "a – ii, b – iv, c – i, d – iii",
+          "D": "a – i, b – ii, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "DDL defines the database, DML is the set of data operations, normal forms organise the data, a view is a virtual table. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q20"
+        },
+        {
+         "question": "In a relational database, what does a 'foreign key' do?",
+         "options": {
+          "A": "Uniquely identifies a record in a table",
+          "B": "Ensures the uniqueness of data",
+          "C": "Establishes a relationship between two tables",
+          "D": "Stores large binary data like images or videos"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "A foreign key refers to a key of another (or the same) table, linking the two. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q17"
+        },
+        {
+         "question": "Which of the following is an example of a relational database?",
+         "options": {
+          "A": "PostgreSQL",
+          "B": "Cassandra",
+          "C": "Hadoop",
+          "D": "Firebase"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Cassandra and Firebase are NoSQL stores; Hadoop is a distributed processing framework. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q18"
+        },
+        {
+         "question": "In an employee table to include the attributes whose value always have some value which of the following constraints must be used?",
+         "options": {
+          "A": "NULL",
+          "B": "NOT NULL",
+          "C": "Default",
+          "D": "Check"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "NOT NULL forbids missing values in that column. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q19"
+        },
+        {
+         "question": "The SQL command used to modify a column inside a table",
+         "options": {
+          "A": "Drop",
+          "B": "Update",
+          "C": "Set",
+          "D": "Alter"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "ALTER TABLE … MODIFY / ALTER COLUMN changes a column's definition; UPDATE changes data values. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q60"
+        },
+        {
+         "question": "Identify the valid data types of SQL\nI) Character and numeric type\nII) Boolean and date-time type\nIII) Fuzzy and unstructured type\nIV) Matrix and vector type",
+         "options": {
+          "A": "I and III only",
+          "B": "II and IV only",
+          "C": "I and II only",
+          "D": "III and IV only"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Standard SQL has character, numeric, Boolean and date-time types. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q89"
+        },
+        {
+         "question": "Primary key in DBMS should be",
+         "options": {
+          "A": "Unique",
+          "B": "Not null",
+          "C": "Unique and not null",
+          "D": "Null"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "A primary key must identify each row (unique) and can never be missing (entity integrity). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q87"
+        },
+        {
+         "question": "Match the following:\nList-1: a) MYISAM  b) JOIN  c) FOREIGN KEY  d) AUTO-INCREMENT\nList-2: i) References a unique identifier in another table  ii) Automatically increases the value of a field  iii) Storage engine for MySQL  iv) Combines rows from two or more tables",
+         "options": {
+          "A": "a – iii, b – iv, c – i, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "MyISAM is a MySQL storage engine (InnoDB is the default today). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q74"
+        },
+        {
+         "question": "Which group contains only DDL commands?",
+         "options": {
+          "A": "INSERT, UPDATE, DELETE",
+          "B": "CREATE, ALTER, DROP, TRUNCATE",
+          "C": "GRANT, REVOKE",
+          "D": "COMMIT, ROLLBACK, SAVEPOINT"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "PYQ pattern (KEA / KSET papers). DML changes data, DCL controls access, TCL controls transactions."
+        },
+        {
+         "question": "GRANT and REVOKE belong to which category of SQL commands?",
+         "options": {
+          "A": "DDL",
+          "B": "TCL",
+          "C": "DML",
+          "D": "DCL – Data Control Language"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "PYQ pattern (KEA / KSET papers). They give and take away privileges."
+        },
+        {
+         "question": "COMMIT, ROLLBACK and SAVEPOINT belong to:",
+         "options": {
+          "A": "DQL",
+          "B": "TCL – Transaction Control Language",
+          "C": "DCL",
+          "D": "DDL"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "They end or partly undo transactions."
+        },
+        {
+         "question": "Which statement about DELETE, TRUNCATE and DROP is correct?",
+         "options": {
+          "A": "DELETE always removes the table structure",
+          "B": "TRUNCATE can take a WHERE clause",
+          "C": "DELETE can remove selected rows with WHERE and can be rolled back; TRUNCATE removes all rows; DROP removes the table",
+          "D": "DROP keeps the table structure"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "PYQ pattern (KEA / KSET papers). In most systems TRUNCATE (DDL) commits implicitly, unlike DELETE (DML)."
+        },
+        {
+         "question": "CHAR(10) differs from VARCHAR(10) in that CHAR(10):",
+         "options": {
+          "A": "Can store at most 1 character",
+          "B": "Cannot store letters",
+          "C": "Stores up to 10 bytes of binary data only",
+          "D": "Always uses 10 characters of storage, padding shorter values with spaces"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "VARCHAR stores only the actual length (plus a small overhead)."
+        },
+        {
+         "question": "A column declared DECIMAL(7, 2) (NUMERIC(7, 2)) can store at most:",
+         "options": {
+          "A": "9999.999",
+          "B": "9999999.99",
+          "C": "99.99999",
+          "D": "99999.99"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "7 digits in total, 2 of them after the decimal point."
+        },
+        {
+         "question": "Which statement correctly adds a column Email to the table STUDENT?",
+         "options": {
+          "A": "MODIFY STUDENT SET Email VARCHAR(50);",
+          "B": "ALTER TABLE STUDENT ADD Email VARCHAR(50);",
+          "C": "INSERT INTO STUDENT COLUMN Email;",
+          "D": "UPDATE STUDENT ADD Email VARCHAR(50);"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Structural changes use ALTER TABLE."
+        },
+        {
+         "question": "The difference between a PRIMARY KEY and a UNIQUE constraint is that:",
+         "options": {
+          "A": "A table may have many primary keys",
+          "B": "UNIQUE columns can never contain NULL",
+          "C": "A table has one primary key (no NULLs), but can have several UNIQUE constraints, which usually allow NULLs",
+          "D": "PRIMARY KEY allows duplicates"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Both enforce uniqueness of the values present."
+        },
+        {
+         "question": "Which constraint ensures that Age entered is between 18 and 60?",
+         "options": {
+          "A": "UNIQUE (Age)",
+          "B": "NOT NULL",
+          "C": "CHECK (Age BETWEEN 18 AND 60)",
+          "D": "DEFAULT 18"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "CHECK enforces a condition on each row."
+        },
+        {
+         "question": "A DEFAULT constraint:",
+         "options": {
+          "A": "Supplies a value for a column when an INSERT does not give one",
+          "B": "Links two tables",
+          "C": "Makes values unique",
+          "D": "Forbids NULLs"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "e.g. Status VARCHAR(10) DEFAULT 'Active'."
+        },
+        {
+         "question": "Which data type is most suitable for storing images or other large binary files?",
+         "options": {
+          "A": "DATE",
+          "B": "INTEGER",
+          "C": "VARCHAR(20)",
+          "D": "BLOB"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "BLOB = Binary Large Object; CLOB is for large text."
+        },
+        {
+         "question": "Which command removes the table STUDENT together with its structure?",
+         "options": {
+          "A": "TRUNCATE TABLE STUDENT;",
+          "B": "DROP TABLE STUDENT;",
+          "C": "REMOVE STUDENT;",
+          "D": "DELETE FROM STUDENT;"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "DROP removes both data and definition."
+        },
+        {
+         "question": "Consider the statements:\nI. CREATE, ALTER and DROP are DDL commands.\nII. INSERT is a DDL command.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "INSERT is DML."
+        },
+        {
+         "question": "Consider the statements:\nI. A table can have only one primary key.\nII. A primary key can be made of several columns.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "A composite primary key spans several columns."
+        },
+        {
+         "question": "Consider the statements:\nI. A FOREIGN KEY must reference a column that is a primary key or has a UNIQUE constraint.\nII. A FOREIGN KEY column can never contain NULL.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Foreign keys may be NULL unless declared NOT NULL."
+        },
+        {
+         "question": "Assertion (A): TRUNCATE is usually faster than DELETE for removing all rows.\nReason (R): TRUNCATE deallocates data pages instead of deleting and logging rows one by one.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "That is why TRUNCATE cannot use a WHERE clause."
+        },
+        {
+         "question": "Assertion (A): UPDATE is a DDL command.\nReason (R): UPDATE changes the values stored in existing rows.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Changing data is DML; A is false."
+        },
+        {
+         "question": "Assertion (A): A NOT NULL constraint forces every row to have a value in that column.\nReason (R): SQL was originally called SEQUEL at IBM.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Assertion (A): A UNIQUE column can never contain a NULL value.\nReason (R): A UNIQUE constraint prevents duplicate non-NULL values.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Most systems allow NULLs in UNIQUE columns, so A is false."
+        },
+        {
+         "question": "Match the SQL category with its command:\na. DDL\nb. DML\nc. DCL\nd. TCL\n\n1. CREATE\n2. UPDATE\n3. COMMIT\n4. GRANT",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-1, b-4, c-2, d-3",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "B",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "PYQ pattern (KEA / KSET papers). The four sub-languages of SQL."
+        },
+        {
+         "question": "Match the constraint with its purpose:\na. PRIMARY KEY\nb. FOREIGN KEY\nc. CHECK\nd. DEFAULT\n\n1. Reference to another table\n2. Unique and not null identifier\n3. Condition every row must satisfy\n4. Value used when none is given",
+         "options": {
+          "A": "a-1, b-2, c-3, d-4",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-2, b-1, c-4, d-3",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Data Definition, Data Types and Constraints",
+         "explanation": "Integrity constraints declared in CREATE TABLE."
+        }
+       ]
+      },
+      {
+       "name": "2 · Queries, Aggregate Functions and Update Statements",
+       "questions": [
+        {
+         "question": "Which of the following is an example of an aggregate function in SQL?",
+         "options": {
+          "A": "MAX",
+          "B": "Group BY",
+          "C": "Having",
+          "D": "Order BY"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "MAX, MIN, SUM, AVG and COUNT are aggregate functions; the others are clauses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q33"
+        },
+        {
+         "question": "The correct order of SQL expressions is",
+         "options": {
+          "A": "Select, group by, where, having",
+          "B": "Select, having, group by, where",
+          "C": "Select, having, where, group by",
+          "D": "Select, where, group by, having"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Written order: SELECT … FROM … WHERE … GROUP BY … HAVING … ORDER BY. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q18"
+        },
+        {
+         "question": "In SQL, testing whether a subquery is empty is done using",
+         "options": {
+          "A": "DISTINCT",
+          "B": "UNIQUE",
+          "C": "NULL",
+          "D": "EXISTS"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "EXISTS (subquery) is true when the subquery returns at least one row. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q23"
+        },
+        {
+         "question": "Which of the following term/terms is/are not SQL join command?\nI) Inner join\nII) Outer join\nIII) Exterior join\nIV) Interior join",
+         "options": {
+          "A": "I only",
+          "B": "I and II only",
+          "C": "III only",
+          "D": "IV and III only"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "SQL has INNER, LEFT/RIGHT/FULL OUTER, CROSS and NATURAL joins; 'exterior' and 'interior' joins do not exist. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q82"
+        },
+        {
+         "question": "Name the SQL built-in functions\nI) Count\nII) Max\nIII) Min\nIV) Distinct",
+         "options": {
+          "A": "I only",
+          "B": "II only",
+          "C": "III only",
+          "D": "I, II, III and IV"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "KEA's key accepts all four (strictly, DISTINCT is a keyword used with SELECT and inside aggregates). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q83"
+        },
+        {
+         "question": "Match the following SQL commands to perform undo transactions that have not already been saved to database and in the sequence of commands are executed\nList-1: a) Perform DELETE & ROLLBACK  b) Perform ROLLBACK & DELETE  c) Perform ROLLBACK & ROLLBACK  d) Perform DELETE & DELETE\nList-2: i) Two time delete operation  ii) Delete first & Rollback  iii) Two time Rollback operation  iv) Rollback first & Delete",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – ii, b – iv, c – iii, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Each command pair is matched with the same sequence described in words. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q88"
+        },
+        {
+         "question": "A query returns a \"missing keyword\" error. What could be the issue?\nI. Missing a semicolon\nII. Incorrect function syntax\nIII. Using a reserved keyword\nChoose the correct answer from the following options",
+         "options": {
+          "A": "I only",
+          "B": "II only",
+          "C": "III only",
+          "D": "I, II and III"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "KEA's key gives III only: a reserved word used as a name breaks the parser's expected keyword sequence (Oracle ORA-00905). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q77"
+        },
+        {
+         "question": "Savepoint is a part of",
+         "options": {
+          "A": "Recovery measures",
+          "B": "Security measures",
+          "C": "Concurrency measures",
+          "D": "Authorization measures"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "A savepoint lets a transaction roll back part of its work – a recovery feature. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q22"
+        },
+        {
+         "question": "Which clause removes duplicate rows from the result of a SELECT?",
+         "options": {
+          "A": "UNIQUE",
+          "B": "ORDER BY",
+          "C": "DISTINCT",
+          "D": "GROUP"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). SELECT DISTINCT City FROM Customer;"
+        },
+        {
+         "question": "The difference between WHERE and HAVING is that:",
+         "options": {
+          "A": "WHERE can use aggregate functions directly",
+          "B": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY",
+          "C": "They are identical",
+          "D": "HAVING filters rows before grouping"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). Aggregates such as COUNT(*) > 5 belong in HAVING."
+        },
+        {
+         "question": "The default sort order of ORDER BY is:",
+         "options": {
+          "A": "Insertion order",
+          "B": "Ascending",
+          "C": "Random",
+          "D": "Descending"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Add DESC for descending order."
+        },
+        {
+         "question": "Table MARKS has a column Score with values 10, 20, NULL and 30. What does SELECT COUNT(*), COUNT(Score) FROM MARKS return?",
+         "options": {
+          "A": "3 and 3",
+          "B": "4 and 4",
+          "C": "4 and 3",
+          "D": "3 and 4"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). COUNT(*) counts rows; COUNT(column) ignores NULLs."
+        },
+        {
+         "question": "For the same Score values (10, 20, NULL, 30), AVG(Score) is:",
+         "options": {
+          "A": "NULL",
+          "B": "20",
+          "C": "60",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Aggregates ignore NULLs: (10 + 20 + 30) / 3 = 20."
+        },
+        {
+         "question": "WHERE Name LIKE 'A%' selects names that:",
+         "options": {
+          "A": "End with A",
+          "B": "Contain exactly two letters",
+          "C": "Begin with A",
+          "D": "Contain the % sign"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "% matches any sequence of characters; _ matches exactly one."
+        },
+        {
+         "question": "WHERE Name LIKE '_a%' selects names whose:",
+         "options": {
+          "A": "Length is 2",
+          "B": "Second letter is a",
+          "C": "First letter is a",
+          "D": "Last letter is a"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "_ stands for exactly one character."
+        },
+        {
+         "question": "WHERE Salary BETWEEN 20000 AND 30000 is equivalent to:",
+         "options": {
+          "A": "Salary >= 20000 AND Salary <= 30000",
+          "B": "Salary = 20000 OR Salary = 30000",
+          "C": "Salary >= 20000 OR Salary <= 30000",
+          "D": "Salary > 20000 AND Salary < 30000"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "BETWEEN includes both end values."
+        },
+        {
+         "question": "Which condition correctly finds rows where Phone has no value?",
+         "options": {
+          "A": "WHERE NULL(Phone)",
+          "B": "WHERE Phone == NULL",
+          "C": "WHERE Phone IS NULL",
+          "D": "WHERE Phone = NULL"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). Any comparison with NULL using = gives UNKNOWN, not TRUE."
+        },
+        {
+         "question": "What happens when DELETE FROM EMPLOYEE; is executed without a WHERE clause?",
+         "options": {
+          "A": "All rows of EMPLOYEE are deleted, but the table remains",
+          "B": "Nothing happens",
+          "C": "The table is dropped",
+          "D": "Only the first row is deleted"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Always check the WHERE clause in DELETE and UPDATE."
+        },
+        {
+         "question": "Which statement gives every employee of department 5 a 10% raise?",
+         "options": {
+          "A": "ALTER EMPLOYEE SET Salary = Salary * 1.10;",
+          "B": "UPDATE EMPLOYEE SET Salary = Salary * 1.10 WHERE Dno = 5;",
+          "C": "UPDATE Salary = Salary * 1.10 FROM EMPLOYEE;",
+          "D": "INSERT INTO EMPLOYEE Salary * 1.10;"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "UPDATE … SET … WHERE …"
+        },
+        {
+         "question": "INSERT INTO STUDENT (Roll, Name) VALUES (7, 'Asha'); leaves the other columns of the new row:",
+         "options": {
+          "A": "Empty strings always",
+          "B": "Unchanged in all rows",
+          "C": "NULL, or their DEFAULT values if defined",
+          "D": "Copied from the previous row"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Unspecified columns take defaults or NULL (and must allow it)."
+        },
+        {
+         "question": "Which expression returns the number of different cities in the CUSTOMER table?",
+         "options": {
+          "A": "SELECT COUNT(DISTINCT City) FROM CUSTOMER;",
+          "B": "SELECT SUM(City) FROM CUSTOMER;",
+          "C": "SELECT COUNT(City) FROM CUSTOMER;",
+          "D": "SELECT DISTINCT COUNT(*) FROM CUSTOMER;"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "COUNT(DISTINCT column) counts distinct non-NULL values."
+        },
+        {
+         "question": "In logical processing order, which part of a SELECT is evaluated first?",
+         "options": {
+          "A": "ORDER BY",
+          "B": "SELECT",
+          "C": "HAVING",
+          "D": "FROM"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY."
+        },
+        {
+         "question": "A subquery that refers to a column of the outer query and is re-evaluated for each outer row is called a:",
+         "options": {
+          "A": "Cross join",
+          "B": "Correlated subquery",
+          "C": "Derived table",
+          "D": "Scalar subquery only"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "e.g. employees earning more than their own department's average."
+        },
+        {
+         "question": "Consider the statements:\nI. COUNT(*) counts rows including those with NULLs.\nII. SUM ignores NULL values.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Both are standard SQL behaviour."
+        },
+        {
+         "question": "Consider the statements:\nI. A column in the SELECT list of a GROUP BY query must be grouped or aggregated.\nII. HAVING can be used without any aggregate condition only in Oracle.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "HAVING may use any condition on groups in standard SQL."
+        },
+        {
+         "question": "Consider the statements:\nI. WHERE can contain aggregate functions such as AVG(Salary) > 5000.\nII. ORDER BY must come before WHERE.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Aggregate conditions go in HAVING; ORDER BY comes last."
+        },
+        {
+         "question": "Assertion (A): Aggregate conditions are written in HAVING, not WHERE.\nReason (R): WHERE is applied to individual rows before the groups are formed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Group values do not exist yet when WHERE is evaluated."
+        },
+        {
+         "question": "Assertion (A): WHERE Phone = NULL returns rows with missing phone numbers.\nReason (R): Comparisons with NULL evaluate to UNKNOWN.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Because of R, the comparison never becomes TRUE; A is false."
+        },
+        {
+         "question": "Assertion (A): SELECT DISTINCT removes duplicate result rows.\nReason (R): ORDER BY sorts rows in ascending order by default.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "Both true, but R does not explain A."
+        },
+        {
+         "question": "Match the SQL keyword with its role:\na. GROUP BY\nb. HAVING\nc. ORDER BY\nd. LIKE\n\n1. Pattern matching\n2. Sorting the result\n3. Forming groups of rows\n4. Condition on groups",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Queries, Aggregate Functions and Update Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). Common SQL clause matching."
         }
        ]
       }
