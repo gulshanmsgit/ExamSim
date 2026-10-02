@@ -957,6 +957,19 @@ const fmtNum = x => String(r2(x));
 const fmtScore = x => r2(x).toFixed(2);
 const pad = n => String(n).padStart(2, '0');
 const byName = (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true });
+// Topics in study order: planner topics by their plan ID (P1-ENG-01, P1-ENG-02 …, which follows the syllabus), then
+// month topics such as "January 2026" in calendar order, then everything else by name
+const MONTH_IX = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+function topicRank(t) {
+  if (t.plan && t.plan.id) return [0, String(t.plan.id)];
+  const m = /^([a-z]+)\s+(\d{4})$/i.exec(t.name.trim()), mi = m ? MONTH_IX.indexOf(m[1].toLowerCase()) : -1;
+  if (mi >= 0) return [1, `${m[2]}-${String(mi + 1).padStart(2, '0')}`];
+  return [2, t.name];
+}
+const byTopicOrder = (a, b) => {
+  const [ra, ka] = topicRank(a), [rb, kb] = topicRank(b);
+  return ra - rb || ka.localeCompare(kb, undefined, { sensitivity: 'base', numeric: true });
+};
 const fmtDate = t => new Date(t).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
 const fmtDay = t => new Date(t).toLocaleDateString([], { dateStyle: 'medium' });
 const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
@@ -2488,7 +2501,7 @@ function openSubject(id) { cur.subjectId = id; cur.topicId = null; renderSubject
 function renderSubject() {
   const s = byId('subjects', cur.subjectId);
   if (!s) return goHome();
-  const topics = D.topics.filter(t => t.subjectId === s.id);
+  const topics = D.topics.filter(t => t.subjectId === s.id).sort(byTopicOrder);
   const atts = D.attempts.filter(a => a.subjectId === s.id);
   const sets = D.sets.filter(x => x.subjectId === s.id);
   const st = { ...DEFAULT_SETTINGS, ...s.settings };
@@ -2928,7 +2941,7 @@ function fillSubjects(sel) {
     + '<option value="__new">+ New subject…</option>';
 }
 function fillTopics(sel) {
-  const sid = $('#svSubj').value, ts = D.topics.filter(t => t.subjectId === sid), el = $('#svTopic');
+  const sid = $('#svSubj').value, ts = D.topics.filter(t => t.subjectId === sid).sort(byTopicOrder), el = $('#svTopic');
   if (!sel && ts.length === 1) sel = ts[0].id;
   addCtx.topicId = sel || '';
   el.disabled = !sid || sid === '__new';
