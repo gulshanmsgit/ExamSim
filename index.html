@@ -285,6 +285,20 @@ tr.st-rev td:first-child{box-shadow:inset 4px 0 var(--orange)}
 .pill.st-prog{background:#fdf6d8;color:#9a7a00}
 .pill.st-rev{background:var(--orange-bg);color:var(--orange)}
 .od{color:var(--red)}
+.ok{color:var(--green)}
+.pill.st-weak{background:var(--orange-bg);color:var(--orange)}
+.pill.st-od{background:var(--red-bg);color:var(--red)}
+.mp-big{font-size:1.05rem;margin:4px 0 10px;line-height:1.5}
+.mp-bar{position:relative;display:flex;height:12px;border-radius:99px;background:var(--grey-bg)}
+.mp-bar i{display:block;height:100%}
+.mp-bar i:first-child{border-radius:99px 0 0 99px}
+.mp-bar .s{background:var(--green)}.mp-bar .u{background:color-mix(in srgb,var(--green) 40%,var(--grey-bg))}.mp-bar .w{background:var(--orange)}
+.mp-bar b{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1px;border-radius:2px;background:var(--text)}
+.mp-legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
+.mp-legend span::before{content:'';display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:var(--c)}
+.mp-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 18px;margin-top:12px}
+.mp-cols h3{font-size:.92rem;margin:6px 0 4px}
+.mp-cols .list-row{padding:6px 0}
 .plan-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
 .plan-tools input{flex:1;min-width:180px;width:auto}
 .plan-tools select{width:auto}
@@ -1926,7 +1940,7 @@ function goHome() {
 function renderHome() {
   let h = store.kind === 'demo' ? '<div class="banner">Demo mode: nothing is saved. Refreshing the page clears everything.</div>' : '';
   if (D.rulesOutdated) h += '<div class="banner">Mock tests, streaks and revision need updated Firestore rules. In Firebase → Firestore Database → Rules, paste the new contents of firestore.rules, click Publish, then reload this page.</div>';
-  h += '<div id="bankBanner"></div>' + continueCard();
+  h += '<div id="bankBanner"></div>' + continueCard() + myProgressCard();
   h += `<div class="row" style="margin:4px 0 14px"><h1 style="margin:0;flex:1;font-size:1.5rem;min-width:160px">Your subjects</h1>
     <button class="btn primary" id="hBank"><svg class=ic><use href=#i-download></use></svg> Question bank</button><button class="btn" id="hNewSubj">+ New subject</button><button class="btn" id="hAddSet">+ Add practice set</button></div>` + libSearchHTML() + '<div id="libMain">';
   if (!D.subjects.length) {
@@ -2501,7 +2515,7 @@ function openSubject(id) { cur.subjectId = id; cur.topicId = null; renderSubject
 function renderSubject() {
   const s = byId('subjects', cur.subjectId);
   if (!s) return goHome();
-  const topics = D.topics.filter(t => t.subjectId === s.id).sort(byTopicOrder);
+  const topics = D.topics.filter(t => t.subjectId === s.id).sort(byTopicOrder), acc = topicAccuracy();
   const atts = D.attempts.filter(a => a.subjectId === s.id);
   const sets = D.sets.filter(x => x.subjectId === s.id);
   const st = { ...DEFAULT_SETTINGS, ...s.settings };
@@ -2516,7 +2530,8 @@ function renderSubject() {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
     const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
-    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>
+    const pr = D.plan && t.plan && t.plan.id && planRow(t.plan.id), grade = pr ? topicStatusPill(topicGrade(pr, rowState(pr), acc)) : '';
+    return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>${grade ? ' ' + grade : ''}
       <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${t.notes ? ' · <svg class=ic><use href=#i-notes></use></svg> ' + t.notes : ''}${ready ? ' · <span class="pill pk"><svg class=ic><use href=#i-download></use></svg> ready in the bank</span>' : ''}</div></div>
       <div class="small muted">${plural(tAtts.length, 'attempt')} · avg ${avg}</div><button class="btn" data-nav="topic:${t.id}">Open →</button>
       <button class="icon-btn" data-menu data-topicmenu="${t.id}" title="Topic options" aria-label="Options for ${esc(t.name)}">⋯</button></div>`;
@@ -3304,6 +3319,106 @@ function planHomeCard() {
     ${chips ? `<div class="small muted">Active subjects · ${plural(dayPlanIds(d).length, 'topic')}</div><div class="chips">${chips}</div>` : ''}
     <div class="row" style="margin-top:10px"><button class="btn primary" data-go-today="${d.date}"><svg class=ic><use href=#i-sun></use></svg> Open Today</button><button class="btn" data-go-plan><svg class=ic><use href=#i-calendar></use></svg> All ${cal.length} days</button></div></div>`;
 }
+/* ============================================================
+   My progress (Home): Plan view – topics done vs due by today, ahead/behind, projected finish – and
+   Subject view – the same per plan subject with accuracy. A completed topic counts as "strong" only when
+   its questions score at least PASS_PCT (from PASS_MIN answers up); otherwise "done but weak" or "not tested".
+   ============================================================ */
+const PASS_PCT = 60, PASS_MIN = 5;
+const MP = { view: (() => { try { return localStorage.getItem('mpView') || 'plan'; } catch (e) { return 'plan'; } })() };
+const daysBetween = (a, b) => Math.round((planDate(b) - planDate(a)) / 864e5);
+const shortGroup = n => n.replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+—\s+.*$/, '');
+function topicGrade(r, st, acc) {
+  const t = planTopic(r.id), a = t && acc.get(t.id);
+  const p = a && a.seen >= PASS_MIN ? Math.round(a.c / a.seen * 100) : null;
+  const g = st.status === 'Completed' ? (p === null ? 'untested' : p >= PASS_PCT ? 'strong' : 'weak')
+    : isOverdue(r, st) ? 'overdue' : st.status === 'Not Started' ? 'todo' : 'prog';
+  return { g, p, t, a };
+}
+function paceStats(rows, acc) {
+  const today = dayKey(), s = { total: rows.length, done: 0, strong: 0, weak: 0, untested: 0, due: 0, overdue: 0, seen: 0, c: 0, items: [] };
+  for (const r of rows) {
+    const st = rowState(r), x = topicGrade(r, st, acc);
+    if (r.target && r.target < today) s.due++;
+    if (st.status === 'Completed') { s.done++; s[x.g]++; }
+    if (x.g === 'overdue') s.overdue++;
+    if (x.a) { s.seen += x.a.seen; s.c += x.a.c; }
+    s.items.push({ r, ...x });
+  }
+  s.delta = s.done - s.due;
+  s.acc = s.seen ? Math.round(s.c / s.seen * 100) : null;
+  return s;
+}
+function topicStatusPill(x) {
+  return {
+    strong: `<span class="pill st-done">✓ Done${x.p !== null ? ' · ' + x.p + '%' : ''}</span>`,
+    weak: `<span class="pill st-weak">Done · weak ${x.p}%</span>`,
+    untested: '<span class="pill st-done">✓ Done · not tested</span>',
+    overdue: '<span class="pill st-od">Overdue</span>',
+    prog: '<span class="pill st-prog">In progress</span>'
+  }[x.g] || '';
+}
+function paceLabel(s) {
+  if (s.total && s.done === s.total) return '<b class="ok">All done ✓</b>';
+  if (!s.due && !s.done) return '<span class="muted">Not started yet</span>';
+  return s.delta > 0 ? `<b class="ok">${s.delta} ahead</b>` : s.delta < 0 ? `<b class="od">${-s.delta} behind</b>` : '<b>On track</b>';
+}
+function myProgressCard() {
+  const cal = D.plan && D.plan.calendar;
+  if (!cal || !cal.length) return '';
+  const rows = planRows(), acc = topicAccuracy(), all = paceStats(rows, acc), today = dayKey();
+  const start = cal[0].date, end = cal[cal.length - 1].date, perDay = rows.length / cal.length;
+  let h = `<div class="card" id="myProg"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1"><svg class=ic><use href=#i-target></use></svg> My progress</h2>
+    <div class="seg"><button data-mpview="plan" class="${MP.view === 'plan' ? 'on' : ''}">Plan</button><button data-mpview="subject" class="${MP.view === 'subject' ? 'on' : ''}">Subjects</button></div></div>`;
+  if (MP.view === 'subject') {
+    const groups = ['p1', 'p2'].flatMap(k => (D.plan.sheets[k] || { groups: [] }).groups);
+    h += `<div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Done</th><th class="num">Due by today</th><th>Status</th><th class="num">Accuracy</th></tr></thead><tbody>`;
+    for (const g of groups) {
+      const s = paceStats(g.rows, acc), t = g.rows.map(r => planTopic(r.id)).find(Boolean);
+      const name = esc(shortGroup(g.name)), link = t ? `<a href="#" data-nav="subject:${t.subjectId}">${name}</a>` : name;
+      const accTxt = s.acc === null ? '<span class="muted">—</span>' : s.acc < PASS_PCT ? `<span class="od">${s.acc}% ⚠</span>` : `${s.acc}%`;
+      const notes = [s.weak && `${s.weak} weak`, s.untested && `${s.untested} not tested`].filter(Boolean).join(' · ');
+      h += `<tr><td>${link}${notes ? `<div class="small muted">${notes}</div>` : ''}</td><td class="num">${s.done}/${s.total}</td><td class="num">${s.due}</td><td>${paceLabel(s)}</td><td class="num">${accTxt}</td></tr>`;
+    }
+    return h + `</tbody></table></div><p class="small muted" style="margin:8px 0 0">Ahead/behind compares topics marked done with topics whose target date has passed. ⚠ = below ${PASS_PCT}% correct.</p></div>`;
+  }
+  // Plan view
+  if (today < start) h += `<div class="mp-big">Your plan starts on <b>${esc(fmtPD(start))}</b> · ${plural(rows.length, 'topic')} over ${plural(cal.length, 'day')}.</div>`;
+  else {
+    const d = Math.round(Math.abs(all.delta) / perDay), about = d ? ` (about ${plural(d, 'day')})` : '';
+    const lead = all.done === all.total ? '<b class="ok">You have finished every topic in the plan 🎉</b>'
+      : all.delta > 0 ? `<b class="ok">${all.delta} topics ahead</b>${about}`
+      : all.delta < 0 ? `<b class="od">${-all.delta} topics behind</b>${about}` : '<b>Exactly on track</b>';
+    h += `<div class="mp-big">Day <b>${Math.min(cal.length, daysBetween(start, today) + 1)}</b> of ${cal.length} · ${lead}<br><span class="small muted">By today you should have finished <b>${all.due}</b> topics; you have finished <b>${all.done}</b> of ${all.total}.</span>`;
+    const elapsed = daysBetween(start, today), left = all.total - all.done;
+    if (left && all.done && elapsed >= 1) {
+      const fin = addDays(today, Math.ceil(left / (all.done / elapsed))), diff = daysBetween(fin, end);
+      h += `<br><span class="small">At your current pace you'll finish on <b>${esc(fmtPD(fin))}</b> – ${diff > 0 ? `<span class="ok">${plural(diff, 'day')} before the plan</span>` : diff < 0 ? `<span class="od">${plural(-diff, 'day')} after the plan ends (${esc(fmtPD(end))})</span>` : 'right on the plan date'}.</span>`;
+    }
+    h += '</div>';
+  }
+  const w = n => (n / Math.max(1, all.total) * 100).toFixed(2) + '%';
+  h += `<div class="mp-bar" title="Black line = where the plan expects you to be today"><i class="s" style="width:${w(all.strong)}"></i><i class="u" style="width:${w(all.untested)}"></i><i class="w" style="width:${w(all.weak)}"></i>${today >= start ? `<b style="left:${w(all.due)}"></b>` : ''}</div>
+    <div class="mp-legend small muted"><span style="--c:var(--green)">${all.strong} strong (≥${PASS_PCT}%)</span><span style="--c:color-mix(in srgb,var(--green) 40%,var(--grey-bg))">${all.untested} done, not tested</span><span style="--c:var(--orange)">${all.weak} done but weak</span><span style="--c:var(--text)">plan for today</span></div>`;
+  const row = x => `<div class="list-row"><div class="grow"><span class="pill">${esc(x.r.id)}</span> ${x.t ? `<a href="#" data-nav="topic:${x.t.id}">${esc(x.r.topic)}</a>` : esc(x.r.topic)}</div>`;
+  const over = all.items.filter(x => x.g === 'overdue').sort((a, b) => a.r.target.localeCompare(b.r.target));
+  const weak = all.items.filter(x => x.g === 'weak').sort((a, b) => a.p - b.p);
+  if (over.length || weak.length) {
+    h += '<div class="mp-cols">';
+    if (over.length) h += `<div><h3 class="od">Catch up next (${over.length})</h3>${over.slice(0, 5).map(x => row(x) + `<span class="small od">due ${esc(fmtPD(x.r.target))}</span></div>`).join('')}${over.length > 5 ? `<button class="btn ghost" data-go-plan>All ${over.length} →</button>` : ''}</div>`;
+    if (weak.length) h += `<div><h3 style="color:var(--orange)">Done but weak (${weak.length})</h3>${weak.slice(0, 5).map(x => row(x) + (x.t ? `<button class="btn" data-revise="topic:${x.t.id}">${x.p}% · Revise</button>` : `<span class="small">${x.p}%</span>`) + '</div>').join('')}</div>`;
+    h += '</div>';
+  }
+  return h + '</div>';
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-mpview]');
+  if (!b) return;
+  MP.view = b.dataset.mpview;
+  try { localStorage.setItem('mpView', MP.view); } catch (err) { /* per-device preference only */ }
+  const card = $('#myProg');
+  if (card) card.outerHTML = myProgressCard();
+});
 /* ============================================================
    Today tab: one study-plan day at a time (any date can be chosen) – its exams, active subjects with
    topics and notes, mistakes to fix, and what was done on that date.
