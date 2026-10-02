@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v24; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v26; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
