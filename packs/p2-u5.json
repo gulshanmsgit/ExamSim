@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 5 — Database Management Systems",
- "description": "3 of 10 topics so far (6 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus; SQL – Part 1. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "7 of 10 topics so far (13 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus; SQL – Part 1; SQL – Part 2; Normalization; Query Processing and Optimization; Transactions & Concurrency Control. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 5 – Database Management Systems",
@@ -2224,6 +2224,2597 @@
          "answer": "C",
          "subject": "Queries, Aggregate Functions and Update Statements",
          "explanation": "PYQ pattern (KEA / KSET papers). Common SQL clause matching."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "SQL – Part 2",
+     "sets": [
+      {
+       "name": "1 · Views, Stored Procedures and Functions",
+       "questions": [
+        {
+         "question": "A view in SQL is best described as:",
+         "options": {
+          "A": "An index on a table",
+          "B": "A virtual table whose rows come from a stored query on base tables",
+          "C": "A physical copy of a table kept on disk",
+          "D": "A temporary table that is deleted at logout"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). A (non-materialised) view stores only its defining query."
+        },
+        {
+         "question": "Which statement creates a view?",
+         "options": {
+          "A": "SELECT * INTO VIEW v FROM emp;",
+          "B": "CREATE TABLE v AS VIEW emp;",
+          "C": "CREATE VIEW v AS SELECT name, salary FROM emp;",
+          "D": "MAKE VIEW v FROM emp;"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "CREATE VIEW name AS query."
+        },
+        {
+         "question": "When a query uses an ordinary (virtual) view, the DBMS normally:",
+         "options": {
+          "A": "Copies all base tables into memory",
+          "B": "Reads rows stored separately for the view",
+          "C": "Refuses the query",
+          "D": "Rewrites the query on the view into a query on the base tables (query modification)"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "View resolution / query modification merges the view definition into the user's query."
+        },
+        {
+         "question": "A materialized view differs from an ordinary view because it:",
+         "options": {
+          "A": "Has no defining query",
+          "B": "Stores the query result physically and must be refreshed when base tables change",
+          "C": "Is always updatable",
+          "D": "Cannot contain a WHERE clause"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Materialised views trade storage and refresh cost for faster reads."
+        },
+        {
+         "question": "Which kind of view is generally NOT updatable?",
+         "options": {
+          "A": "A view that selects some rows of one table",
+          "B": "A view that uses GROUP BY and aggregate functions",
+          "C": "A view on one table that keeps its primary key",
+          "D": "A view that selects some columns of one table, including the key"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Rows of an aggregate view do not map back to single base rows."
+        },
+        {
+         "question": "The clause WITH CHECK OPTION in a view definition ensures that:",
+         "options": {
+          "A": "Rows inserted or updated through the view satisfy the view's WHERE condition",
+          "B": "The view is checked for syntax errors daily",
+          "C": "Only the DBA can query the view",
+          "D": "The view is materialized"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Otherwise a row could be changed so that it 'disappears' from the view."
+        },
+        {
+         "question": "DROP VIEW high_paid; does what?",
+         "options": {
+          "A": "Drops the base table",
+          "B": "Empties the view but keeps its rows on disk",
+          "C": "Deletes all rows of the base table",
+          "D": "Removes the view definition; the base tables and their data are unchanged"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "A view holds no data of its own."
+        },
+        {
+         "question": "Views mainly help in achieving which kind of data independence?",
+         "options": {
+          "A": "Physical data independence",
+          "B": "Hardware independence",
+          "C": "Logical data independence",
+          "D": "Network independence"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Users can keep using a view even after the conceptual schema is reorganised."
+        },
+        {
+         "question": "Which statement changes the definition of an existing view in Oracle and MySQL without dropping it first?",
+         "options": {
+          "A": "RENAME VIEW",
+          "B": "UPDATE VIEW",
+          "C": "CREATE OR REPLACE VIEW",
+          "D": "MODIFY VIEW"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "ALTER VIEW also exists in MySQL; CREATE OR REPLACE is common to both."
+        },
+        {
+         "question": "Can a view be defined on another view?",
+         "options": {
+          "A": "Yes – views can be nested",
+          "B": "No – only on base tables",
+          "C": "Only if the view is materialized",
+          "D": "Only in NoSQL databases"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "The DBMS expands the definitions recursively."
+        },
+        {
+         "question": "A stored procedure is:",
+         "options": {
+          "A": "A table that stores procedures of an office",
+          "B": "A named set of SQL (and procedural) statements stored in the database and run on request",
+          "C": "A backup file",
+          "D": "A type of index"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is compiled and stored on the server and run with CALL / EXEC."
+        },
+        {
+         "question": "Which is a key difference between a stored function and a stored procedure?",
+         "options": {
+          "A": "A procedure must return exactly one value",
+          "B": "A function cannot take parameters",
+          "C": "There is no difference",
+          "D": "A function returns a single value and can be used inside SQL expressions; a procedure is invoked with CALL and returns values only through OUT parameters"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). e.g. SELECT net_pay(emp_id) FROM emp; but CALL raise_salary(10);"
+        },
+        {
+         "question": "The three parameter modes of a stored procedure are:",
+         "options": {
+          "A": "READ, WRITE and EXECUTE",
+          "B": "IN, OUT and INOUT",
+          "C": "INPUT, PROCESS and OUTPUT",
+          "D": "LOCAL, GLOBAL and STATIC"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "IN passes a value in, OUT returns a value, INOUT does both."
+        },
+        {
+         "question": "In MySQL, a stored procedure named update_stock is run by:",
+         "options": {
+          "A": "EXECUTE PROCEDURE update_stock;",
+          "B": "RUN update_stock;",
+          "C": "START update_stock();",
+          "D": "CALL update_stock();"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "SQL Server uses EXEC; Oracle allows EXEC in SQL*Plus or a call inside a PL/SQL block."
+        },
+        {
+         "question": "Which is an advantage of stored procedures?",
+         "options": {
+          "A": "They make the database schema-less",
+          "B": "They work only offline",
+          "C": "Less network traffic and controlled access – users can be granted EXECUTE without table privileges",
+          "D": "They remove the need for indexes"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "One call replaces many SQL statements sent over the network."
+        },
+        {
+         "question": "The sections of a PL/SQL block, in order, are:",
+         "options": {
+          "A": "DECLARE → BEGIN → EXCEPTION → END",
+          "B": "BEGIN → DECLARE → END → EXCEPTION",
+          "C": "DECLARE → EXCEPTION → BEGIN → END",
+          "D": "EXCEPTION → DECLARE → BEGIN → END"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only the BEGIN … END executable section is compulsory."
+        },
+        {
+         "question": "A scalar function differs from an aggregate function because a scalar function:",
+         "options": {
+          "A": "Works only on numbers",
+          "B": "Returns one value for each row, e.g. UPPER(name)",
+          "C": "Cannot be used in SELECT",
+          "D": "Returns one value for a whole group of rows, e.g. SUM(salary)"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "COUNT, SUM, AVG, MIN and MAX are aggregates."
+        },
+        {
+         "question": "An index created with CREATE INDEX idx_name ON emp(name); mainly:",
+         "options": {
+          "A": "Sorts the table permanently on disk",
+          "B": "Encrypts the name column",
+          "C": "Speeds up searches on name, but makes inserts and updates slightly slower",
+          "D": "Prevents duplicate names"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). CREATE UNIQUE INDEX would also prevent duplicates."
+        },
+        {
+         "question": "Embedded SQL means:",
+         "options": {
+          "A": "SQL stored inside an image",
+          "B": "A SQL query inside a view only",
+          "C": "SQL used only by the DBA",
+          "D": "SQL statements written inside a host-language program such as C or COBOL"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Statements are marked with EXEC SQL and handled by a pre-compiler."
+        },
+        {
+         "question": "In embedded SQL, host-language variables used inside SQL statements are written with a prefix of:",
+         "options": {
+          "A": "A dollar, e.g. $emp_no",
+          "B": "A colon, e.g. :emp_no",
+          "C": "An ampersand only",
+          "D": "A hash, e.g. #emp_no"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "The colon separates program variables from column names."
+        },
+        {
+         "question": "Dynamic SQL is used when:",
+         "options": {
+          "A": "The SQL statement is built and executed at run time",
+          "B": "Only fixed queries are allowed",
+          "C": "The database is read-only",
+          "D": "The table has no primary key"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "e.g. PREPARE / EXECUTE, or EXECUTE IMMEDIATE in Oracle."
+        },
+        {
+         "question": "After CREATE VIEW high_paid AS SELECT name, salary FROM emp WHERE salary > 50000; the query SELECT COUNT(*) FROM high_paid; returns:",
+         "options": {
+          "A": "The number of all employees",
+          "B": "An error, because views cannot be counted",
+          "C": "The number of employees earning more than 50000",
+          "D": "The total salary of all employees"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Each query on the view is evaluated against the current emp rows."
+        },
+        {
+         "question": "Which privilege lets a user run a stored procedure without direct rights on the tables it uses (Oracle, MySQL definer's rights)?",
+         "options": {
+          "A": "REFERENCES",
+          "B": "INDEX",
+          "C": "SELECT",
+          "D": "EXECUTE"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Procedures run with the definer's privileges by default."
+        },
+        {
+         "question": "Match the database object with its description:\na. View\nb. Materialized view\nc. Stored procedure\nd. Index\n\n1. Query result stored and refreshed\n2. Virtual table defined by a query\n3. Structure that speeds up lookups on a column\n4. Named block of statements run with CALL",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Object-to-description matching is a common KEA format."
+        },
+        {
+         "question": "Consider the statements:\nI. A view can hide some columns of a table from a user.\nII. Every view can be updated.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Views with joins, aggregates or DISTINCT are usually not updatable."
+        },
+        {
+         "question": "Consider the statements:\nI. A stored function can be called inside a SELECT statement.\nII. A stored procedure can return values through OUT parameters.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Both are standard features."
+        },
+        {
+         "question": "Assertion (A): Views are useful for security.\nReason (R): A view can expose only selected rows and columns of a table to a user.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Grant on the view instead of the base table."
+        },
+        {
+         "question": "Assertion (A): A materialized view always shows up-to-date data without any refresh.\nReason (R): A materialized view stores its query result physically.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Because the result is stored, it can become stale until refreshed – so A is false."
+        },
+        {
+         "question": "Which of these SQL objects does NOT store any data rows of its own?",
+         "options": {
+          "A": "A materialized view",
+          "B": "A table",
+          "C": "A temporary table",
+          "D": "An ordinary view"
+         },
+         "answer": "D",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Only the view's definition is kept in the data dictionary."
+        },
+        {
+         "question": "A user-defined function that returns a whole table (usable in FROM) is called a:",
+         "options": {
+          "A": "Scalar function",
+          "B": "Table-valued function",
+          "C": "Aggregate function",
+          "D": "Trigger function"
+         },
+         "answer": "B",
+         "subject": "Views, Stored Procedures and Functions",
+         "explanation": "Supported by SQL Server and PostgreSQL (RETURNS TABLE)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Triggers, Cursors, Privileges and SQL Injection",
+       "questions": [
+        {
+         "question": "Match the following:\nList-1: a) Oracle instance  b) Tablespace  c) Trigger  d) Synonym\nList-2: i) A database structure that contains datafiles  ii) Automatically executes in response to certain events  iii) Provides alternate names for database objects  iv) A set of memory structures and background processes",
+         "options": {
+          "A": "a – iv, b – ii, c – i, d – iii",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – i, b – iii, c – iv, d – ii",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "An instance = SGA memory + background processes; a tablespace holds datafiles; a trigger fires on events; a synonym is an alias. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q76"
+        },
+        {
+         "question": "A trigger in SQL is:",
+         "options": {
+          "A": "A command to start the database",
+          "B": "A type of view",
+          "C": "A key that links two tables",
+          "D": "A stored program that runs automatically when a specified event such as INSERT, UPDATE or DELETE occurs on a table"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). Triggers are not called explicitly; the event fires them."
+        },
+        {
+         "question": "Active database rules (triggers) follow the model:",
+         "options": {
+          "A": "Execute – Commit – Abort",
+          "B": "Event – Condition – Action (ECA)",
+          "C": "Extract – Clean – Apply",
+          "D": "Entity – Constraint – Attribute"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). When the event occurs and the condition holds, the action runs."
+        },
+        {
+         "question": "A BEFORE trigger is typically used to:",
+         "options": {
+          "A": "Back up the database",
+          "B": "Create indexes",
+          "C": "Write an audit record after the change is committed",
+          "D": "Validate or adjust the new values before the change is written"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "e.g. reject a negative salary or fill a default value."
+        },
+        {
+         "question": "A trigger declared FOR EACH ROW fires:",
+         "options": {
+          "A": "Once for every row affected by the statement",
+          "B": "Once per statement, however many rows change",
+          "C": "Only once per day",
+          "D": "Only when no row is affected"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Without FOR EACH ROW (Oracle) it is a statement-level trigger."
+        },
+        {
+         "question": "In a row-level DELETE trigger, which row values are available?",
+         "options": {
+          "A": "Only the OLD values",
+          "B": "Only the NEW values",
+          "C": "Both OLD and NEW",
+          "D": "Neither"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "INSERT has only NEW; UPDATE has both; DELETE has only OLD."
+        },
+        {
+         "question": "INSTEAD OF triggers are mainly defined on:",
+         "options": {
+          "A": "Sequences",
+          "B": "Indexes",
+          "C": "Views, to make otherwise non-updatable views updatable",
+          "D": "Stored procedures"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "The trigger body performs the change on the base tables."
+        },
+        {
+         "question": "A trigger that records every change of salary into an audit table is best written as:",
+         "options": {
+          "A": "A DCL command",
+          "B": "A BEFORE SELECT trigger",
+          "C": "An AFTER UPDATE … FOR EACH ROW trigger",
+          "D": "A statement-level INSTEAD OF trigger on a table"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "AFTER ensures only successful changes are logged; row-level gives each old and new value."
+        },
+        {
+         "question": "The correct order of steps for using an explicit cursor in PL/SQL is:",
+         "options": {
+          "A": "FETCH → OPEN → DECLARE → CLOSE",
+          "B": "DECLARE → OPEN → FETCH → CLOSE",
+          "C": "DECLARE → FETCH → OPEN → CLOSE",
+          "D": "OPEN → DECLARE → CLOSE → FETCH"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). A cursor processes a multi-row result one row at a time."
+        },
+        {
+         "question": "The PL/SQL cursor attribute that becomes TRUE when the last FETCH returned no row is:",
+         "options": {
+          "A": "%FOUND",
+          "B": "%ROWTYPE",
+          "C": "%ISOPEN",
+          "D": "%NOTFOUND"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "%ROWCOUNT gives the number of rows fetched so far."
+        },
+        {
+         "question": "In PL/SQL, the predefined exception raised when a SELECT … INTO returns no row is:",
+         "options": {
+          "A": "VALUE_ERROR",
+          "B": "NO_DATA_FOUND",
+          "C": "TOO_MANY_ROWS",
+          "D": "ZERO_DIVIDE"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "TOO_MANY_ROWS is raised when it returns more than one row."
+        },
+        {
+         "question": "Which commands belong to DCL (Data Control Language)?",
+         "options": {
+          "A": "INSERT and UPDATE",
+          "B": "CREATE and ALTER",
+          "C": "GRANT and REVOKE",
+          "D": "COMMIT and ROLLBACK"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). COMMIT, ROLLBACK and SAVEPOINT are TCL commands."
+        },
+        {
+         "question": "GRANT SELECT ON emp TO ravi WITH GRANT OPTION; allows Ravi to:",
+         "options": {
+          "A": "Query emp and also grant SELECT on emp to other users",
+          "B": "Drop the emp table",
+          "C": "Only query emp; he cannot pass the right on",
+          "D": "Update every column of emp"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Revoking with CASCADE also removes the grants he made."
+        },
+        {
+         "question": "A role in SQL is:",
+         "options": {
+          "A": "A type of trigger",
+          "B": "A backup schedule",
+          "C": "A row in a table",
+          "D": "A named group of privileges that can be granted to users"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "CREATE ROLE clerk; GRANT SELECT ON emp TO clerk; GRANT clerk TO ravi;"
+        },
+        {
+         "question": "SQL injection is an attack in which:",
+         "options": {
+          "A": "A trigger is fired twice",
+          "B": "The database server is physically stolen",
+          "C": "Malicious SQL is supplied through user input that the program joins directly into a query",
+          "D": "A virus damages the hard disk"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). OWASP lists injection among the most serious web risks."
+        },
+        {
+         "question": "A login form builds: SELECT * FROM users WHERE name='…' AND pwd='…'. Typing ' OR '1'='1 as the password typically:",
+         "options": {
+          "A": "Deletes the users table",
+          "B": "Has no effect",
+          "C": "Encrypts the password",
+          "D": "Makes the WHERE condition always true and bypasses the password check"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). The OR '1'='1' part is true for every row."
+        },
+        {
+         "question": "The most effective defence against SQL injection is to:",
+         "options": {
+          "A": "Store passwords in plain text",
+          "B": "Use parameterized queries (prepared statements)",
+          "C": "Hide error messages only",
+          "D": "Use longer table names"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). Input is then always treated as data, never as SQL code."
+        },
+        {
+         "question": "Which practice makes SQL injection MORE likely?",
+         "options": {
+          "A": "Using prepared statements",
+          "B": "Validating input against an allow-list",
+          "C": "Concatenating user input directly into SQL strings",
+          "D": "Giving the application account only the privileges it needs"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Dynamic string building is the root cause."
+        },
+        {
+         "question": "In many SQL injection attacks, the sequence -- is added to the input in order to:",
+         "options": {
+          "A": "Join two tables",
+          "B": "Comment out the rest of the original query",
+          "C": "Start a transaction",
+          "D": "Create a view"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Everything after -- on that line is ignored by the SQL parser."
+        },
+        {
+         "question": "Running the application's database account with only the privileges it needs is called:",
+         "options": {
+          "A": "Denormalization",
+          "B": "Normalization",
+          "C": "Referential integrity",
+          "D": "The principle of least privilege"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "It limits the damage if an injection succeeds."
+        },
+        {
+         "question": "In the SQL standard, a constraint that may involve several tables and is declared with CREATE ASSERTION is a(n):",
+         "options": {
+          "A": "Synonym",
+          "B": "Assertion",
+          "C": "Cursor",
+          "D": "Trigger"
+         },
+         "answer": "B",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Few products implement assertions; triggers are often used instead."
+        },
+        {
+         "question": "Match the command with its effect:\na. GRANT\nb. REVOKE\nc. COMMIT\nd. SAVEPOINT\n\n1. Gives a privilege\n2. Withdraws a privilege\n3. Makes the transaction's changes permanent\n4. Marks a point to which a transaction can later roll back",
+         "options": {
+          "A": "a-1, b-2, c-3, d-4",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "PYQ pattern (KEA / KSET papers). DCL and TCL commands are often matched together."
+        },
+        {
+         "question": "Match the trigger type with its use:\na. BEFORE row trigger\nb. AFTER row trigger\nc. INSTEAD OF trigger\nd. Statement-level trigger\n\n1. Fires once per statement\n2. Checks or corrects each new row before it is saved\n3. Writes audit records after each changed row\n4. Replaces an INSERT/UPDATE/DELETE on a view",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-3, b-2, c-4, d-1",
+          "D": "a-2, b-3, c-4, d-1"
+         },
+         "answer": "D",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Choose the timing by what the trigger must see or change."
+        },
+        {
+         "question": "Consider the statements:\nI. Triggers fire automatically when their event occurs.\nII. Triggers must be called explicitly with CALL.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Stored procedures are called; triggers are fired."
+        },
+        {
+         "question": "Consider the statements:\nI. Prepared statements keep SQL code separate from user data.\nII. Escaping quotes in input is a stronger defence than prepared statements.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "OWASP ranks parameterized queries first; escaping is a last resort."
+        },
+        {
+         "question": "Assertion (A): Parameterized queries prevent SQL injection.\nReason (R): The user's input is sent to the database as data and is never parsed as SQL code.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "That separation is why they work."
+        },
+        {
+         "question": "Assertion (A): INSTEAD OF triggers are commonly used to make complex views updatable.\nReason (R): A trigger can never be defined on a view.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "INSTEAD OF triggers exist precisely for views, so R is false."
+        },
+        {
+         "question": "In Oracle, a 'mutating table' error usually occurs when:",
+         "options": {
+          "A": "An index is rebuilt",
+          "B": "A view is dropped",
+          "C": "A row-level trigger queries or modifies the same table whose change fired it",
+          "D": "A user logs out"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "The table is in the middle of being changed by the triggering statement."
+        },
+        {
+         "question": "Which statement about triggers is TRUE?",
+         "options": {
+          "A": "Too many triggers can make a database slow and hard to debug, because they run hidden extra work on every change",
+          "B": "Triggers can be fired only by SELECT",
+          "C": "Triggers cannot contain SQL statements",
+          "D": "Triggers replace the need for primary keys"
+         },
+         "answer": "A",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "Use them for auditing and rules that must always hold, not for ordinary application logic."
+        },
+        {
+         "question": "REVOKE UPDATE ON emp FROM ravi CASCADE; also:",
+         "options": {
+          "A": "Drops the emp table",
+          "B": "Deletes Ravi's account",
+          "C": "Withdraws the UPDATE privilege from every user to whom Ravi had granted it",
+          "D": "Commits Ravi's open transactions"
+         },
+         "answer": "C",
+         "subject": "Triggers, Cursors, Privileges and SQL Injection",
+         "explanation": "RESTRICT instead refuses the revoke if such dependent grants exist."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Normalization",
+     "sets": [
+      {
+       "name": "1 · Functional Dependencies, Closure and Keys",
+       "questions": [
+        {
+         "question": "Match the following.\nList-1: (a) Primary key  (b) Composite key  (c) Foreign key  (d) Super key\nList-2: i) multiple attributes  ii) subset of a candidate key  iii) uniquely identify  iv) corresponding value in other table",
+         "options": {
+          "A": "a – ii, b – iv, c – i, d – iii",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A primary key uniquely identifies rows; a composite key has several attributes; a foreign key refers to a value in another table. KEA matched 'super key' with 'subset of a candidate key' – strictly, a candidate key is a minimal subset of a super key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q21"
+        },
+        {
+         "question": "Match the following abbreviated notation when discussing functional dependencies.\nList-1: a) If X ⊇ Y, then X → Y  b) {X → Y} ⊨ XZ → YZ  c) {X → Y, Y → Z} ⊨ X → Z  d) {X → Y, WY → Z} ⊨ WX → Z\nList-2: i) Augmentation rule  ii) Transitive rule  iii) Reflexive rule  iv) Pseudo transitive rule",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – ii, b – iv, c – iii, d – i",
+          "D": "a – i, b – ii, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Elmasri & Navathe's inference rules IR1 (reflexive), IR2 (augmentation), IR3 (transitive) and IR6 (pseudotransitive). The printed '≠' is the 'implies' sign ⊨. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q85"
+        },
+        {
+         "question": "A functional dependency X → Y holds on relation R when:",
+         "options": {
+          "A": "X and Y have the same data type",
+          "B": "Any two tuples that agree on X also agree on Y",
+          "C": "X has more attributes than Y",
+          "D": "Y is a foreign key referring to X"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). X determines Y."
+        },
+        {
+         "question": "Which functional dependency is trivial?",
+         "options": {
+          "A": "AB → C",
+          "B": "A → B",
+          "C": "AB → A",
+          "D": "A → BC"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "X → Y is trivial when Y ⊆ X."
+        },
+        {
+         "question": "Armstrong's axioms are:",
+         "options": {
+          "A": "Atomicity, consistency and durability",
+          "B": "Reflexivity, augmentation and transitivity",
+          "C": "Union, decomposition and projection",
+          "D": "Selection, projection and join"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). They are sound and complete; union, decomposition and pseudotransitivity are derived from them."
+        },
+        {
+         "question": "If X → Y and X → Z hold, then X → YZ holds. This rule is called:",
+         "options": {
+          "A": "Augmentation",
+          "B": "Decomposition rule",
+          "C": "Reflexivity",
+          "D": "Union (additive) rule"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Decomposition is the reverse: X → YZ gives X → Y and X → Z."
+        },
+        {
+         "question": "R(A, B, C, D) has F = {A → B, B → C, C → D}. The closure A⁺ is:",
+         "options": {
+          "A": "A",
+          "B": "ABCD",
+          "C": "AB",
+          "D": "ABC"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). A → B → C → D by transitivity."
+        },
+        {
+         "question": "R(A, B, C, D, E) has F = {A → B, BC → D, D → E}. The closure {A, C}⁺ is:",
+         "options": {
+          "A": "ABCD",
+          "B": "ACD",
+          "C": "ABCDE",
+          "D": "ABC"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "AC gives B (A → B), then D (BC → D), then E (D → E)."
+        },
+        {
+         "question": "R(A, B, C, D) has F = {A → B, B → C, C → D}. The candidate key of R is:",
+         "options": {
+          "A": "CD",
+          "B": "B",
+          "C": "A",
+          "D": "AB"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). A⁺ = ABCD and A is not derivable from any other attribute."
+        },
+        {
+         "question": "R(A, B, C, D) has F = {AB → C, C → D, D → A}. Its candidate keys are:",
+         "options": {
+          "A": "AB only",
+          "B": "AB, BC and BD",
+          "C": "AB and CD",
+          "D": "A and B"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). B is never on a right side, so it is in every key; B with A, C or D determines everything."
+        },
+        {
+         "question": "R(A, B, C, D) has exactly one candidate key, A. How many superkeys does R have?",
+         "options": {
+          "A": "1",
+          "B": "16",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). A plus any subset of {B, C, D}: 2³ = 8."
+        },
+        {
+         "question": "R(A, B, C, D) has F = {A → B, B → A, C → D}. How many candidate keys does R have?",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "AC and BC (C is needed for C and D; A and B determine each other)."
+        },
+        {
+         "question": "A prime attribute is an attribute that:",
+         "options": {
+          "A": "Is a foreign key",
+          "B": "Belongs to at least one candidate key",
+          "C": "Has a numeric data type",
+          "D": "Is never NULL"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Non-prime attributes belong to no candidate key; 2NF and 3NF are stated in these terms."
+        },
+        {
+         "question": "A candidate key is:",
+         "options": {
+          "A": "A minimal superkey – no proper subset of it is a superkey",
+          "B": "A key of another table",
+          "C": "Any set of attributes containing the primary key",
+          "D": "Any attribute with unique values in today's data only"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Every candidate key is a superkey, not the other way round."
+        },
+        {
+         "question": "A minimal (canonical) cover of a set of FDs has:",
+         "options": {
+          "A": "Single attributes on the right, no extraneous attributes on the left and no redundant FDs",
+          "B": "All FDs of the closure F⁺",
+          "C": "Only trivial FDs",
+          "D": "FDs whose left sides are always candidate keys"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "It is the starting point of the 3NF synthesis algorithm."
+        },
+        {
+         "question": "A minimal cover of F = {A → BC, B → C, A → B, AB → C} is:",
+         "options": {
+          "A": "{A → C, B → C}",
+          "B": "{A → B, AB → C}",
+          "C": "{A → BC, B → C}",
+          "D": "{A → B, B → C}"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A → C follows from A → B and B → C; AB → C is implied by B → C."
+        },
+        {
+         "question": "In F = {A → C, AB → C}, which attribute is extraneous in AB → C?",
+         "options": {
+          "A": "None",
+          "B": "A",
+          "C": "C",
+          "D": "B"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A alone already determines C."
+        },
+        {
+         "question": "Y is fully functionally dependent on X when:",
+         "options": {
+          "A": "X → Y holds for some rows only",
+          "B": "X → Y holds and Y does not depend on any proper subset of X",
+          "C": "Y → X also holds",
+          "D": "X is a single attribute"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "If Y depends on part of X, the dependency is partial."
+        },
+        {
+         "question": "A partial dependency is one in which:",
+         "options": {
+          "A": "Two keys depend on each other",
+          "B": "A key attribute depends on a non-key attribute",
+          "C": "A non-prime attribute depends on only part of a composite candidate key",
+          "D": "An attribute depends on itself"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). Removing partial dependencies gives 2NF."
+        },
+        {
+         "question": "A transitive dependency X → Z exists when:",
+         "options": {
+          "A": "X → Y and Y → Z hold, Y is not a candidate key (or superkey) and Z is non-prime",
+          "B": "Z → X holds",
+          "C": "Z is part of the key",
+          "D": "X and Z are equal"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Removing transitive dependencies gives 3NF."
+        },
+        {
+         "question": "A multivalued dependency is written as:",
+         "options": {
+          "A": "X ⋈ Y",
+          "B": "X →→ Y",
+          "C": "X ⊨ Y",
+          "D": "X → Y"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "MVDs are the basis of 4NF."
+        },
+        {
+         "question": "A binary decomposition of R into R1 and R2 is lossless if:",
+         "options": {
+          "A": "R1 and R2 have the same number of attributes",
+          "B": "R1 ∪ R2 ≠ R",
+          "C": "R1 ∩ R2 → R1 or R1 ∩ R2 → R2 is in F⁺",
+          "D": "R1 and R2 have no common attribute"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). The common attributes must be a superkey of one of the parts."
+        },
+        {
+         "question": "R(A, B, C) has F = {A → B}. The decomposition R1(A, B), R2(A, C) is:",
+         "options": {
+          "A": "Lossless, because A → AB",
+          "B": "Lossy, because C is not in R1",
+          "C": "Lossless only if C → A",
+          "D": "Not a valid decomposition"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "R1 ∩ R2 = A, and A is a key of R1."
+        },
+        {
+         "question": "A decomposition is dependency-preserving when:",
+         "options": {
+          "A": "No attribute is repeated",
+          "B": "It is always lossless",
+          "C": "Every part has the same key",
+          "D": "The FDs holding on the individual parts together imply all FDs of F"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Then constraints can be checked without joining the parts."
+        },
+        {
+         "question": "Match the inference rule with its form:\na. Decomposition\nb. Pseudotransitivity\nc. Union\nd. Reflexivity\n\n1. X → YZ ⊨ X → Y\n2. X → Y, X → Z ⊨ X → YZ\n3. X → Y, WY → Z ⊨ WX → Z\n4. Y ⊆ X ⊨ X → Y",
+         "options": {
+          "A": "a-3, b-1, c-2, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "PYQ pattern (KEA / KSET papers). Inference-rule matching appears in Legislative Council and KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Every candidate key is a superkey.\nII. Every superkey is a candidate key.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A superkey need not be minimal."
+        },
+        {
+         "question": "Consider the statements:\nI. Armstrong's axioms are sound (they derive only valid FDs).\nII. Armstrong's axioms are complete (they derive every implied FD).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "Both properties were proved by Armstrong (1974)."
+        },
+        {
+         "question": "Assertion (A): In R(A, B, C) with A → B and B → C, A is a candidate key.\nReason (R): A⁺ contains all attributes of R.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A⁺ = ABC, and a single attribute is minimal."
+        },
+        {
+         "question": "Assertion (A): AB → A is a non-trivial functional dependency.\nReason (R): An FD X → Y is trivial when Y ⊆ X.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "A ⊆ AB, so AB → A is trivial; A is false."
+        },
+        {
+         "question": "The closure F⁺ of a set of functional dependencies F is:",
+         "options": {
+          "A": "The smallest set of FDs equivalent to F",
+          "B": "The set of all FDs that can be inferred from F",
+          "C": "The set of attributes determined by a key",
+          "D": "The set of all candidate keys"
+         },
+         "answer": "B",
+         "subject": "Functional Dependencies, Closure and Keys",
+         "explanation": "The smallest equivalent set is a minimal cover; X⁺ is the closure of an attribute set."
+        }
+       ]
+      },
+      {
+       "name": "2 · Anomalies and Normal Forms (1NF–BCNF and beyond)",
+       "questions": [
+        {
+         "question": "Match the following.\nList-1: (a) 1 NF  (b) 2 NF  (c) 3 NF  (d) BCNF\nList-2: i) Is a strict form of 3 NF  ii) Contains atomic values  iii) No non-prime attributes  iv) Non-transitively depends on primary key",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iv, b – i, c – iii, d – ii",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "1NF – atomic values; 3NF – non-key attributes depend non-transitively on the key; BCNF – a stricter 3NF. KEA's key pairs 2NF with item iii (read it as: no non-prime attribute depends on part of a key). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q22"
+        },
+        {
+         "question": "If every non-key attribute is functionally dependent on the primary key, then the relation will be",
+         "options": {
+          "A": "First normal form",
+          "B": "Second normal form",
+          "C": "Third normal form",
+          "D": "Fourth normal form"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "KEA's key takes this as the 3NF idea 'every non-key attribute depends on the key, the whole key and nothing but the key'. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q34"
+        },
+        {
+         "question": "Match the following normalization form of database based on the primary keys.\nList-1: a) Relation should have no multivalued attributes  b) Primary key contains multiple attributes  c) Relation should not have a non-key attribute functionally determined by another non-key  d) Simpler form of 3NF\nList-2: i) Second normal form  ii) Boyce-Codd normal form  iii) First normal form  iv) Third normal form",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "No multivalued attributes → 1NF; composite keys matter for 2NF; non-key → non-key forbidden in 3NF; BCNF is the 'simpler, stronger' form of 3NF (Elmasri & Navathe's wording). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q86"
+        },
+        {
+         "question": "Match the following informal design guideline statements for relation schemas.\nList-1: a) Update anomalies  b) Insertion anomalies  c) Insert new tuple in employee table has no employee as yet in relation  d) Modification anomalies\nList-2: i) Enter all attribute values to insert a new tuple  ii) Place NULL values in the table  iii) Change the value of one of the attributes of a particular tuple  iv) Storing natural join of base relation leads to additional problem",
+         "options": {
+          "A": "a – i, b – iv, c – iii, d – ii",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Elmasri & Navathe: storing a natural join causes update anomalies; insertion anomalies force entering all attribute values (or NULLs for a department with no employee yet); modification anomalies mean changing a value in many tuples. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q87"
+        },
+        {
+         "question": "Match the following based on their normalization of relations\na. First Normal Form  b. Second Normal Form  c. Third Normal Form  d. BCNF\ni. Non-trivial functional dependency  ii. Stronger form of 3NF  iii. Single atomic value  iv. Full functional dependency",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "1NF – atomic values; 2NF – full functional dependency on the key; 3NF – conditions on non-trivial FDs; BCNF – stronger form of 3NF. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q65"
+        },
+        {
+         "question": "____ eliminates relations between candidate keys.",
+         "options": {
+          "A": "First Normal Form",
+          "B": "Second Normal Form",
+          "C": "Third Normal Form",
+          "D": "Boyce-Codd Normal Form"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "BCNF removes the anomalies 3NF allows when candidate keys overlap: every determinant must be a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q34"
+        },
+        {
+         "question": "Match the following:\na. BCNF iff\nb. 5 NF iff\nc. 1 NF iff\nd. 4 NF iff\n(i) every JD is implied by the candidate keys\n(ii) every MVD is implied by the candidate keys\n(iii) all underlying domains contain scalar values only\n(iv) every FD is implied by the candidate keys",
+         "options": {
+          "A": "a – iii, b – ii, c – i, d – iv",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – iv, b – i, c – iii, d – ii",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "BCNF: FDs; 4NF: MVDs; 5NF: JDs; 1NF: atomic domains. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q36"
+        },
+        {
+         "question": "Match the following normal forms in List-I with their defining conditions mentioned in the List-II.\n(a) 1 NF\n(b) 2 NF\n(c) 3 NF\n(d) BCNF\n(i) No transitive dependency\n(ii) No partial dependency\n(iii) Atomic values only\n(iv) Every determinant is a candidate key",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – i, b – iv, c – iii, d – ii"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "1NF atomic values, 2NF no partial dependency, 3NF no transitive dependency, BCNF every determinant a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q58"
+        },
+        {
+         "question": "The main purpose of normalization is to:",
+         "options": {
+          "A": "Encrypt the data",
+          "B": "Increase the number of tables for its own sake",
+          "C": "Make every query faster",
+          "D": "Reduce redundancy and avoid insertion, deletion and update anomalies"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Normalization is a schema-design process based on dependencies."
+        },
+        {
+         "question": "In EMP_DEPT(Eno, Ename, Dno, Dname), a new department with no employees cannot be recorded. This is a(n):",
+         "options": {
+          "A": "Deletion anomaly",
+          "B": "Update anomaly",
+          "C": "Insertion anomaly",
+          "D": "Join anomaly"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Eno is part of the key, so it cannot be NULL."
+        },
+        {
+         "question": "In EMP_DEPT(Eno, Ename, Dno, Dname), deleting the last employee of a department also loses the department's name. This is a(n):",
+         "options": {
+          "A": "Integrity anomaly",
+          "B": "Insertion anomaly",
+          "C": "Update anomaly",
+          "D": "Deletion anomaly"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Unrelated facts are stored in one row."
+        },
+        {
+         "question": "A relation is in 1NF when:",
+         "options": {
+          "A": "Every determinant is a key",
+          "B": "It has no partial dependencies",
+          "C": "It has no transitive dependencies",
+          "D": "Every attribute holds only atomic (indivisible) values – no repeating groups or multivalued attributes"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1NF is the basic requirement of the relational model."
+        },
+        {
+         "question": "A relation is in 2NF when it is in 1NF and:",
+         "options": {
+          "A": "Every determinant is a candidate key",
+          "B": "No non-prime attribute is partially dependent on any candidate key",
+          "C": "It has no multivalued dependencies",
+          "D": "No attribute is transitively dependent on the key"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Partial dependencies can exist only when a candidate key is composite."
+        },
+        {
+         "question": "A relation in 1NF whose candidate keys are all single attributes is automatically in:",
+         "options": {
+          "A": "BCNF",
+          "B": "4NF",
+          "C": "2NF",
+          "D": "5NF"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). No proper subset of a single-attribute key exists, so no partial dependency is possible."
+        },
+        {
+         "question": "A relation is in 3NF when, for every non-trivial FD X → A:",
+         "options": {
+          "A": "X is a superkey or A is a prime attribute",
+          "B": "X is a superkey",
+          "C": "A is part of X",
+          "D": "X is a single attribute"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Dropping 'or A is prime' gives the BCNF condition."
+        },
+        {
+         "question": "A relation is in BCNF when, for every non-trivial FD X → Y:",
+         "options": {
+          "A": "X is a superkey",
+          "B": "X is a foreign key",
+          "C": "Y is a superkey",
+          "D": "Y is a prime attribute"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Every determinant must be a (super)key."
+        },
+        {
+         "question": "Any relation with exactly two attributes is always in:",
+         "options": {
+          "A": "BCNF",
+          "B": "1NF only",
+          "C": "2NF but not 3NF",
+          "D": "No normal form"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Any non-trivial FD has a single attribute on the left, which is then a key."
+        },
+        {
+         "question": "Which statement about decomposition is TRUE?",
+         "options": {
+          "A": "A lossless, dependency-preserving 3NF decomposition always exists, but a BCNF decomposition may lose dependencies",
+          "B": "BCNF decomposition always preserves dependencies",
+          "C": "3NF decomposition may be lossy",
+          "D": "Neither can ever be lossless"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). This is why 3NF is often accepted in practice."
+        },
+        {
+         "question": "4NF and 5NF deal respectively with:",
+         "options": {
+          "A": "Atomic values and keys",
+          "B": "Partial and transitive dependencies",
+          "C": "Multivalued dependencies and join dependencies",
+          "D": "Foreign keys and indexes"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "5NF is also called project-join normal form (PJNF)."
+        },
+        {
+         "question": "R(A, B, C, D) has key AB and F = {AB → C, B → D}. The highest normal form of R is:",
+         "options": {
+          "A": "3NF",
+          "B": "2NF",
+          "C": "BCNF",
+          "D": "1NF"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). B → D is a partial dependency of the non-prime D on part of the key."
+        },
+        {
+         "question": "R(A, B, C) has key A and F = {A → B, B → C}. The highest normal form of R is:",
+         "options": {
+          "A": "BCNF",
+          "B": "2NF",
+          "C": "1NF",
+          "D": "3NF"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "No partial dependency (single-attribute key), but A → B → C is transitive."
+        },
+        {
+         "question": "R(A, B, C) has F = {AB → C, C → B}. Its candidate keys are AB and AC. R is in:",
+         "options": {
+          "A": "2NF but not 3NF",
+          "B": "3NF but not BCNF",
+          "C": "1NF only",
+          "D": "BCNF"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). B is prime, so C → B satisfies 3NF; C is not a superkey, so BCNF fails."
+        },
+        {
+         "question": "Denormalization means:",
+         "options": {
+          "A": "Converting a table to 1NF",
+          "B": "Removing all keys",
+          "C": "Deliberately adding some redundancy to a normalized design to speed up frequent queries",
+          "D": "Deleting duplicate rows"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Common in data warehouses and reporting tables."
+        },
+        {
+         "question": "The correct order of normal forms from least to most strict is:",
+         "options": {
+          "A": "1NF → 2NF → 3NF → BCNF → 4NF → 5NF",
+          "B": "1NF → 3NF → 2NF → BCNF → 4NF → 5NF",
+          "C": "2NF → 1NF → 3NF → 4NF → BCNF → 5NF",
+          "D": "1NF → 2NF → BCNF → 3NF → 5NF → 4NF"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Each higher form implies the lower ones."
+        },
+        {
+         "question": "Consider the statements:\nI. Every relation in 3NF is in BCNF.\nII. Every relation in BCNF is in 3NF.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "BCNF is stricter than 3NF."
+        },
+        {
+         "question": "Consider the statements:\nI. Normalization reduces data redundancy.\nII. Normalization always makes every query faster.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "More tables can mean more joins, so some queries get slower."
+        },
+        {
+         "question": "Assertion (A): A relation in 2NF can still have update anomalies.\nReason (R): 2NF does not remove transitive dependencies.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "3NF is needed for that."
+        },
+        {
+         "question": "Match the problem with its description:\na. Insertion anomaly\nb. Deletion anomaly\nc. Update anomaly\nd. Redundancy\n\n1. Changing one fact needs many row changes, or data becomes inconsistent\n2. The same fact is stored in many rows\n3. A fact cannot be stored without some other fact\n4. Removing a row loses an unrelated fact",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-3, b-4, c-1, d-2"
+         },
+         "answer": "D",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Anomaly matching questions are common in KEA papers."
+        },
+        {
+         "question": "Which dependency must be removed to bring a 2NF relation to 3NF?",
+         "options": {
+          "A": "Join dependency",
+          "B": "Transitive dependency of a non-prime attribute on a key",
+          "C": "Partial dependency",
+          "D": "Multivalued dependency"
+         },
+         "answer": "B",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "Split R(A, B, C) with A → B → C into R1(A, B) and R2(B, C)."
+        },
+        {
+         "question": "STUDENT(Roll, Name, Phones) stores several phone numbers in one Phones field. Which normal form does it violate?",
+         "options": {
+          "A": "3NF only",
+          "B": "2NF only",
+          "C": "1NF",
+          "D": "BCNF only"
+         },
+         "answer": "C",
+         "subject": "Anomalies and Normal Forms (1NF–BCNF and beyond)",
+         "explanation": "A multivalued attribute is not atomic; move phones to STUDENT_PHONE(Roll, Phone)."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Query Processing and Optimization",
+     "sets": [
+      {
+       "name": "1 · Query Processing, Join Algorithms and Optimization",
+       "questions": [
+        {
+         "question": "Which of the following is the correct sequence of operations in query processing?",
+         "options": {
+          "A": "Parsing and translation → Optimization → Evaluation",
+          "B": "Optimization → Parsing and translation → Evaluation",
+          "C": "Evaluation → Parsing and translation → Optimization",
+          "D": "Parsing and translation → Evaluation → Optimization"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "The query is parsed and translated to relational algebra, the optimizer picks a plan, and the evaluation engine runs it. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q26"
+        },
+        {
+         "question": "During query processing, an SQL query is first translated into:",
+         "options": {
+          "A": "A transaction log",
+          "B": "An internal form such as a relational-algebra expression (query tree)",
+          "C": "A B+ tree",
+          "D": "Machine code"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). The parser also checks syntax and verifies relation names."
+        },
+        {
+         "question": "A query-evaluation plan is:",
+         "options": {
+          "A": "The SQL text typed by the user",
+          "B": "The ER diagram of the database",
+          "C": "A relational-algebra expression annotated with the algorithm and access path for each operation",
+          "D": "A backup schedule"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "e.g. 'use the index on dept_id, then a hash join'."
+        },
+        {
+         "question": "The query optimizer chooses:",
+         "options": {
+          "A": "A plan at random",
+          "B": "The plan with the most joins",
+          "C": "The first plan it generates",
+          "D": "The evaluation plan with the lowest estimated cost"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). It cannot always find the true optimum, but avoids very bad plans."
+        },
+        {
+         "question": "In disk-based systems, the cost of a query plan is usually measured mainly by:",
+         "options": {
+          "A": "The number of users logged in",
+          "B": "The number of SQL keywords",
+          "C": "The number of disk block transfers and seeks",
+          "D": "The length of table names"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Disk access dominates CPU cost."
+        },
+        {
+         "question": "The most important heuristic in query optimization is to:",
+         "options": {
+          "A": "Sort every relation before any operation",
+          "B": "Perform selection operations as early as possible",
+          "C": "Delay all projections until the end",
+          "D": "Perform Cartesian products first"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Selections shrink intermediate results; projections are also pushed down."
+        },
+        {
+         "question": "A Cartesian product followed by a selection on the join condition should be replaced by:",
+         "options": {
+          "A": "A division",
+          "B": "A projection",
+          "C": "A union",
+          "D": "A join operation"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "σθ(r × s) = r ⋈θ s, which is far cheaper to evaluate."
+        },
+        {
+         "question": "Cost-based optimization differs from purely heuristic optimization because it:",
+         "options": {
+          "A": "Ignores the size of relations",
+          "B": "Never uses indexes",
+          "C": "Uses catalog statistics (number of tuples, distinct values, blocks) to estimate the cost of alternative plans",
+          "D": "Always performs joins first"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Heuristics are rules of thumb; cost-based optimizers compare estimates."
+        },
+        {
+         "question": "For a linear (sequential) search on a relation stored in b blocks, the worst-case cost is:",
+         "options": {
+          "A": "log₂ b block transfers",
+          "B": "b² block transfers",
+          "C": "1 block transfer",
+          "D": "b block transfers"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "For an equality on a key, the average is b/2, since the scan can stop at the match."
+        },
+        {
+         "question": "A binary search for an equality condition on the ordering key of a sorted file of b blocks costs about:",
+         "options": {
+          "A": "b block transfers",
+          "B": "⌈log₂ b⌉ block transfers",
+          "C": "1 block transfer always",
+          "D": "b/2 block transfers"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Requires the file to be sorted on that attribute."
+        },
+        {
+         "question": "Which join algorithm can be used only for equi-joins and natural joins?",
+         "options": {
+          "A": "Hash join",
+          "B": "Nested-loop join",
+          "C": "Block nested-loop join",
+          "D": "All of these work for every join condition"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Merge join also needs equality (or ordering) conditions; nested loops work for any condition."
+        },
+        {
+         "question": "For a simple nested-loop join of r (outer, n_r tuples, b_r blocks) and s (b_s blocks), the worst-case number of block transfers is:",
+         "options": {
+          "A": "n_r + n_s",
+          "B": "b_r × b_s",
+          "C": "b_r + b_s",
+          "D": "n_r × b_s + b_r"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Each outer tuple scans the whole inner relation."
+        },
+        {
+         "question": "For block nested-loop join, the worst-case number of block transfers is:",
+         "options": {
+          "A": "b_r + b_s",
+          "B": "n_r × b_s + b_r",
+          "C": "b_r × b_s + b_r",
+          "D": "log b_r + log b_s"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Each block of the outer relation is paired with every block of the inner relation."
+        },
+        {
+         "question": "In a block nested-loop join, which relation should normally be chosen as the outer relation?",
+         "options": {
+          "A": "The one without an index",
+          "B": "The smaller relation",
+          "C": "It never matters",
+          "D": "The larger relation"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "The b_r term is then smallest."
+        },
+        {
+         "question": "Sorting a relation that does not fit in main memory is done with:",
+         "options": {
+          "A": "Binary search",
+          "B": "Hashing on the primary key",
+          "C": "Bubble sort",
+          "D": "External sort-merge"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sorted runs are created and then merged in passes."
+        },
+        {
+         "question": "Pipelining in query evaluation means:",
+         "options": {
+          "A": "Running every operation twice",
+          "B": "Executing queries one user at a time",
+          "C": "Passing tuples from one operation directly to the next without writing temporary relations to disk",
+          "D": "Storing every intermediate result on disk"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Materialization writes each intermediate result to disk."
+        },
+        {
+         "question": "Which equivalence rule states that selections can be applied in any order?",
+         "options": {
+          "A": "E1 ⋈ E2 = E1 ∪ E2",
+          "B": "σθ1(σθ2(E)) = σθ2(σθ1(E))",
+          "C": "πL1(πL2(E)) = πL2(E)",
+          "D": "σθ(E1 − E2) = E1"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Selection is commutative."
+        },
+        {
+         "question": "The cascade-of-selection rule is:",
+         "options": {
+          "A": "πA(σθ(E)) = σθ(E)",
+          "B": "σθ(E1 × E2) = E1",
+          "C": "σθ1∧θ2(E) = σθ1(σθ2(E))",
+          "D": "σθ1∨θ2(E) = σθ1(E) − σθ2(E)"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "A conjunctive selection can be split into a sequence of selections."
+        },
+        {
+         "question": "Natural join being commutative and associative mainly allows the optimizer to:",
+         "options": {
+          "A": "Convert joins into unions",
+          "B": "Avoid using indexes",
+          "C": "Remove all joins",
+          "D": "Choose the best join order"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Join ordering is the most important optimization for multi-table queries."
+        },
+        {
+         "question": "For n relations, the number of possible join orders:",
+         "options": {
+          "A": "Does not depend on n",
+          "B": "Grows faster than exponentially, so optimizers use dynamic programming and heuristics",
+          "C": "Is always 2",
+          "D": "Is always n"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). System R introduced dynamic programming over left-deep join trees."
+        },
+        {
+         "question": "In a left-deep join tree:",
+         "options": {
+          "A": "The right input of every join is a base relation",
+          "B": "Every join has two intermediate results as inputs",
+          "C": "No join is performed",
+          "D": "Only Cartesian products are used"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Left-deep plans work well with pipelining and index nested-loop joins."
+        },
+        {
+         "question": "Which SQL command displays the execution plan chosen for a query in MySQL and PostgreSQL?",
+         "options": {
+          "A": "DESCRIBE TABLE",
+          "B": "COMMIT",
+          "C": "SHOW USERS",
+          "D": "EXPLAIN"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Oracle uses EXPLAIN PLAN FOR …"
+        },
+        {
+         "question": "For a selection σA=v(r), with n_r tuples and V(A, r) distinct values of A (uniform distribution), the estimated result size is:",
+         "options": {
+          "A": "n_r / V(A, r)",
+          "B": "n_r − V(A, r)",
+          "C": "V(A, r)",
+          "D": "n_r × V(A, r)"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Selectivity estimates come from catalog statistics."
+        },
+        {
+         "question": "For the range query salary BETWEEN 30000 AND 50000, the most useful index is a:",
+         "options": {
+          "A": "No index can help range queries",
+          "B": "B+ tree index on salary",
+          "C": "Hash index on salary",
+          "D": "Bitmap index on gender"
+         },
+         "answer": "B",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Hash indexes support only equality lookups."
+        },
+        {
+         "question": "Projection should be applied early in a query tree mainly to:",
+         "options": {
+          "A": "Add more attributes",
+          "B": "Increase the number of tuples",
+          "C": "Remove unneeded attributes and make intermediate tuples smaller",
+          "D": "Avoid using selections"
+         },
+         "answer": "C",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Smaller tuples mean fewer blocks to move."
+        },
+        {
+         "question": "Match the component with its role:\na. Parser\nb. Optimizer\nc. Evaluation engine\nd. System catalog\n\n1. Picks the cheapest plan\n2. Checks syntax and translates the query\n3. Stores statistics used for cost estimates\n4. Executes the chosen plan",
+         "options": {
+          "A": "a-2, b-1, c-3, d-4",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "D",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "PYQ pattern (KEA / KSET papers). Component-role matching is a favourite KEA format."
+        },
+        {
+         "question": "Consider the statements:\nI. Selections should be pushed as far down the query tree as possible.\nII. Cartesian products should be performed as early as possible.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Cartesian products create huge intermediate results; they are avoided or delayed."
+        },
+        {
+         "question": "Assertion (A): Hash join cannot be used for a non-equi join such as r.A < s.B.\nReason (R): Hashing places only equal values in the same bucket.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Values satisfying '<' may fall in any bucket."
+        },
+        {
+         "question": "Assertion (A): Query optimization is needed.\nReason (R): One SQL query can have many equivalent evaluation plans whose costs differ greatly.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Choosing well can save orders of magnitude in time."
+        },
+        {
+         "question": "Which join method is especially efficient when both relations are already sorted on the join attribute?",
+         "options": {
+          "A": "Merge join (sort-merge join)",
+          "B": "Cartesian product",
+          "C": "Simple nested-loop join",
+          "D": "Block nested-loop join with the larger relation outer"
+         },
+         "answer": "A",
+         "subject": "Query Processing, Join Algorithms and Optimization",
+         "explanation": "Each relation is then read only once."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Transactions & Concurrency Control",
+     "sets": [
+      {
+       "name": "1 · Transactions, ACID Properties and Schedules",
+       "questions": [
+        {
+         "question": "Which one of the following is not a desirable property of transaction?",
+         "options": {
+          "A": "Atomicity",
+          "B": "Consistency",
+          "C": "Durability",
+          "D": "Normalization"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "The ACID properties are Atomicity, Consistency, Isolation and Durability; normalization is a schema-design process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q14"
+        },
+        {
+         "question": "Which of the following is the correct sequence in transaction commands?",
+         "options": {
+          "A": "Savepoint → Rollback → Commit → Begin transaction",
+          "B": "Begin transaction → Commit → Rollback → Savepoint",
+          "C": "Rollback → Commit → Savepoint → Begin transaction",
+          "D": "Commit → Savepoint → Begin transaction → Rollback"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "A transaction starts with BEGIN TRANSACTION; KEA's key takes option 2 as the order in which the commands are listed and used. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q27"
+        },
+        {
+         "question": "A transaction runs UPDATE emp SET sal = sal + 100; then ROLLBACK; (autocommit off). The salaries are:",
+         "options": {
+          "A": "Set to NULL",
+          "B": "Increased by 200",
+          "C": "Increased by 100 permanently",
+          "D": "Back to their values before the UPDATE"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). ROLLBACK undoes every change not yet committed (a Legislative Council 2024 paper asked a DELETE / ROLLBACK version)."
+        },
+        {
+         "question": "A transaction is:",
+         "options": {
+          "A": "A table that stores sales",
+          "B": "A logical unit of database work that must be executed completely or not at all",
+          "C": "A single SQL keyword",
+          "D": "A type of index"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "e.g. transferring money: debit one account and credit another."
+        },
+        {
+         "question": "ACID stands for:",
+         "options": {
+          "A": "Availability, Consistency, Isolation, Distribution",
+          "B": "Atomicity, Concurrency, Integrity, Dependency",
+          "C": "Atomicity, Consistency, Isolation, Durability",
+          "D": "Accuracy, Consistency, Integrity, Durability"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). The four properties every transaction should have."
+        },
+        {
+         "question": "Which ACID property is mainly ensured by the concurrency-control manager?",
+         "options": {
+          "A": "Atomicity",
+          "B": "Durability",
+          "C": "Consistency",
+          "D": "Isolation"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). Concurrent transactions must not interfere with one another."
+        },
+        {
+         "question": "Atomicity and durability are mainly ensured by the:",
+         "options": {
+          "A": "Query optimizer",
+          "B": "Network administrator",
+          "C": "Recovery manager (using the log)",
+          "D": "Application programmer alone"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Undo gives atomicity; redo of committed work gives durability."
+        },
+        {
+         "question": "Ensuring that a correct transaction run alone keeps the database consistent is mainly the responsibility of the:",
+         "options": {
+          "A": "Buffer manager",
+          "B": "Application programmer (helped by integrity constraints)",
+          "C": "Recovery manager",
+          "D": "Operating system"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "The DBMS cannot know the meaning of every business rule."
+        },
+        {
+         "question": "The normal sequence of states of a transaction that completes successfully is:",
+         "options": {
+          "A": "Partially committed → Active → Committed",
+          "B": "Active → Failed → Committed",
+          "C": "Active → Aborted → Committed",
+          "D": "Active → Partially committed → Committed"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). A failed transaction goes Active/Partially committed → Failed → Aborted."
+        },
+        {
+         "question": "After a transaction is aborted and rolled back, the system can:",
+         "options": {
+          "A": "Restart it (if the failure was not due to its own logic) or kill it",
+          "B": "Only commit it",
+          "C": "Only make its changes permanent",
+          "D": "Delete the database"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Silberschatz: an aborted transaction may be restarted as a new transaction or killed."
+        },
+        {
+         "question": "A schedule of concurrent transactions is:",
+         "options": {
+          "A": "A list of users",
+          "B": "The chronological order in which the operations of the transactions are executed",
+          "C": "The timetable of the DBA",
+          "D": "The order of tables in a database"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "It preserves the order of operations within each transaction."
+        },
+        {
+         "question": "A schedule is called serializable if:",
+         "options": {
+          "A": "It runs transactions one after another only",
+          "B": "It never commits",
+          "C": "It is equivalent to some serial schedule",
+          "D": "It contains only read operations"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Serializability is the usual correctness criterion for concurrency."
+        },
+        {
+         "question": "Two operations in a schedule conflict when they:",
+         "options": {
+          "A": "Access different data items",
+          "B": "Belong to different transactions, access the same data item, and at least one of them is a write",
+          "C": "Belong to the same transaction",
+          "D": "Are both reads"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). Conflicting pairs: R–W, W–R and W–W on the same item."
+        },
+        {
+         "question": "Which pair of operations does NOT conflict?",
+         "options": {
+          "A": "W1(X) and W2(X)",
+          "B": "R1(X) and W2(X)",
+          "C": "W1(X) and R2(X)",
+          "D": "R1(X) and R2(X)"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Two reads never conflict."
+        },
+        {
+         "question": "Conflict serializability of a schedule is tested by:",
+         "options": {
+          "A": "Running it twice",
+          "B": "Counting its write operations",
+          "C": "Checking that its precedence graph has no cycle",
+          "D": "Checking that it has only one transaction"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). An edge Ti → Tj is drawn for each conflicting pair where Ti's operation comes first."
+        },
+        {
+         "question": "Is the schedule R1(X), R2(X), W1(X), W2(X) conflict serializable?",
+         "options": {
+          "A": "Yes – it is equivalent to T1, T2",
+          "B": "Yes – there are no conflicts",
+          "C": "No – its precedence graph has the cycle T1 → T2 → T1",
+          "D": "Yes – it is equivalent to T2, T1"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). R1(X) before W2(X) gives T1 → T2; R2(X) before W1(X) gives T2 → T1."
+        },
+        {
+         "question": "How many different serial schedules are possible for 3 transactions?",
+         "options": {
+          "A": "6",
+          "B": "9",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). n transactions can be ordered in n! ways."
+        },
+        {
+         "question": "A schedule that is view serializable but not conflict serializable must contain:",
+         "options": {
+          "A": "Blind writes (writes without a preceding read of the item)",
+          "B": "Only reads",
+          "C": "No writes at all",
+          "D": "Exactly one transaction"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Every conflict-serializable schedule is view serializable, not the other way round."
+        },
+        {
+         "question": "A schedule is recoverable if:",
+         "options": {
+          "A": "No transaction ever aborts",
+          "B": "Whenever Tj reads an item written by Ti, Ti commits before Tj commits",
+          "C": "Each transaction reads only its own writes",
+          "D": "All transactions commit at the same time"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). Otherwise a committed Tj may depend on an aborted Ti."
+        },
+        {
+         "question": "A cascadeless schedule is one in which:",
+         "options": {
+          "A": "No transaction writes",
+          "B": "There are no reads",
+          "C": "Every abort causes more aborts",
+          "D": "Transactions read only data written by committed transactions"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "It avoids cascading rollbacks."
+        },
+        {
+         "question": "In the 'lost update' problem:",
+         "options": {
+          "A": "Two transactions update the same item and one update overwrites the other",
+          "B": "A transaction never commits",
+          "C": "A transaction reads uncommitted data",
+          "D": "New rows appear in a repeated query"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). Classic concurrency problems: lost update, dirty read, unrepeatable read, phantom."
+        },
+        {
+         "question": "The SQL isolation level that prevents dirty reads, unrepeatable reads and phantoms is:",
+         "options": {
+          "A": "READ UNCOMMITTED",
+          "B": "REPEATABLE READ",
+          "C": "SERIALIZABLE",
+          "D": "READ COMMITTED"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "REPEATABLE READ (standard) still allows phantoms."
+        },
+        {
+         "question": "Match the problem with its description:\na. Lost update\nb. Dirty read\nc. Unrepeatable read\nd. Phantom\n\n1. Reading the same item twice gives different values\n2. Reading a value that is later rolled back\n3. One update is overwritten by another\n4. New rows satisfying a condition appear when the query is repeated",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-3, b-2, c-1, d-4",
+          "C": "a-3, b-1, c-2, d-4",
+          "D": "a-2, b-3, c-1, d-4"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "PYQ pattern (KEA / KSET papers). Concurrency anomalies are often matched in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Every cascadeless schedule is recoverable.\nII. Every recoverable schedule is cascadeless.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Recoverable schedules may still have cascading rollbacks."
+        },
+        {
+         "question": "Consider the statements:\nI. Every conflict-serializable schedule is view serializable.\nII. Every serial schedule is conflict serializable.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "A serial schedule is trivially equivalent to itself."
+        },
+        {
+         "question": "Assertion (A): A transaction must either complete all its operations or none of them.\nReason (R): This is the atomicity property of transactions.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Partial effects are undone using the log."
+        },
+        {
+         "question": "Assertion (A): Once a transaction commits, its changes survive later system crashes.\nReason (R): Committed changes are recorded in the log on stable storage before the commit is acknowledged.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "This is durability, achieved by write-ahead logging."
+        },
+        {
+         "question": "The statement that makes all changes of the current transaction permanent is:",
+         "options": {
+          "A": "SAVEPOINT",
+          "B": "ROLLBACK",
+          "C": "GRANT",
+          "D": "COMMIT"
+         },
+         "answer": "D",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "ROLLBACK undoes them; SAVEPOINT marks a point for a partial rollback."
+        },
+        {
+         "question": "ROLLBACK TO SAVEPOINT s1; does what?",
+         "options": {
+          "A": "Undoes the whole database",
+          "B": "Commits all changes",
+          "C": "Undoes the changes made after savepoint s1 while keeping the transaction active",
+          "D": "Deletes savepoint s1 and commits"
+         },
+         "answer": "C",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "Changes made before s1 remain pending until COMMIT or ROLLBACK."
+        },
+        {
+         "question": "In MySQL with autocommit ON (the default), each individual SQL statement is:",
+         "options": {
+          "A": "Saved only after a SAVEPOINT",
+          "B": "Committed automatically as soon as it finishes",
+          "C": "Rolled back at logout",
+          "D": "Never committed"
+         },
+         "answer": "B",
+         "subject": "Transactions, ACID Properties and Schedules",
+         "explanation": "START TRANSACTION turns autocommit off until COMMIT or ROLLBACK."
+        }
+       ]
+      },
+      {
+       "name": "2 · Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+       "questions": [
+        {
+         "question": "In how many modes, the data items can be locked?",
+         "options": {
+          "A": "Three",
+          "B": "Four",
+          "C": "Two",
+          "D": "One"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Shared (S, read) and exclusive (X, write) modes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q93"
+        },
+        {
+         "question": "In Multi-Data Item strict 2PL problem, the given transactions are\nT1: R(A); W(A); R(B); W(B)\nT2: R(B); W(B).\nFind the maximum locks held at peak.",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Under strict 2PL, T1 holds locks on A and B until it commits; T2 needs B and must wait, so at most 2 locks are held at once. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q60"
+        },
+        {
+         "question": "A shared (S) lock on an item allows the holder to:",
+         "options": {
+          "A": "Delete the table",
+          "B": "Read the item, while other transactions may also read it",
+          "C": "Commit other transactions",
+          "D": "Read and write the item exclusively"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "An exclusive (X) lock allows read and write and blocks all other locks."
+        },
+        {
+         "question": "In the lock-compatibility matrix, which combination is compatible?",
+         "options": {
+          "A": "X with S",
+          "B": "S with X",
+          "C": "S with S",
+          "D": "X with X"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only shared locks can be held together."
+        },
+        {
+         "question": "The two phases of the two-phase locking (2PL) protocol are:",
+         "options": {
+          "A": "Read phase and write phase",
+          "B": "Lock phase and commit phase only",
+          "C": "Start phase and end phase",
+          "D": "Growing phase and shrinking phase"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). In the growing phase locks are only acquired; in the shrinking phase only released."
+        },
+        {
+         "question": "Basic two-phase locking guarantees:",
+         "options": {
+          "A": "Conflict serializability, but not freedom from deadlock",
+          "B": "Freedom from deadlock, but not serializability",
+          "C": "Both serializability and freedom from deadlock",
+          "D": "Neither"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). Deadlocks must still be prevented or detected."
+        },
+        {
+         "question": "Strict two-phase locking requires that a transaction:",
+         "options": {
+          "A": "Never takes shared locks",
+          "B": "Holds all its exclusive locks until it commits or aborts",
+          "C": "Releases all locks immediately after use",
+          "D": "Locks the whole database"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). This avoids cascading rollbacks."
+        },
+        {
+         "question": "Rigorous two-phase locking requires that a transaction:",
+         "options": {
+          "A": "Uses timestamps instead of locks",
+          "B": "Holds only shared locks until commit",
+          "C": "Releases locks in random order",
+          "D": "Holds all its locks, shared and exclusive, until it commits or aborts"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Transactions are then serializable in the order in which they commit."
+        },
+        {
+         "question": "Conservative (static) two-phase locking avoids deadlock because a transaction:",
+         "options": {
+          "A": "Uses only shared locks",
+          "B": "Locks all the items it needs before it starts executing",
+          "C": "Never locks any item",
+          "D": "Releases locks before acquiring new ones"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "If any item is unavailable, it locks nothing and waits."
+        },
+        {
+         "question": "In 2PL, the lock point of a transaction is:",
+         "options": {
+          "A": "The start of the transaction",
+          "B": "The commit record in the log",
+          "C": "The point at which it obtains its final lock",
+          "D": "The point at which it releases its first lock"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Transactions can be ordered by their lock points."
+        },
+        {
+         "question": "In the timestamp-ordering protocol, the serializability order is:",
+         "options": {
+          "A": "The order of commit",
+          "B": "Random",
+          "C": "The order of lock requests",
+          "D": "The order of the transactions' timestamps"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). Older transactions (smaller timestamps) come first."
+        },
+        {
+         "question": "Under basic timestamp ordering, if transaction T issues read(Q) and TS(T) < W-timestamp(Q), then:",
+         "options": {
+          "A": "The read succeeds",
+          "B": "T is rolled back, because it would read a value already overwritten by a younger transaction",
+          "C": "Q is deleted",
+          "D": "T waits"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "T needs a value that no longer exists."
+        },
+        {
+         "question": "Thomas' write rule modifies timestamp ordering by:",
+         "options": {
+          "A": "Rolling back every write",
+          "B": "Allowing dirty reads",
+          "C": "Ignoring an obsolete write instead of rolling back the transaction",
+          "D": "Using locks"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). It permits some view-serializable schedules that are not conflict serializable."
+        },
+        {
+         "question": "In the wait-die deadlock-prevention scheme, when an older transaction requests an item held by a younger one:",
+         "options": {
+          "A": "The older transaction waits",
+          "B": "The older transaction is rolled back",
+          "C": "The younger transaction is rolled back",
+          "D": "Both are rolled back"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). A younger requester 'dies' (is rolled back). Wait-die is non-preemptive."
+        },
+        {
+         "question": "In the wound-wait scheme, when an older transaction requests an item held by a younger one:",
+         "options": {
+          "A": "The older transaction is rolled back",
+          "B": "The older transaction waits",
+          "C": "The younger transaction is rolled back (wounded)",
+          "D": "Nothing happens"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "A younger requester waits. Wound-wait is preemptive."
+        },
+        {
+         "question": "Deadlock detection in a DBMS commonly uses a:",
+         "options": {
+          "A": "Precedence graph of reads",
+          "B": "B+ tree",
+          "C": "Hash table of passwords",
+          "D": "Wait-for graph – a cycle means a deadlock"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). A victim transaction is then rolled back."
+        },
+        {
+         "question": "Starvation in wait-die and wound-wait is avoided by:",
+         "options": {
+          "A": "Never restarting it",
+          "B": "Restarting a rolled-back transaction with its original timestamp",
+          "C": "Giving it a new, younger timestamp each time",
+          "D": "Locking the whole database"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "It eventually becomes the oldest transaction."
+        },
+        {
+         "question": "The three phases of validation-based (optimistic) concurrency control, in order, are:",
+         "options": {
+          "A": "Validation → Read → Write",
+          "B": "Write → Read → Validation",
+          "C": "Read → Write → Validation",
+          "D": "Read → Validation → Write"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). Work on local copies; validate; then write if validation succeeds."
+        },
+        {
+         "question": "In multiple-granularity locking, the lock modes IS, IX and SIX are called:",
+         "options": {
+          "A": "Timestamps",
+          "B": "Intention locks",
+          "C": "Binary locks",
+          "D": "Deadlocks"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "They mark that finer-grained locks are held lower in the tree."
+        },
+        {
+         "question": "Multiversion concurrency control (MVCC) mainly benefits:",
+         "options": {
+          "A": "Write operations, which never conflict",
+          "B": "Backup speed",
+          "C": "Read operations, which never have to wait because older versions are kept",
+          "D": "Index creation"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Used by PostgreSQL, Oracle and MySQL InnoDB."
+        },
+        {
+         "question": "Locking at a coarse granularity (e.g. whole tables) compared with fine granularity (rows) gives:",
+         "options": {
+          "A": "Freedom from all deadlocks",
+          "B": "Higher concurrency and higher overhead",
+          "C": "Lower locking overhead but less concurrency",
+          "D": "No change at all"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Fine granularity allows more parallel work but needs more locks."
+        },
+        {
+         "question": "Timestamp-ordering protocols are free from deadlock because:",
+         "options": {
+          "A": "They never roll back",
+          "B": "Transactions never wait for locks; conflicting ones are rolled back instead",
+          "C": "They lock all items in advance",
+          "D": "They allow only one transaction at a time"
+         },
+         "answer": "B",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "They may, however, cause cascading rollbacks unless made strict."
+        },
+        {
+         "question": "The tree (graph-based) locking protocol:",
+         "options": {
+          "A": "Ensures conflict serializability and freedom from deadlock without two-phase locking",
+          "B": "Requires timestamps",
+          "C": "Locks only the root",
+          "D": "Allows deadlocks but not serializability"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Items must be locked following a tree order."
+        },
+        {
+         "question": "Match the technique with its rule:\na. Wait-die\nb. Wound-wait\nc. Wait-for graph\nd. Timeout\n\n1. Roll back a transaction that waits longer than a fixed time\n2. An older requester rolls back the younger holder\n3. Detect deadlock by looking for cycles\n4. An older requester waits; a younger requester is rolled back",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "PYQ pattern (KEA / KSET papers). Deadlock-handling schemes are matched in KSET papers."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Shared lock\nb. Exclusive lock\nc. Intention-shared lock\nd. Growing phase\n\n1. Locks are acquired, none released\n2. Read-only access to the item\n3. Read and write access to the item\n4. Shared locks will be taken at a finer level below",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-2, b-3, c-1, d-4"
+         },
+         "answer": "C",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Locking vocabulary."
+        },
+        {
+         "question": "Consider the statements:\nI. Two-phase locking ensures conflict serializability.\nII. Two-phase locking ensures freedom from deadlock.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Two transactions can each wait for a lock the other holds."
+        },
+        {
+         "question": "Assertion (A): Strict two-phase locking avoids cascading rollbacks.\nReason (R): Exclusive locks are released only after the transaction commits or aborts.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "No transaction can read uncommitted data."
+        },
+        {
+         "question": "Assertion (A): In wait-die, a younger transaction that requests an item held by an older one waits.\nReason (R): Wait-die is a non-preemptive scheme.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "The younger requester dies (is rolled back); only older ones wait. R is true."
+        },
+        {
+         "question": "Upgrading a lock from shared to exclusive is allowed in 2PL:",
+         "options": {
+          "A": "Only in the growing phase",
+          "B": "Only in the shrinking phase",
+          "C": "At any time",
+          "D": "Never"
+         },
+         "answer": "A",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Downgrading (X to S) is allowed only in the shrinking phase."
+        },
+        {
+         "question": "Which of these is a deadlock-PREVENTION scheme rather than a detection scheme?",
+         "options": {
+          "A": "Periodic cycle checking",
+          "B": "Wait-for graph",
+          "C": "Choosing a victim after a cycle is found",
+          "D": "Wait-die"
+         },
+         "answer": "D",
+         "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
+         "explanation": "Wait-die and wound-wait use timestamps so that a cycle can never form."
         }
        ]
       }

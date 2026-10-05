@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "4 of 14 topics so far (8 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word). More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "5 of 14 topics so far (10 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -1982,6 +1982,516 @@
          "answer": "D",
          "subject": "Editing, Toolbars, Sorting and Shortcuts",
          "explanation": "F7 starts the spelling and grammar check; Shift + F7 opens the Thesaurus. A is false, R is true."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 3 – MS PowerPoint",
+     "sets": [
+      {
+       "name": "1 · Slides, Views, Layouts and Slide Master",
+       "questions": [
+        {
+         "question": "Which PowerPoint view displays each slide of the presentation as a thumbnail and is useful for rearranging slides?",
+         "options": {
+          "A": "Slide Master",
+          "B": "Slide Show",
+          "C": "Slide Design",
+          "D": "Slide Sorter"
+         },
+         "answer": "D",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Slide Sorter shows all slides as thumbnails that can be dragged into a new order. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q93"
+        },
+        {
+         "question": "Which of the following is a default Page Setup orientation in PowerPoint?",
+         "options": {
+          "A": "Vertical",
+          "B": "Landscape",
+          "C": "Portrait",
+          "D": "None of the above"
+         },
+         "answer": "B",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Slides are landscape by default; notes and handouts are portrait. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q87"
+        },
+        {
+         "question": "How to add a Header/Footer in handout?",
+         "options": {
+          "A": "View → Page Setup",
+          "B": "View → Header/Footer",
+          "C": "View → Handout Master",
+          "D": "None of the above"
+         },
+         "answer": "C",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Handout headers and footers are edited in View → Handout Master. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q90"
+        },
+        {
+         "question": "How to insert a slide number in a presentation?",
+         "options": {
+          "A": "Insert a text box & Select insert → number → page number",
+          "B": "Insert Page → page number → slide number",
+          "C": "Insert a new text box & select insert → slide number",
+          "D": "Insert & Select → slide number"
+         },
+         "answer": "C",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Insert → Slide Number (inside a text box or the footer placeholder) adds a field that updates automatically. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q91"
+        },
+        {
+         "question": "Answer true or false for MS PowerPoint\n(a) To remove a tab, drag the marker off the ruler\n(b) A slideshow is a series of slides",
+         "options": {
+          "A": "Both a & b are true",
+          "B": "a is true but b is false",
+          "C": "a is false but b is true",
+          "D": "Both a & b are false"
+         },
+         "answer": "A",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "A tab stop is removed by dragging it off the ruler; a slide show presents slides one after another. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q94"
+        },
+        {
+         "question": "Match the following extensions with the file types.\nList-1: (a) .docx  (b) .xlsx  (c) .pptx  (d) .accdb\nList-2: i) MS Access  ii) MS PowerPoint  iii) MS Excel  iv) MS Word",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iv, b – ii, c – iii, d – i",
+          "C": "a – ii, b – iv, c – iii, d – i",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": ".docx Word, .xlsx Excel, .pptx PowerPoint, .accdb Access. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q95"
+        },
+        {
+         "question": "Identify the correct statements.\n(a) A PowerPoint template is saved as .potx.\n(b) To insert a new slide, the shortcut key is ctrl-M.",
+         "options": {
+          "A": "Both a & b are correct",
+          "B": "Only a is correct",
+          "C": "None of the statements is correct",
+          "D": "Only b is correct"
+         },
+         "answer": "A",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": ".potx is the template format; Ctrl + M inserts a new slide. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q98"
+        },
+        {
+         "question": "Which of the following statements about Microsoft PowerPoint are true?\n(i) You can set a slideshow to advance automatically after a set period without user interaction.\n(ii) Slide master allows you to apply consistent formatting to all slides in a presentation.\n(iii) The SmartArt feature allows you to insert pre-designed graphic diagrams like flowcharts and hierarchies.\n(iv) PowerPoint does not support embedding videos directly, only links to videos are allowed",
+         "options": {
+          "A": "i, ii and iii are true",
+          "B": "ii and iv are true",
+          "C": "i, iii and iv are true",
+          "D": "iii and iv are true"
+         },
+         "answer": "A",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "PowerPoint can embed video files directly (Insert → Video), so (iv) is false. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q93"
+        },
+        {
+         "question": "Match the following:\nList-I: a. Excel  b. PowerPoint  c. Access  d. Outlook\nList-II: i. Used for creating presentations  ii. Used for managing emails  iii. Used for data analysis and visualization  iv. Used for managing databases",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Excel – data analysis; PowerPoint – presentations; Access – databases; Outlook – e-mail. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q94"
+        },
+        {
+         "question": "In MS PowerPoint, a file is called a ____ and each page of it is called a ____.",
+         "options": {
+          "A": "document; page",
+          "B": "workbook; sheet",
+          "C": "database; record",
+          "D": "presentation; slide"
+         },
+         "answer": "D",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Excel files are workbooks of worksheets; Word files are documents."
+        },
+        {
+         "question": "The default view in which PowerPoint opens, showing the current slide with slide thumbnails and a notes pane, is:",
+         "options": {
+          "A": "Slide Sorter view",
+          "B": "Normal view",
+          "C": "Slide Show view",
+          "D": "Reading view"
+         },
+         "answer": "B",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Views are on the View tab and on the status bar."
+        },
+        {
+         "question": "Speaker notes can be printed together with a picture of each slide using:",
+         "options": {
+          "A": "Handout Master with 9 slides",
+          "B": "Notes Page view / printing Notes Pages",
+          "C": "Slide Sorter view",
+          "D": "Outline view only"
+         },
+         "answer": "B",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "The audience does not see the notes during the show."
+        },
+        {
+         "question": "A slide layout determines:",
+         "options": {
+          "A": "The speed of transitions",
+          "B": "The printer settings",
+          "C": "The file format",
+          "D": "The arrangement of placeholders (title, content, pictures) on a slide"
+         },
+         "answer": "D",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "e.g. Title Slide, Title and Content, Two Content, Comparison."
+        },
+        {
+         "question": "A placeholder in PowerPoint is:",
+         "options": {
+          "A": "A sound file",
+          "B": "A box with a dotted border that holds title, text, pictures or other content",
+          "C": "A password",
+          "D": "A hidden slide"
+         },
+         "answer": "B",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "'Click to add title' appears inside an empty placeholder."
+        },
+        {
+         "question": "A set of coordinated colours, fonts and effects applied to a whole presentation from the Design tab is called a:",
+         "options": {
+          "A": "Handout",
+          "B": "Transition",
+          "C": "Macro",
+          "D": "Theme"
+         },
+         "answer": "D",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Variants on the Design tab change the colour scheme of the theme."
+        },
+        {
+         "question": "What happens to a slide marked as 'Hide Slide'?",
+         "options": {
+          "A": "It becomes the first slide",
+          "B": "It is printed in red",
+          "C": "It is deleted permanently",
+          "D": "It stays in the file but is skipped during the slide show"
+         },
+         "answer": "D",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Hidden slides appear faded with a slashed number in Slide Sorter."
+        },
+        {
+         "question": "When printing handouts, PowerPoint can place at most how many slides on one page?",
+         "options": {
+          "A": "4",
+          "B": "12",
+          "C": "9",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Handout options: 1, 2, 3, 4, 6 or 9 slides per page."
+        },
+        {
+         "question": "The keyboard shortcut to duplicate the selected slide in PowerPoint is:",
+         "options": {
+          "A": "Ctrl + N",
+          "B": "Ctrl + D",
+          "C": "Ctrl + Shift + S",
+          "D": "Ctrl + M"
+         },
+         "answer": "B",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Ctrl + M inserts a new blank slide; Ctrl + N opens a new presentation."
+        },
+        {
+         "question": "Consider the statements:\nI. Changes made on the Slide Master appear on all slides that use that master.\nII. Typing text on one slide in Slide Sorter view automatically copies it to every slide.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "Only the master applies formatting to every slide; text cannot even be typed in Slide Sorter."
+        },
+        {
+         "question": "Assertion (A): Hidden slides are not shown during a slide show.\nReason (R): Hidden slides are deleted from the presentation file.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Slides, Views, Layouts and Slide Master",
+         "explanation": "They remain in the file and can be unhidden, so R is false."
+        }
+       ]
+      },
+      {
+       "name": "2 · Animations, Transitions and Slide Show",
+       "questions": [
+        {
+         "question": "Match the following shortcut keys (List I) of MS PowerPoint with their actions (List II)\nList-I: (a) Ctrl - M  (b) Ctrl - O  (c) Ctrl - H  (d) Ctrl - K\nList-II: i) Insert hyperlink  ii) Replace particular text  iii) New slide  iv) Open existing presentation",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iii, b – ii, c – iv, d – i",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Ctrl + M new slide, Ctrl + O open, Ctrl + H replace, Ctrl + K hyperlink. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q82"
+        },
+        {
+         "question": "In MS PowerPoint, the key used to run the slide show from the beginning is",
+         "options": {
+          "A": "F5",
+          "B": "F11",
+          "C": "F7",
+          "D": "F1"
+         },
+         "answer": "A",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "F7 runs the spelling check; F1 opens Help. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q89"
+        },
+        {
+         "question": "Match the following in relation to MS PowerPoint.\nList-A: (a) startOnclick  (b) Transition  (c) Slide Master  (d) Text Box\nList-B: i) Container for adding text  ii) Option that will start animation  iii) Special effect that controls how slide changes  iv) Tool to create consistent background & layout",
+         "options": {
+          "A": "a – ii, b – iv, c – iii, d – i",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – i, b – ii, c – iv, d – iii"
+         },
+         "answer": "B",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "'On Click' starts an animation; a transition controls how one slide changes to the next; the Slide Master gives a uniform layout; a text box holds text. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q97"
+        },
+        {
+         "question": "The shortcut keys for slide show in MS PowerPoint are",
+         "options": {
+          "A": "Shift + F5",
+          "B": "Shift + F7",
+          "C": "Ctrl + F2",
+          "D": "Ctrl + F5"
+         },
+         "answer": "A",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Shift + F5 starts the show from the current slide (F5 starts from the beginning). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q96"
+        },
+        {
+         "question": "In PowerPoint, which feature allows you to apply animation effects to individual element of a slide rather than to the entire slide?",
+         "options": {
+          "A": "Slide Transition",
+          "B": "Custom Animation",
+          "C": "Animation Painter",
+          "D": "Motion Paths"
+         },
+         "answer": "B",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Animations act on objects within a slide; transitions act on whole slides. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q87"
+        },
+        {
+         "question": "In power point, which of the following file types can be used to export your presentation in order to preserve animations and Multimedia?",
+         "options": {
+          "A": "PDF",
+          "B": "HTML",
+          "C": "MP4",
+          "D": "GIF"
+         },
+         "answer": "C",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "File → Export → Create a Video saves the show as MP4 with timings, animations and media. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q71"
+        },
+        {
+         "question": "The difference between a transition and an animation in PowerPoint is that:",
+         "options": {
+          "A": "A transition is the effect when moving from one slide to the next; an animation is an effect on an object within a slide",
+          "B": "Both mean exactly the same thing",
+          "C": "A transition applies only to text",
+          "D": "An animation changes the slide's layout"
+         },
+         "answer": "A",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Transitions tab vs Animations tab."
+        },
+        {
+         "question": "The four groups of animation effects in PowerPoint are:",
+         "options": {
+          "A": "Fade, Wipe, Push and Cut only",
+          "B": "Start, Middle, End and Loop",
+          "C": "Header, Footer, Body and Title",
+          "D": "Entrance, Emphasis, Exit and Motion Paths"
+         },
+         "answer": "D",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Entrance effects are green, emphasis yellow, exit red in the gallery."
+        },
+        {
+         "question": "The Animation Pane in PowerPoint is used to:",
+         "options": {
+          "A": "Insert new slides",
+          "B": "Check spelling",
+          "C": "Print handouts",
+          "D": "See and change the order, timing and options of all animations on a slide"
+         },
+         "answer": "D",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Animations → Advanced Animation → Animation Pane."
+        },
+        {
+         "question": "The 'Start' options for an animation are:",
+         "options": {
+          "A": "Fast, Medium and Slow",
+          "B": "Left, Right and Centre",
+          "C": "Before, During and After the show",
+          "D": "On Click, With Previous and After Previous"
+         },
+         "answer": "D",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Duration and Delay are set beside Start."
+        },
+        {
+         "question": "'Rehearse Timings' in PowerPoint is used to:",
+         "options": {
+          "A": "Check grammar",
+          "B": "Compress pictures",
+          "C": "Record how long each slide is shown so the show can advance automatically",
+          "D": "Set a password"
+         },
+         "answer": "C",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Slide Show tab → Rehearse Timings."
+        },
+        {
+         "question": "To end a running slide show and return to the editing view, press:",
+         "options": {
+          "A": "Ctrl + M",
+          "B": "Esc",
+          "C": "Tab",
+          "D": "F5"
+         },
+         "answer": "B",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). The hyphen key also ends the show."
+        },
+        {
+         "question": "During a slide show, pressing the B key:",
+         "options": {
+          "A": "Ends the show",
+          "B": "Turns the screen black (press again to resume)",
+          "C": "Starts recording",
+          "D": "Goes to the first slide"
+         },
+         "answer": "B",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "W turns the screen white."
+        },
+        {
+         "question": "To make a presentation play over and over until Esc is pressed (e.g. at an exhibition), use:",
+         "options": {
+          "A": "File → Options → Repeat",
+          "B": "Animations → Loop",
+          "C": "Slide Show → Set Up Slide Show → Loop continuously until 'Esc'",
+          "D": "Transitions → Repeat"
+         },
+         "answer": "C",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Often combined with automatic slide timings."
+        },
+        {
+         "question": "A custom slide show allows you to:",
+         "options": {
+          "A": "Save the file as PDF",
+          "B": "Insert charts",
+          "C": "Change the theme colours",
+          "D": "Show only a chosen group of slides from the presentation, in a chosen order"
+         },
+         "answer": "D",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Slide Show → Custom Slide Show."
+        },
+        {
+         "question": "Presenter View lets the presenter:",
+         "options": {
+          "A": "Edit the Slide Master during the show",
+          "B": "Print the presentation",
+          "C": "See the notes, the next slide and a timer while the audience sees only the current slide",
+          "D": "Hide all slides"
+         },
+         "answer": "C",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "It needs a second screen or projector."
+        },
+        {
+         "question": "Match the animation type with its effect:\na. Entrance\nb. Emphasis\nc. Exit\nd. Motion path\n\n1. The object appears on the slide\n2. The object moves along a drawn line\n3. Draws attention to an object already on the slide\n4. The object leaves the slide",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-1, b-3, c-2, d-4",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "D",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Animation types are often matched in KEA computer sections."
+        },
+        {
+         "question": "Consider the statements:\nI. A transition applies to a whole slide.\nII. An animation can be applied to a single picture or line of text.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "That is the basic difference between them."
+        },
+        {
+         "question": "Assertion (A): An animation set to 'After Previous' starts without a mouse click.\nReason (R): It begins automatically when the previous animation finishes.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "'With Previous' starts at the same time as the previous one."
+        },
+        {
+         "question": "In a classroom, PowerPoint is used best when it:",
+         "options": {
+          "A": "Replaces the teacher completely",
+          "B": "Supports the teacher's explanation with key points, pictures and diagrams",
+          "C": "Shows long paragraphs of text on every slide",
+          "D": "Is used without any planning"
+         },
+         "answer": "B",
+         "subject": "Animations, Transitions and Slide Show",
+         "explanation": "Good slides are brief and visual; the teacher still explains and interacts."
         }
        ]
       }
