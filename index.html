@@ -335,6 +335,8 @@ tr.tot td{border-top:2px solid var(--border)}
 .note-h .grow{flex:1 1 150px;min-width:0;overflow-wrap:break-word}
 .merge-bar{position:sticky;top:60px;z-index:6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px;margin-bottom:10px;border:1px solid var(--primary);border-radius:12px;background:var(--primary-bg)}
 .md{line-height:1.6;overflow-wrap:anywhere}
+.ak-goals{flex-wrap:wrap;margin-top:4px}
+.ak-ans{max-height:50vh;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:4px 12px}
 .md>:first-child{margin-top:0}.md>:last-child{margin-bottom:0}
 .md h1,.md h2,.md h3,.md h4{line-height:1.3;margin:1.1em 0 .45em}
 .md h1{font-size:1.35rem}.md h2{font-size:1.2rem}.md h3{font-size:1.07rem}.md h4{font-size:1rem}
@@ -2589,7 +2591,7 @@ function renderTopic() {
         <label class="check"><input type="checkbox" data-pf="r2" data-id="${esc(p.id)}" ${pst.rev2 === 'Yes' ? 'checked' : ''}> Revision 2 done</label></div>` : ''}
       <div class="row" style="margin-top:12px">${nQ ? `<button class="btn primary big" data-practise="${t.id}">${I('play')} Practise this topic · ${nQ} Q</button>` : ''}
         ${nQ ? `<button class="btn" id="tMistakes" disabled>${I('alert')} My mistakes</button><button class="btn" data-revise="topic:${t.id}">${I('cards')} Flashcards</button>` : ''}
-        ${s ? `<button class="btn ghost" data-syl="${s.id}">${I('book')} Syllabus</button>` : ''}</div></div>`;
+        ${s ? `<button class="btn ghost" data-syl="${s.id}">${I('book')} Syllabus</button>` : ''}<button class="btn ghost" data-askai="${t.id}" title="A ready prompt with your exam, this topic and what your notes cover">🤖 Ask AI</button></div></div>`;
   }
   if (false) {
     const p = t.plan, fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
@@ -3746,6 +3748,7 @@ function renderRevision() {
   if (R.shown) {
     $('#rvMiss').onclick = () => gradeCard(false); $('#rvKnew').onclick = () => gradeCard(true);
     $('#rsExplain [data-explain]').onclick = () => explainWithAI($('#rsExplain'), q, null);
+    $('#rsExplain [data-askq]').onclick = () => openAskAi({ topicId: q.topicId || q.t || null, q });
   }
   else $('#rvShow').onclick = () => { R.shown = true; renderRevision(); };
 }
@@ -4074,12 +4077,12 @@ function renderNotes() {
   if (NT.err) { $('#notes').innerHTML = h + `<div class="status error">Could not load notes: ${esc(NT.err)}</div>`; return; }
   if (NT.edit) { $('#notes').innerHTML = h + noteEditorHTML(); wireNoteEditor(); return; }
   const n = topicQuestionCount(t.id);
-  h += `<div class="row" style="margin-bottom:12px"><button class="btn primary" data-note-new><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</button><button class="btn" data-note-write><svg class=ic><use href=#i-edit></use></svg> Write a note</button>
+  h += `<div class="row" style="margin-bottom:12px"><button class="btn" data-askai="${t.id}" title="A ready prompt with your exam, this topic and what these notes already cover">🤖 Ask AI</button><button class="btn primary" data-note-new><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</button><button class="btn" data-note-write><svg class=ic><use href=#i-edit></use></svg> Write a note</button>
     ${n ? `<button class="btn" data-practise="${t.id}"><svg class=ic><use href=#i-play></use></svg> Practise this topic (${n} Q)</button>` : ''}
     ${NT.notes.length ? `<button class="btn" data-note-pdf="all" title="Print or save as an A4 PDF"><svg class=ic><use href=#i-download></use></svg> PDF (A4)${NT.sel.size ? ' – ' + plural(NT.sel.size, 'selected note') : ''}</button>` : ''}
     ${NT.notes.length > 1 ? `<span class="spacer"></span><button class="btn ghost" data-note-openall>${NT.openAll ? 'Collapse all' : 'Expand all'}</button>` : ''}</div>`;
   if (!NT.notes.length) {
-    h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Ask ChatGPT, Gemini or Claude to explain this topic, press its <b>Copy</b> button, then tap <b><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
+    h += `<div class="card empty"><p><b>No notes for this topic yet.</b></p><p class="small">Tap <b>🤖 Ask AI</b> for a ready prompt (it already knows your exam and this topic) – or ask ChatGPT, Gemini or Claude yourself – press the AI's <b>Copy</b> button, then tap <b><svg class=ic><use href=#i-clipboard></use></svg> Paste from AI</b> here. Headings, bold text, lists, tables, code and formulas are kept exactly as the AI showed them.</p></div>`;
   } else {
     if (NT.sel.size) h += `<div class="merge-bar"><span>${plural(NT.sel.size, 'note')} selected</span><span class="spacer"></span>
       ${NT.sel.size > 1 ? `<button class="btn primary" data-note-merge>⇲ Merge into one note</button>` : '<span class="small muted">Select one more note to merge</span>'}<button class="btn ghost" data-note-unsel>Clear</button></div>`;
@@ -5085,6 +5088,7 @@ function renderReview() {
   const ex = $('#rvExpl');
   ex.innerHTML = (q.explanation ? `<div class="expl"><b>Explanation</b>\n${esc(q.explanation)}</div>` : '') + explainBlock();
   $('[data-explain]', ex).onclick = () => explainWithAI(ex, q, r.sel);
+  $('[data-askq]', ex).onclick = () => openAskAi({ topicId: q.t || q.topicId || (RES && RES.info && RES.info.topicId) || null, q, sel: r.sel });
 }
 $('#rvPrev').onclick = () => rvStep(-1);
 $('#rvNext').onclick = () => rvStep(1);
@@ -5333,7 +5337,7 @@ Explain in plain text, 60-120 words, with no headings or tables:
 3. One short memory tip.
 Treat the given correct answer as the answer key. Only if you are confident the key is wrong, say so politely in one final sentence.`;
 function explainBlock() {
-  return `<div class="ai-explain"><button class="btn ghost" data-explain><svg class=ic><use href=#i-bulb></use></svg> Explain with AI</button><div class="ai-out"></div></div>`;
+  return `<div class="ai-explain"><button class="btn ghost" data-explain><svg class=ic><use href=#i-bulb></use></svg> Explain with AI</button><button class="btn ghost" data-askq>🤖 Ask AI more</button><div class="ai-out"></div></div>`;
 }
 async function explainWithAI(container, q, sel) {
   const out = $('.ai-out', container), btn = $('[data-explain]', container);
@@ -5362,6 +5366,109 @@ async function explainWithAI(container, q, sel) {
     btn.disabled = false; btn.textContent = '💡 Explain with AI';
   }
 }
+
+/* ---------- 🤖 Ask AI: a ready-made prompt that already knows the exam, the topic, what the notes cover and the question ----------
+   Copy it into ChatGPT / Claude / Gemini (ChatGPT and Claude open with it filled in) or, with a Groq key, answer it here and save
+   the answer into the topic's notes. Used on topic pages, notes pages, exam review and flashcards. */
+const EXAM_CONTEXT = `I am preparing for the Karnataka GPSTR exam (Graduate Primary School Teacher Recruitment, conducted by KEA) for the post of Computer Science teacher (GPSTR-CST). Paper 1 (general) covers General Knowledge, Current Affairs, General Kannada, General English, Educational Psychology, Computer Literacy, Health Education and Value Education. Paper 2 is Computer Science at degree level. Questions are single-answer MCQs in KEA / KSET style: direct questions, match the following, assertion–reason, statement-based ("which is/are correct"), chronology and numerical problems.`;
+const ASK_GOALS = [
+  ['deep', 'Explain in depth', 'Explain this topic in depth for my exam: key concepts and definitions, important facts, names, dates and numbers, examples, and comparison tables where useful. Point out the traps examiners use. My notes already cover the headings listed above, so add what is missing instead of repeating them.'],
+  ['notes', 'Revision notes', 'Write compact revision notes for this topic in Markdown (headings, bullet points and tables) that I can paste into my notes. Focus on facts asked in KEA / KSET papers and end with a short "traps and confusions" list. Do not repeat what my notes already cover unless it is essential.'],
+  ['pyq', 'Exam facts + practice', 'List the 15 facts from this topic most likely to be asked in KEA / KSET-style MCQs. Then give 10 practice MCQs in that style (include match-the-following and assertion–reason) with the answer and a one-line explanation for each.'],
+  ['doubt', 'My doubt', 'Answer my doubt clearly and briefly, with an example: ']
+];
+const ASK_Q_GOAL = ['q', 'This question', 'Explain why the correct option is right and why each of the other options is wrong. Then list 3–5 related facts that could be asked on the same point in the exam, and give a short memory tip. If you think the answer key is wrong, say so politely and give your reason.'];
+const AK = { opts: null, ctx: '', goal: 'deep' };
+async function askAiContext({ topicId, q, sel }) {
+  const t = topicId && byId('topics', topicId), s = t && byId('subjects', t.subjectId);
+  const L = [EXAM_CONTEXT, ''];
+  if (t) {
+    const p = t.plan || {}, pr = D.plan && p.id && planRow(p.id), cov = p.coverage || (pr && pr.coverage);
+    L.push(`Subject: ${s ? s.name : '—'}`, `Topic: ${t.name}${p.id ? ` (study plan ${p.id})` : ''}`);
+    if (cov) L.push(`Syllabus coverage: ${cov}`);
+    const subs = topicSubs(t);
+    if (subs.length) L.push(`Sub-topics: ${subs.join('; ')}`);
+    try {
+      const notes = await store.query('notes', 'topicId', t.id);
+      if (notes.length) {
+        const heads = notes.flatMap(n => [n.title, ...String(n.md || '').split('\n').filter(l => /^#{1,3}\s/.test(l)).map(l => '   ' + l.replace(/^#+\s*/, ''))]).slice(0, 45);
+        L.push('', 'My notes on this topic already cover:', ...heads.map(h => '- ' + h));
+      }
+    } catch (e) { /* notes not readable here – leave them out */ }
+    const a = topicAccuracy().get(t.id), open = errorLogData().filter(r => r.open && r.t === t.id).length;
+    if (a && a.seen) L.push('', `My practice so far: ${a.c} of ${a.seen} answers correct (${Math.round(a.c / a.seen * 100)}%)${open ? `, ${plural(open, 'mistake')} still to fix` : ''}.`);
+  }
+  if (q) {
+    L.push('', 'The question I am looking at:', q.question, ...LETTERS.map(k => `${k}. ${q.options[k]}`), `Answer key: ${q.answer}`);
+    if (sel) L.push(`My answer: ${sel === 'E' ? 'skipped (I did not know)' : sel}`);
+    if (q.explanation) L.push(`Explanation given: ${q.explanation}`);
+    if (q.source) L.push(`Source: previous-year paper – ${q.source}`);
+  }
+  return L.join('\n');
+}
+function askAiPrompt() {
+  const goals = AK.opts.q ? [ASK_Q_GOAL, ...ASK_GOALS] : ASK_GOALS, g = goals.find(x => x[0] === AK.goal) || goals[0];
+  const doubt = ($('#akDoubt') && $('#akDoubt').value.trim()) || '[type your doubt here]';
+  return `${AK.ctx}\n\nWhat I want: ${g[2]}${g[0] === 'doubt' ? doubt : ''}\n\nReply in ${aiCfg().lang || 'English'}. Keep it exam-focused and accurate, and say clearly if you are unsure of any fact.`;
+}
+async function openAskAi(opts) {
+  AK.opts = opts; AK.ctx = await askAiContext(opts); AK.goal = opts.q ? 'q' : 'deep';
+  const goals = opts.q ? [ASK_Q_GOAL, ...ASK_GOALS] : ASK_GOALS, { groqKey } = aiCfg(), t = opts.topicId && byId('topics', opts.topicId);
+  openModal(`<h3>${I('bulb')} Ask AI${t ? ' · ' + esc(t.name) : ''}</h3>
+    <p class="small muted" style="margin-top:0">The prompt already says you are preparing for GPSTR-CST and includes the topic, its syllabus, what your notes cover${opts.q ? ' and this question' : ''}. Pick what you want, edit if you like, then send it.</p>
+    <div class="seg ak-goals">${goals.map(g => `<button data-akg="${g[0]}" class="${g[0] === AK.goal ? 'on' : ''}">${esc(g[1])}</button>`).join('')}</div>
+    <input id="akDoubt" placeholder="Type your doubt…" hidden style="width:100%;margin-top:8px">
+    <textarea id="akPrompt" rows="9" style="width:100%;margin-top:8px;font-size:.85rem"></textarea>
+    <div class="row" style="margin-top:8px"><button class="btn primary" data-ak="chatgpt">Copy &amp; open ChatGPT</button><button class="btn" data-ak="claude">Claude</button><button class="btn" data-ak="gemini">Gemini</button><button class="btn ghost" data-ak="copy">${I('clipboard')} Copy</button>
+      ${groqKey ? `<button class="btn" data-ak="here">${I('bulb')} Answer here</button>` : ''}</div>
+    ${groqKey ? '' : '<p class="small muted" style="margin:6px 0 0">Add a free Groq key in <a href="#" data-profile>Profile</a> to get the answer inside the app and save it to your notes.</p>'}
+    <div id="akOut"></div>`, [{ label: 'Close' }]);
+  const m = $('#modal'), fill = () => { $('#akPrompt').value = askAiPrompt(); };
+  fill();
+  m.querySelectorAll('[data-akg]').forEach(b => b.onclick = () => {
+    AK.goal = b.dataset.akg; m.querySelectorAll('[data-akg]').forEach(x => x.classList.toggle('on', x === b));
+    $('#akDoubt').hidden = AK.goal !== 'doubt'; if (AK.goal === 'doubt') $('#akDoubt').focus(); fill();
+  });
+  $('#akDoubt').oninput = fill;
+  m.querySelectorAll('[data-ak]').forEach(b => b.onclick = async () => {
+    const p = $('#akPrompt').value, k = b.dataset.ak, enc = encodeURIComponent(p);
+    const url = { chatgpt: p.length < 7000 ? 'https://chatgpt.com/?q=' + enc : 'https://chatgpt.com/', claude: p.length < 7000 ? 'https://claude.ai/new?q=' + enc : 'https://claude.ai/new', gemini: 'https://gemini.google.com/app' }[k];
+    if (url) window.open(url, '_blank', 'noopener');
+    if (k === 'here') return askAiHere(p);
+    await copyText(p, $('#akPrompt'));
+    toast(url ? (k === 'gemini' || p.length >= 7000 ? 'Prompt copied – paste it into the chat' : 'Prompt copied and sent – press Enter in the chat if needed') : 'Prompt copied');
+  });
+}
+async function askAiHere(prompt) {
+  const out = $('#akOut'), { groqKey, groqModel } = aiCfg(), t = AK.opts.topicId && byId('topics', AK.opts.topicId);
+  out.innerHTML = '<p class="small muted">💡 Thinking…</p>';
+  try {
+    const j = await apiJson(await fetch(GROQ + 'chat/completions', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + groqKey },
+      body: JSON.stringify({ model: groqModel, temperature: 0.3, max_tokens: 2000, messages: [{ role: 'system', content: 'You are an expert, accurate tutor for Indian teacher-recruitment exams. Answer in well-structured Markdown.' }, { role: 'user', content: prompt }] })
+    }));
+    const md = String((j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '').replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+    if (!md) throw new Error('Groq returned an empty answer. Try another model in Profile.');
+    out.innerHTML = `<div class="small muted" style="margin:10px 0 4px">AI answer (${esc(groqModel)}, may contain mistakes)</div><div class="md ak-ans"></div>
+      ${t ? `<div class="row" style="margin-top:8px"><button class="btn primary" id="akSave">${I('notes')} Save to this topic's notes</button></div>` : ''}`;
+    await renderMdInto($('.ak-ans', out), md);
+    if (t) $('#akSave').onclick = async () => {
+      const goals = [ASK_Q_GOAL, ...ASK_GOALS], g = goals.find(x => x[0] === AK.goal), now = Date.now();
+      const x = { id: newId(), topicId: t.id, title: `AI – ${g ? g[1] : 'answer'}${AK.opts.q ? ': ' + AK.opts.q.question.slice(0, 50) : ''}`, md, source: 'Other', order: now, createdAt: now, updatedAt: now };
+      try {
+        await save('notes', x);
+        t.notes = (t.notes || 0) + 1; save('topics', t).catch(() => {});
+        $('#akSave').disabled = true; $('#akSave').textContent = 'Saved to notes ✓';
+      } catch (e) { toast(errText(e), 'error'); }
+    };
+  } catch (e) { out.innerHTML = `<div class="status error">${esc(e.message)}</div>`; }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-askai]');
+  if (!b) return;
+  e.preventDefault();
+  openAskAi({ topicId: b.dataset.askai || null });
+});
 
 /* ============================================================
    AI prompt guide
