@@ -3074,7 +3074,7 @@ function renderPackSave() {
         <tr><td>New topics</td><td class="num"><b>${r.topics}</b></td></tr>
         <tr><td>Question sets added</td><td class="num"><b>${r.sets}</b> (${plural(r.questions, 'question')})</td></tr>
         <tr><td>Sets already present (skipped)</td><td class="num"><b>${r.skipped}</b></td></tr>
-        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr></table>${r.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Study plan loaded.</p>' : ''}${whereHTML(r)}`, [{ label: 'Done', cls: 'primary' }]);
+        <tr><td>Mock test presets</td><td class="num"><b>${r.mocks}</b></td></tr>${r.notes ? `<tr><td>Notes added</td><td class="num"><b>${r.notes}</b></td></tr>` : ''}</table>${r.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Study plan loaded.</p>' : ''}${whereHTML(r)}`, [{ label: 'Done', cls: 'primary' }]);
     } catch (e) { toast(errText(e), 'error'); msg.textContent = ''; btn.disabled = false; }
   };
 }
@@ -3144,6 +3144,21 @@ async function importPack(pack, onTick) {
         D.sets.push(set); qCache.set(set.id, questions);
         res.sets++; res.questions += questions.length; added++;
         tasks.push(async () => { await store.put('setq', set.id, { questions }); await store.put('sets', set.id, (({ id, ...rest }) => rest)(set)); });
+      }
+      // Ready-made notes ({title, md}) are added once per topic; a note with the same title is never duplicated
+      const pnotes = (Array.isArray(pt.notes) ? pt.notes : []).filter(n => n && normText(n.title) && typeof n.md === 'string' && n.md.trim());
+      if (pnotes.length) {
+        const tt = t;
+        tasks.push(async () => {
+          const have = await store.query('notes', 'topicId', tt.id);
+          let order = Date.now();
+          for (const pn of pnotes) {
+            if (have.some(n => same(n.title || '', pn.title))) continue;
+            const now = Date.now(), x = { id: newId(), topicId: tt.id, title: normText(pn.title), md: pn.md, source: 'pack', order: order++, createdAt: now, updatedAt: now };
+            await save('notes', x); have.push(x); res.notes = (res.notes || 0) + 1;
+          }
+          if ((tt.notes || 0) !== have.length) { tt.notes = have.length; await save('topics', tt); }
+        });
       }
       if (added) { res.topicsTouched++; res.where.push({ subjectId: s.id, topicId: t.id, sets: added }); }
     }
@@ -3253,7 +3268,7 @@ async function quickImport(p, btn, quiet) {
       <tr><td>Question sets added</td><td class="num"><b>${res.sets}</b></td></tr>
       <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
       <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
-      ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}</table>
+      ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}${res.notes ? `<tr><td>Notes added</td><td class="num"><b>${res.notes}</b></td></tr>` : ''}</table>
       ${res.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
       [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('days') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }

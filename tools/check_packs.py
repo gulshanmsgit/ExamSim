@@ -27,6 +27,7 @@ from build_subject import EXTRA_SUBJECTS  # non-planner subjects such as monthly
 for _n, _x in EXTRA_SUBJECTS.items():
     planned[_n] = set(_x["topics"])
 from build_pyq import PYQ_SUBJECTS  # real previous-year papers: printed option order and length, not planner topics
+PYQ_SUBJECTS = set(PYQ_SUBJECTS) | {"P1 · Previous-Year Questions · General Paper", "P2 · Previous-Year Questions · Computer Science"}  # tools/build_pyq_subjects.py
 smap = json.loads((ROOT / "tools" / "syllabus_map.json").read_text(encoding="utf-8"))
 index = json.loads((PACKS / "index.json").read_text(encoding="utf-8"))
 listed = {p["file"] for p in index["packs"]}
@@ -67,6 +68,8 @@ for f in sorted(listed):
                         if not q.get("source"):
                             err(f"{where}: previous-year question without a source")
                         k = app_key(q["question"], vals)
+                        if f == "pyq-by-subject.json":  # collects real questions that also sit in topic sets – repeats are by design
+                            continue
                         if k in seen:
                             warn(f"{where}: same as {seen[k]}")
                         else:

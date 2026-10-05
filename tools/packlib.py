@@ -105,7 +105,8 @@ def build_pack(out_path, name, description, subjects):
                                "answer": letter, "subject": st.get("tag", st["name"]), "explanation": expl,
                                **({"source": source} if source else {})})
                 out_sets.append({"name": st["name"], "questions": qs})
-            out_topics.append({"name": t["name"], "sets": out_sets})
+            out_topics.append({"name": t["name"], **({"plan": t["plan"]} if t.get("plan") else {}), "sets": out_sets,
+                               **({"notes": t["notes"]} if t.get("notes") else {})})
         out_subjects.append({"name": s["name"], "icon": s.get("icon", ""), "topics": out_topics})
     if problems:
         print("\n".join(problems))

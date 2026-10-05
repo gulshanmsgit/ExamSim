@@ -24,22 +24,30 @@ P2_GROUP = "② Paper 2 · Computer Science (30 questions per sub-topic)"
 PACKS = {
     "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e"]},
     "p2-u5": {"subject": "P2 · Unit 5 – Database Management Systems", "modules": ["p2u5_b", "p2u5_c", "p2u5_d", "p2u5_e", "p2u5_f"]},
-    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b"]},
+    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
-    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g"]},
-    "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f"]},
+    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h"]},
+    "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g"]},
     "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f"]},
     "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e"]},
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d"]},
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c"]},
-    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_2026"]},
+    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_2026"]},
 }
 
 # Subjects that are not in the planner. Current affairs: one topic per month ("January 2026", …) with a
 # Karnataka set (30 Q) and a National set (10 Q) – the owner's 75% Karnataka / 25% national rule.
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": [f"{m} {y}" for y in (2026, 2027) for m in MONTHS],
-                                          "sizes": {"Karnataka": 30, "National": 10}, "group": "③ Current affairs (monthly · 75% Karnataka, 25% national)"}}
+# The planner's own current-affairs topics (P1-CA-01 … 15) are not in the structure pack; they live in this subject too
+CA_PLAN = {"Current International Affairs": "P1-CA-01", "Current National Affairs": "P1-CA-02", "Movies": "P1-CA-03",
+           "Currency and Capitals of Countries": "P1-CA-04", "Important Days and Slogans": "P1-CA-05",
+           "Festivals, Folk Dances, Tribes of the Country": "P1-CA-06", "United Nations Organizations and Headquarters": "P1-CA-07",
+           "Initiatives in Education in India": "P1-CA-08", "Monuments and National Forests": "P1-CA-09",
+           "Important Tourist Places and Peaks": "P1-CA-10", "Industries and Ores": "P1-CA-11", "Three Wings of the Army": "P1-CA-12",
+           "Indian Constitution": "P1-CA-13", "Highways, Railways and Airport Names": "P1-CA-14", "Abbreviations": "P1-CA-15"}
+EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PLAN) + [f"{m} {y}" for y in (2026, 2027) for m in MONTHS],
+                                          "plan": CA_PLAN, "sizes": {"Karnataka": 30, "National": 10},
+                                          "group": "③ Current affairs (planner topics + monthly · 75% Karnataka, 25% national)"}}
 
 
 def build(key):
@@ -51,9 +59,11 @@ def build(key):
     ssub = {"icon": extra["icon"], "topics": [{"name": t} for t in extra["topics"]]} if extra else next(s for s in structure["subjects"] if s["name"] == subject)
     planned = [t["name"] for t in ssub["topics"]]
     size = 30 if subject.startswith("P2") else 20
-    content = {}
+    content, notes = {}, {}
     for m in cfg["modules"]:
-        content.update(importlib.import_module(m).TOPICS)
+        mod = importlib.import_module(m)
+        content.update(mod.TOPICS)
+        notes.update(getattr(mod, "NOTES", {}))  # optional ready-made notes per topic: [{"title", "md"}]
     missing = [t for t in content if t not in planned]
     assert not missing, f"topics not in the planner for {subject}: {missing}"
     topics = []
@@ -64,20 +74,24 @@ def build(key):
         for i, (name, qs) in enumerate(content[t], 1):
             num, sub = name.split(" · ", 1)
             assert num == str(i), f"{t} / {name}: sets must be numbered 1, 2, 3…"
-            want_n = extra["sizes"][sub] if extra else size
+            want_n = extra["sizes"].get(sub, size) if extra else size
             assert len(qs) == want_n, f"{t} / {name}: {len(qs)} questions, expected {want_n}"
             sets.append({"name": name, "tag": sub, "questions": qs})
         want = smap.get(subject, {}).get(t)
         assert want == [s["tag"] for s in sets], f"{t}: sets {[s['tag'] for s in sets]} differ from syllabus_map {want}"
-        topics.append({"name": t, "sets": sets})
+        pid = (extra or {}).get("plan", {}).get(t)
+        topics.append({"name": t, "sets": sets, **({"plan": {"id": pid}} if pid else {}), **({"notes": notes[t]} if t in notes else {})})
     n_sets = sum(len(t["sets"]) for t in topics)
     title = subject.replace(" – ", " — ", 1)
     covered = "all topics" if len(topics) == len(planned) else f"{len(topics)} of {len(planned)} topics"
     desc = (f"{covered.capitalize()} so far ({n_sets} sets × {size} questions): " + "; ".join(t["name"] for t in topics)
             + ". More topics are added to this pack as the plan goes on; re-importing only adds the new sets.")
     if extra:
-        desc = ("Month-by-month current affairs from January 2026: 75% Karnataka and 25% national, including important schemes. "
-                "Facts checked against news sources, which are named in the explanations. Months so far: " + ", ".join(t["name"] for t in topics) + ".")
+        plan_t = [t["name"] for t in topics if t.get("plan")]
+        months = [t["name"] for t in topics if not t.get("plan")]
+        desc = ("The planner's current-affairs topics (with detailed notes and real KEA questions)" + (": " + "; ".join(plan_t) if plan_t else "")
+                + ". Plus month-by-month current affairs from January 2026 (75% Karnataka, 25% national), facts checked against news "
+                "sources named in the explanations. Months so far: " + ", ".join(months) + ".")
     out = ROOT / "packs" / f"{key}.json"
     build_pack(out, title, desc, [{"name": subject, "icon": ssub.get("icon", ""), "topics": topics}])
 

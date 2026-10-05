@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 6 — System Software & Operating Systems",
- "description": "4 of 15 topics so far (8 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "5 of 15 topics so far (10 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 6 – System Software & Operating Systems",
@@ -2988,6 +2988,746 @@
          "answer": "B",
          "subject": "Semaphores, Monitors and Classical Problems",
          "explanation": "full counts the filled slots, starting at 0."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Threads",
+     "sets": [
+      {
+       "name": "1 · Thread Concepts, Multicore Programming and Multithreading Models",
+       "questions": [
+        {
+         "question": "A thread is a",
+         "options": {
+          "A": "Task",
+          "B": "Process",
+          "C": "Lightweight process",
+          "D": "Program"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "A thread shares its process's code, data and files but has its own registers and stack – a lightweight process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q23"
+        },
+        {
+         "question": "Many-to-many multithreading Model multiplexes ____",
+         "options": {
+          "A": "Many-user-level threads to one kernel thread",
+          "B": "Many-user-level threads to small or equal number of kernel threads",
+          "C": "Each user thread to a kernel thread",
+          "D": "One kernel thread to many-user-level threads"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Silberschatz's definition of the many-to-many model. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q44"
+        },
+        {
+         "question": "Listed below are some Operating System abstractions and the hardware components. Which matching pair is correct?\na) Thread\nb) Virtual address space\nc) File system\nd) Signal\ni. Interrupt\nii. Memory\niii. CPU\niv. Disc",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Threads abstract the CPU, address spaces abstract memory, file systems abstract the disk and signals abstract interrupts. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q47"
+        },
+        {
+         "question": "Which of the following is true for instruction execution multicore processor?",
+         "options": {
+          "A": "It contains multiple ALUs",
+          "B": "It only works on a single task at a time",
+          "C": "It can execute more instructions in parallel",
+          "D": "It is more power consuming"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Several cores execute instruction streams (threads) in parallel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q32"
+        },
+        {
+         "question": "A thread is usually defined as a \"lightweight process\" because an operating system maintains smaller data structures for a thread than for a process. In relation to this, which of the following is true?",
+         "options": {
+          "A": "On per-thread basis, the OS maintains only CPU register state",
+          "B": "The OS does not maintain a separate stack for each thread",
+          "C": "On per-thread basis, the OS does not maintain virtual memory state",
+          "D": "On per-thread basis, the OS maintains only scheduling and accounting information"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Threads of a process share one address space, so no per-thread virtual-memory state is kept; each thread still has its own registers, stack and scheduling information. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q45"
+        },
+        {
+         "question": "A thread is the basic unit of CPU utilisation and has its own:",
+         "options": {
+          "A": "Data section and global variables",
+          "B": "Thread ID, program counter, register set and stack",
+          "C": "Code section and open files",
+          "D": "Address space"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). It shares the code section, data section and OS resources such as open files with other threads of the same process."
+        },
+        {
+         "question": "Which of these is NOT shared by the threads of the same process?",
+         "options": {
+          "A": "The code section",
+          "B": "Open files",
+          "C": "Global data",
+          "D": "The stack"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each thread needs its own stack (and registers) for its own function calls."
+        },
+        {
+         "question": "The four main benefits of multithreading listed by Silberschatz are:",
+         "options": {
+          "A": "Security, privacy, integrity and availability",
+          "B": "Speed, cost, size and weight",
+          "C": "Atomicity, consistency, isolation and durability",
+          "D": "Responsiveness, resource sharing, economy and scalability"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). Economy: creating and switching threads is cheaper than for processes."
+        },
+        {
+         "question": "Compared with creating a new process, creating a new thread in the same process is:",
+         "options": {
+          "A": "Exactly the same cost",
+          "B": "Much cheaper, because the address space and resources are shared",
+          "C": "Always more expensive",
+          "D": "Impossible on multicore systems"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Context switching between threads of one process is also faster."
+        },
+        {
+         "question": "Concurrency differs from parallelism in that:",
+         "options": {
+          "A": "Concurrency needs at least four cores",
+          "B": "Concurrency means several tasks make progress (possible even on one core by interleaving); parallelism means tasks run at the same instant on different cores",
+          "C": "Parallelism is possible on a single core only",
+          "D": "They mean exactly the same thing"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). A single-core system can be concurrent but not parallel."
+        },
+        {
+         "question": "Running the same operation on different subsets of data on different cores (e.g. summing halves of an array) is:",
+         "options": {
+          "A": "Serial execution",
+          "B": "Time sharing",
+          "C": "Task parallelism",
+          "D": "Data parallelism"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Task parallelism distributes different tasks (operations) across cores."
+        },
+        {
+         "question": "By Amdahl's law, an application that is 25% serial runs on 2 cores. The maximum speed-up is about:",
+         "options": {
+          "A": "4.0",
+          "B": "2.0",
+          "C": "1.6",
+          "D": "1.25"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). Speed-up ≤ 1 / (S + (1 − S)/N) = 1 / (0.25 + 0.375) = 1.6."
+        },
+        {
+         "question": "If 50% of a program is serial, the maximum speed-up with any number of cores is:",
+         "options": {
+          "A": "4",
+          "B": "1.5",
+          "C": "Unlimited",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "As N → ∞, speed-up → 1/S = 1/0.5 = 2."
+        },
+        {
+         "question": "Which is a programming challenge of multicore systems?",
+         "options": {
+          "A": "Formatting the hard disk",
+          "B": "Selecting a screen resolution",
+          "C": "Dividing work into balanced tasks, splitting data, handling data dependencies, and testing and debugging",
+          "D": "Choosing a keyboard layout"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Silberschatz lists identifying tasks, balance, data splitting, data dependency, testing and debugging."
+        },
+        {
+         "question": "User-level threads are:",
+         "options": {
+          "A": "Separate processes",
+          "B": "Managed by a thread library in user space, without kernel support",
+          "C": "Managed directly by the OS kernel",
+          "D": "Hardware threads of the CPU"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). Kernel threads are supported and scheduled directly by the OS."
+        },
+        {
+         "question": "In the many-to-one model, if one thread makes a blocking system call:",
+         "options": {
+          "A": "The entire process blocks, and threads cannot run in parallel on multicore systems",
+          "B": "Only that thread blocks",
+          "C": "A new kernel thread is created",
+          "D": "The system crashes"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). All user threads share one kernel thread."
+        },
+        {
+         "question": "The one-to-one model, used by Linux and Windows:",
+         "options": {
+          "A": "Has no kernel threads",
+          "B": "Maps all user threads to one kernel thread",
+          "C": "Allows only one thread per process",
+          "D": "Maps each user thread to its own kernel thread – more concurrency, but creating a user thread needs a kernel thread"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). It allows threads to run in parallel on multiple cores."
+        },
+        {
+         "question": "The two-level model is a variation of the many-to-many model that also:",
+         "options": {
+          "A": "Forbids kernel threads",
+          "B": "Uses only one kernel thread",
+          "C": "Allows a user thread to be bound to a particular kernel thread",
+          "D": "Removes the thread library"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "It combines many-to-many multiplexing with one-to-one binding."
+        },
+        {
+         "question": "Which model lets other threads keep running when one thread blocks AND lets threads run in parallel on several cores?",
+         "options": {
+          "A": "One-to-one (and many-to-many)",
+          "B": "Many-to-one only",
+          "C": "Single-threaded process",
+          "D": "None of the models"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Many-to-one fails on both counts."
+        },
+        {
+         "question": "Running two hardware threads on one core, so the core can switch to the other thread during a memory stall, is called:",
+         "options": {
+          "A": "Swapping",
+          "B": "Chip multithreading (e.g. Intel Hyper-Threading)",
+          "C": "Spooling",
+          "D": "Paging"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "The OS sees each hardware thread as a logical CPU."
+        },
+        {
+         "question": "The data structure that holds a thread's state (ID, registers, stack pointer, state) is the:",
+         "options": {
+          "A": "Inode",
+          "B": "Page table",
+          "C": "Thread Control Block (TCB)",
+          "D": "File Allocation Table"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "A process's PCB points to the TCBs of its threads."
+        },
+        {
+         "question": "A busy web server creates a separate thread for each client request mainly to:",
+         "options": {
+          "A": "Use more disk space",
+          "B": "Avoid using the network",
+          "C": "Reduce security",
+          "D": "Serve many clients at once and stay responsive"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Thread pools are usually used instead of creating a thread per request."
+        },
+        {
+         "question": "Match the multithreading model with its mapping:\na. Many-to-one\nb. One-to-one\nc. Many-to-many\nd. Two-level\n\n1. Many user threads onto a smaller or equal number of kernel threads\n2. Each user thread onto its own kernel thread\n3. Many-to-many plus binding a user thread to a kernel thread\n4. All user threads onto a single kernel thread",
+         "options": {
+          "A": "a-2, b-4, c-1, d-3",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-4, b-1, c-2, d-3"
+         },
+         "answer": "B",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "PYQ pattern (KEA / KSET papers). Model matching is very common in KEA and KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Threads of the same process share code and data.\nII. Threads of the same process share one stack.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Each thread has its own stack."
+        },
+        {
+         "question": "Assertion (A): In the many-to-one model, threads cannot run in parallel on a multicore system.\nReason (R): Only one thread can access the kernel at a time, because all share a single kernel thread.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "That is the main limitation of the model."
+        },
+        {
+         "question": "Assertion (A): Concurrency is impossible on a single-core system.\nReason (R): On a single core, the CPU switches among tasks so quickly that several tasks make progress.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "R describes concurrency on one core, so A is false."
+        },
+        {
+         "question": "An advantage of user-level threads over kernel-level threads is that:",
+         "options": {
+          "A": "Switching between them needs no kernel-mode privileges, so it is fast",
+          "B": "They always run in parallel on many cores",
+          "C": "A blocking system call never blocks the process",
+          "D": "The kernel schedules each of them separately"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Their main drawback is that one blocking call can block the whole process (in many-to-one)."
+        },
+        {
+         "question": "Kernel-level threads are:",
+         "options": {
+          "A": "Invisible to the operating system",
+          "B": "Used only in batch systems",
+          "C": "Managed only by a user library",
+          "D": "Created, scheduled and managed directly by the operating system"
+         },
+         "answer": "D",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Linux, Windows and macOS all support kernel threads."
+        },
+        {
+         "question": "A word processor that checks spelling in one thread while the user types in another mainly shows the multithreading benefit of:",
+         "options": {
+          "A": "Scalability",
+          "B": "Portability",
+          "C": "Responsiveness",
+          "D": "Security"
+         },
+         "answer": "C",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "The program stays interactive even while part of it is busy."
+        },
+        {
+         "question": "On a multiprocessor, a single-threaded process can use:",
+         "options": {
+          "A": "Only one processor at a time",
+          "B": "All processors at once",
+          "C": "Two processors exactly",
+          "D": "No processor"
+         },
+         "answer": "A",
+         "subject": "Thread Concepts, Multicore Programming and Multithreading Models",
+         "explanation": "Multithreading lets one process benefit from several cores (scalability)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Thread Libraries, Implicit Threading and Threading Issues",
+       "questions": [
+        {
+         "question": "The three main thread libraries in use today are:",
+         "options": {
+          "A": "OpenGL, DirectX and Vulkan",
+          "B": "TCP, UDP and IP",
+          "C": "POSIX Pthreads, Windows threads and Java threads",
+          "D": "FAT, NTFS and ext4"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pthreads may be provided as a user-level or kernel-level library."
+        },
+        {
+         "question": "POSIX Pthreads is:",
+         "options": {
+          "A": "A type of hardware thread",
+          "B": "A specification (IEEE 1003.1c) for thread behaviour, not an implementation",
+          "C": "A Java class",
+          "D": "A Windows-only library"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Programs include <pthread.h>."
+        },
+        {
+         "question": "In Pthreads, a new thread is created with:",
+         "options": {
+          "A": "CreateProcess()",
+          "B": "pthread_create()",
+          "C": "fork()",
+          "D": "exec()"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). pthread_join() makes the caller wait for that thread to finish."
+        },
+        {
+         "question": "A thread ends its own execution in Pthreads by calling:",
+         "options": {
+          "A": "wait()",
+          "B": "pthread_join()",
+          "C": "pthread_exit()",
+          "D": "pthread_create()"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Returning from the thread function also ends it."
+        },
+        {
+         "question": "In the Windows API, threads are created with ____ and waited for with ____.",
+         "options": {
+          "A": "pthread_create(); pthread_join()",
+          "B": "fork(); wait()",
+          "C": "start(); join()",
+          "D": "CreateThread(); WaitForSingleObject()"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "WaitForMultipleObjects() waits for several threads."
+        },
+        {
+         "question": "In Java, a thread can be created by:",
+         "options": {
+          "A": "Extending the Thread class or implementing the Runnable interface",
+          "B": "Only by calling fork()",
+          "C": "Only with CreateThread()",
+          "D": "Writing a main() method only"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). The code to run goes in the run() method."
+        },
+        {
+         "question": "In Java, a new thread actually begins executing when the program calls:",
+         "options": {
+          "A": "run() directly",
+          "B": "sleep()",
+          "C": "start()",
+          "D": "join()"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "start() creates the thread and the JVM then calls run() in it."
+        },
+        {
+         "question": "Java's join() method makes the calling thread:",
+         "options": {
+          "A": "Stop all threads",
+          "B": "Start a new thread",
+          "C": "Sleep for a fixed time",
+          "D": "Wait until the target thread terminates"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "It is similar to pthread_join()."
+        },
+        {
+         "question": "Implicit threading means that:",
+         "options": {
+          "A": "Threads are created by hardware only",
+          "B": "Compilers and run-time libraries, not the programmer, create and manage the threads",
+          "C": "No threads are ever created",
+          "D": "Each user writes their own scheduler"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: thread pools, fork-join, OpenMP, Grand Central Dispatch, Intel TBB."
+        },
+        {
+         "question": "A thread pool improves performance because:",
+         "options": {
+          "A": "It uses only one thread",
+          "B": "It removes the need for a CPU",
+          "C": "An existing idle thread serves a request faster than creating a new thread, and the number of threads is limited",
+          "D": "It creates a new thread for every request"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). Java offers thread pools through ExecutorService."
+        },
+        {
+         "question": "OpenMP supports parallel programming in C, C++ and Fortran mainly through:",
+         "options": {
+          "A": "Hardware interrupts",
+          "B": "Compiler directives such as #pragma omp parallel",
+          "C": "Separate processes created with fork()",
+          "D": "Message passing between computers"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "The run-time creates as many threads as there are cores."
+        },
+        {
+         "question": "In the fork-join model:",
+         "options": {
+          "A": "A parent task forks child tasks that run in parallel and then joins (waits for and combines) their results",
+          "B": "Processes are never created",
+          "C": "Only one thread ever runs",
+          "D": "Threads communicate only by files"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Java's ForkJoinPool implements this model for recursive divide-and-conquer tasks."
+        },
+        {
+         "question": "Grand Central Dispatch, which schedules blocks of work on dispatch queues, was developed by:",
+         "options": {
+          "A": "Microsoft, for Windows",
+          "B": "IBM, for mainframes",
+          "C": "Oracle, for Java",
+          "D": "Apple, for macOS and iOS"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Serial queues run blocks in order; concurrent queues run them in parallel."
+        },
+        {
+         "question": "If one thread of a multithreaded program calls fork(), and exec() is called immediately after, the better choice is:",
+         "options": {
+          "A": "Duplicate no threads and abort",
+          "B": "Duplicate only the calling thread",
+          "C": "Duplicate all threads twice",
+          "D": "Duplicate all threads"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). exec() replaces the whole process image, so duplicating every thread would be wasted work."
+        },
+        {
+         "question": "In a multithreaded program, a signal may be delivered to:",
+         "options": {
+          "A": "The thread to which it applies, every thread, certain threads, or a thread designated to receive all signals",
+          "B": "Only the main thread always",
+          "C": "No thread",
+          "D": "Only the kernel"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Synchronous signals go to the thread that caused them."
+        },
+        {
+         "question": "Terminating a thread before it has completed is called:",
+         "options": {
+          "A": "Context switching",
+          "B": "Spooling",
+          "C": "Thread cancellation",
+          "D": "Thread pooling"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). The thread to be cancelled is the target thread."
+        },
+        {
+         "question": "In asynchronous cancellation:",
+         "options": {
+          "A": "The target thread checks periodically whether it should terminate",
+          "B": "All threads stop together",
+          "C": "Cancellation is impossible",
+          "D": "One thread immediately terminates the target thread"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). In deferred cancellation the target checks at safe cancellation points."
+        },
+        {
+         "question": "The default cancellation type in Pthreads is:",
+         "options": {
+          "A": "Immediate",
+          "B": "Deferred",
+          "C": "Disabled forever",
+          "D": "Asynchronous"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "A thread can create a cancellation point by calling pthread_testcancel()."
+        },
+        {
+         "question": "Data that each thread keeps its own copy of, such as a per-thread transaction ID, is called:",
+         "options": {
+          "A": "Thread-local storage (TLS)",
+          "B": "Shared memory",
+          "C": "Global data",
+          "D": "Heap storage"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "TLS values persist across function calls, unlike local variables."
+        },
+        {
+         "question": "In many-to-many and two-level models, the intermediate data structure that appears to the user-thread library as a virtual processor is the:",
+         "options": {
+          "A": "Semaphore",
+          "B": "Page frame",
+          "C": "Lightweight process (LWP)",
+          "D": "Inode"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). With scheduler activations, the kernel informs the library about events through upcalls."
+        },
+        {
+         "question": "Linux creates both processes and threads with the system call:",
+         "options": {
+          "A": "spawn()",
+          "B": "CreateThread()",
+          "C": "pthread_join()",
+          "D": "clone(), whose flags decide how much the child shares with the parent"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). Linux calls both 'tasks'."
+        },
+        {
+         "question": "Windows keeps the data of each thread in the structures:",
+         "options": {
+          "A": "TLB, MMU and DMA",
+          "B": "ETHREAD, KTHREAD and TEB",
+          "C": "inode, superblock and dentry",
+          "D": "PCB, FAT and MBR"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "TEB (thread environment block) lives in user space."
+        },
+        {
+         "question": "The number of threads in a thread pool is usually chosen based on:",
+         "options": {
+          "A": "The user's age",
+          "B": "The keyboard layout",
+          "C": "The number of CPUs, the amount of memory and the expected number of concurrent requests",
+          "D": "The size of the monitor"
+         },
+         "answer": "C",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Some pools adjust their size dynamically."
+        },
+        {
+         "question": "Two threads increment a shared counter without a lock. The result may be wrong because of:",
+         "options": {
+          "A": "Deferred cancellation",
+          "B": "Thread-local storage",
+          "C": "Thread pooling",
+          "D": "A race condition"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Shared data must be protected with a mutex or other synchronization."
+        },
+        {
+         "question": "Match the Pthreads function with its job:\na. pthread_create()\nb. pthread_join()\nc. pthread_exit()\nd. pthread_cancel()\n\n1. Terminates the calling thread\n2. Waits for a thread to finish\n3. Requests termination of a target thread\n4. Creates a new thread",
+         "options": {
+          "A": "a-4, b-2, c-1, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "PYQ pattern (KEA / KSET papers). API matching is common in KEA papers."
+        },
+        {
+         "question": "Match the implicit-threading technique with its description:\na. Thread pool\nb. OpenMP\nc. Fork-join\nd. Grand Central Dispatch\n\n1. Threads created at start-up that wait for work\n2. Compiler directives that mark parallel regions\n3. Apple's dispatch queues\n4. Parent forks subtasks and later joins their results",
+         "options": {
+          "A": "a-1, b-2, c-3, d-4",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-1, b-4, c-2, d-3",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "B",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Implicit-threading approaches."
+        },
+        {
+         "question": "Consider the statements:\nI. Deferred cancellation lets a thread terminate at a safe point.\nII. Asynchronous cancellation is always safe for shared data.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Asynchronous cancellation may leave resources or shared data in an inconsistent state."
+        },
+        {
+         "question": "Assertion (A): Thread pools usually serve requests faster than creating a new thread for each request.\nReason (R): An existing thread is reused instead of being created and destroyed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Creation and destruction costs are avoided."
+        },
+        {
+         "question": "Assertion (A): Calling run() directly on a Java Thread object starts a new thread.\nReason (R): The start() method creates a new thread, which then calls run().",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "Calling run() directly runs it in the current thread, so A is false."
+        },
+        {
+         "question": "Intel Threading Building Blocks (TBB) is:",
+         "options": {
+          "A": "A C++ template library for designing parallel applications",
+          "B": "A Windows system call",
+          "C": "A database engine",
+          "D": "A hardware cache"
+         },
+         "answer": "A",
+         "subject": "Thread Libraries, Implicit Threading and Threading Issues",
+         "explanation": "It is another example of implicit threading."
         }
        ]
       }

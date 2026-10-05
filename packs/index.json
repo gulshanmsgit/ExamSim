@@ -86,9 +86,9 @@
       "file": "p1-psy.json",
       "group": "② Paper 1 · General (20 questions per set)",
       "name": "P1 · Educational Psychology",
-      "description": "9 of 23 topics so far (18 sets × 20 questions): Psychology & Educational Psychology; Methods of Psychology; Growth and Development; Childhood; Adolescence; Individual Differences; Intelligence; Gifted, Backward and Creative Children; Emotional Intelligence. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
-      "questions": 360,
-      "topics": 9,
+      "description": "10 of 23 topics so far (20 sets × 20 questions): Psychology & Educational Psychology; Methods of Psychology; Growth and Development; Childhood; Adolescence; Individual Differences; Intelligence; Gifted, Backward and Creative Children; Emotional Intelligence; Learning & Maturation. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+      "questions": 400,
+      "topics": 10,
       "subjects": [
         "P1 · Educational Psychology"
       ],
@@ -101,16 +101,17 @@
         "P1-PSY-06",
         "P1-PSY-07",
         "P1-PSY-08",
-        "P1-PSY-09"
+        "P1-PSY-09",
+        "P1-PSY-10"
       ]
     },
     {
       "file": "p1-gk.json",
       "group": "② Paper 1 · General (20 questions per set)",
       "name": "P1 · General Knowledge",
-      "description": "7 of 16 topics so far (18 sets × 20 questions): Famous Books and Authors; Important Inventions and Discoveries; Basic Science – Concepts and Scientific Phenomena; Health and Hygiene; Karnataka History, Culture and Art; Indian History and Culture – Ancient; Indian History and Culture – Medieval. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
-      "questions": 360,
-      "topics": 7,
+      "description": "8 of 16 topics so far (21 sets × 20 questions): Famous Books and Authors; Important Inventions and Discoveries; Basic Science – Concepts and Scientific Phenomena; Health and Hygiene; Karnataka History, Culture and Art; Indian History and Culture – Ancient; Indian History and Culture – Medieval; Indian History and Culture – Modern. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+      "questions": 420,
+      "topics": 8,
       "subjects": [
         "P1 · General Knowledge"
       ],
@@ -121,7 +122,8 @@
         "P1-GK-04",
         "P1-GK-05",
         "P1-GK-06",
-        "P1-GK-07"
+        "P1-GK-07",
+        "P1-GK-08"
       ]
     },
     {
@@ -196,15 +198,22 @@
     },
     {
       "file": "p1-ca.json",
-      "group": "③ Current affairs (monthly · 75% Karnataka, 25% national)",
+      "group": "③ Current affairs (planner topics + monthly · 75% Karnataka, 25% national)",
       "name": "P1 · Current Affairs",
-      "description": "Month-by-month current affairs from January 2026: 75% Karnataka and 25% national, including important schemes. Facts checked against news sources, which are named in the explanations. Months so far: January 2026.",
-      "questions": 40,
-      "topics": 1,
+      "description": "The planner's current-affairs topics (with detailed notes and real KEA questions): Current International Affairs; Current National Affairs; Movies; Currency and Capitals of Countries; Important Days and Slogans; Festivals, Folk Dances, Tribes of the Country. Plus month-by-month current affairs from January 2026 (75% Karnataka, 25% national), facts checked against news sources named in the explanations. Months so far: January 2026.",
+      "questions": 280,
+      "topics": 7,
       "subjects": [
         "P1 · Current Affairs"
       ],
-      "planIds": []
+      "planIds": [
+        "P1-CA-01",
+        "P1-CA-02",
+        "P1-CA-03",
+        "P1-CA-04",
+        "P1-CA-05",
+        "P1-CA-06"
+      ]
     },
     {
       "file": "pyq-p2.json",
@@ -215,6 +224,19 @@
       "topics": 4,
       "subjects": [
         "P2 · Previous-Year Papers (KEA/KSET)"
+      ],
+      "planIds": []
+    },
+    {
+      "file": "pyq-by-subject.json",
+      "group": "③ Previous-year papers · KEA / KSET (real questions, source shown on each)",
+      "name": "Previous-year questions by subject (P1 + P2)",
+      "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 148, Paper 2: 438. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+      "questions": 586,
+      "topics": 15,
+      "subjects": [
+        "P1 · Previous-Year Questions · General Paper",
+        "P2 · Previous-Year Questions · Computer Science"
       ],
       "planIds": []
     },
@@ -345,9 +367,9 @@
       "file": "p2-u6.json",
       "group": "② Paper 2 · Computer Science (30 questions per sub-topic)",
       "name": "P2 · Unit 6 — System Software & Operating Systems",
-      "description": "4 of 15 topics so far (8 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
-      "questions": 240,
-      "topics": 4,
+      "description": "5 of 15 topics so far (10 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+      "questions": 300,
+      "topics": 5,
       "subjects": [
         "P2 · Unit 6 – System Software & Operating Systems"
       ],
@@ -355,7 +377,8 @@
         "P2-U6-01",
         "P2-U6-02",
         "P2-U6-03",
-        "P2-U6-04"
+        "P2-U6-04",
+        "P2-U6-05"
       ]
     },
     {
