@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 5 — Database Management Systems",
- "description": "7 of 10 topics so far (13 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus; SQL – Part 1; SQL – Part 2; Normalization; Query Processing and Optimization; Transactions & Concurrency Control. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "9 of 10 topics so far (16 sets × 30 questions): ER Model & Relational Model; Relational Algebra and Relational Calculus; SQL – Part 1; SQL – Part 2; Normalization; Query Processing and Optimization; Transactions & Concurrency Control; Database Recovery Techniques; Data Warehousing and Data Mining. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 5 – Database Management Systems",
@@ -4815,6 +4815,1116 @@
          "answer": "D",
          "subject": "Concurrency Control – Locking, 2PL, Timestamps and Deadlocks",
          "explanation": "Wait-die and wound-wait use timestamps so that a cycle can never form."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Database Recovery Techniques",
+     "sets": [
+      {
+       "name": "1 · Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+       "questions": [
+        {
+         "question": "Which of the following is the preferred way to recover a database after a system failure?",
+         "options": {
+          "A": "Rollback",
+          "B": "Roll forward",
+          "C": "Switch to duplicate database",
+          "D": "Reprocess transactions"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "KEA's key takes switching to a duplicate (standby/mirrored) database as the preferred way – it gives the fastest recovery. Textbook log-based recovery uses undo (rollback) and redo (roll forward). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q24"
+        },
+        {
+         "question": "Match the following:\nList-1: a) Data Guard  b) Indexes  c) Redo Logs  d) SQL Developer\nList-2: i) Record changes to the database  ii) Ensures data protection and disaster recovery  iii) Oracle's integrated development environment  iv) Reduces the time taken to retrieve records",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – iv, c – i, d – iii",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Oracle Data Guard maintains standby databases for disaster recovery; redo logs record every change so it can be replayed. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q75"
+        },
+        {
+         "question": "The main purpose of a database recovery system is to:",
+         "options": {
+          "A": "Normalize tables",
+          "B": "Restore the database to the most recent consistent state after a failure",
+          "C": "Speed up queries",
+          "D": "Create new users"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "It preserves atomicity and durability."
+        },
+        {
+         "question": "A transaction that cannot continue because of bad input or an overflow suffers a:",
+         "options": {
+          "A": "Network partition only",
+          "B": "Transaction failure (logical error)",
+          "C": "Power failure of the whole data centre",
+          "D": "Disk failure"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Failure classes: transaction failure, system crash, disk (media) failure."
+        },
+        {
+         "question": "An update log record of the form <Ti, X, V1, V2> stores:",
+         "options": {
+          "A": "The transaction, the data item, the old value and the new value",
+          "B": "Only the new value",
+          "C": "The user's password",
+          "D": "The query plan"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). The old value is used for undo, the new value for redo."
+        },
+        {
+         "question": "The write-ahead logging (WAL) rule says that:",
+         "options": {
+          "A": "Logs are written only at shutdown",
+          "B": "No log is needed for committed transactions",
+          "C": "Data must be written before the log",
+          "D": "Log records for a change must reach stable storage before the changed data block is written to disk"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Otherwise an uncommitted change on disk could not be undone."
+        },
+        {
+         "question": "The deferred-update technique is also called:",
+         "options": {
+          "A": "UNDO/REDO",
+          "B": "NO-UNDO/NO-REDO",
+          "C": "NO-UNDO/REDO",
+          "D": "UNDO/NO-REDO"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Changes reach the database only after commit, so nothing needs to be undone."
+        },
+        {
+         "question": "The immediate-update technique (with no restriction on when committed data is written) is:",
+         "options": {
+          "A": "NO-UNDO/REDO",
+          "B": "NO-UNDO/NO-REDO",
+          "C": "REDO only",
+          "D": "UNDO/REDO"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Uncommitted changes may already be on disk (undo), and committed ones may not yet be (redo)."
+        },
+        {
+         "question": "After a crash, with immediate update, a transaction whose log has <Ti start> but no <Ti commit> or <Ti abort> must be:",
+         "options": {
+          "A": "Redone",
+          "B": "Undone",
+          "C": "Ignored",
+          "D": "Committed"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Transactions with a commit record are redone."
+        },
+        {
+         "question": "The main benefit of taking checkpoints is that:",
+         "options": {
+          "A": "Transactions run faster",
+          "B": "Recovery need not scan or redo the whole log – only work after the last checkpoint",
+          "C": "Deadlocks are prevented",
+          "D": "No log is needed any more"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). At a checkpoint, modified buffers and a <checkpoint L> record are forced to stable storage."
+        },
+        {
+         "question": "During recovery, undo operations are applied:",
+         "options": {
+          "A": "Backwards from the end of the log, and redo operations forwards",
+          "B": "Forwards, and redo backwards",
+          "C": "In random order",
+          "D": "Only for committed transactions"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Undo restores old values in reverse order of the changes."
+        },
+        {
+         "question": "Shadow paging recovers without a log by:",
+         "options": {
+          "A": "Copying the database to tape every second",
+          "B": "Writing every change twice to the log",
+          "C": "Keeping the old (shadow) page table unchanged and switching to the new page table only at commit",
+          "D": "Undoing every transaction at restart"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Drawbacks: data fragmentation, garbage collection and difficulty with concurrency."
+        },
+        {
+         "question": "Stable storage is:",
+         "options": {
+          "A": "A single hard disk",
+          "B": "CPU cache",
+          "C": "Main memory",
+          "D": "Storage whose contents are (practically) never lost, approximated by keeping copies on independent non-volatile devices"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Implemented with mirrored disks or remote copies."
+        },
+        {
+         "question": "The three phases of the ARIES recovery algorithm, in order, are:",
+         "options": {
+          "A": "Undo → Redo → Analysis",
+          "B": "Redo → Analysis → Undo",
+          "C": "Analysis → Redo → Undo",
+          "D": "Analysis → Undo → Redo"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). ARIES (IBM, 1992) is used by most commercial DBMSs."
+        },
+        {
+         "question": "In ARIES, the redo phase 'repeats history', which means it:",
+         "options": {
+          "A": "Deletes the log",
+          "B": "Re-applies all logged updates, even those of transactions that will later be undone",
+          "C": "Redoes only committed transactions",
+          "D": "Skips all updates after the checkpoint"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "The undo phase then rolls back the losers."
+        },
+        {
+         "question": "Each ARIES log record is identified by a monotonically increasing:",
+         "options": {
+          "A": "Timestamp of the user",
+          "B": "Page size",
+          "C": "Primary key",
+          "D": "Log Sequence Number (LSN)"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Each page stores the LSN of the last update applied to it (PageLSN)."
+        },
+        {
+         "question": "A compensation log record (CLR) is written when:",
+         "options": {
+          "A": "A checkpoint is taken",
+          "B": "An update is undone, so the undo itself is logged and never repeated",
+          "C": "A transaction starts",
+          "D": "A user logs in"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "CLRs make undo idempotent across repeated crashes."
+        },
+        {
+         "question": "A buffer policy of 'steal' means that:",
+         "options": {
+          "A": "No page can ever be written",
+          "B": "Pages are written only at shutdown",
+          "C": "Committed pages must be written at commit",
+          "D": "Pages changed by uncommitted transactions may be written to disk – so undo is needed"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "'No-force' means committed pages need not be written at commit – so redo is needed."
+        },
+        {
+         "question": "Recovery from a disk (media) failure normally uses:",
+         "options": {
+          "A": "The latest backup (archival dump) plus the log to redo changes made after the backup",
+          "B": "Only the buffer pool",
+          "C": "Undo of every transaction",
+          "D": "The query optimizer"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Backups and the log should be kept on different devices."
+        },
+        {
+         "question": "A remote backup (standby) system mainly provides:",
+         "options": {
+          "A": "Encryption",
+          "B": "Faster queries on the primary",
+          "C": "High availability – processing can continue at the backup site if the primary site fails",
+          "D": "Normalization"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Log records are shipped to the backup site and applied there."
+        },
+        {
+         "question": "A redo operation must be idempotent, meaning:",
+         "options": {
+          "A": "It undoes the change",
+          "B": "It needs user confirmation",
+          "C": "It can be applied only once",
+          "D": "Applying it several times has the same effect as applying it once"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "A crash during recovery may cause redo to be repeated."
+        },
+        {
+         "question": "A fuzzy checkpoint differs from an ordinary checkpoint because:",
+         "options": {
+          "A": "No log record is written",
+          "B": "It is taken only once a year",
+          "C": "Transactions may continue while modified pages are being written out",
+          "D": "All transactions must abort"
+         },
+         "answer": "C",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "It avoids halting the system during the checkpoint."
+        },
+        {
+         "question": "The correct order of steps in log-based recovery after a crash with immediate update is:",
+         "options": {
+          "A": "Scan the log → build undo and redo lists → redo committed transactions → undo uncommitted ones",
+          "B": "Undo everything → delete the log → restart",
+          "C": "Redo uncommitted transactions → undo committed ones",
+          "D": "Restore backup → ignore the log"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Silberschatz's restart procedure redoes first (repeating history), then undoes incomplete transactions."
+        },
+        {
+         "question": "A savepoint helps recovery by:",
+         "options": {
+          "A": "Committing the transaction automatically",
+          "B": "Allowing a transaction to roll back only part of its work",
+          "C": "Preventing all failures",
+          "D": "Taking a full database backup"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "ROLLBACK TO SAVEPOINT keeps the earlier work pending."
+        },
+        {
+         "question": "Match the technique with its feature:\na. Deferred update\nb. Immediate update\nc. Shadow paging\nd. Checkpoint\n\n1. NO-UNDO/REDO\n2. Limits how much of the log recovery must process\n3. UNDO/REDO\n4. Keeps a copy of the page table; no undo/redo log needed",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "PYQ pattern (KEA / KSET papers). Recovery-technique matching is a common KEA question."
+        },
+        {
+         "question": "Consider the statements:\nI. Write-ahead logging forces log records to stable storage before the data they describe.\nII. Deferred update needs undo operations at restart.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Deferred update never writes uncommitted data, so no undo is needed."
+        },
+        {
+         "question": "Assertion (A): Checkpoints reduce recovery time.\nReason (R): Transactions that committed before the checkpoint need not be redone.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Their changes were already forced to disk at the checkpoint."
+        },
+        {
+         "question": "Assertion (A): Shadow paging needs no undo operation.\nReason (R): The shadow page table, which points to the old pages, is not changed during the transaction.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "On failure the old page table simply remains current."
+        },
+        {
+         "question": "Assertion (A): Main memory is a form of stable storage.\nReason (R): Recovery algorithms assume that the contents of main memory may be lost in a crash.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Main memory is volatile, so A is false."
+        },
+        {
+         "question": "After a crash with immediate update, the transactions whose changes must be redone are those that:",
+         "options": {
+          "A": "Were never started",
+          "B": "Have only a <Ti start> record",
+          "C": "Have no log records at all",
+          "D": "Have a <Ti commit> record in the log"
+         },
+         "answer": "D",
+         "subject": "Log-based Recovery, Checkpoints, Shadow Paging and ARIES",
+         "explanation": "Their changes may not yet have reached the disk; incomplete transactions are undone instead."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Data Warehousing and Data Mining",
+     "sets": [
+      {
+       "name": "1 · Data Warehousing, Schemas and OLAP",
+       "questions": [
+        {
+         "question": "Match the following:\na. Data warehouse\nb. Data mining\nc. OLAP\nd. Aggregation\n(i) which allows users to analyse data from multiple database systems at once\n(ii) is the summarization of fact related data\n(iii) central repository of information that can be analyzed to make more informed decisions\n(iv) is a process used to discover patterns and relationships in datasets",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iii, b – ii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Warehouse = central repository; mining = pattern discovery; OLAP = multi-dimensional analysis; aggregation = summarisation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q37"
+        },
+        {
+         "question": "According to W. H. Inmon, a data warehouse is a:",
+         "options": {
+          "A": "Backup copy of one table",
+          "B": "Collection of current transactions only",
+          "C": "Subject-oriented, integrated, time-variant and non-volatile collection of data supporting management decisions",
+          "D": "Real-time operational database"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Inmon is called the father of data warehousing; Ralph Kimball popularised dimensional modelling."
+        },
+        {
+         "question": "Which statement correctly contrasts OLTP and OLAP systems?",
+         "options": {
+          "A": "OLTP handles many short update transactions on current data; OLAP handles complex analytical queries on historical, summarised data",
+          "B": "OLTP is used only for reports",
+          "C": "OLAP systems never use aggregates",
+          "D": "Both are designed for the same workload"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). A classic KSET and KEA question."
+        },
+        {
+         "question": "ETL in data warehousing stands for:",
+         "options": {
+          "A": "Encode, Transmit, Log",
+          "B": "Extract, Transfer, Link",
+          "C": "Evaluate, Test, Launch",
+          "D": "Extract, Transform, Load"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Data is extracted from sources, cleaned and transformed, then loaded."
+        },
+        {
+         "question": "A star schema consists of:",
+         "options": {
+          "A": "A central fact table linked to several dimension tables",
+          "B": "Only one table",
+          "C": "Normalized dimension tables arranged in many levels",
+          "D": "Several fact tables with no dimensions"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is the simplest dimensional model."
+        },
+        {
+         "question": "In a snowflake schema:",
+         "options": {
+          "A": "All data is in a single table",
+          "B": "Dimension tables are normalized into further tables",
+          "C": "There is no fact table",
+          "D": "Fact tables are denormalized into dimensions"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "It saves space but needs more joins."
+        },
+        {
+         "question": "Several fact tables sharing common dimension tables form a:",
+         "options": {
+          "A": "Star schema",
+          "B": "Hierarchical schema",
+          "C": "Fact constellation (galaxy) schema",
+          "D": "Snowflake schema"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "e.g. Sales and Shipping facts sharing Time and Product."
+        },
+        {
+         "question": "A fact table mainly contains:",
+         "options": {
+          "A": "Numeric measures (e.g. units sold, amount) and foreign keys to dimension tables",
+          "B": "Only descriptive text",
+          "C": "Users and passwords",
+          "D": "Program code"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Dimensions hold descriptive attributes."
+        },
+        {
+         "question": "A data mart is:",
+         "options": {
+          "A": "A backup tape",
+          "B": "A shop that sells data",
+          "C": "An index",
+          "D": "A smaller warehouse focused on one department or subject area"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "e.g. a sales data mart."
+        },
+        {
+         "question": "day < month < quarter < year is an example of a:",
+         "options": {
+          "A": "Primary key",
+          "B": "Fact table",
+          "C": "Concept hierarchy",
+          "D": "Association rule"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Concept hierarchies let OLAP operations change the level of detail."
+        },
+        {
+         "question": "The OLAP operation that summarises data by climbing up a concept hierarchy (e.g. city → country) is:",
+         "options": {
+          "A": "Slice",
+          "B": "Roll-up",
+          "C": "Drill-down",
+          "D": "Pivot"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Roll-up is also called drill-up or consolidation."
+        },
+        {
+         "question": "Going from yearly sales to quarterly or monthly sales is the OLAP operation:",
+         "options": {
+          "A": "Roll-up",
+          "B": "Dice",
+          "C": "Pivot",
+          "D": "Drill-down"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "It gives more detail."
+        },
+        {
+         "question": "Selecting a sub-cube by fixing ONE dimension (e.g. time = 'Q1') is called:",
+         "options": {
+          "A": "Roll-up",
+          "B": "Slice",
+          "C": "Dice",
+          "D": "Pivot"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Dice selects on two or more dimensions."
+        },
+        {
+         "question": "Rotating the axes of a data cube to view it from a different angle is:",
+         "options": {
+          "A": "Aggregation",
+          "B": "Drill-down",
+          "C": "Pivot (rotate)",
+          "D": "Slice"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "It changes the presentation, not the data."
+        },
+        {
+         "question": "For a data cube with n dimensions and no concept hierarchies, the number of cuboids is:",
+         "options": {
+          "A": "n",
+          "B": "2ⁿ",
+          "C": "n!",
+          "D": "n²"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each dimension is either included or aggregated away."
+        },
+        {
+         "question": "A cube on 3 dimensions (no hierarchies) has how many cuboids?",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "8",
+          "D": "9"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "2³ = 8, from the base cuboid to the apex (all) cuboid."
+        },
+        {
+         "question": "The apex cuboid of a data cube is:",
+         "options": {
+          "A": "A dimension table",
+          "B": "The most detailed cuboid",
+          "C": "An index",
+          "D": "The 0-D cuboid holding the grand total over all dimensions"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "The base cuboid is the least summarised one."
+        },
+        {
+         "question": "OLAP servers that store data in relational tables are called ____, and those that use multidimensional arrays are called ____.",
+         "options": {
+          "A": "OLTP; OLAP",
+          "B": "HOLAP; ROLAP",
+          "C": "MOLAP; ROLAP",
+          "D": "ROLAP; MOLAP"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "HOLAP (hybrid) combines both."
+        },
+        {
+         "question": "Data about the data in a warehouse – source, structure, transformation rules – is called:",
+         "options": {
+          "A": "Noise",
+          "B": "Metadata",
+          "C": "Raw data",
+          "D": "Fact data"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "It is kept in a metadata repository."
+        },
+        {
+         "question": "'Non-volatile' as a property of a data warehouse means:",
+         "options": {
+          "A": "Data disappears when power fails",
+          "B": "Data is kept only in RAM",
+          "C": "Data is loaded and read, but not updated or deleted in place by daily transactions",
+          "D": "Data changes every second"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Warehouses are refreshed periodically."
+        },
+        {
+         "question": "'Time-variant' as a property of a data warehouse means:",
+         "options": {
+          "A": "Data is kept over a long period and every record is associated with time",
+          "B": "Data is updated every minute",
+          "C": "Only current data is kept",
+          "D": "Queries run at fixed times"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Typically 5–10 years of history."
+        },
+        {
+         "question": "AVERAGE is classified as which type of measure in data cube computation?",
+         "options": {
+          "A": "Distributive",
+          "B": "Algebraic",
+          "C": "Nominal",
+          "D": "Holistic"
+         },
+         "answer": "B",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "SUM and COUNT are distributive; AVG = SUM/COUNT is algebraic; MEDIAN is holistic."
+        },
+        {
+         "question": "Bitmap indexes are especially useful in data warehouses for:",
+         "options": {
+          "A": "Attributes with few distinct values, such as gender or region",
+          "B": "Primary keys with unique values",
+          "C": "Large text documents",
+          "D": "Images"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Bitwise AND/OR operations answer queries quickly."
+        },
+        {
+         "question": "Removing duplicates, filling missing values and correcting inconsistencies before loading is called:",
+         "options": {
+          "A": "Indexing",
+          "B": "Roll-up",
+          "C": "Data mining",
+          "D": "Data cleaning (cleansing)"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "It is part of the Transform step of ETL."
+        },
+        {
+         "question": "Match the OLAP operation with its effect:\na. Roll-up\nb. Drill-down\nc. Slice\nd. Pivot\n\n1. Shows more detailed data\n2. Aggregates to a higher level\n3. Fixes one value of one dimension\n4. Rotates the view of the cube",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-2, b-3, c-1, d-4"
+         },
+         "answer": "C",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "PYQ pattern (KEA / KSET papers). OLAP-operation matching appears in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. OLAP systems mainly work on historical data.\nII. OLTP systems are optimised for complex analytical queries.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "OLTP systems are optimised for short transactions."
+        },
+        {
+         "question": "Assertion (A): A snowflake schema reduces redundancy in dimension tables.\nReason (R): Its dimension tables are normalized.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Normalization removes repeated descriptive values."
+        },
+        {
+         "question": "Assertion (A): A data warehouse is updated row by row by every operational transaction in real time.\nReason (R): A data warehouse is non-volatile.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Warehouses are loaded periodically, so A is false."
+        },
+        {
+         "question": "Which of these is a typical dimension in a sales data warehouse?",
+         "options": {
+          "A": "Time",
+          "B": "Profit",
+          "C": "Revenue",
+          "D": "Units sold"
+         },
+         "answer": "A",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Units sold, revenue and profit are measures in the fact table."
+        },
+        {
+         "question": "Ralph Kimball's approach to building a data warehouse is usually described as:",
+         "options": {
+          "A": "Building only OLTP systems",
+          "B": "Avoiding dimensional models",
+          "C": "Top-down – build the enterprise warehouse first",
+          "D": "Bottom-up – build dimensional data marts first and integrate them"
+         },
+         "answer": "D",
+         "subject": "Data Warehousing, Schemas and OLAP",
+         "explanation": "Inmon's approach is top-down: an enterprise warehouse first, data marts derived from it."
+        }
+       ]
+      },
+      {
+       "name": "2 · Data Mining – Association, Classification, Clustering and Regression",
+       "questions": [
+        {
+         "question": "What is the process of examining large and varied data sets to uncover hidden patterns, unknown correlations, market trends, customer preferences and other useful information?",
+         "options": {
+          "A": "Data Mining",
+          "B": "Data Warehousing",
+          "C": "Data Integration",
+          "D": "Data Processing"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Discovering hidden patterns and correlations in data is data mining (the analytics step of KDD). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q32"
+        },
+        {
+         "question": "Which of the following can act as possible termination conditions in K-means?\n(a) For a fixed number of iterations\n(b) The assignment of observations to clusters does not change between iterations except for cases with a bad local minimum\n(c) Centroids do not change between successive iterations\n(d) Terminate when reduction in the sum of square distances between points and their assigned cluster centroids falls below threshold.",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(a), (c) and (d)",
+          "C": "(a), (b) and (d)",
+          "D": "(a), (b), (c) and (d)"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "All four are standard stopping criteria for K-means. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q31"
+        },
+        {
+         "question": "Knowledge Discovery in Databases (KDD) proceeds in the order:",
+         "options": {
+          "A": "Transformation → presentation → cleaning → mining",
+          "B": "Data cleaning → integration → selection → transformation → data mining → pattern evaluation → knowledge presentation",
+          "C": "Presentation → mining → cleaning → integration",
+          "D": "Data mining → cleaning → presentation → selection"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). Han, Kamber & Pei treat data mining as one essential step of KDD."
+        },
+        {
+         "question": "For an association rule A ⇒ B, support and confidence are:",
+         "options": {
+          "A": "Support = P(A ∪ B), the fraction of transactions with both; confidence = P(B | A)",
+          "B": "Support = P(B | A); confidence = P(A)",
+          "C": "Both equal P(A)",
+          "D": "Support = number of items; confidence = number of rules"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). Rules meeting minimum support and minimum confidence are called strong."
+        },
+        {
+         "question": "Of 10 transactions, 5 contain bread and 4 contain both bread and butter. For bread ⇒ butter, the support and confidence are:",
+         "options": {
+          "A": "50% and 40%",
+          "B": "80% and 40%",
+          "C": "40% and 80%",
+          "D": "40% and 50%"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). Support = 4/10; confidence = 4/5."
+        },
+        {
+         "question": "The Apriori property states that:",
+         "options": {
+          "A": "Every superset of a frequent itemset is frequent",
+          "B": "Infrequent itemsets have frequent supersets",
+          "C": "Every non-empty subset of a frequent itemset must also be frequent",
+          "D": "Support increases as itemsets grow"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is anti-monotone and lets Apriori prune candidates."
+        },
+        {
+         "question": "FP-growth differs from Apriori because it:",
+         "options": {
+          "A": "Needs class labels",
+          "B": "Mines frequent itemsets without candidate generation, using a compact FP-tree",
+          "C": "Works only on numeric data",
+          "D": "Generates more candidates"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). It usually needs only two database scans."
+        },
+        {
+         "question": "Finding that customers who buy bread often also buy butter is an example of:",
+         "options": {
+          "A": "Regression",
+          "B": "Outlier detection",
+          "C": "Association rule mining (market basket analysis)",
+          "D": "Classification"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Used for shelf placement and promotions."
+        },
+        {
+         "question": "The basic difference between classification and clustering is:",
+         "options": {
+          "A": "Classification is supervised (uses labelled training data); clustering is unsupervised",
+          "B": "Clustering needs labelled data",
+          "C": "Both are supervised",
+          "D": "Classification has no training phase"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). A frequent KSET question."
+        },
+        {
+         "question": "The attribute-selection measure used by ID3, C4.5 and CART respectively is:",
+         "options": {
+          "A": "Support, confidence, lift",
+          "B": "Information gain, gain ratio, Gini index",
+          "C": "Gini index, information gain, gain ratio",
+          "D": "Gain ratio, Gini index, information gain"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). All three build decision trees top-down."
+        },
+        {
+         "question": "The entropy of a set containing two classes in equal proportion is:",
+         "options": {
+          "A": "0.5 bit",
+          "B": "2 bits",
+          "C": "0",
+          "D": "1 bit"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "−(½ log₂ ½ + ½ log₂ ½) = 1. A pure set has entropy 0."
+        },
+        {
+         "question": "The naive Bayes classifier assumes that:",
+         "options": {
+          "A": "Classes are equally likely",
+          "B": "Data has no noise",
+          "C": "Attributes are conditionally independent of one another given the class",
+          "D": "All attributes are equal"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "The assumption simplifies computing P(X | C)."
+        },
+        {
+         "question": "k-nearest-neighbour (k-NN) is called a 'lazy learner' because it:",
+         "options": {
+          "A": "Builds a tree in advance",
+          "B": "Never classifies anything",
+          "C": "Ignores distance",
+          "D": "Stores the training data and does the real work only when a new item must be classified"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Decision trees and naive Bayes are eager learners."
+        },
+        {
+         "question": "A model that fits the training data very closely but performs poorly on new data is:",
+         "options": {
+          "A": "Normalizing",
+          "B": "Overfitting",
+          "C": "Clustering",
+          "D": "Underfitting"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Tree pruning and cross-validation reduce overfitting."
+        },
+        {
+         "question": "Accuracy computed from a confusion matrix is:",
+         "options": {
+          "A": "TP / (TP + FP)",
+          "B": "FP / (FP + TN)",
+          "C": "(TP + TN) / (TP + TN + FP + FN)",
+          "D": "TP / (TP + FN)"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "TP / (TP + FP) is precision; TP / (TP + FN) is recall."
+        },
+        {
+         "question": "Recall (sensitivity) is defined as:",
+         "options": {
+          "A": "TP / (TP + FP)",
+          "B": "TP / (TP + FN)",
+          "C": "(TP + TN) / total",
+          "D": "TN / (TN + FP)"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is the fraction of actual positives that are found."
+        },
+        {
+         "question": "Which statement about k-means clustering is TRUE?",
+         "options": {
+          "A": "It finds clusters of any shape and ignores noise",
+          "B": "It needs labelled data",
+          "C": "It always finds the global optimum",
+          "D": "The number of clusters k must be given in advance, and the result depends on the initial centroids"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "k-medoids is less sensitive to outliers."
+        },
+        {
+         "question": "Agglomerative hierarchical clustering:",
+         "options": {
+          "A": "Needs k in advance",
+          "B": "Uses support and confidence",
+          "C": "Starts with each object as its own cluster and repeatedly merges the closest clusters",
+          "D": "Starts with one cluster and splits it"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). Divisive clustering works top-down. The result is drawn as a dendrogram."
+        },
+        {
+         "question": "DBSCAN is a ____ clustering method that can find clusters of arbitrary shape and mark noise points.",
+         "options": {
+          "A": "Grid-based only",
+          "B": "Model-based neural",
+          "C": "Partitioning",
+          "D": "Density-based"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "It uses the parameters ε (radius) and MinPts."
+        },
+        {
+         "question": "Linear regression is used to:",
+         "options": {
+          "A": "Predict a class label such as yes/no",
+          "B": "Predict a continuous numeric value from one or more variables",
+          "C": "Find frequent itemsets",
+          "D": "Group unlabeled data"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). The line y = a + bx is fitted by the method of least squares."
+        },
+        {
+         "question": "Detecting fraudulent credit-card transactions that differ greatly from normal behaviour is an example of:",
+         "options": {
+          "A": "Association rule mining",
+          "B": "Roll-up",
+          "C": "Outlier (anomaly) analysis",
+          "D": "Data cleaning only"
+         },
+         "answer": "C",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Outliers can be the most interesting objects."
+        },
+        {
+         "question": "In k-fold cross-validation:",
+         "options": {
+          "A": "The data is split into k parts; each part is used once for testing while the rest train the model",
+          "B": "Only one test set is ever used",
+          "C": "Training and testing use the same data",
+          "D": "k models are averaged without testing"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "10-fold cross-validation is common."
+        },
+        {
+         "question": "Lift for a rule A ⇒ B greater than 1 means that:",
+         "options": {
+          "A": "A and B are negatively correlated",
+          "B": "A and B are positively correlated – A's presence raises the chance of B",
+          "C": "The rule is invalid",
+          "D": "A and B are independent"
+         },
+         "answer": "B",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Lift = confidence(A ⇒ B) / support(B)."
+        },
+        {
+         "question": "Match the algorithm with its task:\na. Apriori\nb. ID3\nc. k-means\nd. Linear regression\n\n1. Finds frequent itemsets\n2. Predicts a numeric value\n3. Partitions data into k clusters\n4. Builds a decision tree using information gain",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-1, b-4, c-2, d-3",
+          "C": "a-4, b-1, c-3, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "PYQ pattern (KEA / KSET papers). Algorithm-task matching is common in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Classification needs labelled training data.\nII. Clustering needs class labels for every object.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Clustering discovers the groups itself."
+        },
+        {
+         "question": "Assertion (A): If {milk, bread} is not frequent, {milk, bread, eggs} cannot be frequent.\nReason (R): Every subset of a frequent itemset must be frequent.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "This is the Apriori property used for pruning."
+        },
+        {
+         "question": "Assertion (A): k-means always finds the globally best clustering.\nReason (R): k-means is sensitive to the choice of initial centroids.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "It may converge to a local optimum, so A is false."
+        },
+        {
+         "question": "Predicting whether a loan applicant is 'safe' or 'risky' is a ____ task.",
+         "options": {
+          "A": "Classification",
+          "B": "Clustering",
+          "C": "Regression of a continuous value",
+          "D": "Association"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "The output is a categorical class label."
+        },
+        {
+         "question": "Precision is defined as:",
+         "options": {
+          "A": "TN / (TN + FN)",
+          "B": "(TP + TN) / total",
+          "C": "TP / (TP + FN)",
+          "D": "TP / (TP + FP)"
+         },
+         "answer": "D",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "It is the fraction of predicted positives that are really positive."
+        },
+        {
+         "question": "Summarising the general features of a target class, such as students with high grades, is called:",
+         "options": {
+          "A": "Characterization",
+          "B": "Clustering",
+          "C": "Outlier analysis",
+          "D": "Association"
+         },
+         "answer": "A",
+         "subject": "Data Mining – Association, Classification, Clustering and Regression",
+         "explanation": "Discrimination compares the target class with contrasting classes."
         }
        ]
       }

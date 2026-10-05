@@ -1,0 +1,1513 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 6 — System Software & Operating Systems",
+ "description": "2 of 15 topics so far (4 sets × 30 questions): System Software; OS Basics. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 6 – System Software & Operating Systems",
+   "icon": "⚙️",
+   "topics": [
+    {
+     "name": "System Software",
+     "sets": [
+      {
+       "name": "1 · Language Levels and Translators – Compilers, Interpreters, Assemblers",
+       "questions": [
+        {
+         "question": "The role of a compiler in software development is",
+         "options": {
+          "A": "To execute the program",
+          "B": "To convert high level code to machine code",
+          "C": "To debug errors in the code",
+          "D": "To store data"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "A compiler translates the whole source program into machine (object) code. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q78"
+        },
+        {
+         "question": "A compiler is used for",
+         "options": {
+          "A": "Converting machine language to high level programming language",
+          "B": "Converting high level programming language to machine language",
+          "C": "Running software application",
+          "D": "Managing hardware devices"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Translation goes from the high-level source to machine language. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q67"
+        },
+        {
+         "question": "Which of the following is/are the example/examples of low-level programming language?\n(a) Python\n(b) Java\n(c) C\n(d) Machine language",
+         "options": {
+          "A": "a & b only",
+          "B": "c & d only",
+          "C": "a, b & c",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Machine (and assembly) language are low-level; KEA's key treats C as a high-level language. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q73"
+        },
+        {
+         "question": "Match the following:\nGeneration of Languages: a) Second generation language  b) Third generation language  c) Fourth generation language  d) Fifth generation language\nExample: i. Prolog  ii. FoxPro  iii. Assembler  iv. Pascal",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "2GL assembly, 3GL procedural languages such as Pascal, 4GL database/query tools such as FoxPro, 5GL logic languages such as Prolog. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q85"
+        },
+        {
+         "question": "Which of the following is NOT considered as an essential part of a computer system's hardware?",
+         "options": {
+          "A": "CPU",
+          "B": "Keyboard",
+          "C": "Compiler",
+          "D": "Monitor"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "A compiler is system software, not hardware. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q68"
+        },
+        {
+         "question": "Which of the following helps Assembler to deal with branching code?",
+         "options": {
+          "A": "One Pass Assembler",
+          "B": "Two Pass Assembler",
+          "C": "Debugger",
+          "D": "Interpreter"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "The first pass builds the symbol table, so forward branch targets are known in the second pass. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q59"
+        },
+        {
+         "question": "A symbol table in assembler contains",
+         "options": {
+          "A": "Mapping of variables and their memory addresses",
+          "B": "Program code and data",
+          "C": "Input and output instructions",
+          "D": "Machine instructions and opcodes."
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "The symbol table maps labels and symbols to addresses; opcodes are in the machine-opcode table. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q79"
+        },
+        {
+         "question": "Machine language is:",
+         "options": {
+          "A": "Written in English words",
+          "B": "Portable to every processor",
+          "C": "Binary instructions that the CPU executes directly; it is machine-dependent",
+          "D": "A language that needs a compiler"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). It needs no translation, but is very hard to write."
+        },
+        {
+         "question": "Assembly language uses ____ and is translated into machine code by a(n) ____.",
+         "options": {
+          "A": "Binary digits only; compiler",
+          "B": "English sentences; interpreter",
+          "C": "Mnemonics such as MOV and ADD; assembler",
+          "D": "Flowcharts; linker"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each assembly statement usually maps to one machine instruction."
+        },
+        {
+         "question": "A key difference between a compiler and an interpreter is that:",
+         "options": {
+          "A": "There is no difference",
+          "B": "An interpreter produces an object file",
+          "C": "A compiler executes line by line",
+          "D": "A compiler translates the whole program before execution; an interpreter translates and executes one statement at a time"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Compiled programs usually run faster; interpreters make debugging easier."
+        },
+        {
+         "question": "An interpreter, on meeting an error in line 20 of a program:",
+         "options": {
+          "A": "Ignores the error",
+          "B": "Stops there after executing lines 1–19",
+          "C": "Reports all errors before running anything",
+          "D": "Converts the program to assembly"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "A compiler reports errors for the whole program before any of it runs."
+        },
+        {
+         "question": "The usual order of the phases of a compiler is:",
+         "options": {
+          "A": "Syntax analysis → lexical analysis → code generation → optimization",
+          "B": "Semantic analysis → lexical analysis → parsing → code generation",
+          "C": "Code generation → lexical analysis → parsing → optimization",
+          "D": "Lexical analysis → syntax analysis → semantic analysis → intermediate code → code optimization → code generation"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). The symbol table and error handler are used by all phases."
+        },
+        {
+         "question": "The lexical analyzer (scanner) of a compiler produces:",
+         "options": {
+          "A": "Object code",
+          "B": "A parse tree",
+          "C": "A stream of tokens",
+          "D": "An optimized program"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "The parser (syntax analyzer) then builds a parse tree from the tokens."
+        },
+        {
+         "question": "A cross-compiler is a compiler that:",
+         "options": {
+          "A": "Translates between two high-level languages only",
+          "B": "Runs only on the target machine",
+          "C": "Compiles itself",
+          "D": "Runs on one machine but produces code for a different machine"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used to build software for embedded systems."
+        },
+        {
+         "question": "In a two-pass assembler, the main task of pass 1 is to:",
+         "options": {
+          "A": "Assign addresses to all statements using the location counter and build the symbol table",
+          "B": "Execute the program",
+          "C": "Generate the final machine code",
+          "D": "Load the program"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pass 2 uses the symbol table to generate the object code."
+        },
+        {
+         "question": "Using a label in an instruction before the label is defined is called a:",
+         "options": {
+          "A": "Relocation",
+          "B": "Backward reference",
+          "C": "Forward reference",
+          "D": "Macro call"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "One-pass assemblers handle it with back-patching."
+        },
+        {
+         "question": "Assembler directives (pseudo-ops) such as START, END and EQU:",
+         "options": {
+          "A": "Are system calls",
+          "B": "Give instructions to the assembler and do not themselves become machine instructions",
+          "C": "Are machine instructions",
+          "D": "Are executed by the CPU"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). DC/DS (or DB/DW) reserve or define storage."
+        },
+        {
+         "question": "The table that holds the mnemonic opcodes and their machine codes in an assembler is the:",
+         "options": {
+          "A": "Literal table",
+          "B": "Symbol table",
+          "C": "Machine-opcode table (MOT / OPTAB)",
+          "D": "Page table"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Labels and their addresses are in the symbol table."
+        },
+        {
+         "question": "In an assembler, the location counter is used to:",
+         "options": {
+          "A": "Count the number of errors",
+          "B": "Store the program's output",
+          "C": "Count lines of comments",
+          "D": "Keep track of the address of the next instruction or data item"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "It is advanced by the length of each instruction."
+        },
+        {
+         "question": "In Java, the compiler javac translates source code into:",
+         "options": {
+          "A": "Bytecode, which the Java Virtual Machine interprets or compiles just-in-time",
+          "B": "HTML",
+          "C": "Assembly language",
+          "D": "Native machine code for one CPU only"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "This gives 'write once, run anywhere' portability."
+        },
+        {
+         "question": "A program that converts machine code back into assembly language is a:",
+         "options": {
+          "A": "Compiler",
+          "B": "Disassembler",
+          "C": "Loader",
+          "D": "Linker"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "A decompiler tries to recover high-level source."
+        },
+        {
+         "question": "Match the translator with its job:\na. Assembler\nb. Compiler\nc. Interpreter\nd. Cross-compiler\n\n1. Translates a whole high-level program into object code\n2. Translates assembly language into machine code\n3. Produces code for a different machine\n4. Translates and runs statement by statement",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Translator matching is common in KEA papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Machine language is machine-dependent.\nII. Assembly language programs run unchanged on every type of processor.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Assembly language is specific to a processor family."
+        },
+        {
+         "question": "Assertion (A): A two-pass assembler handles forward references easily.\nReason (R): Pass 1 records the addresses of all labels in the symbol table.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Pass 2 can then fill in every address."
+        },
+        {
+         "question": "Assertion (A): An interpreter produces a separate object file that can be run later without the interpreter.\nReason (R): An interpreter translates and executes a program statement by statement.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "No object file is produced, so A is false."
+        },
+        {
+         "question": "Which of these is a high-level language?",
+         "options": {
+          "A": "x86 assembly language",
+          "B": "Python",
+          "C": "Binary microcode",
+          "D": "Machine language"
+         },
+         "answer": "B",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "High-level languages are close to human language and machine-independent."
+        },
+        {
+         "question": "Code optimization in a compiler aims to:",
+         "options": {
+          "A": "Load the program into memory",
+          "B": "Find spelling mistakes in comments",
+          "C": "Produce tokens",
+          "D": "Make the target code faster or smaller without changing what the program does"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "It works on intermediate code and/or target code."
+        },
+        {
+         "question": "A missing semicolon in a C statement is detected during:",
+         "options": {
+          "A": "Code optimization",
+          "B": "Loading",
+          "C": "Syntax analysis (parsing)",
+          "D": "Linking"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Type mismatches and undeclared variables are found in semantic analysis."
+        },
+        {
+         "question": "Literals such as =F'5' in an assembly program are collected by the assembler in the:",
+         "options": {
+          "A": "Opcode table",
+          "B": "Macro name table",
+          "C": "Page table",
+          "D": "Literal table (LITTAB)"
+         },
+         "answer": "D",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "They are placed in a literal pool, e.g. at an LTORG statement."
+        },
+        {
+         "question": "Writing a compiler for a language in that same language, and using a simpler version to compile it, is called:",
+         "options": {
+          "A": "Linking",
+          "B": "Cross-compiling",
+          "C": "Bootstrapping",
+          "D": "Interpreting"
+         },
+         "answer": "C",
+         "subject": "Language Levels and Translators – Compilers, Interpreters, Assemblers",
+         "explanation": "Most C compilers are themselves written in C."
+        }
+       ]
+      },
+      {
+       "name": "2 · Linkers, Loaders, Macros, Debuggers and Types of Software",
+       "questions": [
+        {
+         "question": "What is the role of linker in compilation?",
+         "options": {
+          "A": "Translates source code to object code",
+          "B": "Generates intermediate code",
+          "C": "Combines different compiled modules",
+          "D": "Performs code optimization"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "The linker combines object modules and libraries into one executable, resolving external references. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q23"
+        },
+        {
+         "question": "In the process of macro expansion given:\nS₁: lexical substitution implies replacement of a character string by another string during program generation\nS₂: lexical substitution is employed to replace occurrences of formal parameters by some random values\nWhich of the following holds good?",
+         "options": {
+          "A": "Both S₁ and S₂ are true",
+          "B": "Both S₁ and S₂ are false",
+          "C": "S₁ is false and S₂ is true",
+          "D": "S₁ is true and S₂ is false"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Formal parameters are replaced by the actual parameters of the call, not by random values (Dhamdhere). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q41"
+        },
+        {
+         "question": "Which of the following statement/statements about software is/are correct?\n(a) Software can be categorized into system software and application software\n(b) System software includes operating system and device drives\n(c) Application software includes software for tasks like word processing\n(d) All system and application softwares are open-sources",
+         "options": {
+          "A": "a, b & c only",
+          "B": "b & c only",
+          "C": "a & d only",
+          "D": "a only"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Much software is proprietary, so (d) is false. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q77"
+        },
+        {
+         "question": "Match the following software with their respective categories\nSoftware: (a) Microsoft Word  (b) Ubuntu Linux  (c) Eclipse IDE  (d) Norton Antivirus\nCategory: i) Application software  ii) Development software  iii) Utility software  iv) System software",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – i, b – iv, c – ii, d – iii"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Word – application; Ubuntu – system (OS); Eclipse – development; Norton – utility. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q80"
+        },
+        {
+         "question": "Which of the following softwares is considered as application software?",
+         "options": {
+          "A": "Windows OS",
+          "B": "Linux OS",
+          "C": "Microsoft Excel",
+          "D": "BIOS"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Operating systems and firmware are system software. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q74"
+        },
+        {
+         "question": "Which of the following is an example of system software?",
+         "options": {
+          "A": "Microsoft Word",
+          "B": "Google Chrome",
+          "C": "Windows 10",
+          "D": "Adobe Photoshop"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "An operating system is system software. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q75"
+        },
+        {
+         "question": "Which of the following is an example of application software?",
+         "options": {
+          "A": "Windows OS",
+          "B": "Google Chrome",
+          "C": "Linux Kernel",
+          "D": "Device Drivers"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "A web browser is an application program. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q82"
+        },
+        {
+         "question": "Static linking differs from dynamic linking because in static linking:",
+         "options": {
+          "A": "The program cannot call functions",
+          "B": "Library code is copied into the executable at link time; in dynamic linking shared libraries (.dll, .so) are linked at load or run time",
+          "C": "No libraries are used",
+          "D": "Linking happens while the program is running"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Dynamic linking saves memory and lets libraries be updated without relinking."
+        },
+        {
+         "question": "A loader is the system program that:",
+         "options": {
+          "A": "Translates source code",
+          "B": "Checks spelling",
+          "C": "Designs the user interface",
+          "D": "Places an executable program into main memory and prepares it for execution"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Loading is the last step before execution."
+        },
+        {
+         "question": "The four functions of a loader are:",
+         "options": {
+          "A": "Reading, writing, opening and closing",
+          "B": "Allocation, linking, relocation and loading",
+          "C": "Lexing, parsing, optimizing and generating",
+          "D": "Compiling, testing, debugging and deploying"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Classic textbook list (Donovan)."
+        },
+        {
+         "question": "Relocation means:",
+         "options": {
+          "A": "Copying a program to another computer",
+          "B": "Moving files between folders",
+          "C": "Adjusting the address-dependent parts of a program so it can run from a memory area other than the one assumed when it was translated",
+          "D": "Renaming variables"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Relocation bits or modification records tell the loader which words to adjust."
+        },
+        {
+         "question": "An absolute loader:",
+         "options": {
+          "A": "Relocates every address",
+          "B": "Loads the program at the address fixed by the assembler, with no relocation",
+          "C": "Compiles the program",
+          "D": "Performs dynamic linking"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Simple, but the programmer must know where the program will be loaded."
+        },
+        {
+         "question": "The small program, stored in ROM/firmware, that starts loading the operating system when a computer is switched on is the:",
+         "options": {
+          "A": "Linker",
+          "B": "Debugger",
+          "C": "Macro processor",
+          "D": "Bootstrap loader"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). It loads the boot loader or kernel from disk."
+        },
+        {
+         "question": "A 'compile-and-go' (assemble-and-go) loader:",
+         "options": {
+          "A": "Places the translated code directly in memory and starts execution, without producing an object file",
+          "B": "Links many modules from disk",
+          "C": "Relocates programs at run time",
+          "D": "Only loads the OS"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Fast, but the program must be translated again every time it is run."
+        },
+        {
+         "question": "Dynamic loading means that:",
+         "options": {
+          "A": "Loading is done by the compiler",
+          "B": "All routines are loaded at start",
+          "C": "The program is loaded twice",
+          "D": "A routine is loaded into memory only when it is first called"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Unused routines (e.g. error handlers) are never loaded."
+        },
+        {
+         "question": "A macro is:",
+         "options": {
+          "A": "A subroutine called at run time with a return address",
+          "B": "A named group of statements that is substituted (expanded) wherever its name is used",
+          "C": "An operating system",
+          "D": "A type of loader"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Macro expansion is done by a macro processor (pre-processor) before translation."
+        },
+        {
+         "question": "Compared with a subroutine call, a macro call:",
+         "options": {
+          "A": "Is slower to execute",
+          "B": "Needs a return instruction",
+          "C": "Is expanded in-line at every use, making the program larger but avoiding call/return overhead",
+          "D": "Keeps a single copy of the code"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Subroutines keep one copy and use CALL/RETURN."
+        },
+        {
+         "question": "In assembler macro definitions, the body of the macro lies between the pseudo-ops:",
+         "options": {
+          "A": "MACRO and MEND",
+          "B": "BEGIN and STOP",
+          "C": "CALL and RET",
+          "D": "START and END"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "The macro name and its formal parameters follow MACRO."
+        },
+        {
+         "question": "The tables maintained by a two-pass macro processor include:",
+         "options": {
+          "A": "Routing table",
+          "B": "Page table and frame table",
+          "C": "Macro Name Table (MNT), Macro Definition Table (MDT) and Argument List Array (ALA)",
+          "D": "Symbol table only"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "MNT points into the MDT for each macro."
+        },
+        {
+         "question": "A debugger is a tool that helps a programmer to:",
+         "options": {
+          "A": "Design databases",
+          "B": "Find and fix errors using breakpoints, single-stepping and inspection of variables",
+          "C": "Compile code faster",
+          "D": "Load the OS"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). e.g. gdb, or the debugger built into an IDE."
+        },
+        {
+         "question": "A breakpoint in debugging is:",
+         "options": {
+          "A": "A marked point where program execution pauses so the programmer can examine its state",
+          "B": "A hardware fault",
+          "C": "The last line of the program",
+          "D": "A syntax error"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "Execution can then be continued or stepped."
+        },
+        {
+         "question": "Match the system program with its role:\na. Loader\nb. Linker\nc. Macro processor\nd. Debugger\n\n1. Places the program in memory for execution\n2. Combines object modules and resolves external references\n3. Expands macro calls\n4. Helps locate errors with breakpoints",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). System-program matching appears in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. A macro call is replaced by the macro body during expansion.\nII. A subroutine's body is copied into the program at every call.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "A subroutine has a single copy reached by CALL."
+        },
+        {
+         "question": "An external reference in an object module is:",
+         "options": {
+          "A": "A use of a symbol defined in another module, which the linker resolves",
+          "B": "A comment line",
+          "C": "A local variable",
+          "D": "A syntax error"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "EXTRN / ENTRY (or extern / global) declarations mark such symbols."
+        },
+        {
+         "question": "The output of a linker is typically a(n):",
+         "options": {
+          "A": "Stream of tokens",
+          "B": "Executable (load) module",
+          "C": "Source program",
+          "D": "Parse tree"
+         },
+         "answer": "B",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "The loader then brings the executable into memory."
+        },
+        {
+         "question": "Utility software includes programs such as:",
+         "options": {
+          "A": "Compilers only",
+          "B": "Word processors and games",
+          "C": "Antivirus, disk defragmenter, backup and file-compression tools",
+          "D": "Operating system kernels only"
+         },
+         "answer": "C",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "PYQ pattern (KEA / KSET papers). Utilities help maintain and optimise the computer."
+        },
+        {
+         "question": "A device driver is classified as:",
+         "options": {
+          "A": "Hardware",
+          "B": "A programming language",
+          "C": "Application software",
+          "D": "System software"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "It lets the OS control a particular device."
+        },
+        {
+         "question": "Conditional macro expansion (e.g. AIF and AGO in IBM assembler) allows:",
+         "options": {
+          "A": "Macros to be called at run time",
+          "B": "Macros to be loaded dynamically",
+          "C": "Debugging of macros only",
+          "D": "Different statements to be generated depending on the macro's arguments"
+         },
+         "answer": "D",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "The expansion-time variables and labels are processed by the macro processor."
+        },
+        {
+         "question": "Assertion (A): Relocation is needed when a program is loaded at an address different from the one assumed during translation.\nReason (R): Address-sensitive instructions contain addresses computed from the assumed origin.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "The loader adds the difference to each such address."
+        },
+        {
+         "question": "In system programming, a text editor is used to:",
+         "options": {
+          "A": "Create and modify source programs and other text files",
+          "B": "Execute programs",
+          "C": "Link object modules",
+          "D": "Allocate main memory"
+         },
+         "answer": "A",
+         "subject": "Linkers, Loaders, Macros, Debuggers and Types of Software",
+         "explanation": "e.g. vi, nano, Notepad."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "OS Basics",
+     "sets": [
+      {
+       "name": "1 · Operating System Functions, Types and Structure",
+       "questions": [
+        {
+         "question": "A set of programs that controls the resources of a system and provides it to the users with an interface that is easier to use is called",
+         "options": {
+          "A": "Utility programs",
+          "B": "Application software",
+          "C": "Operating system",
+          "D": "Firmware"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "The OS manages resources and offers a convenient interface. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q89"
+        },
+        {
+         "question": "Which one among the following is not a basic function of operating system?",
+         "options": {
+          "A": "Virus protection",
+          "B": "File management",
+          "C": "Device management",
+          "D": "Process management"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Virus protection is done by separate utility (antivirus) software. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q74"
+        },
+        {
+         "question": "Which of the following is the primary goal of an operating system?",
+         "options": {
+          "A": "To provide a platform for running applications",
+          "B": "To manage hardware resources",
+          "C": "To execute instructions",
+          "D": "To manage application software"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "KEA's key: the OS is above all a resource manager. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q48"
+        },
+        {
+         "question": "Which one of the following is not true?",
+         "options": {
+          "A": "Kernel remains in the memory during the entire computer session.",
+          "B": "Kernel is made of various modules which cannot be loaded in running operating system.",
+          "C": "Kernel is the first part of the operating system to load into the memory during booting.",
+          "D": "Kernel is the program that constitutes the central core of the operating system."
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Modern kernels such as Linux support loadable modules that can be added while the system runs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q4"
+        },
+        {
+         "question": "Match the following:\nOperating System: a) Android  b) Windows Operating System  c) Linux  d) OS-X\nCompanies: i. Microsoft  ii. Google  iii. Apple  iv. Open source",
+         "options": {
+          "A": "a - i, b - ii, c - iii, d - iv",
+          "B": "a - ii, b - i, c - iv, d - iii",
+          "C": "a - iii, b - i, c - ii, d - iv",
+          "D": "a - ii, b - iii, c - iv, d - i"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Android – Google; Windows – Microsoft; Linux – open source; OS X (macOS) – Apple. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q9"
+        },
+        {
+         "question": "Which of the following is/are open source operating system?\n(a) Linux  (b) Opensolaris\n(c) BSD  (d) Android",
+         "options": {
+          "A": "a & b only",
+          "B": "a, b & c only",
+          "C": "a & d only",
+          "D": "a, b, c & d"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "All four are open source (Android's core is the Android Open Source Project). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q79"
+        },
+        {
+         "question": "An example of non-real-time systems is",
+         "options": {
+          "A": "Nuclear reactor",
+          "B": "Air traffic control system",
+          "C": "Old email services",
+          "D": "Satellite tracking"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "E-mail has no strict deadlines; the others need guaranteed response times. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q74"
+        },
+        {
+         "question": "Which one of the following errors will be handled by the operating system?",
+         "options": {
+          "A": "Power failure",
+          "B": "Lack of paper in printer",
+          "C": "Connection failure in the network",
+          "D": "Failure of power, connection and Lack of paper"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Error detection is an OS service covering hardware, I/O devices and the network. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q49"
+        },
+        {
+         "question": "An operating system acts as:",
+         "options": {
+          "A": "An intermediary between the user and the computer hardware, and a manager of its resources",
+          "B": "A compiler for all languages",
+          "C": "Only a file storage area",
+          "D": "A type of hardware"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Silberschatz: the OS is a resource allocator and a control program."
+        },
+        {
+         "question": "In a batch operating system:",
+         "options": {
+          "A": "Strict deadlines must always be met",
+          "B": "Similar jobs are grouped and run one after another without user interaction",
+          "C": "Many computers act as one",
+          "D": "Users interact with programs while they run"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Early mainframes used batch processing with punched cards."
+        },
+        {
+         "question": "Multiprogramming means:",
+         "options": {
+          "A": "Running one program at a time",
+          "B": "Writing programs in many languages",
+          "C": "Keeping several jobs in memory so the CPU can switch to another job when one waits for I/O",
+          "D": "Using many CPUs for one job"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its aim is to increase CPU utilisation."
+        },
+        {
+         "question": "A time-sharing (multitasking) system:",
+         "options": {
+          "A": "Never switches between processes",
+          "B": "Runs jobs only at night",
+          "C": "Has no scheduler",
+          "D": "Switches the CPU among users' programs so quickly that each user gets fast interactive response"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each process receives a short time slice (quantum)."
+        },
+        {
+         "question": "A hard real-time system is one in which:",
+         "options": {
+          "A": "Missing a deadline is a system failure, e.g. an airbag controller or a pacemaker",
+          "B": "Deadlines are only targets",
+          "C": "There are no deadlines",
+          "D": "Only batch jobs are run"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). In soft real-time systems, such as video streaming, an occasional missed deadline is tolerable."
+        },
+        {
+         "question": "Privileged instructions, such as I/O and timer management, can be executed only in:",
+         "options": {
+          "A": "Any mode",
+          "B": "User mode",
+          "C": "Debug mode only",
+          "D": "Kernel (supervisor) mode"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). A mode bit in hardware tells which mode the CPU is in."
+        },
+        {
+         "question": "In a monolithic kernel:",
+         "options": {
+          "A": "Most OS services run together in a single address space in kernel mode",
+          "B": "Only message passing is in the kernel",
+          "C": "There is no kernel",
+          "D": "Every service is a user program"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Traditional UNIX and Linux are monolithic (Linux with loadable modules)."
+        },
+        {
+         "question": "A microkernel design:",
+         "options": {
+          "A": "Puts all drivers in the kernel",
+          "B": "Cannot be extended",
+          "C": "Keeps only essential functions (IPC, basic scheduling, memory) in the kernel and runs other services in user space",
+          "D": "Has no inter-process communication"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: Mach, QNX, MINIX 3. It is more reliable but message passing adds overhead."
+        },
+        {
+         "question": "In the layered approach to OS design:",
+         "options": {
+          "A": "All layers can call each other freely",
+          "B": "Each layer uses only the services of the layers below it; layer 0 is the hardware",
+          "C": "The user interface is layer 0",
+          "D": "There is only one layer"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Dijkstra's THE system used this structure."
+        },
+        {
+         "question": "Windows NT-based systems and macOS are usually described as having a:",
+         "options": {
+          "A": "Exokernel",
+          "B": "No kernel",
+          "C": "Hybrid kernel",
+          "D": "Pure microkernel"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "They combine features of monolithic and microkernel designs."
+        },
+        {
+         "question": "SPOOLING stands for:",
+         "options": {
+          "A": "System Program Of Operating Logic",
+          "B": "Simultaneous Peripheral Operations On-Line",
+          "C": "Serial Processing Of Online Logic",
+          "D": "Simple Peripheral Output Online"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Print jobs are spooled to disk and printed one by one."
+        },
+        {
+         "question": "A timer interrupt is used by the OS mainly to:",
+         "options": {
+          "A": "Speed up the disk",
+          "B": "Format the hard disk",
+          "C": "Display the time on screen only",
+          "D": "Prevent a user program from keeping the CPU forever"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "When the timer expires, control returns to the OS."
+        },
+        {
+         "question": "Match the type of OS with its feature:\na. Batch\nb. Time-sharing\nc. Real-time\nd. Distributed\n\n1. Many networked computers appear as one system\n2. Must respond within strict time limits\n3. Interactive use by many users with time slices\n4. Similar jobs grouped and run without interaction",
+         "options": {
+          "A": "a-4, b-3, c-2, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-3, b-4, c-2, d-1"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). OS-type matching is very common."
+        },
+        {
+         "question": "Consider the statements:\nI. Privileged instructions execute only in kernel mode.\nII. A microkernel runs many services, such as file systems, in user space.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Both are standard facts."
+        },
+        {
+         "question": "Assertion (A): Multiprogramming increases CPU utilisation.\nReason (R): When one job waits for I/O, the CPU switches to another job in memory.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "The CPU is not left idle."
+        },
+        {
+         "question": "Assertion (A): Hard real-time systems may occasionally miss deadlines without harm.\nReason (R): In soft real-time systems, a missed deadline lowers quality but is not catastrophic.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "In hard real-time systems a missed deadline is a failure, so A is false."
+        },
+        {
+         "question": "Symmetric multiprocessing (SMP) means:",
+         "options": {
+          "A": "Every processor runs the OS and all processors are peers",
+          "B": "One master processor controls the others",
+          "C": "Only one processor is ever used",
+          "D": "Processors work in different buildings"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Asymmetric multiprocessing uses a master–slave arrangement."
+        },
+        {
+         "question": "A distributed operating system:",
+         "options": {
+          "A": "Is a batch system",
+          "B": "Manages networked computers so that they appear to users as one system",
+          "C": "Runs on a single CPU only",
+          "D": "Cannot use a network"
+         },
+         "answer": "B",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). It shares resources and computation across machines."
+        },
+        {
+         "question": "The program that reads and carries out typed user commands, such as bash in Linux, is the:",
+         "options": {
+          "A": "Kernel",
+          "B": "Loader",
+          "C": "Compiler",
+          "D": "Shell (command interpreter)"
+         },
+         "answer": "D",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "PYQ pattern (KEA / KSET papers). Windows has cmd.exe and PowerShell."
+        },
+        {
+         "question": "Loadable kernel modules in Linux allow:",
+         "options": {
+          "A": "The kernel to be deleted",
+          "B": "Booting without a kernel",
+          "C": "Drivers and file systems to be added to or removed from the running kernel",
+          "D": "User programs to run in kernel mode"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "This gives a monolithic kernel some of a microkernel's flexibility."
+        },
+        {
+         "question": "Which of these is an embedded / real-time operating system?",
+         "options": {
+          "A": "VxWorks",
+          "B": "MySQL",
+          "C": "Google Chrome",
+          "D": "Microsoft Excel"
+         },
+         "answer": "A",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "FreeRTOS and QNX are other examples."
+        },
+        {
+         "question": "The main disadvantage of a microkernel compared with a monolithic kernel is:",
+         "options": {
+          "A": "Lower reliability",
+          "B": "A much larger kernel",
+          "C": "Extra overhead from message passing between user-space services",
+          "D": "It cannot be extended"
+         },
+         "answer": "C",
+         "subject": "Operating System Functions, Types and Structure",
+         "explanation": "Each service request may need several context switches."
+        }
+       ]
+      },
+      {
+       "name": "2 · OS Services, System Calls and Booting",
+       "questions": [
+        {
+         "question": "To access the services of the operating system, the interface is provided by",
+         "options": {
+          "A": "Library",
+          "B": "System calls",
+          "C": "Assembly instructions",
+          "D": "API"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "System calls are the interface between a running program and the OS kernel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q3"
+        },
+        {
+         "question": "Match the following types of system calls with their description\nSystem calls: a. Process control  b. File management  c. Device management  d. Information maintenance\nDescription: i. Creates and deletes files  ii. Schedules and terminates processes  iii. Performs input and output operations.  iv. Retrieves system status information",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Process control – create/terminate processes; file management – create/delete files; device management – I/O; information maintenance – time, date, system data. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q42"
+        },
+        {
+         "question": "Which of the following is NOT a type of system call?",
+         "options": {
+          "A": "Process control",
+          "B": "File manipulation",
+          "C": "Database operations",
+          "D": "Device management"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "The six types: process control, file manipulation, device management, information maintenance, communications and protection. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q49"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): Software drivers enable the operating system to communicate with hardware system.\nReason (R): Without the appropriate drivers, an operating system cannot operate hardware devices.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Drivers translate the OS's generic requests into device-specific commands. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q72"
+        },
+        {
+         "question": "The ____ presents a uniform device access interface to the IO subsystem, much as system calls provide a standard interface between the application and the operating system",
+         "options": {
+          "A": "Device drivers",
+          "B": "I/O systems",
+          "C": "Devices",
+          "D": "Buses"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Silberschatz: device drivers hide device differences from the I/O subsystem. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q46"
+        },
+        {
+         "question": "Where is BIOS usually stored?",
+         "options": {
+          "A": "Flash memory on the mother board",
+          "B": "Hard disk",
+          "C": "RAM",
+          "D": "Device Driver"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "BIOS/UEFI firmware lives in flash ROM on the motherboard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q69"
+        },
+        {
+         "question": "What is the correct sequence of system booting?",
+         "options": {
+          "A": "POST → BOOT DEVICE SELECTION → LOADING OS → BIOS",
+          "B": "POST → BIOS → BOOT DEVICE SELECTION → LOADING OS",
+          "C": "BOOT DEVICE SELECTION → BIOS → POST → LOADING OS",
+          "D": "BOOT DEVICE SELECTION → POST → BIOS → LOADING OS"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "KEA's key: POST, then the BIOS hands over to the boot device, which loads the OS. (Strictly, POST is itself run by the BIOS.) (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q75"
+        },
+        {
+         "question": "Which of the following is a type of BIOS used in modern systems?",
+         "options": {
+          "A": "POST",
+          "B": "UEFI (Unified Extensible Firmware Interface)",
+          "C": "CMOS",
+          "D": "USB"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "UEFI has replaced the legacy BIOS on modern PCs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q76"
+        },
+        {
+         "question": "Which of these is a service provided by an operating system?",
+         "options": {
+          "A": "Writing application programs",
+          "B": "Designing hardware circuits",
+          "C": "Typing documents for the user",
+          "D": "Program execution, I/O operations, file-system manipulation, communication and error detection"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). Also resource allocation, accounting, and protection and security."
+        },
+        {
+         "question": "A system call:",
+         "options": {
+          "A": "Runs only in user mode",
+          "B": "Is a phone call to the system administrator",
+          "C": "Is the way a program requests a service from the OS kernel; it switches the CPU from user mode to kernel mode",
+          "D": "Is a hardware fault"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is implemented with a trap (software interrupt)."
+        },
+        {
+         "question": "fork(), exec(), wait() and exit() in UNIX are examples of ____ system calls.",
+         "options": {
+          "A": "Device management",
+          "B": "Communication",
+          "C": "File management",
+          "D": "Process control"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). fork() creates a child process; exec() loads a new program into it."
+        },
+        {
+         "question": "open(), read(), write() and close() are examples of ____ system calls.",
+         "options": {
+          "A": "Protection",
+          "B": "Process control",
+          "C": "Information maintenance",
+          "D": "File management"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "The same calls are used for many devices in UNIX."
+        },
+        {
+         "question": "getpid(), alarm() and sleep() in UNIX belong to the ____ category of system calls.",
+         "options": {
+          "A": "Communication",
+          "B": "File management",
+          "C": "Information maintenance",
+          "D": "Device management"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Windows equivalents include GetCurrentProcessID() and SetTimer()."
+        },
+        {
+         "question": "The Windows system call that corresponds to UNIX fork() for creating a process is:",
+         "options": {
+          "A": "OpenFile()",
+          "B": "SetTimer()",
+          "C": "ReadConsole()",
+          "D": "CreateProcess()"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Silberschatz lists Windows and UNIX equivalents side by side."
+        },
+        {
+         "question": "Application programmers usually call system services through an API such as POSIX or the Windows API because:",
+         "options": {
+          "A": "APIs avoid the kernel completely",
+          "B": "APIs run faster than the hardware",
+          "C": "APIs are portable and hide the details of the actual system calls",
+          "D": "System calls are illegal"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). The run-time library turns API functions into system calls."
+        },
+        {
+         "question": "Parameters can be passed to the OS in a system call:",
+         "options": {
+          "A": "In registers, in a block or table in memory whose address is in a register, or on the stack",
+          "B": "Only through files",
+          "C": "Only by the keyboard",
+          "D": "Only through the network"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Linux and Solaris combine registers and memory blocks."
+        },
+        {
+         "question": "On most PCs, the first sector of a boot disk (512 bytes) that holds the boot loader and partition table in the legacy scheme is the:",
+         "options": {
+          "A": "Page table",
+          "B": "Master Boot Record (MBR)",
+          "C": "File Allocation Table",
+          "D": "Inode"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "UEFI systems use the GUID Partition Table (GPT) instead."
+        },
+        {
+         "question": "GRUB is:",
+         "options": {
+          "A": "A compiler",
+          "B": "A text editor",
+          "C": "A file system",
+          "D": "A boot loader commonly used to start Linux"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). It can offer a menu to choose between several operating systems."
+        },
+        {
+         "question": "After the Linux kernel is loaded and initialised, the first user-space process it starts (PID 1) is:",
+         "options": {
+          "A": "cron",
+          "B": "init (systemd on most modern distributions)",
+          "C": "gcc",
+          "D": "bash"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "It starts all other services."
+        },
+        {
+         "question": "Restarting a computer that is already on, without switching off the power, is called a:",
+         "options": {
+          "A": "Cold boot",
+          "B": "Hard reset of the BIOS",
+          "C": "Warm boot",
+          "D": "Format"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). A cold boot starts from power off."
+        },
+        {
+         "question": "Separating policy from mechanism in OS design means:",
+         "options": {
+          "A": "The mechanism decides how something is done; the policy decides what is done, so policies can change without changing mechanisms",
+          "B": "Policies are written in assembly only",
+          "C": "Mechanisms are decided by users",
+          "D": "Both are the same"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "e.g. a timer is a mechanism; how long a time slice should be is a policy."
+        },
+        {
+         "question": "Match the UNIX system call with its category:\na. fork()\nb. open()\nc. ioctl()\nd. getpid()\n\n1. Information maintenance\n2. File management\n3. Process control\n4. Device management",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-3, b-2, c-4, d-1",
+          "D": "a-2, b-3, c-4, d-1"
+         },
+         "answer": "C",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). A frequent matching question."
+        },
+        {
+         "question": "Consider the statements:\nI. A system call switches the CPU from user mode to kernel mode.\nII. The bootstrap program is stored in RAM before the computer is switched on.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "RAM is empty at power-on; the bootstrap is in ROM/flash firmware."
+        },
+        {
+         "question": "pipe(), shmget() and send()/recv() are examples of ____ system calls.",
+         "options": {
+          "A": "Information maintenance",
+          "B": "Process control",
+          "C": "File management",
+          "D": "Communication"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Message passing and shared memory are the two communication models."
+        },
+        {
+         "question": "chmod() and umask() in UNIX are examples of ____ system calls.",
+         "options": {
+          "A": "Device management",
+          "B": "Protection",
+          "C": "Process control",
+          "D": "Communication"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "They control access permissions on files."
+        },
+        {
+         "question": "POST (Power-On Self-Test) is performed to:",
+         "options": {
+          "A": "Test application software",
+          "B": "Check that essential hardware such as memory, keyboard and video works before the OS is loaded",
+          "C": "Format the disk",
+          "D": "Install the OS"
+         },
+         "answer": "B",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "PYQ pattern (KEA / KSET papers). Beep codes report failures."
+        },
+        {
+         "question": "CMOS memory on the motherboard stores:",
+         "options": {
+          "A": "User documents",
+          "B": "The operating system",
+          "C": "The swap file",
+          "D": "BIOS settings such as date, time and boot order, kept alive by a small battery"
+         },
+         "answer": "D",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Removing the battery resets these settings."
+        },
+        {
+         "question": "An operating system's user interface can be:",
+         "options": {
+          "A": "Command-line (CLI), graphical (GUI) or touch-screen",
+          "B": "Only graphical",
+          "C": "Only punched cards",
+          "D": "Only voice"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "Many systems offer more than one."
+        },
+        {
+         "question": "Most modern operating systems are written mainly in:",
+         "options": {
+          "A": "C and C++, with small parts in assembly language",
+          "B": "Only assembly language",
+          "C": "Only Java",
+          "D": "HTML"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "High-level languages make the OS easier to port and maintain."
+        },
+        {
+         "question": "Assertion (A): Application programs normally reach the kernel only through system calls.\nReason (R): User-mode programs cannot execute privileged instructions directly.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "OS Services, System Calls and Booting",
+         "explanation": "The trap into kernel mode is controlled by the OS."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
