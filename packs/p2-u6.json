@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 6 — System Software & Operating Systems",
- "description": "5 of 15 topics so far (10 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "7 of 15 topics so far (14 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads; CPU Scheduling; Deadlocks. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 6 – System Software & Operating Systems",
@@ -3728,6 +3728,1497 @@
          "answer": "A",
          "subject": "Thread Libraries, Implicit Threading and Threading Issues",
          "explanation": "It is another example of implicit threading."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "CPU Scheduling",
+     "sets": [
+      {
+       "name": "1 · Scheduling Criteria, FCFS, SJF and SRTF",
+       "questions": [
+        {
+         "question": "Which of the following is not a CPU scheduling algorithm?",
+         "options": {
+          "A": "Shortest Job First",
+          "B": "FCFS",
+          "C": "Round Robin",
+          "D": "Roll Back Scheduling"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Rollback is a recovery action, not a scheduling algorithm. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q71"
+        },
+        {
+         "question": "Which of the following is a disadvantage of First Come First Served (FCFS) scheduling algorithm?",
+         "options": {
+          "A": "It leads to starvation of processes",
+          "B": "It may cause high waiting time for processes",
+          "C": "It is a preemptive scheduling algorithm",
+          "D": "It requires knowledge of burst times."
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Short jobs may wait behind a long one (convoy effect), so average waiting time can be high. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q35"
+        },
+        {
+         "question": "Consider the following processes and their burst times\nProcess – Burst Time: P₁ – 5, P₂ – 8, P₃ – 3, P₄ – 6, P₅ – 7\nIf the CPU scheduling is performed using Shortest Job First (SJF) (non-preemptive), then what will be the correct sequence of processes executed?",
+         "options": {
+          "A": "P₃, P₁, P₄, P₅, P₂",
+          "B": "P₃, P₁, P₂, P₅, P₄",
+          "C": "P₁, P₃, P₄, P₅, P₂",
+          "D": "P₃, P₄, P₁, P₅, P₂"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Shortest burst first: 3, 5, 6, 7, 8. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q36"
+        },
+        {
+         "question": "In SRT process scheduling algorithm, the arrival & execution time of the four processes are as follows.\nArrival time – Execution time – Process: 0 – 20 – P₁; 15 – 25 – P₂; 30 – 10 – P₃; 45 – 15 – P₄\nWhat will be the process 'P₂' total waiting time?",
+         "options": {
+          "A": "40",
+          "B": "15",
+          "C": "55",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "P₁ runs 0–20; P₂ runs 20–30, is preempted by P₃ (30–40), resumes 40–50; P₄ runs 50–65. P₂ waits (20 − 15) + (40 − 30) = 15. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q14"
+        },
+        {
+         "question": "Consider a single processor system with four processes A, B, C and D represented as given below, where for each process the first value is its arrival time and second value is its CPU burst time\nA(0, 10), B(2, 6), C(4, 3) and D(6, 7)\nWhich of the following options gives the average waiting time when preemptive Shortest Remaining Time First (SRTF) and the Non-Preemptive Shortest Job First (NP-SJF) CPU scheduling algorithms are applied to the process?",
+         "options": {
+          "A": "SRTF = 6  NP-SJF = 7",
+          "B": "SRTF = 6  NP-SJF = 7.5",
+          "C": "SRTF = 7  NP-SJF = 7.5",
+          "D": "SRTF = 7  NP-SJF = 8.5"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "SRTF: A 0–2, B 2–4, C 4–7, B 7–11, D 11–18, A 18–26 → waits 16, 3, 0, 5 → 6. NP-SJF: A 0–10, C 10–13, B 13–19, D 19–26 → waits 0, 11, 6, 13 → 7.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q42"
+        },
+        {
+         "question": "Consider the following set of processes that arrive at time 0 with length of the CPU burst time given in milliseconds: P1 = 26, P2 = 4, P3 = 5. What is the average waiting time for the processes that arrive in the orders P1, P2, P3 and P2, P1, P3 under FCFS policy?",
+         "options": {
+          "A": "18.65 and 11.32",
+          "B": "18.66 and 11.33",
+          "C": "18.64 and 11.31",
+          "D": "18.63 and 11.32"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Order 1: waits 0, 26, 30 → 56/3 ≈ 18.67. Order 2: waits 0, 4, 30 → 34/3 ≈ 11.33. Option 2 is the closest (truncated) value. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q43"
+        },
+        {
+         "question": "____ is invoked when there is a need to perform process scheduling, that is when a process from the ready queue is to be selected for dispatching to the CPU.",
+         "options": {
+          "A": "Long-Term Scheduler",
+          "B": "Medium-Term Scheduler",
+          "C": "Short-Term Scheduler",
+          "D": "Non-preemptive Scheduler"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "The short-term (CPU) scheduler picks the next ready process for the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q22"
+        },
+        {
+         "question": "Process execution alternates between periods of computation and waiting for I/O. This is called the:",
+         "options": {
+          "A": "Context switch",
+          "B": "Thrashing",
+          "C": "Working set",
+          "D": "CPU–I/O burst cycle"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "CPU-bound processes have a few long bursts; I/O-bound processes many short ones."
+        },
+        {
+         "question": "In preemptive scheduling:",
+         "options": {
+          "A": "The CPU can be taken away from a running process, e.g. when a higher-priority process arrives or a time slice ends",
+          "B": "A process keeps the CPU until it finishes or blocks",
+          "C": "Only batch jobs are run",
+          "D": "No context switch ever happens"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). Non-preemptive (cooperative) scheduling switches only when the running process terminates or waits."
+        },
+        {
+         "question": "A good CPU scheduling algorithm tries to:",
+         "options": {
+          "A": "Minimise throughput",
+          "B": "Maximise response time",
+          "C": "Maximise CPU utilisation and throughput; minimise turnaround, waiting and response times",
+          "D": "Maximise waiting time"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). The five classic scheduling criteria."
+        },
+        {
+         "question": "Turnaround time of a process is:",
+         "options": {
+          "A": "Time of first response − arrival time",
+          "B": "Waiting time − burst time",
+          "C": "Completion time − arrival time",
+          "D": "Burst time − arrival time"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). Waiting time = turnaround time − burst time."
+        },
+        {
+         "question": "A process arrives at time 2, has a CPU burst of 5 and completes at time 10. Its waiting time is:",
+         "options": {
+          "A": "5",
+          "B": "10",
+          "C": "8",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Turnaround = 10 − 2 = 8; waiting = 8 − 5 = 3."
+        },
+        {
+         "question": "Response time, important in interactive systems, is the time from submission of a request until:",
+         "options": {
+          "A": "The next I/O request",
+          "B": "The process completes",
+          "C": "The process is swapped out",
+          "D": "The first response is produced"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "It is different from turnaround time."
+        },
+        {
+         "question": "The number of processes that complete their execution per unit time is called:",
+         "options": {
+          "A": "Turnaround time",
+          "B": "Response time",
+          "C": "Throughput",
+          "D": "Waiting time"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Higher throughput means more work done."
+        },
+        {
+         "question": "Three processes arrive at time 0 in the order P1, P2, P3 with bursts 24, 3 and 3 ms. Under FCFS the average waiting time is:",
+         "options": {
+          "A": "27 ms",
+          "B": "3 ms",
+          "C": "10 ms",
+          "D": "17 ms"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). Waits 0, 24, 27 → 51/3 = 17. If the order were P2, P3, P1 the average would be (0 + 3 + 6)/3 = 3."
+        },
+        {
+         "question": "The 'convoy effect' – many short processes waiting behind one long CPU-bound process – is typical of:",
+         "options": {
+          "A": "Round Robin scheduling",
+          "B": "Multilevel feedback scheduling",
+          "C": "FCFS scheduling",
+          "D": "SJF scheduling"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). It lowers CPU and device utilisation."
+        },
+        {
+         "question": "Which scheduling algorithm gives the minimum average waiting time for a given set of processes?",
+         "options": {
+          "A": "Priority with random priorities",
+          "B": "Shortest Job First (SJF)",
+          "C": "FCFS",
+          "D": "Round Robin"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). SJF is provably optimal for average waiting time."
+        },
+        {
+         "question": "Processes P1–P4 arrive at time 0 with bursts 6, 8, 7 and 3. Under non-preemptive SJF the average waiting time is:",
+         "options": {
+          "A": "7",
+          "B": "8.75",
+          "C": "6",
+          "D": "10.25"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Order P4, P1, P3, P2: waits 0, 3, 9, 16 → 28/4 = 7."
+        },
+        {
+         "question": "The main practical difficulty with SJF is that:",
+         "options": {
+          "A": "The length of the next CPU burst is not known in advance and must be predicted",
+          "B": "It always causes deadlock",
+          "C": "It is preemptive only",
+          "D": "It needs a time quantum"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). Predicted with exponential averaging: τ(n+1) = α·t(n) + (1 − α)·τ(n)."
+        },
+        {
+         "question": "Using exponential averaging with α = 0.5, a previous prediction τ = 10 ms and an actual last burst t = 6 ms, the next predicted burst is:",
+         "options": {
+          "A": "16 ms",
+          "B": "6 ms",
+          "C": "8 ms",
+          "D": "10 ms"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "0.5 × 6 + 0.5 × 10 = 8."
+        },
+        {
+         "question": "Shortest Remaining Time First (SRTF) is:",
+         "options": {
+          "A": "Round Robin with a small quantum",
+          "B": "The preemptive version of SJF",
+          "C": "Another name for FCFS",
+          "D": "The non-preemptive version of priority scheduling"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "A newly arrived process with a shorter remaining time preempts the running one."
+        },
+        {
+         "question": "A drawback of SJF and SRTF is that:",
+         "options": {
+          "A": "They have very high context-switch overhead in all cases",
+          "B": "Short processes always wait longest",
+          "C": "They cannot be used in batch systems",
+          "D": "Long processes may starve if short ones keep arriving"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Ageing can be used to prevent starvation."
+        },
+        {
+         "question": "The simplest CPU scheduling algorithm to implement, using a FIFO queue, is:",
+         "options": {
+          "A": "Lottery scheduling",
+          "B": "FCFS",
+          "C": "Multilevel feedback queue",
+          "D": "SRTF"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "New processes join the tail; the CPU goes to the head."
+        },
+        {
+         "question": "Match the scheduling measure with its definition:\na. Turnaround time\nb. Waiting time\nc. Response time\nd. Throughput\n\n1. Processes completed per unit time\n2. Time until the first response\n3. Total time spent in the ready queue\n4. Completion time − arrival time",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "C",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "PYQ pattern (KEA / KSET papers). Criteria matching is common."
+        },
+        {
+         "question": "Consider the statements:\nI. SJF minimises the average waiting time.\nII. FCFS is a preemptive algorithm.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "FCFS is non-preemptive."
+        },
+        {
+         "question": "Assertion (A): FCFS scheduling may cause the convoy effect.\nReason (R): Short processes have to wait behind a long CPU-bound process.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "That is the definition of the convoy effect."
+        },
+        {
+         "question": "A Gantt chart in CPU scheduling shows:",
+         "options": {
+          "A": "The memory map of processes",
+          "B": "The file allocation table",
+          "C": "The network topology",
+          "D": "Which process runs on the CPU during each interval of time"
+         },
+         "answer": "D",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Numerical scheduling questions are solved by drawing one."
+        },
+        {
+         "question": "Which scheduling algorithm can be either preemptive or non-preemptive?",
+         "options": {
+          "A": "SJF (non-preemptive SJF or preemptive SRTF)",
+          "B": "None",
+          "C": "FCFS only",
+          "D": "Round Robin only"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Priority scheduling can also be either."
+        },
+        {
+         "question": "In a non-preemptive scheduler, a context switch to another process happens only when the running process:",
+         "options": {
+          "A": "Terminates or switches to the waiting state",
+          "B": "Reads a variable",
+          "C": "Is interrupted by a higher-priority arrival",
+          "D": "Uses up a time quantum"
+         },
+         "answer": "A",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Windows 3.x and early Mac OS used cooperative (non-preemptive) scheduling."
+        },
+        {
+         "question": "Which criterion matters MOST for an interactive (time-sharing) user?",
+         "options": {
+          "A": "Turnaround time of batch jobs",
+          "B": "Response time",
+          "C": "Throughput",
+          "D": "Disk utilisation"
+         },
+         "answer": "B",
+         "subject": "Scheduling Criteria, FCFS, SJF and SRTF",
+         "explanation": "Users want the system to react quickly."
+        }
+       ]
+      },
+      {
+       "name": "2 · Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+       "questions": [
+        {
+         "question": "There are 10 different processes running on a workstation. Idle processes are waiting for an input event in the input Queue. Busy processes are scheduled with Round Robin time sharing method. Which of the following quantum times is the best value for small response times, if the processes have a short run time, eg., less than 10 ms?",
+         "options": {
+          "A": "tQ = 15 ms",
+          "B": "tQ = 40 ms",
+          "C": "tQ = 45 ms",
+          "D": "tQ = 50 ms"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "A quantum just above the typical burst lets most processes finish in one slice while keeping response time small. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q1"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\nI. Shortest remaining time first scheduling may cause starvation.\nII. Preemptive scheduling may cause starvation.\nIII. Round Robin is better than FCFS in terms of response time.",
+         "options": {
+          "A": "I only",
+          "B": "I and III only",
+          "C": "II and III only",
+          "D": "I, II and III"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "All three are true. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q2"
+        },
+        {
+         "question": "Match the following with respect to scheduling algorithm\na) FCFS  b) SJF  c) RR  d) Priority Scheduling\ni. Allocation based on the lowest CPU burst time  ii. According to the arrival time of the process, the CPU is allocated.  iii. According to the priority  iv. According to the order of the process arrives with fixed time quantum.",
+         "options": {
+          "A": "a - i, b - iii, c - iv, d - ii",
+          "B": "a - ii, b - i, c - iv, d - iii",
+          "C": "a - iv, b - iii, c - i, d - ii",
+          "D": "a - iv, b - ii, c - iii, d - i"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "FCFS – arrival order; SJF – shortest burst; RR – arrival order with a fixed quantum; Priority – by priority. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q13"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): The Round Robin (RR) scheduling algorithm is considered a preemptive scheduling algorithm.\nReason (R): The Round Robin (RR) algorithm allocates a fixed time slice to each process in the ready queue before moving to the next process.",
+         "options": {
+          "A": "Both (A) and (R) are true but reason is not the correct explanation of assertion.",
+          "B": "Both (A) and (R) are true and reason is the correct explanation of assertion",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "When the time slice expires the process is preempted – that is why RR is preemptive. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q41"
+        },
+        {
+         "question": "In a priority scheduling algorithm, which of the following are true?\na. Higher priority processes are executed first\nb. Starvation can occur if low-priority processes are never executed\nc. Equal priority processes are executed in the order they arrive.\nd. Preemption is mandatory in priority scheduling",
+         "options": {
+          "A": "a and b",
+          "B": "a, b and c",
+          "C": "a, b, c and d",
+          "D": "a, c and d"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Priority scheduling can be preemptive or non-preemptive, so (d) is false; ties are broken FCFS. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q46"
+        },
+        {
+         "question": "Which scheduling algorithm is used in realtime systems to ensure that critical processes meet their deadlines?",
+         "options": {
+          "A": "Round Robin (RR)",
+          "B": "Shortest Job First (SJF)",
+          "C": "Earliest Deadline First (EDF)",
+          "D": "First Come, First Served (FCFS)"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "EDF gives the highest priority to the process with the nearest deadline. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q50"
+        },
+        {
+         "question": "Match List-I with List-II:\n(a) FCFS Scheduling\n(b) SJF Scheduling\n(c) Priority Scheduling\n(d) RR Scheduling\n(i) Shortest burst time\n(ii) Indefinite Blocking\n(iii) Time slice\n(iv) Convoy effect",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – iii, b – ii, c – iv, d – i",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – i, b – iii, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "FCFS suffers the convoy effect, SJF picks the shortest burst, priority scheduling risks starvation, RR uses a time quantum. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q50"
+        },
+        {
+         "question": "In Silberschatz's convention for priority scheduling:",
+         "options": {
+          "A": "All processes have equal priority",
+          "B": "A larger number always means higher priority",
+          "C": "Priority is fixed at zero",
+          "D": "A smaller priority number means a higher priority"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Conventions differ between systems, so read each question carefully."
+        },
+        {
+         "question": "Starvation of low-priority processes in priority scheduling is solved by:",
+         "options": {
+          "A": "Using a smaller quantum",
+          "B": "Paging",
+          "C": "Thrashing",
+          "D": "Ageing – gradually increasing the priority of waiting processes"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ageing is the standard answer."
+        },
+        {
+         "question": "Round Robin scheduling is designed especially for:",
+         "options": {
+          "A": "Batch systems only",
+          "B": "Real-time hard deadlines only",
+          "C": "Single-user embedded devices",
+          "D": "Time-sharing (interactive) systems"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is FCFS with preemption after each time quantum."
+        },
+        {
+         "question": "In Round Robin, if the time quantum is made very large, the algorithm behaves like:",
+         "options": {
+          "A": "FCFS",
+          "B": "SJF",
+          "C": "SRTF",
+          "D": "Priority scheduling"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). If it is very small, context-switch overhead dominates."
+        },
+        {
+         "question": "Processes P1, P2, P3 arrive at time 0 with bursts 24, 3 and 3 ms. With Round Robin and quantum 4 ms, the average waiting time is about:",
+         "options": {
+          "A": "17 ms",
+          "B": "7 ms",
+          "C": "5.67 ms",
+          "D": "3 ms"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Order P1(0–4), P2(4–7), P3(7–10), P1(10–30): waits 6, 4, 7 → 17/3 ≈ 5.67."
+        },
+        {
+         "question": "A rule of thumb for choosing the RR time quantum is that:",
+         "options": {
+          "A": "The quantum should be longer than every burst",
+          "B": "About 80% of CPU bursts should be shorter than the quantum",
+          "C": "The quantum should be 1 µs",
+          "D": "The quantum should equal the context-switch time"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Then most processes finish in one quantum without too many switches."
+        },
+        {
+         "question": "In a multilevel queue scheduler:",
+         "options": {
+          "A": "Processes freely move between queues based on behaviour",
+          "B": "The ready queue is split into separate queues (e.g. foreground interactive, background batch), and a process stays permanently in one queue",
+          "C": "There is only one queue",
+          "D": "Each process has its own CPU"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each queue may use its own algorithm, e.g. RR for foreground and FCFS for background."
+        },
+        {
+         "question": "A multilevel feedback queue scheduler differs from a multilevel queue because:",
+         "options": {
+          "A": "It has only one queue",
+          "B": "It cannot use Round Robin",
+          "C": "It is never preemptive",
+          "D": "Processes can move between queues – CPU-hungry processes move down, long-waiting ones move up"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is the most general – and most complex – scheduling scheme."
+        },
+        {
+         "question": "Rate-monotonic scheduling for periodic real-time tasks:",
+         "options": {
+          "A": "Picks tasks at random",
+          "B": "Uses a time quantum",
+          "C": "Assigns static priorities – the shorter the period, the higher the priority",
+          "D": "Assigns priorities by nearest deadline dynamically"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). EDF assigns dynamic priorities by deadline."
+        },
+        {
+         "question": "The worst-case CPU-utilisation bound for rate-monotonic scheduling of two tasks is about:",
+         "options": {
+          "A": "83%",
+          "B": "69%",
+          "C": "50%",
+          "D": "100%"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "n(2^(1/n) − 1): about 83% for n = 2, tending to 69% as n grows. EDF can, in theory, reach 100%."
+        },
+        {
+         "question": "Processor affinity means:",
+         "options": {
+          "A": "Running a process on all processors at once",
+          "B": "Giving a process the highest priority",
+          "C": "Keeping a process on the same processor to benefit from its warm cache",
+          "D": "Moving processes randomly"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Soft affinity tries to do this; hard affinity guarantees it."
+        },
+        {
+         "question": "In multiprocessor scheduling, moving tasks from an overloaded processor to an idle one is:",
+         "options": {
+          "A": "Spooling",
+          "B": "Swapping",
+          "C": "Thrashing",
+          "D": "Load balancing (push or pull migration)"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "It may conflict with processor affinity."
+        },
+        {
+         "question": "Linux's default scheduler for normal tasks, the Completely Fair Scheduler (CFS), keeps runnable tasks in a:",
+         "options": {
+          "A": "Simple FIFO queue",
+          "B": "Red-black tree ordered by virtual runtime (vruntime)",
+          "C": "Stack",
+          "D": "Hash table by PID"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). The task with the smallest vruntime runs next."
+        },
+        {
+         "question": "Windows schedules threads using a priority scheme with:",
+         "options": {
+          "A": "32 priority levels",
+          "B": "2 levels",
+          "C": "4 levels",
+          "D": "140 levels"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Levels 16–31 are the real-time class; 1–15 the variable class."
+        },
+        {
+         "question": "Lottery scheduling gives each process tickets and picks a random ticket. It is an example of:",
+         "options": {
+          "A": "FCFS",
+          "B": "Proportional-share scheduling",
+          "C": "Rate-monotonic scheduling",
+          "D": "SJF"
+         },
+         "answer": "B",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "A process with more tickets gets more CPU time on average."
+        },
+        {
+         "question": "In thread scheduling, competition among the user threads of the same process (many-to-one / many-to-many models) is called:",
+         "options": {
+          "A": "Process-contention scope (PCS)",
+          "B": "System-contention scope (SCS)",
+          "C": "Kernel scope",
+          "D": "Global scope"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Kernel threads compete with all threads in the system (SCS)."
+        },
+        {
+         "question": "Match the scheduler with its key idea:\na. Rate-monotonic\nb. Earliest Deadline First\nc. Linux CFS\nd. Multilevel feedback queue\n\n1. Fair share using a red-black tree of virtual runtimes\n2. Processes move between queues according to behaviour\n3. Dynamic priority by the nearest deadline\n4. Static priority by the shortest period",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Advanced scheduling matching."
+        },
+        {
+         "question": "Consider the statements:\nI. Ageing prevents starvation in priority scheduling.\nII. Round Robin with a very large quantum behaves like FCFS.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Both are standard results."
+        },
+        {
+         "question": "Assertion (A): A very small Round Robin quantum makes the system inefficient.\nReason (R): Context-switch overhead becomes large compared with useful work.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "The quantum should be large compared with the context-switch time."
+        },
+        {
+         "question": "In symmetric multiprocessing (SMP) scheduling:",
+         "options": {
+          "A": "Each processor is self-scheduling, from a common or private ready queue",
+          "B": "Only one master processor schedules all others",
+          "C": "Processes never move between processors",
+          "D": "Scheduling is done by hardware alone"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Asymmetric multiprocessing has one master processor doing all scheduling."
+        },
+        {
+         "question": "Which statement about preemptive priority scheduling is TRUE?",
+         "options": {
+          "A": "It never causes starvation",
+          "B": "It cannot be used in real-time systems",
+          "C": "It is the same as FCFS",
+          "D": "A newly arrived higher-priority process immediately takes the CPU from a lower-priority running process"
+         },
+         "answer": "D",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "Non-preemptive priority would only put the new process at the head of the ready queue."
+        },
+        {
+         "question": "In Round Robin with n processes in the ready queue and quantum q, no process waits more than:",
+         "options": {
+          "A": "(n − 1) × q time units before its next quantum",
+          "B": "One quantum",
+          "C": "q / n",
+          "D": "n × n × q"
+         },
+         "answer": "A",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "This bounded wait is why RR gives good response times."
+        },
+        {
+         "question": "Which algorithm is most suitable for a batch system where all job lengths are known in advance and average waiting time must be minimal?",
+         "options": {
+          "A": "Multilevel queue with random priorities",
+          "B": "Round Robin",
+          "C": "SJF",
+          "D": "Lottery scheduling"
+         },
+         "answer": "C",
+         "subject": "Priority, Round Robin, Multilevel, Multiprocessor and Real-time Scheduling",
+         "explanation": "SJF is optimal for average waiting time."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Deadlocks",
+     "sets": [
+      {
+       "name": "1 · Deadlock Conditions, Resource-allocation Graph and Prevention",
+       "questions": [
+        {
+         "question": "A process needs to release all resources before it makes any requests for another resources. Select the true statement from the following.",
+         "options": {
+          "A": "Deadlock cannot occur, but starvation can occur",
+          "B": "Both deadlock and starvation can occur",
+          "C": "Neither deadlock nor starvation can occur",
+          "D": "Deadlock can occur but starvation cannot occur"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "This breaks the hold-and-wait condition, so deadlock is impossible, but a process may wait indefinitely for popular resources. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q16"
+        },
+        {
+         "question": "Which is the correct sequence of steps involved in resolving deadlock using the resource allocation graph method?",
+         "options": {
+          "A": "Check for cycles → Identify deadlocked processes → Release Resources",
+          "B": "Identify deadlocked processes → Check for cycles → Release Resources",
+          "C": "Check for cycles → Release Resources → Identify deadlocked processes",
+          "D": "Identify deadlocked processes → Release Resources → Check for cycles"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "A cycle reveals the deadlocked processes, whose resources are then released (by aborting or preempting). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q38"
+        },
+        {
+         "question": "A deadlock is a situation in which:",
+         "options": {
+          "A": "A process is waiting for I/O to complete",
+          "B": "The CPU is idle because no process exists",
+          "C": "Each process in a set waits for an event that only another process in the set can cause",
+          "D": "A process runs forever"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). None of the processes can proceed."
+        },
+        {
+         "question": "The four necessary conditions for deadlock (Coffman conditions) are:",
+         "options": {
+          "A": "Mutual exclusion, starvation, ageing and paging",
+          "B": "Mutual exclusion, hold and wait, no preemption and circular wait",
+          "C": "Hold and wait, preemption, spooling and swapping",
+          "D": "Circular wait, thrashing, paging and segmentation"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). All four must hold at the same time for a deadlock."
+        },
+        {
+         "question": "Which of the following is NOT one of the necessary conditions for deadlock?",
+         "options": {
+          "A": "Circular wait",
+          "B": "Preemption of resources",
+          "C": "Hold and wait",
+          "D": "Mutual exclusion"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "The condition is 'no preemption'."
+        },
+        {
+         "question": "In a resource-allocation graph, an edge Pi → Rj means:",
+         "options": {
+          "A": "Pi has released Rj",
+          "B": "Rj is unused",
+          "C": "Resource Rj is assigned to Pi",
+          "D": "Process Pi has requested resource Rj (request edge)"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). Rj → Pi is an assignment edge."
+        },
+        {
+         "question": "If a resource-allocation graph has no cycle, then:",
+         "options": {
+          "A": "Every process is waiting",
+          "B": "The system is unsafe",
+          "C": "No process is deadlocked",
+          "D": "A deadlock definitely exists"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). A cycle is necessary for deadlock."
+        },
+        {
+         "question": "If every resource type has exactly one instance, a cycle in the resource-allocation graph:",
+         "options": {
+          "A": "Means the system is safe",
+          "B": "Means a process has finished",
+          "C": "Never implies deadlock",
+          "D": "Implies that a deadlock has occurred"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). With several instances per type, a cycle is necessary but not sufficient."
+        },
+        {
+         "question": "The methods of handling deadlocks are:",
+         "options": {
+          "A": "Compiling, linking and loading",
+          "B": "Prevention, avoidance, detection and recovery, or ignoring the problem",
+          "C": "FCFS, SJF and Round Robin",
+          "D": "Paging, segmentation and swapping"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ignoring the problem (the 'ostrich algorithm') is what most general-purpose OSs, including Linux and Windows, actually do."
+        },
+        {
+         "question": "Deadlock prevention works by:",
+         "options": {
+          "A": "Granting requests only in safe states",
+          "B": "Detecting cycles periodically",
+          "C": "Ensuring that at least one of the four necessary conditions can never hold",
+          "D": "Killing all processes regularly"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Avoidance uses extra information to stay in safe states."
+        },
+        {
+         "question": "The mutual-exclusion condition generally cannot be denied for:",
+         "options": {
+          "A": "Constants",
+          "B": "Shared code",
+          "C": "Intrinsically non-sharable resources such as a printer or a mutex",
+          "D": "Read-only files"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Spooling a printer is one way around it."
+        },
+        {
+         "question": "Requiring a process to request all its resources before it begins execution prevents deadlock by denying:",
+         "options": {
+          "A": "Mutual exclusion",
+          "B": "No preemption",
+          "C": "Circular wait",
+          "D": "Hold and wait"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). Drawbacks: low resource utilisation and possible starvation."
+        },
+        {
+         "question": "Imposing a total ordering of resource types and requiring processes to request them in increasing order prevents:",
+         "options": {
+          "A": "Mutual exclusion",
+          "B": "Circular wait",
+          "C": "Hold and wait",
+          "D": "Preemption"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). The most practical prevention technique."
+        },
+        {
+         "question": "With the ordering F(tape drive) = 1, F(disk) = 5, F(printer) = 12, a process holding the disk may next request:",
+         "options": {
+          "A": "Only the printer",
+          "B": "Only the tape drive",
+          "C": "Both the tape drive and the printer",
+          "D": "No resource at all"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "It may request only resources with a higher number."
+        },
+        {
+         "question": "If a process holding resources requests another that cannot be granted immediately, and all its held resources are released, the condition denied is:",
+         "options": {
+          "A": "Hold and wait",
+          "B": "Circular wait",
+          "C": "No preemption",
+          "D": "Mutual exclusion"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Its resources are implicitly preempted."
+        },
+        {
+         "question": "Three processes each need at most 2 units of a resource. The minimum number of units that guarantees no deadlock is:",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). n(k − 1) + 1 = 3 × 1 + 1 = 4."
+        },
+        {
+         "question": "Four processes each need at most 3 tape drives. The minimum number of drives that guarantees freedom from deadlock is:",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "12",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "4 × (3 − 1) + 1 = 9."
+        },
+        {
+         "question": "In a livelock:",
+         "options": {
+          "A": "The CPU is switched off",
+          "B": "Processes are blocked waiting forever",
+          "C": "A process is swapped out",
+          "D": "Processes keep changing state in response to each other but make no progress"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Unlike deadlocked processes, livelocked processes are not blocked."
+        },
+        {
+         "question": "Starvation differs from deadlock because a starving process:",
+         "options": {
+          "A": "Is always part of a cycle",
+          "B": "Cannot be helped by ageing",
+          "C": "Waits indefinitely while other processes continue to make progress",
+          "D": "Holds all resources"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "In deadlock, none of the processes in the set can proceed."
+        },
+        {
+         "question": "Spooling the printer helps prevent deadlocks involving the printer by removing:",
+         "options": {
+          "A": "Direct mutual exclusion on the printer – processes write to a spool on disk instead",
+          "B": "Hold and wait on memory",
+          "C": "Circular wait on the CPU",
+          "D": "Preemption"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Only the printer daemon uses the printer directly."
+        },
+        {
+         "question": "Match the deadlock condition with its description:\na. Mutual exclusion\nb. Hold and wait\nc. No preemption\nd. Circular wait\n\n1. A resource can be used by only one process at a time\n2. A resource is released only voluntarily\n3. Holding one resource while waiting for another\n4. A closed chain of processes, each waiting for the next",
+         "options": {
+          "A": "a-1, b-2, c-3, d-4",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-1, c-2, d-4",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "PYQ pattern (KEA / KSET papers). Condition matching is very common."
+        },
+        {
+         "question": "Consider the statements:\nI. With single-instance resources, a cycle in the resource-allocation graph means deadlock.\nII. A resource-allocation graph without a cycle may still contain a deadlock.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "No cycle means no deadlock."
+        },
+        {
+         "question": "Assertion (A): Requesting resources in a fixed increasing order prevents deadlock.\nReason (R): With such an ordering, a circular wait cannot form.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "This is the resource-ordering technique."
+        },
+        {
+         "question": "Assertion (A): A deadlock can occur when only three of the four Coffman conditions hold.\nReason (R): All four conditions are necessary for a deadlock.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "All four must hold at once, so A is false."
+        },
+        {
+         "question": "Ignoring deadlocks and rebooting when one occurs is jokingly called the:",
+         "options": {
+          "A": "Elevator algorithm",
+          "B": "Clock algorithm",
+          "C": "Banker's algorithm",
+          "D": "Ostrich algorithm"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "It is used when deadlocks are rare and prevention is costly."
+        },
+        {
+         "question": "A classic deadlock example: P1 holds the scanner and waits for the printer, while P2 holds the printer and waits for the scanner. Which condition is clearly visible?",
+         "options": {
+          "A": "Circular wait",
+          "B": "Starvation only",
+          "C": "Paging",
+          "D": "Thrashing"
+         },
+         "answer": "A",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "The other three conditions also hold."
+        },
+        {
+         "question": "Denying 'no preemption' is most practical for resources whose state can be easily saved and restored, such as:",
+         "options": {
+          "A": "Printers",
+          "B": "Tape drives in the middle of writing",
+          "C": "CPU registers and memory",
+          "D": "Mutex locks"
+         },
+         "answer": "C",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Printers and locks cannot simply be taken away."
+        },
+        {
+         "question": "Deadlock is possible only if the system has at least:",
+         "options": {
+          "A": "No processes",
+          "B": "Two processes competing for resources",
+          "C": "One resource of each type",
+          "D": "One process"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "A single process alone cannot form a circular wait."
+        },
+        {
+         "question": "Which statement about deadlock prevention is TRUE?",
+         "options": {
+          "A": "It needs advance knowledge of maximum claims",
+          "B": "It never restricts how processes request resources",
+          "C": "It detects deadlocks after they occur",
+          "D": "It can reduce device utilisation and system throughput"
+         },
+         "answer": "D",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "Avoidance needs advance knowledge of maximum claims."
+        },
+        {
+         "question": "A resource-allocation graph has a cycle, but one resource in the cycle has two instances, one of which is held by a process outside the cycle. Then:",
+         "options": {
+          "A": "The system has crashed",
+          "B": "There may be no deadlock – that process can release the instance and break the cycle",
+          "C": "The graph is invalid",
+          "D": "There is certainly a deadlock"
+         },
+         "answer": "B",
+         "subject": "Deadlock Conditions, Resource-allocation Graph and Prevention",
+         "explanation": "With multiple instances, a cycle is necessary but not sufficient."
+        }
+       ]
+      },
+      {
+       "name": "2 · Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+       "questions": [
+        {
+         "question": "Which one of the following is the deadlock avoidance algorithm?",
+         "options": {
+          "A": "Banker's Algorithm",
+          "B": "Round-Robin Algorithm",
+          "C": "Elevator Algorithm",
+          "D": "Optimal Algorithm"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Round Robin is CPU scheduling, the elevator algorithm (SCAN) is disk scheduling, Optimal is page replacement. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q28"
+        },
+        {
+         "question": "A system shares 9 tapes drives. The current allocation and maximum requirements of tapes drives for that processes are shown below.\nProcess – Current Allocation – Max. Requirement: P₁ – 3 – 7; P₂ – 1 – 6; P₃ – 3 – 5\nWhich of the following is NOT best describes the system?",
+         "options": {
+          "A": "Safe states P₃ → P₂ → P₁ and P₃ → P₁ → P₂ exists",
+          "B": "Currently not in a deadlock",
+          "C": "Deadlock never possible as safe status are present",
+          "D": "Deadlock impossible in future, even though we have safe state"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Available = 2. P₃ can finish (needs 2), then either P₁ or P₂, so the state is safe. KEA's key: a safe state now does not by itself mean deadlock can never happen. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q6"
+        },
+        {
+         "question": "Match the following terminology of Banker's Algorithm based on the functionality\na. Available  b. Max  c. Allocation  d. Need\ni. Total demand of resource  ii. Demand for the remaining resource  iii. Now ready resource  iv. Currently allocated to each process",
+         "options": {
+          "A": "a – iii, b – i, c – iv, d – ii",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Available = free now; Max = total demand; Allocation = held now; Need = Max − Allocation. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q54"
+        },
+        {
+         "question": "Which one of the following is not a deadlock recovery method?",
+         "options": {
+          "A": "Resource preemption",
+          "B": "Abort the process",
+          "C": "Hold and wait",
+          "D": "Rollback"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Hold and wait is one of the four necessary conditions for deadlock, not a recovery method. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q24"
+        },
+        {
+         "question": "Consider the following snapshot of a system (Banker's algorithm):\nProcess | Allocation A B C D | Max A B C D\nP0 | 0 0 1 2 | 0 0 1 2\nP1 | 1 0 0 0 | 1 7 5 0\nP2 | 1 3 5 4 | 2 3 5 6\nP3 | 0 6 3 2 | 0 6 5 2\nP4 | 0 0 1 4 | 0 6 5 6\nAvailable = 1 5 2 0.\nFor the processes (i) P0 (ii) P1 (iii) P2 (iv) P3 (v) P4, the correct safe sequence is",
+         "options": {
+          "A": "(i), (ii), (iv), (v), (iii)",
+          "B": "(i), (v), (ii), (iii), (iv)",
+          "C": "(i), (iii), (ii), (iv), (v)",
+          "D": "(i), (v), (iv), (ii), (iii)"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Need: P0 0000, P1 0750, P2 1002, P3 0020, P4 0642. P0 → avail 1532; P2 → 2886; P1 → 3886; P3 → 3 14 11 8; P4 finishes. P1 or P4 cannot run straight after P0. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q47"
+        },
+        {
+         "question": "A system is in a safe state if:",
+         "options": {
+          "A": "A cycle exists in the resource graph",
+          "B": "No process holds any resource",
+          "C": "All resources are free",
+          "D": "There exists a safe sequence in which every process can obtain its maximum needs and finish"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Avoidance keeps the system always in a safe state."
+        },
+        {
+         "question": "Which statement about unsafe states is TRUE?",
+         "options": {
+          "A": "Every unsafe state is a deadlock",
+          "B": "Every deadlock state is unsafe, but not every unsafe state is a deadlock",
+          "C": "Safe states can contain deadlocks",
+          "D": "Unsafe states are always safe"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Deadlocked states are a subset of unsafe states."
+        },
+        {
+         "question": "The Banker's algorithm, proposed by Dijkstra, is suitable for:",
+         "options": {
+          "A": "Deadlock detection only",
+          "B": "Page replacement",
+          "C": "Single-instance resources only",
+          "D": "Deadlock avoidance with multiple instances of each resource type"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). For single instances, a resource-allocation graph with claim edges is enough."
+        },
+        {
+         "question": "In the Banker's algorithm, Need[i][j] is calculated as:",
+         "options": {
+          "A": "Max[i][j] + Allocation[i][j]",
+          "B": "Max[i][j] − Allocation[i][j]",
+          "C": "Allocation[i][j] − Max[i][j]",
+          "D": "Available[j] − Allocation[i][j]"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). The most frequently asked Banker's formula."
+        },
+        {
+         "question": "A process has Max = (7, 5, 3) and Allocation = (0, 1, 0). Its Need is:",
+         "options": {
+          "A": "(7, 5, 3)",
+          "B": "(0, 1, 0)",
+          "C": "(7, 6, 3)",
+          "D": "(7, 4, 3)"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Subtract element by element."
+        },
+        {
+         "question": "A process has a maximum claim of 7 units and holds 3. How many more units may it still request?",
+         "options": {
+          "A": "10",
+          "B": "4",
+          "C": "7",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Need = 7 − 3 = 4."
+        },
+        {
+         "question": "The Banker's algorithm uses the data structures:",
+         "options": {
+          "A": "Page table and frame table",
+          "B": "Ready queue and job queue",
+          "C": "Available, Max, Allocation and Need",
+          "D": "Inode and superblock"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Its safety algorithm takes about m × n² operations (m resource types, n processes)."
+        },
+        {
+         "question": "In the resource-request algorithm, a request is granted only if, after pretending to allocate it:",
+         "options": {
+          "A": "The process becomes the highest priority",
+          "B": "The resource-allocation graph has a cycle",
+          "C": "No other process exists",
+          "D": "The resulting state is safe"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "If the state would be unsafe, the process must wait and the old state is restored."
+        },
+        {
+         "question": "12 tape drives; P0 (max 10, holds 5), P1 (max 4, holds 2), P2 (max 9, holds 2). Available = 3. A safe sequence is:",
+         "options": {
+          "A": "<P1, P0, P2>",
+          "B": "<P2, P0, P1>",
+          "C": "No safe sequence exists",
+          "D": "<P0, P1, P2>"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). P1 needs 2 → done, available 5; P0 needs 5 → done, available 10; then P2 needs 7."
+        },
+        {
+         "question": "In the same system, if P2 is given one more drive (available becomes 2), the state becomes:",
+         "options": {
+          "A": "Unchanged",
+          "B": "Deadlocked immediately",
+          "C": "Safe",
+          "D": "Unsafe – only P1 can finish, and then P0 and P2 cannot"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Silberschatz's classic example of a request that must be refused."
+        },
+        {
+         "question": "Deadlock avoidance requires that each process declare in advance:",
+         "options": {
+          "A": "Its priority",
+          "B": "Its arrival time",
+          "C": "The maximum number of resources of each type it may need",
+          "D": "Its page size"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "That is why avoidance is hard to use in general-purpose systems."
+        },
+        {
+         "question": "For single-instance resources, deadlock detection uses a:",
+         "options": {
+          "A": "Gantt chart",
+          "B": "Wait-for graph – a cycle means deadlock",
+          "C": "Banker's Need matrix only",
+          "D": "Page table"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is obtained from the resource-allocation graph by removing the resource nodes."
+        },
+        {
+         "question": "For resources with several instances, the deadlock-detection algorithm:",
+         "options": {
+          "A": "Is similar to the Banker's safety algorithm, using Available, Allocation and Request matrices",
+          "B": "Looks only for cycles",
+          "C": "Cannot be done",
+          "D": "Uses page faults"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Processes that cannot finish are deadlocked."
+        },
+        {
+         "question": "How often the detection algorithm should run depends mainly on:",
+         "options": {
+          "A": "The screen resolution",
+          "B": "How often deadlocks are likely to occur and how many processes they affect",
+          "C": "The compiler used",
+          "D": "The page size"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "It can run on every request, periodically, or when CPU utilisation drops."
+        },
+        {
+         "question": "The two basic approaches to recovering from deadlock are:",
+         "options": {
+          "A": "Compiling and linking",
+          "B": "Paging and segmentation",
+          "C": "Ageing and spooling",
+          "D": "Process termination and resource preemption"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Termination: abort all deadlocked processes or one at a time until the cycle disappears."
+        },
+        {
+         "question": "When choosing a victim for abortion or preemption, the system considers:",
+         "options": {
+          "A": "Priority, how long the process has computed, resources used and needed, and how many processes must be aborted",
+          "B": "Only the alphabetical order of names",
+          "C": "Only the size of the program file",
+          "D": "Nothing – the choice is random"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "The aim is minimum cost."
+        },
+        {
+         "question": "If the same process is always picked as the victim during resource preemption, the result is:",
+         "options": {
+          "A": "A safe state",
+          "B": "Thrashing",
+          "C": "Starvation – fixed by including the number of rollbacks in the cost",
+          "D": "Belady's anomaly"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Rollback returns the victim to a safe earlier state."
+        },
+        {
+         "question": "The Banker's algorithm gets its name because a bank:",
+         "options": {
+          "A": "Keeps resources in a vault forever",
+          "B": "Lends only to the oldest customer",
+          "C": "Charges interest on resources",
+          "D": "Never lends cash in a way that leaves it unable to satisfy all its customers' maximum needs"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Dijkstra framed the problem as a banker and customers."
+        },
+        {
+         "question": "Match the strategy with its approach:\na. Deadlock prevention\nb. Deadlock avoidance\nc. Deadlock detection\nd. Deadlock recovery\n\n1. Abort or preempt to break an existing deadlock\n2. Grant a request only if the state stays safe\n3. Periodically look for cycles in the wait-for graph\n4. Ensure one of the four conditions can never hold",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-2, b-4, c-3, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Strategy matching is a favourite question."
+        },
+        {
+         "question": "Consider the statements:\nI. Every unsafe state is a deadlock.\nII. In a safe state, the OS can avoid deadlock by allocating carefully.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "An unsafe state may lead to deadlock but is not one yet."
+        },
+        {
+         "question": "Assertion (A): The Banker's algorithm needs each process's maximum claim in advance.\nReason (R): It must check that every process can still finish (a safe sequence) before granting a request.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Without maximum claims, the safety check is impossible."
+        },
+        {
+         "question": "In the Banker's safety algorithm, when a process Pi can finish, the vector Work is updated as:",
+         "options": {
+          "A": "Work = Max_i",
+          "B": "Work = Work + Allocation_i",
+          "C": "Work = 0",
+          "D": "Work = Work − Need_i"
+         },
+         "answer": "B",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Pi releases everything it holds."
+        },
+        {
+         "question": "Which of these is a deadlock PREVENTION technique rather than a recovery technique?",
+         "options": {
+          "A": "Preempting a resource from a victim",
+          "B": "Rolling back a victim",
+          "C": "Requiring every process to request all resources at the start",
+          "D": "Aborting a deadlocked process"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "It denies the hold-and-wait condition."
+        },
+        {
+         "question": "Which method requires the most advance information about processes?",
+         "options": {
+          "A": "Deadlock detection",
+          "B": "Ignoring deadlocks",
+          "C": "Deadlock avoidance",
+          "D": "Recovery by termination"
+         },
+         "answer": "C",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Avoidance needs each process's maximum demands."
+        },
+        {
+         "question": "Aborting all deadlocked processes at once is:",
+         "options": {
+          "A": "A prevention method",
+          "B": "The same as ageing",
+          "C": "Never effective",
+          "D": "Certain to break the deadlock, but expensive because their work is lost"
+         },
+         "answer": "D",
+         "subject": "Deadlock Avoidance (Banker's Algorithm), Detection and Recovery",
+         "explanation": "Aborting one at a time is cheaper but needs repeated detection."
         }
        ]
       }

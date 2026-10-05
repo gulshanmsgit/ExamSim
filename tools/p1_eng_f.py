@@ -1,0 +1,127 @@
+"""Paper 1 · General English · P1-ENG-06 Phrasal Verbs / Idioms (2 sub-topics × 20).
+References: Oxford Dictionary of Phrasal Verbs; Oxford Idioms Dictionary; Wren & Martin, High School English Grammar (idioms).
+Real previous-year questions (exact wording, `source` = paper and question number) come from the Legislative Council 2024 and
+GTTC 2024 papers (answers from KEA's official final keys) and from KEA 2025–26 Kannada-English-Computer papers and PGCET MCA
+papers (answers worked out by ExamSim). Spacing lost in the scans is restored."""
+from packlib import AR, I_II
+
+PYQ = "PYQ pattern (KPSC / KEA / SSC English). "
+KLC = " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)"
+GTTC = " (Official answer: KEA final key, GTTC recruitment 2024.)"
+NOTE = " (Answer worked out by ExamSim; not KEA's official key.)"
+
+PHRASAL = [
+    # --- real previous-year questions ---
+    ("Identify the appropriate phrasal verb to fill in the blank in the given sentences.\nThe bus was full, We couldn't ____",
+     ["get off", "get on", "get out", "get in"], 1,
+     "One gets on (boards) a bus, train or plane; one gets in(to) a car." + KLC, "Legislative Council 2024 Asst/Jr Asst P2 · Q63"),
+    ("Identify the appropriate phrasal verb to fill in the blank in the given sentence.\nThe workers rebellion was ____ with a high hand by the company's authorities",
+     ["put away", "put down", "put off", "put back"], 1,
+     "Put down = suppress (a rebellion) by force; put off = postpone." + KLC, "Legislative Council 2024 Data Entry Operator P2 · Q49"),
+    ("Choose the correct option to form the correct phrasal verb.\nIn spite of his ailment, he decided to press ____ with his commitment.",
+     ["off", "in", "on", "out"], 2,
+     "Press on (with) = continue in spite of difficulty." + NOTE, "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q58"),
+    ("Match List I with List II and select the correct answer from the codes given below the lists.\nList I (Word): a. give in  b. give up  c. give off  d. give out\nList II (Definition): i. stop doing something especially that one does regularly  ii. produce a smell or light  iii. to give something to each person  iv. to accept defeat",
+     ["a-iii, b-i, c-ii, d-iv", "a-iv, b-ii, c-i, d-iii", "a-iv, b-i, c-ii, d-iii", "a-i, b-ii, c-iv, d-iii"], 2,
+     "Give in = surrender; give up = stop a habit; give off = emit; give out = distribute." + NOTE, "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q51"),
+    ("Correct the underlined phrasal verb with the right option.\nOnly those who are compassionate will fork in money for our philanthropic work.",
+     ["fork up", "fork out", "fork apart", "fork on"], 1,
+     "Fork out = pay money, often unwillingly or generously." + NOTE, "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q59"),
+    ("Choose the correct meaning of the underlined phrase.\nMr. Jacob pulled through his illness.",
+     ["recover", "leave", "give up", "suppress"], 0,
+     "Pull through = recover from a serious illness or difficulty." + NOTE, "PGCET 2023 MCA · Q58"),
+    # --- new questions ---
+    ("Choose the correct meaning of the phrasal verb: She looks after her aged parents.",
+     ["Takes care of", "Searches for", "Admires", "Visits rarely"], 0, PYQ + "Look for = search; look up to = admire."),
+    ("The match was put off because of rain. 'Put off' means:",
+     ["Postponed", "Cancelled forever", "Started", "Won"], 0, PYQ + "Call off = cancel."),
+    ("The strike was called off after the talks. 'Called off' means:",
+     ["Cancelled", "Postponed", "Started", "Announced"], 0, PYQ + "Common in KEA and SSC papers."),
+    ("He turned down the job offer. 'Turned down' means:",
+     ["Rejected", "Accepted", "Delayed", "Requested"], 0, PYQ + "Turn up = arrive; turn out = prove to be."),
+    ("We have run out of sugar. 'Run out of' means:",
+     ["Used up the supply of", "Bought a lot of", "Spilled", "Hidden"], 0, "Run into = meet by chance."),
+    ("She was brought up by her grandparents. 'Brought up' means:",
+     ["Raised and educated", "Lifted", "Punished", "Mentioned"], 0, "Bring up can also mean 'raise a topic'."),
+    ("The police are looking into the complaint. 'Looking into' means:",
+     ["Investigating", "Ignoring", "Writing", "Rejecting"], 0, PYQ + "Look into = examine carefully."),
+    ("He worked late to make up for the time he had lost. 'Make up for' means:",
+     ["Compensate for", "Invent", "Apply cosmetics", "Quarrel"], 0, "Make up (with someone) = become friends again."),
+    ("A fire broke out in the market. 'Broke out' means:",
+     ["Started suddenly", "Was put out", "Was planned", "Spread slowly"], 0, PYQ + "Put out = extinguish."),
+    ("The engineers carried out the test successfully. 'Carried out' means:",
+     ["Performed", "Cancelled", "Removed", "Delayed"], 0, "Carry on = continue."),
+    ("I came across an old photograph while cleaning. 'Came across' means:",
+     ["Found by chance", "Tore", "Threw away", "Searched deliberately"], 0, "Come across can also mean 'seem' (He comes across as shy)."),
+    ("I cannot put up with his rude behaviour any longer. 'Put up with' means:",
+     ["Tolerate", "Encourage", "Report", "Imitate"], 0, PYQ + "A three-part phrasal verb."),
+    ("We set off for Hampi at dawn. 'Set off' means:",
+     ["Began the journey", "Returned", "Cancelled the trip", "Lost the way"], 0, "Set up = establish."),
+    ("Match the phrasal verb with its meaning:\na. look up to  b. look down on  c. look forward to  d. look for\n1. Search  2. Wait eagerly for  3. Consider inferior  4. Respect",
+     ["a-4, b-3, c-2, d-1", "a-3, b-4, c-2, d-1", "a-4, b-2, c-3, d-1", "a-4, b-3, c-1, d-2"], 0, PYQ + "'Look' phrasal verbs are a favourite."),
+]
+
+IDIOMS = [
+    # --- real previous-year questions ---
+    ("Choose the alternative which best expresses the meaning of the idiom/phrase given below.\nTo smell a rat",
+     ["To suspect a trick or deceit", "To see hidden meaning", "To detect bad smell", "To misunderstand"], 0,
+     "To smell a rat = to suspect that something is wrong." + KLC, "Legislative Council 2024 Asst/Jr Asst P2 · Q41"),
+    ("Choose the alternative which best expresses the meaning of the given idiom/phrase\nOnce in a blue moon",
+     ["Once in a month", "Biweekly", "On rare occasions", "Every now and then"], 2,
+     "It means very rarely." + KLC, "Legislative Council 2024 Data Entry Operator P2 · Q40"),
+    ("Read the sentence and choose the most appropriate meaning for the underlined idioms and phrases in the sentence.\nThe two parties decided to bury the hatchet and keep their relations healthy.",
+     ["hide the hatchet", "keep on fighting", "make peace", "keep mum"], 2,
+     "Bury the hatchet = end a quarrel and become friendly." + GTTC, "GTTC 2024 Officer/Asst Gr-III KEC · Q55"),
+    ("Read the sentence and choose the most appropriate meaning for the underlined idioms and phrases in the sentence.\nLavish spending on marriages has forced the poor to imitate the rich. As a result, the poor people cry for the moon.",
+     ["The poor want the moon", "The poor want to cry", "The poor like the rich", "The poor wish for the impossible"], 3,
+     "Cry for the moon = desire something impossible." + NOTE, "KEA 2025 KEC (HK, 21 Dec 2025) · Q38"),
+    ("Read the sentence and choose the most appropriate meaning for the underlined idioms and phrases in the sentence.\nI met a man who claimed to have blue blood but his conduct was rude and mean.",
+     ["Blood was blue", "Liked blue blood", "Was an aristocrat", "Was from England"], 2,
+     "Blue blood = noble or aristocratic birth." + NOTE, "KEA 2025 KEC (HK, 21 Dec 2025) · Q39"),
+    ("Identify the correct meaning of the underlined idiom/phrase in the given sentence.\nSelfish people are more concerned with the loaves and fishes rather than the service.",
+     ["To laugh secretly", "Material benefit", "Almost nothing", "To do something wrong"], 1,
+     "Loaves and fishes = personal profit or material gain." + NOTE, "KEA 2025 KEC (HK, 21 Dec 2025) · Q47"),
+    ("Choose the correct meaning for the given idiom/phrase:\nTrumped up",
+     ["Narrated", "Presented", "Followed", "Fabricated"], 3,
+     "Trumped-up charges are false, invented charges." + NOTE, "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q61"),
+    ("Choose the correct meaning for the given idiom/phrase:\nFalling foul of",
+     ["Misunderstood", "Quarreling with", "Very busy", "Appeared disturbed"], 1,
+     "Fall foul of = get into conflict or trouble with someone or a rule." + NOTE, "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q62"),
+    ("Choose the alternative which best expresses the meaning of the idiom/phrase given below.\nMy home is within a stone's throw of the railway station.",
+     ["very far-off", "within a certain radius", "at a short distance", "remote distance"], 2,
+     "A stone's throw = a very short distance." + NOTE, "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q66"),
+    ("Choose the alternative which best expresses the meaning of the idiom/phrase given below.\n'Hit the hay.'",
+     ["Hitting the hay", "Hitting on the other person", "Go to bed", "Take a nap"], 2,
+     "Hit the hay (or the sack) = go to bed." + NOTE, "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q68"),
+    ("Fill in the blank with correct idiom and proverb.\nI know I can do a better job if only my tools are better. This is a case of",
+     ["a drowning man will clutch at straws", "a friend in need is a friend indeed", "a bad workman blames his tools", "a bird in hand is worth two in the bush"], 2,
+     "People who do poor work blame their equipment." + NOTE, "KEA 2026 KEC (NHK, 11 Jan 2026) · Q40"),
+    ("Identify the correct meaning of the idiomatic expression 'uphill task'.",
+     ["Simple work", "Hard work", "Discontinuous work", "Continuous work"], 1,
+     "An uphill task is a difficult one." + NOTE, "PGCET 2023 MCA · Q59"),
+    ("Select the option which best expresses the meaning of the given idiom/phrase.\nAdd fuel to the fire",
+     ["Make somebody angry", "Make something worse", "To start a fire somewhere", "To call for help"], 1,
+     "To make a bad situation worse." + NOTE, "PGCET 2024 MCA · Q43"),
+    ("Choose the right meaning of the underlined phrase:\nPlease keep an eye on him as he looks suspicious.",
+     ["Watch somebody unintentionally", "Watch somebody carefully", "Watch somebody carelessly", "to look at somebody for pleasure"], 1,
+     "Keep an eye on = watch carefully." + NOTE, "PGCET 2025 MCA · Q88"),
+    ("Choose the correct meaning of the phrase \"a blessing in disguise\".",
+     ["Hidden danger", "A very obvious problem", "A happy occasion", "Something that seems bad but turns out to be good"], 3,
+     "Example: Missing the bus was a blessing in disguise – it crashed later." + NOTE, "PGCET 2026 MCA · Q99"),
+    # --- new questions ---
+    ("To burn the midnight oil means:",
+     ["To work or study late into the night", "To waste fuel", "To start a fire", "To sleep early"], 0, PYQ + "Common in exam passages."),
+    ("To hit the nail on the head means:",
+     ["To say or do exactly the right thing", "To hurt oneself", "To fail completely", "To build a house"], 0, PYQ + "Also: 'to put one's finger on' the problem."),
+    ("Something that is 'a piece of cake' is:",
+     ["Very easy", "Very tasty", "Very small", "Very expensive"], 0, "Opposite: an uphill task."),
+    ("To break the ice means:",
+     ["To start a conversation and remove awkwardness", "To cause damage", "To end a friendship", "To feel very cold"], 0, PYQ + "Teachers often break the ice with a game."),
+    ("'Make hay while the sun shines' advises us to:",
+     ["Make good use of an opportunity while it lasts", "Work only in summer", "Avoid hard work", "Sleep in the afternoon"], 0, PYQ + "A proverb often asked with fill-in-the-blank."),
+]
+
+TOPICS = {
+    "Phrasal Verbs / Idioms": [("1 · Phrasal Verbs", PHRASAL),
+                               ("2 · Idioms, Phrases and Proverbs", IDIOMS)],
+}
