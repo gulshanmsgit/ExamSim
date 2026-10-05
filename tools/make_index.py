@@ -6,7 +6,7 @@ needs to show packs inside subjects, topics and study-plan days:
 A pack listed in index.json but missing on disk fails loudly. The study-plan pack is added if missing.
 Usage: python tools/make_index.py
 """
-import json, re, sys
+import hashlib, json, re, sys
 from pathlib import Path
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -31,7 +31,8 @@ if not any(p["file"] == "gpstr-cst-2026-plan.json" for p in idx["packs"]) and (P
                             "description": "All 245 planner rows, the tracker and the 63-day calendar. Opens in 📅 Study plan in the bottom bar; your status updates sync to all devices."})
 
 for entry in idx["packs"]:
-    pack = json.loads((PACKS / entry["file"]).read_text(encoding="utf-8"))
+    raw = (PACKS / entry["file"]).read_text(encoding="utf-8")
+    pack = json.loads(raw)
     subjects, ids, questions, topics = [], [], 0, 0
     for s in pack.get("subjects", []):
         subjects.append(s["name"])
@@ -46,6 +47,8 @@ for entry in idx["packs"]:
     entry["topics"] = topics
     entry["subjects"] = subjects
     entry["planIds"] = sorted(set(ids))
+    # content version: the app offers "Update" when a pack it imported earlier has changed since
+    entry["v"] = hashlib.md5(raw.encode("utf-8")).hexdigest()[:10]
     if pack.get("studyPlan"):
         entry["studyPlan"] = True
     print(f"{entry['file']:40} {questions:5d} Q {topics:4d} topics  plan IDs: {len(entry['planIds'])}")

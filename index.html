@@ -2126,12 +2126,12 @@ const dayPlanIds = d => [...new Set([...dayTasks(d, 'p2'), ...dayTasks(d, 'p1')]
 function idsQuestionInfo(ids) {
   const withQ = [], missing = [], need = new Map();
   for (const id of ids) {
-    if (id.startsWith('P1-CA-')) continue; // current affairs: no question packs by design
+    if (id.startsWith('P1-CA-') && !packsForPlanId(id).length) continue; // current-affairs topics not generated yet
     const t = planTopic(id);
     if (t && topicQuestionCount(t.id)) withQ.push(t);
     else missing.push(id);
     // offer new packs even when the topic already has some questions (e.g. only the small daily sample)
-    packsForPlanId(id).filter(p => !packImported(p)).forEach(p => need.set(p.file, p));
+    packsForPlanId(id).filter(packNeeded).forEach(p => need.set(p.file, p));
   }
   return { withQ, missing, packs: [...need.values()] };
 }
@@ -2219,6 +2219,12 @@ document.addEventListener('click', async e => {
 
 /* ---------- Packs available for a subject / topic (from packs/index.json) ---------- */
 const packImported = p => !!importedPacks()[p.file];
+// A pack imported earlier whose published content has changed since (index.json "v" = content hash) – offer "Update"
+const packVers = () => (D.prefs && D.prefs.packV) || {};
+const packStale = p => packImported(p) && !!p.v && packVers()[p.file] !== p.v;
+const packNeeded = p => !packImported(p) || packStale(p);
+const packPill = p => packStale(p) ? '<span class="pill blank">Update available</span>' : packImported(p) ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>';
+const packBtnLabel = p => packStale(p) ? 'Update' : packImported(p) ? 'Re-import' : 'Import';
 const packsForPlanId = id => ((packIndex && packIndex.packs) || []).filter(p => (p.planIds || []).includes(id));
 const packsForSubject = s => ((packIndex && packIndex.packs) || []).filter(p => p.questions && (p.subjects || []).some(n => nameKey(n) === nameKey(s.name)));
 let bankLoadStarted = false;
@@ -2231,21 +2237,21 @@ function subjectPacksHTML(s) {
   ensureBank();
   if (!packIndex) return '';
   const list = packsForSubject(s);
-  const body = list.length ? list.map(p => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b> ${packImported(p) ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>'}
+  const body = list.length ? list.map(p => `<div class="list-row"><div class="grow"><b>${esc(p.name)}</b> ${packPill(p)}
       <div class="small muted clamp2">${esc(p.description || '')}</div><div class="small">${plural(p.questions || 0, 'question')} · ${plural(p.topics || 0, 'topic')}</div></div>
-      <button class="btn ${packImported(p) ? '' : 'primary'}" data-bankfile="${esc(p.file)}">${packImported(p) ? 'Re-import' : 'Import'}</button></div>`).join('')
+      <button class="btn ${packNeeded(p) ? 'primary' : ''}" data-bankfile="${esc(p.file)}">${packBtnLabel(p)}</button></div>`).join('')
     : '<p class="small muted" style="margin:0">No ready-made packs for this subject yet. They will appear here as the question bank grows.</p>';
   return `<div class="card"><h2><svg class=ic><use href=#i-download></use></svg> Question packs for this subject</h2>${body}</div>`;
 }
 function topicAvailHTML(t) {
   ensureBank();
   if (!packIndex || !t.plan || !t.plan.id) return '';
-  const p = packsForPlanId(t.plan.id).filter(x => !packImported(x)), has = topicQuestionCount(t.id);
+  const p = packsForPlanId(t.plan.id).filter(packNeeded), has = topicQuestionCount(t.id);
   if (!p.length && has) return '';
   if (!p.length) return `<div class="card"><p class="small muted" style="margin:0"><svg class=ic><use href=#i-download></use></svg> No questions for this topic in the question bank yet. They will appear here when a pack covering <b>${esc(t.plan.id)}</b> is published.</p></div>`;
   return `<div class="card avail"><div class="row"><div style="flex:1;min-width:200px"><b><svg class=ic><use href=#i-download></use></svg> ${has ? 'More questions' : 'Questions'} for this topic are available</b>
     <div class="small">In “${esc(p[0].name)}” (${plural(p[0].questions || 0, 'question')})${p.length > 1 ? ` and ${p.length - 1} more pack(s)` : ''}.</div></div>
-    <button class="btn primary" data-bankfile="${esc(p[0].file)}">Import</button></div></div>`;
+    <button class="btn primary" data-bankfile="${esc(p[0].file)}">${packBtnLabel(p[0])}</button></div></div>`;
 }
 document.addEventListener('click', async e => {
   const b = e.target.closest('[data-bankfile]');
@@ -2524,14 +2530,14 @@ function renderSubject() {
   let h = crumbs([['Library', 'home'], [s.name]]) + pageHead(s.name, 'Subject', s);
   h += statsRow(atts, [[topics.length, 'Topics'], [sets.reduce((n, x) => n + (x.count || 0), 0), 'Questions']]);
   // Packs not imported yet go on top (import in place); once everything is in, the card moves below the topics
-  const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(p => !packImported(p));
+  const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(packNeeded);
   if (packsNew) h += packsCard;
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
     <button class="btn" data-syl="${s.id}"><svg class=ic><use href=#i-book></use></svg> Syllabus</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}"><svg class=ic><use href=#i-cards></use></svg> Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
-    const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(p => !packImported(p));
+    const nQ = tSets.reduce((n, x) => n + (x.count || 0), 0), ready = t.plan && t.plan.id && packsForPlanId(t.plan.id).find(packNeeded);
     const pr = D.plan && t.plan && t.plan.id && planRow(t.plan.id), grade = pr ? topicStatusPill(topicGrade(pr, rowState(pr), acc)) : '';
     return `<div class="list-row"><div class="grow"><button class="linkish" data-nav="topic:${t.id}">${t.plan && t.plan.id ? `<span class="pill">${esc(t.plan.id)}</span> ` : ''}${esc(t.name)}</button>${grade ? ' ' + grade : ''}
       <div class="small muted">${plural(tSets.length, 'set')} · ${plural(nQ, 'question')}${t.notes ? ' · <svg class=ic><use href=#i-notes></use></svg> ' + t.notes : ''}${ready ? ' · <span class="pill pk"><svg class=ic><use href=#i-download></use></svg> ready in the bank</span>' : ''}</div></div>
@@ -3234,21 +3240,28 @@ async function renderBank() {
     return;
   }
   const done = importedPacks(), packs = idx.packs || [];
-  const fresh = packs.filter(p => !done[p.file]).length;
+  const fresh = packs.filter(p => !done[p.file]).length, stale = packs.filter(packStale);
   let h = head + `<div class="card"><p style="margin-top:0">${esc(idx.title || 'Question packs')}</p>
-    <p class="small muted" style="margin-bottom:0"><b>How it works:</b> tap <b>Import</b> on a pack. Its questions go into the matching subjects and topics automatically, with nothing to choose. Importing a pack again is safe; sets you already have are skipped. ${fresh ? `<b>${plural(fresh, 'pack')} not imported yet.</b>` : 'All packs are imported ✓'}</p></div>`;
+    <p class="small muted" style="margin-bottom:0"><b>How it works:</b> tap <b>Import</b> on a pack. Its questions go into the matching subjects and topics automatically, with nothing to choose. Importing a pack again is safe; sets you already have are skipped. ${fresh ? `<b>${plural(fresh, 'pack')} not imported yet.</b>` : stale.length ? '' : 'All packs are imported and up to date ✓'}</p>
+    ${stale.length ? `<div class="row" style="margin-top:10px"><div style="flex:1;min-width:200px"><b>${plural(stale.length, 'pack')} you imported earlier ${stale.length > 1 ? 'have' : 'has'} new questions or notes.</b> <span class="small muted">Updating adds only what is new; your progress is kept.</span></div><button class="btn primary" id="bankUpdAll">Update all</button></div>` : ''}</div>`;
   let group = null;
   packs.forEach((p, i) => {
     if (p.group && p.group !== group) { group = p.group; h += `<h2 style="margin:18px 0 8px">${esc(group)}</h2>`; }
     const when = done[p.file];
     h += `<div class="card" style="margin-bottom:10px"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">
-        <div style="flex:1;min-width:0"><b>${esc(p.name)}</b> ${when ? '<span class="pill correct">✓ Imported</span>' : '<span class="pill blank">New</span>'}
+        <div style="flex:1;min-width:0"><b>${esc(p.name)}</b> ${packPill(p)}
           <div class="small muted" style="margin-top:4px">${esc(p.description || '')}</div>
           <div class="small" style="margin-top:4px">${p.questions ? plural(p.questions, 'question') : 'Structure only'}${p.topics ? ' · ' + plural(p.topics, 'topic') : ''}${when ? ' · imported ' + esc(fmtDay(when)) : ''}</div></div>
-        <button class="btn ${when ? '' : 'primary'}" data-bank="${i}" style="flex:0 0 auto">${when ? 'Re-import' : 'Import'}</button></div></div>`;
+        <button class="btn ${packNeeded(p) ? 'primary' : ''}" data-bank="${i}" style="flex:0 0 auto">${packBtnLabel(p)}</button></div></div>`;
   });
   el.innerHTML = h;
   el.querySelectorAll('[data-bank]').forEach(b => b.onclick = () => quickImport(packs[+b.dataset.bank], b));
+  const ua = $('#bankUpdAll');
+  if (ua) ua.onclick = async () => {
+    ua.disabled = true;
+    for (const [k, p] of stale.entries()) { ua.textContent = `Updating ${k + 1} of ${stale.length}…`; await quickImport(p, null, true); }
+    toast(`${plural(stale.length, 'pack')} updated`); openBank();
+  };
 }
 async function quickImport(p, btn, quiet) {
   const needsStructure = p.file !== packs0File() && !importedPacks()[packs0File()] && !D.topics.some(t => t.plan);
@@ -3264,6 +3277,7 @@ async function quickImport(p, btn, quiet) {
     summarizePack(pack);
     const res = await importPack(pack, (d, n) => say(`Saving ${Math.round(d / n * 100)}%`));
     D.prefs.packs = { ...importedPacks(), [p.file]: Date.now() };
+    if (p.v) D.prefs.packV = { ...packVers(), [p.file]: p.v };
     await savePrefs().catch(() => {});
     if (!quiet) openModal(`<h3><svg class=ic><use href=#i-download></use></svg> ${esc(p.name)}</h3><table>
       <tr><td>Questions added</td><td class="num"><b>${res.questions}</b></td></tr>
@@ -3282,11 +3296,11 @@ const packs0File = () => ((packIndex && packIndex.packs) || []).find(p => /struc
 async function bankBanner() {
   try {
     const idx = await getPackIndex(), done = importedPacks();
-    const n = (idx.packs || []).filter(p => !done[p.file]).length;
+    const n = (idx.packs || []).filter(p => !done[p.file]).length, u = (idx.packs || []).filter(packStale).length;
     const slot = $('#bankBanner');
     if (!slot || $('#home').hidden) return;
-    slot.innerHTML = n ? `<div class="card" style="border-color:var(--primary);background:var(--primary-bg)"><div class="row"><div style="flex:1;min-width:200px"><b><svg class=ic><use href=#i-download></use></svg> ${plural(n, 'question pack')} ready to import</b>
-      <div class="small">Syllabus-based questions for your exam, sorted into subjects and topics automatically.</div></div>
+    slot.innerHTML = n || u ? `<div class="card" style="border-color:var(--primary);background:var(--primary-bg)"><div class="row"><div style="flex:1;min-width:200px"><b><svg class=ic><use href=#i-download></use></svg> ${[n && plural(n, 'question pack') + ' ready to import', u && plural(u, 'pack') + ' with new questions or notes'].filter(Boolean).join(' · ')}</b>
+      <div class="small">${n ? 'Syllabus-based questions for your exam, sorted into subjects and topics automatically.' : 'Packs you imported earlier have been updated. Updating adds only what is new; your progress is kept.'}</div></div>
       <button class="btn primary" data-open-bank>Open question bank</button></div></div>` : '';
   } catch (e) { /* no bank when opened as a local file */ }
 }
