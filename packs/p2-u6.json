@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 6 — System Software & Operating Systems",
- "description": "2 of 15 topics so far (4 sets × 30 questions): System Software; OS Basics. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "4 of 15 topics so far (8 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 6 – System Software & Operating Systems",
@@ -1502,6 +1502,1492 @@
          "answer": "A",
          "subject": "OS Services, System Calls and Booting",
          "explanation": "The trap into kernel mode is controlled by the OS."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Process Management & IPC",
+     "sets": [
+      {
+       "name": "1 · Process Concept, States, PCB and Schedulers",
+       "questions": [
+        {
+         "question": "Identify the correct sequence of different states of process in operating system.",
+         "options": {
+          "A": "Running → Ready → Waiting → Terminate",
+          "B": "Running → Waiting → Ready → Terminate",
+          "C": "Ready → Waiting → Running → Terminate",
+          "D": "Ready → Running → Waiting → Terminate"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "A process is admitted to ready, dispatched to running, may wait for I/O, and finally terminates. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q14"
+        },
+        {
+         "question": "In a time share operating system, when the time slot assigned to a process is completed, the process switches from current state to ____.",
+         "options": {
+          "A": "Suspended State",
+          "B": "Terminated State",
+          "C": "Ready State",
+          "D": "Blocked State"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "A timer interrupt preempts the running process and puts it back in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q5"
+        },
+        {
+         "question": "What is the ready state of a process?",
+         "options": {
+          "A": "The process is being created",
+          "B": "Instructions are being executed",
+          "C": "Process is waiting to be assigned to a CPU",
+          "D": "The process is waiting for some event to occur"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "New = being created; running = executing; waiting = waiting for an event; ready = waiting for the CPU. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q26"
+        },
+        {
+         "question": "When a program is loaded into the memory and it becomes a process, it can be divided into which of the section?\ni. Stack  ii. Heap  iii. Text  iv. Data",
+         "options": {
+          "A": "i",
+          "B": "i, ii",
+          "C": "i, ii, iii",
+          "D": "i, ii, iii, iv"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "A process in memory has text (code), data, heap and stack sections. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q50"
+        },
+        {
+         "question": "A process current activity is represented by\ni. Program counter\nii. Contents of process register\niii. Stack\niv. Data section",
+         "options": {
+          "A": "i",
+          "B": "i, ii",
+          "C": "i, ii, iii",
+          "D": "i, ii, iii, iv"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Silberschatz: the current activity is represented by the value of the program counter and the contents of the processor's registers. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q51"
+        },
+        {
+         "question": "Order the following steps of process creation in an operating system.\na. Assigning a Process Control Block (PCB) to the process\nb. Loading the process in memory\nc. Assigning the process ID\nd. Creating a new entry in process table",
+         "options": {
+          "A": "a → c → d → b",
+          "B": "c → a → d → b",
+          "C": "c → d → a → b",
+          "D": "b → d → a → c"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "KEA's key: give the process an ID, make its process-table entry, set up its PCB, then load it into memory. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q40"
+        },
+        {
+         "question": "In a computer system that consists of n number of CPUs, the maximum processes that can exist in the ready state would be",
+         "options": {
+          "A": "Independent of n",
+          "B": "2n",
+          "C": "n^2",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "At most n processes can be running, but any number may wait in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q7"
+        },
+        {
+         "question": "Which of the following does not interrupt a running process?",
+         "options": {
+          "A": "Power failure",
+          "B": "Scheduler process",
+          "C": "A device",
+          "D": "Timer"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "The scheduler runs only after an interrupt or system call gives control to the OS; it does not itself interrupt a process. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q95"
+        },
+        {
+         "question": "The total time taken for switching between the user & the Kernel modes of execution is t₁, while the total time taken for switching between two processes is t₂. Out of the following, which one is true?",
+         "options": {
+          "A": "t₂ = t₁",
+          "B": "t₂ > t₁",
+          "C": "t₂ < t₁",
+          "D": "we cannot say anything about the relation between t₂ & t₁"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "A process switch includes a mode switch plus saving and restoring the whole context, so it takes longer. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q17"
+        },
+        {
+         "question": "A process is best defined as:",
+         "options": {
+          "A": "A set of instructions on paper",
+          "B": "A compiled object module",
+          "C": "A program in execution",
+          "D": "A file stored on disk"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). A program is a passive entity; a process is active, with a program counter and resources."
+        },
+        {
+         "question": "A running process moves to the waiting (blocked) state when it:",
+         "options": {
+          "A": "Uses up its time slice",
+          "B": "Finishes execution",
+          "C": "Is admitted by the long-term scheduler",
+          "D": "Requests I/O or waits for some event"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "When the I/O or event completes, it moves to the ready state."
+        },
+        {
+         "question": "On a single CPU, how many processes can be in the running state at one instant?",
+         "options": {
+          "A": "Only one",
+          "B": "Any number",
+          "C": "Exactly two",
+          "D": "None"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Many processes may be ready or waiting."
+        },
+        {
+         "question": "Which of the following is NOT normally stored in a Process Control Block (PCB)?",
+         "options": {
+          "A": "Process state and program counter",
+          "B": "The source code of the program",
+          "C": "Memory-management and accounting information",
+          "D": "CPU registers and scheduling information"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). The PCB also holds I/O status information such as open files."
+        },
+        {
+         "question": "A context switch involves:",
+         "options": {
+          "A": "Switching the computer off and on",
+          "B": "Copying a file",
+          "C": "Saving the state of the current process in its PCB and loading the saved state of the next process",
+          "D": "Compiling a program"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Context-switch time is pure overhead – no useful work is done."
+        },
+        {
+         "question": "The long-term (job) scheduler mainly controls:",
+         "options": {
+          "A": "Which ready process gets the CPU next",
+          "B": "Page replacement",
+          "C": "Disk-arm movement",
+          "D": "The degree of multiprogramming – how many processes are in memory"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). It runs much less often than the CPU scheduler."
+        },
+        {
+         "question": "The short-term (CPU) scheduler:",
+         "options": {
+          "A": "Selects a process from the ready queue and allocates the CPU to it; it runs very frequently",
+          "B": "Swaps processes to disk",
+          "C": "Creates new users",
+          "D": "Admits new jobs into memory"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "It may run every few milliseconds, so it must be fast."
+        },
+        {
+         "question": "Swapping a partially executed process out of memory and later back in is done by the:",
+         "options": {
+          "A": "Short-term scheduler",
+          "B": "Medium-term scheduler",
+          "C": "Dispatcher",
+          "D": "Long-term scheduler"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Swapping reduces the degree of multiprogramming temporarily."
+        },
+        {
+         "question": "A process that spends more time doing I/O than computation is called:",
+         "options": {
+          "A": "I/O-bound",
+          "B": "CPU-bound",
+          "C": "Orphan",
+          "D": "Zombie"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "The long-term scheduler should admit a good mix of I/O-bound and CPU-bound processes."
+        },
+        {
+         "question": "Memory allocated dynamically at run time (e.g. with malloc or new) comes from the process's:",
+         "options": {
+          "A": "PCB",
+          "B": "Stack",
+          "C": "Heap",
+          "D": "Text section"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "The heap grows upward; the stack, holding local variables and return addresses, grows downward."
+        },
+        {
+         "question": "Local variables and function parameters of a process are kept in its:",
+         "options": {
+          "A": "Heap",
+          "B": "Text section",
+          "C": "Data section",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Global variables are in the data section."
+        },
+        {
+         "question": "The module that gives control of the CPU to the process chosen by the short-term scheduler is the:",
+         "options": {
+          "A": "Long-term scheduler",
+          "B": "Dispatcher",
+          "C": "Linker",
+          "D": "Loader"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). The time it takes is called dispatch latency."
+        },
+        {
+         "question": "In the seven-state process model, a process that is swapped out to disk while waiting for an event is in the:",
+         "options": {
+          "A": "Blocked/Suspend state",
+          "B": "Exit state",
+          "C": "Ready state",
+          "D": "Running state"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Stallings: Ready/Suspend and Blocked/Suspend are the two suspended states."
+        },
+        {
+         "question": "The queue of all processes residing in main memory and waiting to execute is the:",
+         "options": {
+          "A": "Job queue",
+          "B": "Device queue",
+          "C": "Print queue",
+          "D": "Ready queue"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Processes waiting for a particular I/O device are in that device's queue."
+        },
+        {
+         "question": "Match the scheduler with its job:\na. Long-term scheduler\nb. Short-term scheduler\nc. Medium-term scheduler\nd. Dispatcher\n\n1. Switches context and jumps to the user program\n2. Swaps processes out of and into memory\n3. Selects jobs from the pool to load into memory\n4. Selects a process from the ready queue",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Scheduler matching appears in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. A program is a passive entity, while a process is an active entity.\nII. Two processes can never run the same program.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "Several users can run separate processes of the same program, e.g. a browser."
+        },
+        {
+         "question": "Assertion (A): Context-switch time is pure overhead.\nReason (R): The system does no useful work for any user process while switching.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "That is why context switches should be fast and not too frequent."
+        },
+        {
+         "question": "Assertion (A): When its I/O completes, a waiting process moves directly to the running state.\nReason (R): After its I/O completes, a process is placed in the ready queue.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "It goes to ready and must wait for the scheduler, so A is false."
+        },
+        {
+         "question": "A newly created process that the OS has not yet admitted to the pool of executable processes is in the:",
+         "options": {
+          "A": "Ready state",
+          "B": "New state",
+          "C": "Terminated state",
+          "D": "Running state"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "The long-term scheduler admits it to the ready state."
+        },
+        {
+         "question": "Which transition can occur directly in the five-state process model?",
+         "options": {
+          "A": "New → Running",
+          "B": "Waiting → Running",
+          "C": "Terminated → Ready",
+          "D": "Running → Ready (on a timer interrupt)"
+         },
+         "answer": "D",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Waiting processes must first become ready."
+        },
+        {
+         "question": "The time the dispatcher takes to stop one process and start another is called:",
+         "options": {
+          "A": "Burst time",
+          "B": "Dispatch latency",
+          "C": "Seek time",
+          "D": "Turnaround time"
+         },
+         "answer": "B",
+         "subject": "Process Concept, States, PCB and Schedulers",
+         "explanation": "It should be as short as possible."
+        }
+       ]
+      },
+      {
+       "name": "2 · Process Operations, IPC and Client–Server Communication",
+       "questions": [
+        {
+         "question": "When a message is sent to a mailbox, the mailbox may be full. If the mailbox is not full, the message is copied to the mailbox and the sending thread continues. If the mailbox is full, then which of the following options does the sending thread have?",
+         "options": {
+          "A": "Wait indefinitely until there is room in the mailbox",
+          "B": "Wait at most n milliseconds",
+          "C": "Do not wait at all but rather return immediately",
+          "D": "All of the above"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Silberschatz (Windows ALPC / Mach): the sender may block, block with a timeout, or return immediately. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q10"
+        },
+        {
+         "question": "The OS environment which permits many processors active at the same time is.",
+         "options": {
+          "A": "Multiprogramming",
+          "B": "Time-sharing",
+          "C": "Multiprocessing",
+          "D": "Multitasking"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Multiprocessing uses two or more CPUs at once. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q73"
+        },
+        {
+         "question": "Which of the following is a type of technique in which dumb terminals are connected to a central computer system?",
+         "options": {
+          "A": "Time-sharing",
+          "B": "Message passing",
+          "C": "Batch environment",
+          "D": "User environment"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Many users at terminals share one central computer in time slices. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q78"
+        },
+        {
+         "question": "Match the following:\ni. Context switching\nii. Semaphores\niii. Process synchronization\niv. Message passing\n(a) process communicate by sending and receiving messages\n(b) co-ordination of the execution of multiple processes sharing the resources\n(c) enables multiple processes to share a single CPU\n(d) helps to prevent race condition",
+         "options": {
+          "A": "i – a, ii – b, iii – c, iv – d",
+          "B": "i – b, ii – c, iii – d, iv – a",
+          "C": "i – c, ii – d, iii – b, iv – a",
+          "D": "i – c, ii – d, iii – a, iv – b"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Context switching shares the CPU; semaphores prevent races; synchronisation coordinates; message passing communicates. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q48"
+        },
+        {
+         "question": "In UNIX, the fork() system call:",
+         "options": {
+          "A": "Replaces the current program with a new one",
+          "B": "Creates a child process that is a copy of the parent; it returns 0 in the child and the child's PID in the parent",
+          "C": "Creates a new thread only",
+          "D": "Terminates the parent"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). A negative return value means fork() failed."
+        },
+        {
+         "question": "If a program calls fork() three times in sequence (each call made by every existing process), the total number of processes, including the original, is:",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "6",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each fork doubles the count: 2³ = 8 (7 new child processes)."
+        },
+        {
+         "question": "How many times is 'hello' printed?\nint main() { fork(); fork(); printf(\"hello\\n\"); }",
+         "options": {
+          "A": "8",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Two forks give 2² = 4 processes, and each prints once."
+        },
+        {
+         "question": "The exec() family of system calls:",
+         "options": {
+          "A": "Sends a signal",
+          "B": "Creates a new process",
+          "C": "Replaces the calling process's memory image with a new program",
+          "D": "Waits for a child"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "fork() followed by exec() is how a shell runs a command."
+        },
+        {
+         "question": "A parent process waits for its child to finish by calling:",
+         "options": {
+          "A": "pipe()",
+          "B": "wait()",
+          "C": "exec()",
+          "D": "kill()"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "wait() also collects the child's exit status."
+        },
+        {
+         "question": "A process that has terminated but whose parent has not yet called wait() is a(n):",
+         "options": {
+          "A": "Daemon",
+          "B": "Orphan process",
+          "C": "Thread",
+          "D": "Zombie process"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its entry stays in the process table until the parent collects the exit status."
+        },
+        {
+         "question": "A process whose parent has terminated without waiting for it is a(n):",
+         "options": {
+          "A": "Kernel thread",
+          "B": "Zombie process",
+          "C": "Orphan process – adopted by init (systemd) in Linux",
+          "D": "Daemon only"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). init periodically calls wait() to clean up such children."
+        },
+        {
+         "question": "When a parent terminates, some systems also terminate all its children. This is called:",
+         "options": {
+          "A": "Swapping",
+          "B": "Cascading termination",
+          "C": "Context switching",
+          "D": "Spooling"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "It is normally initiated by the operating system."
+        },
+        {
+         "question": "Which is NOT a reason for allowing processes to cooperate?",
+         "options": {
+          "A": "To increase the number of system crashes",
+          "B": "Modularity and convenience",
+          "C": "Information sharing",
+          "D": "Computation speed-up"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Cooperating processes need IPC."
+        },
+        {
+         "question": "The two fundamental models of interprocess communication are:",
+         "options": {
+          "A": "FCFS and Round Robin",
+          "B": "Polling and DMA",
+          "C": "Paging and segmentation",
+          "D": "Shared memory and message passing"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Asked often in KSET and KEA papers."
+        },
+        {
+         "question": "Compared with message passing, shared-memory IPC is generally:",
+         "options": {
+          "A": "Slower, because every access needs a system call",
+          "B": "Used only between computers on a network",
+          "C": "Impossible on a single computer",
+          "D": "Faster, because system calls are needed only to set up the shared region"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Message passing is easier to implement in distributed systems."
+        },
+        {
+         "question": "In indirect communication, messages are sent to and received from:",
+         "options": {
+          "A": "Mailboxes (ports)",
+          "B": "The CPU registers directly",
+          "C": "The page table",
+          "D": "The printer queue"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "In direct communication, each process names the other explicitly."
+        },
+        {
+         "question": "When both send() and receive() are blocking, the arrangement is called a:",
+         "options": {
+          "A": "Deadlock",
+          "B": "Context switch",
+          "C": "Rendezvous",
+          "D": "Race condition"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Blocking = synchronous; non-blocking = asynchronous."
+        },
+        {
+         "question": "A message queue that can never hold any waiting message (the sender must block until the receiver takes it) has:",
+         "options": {
+          "A": "Bounded capacity",
+          "B": "Zero capacity",
+          "C": "Infinite buffering",
+          "D": "Unbounded capacity"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Zero-capacity systems are called message systems with no buffering."
+        },
+        {
+         "question": "An ordinary (anonymous) pipe in UNIX:",
+         "options": {
+          "A": "Is unidirectional and is usually used between a parent and its child",
+          "B": "Can be used by any unrelated processes on the internet",
+          "C": "Is bidirectional by default",
+          "D": "Survives after both processes exit"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Named pipes (FIFOs) can be used by unrelated processes and remain in the file system."
+        },
+        {
+         "question": "The shell command ls | wc -l connects the two programs using a:",
+         "options": {
+          "A": "Semaphore",
+          "B": "Mailbox in the kernel only",
+          "C": "Socket on a remote host",
+          "D": "Pipe"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "The output of ls becomes the input of wc."
+        },
+        {
+         "question": "A socket is identified by:",
+         "options": {
+          "A": "A semaphore value",
+          "B": "An IP address together with a port number",
+          "C": "A file name only",
+          "D": "A process ID only"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sockets are used for client–server communication across a network."
+        },
+        {
+         "question": "Well-known services such as HTTP (80) and FTP (21) listen on port numbers:",
+         "options": {
+          "A": "That change every second",
+          "B": "Above 65535",
+          "C": "Below 1024",
+          "D": "Between 50000 and 60000 only"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Ports below 1024 are well-known ports."
+        },
+        {
+         "question": "The IP address 127.0.0.1 used by a client to reach a server on the same machine is called the:",
+         "options": {
+          "A": "Gateway address",
+          "B": "Broadcast address",
+          "C": "Loopback address",
+          "D": "MAC address"
+         },
+         "answer": "C",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Useful for testing client–server programs locally."
+        },
+        {
+         "question": "A Remote Procedure Call (RPC) lets a process:",
+         "options": {
+          "A": "Avoid the network completely",
+          "B": "Call a procedure on another computer as if it were a local call; client and server stubs marshal the parameters",
+          "C": "Run only batch jobs",
+          "D": "Share memory on one computer only"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). External Data Representation (XDR) handles differences such as byte order."
+        },
+        {
+         "question": "Packing procedure parameters into a form that can be sent over a network is called:",
+         "options": {
+          "A": "Marshalling",
+          "B": "Swapping",
+          "C": "Spooling",
+          "D": "Paging"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "The server stub unmarshals them."
+        },
+        {
+         "question": "In UNIX, signals such as SIGKILL and SIGINT are used to:",
+         "options": {
+          "A": "Format a disk",
+          "B": "Compile programs",
+          "C": "Allocate memory",
+          "D": "Notify a process that a particular event has occurred"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Ctrl + C sends SIGINT to the foreground process."
+        },
+        {
+         "question": "Match the IPC mechanism with its description:\na. Shared memory\nb. Message passing\nc. Pipe\nd. Socket\n\n1. Exchanging data with send() and receive()\n2. Endpoint identified by an IP address and port\n3. A conduit such as ls | wc\n4. A memory region accessible to several processes",
+         "options": {
+          "A": "a-4, b-1, c-2, d-3",
+          "B": "a-4, b-3, c-1, d-2",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "D",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). IPC matching is common in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. fork() returns 0 in the child process.\nII. exec() creates a new process.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "exec() replaces the current program; it does not create a process."
+        },
+        {
+         "question": "Assertion (A): A zombie process still occupies an entry in the process table.\nReason (R): Its exit status must be kept until the parent calls wait().",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "Too many zombies can fill the process table."
+        },
+        {
+         "question": "Which system call is used in UNIX to create an ordinary pipe?",
+         "options": {
+          "A": "socket()",
+          "B": "pipe()",
+          "C": "fork()",
+          "D": "mmap()"
+         },
+         "answer": "B",
+         "subject": "Process Operations, IPC and Client–Server Communication",
+         "explanation": "pipe(fd) gives a read end fd[0] and a write end fd[1]."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Process Synchronization",
+     "sets": [
+      {
+       "name": "1 · Critical-Section Problem, Peterson's Solution and Hardware Support",
+       "questions": [
+        {
+         "question": "In the following execution:\nsignal(mutex);\ncritical section\nwait(mutex);\nSuppose that a process omits the wait(mutex), or the signal(mutex), or both. In this case",
+         "options": {
+          "A": "Process will starve to enter critical section",
+          "B": "Several processes may be executing in critical section",
+          "C": "Either mutual exclusion is violated or deadlock will occur",
+          "D": "Process will not starve to enter critical section"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Silberschatz: interchanging or omitting wait() and signal() violates mutual exclusion or causes deadlock. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q56"
+        },
+        {
+         "question": "Match the following:\na. Critical region\nb. Wait signal\nc. Working set\nd. Deadlock\n(i) Hoare's monitor\n(ii) Mutual exclusion\n(iii) Principle of locality\n(iv) Circular wait",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Critical regions need mutual exclusion; wait/signal are Hoare-monitor operations; the working set rests on locality; deadlock needs circular wait. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q43"
+        },
+        {
+         "question": "A race condition occurs when:",
+         "options": {
+          "A": "The CPU is idle",
+          "B": "A process finishes early",
+          "C": "Several processes access and change shared data concurrently and the result depends on the order of access",
+          "D": "Two processes run on different computers"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). Synchronization is needed to prevent it."
+        },
+        {
+         "question": "The critical section of a process is:",
+         "options": {
+          "A": "The part that handles errors",
+          "B": "The part of its code in which it accesses shared data or resources",
+          "C": "The first line of the program",
+          "D": "The code of the OS kernel only"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Only one process should execute in its critical section at a time."
+        },
+        {
+         "question": "A solution to the critical-section problem must satisfy:",
+         "options": {
+          "A": "Speed, accuracy and fairness only",
+          "B": "Atomicity, consistency, isolation and durability",
+          "C": "Deadlock, starvation and preemption",
+          "D": "Mutual exclusion, progress and bounded waiting"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). The three classic requirements."
+        },
+        {
+         "question": "'Bounded waiting' means that:",
+         "options": {
+          "A": "There is a limit on how many times other processes may enter their critical sections after a process has requested entry",
+          "B": "A process may wait forever",
+          "C": "Only one process may ever enter",
+          "D": "Processes never wait"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "It prevents starvation."
+        },
+        {
+         "question": "'Progress' means that:",
+         "options": {
+          "A": "Every process must run in strict turn",
+          "B": "No process may ever wait",
+          "C": "A process in its remainder section decides who enters",
+          "D": "If no process is in its critical section, only processes wanting to enter take part in the decision, and it cannot be postponed indefinitely"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Strict alternation violates progress."
+        },
+        {
+         "question": "The general structure of a process taking part in the critical-section problem is:",
+         "options": {
+          "A": "Remainder section → exit section → critical section",
+          "B": "Critical section → entry section → remainder section",
+          "C": "Entry section → critical section → exit section → remainder section",
+          "D": "Exit section → critical section → entry section"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "The entry section requests permission; the exit section signals that the process has left."
+        },
+        {
+         "question": "Peterson's solution to the critical-section problem uses the shared variables:",
+         "options": {
+          "A": "int turn and boolean flag[2]",
+          "B": "A semaphore and a monitor",
+          "C": "A mailbox",
+          "D": "Only a lock variable"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is a classic software solution for two processes."
+        },
+        {
+         "question": "Peterson's solution satisfies:",
+         "options": {
+          "A": "Mutual exclusion, progress and bounded waiting for two processes",
+          "B": "Only mutual exclusion",
+          "C": "Only progress",
+          "D": "None of the requirements"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "It may still fail on modern CPUs that reorder memory operations unless memory barriers are used."
+        },
+        {
+         "question": "A software solution that uses only a shared variable 'turn' to force the two processes to alternate strictly:",
+         "options": {
+          "A": "Causes a deadlock always",
+          "B": "Ensures mutual exclusion but violates progress",
+          "C": "Satisfies all three requirements",
+          "D": "Violates mutual exclusion"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). A process may be kept out even though the other does not want to enter."
+        },
+        {
+         "question": "Using a single shared lock variable that a process checks and then sets, without atomic hardware support:",
+         "options": {
+          "A": "Always guarantees mutual exclusion",
+          "B": "Prevents all race conditions",
+          "C": "Can let two processes enter their critical sections together",
+          "D": "Guarantees bounded waiting"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "The check and the set are separate steps that can be interleaved."
+        },
+        {
+         "question": "test_and_set() is:",
+         "options": {
+          "A": "A system call to create a process",
+          "B": "A software loop",
+          "C": "A page-replacement algorithm",
+          "D": "An atomic hardware instruction that returns the old value of a lock and sets it to true"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). Atomic means it executes as one uninterruptible unit."
+        },
+        {
+         "question": "compare_and_swap(&value, expected, new_value):",
+         "options": {
+          "A": "Compares two files",
+          "B": "Atomically sets value to new_value only if value equals expected, and returns the original value",
+          "C": "Swaps two processes",
+          "D": "Always fails on multiprocessors"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "It underlies many lock-free algorithms."
+        },
+        {
+         "question": "Disabling interrupts while a process is in its critical section:",
+         "options": {
+          "A": "Is the best method on multiprocessors",
+          "B": "Is used by user programs routinely",
+          "C": "Has no effect on a single processor",
+          "D": "Works on a single processor but is not practical on multiprocessors"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Disabling interrupts on every CPU is slow and delays entry."
+        },
+        {
+         "question": "A spinlock is a lock in which:",
+         "options": {
+          "A": "A waiting process loops continuously (busy waits) until the lock becomes free",
+          "B": "The waiting process sleeps in a queue",
+          "C": "No waiting ever happens",
+          "D": "Only the OS can wait"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). Spinlocks avoid a context switch, so they suit multiprocessors when locks are held briefly."
+        },
+        {
+         "question": "The main disadvantage of busy waiting is that it:",
+         "options": {
+          "A": "Needs a network",
+          "B": "Wastes CPU cycles that another process could use",
+          "C": "Uses too much disk",
+          "D": "Causes page faults"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Blocking (sleeping) locks avoid this."
+        },
+        {
+         "question": "A mutex lock is used through the two operations:",
+         "options": {
+          "A": "send() and receive()",
+          "B": "fork() and exec()",
+          "C": "acquire() and release()",
+          "D": "open() and close()"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Both must be atomic."
+        },
+        {
+         "question": "An atomic operation is one that:",
+         "options": {
+          "A": "Always runs in user mode",
+          "B": "Takes many separate steps that can interleave",
+          "C": "Uses nuclear energy",
+          "D": "Executes completely without interruption, as a single indivisible step"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Atomicity is the basis of all hardware synchronization."
+        },
+        {
+         "question": "A shared counter = 5. A producer executes counter++ and a consumer executes counter-- concurrently without synchronization. The final value may be:",
+         "options": {
+          "A": "Always 6",
+          "B": "Always 5",
+          "C": "4, 5 or 6",
+          "D": "Always 4"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each statement is several machine instructions that can interleave."
+        },
+        {
+         "question": "Which kind of kernel is essentially free from race conditions on kernel data structures on a single processor?",
+         "options": {
+          "A": "Every multiprocessor kernel",
+          "B": "A non-preemptive kernel",
+          "C": "A preemptive kernel",
+          "D": "A microkernel on many CPUs"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Only one process is active in the kernel at a time."
+        },
+        {
+         "question": "The first known correct software solution to the two-process critical-section problem is:",
+         "options": {
+          "A": "Dijkstra's shortest-path algorithm",
+          "B": "Dekker's algorithm",
+          "C": "Banker's algorithm",
+          "D": "Belady's algorithm"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Lamport's bakery algorithm solves the problem for n processes."
+        },
+        {
+         "question": "When a high-priority process waits for a lock held by a low-priority process that is itself preempted by a medium-priority process, the problem is:",
+         "options": {
+          "A": "Priority inversion",
+          "B": "Belady's anomaly",
+          "C": "Starvation by design",
+          "D": "Thrashing"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is solved by priority inheritance (famous in the Mars Pathfinder mission)."
+        },
+        {
+         "question": "A memory barrier (fence) instruction ensures that:",
+         "options": {
+          "A": "Memory is cleared",
+          "B": "The cache is disabled",
+          "C": "All earlier loads and stores are completed before later ones are performed",
+          "D": "No process can access memory"
+         },
+         "answer": "C",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Needed because modern CPUs may reorder memory operations."
+        },
+        {
+         "question": "Match the term with its meaning:\na. Mutual exclusion\nb. Progress\nc. Bounded waiting\nd. Race condition\n\n1. The result depends on the timing of access to shared data\n2. At most one process in its critical section\n3. A limit on how often others can enter before a waiting process\n4. The choice of who enters next cannot be postponed indefinitely",
+         "options": {
+          "A": "a-2, b-4, c-1, d-3",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "PYQ pattern (KEA / KSET papers). Requirement matching appears in KSET papers."
+        },
+        {
+         "question": "Consider the statements:\nI. Peterson's solution is a software solution for two processes.\nII. Peterson's solution uses only the variable turn.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "It needs both turn and the flag array."
+        },
+        {
+         "question": "Assertion (A): Disabling interrupts is not a practical critical-section solution on multiprocessors.\nReason (R): Disabling interrupts on all processors is time-consuming and delays entry into critical sections.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Silberschatz gives this reason."
+        },
+        {
+         "question": "Assertion (A): Spinlocks never waste CPU time.\nReason (R): A process waiting for a spinlock keeps looping until the lock is free.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Looping is exactly what wastes CPU time, so A is false."
+        },
+        {
+         "question": "The 'bakery algorithm' for the n-process critical-section problem was proposed by:",
+         "options": {
+          "A": "Leslie Lamport",
+          "B": "C. A. R. Hoare",
+          "C": "Edsger Dijkstra",
+          "D": "Gary Peterson"
+         },
+         "answer": "A",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Each process takes a 'ticket number' like customers in a bakery."
+        },
+        {
+         "question": "Which of these is a hardware-based tool for solving the critical-section problem?",
+         "options": {
+          "A": "Round Robin scheduling",
+          "B": "Atomic instructions such as test_and_set() and compare_and_swap()",
+          "C": "Paging",
+          "D": "The banker's algorithm"
+         },
+         "answer": "B",
+         "subject": "Critical-Section Problem, Peterson's Solution and Hardware Support",
+         "explanation": "Higher-level tools (mutex locks, semaphores, monitors) are built on them."
+        }
+       ]
+      },
+      {
+       "name": "2 · Semaphores, Monitors and Classical Problems",
+       "questions": [
+        {
+         "question": "Consider the following threads T1, T2, T3 executing on a single processor, synchronized using three binary semaphore variables S1, S2, S3, operated upon using standard wait() and signal(). The threads can be context switched in any order and at any time.\nT1: while (true) { wait(S3); print(\"C\"); signal(S2); }\nT2: while (true) { wait(S1); print(\"B\"); signal(S3); }\nT3: while (true) { wait(S2); print(\"A\"); signal(S1); }\nWhich initialization of the semaphores would print the sequence BCABCABCA …?",
+         "options": {
+          "A": "S1 = 1; S2 = 1; S3 = 1",
+          "B": "S1 = 1; S2 = 0; S3 = 0",
+          "C": "S1 = 0; S2 = 1; S3 = 1",
+          "D": "S1 = 1; S2 = 1; S3 = 0"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "B must come first, so only S1 starts at 1. Then B signals S3 → C, C signals S2 → A, A signals S1 → B, and so on. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q44"
+        },
+        {
+         "question": "A semaphore, introduced by Dijkstra, is:",
+         "options": {
+          "A": "A type of page table",
+          "B": "A file lock on disk only",
+          "C": "An integer variable that, apart from initialization, is accessed only through the atomic operations wait() and signal()",
+          "D": "A hardware register"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). wait() and signal() were originally called P and V."
+        },
+        {
+         "question": "The operations P and V on a semaphore come from the Dutch words for:",
+         "options": {
+          "A": "Push and Pop",
+          "B": "Test (proberen) and increment (verhogen)",
+          "C": "Pause and Verify",
+          "D": "Print and View"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "P = wait(); V = signal()."
+        },
+        {
+         "question": "A semaphore whose value can range only between 0 and 1 is a:",
+         "options": {
+          "A": "Counting semaphore",
+          "B": "Spinlock queue",
+          "C": "Monitor",
+          "D": "Binary semaphore"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). It behaves much like a mutex lock."
+        },
+        {
+         "question": "A counting semaphore used to control access to a resource with several instances is initialised to:",
+         "options": {
+          "A": "0 always",
+          "B": "−1",
+          "C": "1 always",
+          "D": "The number of available instances"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Each wait() takes an instance; each signal() returns one."
+        },
+        {
+         "question": "A counting semaphore S is initialised to 10. Then 6 wait (P) and 4 signal (V) operations are performed. The final value of S is:",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "10",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). 10 − 6 + 4 = 8."
+        },
+        {
+         "question": "A counting semaphore S is initialised to 7. After 20 P operations and 15 V operations, the value of S is:",
+         "options": {
+          "A": "−2",
+          "B": "12",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). 7 − 20 + 15 = 2."
+        },
+        {
+         "question": "To make statement S2 in process P2 run only after statement S1 in process P1, with semaphore synch initialised to 0:",
+         "options": {
+          "A": "P1: S1; signal(synch);  P2: wait(synch); S2;",
+          "B": "P1: wait(synch); S1;  P2: S2; signal(synch);",
+          "C": "P1: S1; wait(synch);  P2: signal(synch); S2;",
+          "D": "Both processes call signal(synch) first"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Semaphores can enforce ordering between processes."
+        },
+        {
+         "question": "Implementing semaphores with a waiting queue and block()/wakeup() operations mainly avoids:",
+         "options": {
+          "A": "System calls",
+          "B": "Busy waiting",
+          "C": "Context switches",
+          "D": "Mutual exclusion"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "The waiting process sleeps instead of spinning."
+        },
+        {
+         "question": "In the queue-based semaphore implementation, if the semaphore value is −3, then:",
+         "options": {
+          "A": "No process is waiting",
+          "B": "Three resources are free",
+          "C": "Three processes are waiting on the semaphore",
+          "D": "The semaphore is broken"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "A negative value's magnitude is the number of waiting processes."
+        },
+        {
+         "question": "P0 executes wait(S); wait(Q); and P1 executes wait(Q); wait(S); with S = Q = 1. This can lead to:",
+         "options": {
+          "A": "A race condition only",
+          "B": "Faster execution",
+          "C": "Priority inheritance",
+          "D": "Deadlock"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each holds one semaphore and waits for the other."
+        },
+        {
+         "question": "If processes are removed from a semaphore's waiting queue in LIFO order, the problem that may arise is:",
+         "options": {
+          "A": "Deadlock always",
+          "B": "Starvation (indefinite blocking)",
+          "C": "Thrashing",
+          "D": "Belady's anomaly"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "FIFO removal avoids it."
+        },
+        {
+         "question": "In the bounded-buffer (producer–consumer) problem with n slots, the semaphores mutex, empty and full are initialised to:",
+         "options": {
+          "A": "mutex = 1, empty = 0, full = n",
+          "B": "mutex = 0, empty = 0, full = n",
+          "C": "mutex = n, empty = 1, full = 0",
+          "D": "mutex = 1, empty = n, full = 0"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). empty counts empty slots; full counts filled slots."
+        },
+        {
+         "question": "The correct order of operations in the producer of the bounded-buffer solution is:",
+         "options": {
+          "A": "wait(full) → wait(mutex) → add item → signal(mutex) → signal(empty)",
+          "B": "wait(mutex) → wait(full) → add item → signal(empty) → signal(mutex)",
+          "C": "wait(empty) → wait(mutex) → add item → signal(mutex) → signal(full)",
+          "D": "signal(full) → wait(empty) → add item → wait(mutex)"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "The consumer does wait(full), wait(mutex), remove, signal(mutex), signal(empty)."
+        },
+        {
+         "question": "In the bounded-buffer solution, if the producer performs wait(mutex) BEFORE wait(empty) and the buffer is full:",
+         "options": {
+          "A": "Deadlock can occur – the producer sleeps holding mutex, so the consumer cannot enter",
+          "B": "The buffer grows automatically",
+          "C": "Nothing changes",
+          "D": "The consumer runs faster"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "The order of wait() operations matters."
+        },
+        {
+         "question": "In the 'first' readers–writers problem:",
+         "options": {
+          "A": "No reader is kept waiting unless a writer already has permission – so writers may starve",
+          "B": "Writers always have priority",
+          "C": "Readers may never read together",
+          "D": "Only one reader can read at a time"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). In the second readers–writers problem, writers get priority and readers may starve."
+        },
+        {
+         "question": "In the readers–writers solution, read_count records:",
+         "options": {
+          "A": "How many readers are currently reading the shared data",
+          "B": "The number of files",
+          "C": "How many writers are waiting",
+          "D": "The value of the buffer"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "The first reader locks out writers; the last reader lets them in."
+        },
+        {
+         "question": "In the dining-philosophers problem, if every philosopher picks up the left chopstick at the same time:",
+         "options": {
+          "A": "Deadlock occurs – each waits for the right chopstick forever",
+          "B": "All philosophers eat together",
+          "C": "Only one philosopher starves while others eat",
+          "D": "Nothing happens"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). Five philosophers share five chopsticks."
+        },
+        {
+         "question": "Which is a remedy for deadlock in the dining-philosophers problem?",
+         "options": {
+          "A": "Let every philosopher pick the left chopstick first",
+          "B": "Add more philosophers",
+          "C": "Allow at most four philosophers to sit at the table at once",
+          "D": "Remove the mutex"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Others: pick up both chopsticks together, or let odd and even philosophers pick in different orders."
+        },
+        {
+         "question": "A monitor is:",
+         "options": {
+          "A": "A type of pipe",
+          "B": "A high-level synchronization construct in which only one process can be active inside at a time",
+          "C": "A hardware interrupt",
+          "D": "A display screen"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). Proposed by C. A. R. Hoare and Per Brinch Hansen."
+        },
+        {
+         "question": "For a condition variable x in a monitor, x.signal() when no process is waiting on x:",
+         "options": {
+          "A": "Increments x permanently",
+          "B": "Causes deadlock",
+          "C": "Aborts the monitor",
+          "D": "Has no effect"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Unlike a semaphore's signal(), it does not change any stored value."
+        },
+        {
+         "question": "In Java, monitors are provided through:",
+         "options": {
+          "A": "fork() and exec()",
+          "B": "the volatile keyword only",
+          "C": "synchronized methods and blocks with wait() and notify()",
+          "D": "the goto statement"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Every Java object has an intrinsic lock."
+        },
+        {
+         "question": "The sleeping-barber problem is a classic synchronization problem about:",
+         "options": {
+          "A": "Two processes sharing a printer",
+          "B": "Disk scheduling",
+          "C": "Deadlock detection in databases",
+          "D": "A barber who sleeps when there are no customers and customers who wait in a limited number of chairs"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Tanenbaum uses it to illustrate semaphores."
+        },
+        {
+         "question": "A mutex differs from a binary semaphore mainly because a mutex:",
+         "options": {
+          "A": "Is used only in hardware",
+          "B": "Has an owner – only the thread that locked it should unlock it",
+          "C": "Never blocks",
+          "D": "Can hold any integer value"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "A semaphore can be signalled by any process."
+        },
+        {
+         "question": "Match the classical problem with its description:\na. Bounded-buffer\nb. Readers–writers\nc. Dining philosophers\nd. Sleeping barber\n\n1. Shared data read by many, written by one at a time\n2. Producer and consumer sharing fixed slots\n3. Customers wait in chairs; the server sleeps when no one is waiting\n4. Five processes sharing five resources arranged in a circle",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "PYQ pattern (KEA / KSET papers). Classical-problem matching is very common."
+        },
+        {
+         "question": "Match the operation with its effect:\na. wait(S)\nb. signal(S)\nc. x.wait() in a monitor\nd. x.signal() in a monitor\n\n1. Resumes one process suspended on x\n2. Increments S and wakes a waiting process\n3. Suspends the caller on condition x\n4. Decrements S and blocks the caller if S becomes negative",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-4, b-2, c-1, d-3",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Semaphore and monitor operations compared."
+        },
+        {
+         "question": "Consider the statements:\nI. A counting semaphore can take values over an unrestricted domain.\nII. A binary semaphore can take only the values 0 and 1.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "Both are definitions from Silberschatz."
+        },
+        {
+         "question": "Assertion (A): In a monitor, x.signal() with no waiting process has no effect.\nReason (R): Condition variables, unlike semaphores, have no stored value.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "So signals are not 'remembered'."
+        },
+        {
+         "question": "Assertion (A): Semaphores can never cause deadlock.\nReason (R): If two processes perform wait() on two semaphores in opposite orders, each may wait forever for the other.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "R shows exactly how semaphores can deadlock, so A is false."
+        },
+        {
+         "question": "In the bounded-buffer solution, the consumer calls wait(full) first so that:",
+         "options": {
+          "A": "mutex is released",
+          "B": "It sleeps when the buffer is empty instead of removing a non-existent item",
+          "C": "It can add items",
+          "D": "The producer is blocked forever"
+         },
+         "answer": "B",
+         "subject": "Semaphores, Monitors and Classical Problems",
+         "explanation": "full counts the filled slots, starting at 0."
         }
        ]
       }

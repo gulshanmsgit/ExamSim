@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "5 of 14 topics so far (10 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "6 of 14 topics so far (12 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -2492,6 +2492,520 @@
          "answer": "B",
          "subject": "Animations, Transitions and Slide Show",
          "explanation": "Good slides are brief and visual; the teacher still explains and interacts."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 3 – MS Excel",
+     "sets": [
+      {
+       "name": "1 · Cells, Ranges, Formulas and Functions",
+       "questions": [
+        {
+         "question": "Which of the following function is used to find the highest number in a series of number?",
+         "options": {
+          "A": "MAX (B1:B3)",
+          "B": "MAXIMUM (B1:B3)",
+          "C": "HIGH (B1:B3)",
+          "D": "HIGHEST (B1:B3)"
+         },
+         "answer": "A",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "MAX returns the largest value; MIN the smallest. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q85"
+        },
+        {
+         "question": "In MS Excel, the cell reference for a range of cells that starts in cell C1 and goes over to column H and down to row 10 is",
+         "options": {
+          "A": "C1 : 10H",
+          "B": "1C : 10H",
+          "C": "C1 : H10",
+          "D": "C1 : R10"
+         },
+         "answer": "C",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "A range is written top-left cell : bottom-right cell, column letter before row number. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q92"
+        },
+        {
+         "question": "Identify the correct statement in MS Excel.\n(a) You can only select cells that are adjacent to each other\n(b) Rows & Columns can be inserted by selecting cell command from insert menu",
+         "options": {
+          "A": "a is true but b is false",
+          "B": "Both a & b are true",
+          "C": "a is false but b is true",
+          "D": "Both a & b are false"
+         },
+         "answer": "C",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Non-adjacent cells can be selected with Ctrl + click, so (a) is false. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q93"
+        },
+        {
+         "question": "=SUM(A1:E1) formula in MS Excel performs which of the following task?",
+         "options": {
+          "A": "calculates the sum of all the values in cells from A1 to E1",
+          "B": "calculates the sum of values in cells A1 and E1 only",
+          "C": "calculates the sum of the values in cells A1 to A10",
+          "D": "calculates the sum of values in cells E1 to E10"
+         },
+         "answer": "A",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "The colon means 'through': A1, B1, C1, D1 and E1. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q78"
+        },
+        {
+         "question": "In MS-EXCEL, the full form of 'PV' is",
+         "options": {
+          "A": "Past Value",
+          "B": "Present Value",
+          "C": "Post Value",
+          "D": "Pet Value"
+         },
+         "answer": "B",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "PV() is a financial function; FV() gives the future value. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q98"
+        },
+        {
+         "question": "What is the purpose of spreadsheet program?",
+         "options": {
+          "A": "To process words",
+          "B": "To browse the internet",
+          "C": "To organize and analyze data",
+          "D": "To create presentation"
+         },
+         "answer": "C",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Spreadsheets organise data in rows and columns and calculate with formulas. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q74"
+        },
+        {
+         "question": "What is the maximum number of columns available in Excel 2016?",
+         "options": {
+          "A": "1024",
+          "B": "256",
+          "C": "16384",
+          "D": "4096"
+         },
+         "answer": "C",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Since Excel 2007 a sheet has 16,384 columns (A to XFD) and 1,048,576 rows; Excel 2003 had 256 columns. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q96"
+        },
+        {
+         "question": "Macros means ____ in MS Excel.",
+         "options": {
+          "A": "Small add-on programs",
+          "B": "Programming language used to customize Ms Word",
+          "C": "Tool to use mail merge",
+          "D": "VBA Program used in MS Excel and can be called repetitively using VBA"
+         },
+         "answer": "D",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "A macro is a recorded or written VBA procedure that automates repeated tasks. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q84"
+        },
+        {
+         "question": "In Google Sheet, which sign is used in the formula for absolute reference?",
+         "options": {
+          "A": "Underscore ( _ )",
+          "B": "Dollar ($)",
+          "C": "Equal (=)",
+          "D": "Colon (:)"
+         },
+         "answer": "B",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "As in Excel, $A$1 is an absolute reference. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q79"
+        },
+        {
+         "question": "In Microsoft Excel, you have a table with customer names in column A, dates in column B, and sales amount in column C. You want to calculate the total sales for a specific customer within a given date range. Which formula would you use?",
+         "options": {
+          "A": "=SUM (A2:A10, \"CustomerName\", C2:C10)",
+          "B": "=SUMIFS (C2:C10, A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\", B2:B10, \"<12/31/2024\")",
+          "C": "=SUMPRODUCT (A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\")",
+          "D": "=AVERAGEIFS (C2:C10, A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\", B2:B10, \"<12/31/2024\")"
+         },
+         "answer": "B",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "SUMIFS adds the values in C that meet several conditions at once. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q90"
+        },
+        {
+         "question": "The intersection of a row and a column in a worksheet is called a:",
+         "options": {
+          "A": "Range",
+          "B": "Workbook",
+          "C": "Field",
+          "D": "Cell"
+         },
+         "answer": "D",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Each cell has an address such as B5 (column B, row 5)."
+        },
+        {
+         "question": "Every formula in Excel must begin with:",
+         "options": {
+          "A": "A hash (#)",
+          "B": "A colon (:)",
+          "C": "A dollar sign ($)",
+          "D": "An equal sign (=)"
+         },
+         "answer": "D",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Without '=', Excel treats the entry as text or a number."
+        },
+        {
+         "question": "In Excel, $A$1 is an absolute reference, A1 is relative, and A$1 is:",
+         "options": {
+          "A": "A mixed reference – the row is fixed, the column changes when copied",
+          "B": "A relative reference",
+          "C": "An absolute reference",
+          "D": "An error"
+         },
+         "answer": "A",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Press F4 to cycle through the reference types."
+        },
+        {
+         "question": "Cell C1 contains =A1+B1. If C1 is copied to C2, the formula in C2 becomes:",
+         "options": {
+          "A": "=A2+B2",
+          "B": "=$A$1+$B$1",
+          "C": "=A1+B1",
+          "D": "=A1+B2"
+         },
+         "answer": "A",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Relative references adjust to their new position."
+        },
+        {
+         "question": "What value does =2+3*4 return in Excel?",
+         "options": {
+          "A": "9",
+          "B": "14",
+          "C": "20",
+          "D": "24"
+         },
+         "answer": "B",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Multiplication is done before addition."
+        },
+        {
+         "question": "What does =AVERAGE(10, 20, 30) return?",
+         "options": {
+          "A": "30",
+          "B": "10",
+          "C": "60",
+          "D": "20"
+         },
+         "answer": "D",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "(10 + 20 + 30) / 3 = 20."
+        },
+        {
+         "question": "Which function counts only the cells that contain numbers in a range?",
+         "options": {
+          "A": "COUNT",
+          "B": "SUM",
+          "C": "COUNTA",
+          "D": "COUNTBLANK"
+         },
+         "answer": "A",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "COUNTA counts all non-empty cells; COUNTIF counts cells meeting a condition."
+        },
+        {
+         "question": "Match the Excel error value with its usual cause:\na. #DIV/0!\nb. #NAME?\nc. #####\nd. #REF!\n\n1. Column too narrow to show the value\n2. Division by zero\n3. A referenced cell has been deleted\n4. Misspelt function name",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-2, b-4, c-3, d-1",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Error-value questions appear in KEA computer sections."
+        },
+        {
+         "question": "The keyboard shortcut for AutoSum in Excel is:",
+         "options": {
+          "A": "Shift + F3",
+          "B": "Ctrl + S",
+          "C": "Alt + =",
+          "D": "Ctrl + A"
+         },
+         "answer": "C",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "It inserts =SUM() for the adjacent range."
+        },
+        {
+         "question": "Dragging the small square at the bottom-right of a selected cell to copy a value or continue a series (1, 2, 3 … or Jan, Feb …) uses the:",
+         "options": {
+          "A": "Status bar",
+          "B": "Name Box",
+          "C": "Format Painter",
+          "D": "Fill handle (AutoFill)"
+         },
+         "answer": "D",
+         "subject": "Cells, Ranges, Formulas and Functions",
+         "explanation": "Double-clicking the fill handle fills down to the end of the adjacent data."
+        }
+       ]
+      },
+      {
+       "name": "2 · Formatting, Charts and Printing",
+       "questions": [
+        {
+         "question": "Which of the following statements about Microsoft Excel are true?\n(i) Conditional Formatting can be used to highlight cells based on specific criteria like values, text or dates.\n(ii) The IF function can only return numeric values.\n(iii) PivotTables can be used to summarize and analyse data dynamically by dragging and dropping fields.\n(iv) The VLOOKUP function is case-sensitive by default.",
+         "options": {
+          "A": "i and iii are true",
+          "B": "ii and iv are true",
+          "C": "i, iii and iv are true",
+          "D": "i, ii and iii are true"
+         },
+         "answer": "A",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "IF can return text too, and VLOOKUP is not case-sensitive. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q92"
+        },
+        {
+         "question": "In Microsoft Excel, which feature can be used to combine data from multiple worksheets into a single summary worksheet?",
+         "options": {
+          "A": "Power Query",
+          "B": "VLOOKUP()",
+          "C": "Data Validation",
+          "D": "Consolidate"
+         },
+         "answer": "D",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Data → Consolidate summarises ranges from several sheets. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q86"
+        },
+        {
+         "question": "Match the following shortcuts with its function in the excel workbook.\nShortcut Keys: a) Ctrl + W  b) Alt + N  c) Alt + M  d) Ctrl + O\nFunction: i. Go to insert tab  ii. Go to Formula Tab  iii. Close a workbook  iv. Hide selected columns",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "D",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Ctrl + W closes the workbook; Alt + N opens Insert; Alt + M opens Formulas. KEA's key pairs d with hiding columns – that shortcut is Ctrl + 0 (zero). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q80"
+        },
+        {
+         "question": "____ chart shows the proportional size of items that make up only one data series to the sum of the items.",
+         "options": {
+          "A": "Bar Chart",
+          "B": "Pie Chart",
+          "C": "Line Chart",
+          "D": "Area Chart"
+         },
+         "answer": "B",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "A pie chart shows parts of a whole for one data series. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q96"
+        },
+        {
+         "question": "In MS Excel, ____ key combination is used to hide a row.",
+         "options": {
+          "A": "Ctrl+Delete",
+          "B": "Ctrl+F9",
+          "C": "Ctrl+9",
+          "D": "Alt+F9"
+         },
+         "answer": "C",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Ctrl + 9 hides rows; Ctrl + 0 hides columns; Ctrl + Shift + 9 unhides rows. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q97"
+        },
+        {
+         "question": "Possible zoom range in MS-Excel is",
+         "options": {
+          "A": "10% to 400%",
+          "B": "15% to 300%",
+          "C": "20% to 400%",
+          "D": "10% to 200%"
+         },
+         "answer": "A",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Excel's zoom slider runs from 10% to 400%. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q99"
+        },
+        {
+         "question": "What does \"Data series\" indicate in a chart in Microsoft Excel?",
+         "options": {
+          "A": "Chart title",
+          "B": "Label on the Y axis",
+          "C": "Legend of the chart",
+          "D": "Numeric values plotted on a chart"
+         },
+         "answer": "D",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "A data series is a row or column of values plotted together, e.g. one set of bars. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q75"
+        },
+        {
+         "question": "Match List I with List II and select the correct answer from the codes given below the lists.\nList I (Chart type): a. Line chart  b. Pie chart  c. Column chart  d. Funnel chart\nList II (Description): i. Displays data as vertical bars  ii. Shows trends over time by connecting data points with lines  iii. Shows proportions of a whole as slices of a circle  iv. Shows stages in a process and the amount of data at each stage",
+         "options": {
+          "A": "a-iii, b-iv, c-ii, d-i",
+          "B": "a-ii, b-i, c-iii, d-iv",
+          "C": "a-ii, b-iii, c-i, d-iv",
+          "D": "a-i, b-ii, c-iv, d-iii"
+         },
+         "answer": "C",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Line – trends; pie – parts of a whole; column – vertical bars; funnel – stages of a process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q91"
+        },
+        {
+         "question": "Match the following application software.\nList-I: a. Word processor  b. Spreadsheet  c. DBMS  d. Web browser\nList-II: i. Used to organize, manipulate and analyse numerical data  ii. Software for creating, storing and managing data  iii. Used for viewing websites and accessing information online  iv. Used for creating, editing and formatting text document",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – iv, b – i, c – iii, d – ii",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Word processor – text; spreadsheet – numbers; DBMS – stored data; browser – websites. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q78"
+        },
+        {
+         "question": "'Merge & Center' in Excel:",
+         "options": {
+          "A": "Deletes the selected cells",
+          "B": "Combines the selected cells into one larger cell and centres the content",
+          "C": "Sorts the data",
+          "D": "Adds the selected numbers"
+         },
+         "answer": "B",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Often used for headings over a table; only the upper-left cell's content is kept."
+        },
+        {
+         "question": "To show a long entry on several lines inside the same cell, use:",
+         "options": {
+          "A": "Freeze Panes",
+          "B": "Wrap Text",
+          "C": "AutoSum",
+          "D": "Merge Cells"
+         },
+         "answer": "B",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Alt + Enter inserts a manual line break within a cell."
+        },
+        {
+         "question": "The Alignment group, with options for horizontal and vertical alignment and text orientation, is on the ____ tab.",
+         "options": {
+          "A": "Review",
+          "B": "Insert",
+          "C": "View",
+          "D": "Home"
+         },
+         "answer": "D",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "The same options are in the Format Cells dialog."
+        },
+        {
+         "question": "The keyboard shortcut that opens the Format Cells dialog box is:",
+         "options": {
+          "A": "Ctrl + K",
+          "B": "Ctrl + F",
+          "C": "Ctrl + 1",
+          "D": "Ctrl + P"
+         },
+         "answer": "C",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "It has Number, Alignment, Font, Border, Fill and Protection tabs."
+        },
+        {
+         "question": "To show monthly sales over a year so that the trend is clear, the most suitable chart is a:",
+         "options": {
+          "A": "Line chart",
+          "B": "Doughnut chart",
+          "C": "Funnel chart",
+          "D": "Pie chart"
+         },
+         "answer": "A",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Column or bar charts are best for comparing categories."
+        },
+        {
+         "question": "To compare the marks of five students in a subject, the most suitable chart is a:",
+         "options": {
+          "A": "Pie chart of a single student",
+          "B": "Bar or column chart",
+          "C": "Line chart with no categories",
+          "D": "Scatter chart of dates"
+         },
+         "answer": "B",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Bars make comparisons between separate items easy."
+        },
+        {
+         "question": "The chart element that tells which colour stands for which data series is the:",
+         "options": {
+          "A": "Legend",
+          "B": "Plot area",
+          "C": "Gridline",
+          "D": "Axis title"
+         },
+         "answer": "A",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Chart elements are added from the '+' button or the Chart Design tab."
+        },
+        {
+         "question": "Pressing F11 with data selected in Excel:",
+         "options": {
+          "A": "Saves the workbook",
+          "B": "Creates a default chart on a new chart sheet",
+          "C": "Opens Help",
+          "D": "Prints the sheet"
+         },
+         "answer": "B",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Alt + F1 creates the chart on the same sheet."
+        },
+        {
+         "question": "Print Preview in Excel (File → Print) can be opened with:",
+         "options": {
+          "A": "Ctrl + Y",
+          "B": "F7",
+          "C": "Ctrl + F2 or Ctrl + P",
+          "D": "Ctrl + Z"
+         },
+         "answer": "C",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). It shows how the sheet will look on paper before printing."
+        },
+        {
+         "question": "To keep the heading row visible while scrolling down a long list, use:",
+         "options": {
+          "A": "Home → Wrap Text",
+          "B": "Insert → Header",
+          "C": "Data → Sort",
+          "D": "View → Freeze Panes"
+         },
+         "answer": "D",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "PYQ pattern (KPSC / KEA / SSC). Freeze Top Row is the quickest option."
+        },
+        {
+         "question": "Consider the statements:\nI. Wrap Text displays long text on several lines within one cell.\nII. Merge & Center keeps the contents of every merged cell.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Formatting, Charts and Printing",
+         "explanation": "Only the upper-left cell's content is kept when merging."
         }
        ]
       }
