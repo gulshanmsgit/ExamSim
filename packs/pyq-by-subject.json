@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 256, Paper 2: 457. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 265, Paper 2: 465. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -2865,7 +2865,64 @@
      "name": "Educational Psychology",
      "sets": [
       {
-       "name": "1 · KSET 2025 Education",
+       "name": "1 · GFGC 2021 Education",
+       "questions": [
+        {
+         "question": "Latent learning is a concept enunciated by",
+         "options": {
+          "A": "Hull",
+          "B": "Piaget",
+          "C": "Tolman",
+          "D": "Skinner"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 Education",
+         "explanation": "E. C. Tolman's rats learned a maze without reward and showed it only when food was later offered. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 Education · Q28"
+        },
+        {
+         "question": "Given below are two statements, One labelled as Assertion (A) and the other labelled as Reason (R).\nAssertion (A): Motivation is important in the process of teaching & learning.\nReason (R): Motivation energizes the person so that he reaches the goal.",
+         "options": {
+          "A": "Both (A) & (R) are true and (R) is the correct explanation of (A).",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A).",
+          "C": "(A) is true but (R) is false.",
+          "D": "(A) is false but (R) is true."
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 Education",
+         "explanation": "Motivation arouses, sustains and directs behaviour towards a goal, which is why it matters for learning. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 Education · Q31"
+        },
+        {
+         "question": "According to Maslow, the higher level needs are\nI. Intellectual achievement\nII. Aesthetic appreciation\nIII. Esteem needs\nIV. Self-actualization needs",
+         "options": {
+          "A": "I, II and III only",
+          "B": "I, II and IV only",
+          "C": "II, III and IV only",
+          "D": "I, III and IV only"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 Education",
+         "explanation": "In Maslow's extended hierarchy the growth (being) needs are cognitive (knowledge / intellectual achievement), aesthetic and self-actualisation; esteem is still a deficiency need. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 Education · Q35"
+        },
+        {
+         "question": "The correct sequence according to Maslow's hierarchy of human needs is\nI. Esteem needs\nII. Safety needs\nIII. Love & Belongingness\nIV. Self-actualization",
+         "options": {
+          "A": "I, II, III, IV",
+          "B": "II, III, I, IV",
+          "C": "III, II, IV, I",
+          "D": "IV, I, II, III"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 Education",
+         "explanation": "Physiological → safety → love and belonging → esteem → self-actualisation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 Education · Q37"
+        }
+       ]
+      },
+      {
+       "name": "2 · KSET 2025 Education",
        "questions": [
         {
          "question": "The other name of social competence is",
@@ -2922,34 +2979,8 @@
        ]
       },
       {
-       "name": "2 · Other papers",
+       "name": "3 · Other papers",
        "questions": [
-        {
-         "question": "Latent learning is a concept enunciated by",
-         "options": {
-          "A": "Hull",
-          "B": "Piaget",
-          "C": "Tolman",
-          "D": "Skinner"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "E. C. Tolman's rats learned a maze without reward and showed it only when food was later offered. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 Education · Q28"
-        },
-        {
-         "question": "Given below are two statements, One labelled as Assertion (A) and the other labelled as Reason (R).\nAssertion (A): Motivation is important in the process of teaching & learning.\nReason (R): Motivation energizes the person so that he reaches the goal.",
-         "options": {
-          "A": "Both (A) & (R) are true and (R) is the correct explanation of (A).",
-          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A).",
-          "C": "(A) is true but (R) is false.",
-          "D": "(A) is false but (R) is true."
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Motivation arouses, sustains and directs behaviour towards a goal, which is why it matters for learning. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 Education · Q31"
-        },
         {
          "question": "According to Cognitive Theory, learning is primarily influenced by:",
          "options": {
@@ -3413,6 +3444,19 @@
          "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q91"
         },
         {
+         "question": "What are .bas, .doc, .htm, .png, .bmp examples of in computing ?",
+         "options": {
+          "A": "Protocols",
+          "B": "Domains",
+          "C": "Database",
+          "D": "Extensions"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "They are file-name extensions that show the file type; .png and .bmp are image formats that Paint saves. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q96"
+        },
+        {
          "question": "What does \"Data series\" indicate in a chart in Microsoft Excel?",
          "options": {
           "A": "Chart title",
@@ -3501,6 +3545,45 @@
        "name": "1 · Other papers",
        "questions": [
         {
+         "question": "'Rickets' is caused due to the deficiency of which of the following Vitamins?",
+         "options": {
+          "A": "C",
+          "B": "D",
+          "C": "A",
+          "D": "B"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Vitamin D deficiency softens and bends children's bones (rickets); in adults it causes osteomalacia. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2024 entrance · Q77"
+        },
+        {
+         "question": "The nutrient which is helpful for our body growth is",
+         "options": {
+          "A": "Carbohydrates",
+          "B": "Protein",
+          "C": "Lipid",
+          "D": "Vitamin"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Proteins are body-building foods – they make and repair tissues. Carbohydrates and fats give energy; vitamins protect. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2025 entrance · Q64"
+        },
+        {
+         "question": "Which vitamin is enriched in outer surface of rice?",
+         "options": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "The bran layer of rice is rich in B vitamins, especially thiamine (B1); polishing removes it, which is why polished-rice diets caused beriberi. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2026 entrance · Q70"
+        },
+        {
          "question": "Identify the correct statements regarding mental health:\nI. It involves a state of being free from psychological disorders.\nII. It involves a state of emotional well-being.\nIII. It requires the ability to cope with stress.\nIV. It is influenced by social and environmental factors.\nV. It is merely an absence of mental illness.",
          "options": {
           "A": "I, II and III only",
@@ -3512,6 +3595,45 @@
          "subject": "Other papers",
          "explanation": "Mental health is a positive state of well-being, not merely the absence of illness, so V is wrong. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2023 Education · Q2"
+        },
+        {
+         "question": "This is not an example for denatured protein.",
+         "options": {
+          "A": "Boiled egg albumin (white)",
+          "B": "Curding of milk",
+          "C": "Starch solution",
+          "D": "Coagulation of insulin"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Starch is a carbohydrate, not a protein. Heat (boiled egg), acid (curdling of milk) and clumping (insulin) denature proteins. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q48"
+        },
+        {
+         "question": "Which of the following statements about the vitamins are correct?\n(a) Vitamin A and Vitamin B were discovered by Elmer McCollum.\n(b) Deficiency of Vitamin D causes weak bones.\n(c) Vitamin C was invented by Albert Szent-Gyorgyi.\n(d) Deficiency of Vitamin B causes scurvy.\nSelect the correct answer using the codes given below:",
+         "options": {
+          "A": "a, b and d",
+          "B": "b, c and d",
+          "C": "a, c and d",
+          "D": "a, b and c"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "Scurvy is caused by lack of vitamin C, so (d) is wrong. McCollum identified 'fat-soluble A' and 'water-soluble B'; Szent-Györgyi isolated vitamin C (Nobel 1937). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q74"
+        },
+        {
+         "question": "Match the Vitamins in List-I with their deficiency diseases in List-II by choosing correct option:\nList-I (Vitamins)\n(a) Vitamin B12\n(b) Vitamin B1\n(c) Vitamin C\n(d) Vitamin K\nList-II (Deficiency diseases / conditions)\n(i) Haemorrhages\n(ii) Scurvy\n(iii) Beri Beri\n(iv) Pernicious Anaemia",
+         "options": {
+          "A": "(a)-(iv) (b)-(ii) (c)-(iii) (d)-(i)",
+          "B": "(a)-(ii) (b)-(iii) (c)-(i) (d)-(iv)",
+          "C": "(a)-(iii) (b)-(ii) (c)-(iv) (d)-(i)",
+          "D": "(a)-(iv) (b)-(iii) (c)-(ii) (d)-(i)"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "B12 – pernicious anaemia; B1 (thiamine) – beriberi; C – scurvy; K – bleeding (haemorrhages), since it is needed for blood clotting. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "UPSC coaching entrance 2026 (HK) · Q71"
         }
        ]
       }
@@ -6572,6 +6694,19 @@
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q50"
         },
         {
+         "question": "Which of the following page replacement algorithms can lead to optimal performance?\na. Least Recently Used (LRU)\nb. Optimal Page Replacement\nc. FIFO\nd. Second Chance",
+         "options": {
+          "A": "a, b and c",
+          "B": "b and a",
+          "C": "b, c and d",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "The key takes Optimal (the true minimum) and LRU, its best practical approximation; FIFO and second chance can be far from optimal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q51"
+        },
+        {
          "question": "A compiler is used for",
          "options": {
           "A": "Converting machine language to high level programming language",
@@ -6878,7 +7013,220 @@
        ]
       },
       {
-       "name": "3 · KSET 2025 CS&A",
+       "name": "3 · Legislative Council 2024 Sr/Jr Programmer P2",
+       "questions": [
+        {
+         "question": "There are 10 different processes running on a workstation. Idle processes are waiting for an input event in the input Queue. Busy processes are scheduled with Round Robin time sharing method. Which of the following quantum times is the best value for small response times, if the processes have a short run time, eg., less than 10 ms?",
+         "options": {
+          "A": "tQ = 15 ms",
+          "B": "tQ = 40 ms",
+          "C": "tQ = 45 ms",
+          "D": "tQ = 50 ms"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "A quantum just above the typical burst lets most processes finish in one slice while keeping response time small. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q1"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\nI. Shortest remaining time first scheduling may cause starvation.\nII. Preemptive scheduling may cause starvation.\nIII. Round Robin is better than FCFS in terms of response time.",
+         "options": {
+          "A": "I only",
+          "B": "I and III only",
+          "C": "II and III only",
+          "D": "I, II and III"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "All three are true. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q2"
+        },
+        {
+         "question": "To access the services of the operating system, the interface is provided by",
+         "options": {
+          "A": "Library",
+          "B": "System calls",
+          "C": "Assembly instructions",
+          "D": "API"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "System calls are the interface between a running program and the OS kernel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q3"
+        },
+        {
+         "question": "Which one of the following is not true?",
+         "options": {
+          "A": "Kernel remains in the memory during the entire computer session.",
+          "B": "Kernel is made of various modules which cannot be loaded in running operating system.",
+          "C": "Kernel is the first part of the operating system to load into the memory during booting.",
+          "D": "Kernel is the program that constitutes the central core of the operating system."
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "Modern kernels such as Linux support loadable modules that can be added while the system runs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q4"
+        },
+        {
+         "question": "In a time share operating system, when the time slot assigned to a process is completed, the process switches from current state to ____.",
+         "options": {
+          "A": "Suspended State",
+          "B": "Terminated State",
+          "C": "Ready State",
+          "D": "Blocked State"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "A timer interrupt preempts the running process and puts it back in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q5"
+        },
+        {
+         "question": "Consider a computer system that supports 32-bit physical as well as virtual addresses. Now since the space of the physical address is same as the virtual address, the operating system designers would decide to entirely get rid of its virtual memory. Which one of the following is true in this case?",
+         "options": {
+          "A": "It is no longer possible to efficiently implement multi-user support.",
+          "B": "It is possible to make CPU scheduling more efficient now.",
+          "C": "There would no longer be required for hardware support for memory management.",
+          "D": "It would be possible to make the processor cache organization more efficient now."
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "Without virtual memory there are no virtual-to-physical translations, so the MMU / page-table hardware is not needed (GATE 2016 question). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q6"
+        },
+        {
+         "question": "In a computer system that consists of n number of CPUs, the maximum processes that can exist in the ready state would be",
+         "options": {
+          "A": "Independent of n",
+          "B": "2n",
+          "C": "n^2",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "At most n processes can be running, but any number may wait in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q7"
+        },
+        {
+         "question": "Consider that a virtual memory system uses a FIFO page replacement policy. For a process, it allocates a fixed number of frames. Now consider the following statements.\nA: An increase in the number of page frames that are allocated to a process sometimes leads to an increase in page fault rate.\nB: A few programs do not display the locality of reference.\nWhich one of the following option is correct?",
+         "options": {
+          "A": "A is true",
+          "B": "B is false",
+          "C": "Both A & B are false",
+          "D": "Both A & B are true"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "A is Belady's anomaly, possible with FIFO; B is also true – some programs (e.g. jumping through large data) show poor locality. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q8"
+        },
+        {
+         "question": "Match the following:\nOperating System: a) Android  b) Windows Operating System  c) Linux  d) OS-X\nCompanies: i. Microsoft  ii. Google  iii. Apple  iv. Open source",
+         "options": {
+          "A": "a - i, b - ii, c - iii, d - iv",
+          "B": "a - ii, b - i, c - iv, d - iii",
+          "C": "a - iii, b - i, c - ii, d - iv",
+          "D": "a - ii, b - iii, c - iv, d - i"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "Android – Google; Windows – Microsoft; Linux – open source; OS X (macOS) – Apple. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q9"
+        },
+        {
+         "question": "When a message is sent to a mailbox, the mailbox may be full. If the mailbox is not full, the message is copied to the mailbox and the sending thread continues. If the mailbox is full, then which of the following options does the sending thread have?",
+         "options": {
+          "A": "Wait indefinitely until there is room in the mailbox",
+          "B": "Wait at most n milliseconds",
+          "C": "Do not wait at all but rather return immediately",
+          "D": "All of the above"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "Silberschatz (Windows ALPC / Mach): the sender may block, block with a timeout, or return immediately. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q10"
+        },
+        {
+         "question": "Match the following with respect to scheduling algorithm\na) FCFS  b) SJF  c) RR  d) Priority Scheduling\ni. Allocation based on the lowest CPU burst time  ii. According to the arrival time of the process, the CPU is allocated.  iii. According to the priority  iv. According to the order of the process arrives with fixed time quantum.",
+         "options": {
+          "A": "a - i, b - iii, c - iv, d - ii",
+          "B": "a - ii, b - i, c - iv, d - iii",
+          "C": "a - iv, b - iii, c - i, d - ii",
+          "D": "a - iv, b - ii, c - iii, d - i"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "FCFS – arrival order; SJF – shortest burst; RR – arrival order with a fixed quantum; Priority – by priority. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q13"
+        },
+        {
+         "question": "In SRT process scheduling algorithm, the arrival & execution time of the four processes are as follows.\nArrival time – Execution time – Process: 0 – 20 – P₁; 15 – 25 – P₂; 30 – 10 – P₃; 45 – 15 – P₄\nWhat will be the process 'P₂' total waiting time?",
+         "options": {
+          "A": "40",
+          "B": "15",
+          "C": "55",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "P₁ runs 0–20; P₂ runs 20–30, is preempted by P₃ (30–40), resumes 40–50; P₄ runs 50–65. P₂ waits (20 − 15) + (40 − 30) = 15. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q14"
+        },
+        {
+         "question": "A process needs to release all resources before it makes any requests for another resources. Select the true statement from the following.",
+         "options": {
+          "A": "Deadlock cannot occur, but starvation can occur",
+          "B": "Both deadlock and starvation can occur",
+          "C": "Neither deadlock nor starvation can occur",
+          "D": "Deadlock can occur but starvation cannot occur"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "This breaks the hold-and-wait condition, so deadlock is impossible, but a process may wait indefinitely for popular resources. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q16"
+        },
+        {
+         "question": "The total time taken for switching between the user & the Kernel modes of execution is t₁, while the total time taken for switching between two processes is t₂. Out of the following, which one is true?",
+         "options": {
+          "A": "t₂ = t₁",
+          "B": "t₂ > t₁",
+          "C": "t₂ < t₁",
+          "D": "we cannot say anything about the relation between t₂ & t₁"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "A process switch includes a mode switch plus saving and restoring the whole context, so it takes longer. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q17"
+        },
+        {
+         "question": "The lowest number of page frames that are bound to be allocated in an environment of virtual memory to a running processes is determined by",
+         "options": {
+          "A": "the instruction set architecture",
+          "B": "the page size",
+          "C": "the size of the physical memory",
+          "D": "the total number of processes in memory"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "The minimum is set by the most memory references a single instruction can make (operands, indirection), i.e. by the ISA. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q18"
+        },
+        {
+         "question": "Which of the following does not interrupt a running process?",
+         "options": {
+          "A": "Power failure",
+          "B": "Scheduler process",
+          "C": "A device",
+          "D": "Timer"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
+         "explanation": "The scheduler runs only after an interrupt or system call gives control to the OS; it does not itself interrupt a process. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q95"
+        }
+       ]
+      },
+      {
+       "name": "4 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "What is the role of linker in compilation?",
@@ -7078,7 +7426,7 @@
        ]
       },
       {
-       "name": "4 · KSET 2023 CS&A",
+       "name": "5 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "____ translates the high-level language program into machine language.",
@@ -7261,180 +7609,6 @@
          "subject": "KSET 2023 CS&A",
          "explanation": "Peephole optimisation includes flow-of-control optimisation such as replacing jumps to jumps. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2023 CS&A · Q60"
-        }
-       ]
-      },
-      {
-       "name": "5 · Legislative Council 2024 Sr/Jr Programmer P2",
-       "questions": [
-        {
-         "question": "There are 10 different processes running on a workstation. Idle processes are waiting for an input event in the input Queue. Busy processes are scheduled with Round Robin time sharing method. Which of the following quantum times is the best value for small response times, if the processes have a short run time, eg., less than 10 ms?",
-         "options": {
-          "A": "tQ = 15 ms",
-          "B": "tQ = 40 ms",
-          "C": "tQ = 45 ms",
-          "D": "tQ = 50 ms"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "A quantum just above the typical burst lets most processes finish in one slice while keeping response time small. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q1"
-        },
-        {
-         "question": "Which of the following statement/statements is/are true?\nI. Shortest remaining time first scheduling may cause starvation.\nII. Preemptive scheduling may cause starvation.\nIII. Round Robin is better than FCFS in terms of response time.",
-         "options": {
-          "A": "I only",
-          "B": "I and III only",
-          "C": "II and III only",
-          "D": "I, II and III"
-         },
-         "answer": "D",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "All three are true. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q2"
-        },
-        {
-         "question": "To access the services of the operating system, the interface is provided by",
-         "options": {
-          "A": "Library",
-          "B": "System calls",
-          "C": "Assembly instructions",
-          "D": "API"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "System calls are the interface between a running program and the OS kernel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q3"
-        },
-        {
-         "question": "Which one of the following is not true?",
-         "options": {
-          "A": "Kernel remains in the memory during the entire computer session.",
-          "B": "Kernel is made of various modules which cannot be loaded in running operating system.",
-          "C": "Kernel is the first part of the operating system to load into the memory during booting.",
-          "D": "Kernel is the program that constitutes the central core of the operating system."
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "Modern kernels such as Linux support loadable modules that can be added while the system runs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q4"
-        },
-        {
-         "question": "In a time share operating system, when the time slot assigned to a process is completed, the process switches from current state to ____.",
-         "options": {
-          "A": "Suspended State",
-          "B": "Terminated State",
-          "C": "Ready State",
-          "D": "Blocked State"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "A timer interrupt preempts the running process and puts it back in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q5"
-        },
-        {
-         "question": "In a computer system that consists of n number of CPUs, the maximum processes that can exist in the ready state would be",
-         "options": {
-          "A": "Independent of n",
-          "B": "2n",
-          "C": "n^2",
-          "D": "n"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "At most n processes can be running, but any number may wait in the ready queue. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q7"
-        },
-        {
-         "question": "Match the following:\nOperating System: a) Android  b) Windows Operating System  c) Linux  d) OS-X\nCompanies: i. Microsoft  ii. Google  iii. Apple  iv. Open source",
-         "options": {
-          "A": "a - i, b - ii, c - iii, d - iv",
-          "B": "a - ii, b - i, c - iv, d - iii",
-          "C": "a - iii, b - i, c - ii, d - iv",
-          "D": "a - ii, b - iii, c - iv, d - i"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "Android – Google; Windows – Microsoft; Linux – open source; OS X (macOS) – Apple. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q9"
-        },
-        {
-         "question": "When a message is sent to a mailbox, the mailbox may be full. If the mailbox is not full, the message is copied to the mailbox and the sending thread continues. If the mailbox is full, then which of the following options does the sending thread have?",
-         "options": {
-          "A": "Wait indefinitely until there is room in the mailbox",
-          "B": "Wait at most n milliseconds",
-          "C": "Do not wait at all but rather return immediately",
-          "D": "All of the above"
-         },
-         "answer": "D",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "Silberschatz (Windows ALPC / Mach): the sender may block, block with a timeout, or return immediately. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q10"
-        },
-        {
-         "question": "Match the following with respect to scheduling algorithm\na) FCFS  b) SJF  c) RR  d) Priority Scheduling\ni. Allocation based on the lowest CPU burst time  ii. According to the arrival time of the process, the CPU is allocated.  iii. According to the priority  iv. According to the order of the process arrives with fixed time quantum.",
-         "options": {
-          "A": "a - i, b - iii, c - iv, d - ii",
-          "B": "a - ii, b - i, c - iv, d - iii",
-          "C": "a - iv, b - iii, c - i, d - ii",
-          "D": "a - iv, b - ii, c - iii, d - i"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "FCFS – arrival order; SJF – shortest burst; RR – arrival order with a fixed quantum; Priority – by priority. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q13"
-        },
-        {
-         "question": "In SRT process scheduling algorithm, the arrival & execution time of the four processes are as follows.\nArrival time – Execution time – Process: 0 – 20 – P₁; 15 – 25 – P₂; 30 – 10 – P₃; 45 – 15 – P₄\nWhat will be the process 'P₂' total waiting time?",
-         "options": {
-          "A": "40",
-          "B": "15",
-          "C": "55",
-          "D": "20"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "P₁ runs 0–20; P₂ runs 20–30, is preempted by P₃ (30–40), resumes 40–50; P₄ runs 50–65. P₂ waits (20 − 15) + (40 − 30) = 15. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q14"
-        },
-        {
-         "question": "A process needs to release all resources before it makes any requests for another resources. Select the true statement from the following.",
-         "options": {
-          "A": "Deadlock cannot occur, but starvation can occur",
-          "B": "Both deadlock and starvation can occur",
-          "C": "Neither deadlock nor starvation can occur",
-          "D": "Deadlock can occur but starvation cannot occur"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "This breaks the hold-and-wait condition, so deadlock is impossible, but a process may wait indefinitely for popular resources. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q16"
-        },
-        {
-         "question": "The total time taken for switching between the user & the Kernel modes of execution is t₁, while the total time taken for switching between two processes is t₂. Out of the following, which one is true?",
-         "options": {
-          "A": "t₂ = t₁",
-          "B": "t₂ > t₁",
-          "C": "t₂ < t₁",
-          "D": "we cannot say anything about the relation between t₂ & t₁"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "A process switch includes a mode switch plus saving and restoring the whole context, so it takes longer. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q17"
-        },
-        {
-         "question": "Which of the following does not interrupt a running process?",
-         "options": {
-          "A": "Power failure",
-          "B": "Scheduler process",
-          "C": "A device",
-          "D": "Timer"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Sr/Jr Programmer P2",
-         "explanation": "The scheduler runs only after an interrupt or system call gives control to the OS; it does not itself interrupt a process. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q95"
         }
        ]
       },
@@ -7803,6 +7977,19 @@
          "source": "GTTC 2024 Lecturer CS · Q51"
         },
         {
+         "question": "The performance of process in virtual memory depends on the rate at which its components have to be loaded into memory to achieve a low rate of loading of process components virtual memory manager uses the",
+         "options": {
+          "A": "Law of locality objects",
+          "B": "Law of locality of pointer",
+          "C": "Thrashing",
+          "D": "Law of locality of reference"
+         },
+         "answer": "D",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Programs reference a small set of pages at a time (locality of reference), so keeping that set in memory keeps page faults low. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q53"
+        },
+        {
          "question": "Match the following terminology of Banker's Algorithm based on the functionality\na. Available  b. Max  c. Allocation  d. Need\ni. Total demand of resource  ii. Demand for the remaining resource  iii. Now ready resource  iv. Currently allocated to each process",
          "options": {
           "A": "a – iii, b – i, c – iv, d – ii",
@@ -7858,6 +8045,19 @@
          "subject": "GTTC 2024 Technician Gr-III CS (C1)",
          "explanation": "Round Robin is CPU scheduling, the elevator algorithm (SCAN) is disk scheduling, Optimal is page replacement. (Official answer: KEA final key, GTTC recruitment 2024.)",
          "source": "GTTC 2024 Technician Gr-III CS (C1) · Q28"
+        },
+        {
+         "question": "Mapping of file is managed by",
+         "options": {
+          "A": "File meta data",
+          "B": "Page table",
+          "C": "Virtual Memory",
+          "D": "File system"
+         },
+         "answer": "D",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "The official key gives the file system, which keeps track of where each file's blocks are (its metadata maps the file to disk blocks). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q29"
         },
         {
          "question": "Which of the following is a type of technique in which dumb terminals are connected to a central computer system?",
@@ -7943,6 +8143,19 @@
          "source": "PGCET 2023 M.Tech CS · Q30"
         },
         {
+         "question": "Identify the incorrect statement regarding the page replacement algorithms and its principle.",
+         "options": {
+          "A": "NRU (Not Recently Used) - Removes a page at random from the lowest numbered nonempty class",
+          "B": "FIFO -First In, First Out",
+          "C": "LRU -Throw out the page that has been used for the longest time",
+          "D": "Second chance - Simple modification of FIFO"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "LRU throws out the page that has NOT been used for the longest time. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q70"
+        },
+        {
          "question": "The best fit and first fit strategies for memory allocation suffer from",
          "options": {
           "A": "Buffering",
@@ -7967,6 +8180,19 @@
          "subject": "Other papers",
          "explanation": "Threads of a process share one address space, so no per-thread virtual-memory state is kept; each thread still has its own registers, stack and scheduling information. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2024 M.Tech CS · Q45"
+        },
+        {
+         "question": "Applying FIFO page replacement for the reference string →7, 0, 1, 2, 0, 3, 0, 4, 2, 3. The main memory can accommodate 3 pages. How many page faults will occur?",
+         "options": {
+          "A": "10",
+          "B": "6",
+          "C": "9",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Faults on 7, 0, 1, 2, 3, 0, 4, 2, 3 – only the first re-use of 0 is a hit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q55"
         }
        ]
       }
