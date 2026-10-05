@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 6 — System Software & Operating Systems",
- "description": "9 of 15 topics so far (18 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads; CPU Scheduling; Deadlocks; Memory Management; Virtual Memory. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "14 of 15 topics so far (28 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads; CPU Scheduling; Deadlocks; Memory Management; Virtual Memory; Storage Management; File Systems; I/O Systems; OS Security; Linux Operating System. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 6 – System Software & Operating Systems",
@@ -6709,6 +6709,3729 @@
          "answer": "B",
          "subject": "Page Replacement – FIFO, Optimal, LRU and Approximations",
          "explanation": "PYQ pattern (KEA / KSET papers). It needs only a queue of the pages in memory."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Storage Management",
+     "sets": [
+      {
+       "name": "1 · Disk Structure, Disk Management and RAID",
+       "questions": [
+        {
+         "question": "The smallest unit that can be written to or read from the disk is a",
+         "options": {
+          "A": "Track",
+          "B": "Head",
+          "C": "Byte",
+          "D": "Sector"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "A disk transfers whole sectors (traditionally 512 bytes, now often 4 KB). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q86"
+        },
+        {
+         "question": "Which is the correct hierarchy order of memory devices based on storage in ascending order?",
+         "options": {
+          "A": "Registers → Cache → RAM → Hard disk",
+          "B": "Cache → Registers → RAM → Hard disk",
+          "C": "RAM → Registers → Cache → Hard disk",
+          "D": "Registers → RAM → Cache → Hard disk"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Capacity grows (and speed and cost per bit fall) from registers to cache to main memory to disk. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q84"
+        },
+        {
+         "question": "Consider a typical disk that rotates at 180 RPM, what is the average rotational delay?",
+         "options": {
+          "A": "0.32 sec",
+          "B": "0.4 sec",
+          "C": "0.16 sec",
+          "D": "0.2 sec"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "180 RPM = 3 rotations per second, so one rotation takes 1/3 s; the average delay is half a rotation ≈ 0.16 s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q24"
+        },
+        {
+         "question": "A hard disk has 63 sectors per track, 10 platters each with 2 recording surfaces and 1000 cylinders. The address of a sector is given as a triple (c, h, s) where c is cylinder number, h is the surface number and s is the sector number. Thus the 0th sector is addressed as (0, 0, 0), the 1st sector as (0, 0, 1), and so on.\nThe address (400, 16, 29) corresponding to sector number",
+         "options": {
+          "A": "505035",
+          "B": "505036",
+          "C": "505037",
+          "D": "505038"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Sector = 400 × (20 × 63) + 16 × 63 + 29 = 504000 + 1008 + 29 = 505037 (a GATE 2009 question). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q15"
+        },
+        {
+         "question": "RAID level 4 provides:",
+         "options": {
+          "A": "Disk mirroring",
+          "B": "Memory style error-correcting code organization",
+          "C": "Block-interleaved parity organization",
+          "D": "Bit-interleaved parity organization"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "RAID 1 = mirroring, RAID 2 = memory-style ECC, RAID 3 = bit-interleaved parity, RAID 4 = block-interleaved parity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q26"
+        },
+        {
+         "question": "The time taken by the disk arm to move the heads to the cylinder containing the desired sector is called the:",
+         "options": {
+          "A": "Rotational latency",
+          "B": "Seek time",
+          "C": "Transfer time",
+          "D": "Access bandwidth"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). Rotational latency is the further time for the sector to rotate under the head."
+        },
+        {
+         "question": "Disk access time is the sum of:",
+         "options": {
+          "A": "Seek time, rotational latency and transfer time",
+          "B": "Only seek time",
+          "C": "CPU time and seek time",
+          "D": "Transfer time and CPU burst"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Disk scheduling tries to reduce seek time, the largest part."
+        },
+        {
+         "question": "A disk rotates at 7200 RPM. Its average rotational latency is about:",
+         "options": {
+          "A": "8.33 ms",
+          "B": "4.17 ms",
+          "C": "2.08 ms",
+          "D": "16.7 ms"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). One rotation = 60/7200 s = 8.33 ms; the average is half of it."
+        },
+        {
+         "question": "The set of tracks at one arm position, across all platters, forms a:",
+         "options": {
+          "A": "Cluster",
+          "B": "Cylinder",
+          "C": "Sector",
+          "D": "Partition"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Data on the same cylinder can be read without moving the arm."
+        },
+        {
+         "question": "Writing the sector structure (header, data area, trailer with ECC) on a new disk so the controller can read and write it is called:",
+         "options": {
+          "A": "Logical formatting",
+          "B": "Partitioning",
+          "C": "Defragmentation",
+          "D": "Low-level (physical) formatting"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Logical formatting then creates the file system on a partition."
+        },
+        {
+         "question": "The small program in ROM that loads the full bootstrap program from the boot blocks of the disk is the:",
+         "options": {
+          "A": "Interrupt handler",
+          "B": "Bootstrap loader",
+          "C": "Device driver",
+          "D": "Spooler"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). On a PC, the boot code is in the MBR (or the EFI system partition)."
+        },
+        {
+         "question": "Replacing a bad sector with one of the spare sectors set aside by the controller is called:",
+         "options": {
+          "A": "Sector slipping only",
+          "B": "Swapping",
+          "C": "Thrashing",
+          "D": "Sector sparing (forwarding)"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Sector slipping moves every sector down one place instead."
+        },
+        {
+         "question": "Which device has no moving parts and therefore no seek time or rotational latency?",
+         "options": {
+          "A": "Floppy disk",
+          "B": "Solid-state drive (SSD)",
+          "C": "Hard disk drive",
+          "D": "Magnetic tape"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "NAND flash wears out after many erase cycles, so SSDs use wear levelling."
+        },
+        {
+         "question": "RAID 1 is also known as:",
+         "options": {
+          "A": "Block-interleaved distributed parity",
+          "B": "Striping without redundancy",
+          "C": "Mirroring",
+          "D": "P + Q redundancy"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). Every write goes to two disks; capacity is halved."
+        },
+        {
+         "question": "RAID 0 provides:",
+         "options": {
+          "A": "Parity on a dedicated disk",
+          "B": "Mirroring",
+          "C": "Double parity",
+          "D": "Striping for performance but no redundancy"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Failure of any one disk loses the data."
+        },
+        {
+         "question": "Which RAID level distributes block-interleaved parity across all disks, avoiding a single parity-disk bottleneck?",
+         "options": {
+          "A": "RAID 0",
+          "B": "RAID 5",
+          "C": "RAID 4",
+          "D": "RAID 1"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "RAID 6 adds a second parity (P + Q) and survives two disk failures."
+        },
+        {
+         "question": "RAID 6 can tolerate the failure of:",
+         "options": {
+          "A": "Two disks",
+          "B": "Only one disk",
+          "C": "No disk",
+          "D": "Half of all disks always"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). It stores two independent parity values (P + Q, e.g. Reed–Solomon)."
+        },
+        {
+         "question": "RAID 1+0 (RAID 10) combines:",
+         "options": {
+          "A": "Parity and compression",
+          "B": "Encryption and parity",
+          "C": "Mirroring and striping",
+          "D": "Caching and paging"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Pairs of disks are mirrored and data is striped across the pairs."
+        },
+        {
+         "question": "With five 1 TB disks in RAID 5, the usable capacity is:",
+         "options": {
+          "A": "4 TB",
+          "B": "3 TB",
+          "C": "2.5 TB",
+          "D": "5 TB"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). One disk's worth of space holds parity: (n − 1) × size."
+        },
+        {
+         "question": "Swap space on a disk is used for:",
+         "options": {
+          "A": "Caching DNS entries",
+          "B": "Storing the BIOS",
+          "C": "Keeping the MBR",
+          "D": "Holding pages or processes moved out of main memory"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "It can be a raw partition (faster) or a file in the normal file system."
+        },
+        {
+         "question": "Storage attached to a network and accessed through file-level protocols such as NFS or CIFS is:",
+         "options": {
+          "A": "Direct-attached storage",
+          "B": "Storage-area network only",
+          "C": "Tertiary storage",
+          "D": "Network-attached storage (NAS)"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "A SAN is a private network giving block-level access between servers and storage units."
+        },
+        {
+         "question": "Magnetic tape is mainly used today for:",
+         "options": {
+          "A": "Backup and archiving, since access is sequential and slow",
+          "B": "CPU registers",
+          "C": "Cache memory",
+          "D": "Main memory"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). Once positioned, tape can transfer data quickly."
+        },
+        {
+         "question": "Consider the statements:\nI. In an HDD the platter rotates at a constant angular velocity.\nII. Outer tracks of an HDD can hold more sectors than inner tracks (zoned recording).",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Both are features of modern hard disks."
+        },
+        {
+         "question": "Assertion (A): RAID 5 survives the failure of any one disk.\nReason (R): Lost blocks can be rebuilt from the other data blocks and the parity block.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Parity is the XOR of the data blocks in the stripe."
+        },
+        {
+         "question": "Assertion (A): RAID 0 improves reliability.\nReason (R): RAID 0 stripes data across several disks.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Striping improves performance but makes reliability worse – the array fails if any one disk fails."
+        },
+        {
+         "question": "Match the RAID level with its feature:\na. RAID 0\nb. RAID 1\nc. RAID 5\nd. RAID 6\n\n1. Mirroring\n2. Distributed parity\n3. Striping, no redundancy\n4. Double parity",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-4, b-1, c-2, d-3"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). RAID matching is a favourite KSET question."
+        },
+        {
+         "question": "The data transfer rate of a disk depends on:",
+         "options": {
+          "A": "Rotational speed and the amount of data per track",
+          "B": "Only the size of RAM",
+          "C": "The CPU's clock alone",
+          "D": "The number of files"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Faster rotation and denser tracks give higher transfer rates."
+        },
+        {
+         "question": "Which of the following is NOT part of disk management by the OS?",
+         "options": {
+          "A": "Bad-block recovery",
+          "B": "Disk formatting",
+          "C": "Choosing the CPU time quantum",
+          "D": "Boot block management"
+         },
+         "answer": "C",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "The time quantum belongs to CPU scheduling."
+        },
+        {
+         "question": "A disk with 4 platters (both surfaces used), 1024 tracks per surface, 64 sectors per track and 512-byte sectors has a capacity of:",
+         "options": {
+          "A": "512 MB",
+          "B": "256 MB",
+          "C": "128 MB",
+          "D": "64 MB"
+         },
+         "answer": "B",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "PYQ pattern (KEA / KSET papers). 8 × 1024 × 64 × 512 B = 2^3 × 2^10 × 2^6 × 2^9 = 2^28 B = 256 MB."
+        },
+        {
+         "question": "NVM (non-volatile memory) devices such as SSDs need 'garbage collection' because:",
+         "options": {
+          "A": "Pages cannot be overwritten in place; blocks must be erased before reuse",
+          "B": "They have a seek arm",
+          "C": "They lose data when power is off",
+          "D": "They use rotating platters"
+         },
+         "answer": "A",
+         "subject": "Disk Structure, Disk Management and RAID",
+         "explanation": "Over-provisioning keeps spare blocks for this work."
+        }
+       ]
+      },
+      {
+       "name": "2 · Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+       "questions": [
+        {
+         "question": "Given the request sequence = {176, 79, 34, 60, 92, 11, 41, 114}. The initial head position at 50, then the total seek count using SSTF is",
+         "options": {
+          "A": "201",
+          "B": "202",
+          "C": "203",
+          "D": "204"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "50 → 41 → 34 → 11 → 60 → 79 → 92 → 114 → 176: 9 + 7 + 23 + 49 + 19 + 13 + 22 + 62 = 204. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q51"
+        },
+        {
+         "question": "Order the steps for handling a disk I/O request in a typical disk scheduling algorithm\na. The request is placed in the disk queue\nb. The scheduler selects the next request\nc. The request is serviced by reading/writing to disk\nd. The disk arm moves to the requested location",
+         "options": {
+          "A": "a → b → c → d",
+          "B": "b → c → a → d",
+          "C": "a → b → d → c",
+          "D": "b → c → d → a"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Queue the request, choose it, move the arm, then read or write. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q43"
+        },
+        {
+         "question": "____ is the disk scheduling algorithm used in Solid State Drives (SSDs)",
+         "options": {
+          "A": "SCAN",
+          "B": "SSTF",
+          "C": "C-SCAN",
+          "D": "FCFS"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "SSDs have no seek time, so a simple FCFS (NOOP) policy is typically used. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q46"
+        },
+        {
+         "question": "Which of the following disk scheduling algorithms may result in starvation?",
+         "options": {
+          "A": "SCAN",
+          "B": "LOOK",
+          "C": "SSTF",
+          "D": "C-SCAN"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "SSTF keeps serving nearby requests, so far-away requests can wait indefinitely. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q49"
+        },
+        {
+         "question": "A disk queue has requests for cylinders 98, 183, 37, 122, 14, 124, 65, 67 and the head is at 53. The total head movement under FCFS is:",
+         "options": {
+          "A": "208 cylinders",
+          "B": "640 cylinders",
+          "C": "382 cylinders",
+          "D": "236 cylinders"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). 45 + 85 + 146 + 85 + 108 + 110 + 59 + 2 = 640 (Silberschatz's standard example)."
+        },
+        {
+         "question": "For the same queue 98, 183, 37, 122, 14, 124, 65, 67 with the head at 53, SSTF gives a total head movement of:",
+         "options": {
+          "A": "236 cylinders",
+          "B": "640 cylinders",
+          "C": "299 cylinders",
+          "D": "208 cylinders"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "53 → 65 → 67 → 37 → 14 → 98 → 122 → 124 → 183."
+        },
+        {
+         "question": "For the queue 98, 183, 37, 122, 14, 124, 65, 67, head at 53, the arm moving towards cylinder 0 under SCAN, the total head movement is:",
+         "options": {
+          "A": "208 cylinders",
+          "B": "236 cylinders",
+          "C": "183 cylinders",
+          "D": "640 cylinders"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). 53 down to 0 (53), then up to 183 (183): 53 + 183 = 236."
+        },
+        {
+         "question": "For the queue 98, 183, 37, 122, 14, 124, 65, 67, head at 53 moving towards 0 under LOOK, the total head movement is:",
+         "options": {
+          "A": "236 cylinders",
+          "B": "640 cylinders",
+          "C": "299 cylinders",
+          "D": "208 cylinders"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "LOOK reverses at the last request (14) instead of going to 0: 39 + 169 = 208."
+        },
+        {
+         "question": "The disk scheduling algorithm in which the arm moves from one end to the other servicing requests, then reverses, is:",
+         "options": {
+          "A": "SCAN (elevator algorithm)",
+          "B": "FCFS",
+          "C": "Round robin",
+          "D": "SSTF"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). It works like a lift in a building."
+        },
+        {
+         "question": "C-SCAN differs from SCAN in that:",
+         "options": {
+          "A": "It never reaches the disk ends",
+          "B": "On reaching one end, the head returns to the beginning without servicing requests on the return trip",
+          "C": "It serves the closest request first",
+          "D": "It serves requests in arrival order"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "It gives more uniform waiting times by treating cylinders as a circular list."
+        },
+        {
+         "question": "LOOK and C-LOOK improve on SCAN and C-SCAN by:",
+         "options": {
+          "A": "Serving requests randomly",
+          "B": "Removing the disk queue",
+          "C": "Moving the arm faster",
+          "D": "Moving the arm only as far as the last request in each direction"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). They 'look' for a request before continuing in a direction."
+        },
+        {
+         "question": "SSTF scheduling is similar in nature to which CPU-scheduling algorithm?",
+         "options": {
+          "A": "Round Robin",
+          "B": "FCFS",
+          "C": "Shortest Job First (SJF)",
+          "D": "Multilevel queue"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Like SJF, it can starve some requests."
+        },
+        {
+         "question": "Which disk scheduling algorithm is fair (no starvation) but generally gives the most head movement?",
+         "options": {
+          "A": "SSTF",
+          "B": "FCFS",
+          "C": "LOOK",
+          "D": "SCAN"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Requests are served strictly in arrival order."
+        },
+        {
+         "question": "Head at 50; requests 82, 170, 43, 140, 24, 16, 190 on a 0–199 disk. The total head movement under SSTF is:",
+         "options": {
+          "A": "208",
+          "B": "642",
+          "C": "332",
+          "D": "391"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). 50 → 43 → 24 → 16 → 82 → 140 → 170 → 190: 7 + 19 + 8 + 66 + 58 + 30 + 20 = 208."
+        },
+        {
+         "question": "Head at 50; requests 82, 170, 43, 140, 24, 16, 190 on a 0–199 disk. The total head movement under FCFS is:",
+         "options": {
+          "A": "391",
+          "B": "208",
+          "C": "332",
+          "D": "642"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "32 + 88 + 127 + 97 + 116 + 8 + 174 = 642."
+        },
+        {
+         "question": "Head at 50 moving towards higher cylinders; requests 82, 170, 43, 140, 24, 16, 190 on a 0–199 disk. Under SCAN the total head movement is:",
+         "options": {
+          "A": "314",
+          "B": "208",
+          "C": "332",
+          "D": "642"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). 50 up to 199 (149), then down to 16 (183): 149 + 183 = 332."
+        },
+        {
+         "question": "Head at 50 moving towards higher cylinders; requests 82, 170, 43, 140, 24, 16, 190. Under LOOK the total head movement is:",
+         "options": {
+          "A": "208",
+          "B": "314",
+          "C": "332",
+          "D": "642"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "50 up to 190 (140), then down to 16 (174): 140 + 174 = 314."
+        },
+        {
+         "question": "The main aim of disk scheduling is to:",
+         "options": {
+          "A": "Minimise seek time and maximise disk bandwidth",
+          "B": "Reduce the number of files",
+          "C": "Increase CPU temperature",
+          "D": "Increase rotational latency"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Bandwidth = bytes transferred ÷ total time from request to completion."
+        },
+        {
+         "question": "Which of these disk-scheduling algorithms can be called 'elevator' algorithms?",
+         "options": {
+          "A": "SCAN and LOOK",
+          "B": "FCFS and SSTF",
+          "C": "Only FCFS",
+          "D": "Only SSTF"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). Both sweep back and forth across the disk."
+        },
+        {
+         "question": "For a heavily loaded disk, which algorithms usually perform best?",
+         "options": {
+          "A": "Random",
+          "B": "FCFS",
+          "C": "SCAN and C-SCAN",
+          "D": "LIFO"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "They are less likely to cause starvation than SSTF."
+        },
+        {
+         "question": "Consider the statements:\nI. SSTF always gives the minimum possible total head movement.\nII. SSTF may starve requests far from the head.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "SSTF is greedy and not always optimal; it can also starve distant requests."
+        },
+        {
+         "question": "Assertion (A): FCFS disk scheduling is fair.\nReason (R): Requests are serviced in the order in which they arrive.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "It is fair but usually not fast."
+        },
+        {
+         "question": "Assertion (A): C-SCAN gives a more uniform waiting time than SCAN.\nReason (R): C-SCAN serves requests in both directions of arm movement.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "C-SCAN serves requests in one direction only and jumps back; that is why waiting times are more uniform."
+        },
+        {
+         "question": "Match the disk-scheduling algorithm with its description:\na. FCFS\nb. SSTF\nc. SCAN\nd. C-LOOK\n\n1. Closest request first\n2. Order of arrival\n3. End to end and back\n4. One direction, up to the last request, then jump",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-4, b-1, c-3, d-2",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). A common matching question."
+        },
+        {
+         "question": "Linux's 'deadline' I/O scheduler keeps separate read and write queues mainly to:",
+         "options": {
+          "A": "Disable caching",
+          "B": "Increase seek time",
+          "C": "Encrypt the disk",
+          "D": "Prevent starvation by giving each request an expiry time"
+         },
+         "answer": "D",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Reads are given shorter deadlines because processes usually block on them."
+        },
+        {
+         "question": "Head at 100, requests 55, 58, 39, 18, 90, 160, 150, 38, 184. The first request served under SSTF is:",
+         "options": {
+          "A": "160",
+          "B": "184",
+          "C": "90",
+          "D": "55"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "90 is 10 cylinders away – the nearest."
+        },
+        {
+         "question": "Which factor makes FCFS a good choice for SSDs and NVM devices?",
+         "options": {
+          "A": "Access time does not depend on the position of the data",
+          "B": "SSDs have very long seek times",
+          "C": "SSDs have only one sector",
+          "D": "SSDs rotate slowly"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). Linux uses the NOOP (none) scheduler for many NVM devices."
+        },
+        {
+         "question": "Disk bandwidth is defined as:",
+         "options": {
+          "A": "The number of tracks",
+          "B": "Total bytes transferred divided by the total time between the first request and completion of the last transfer",
+          "C": "The rotational speed",
+          "D": "The seek time of one request"
+         },
+         "answer": "B",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "Scheduling improves both access time and bandwidth."
+        },
+        {
+         "question": "If requests arrive mostly for cylinders near the middle of the disk, which algorithm is least likely to help?",
+         "options": {
+          "A": "LOOK",
+          "B": "C-LOOK",
+          "C": "FCFS",
+          "D": "SSTF"
+         },
+         "answer": "C",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "FCFS ignores the head position completely."
+        },
+        {
+         "question": "Head at 53; queue 98, 183, 37, 122, 14, 124, 65, 67; the head moves towards higher cylinders under C-LOOK. The order of service is:",
+         "options": {
+          "A": "65, 67, 98, 122, 124, 183, 14, 37",
+          "B": "65, 67, 37, 14, 98, 122, 124, 183",
+          "C": "98, 183, 37, 122, 14, 124, 65, 67",
+          "D": "37, 14, 65, 67, 98, 122, 124, 183"
+         },
+         "answer": "A",
+         "subject": "Disk Scheduling – FCFS, SSTF, SCAN, C-SCAN, LOOK",
+         "explanation": "PYQ pattern (KEA / KSET papers). After 183 the head jumps back to the lowest pending request (14) and continues upwards."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "File Systems",
+     "sets": [
+      {
+       "name": "1 · File Concept, Access Methods, Directories, Mounting and Sharing",
+       "questions": [
+        {
+         "question": "The information that are associated with an open file\n(a) Creating a file, Access rights\n(b) Opening a file, File pointer\n(c) File pointer, File open count\n(d) Disk location of the file, Access rights\nWhich of the aforementioned statements are correct?",
+         "options": {
+          "A": "(c) and (d)",
+          "B": "(a) and (d)",
+          "C": "(b) and (d)",
+          "D": "(a), (b) and (c)"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Silberschatz: file pointer, file-open count, disk location and access rights are kept for each open file. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q46"
+        },
+        {
+         "question": "Which is an important file used by the system and should not be altered or removed from the disk?",
+         "options": {
+          "A": "Hidden file",
+          "B": "Archived file",
+          "C": "System file",
+          "D": "Read-only file"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "System files (marked with the S attribute in Windows) are needed for the OS to run. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q14"
+        },
+        {
+         "question": "The command used to change file permission is",
+         "options": {
+          "A": "attrib",
+          "B": "fdisk",
+          "C": "change",
+          "D": "modify"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "In Windows/MS-DOS, attrib sets the read-only, hidden, system and archive attributes; fdisk partitions disks. (On Linux the command is chmod.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q73"
+        },
+        {
+         "question": "When a share name ends in a dollar sign, it is a ____ share",
+         "options": {
+          "A": "NTFS",
+          "B": "Hidden",
+          "C": "Read",
+          "D": "Execute"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "In Windows, a share such as C$ or ADMIN$ does not appear when users browse the network. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q35"
+        },
+        {
+         "question": "A file is best defined as:",
+         "options": {
+          "A": "An interrupt",
+          "B": "A type of cache",
+          "C": "A part of the CPU",
+          "D": "A named collection of related information recorded on secondary storage"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is the smallest allotment of logical secondary storage."
+        },
+        {
+         "question": "Which of the following is NOT usually a file attribute?",
+         "options": {
+          "A": "Size",
+          "B": "The CPU burst time of the file",
+          "C": "Name",
+          "D": "Protection (access rights)"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Attributes include name, identifier, type, location, size, protection, time and user ID."
+        },
+        {
+         "question": "Reading records one after another in order, as on a tape, is called:",
+         "options": {
+          "A": "Direct access",
+          "B": "Sequential access",
+          "C": "Indexed access",
+          "D": "Random hashing"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). read_next() and write_next() move the file pointer forward."
+        },
+        {
+         "question": "Access that lets a program read or write any numbered block of a file in no particular order is:",
+         "options": {
+          "A": "Batch access",
+          "B": "Sequential access",
+          "C": "Direct (relative) access",
+          "D": "Tape access"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Databases need direct access."
+        },
+        {
+         "question": "Indexed sequential access (ISAM) uses:",
+         "options": {
+          "A": "An index to find the block, then sequential search within it",
+          "B": "Only a hash table",
+          "C": "Only a tape",
+          "D": "No index at all"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Large files may use a multilevel index."
+        },
+        {
+         "question": "The directory structure in which each user has his own directory under a master file directory is:",
+         "options": {
+          "A": "Single-level directory",
+          "B": "Acyclic graph",
+          "C": "General graph",
+          "D": "Two-level directory"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It isolates users but makes sharing hard."
+        },
+        {
+         "question": "Which directory structure allows a file or subdirectory to be shared by appearing in more than one directory, without cycles?",
+         "options": {
+          "A": "Single-level directory",
+          "B": "Two-level directory",
+          "C": "Acyclic-graph directory",
+          "D": "Tree only"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Sharing is done with links."
+        },
+        {
+         "question": "In a tree-structured directory, a path that begins at the root is called:",
+         "options": {
+          "A": "A mount point",
+          "B": "An absolute path name",
+          "C": "A relative path name",
+          "D": "A link"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). A relative path begins at the current directory, e.g. ../docs."
+        },
+        {
+         "question": "Attaching a file system to the existing directory tree at a given directory is called:",
+         "options": {
+          "A": "Booting",
+          "B": "Linking",
+          "C": "Formatting",
+          "D": "Mounting"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "The directory is the mount point, e.g. /mnt/usb on Linux."
+        },
+        {
+         "question": "In UNIX, file access rights are given for three classes of users:",
+         "options": {
+          "A": "Kernel, user and shell",
+          "B": "Owner, group and others (universe)",
+          "C": "Read, write and execute",
+          "D": "Admin, guest and root"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each class has read, write and execute bits – e.g. rwxr-x--- = 750."
+        },
+        {
+         "question": "The octal permission 754 on a UNIX file means:",
+         "options": {
+          "A": "Everyone rwx",
+          "B": "Owner r-x, group rwx, others r--",
+          "C": "Owner rwx, group r-x, others r--",
+          "D": "Owner rw-, group r-x, others r--"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "7 = 4 + 2 + 1 (rwx), 5 = 4 + 1 (r-x), 4 = r--."
+        },
+        {
+         "question": "A file type is commonly indicated in Windows by:",
+         "options": {
+          "A": "The directory's colour",
+          "B": "The file's size",
+          "C": "The disk sector",
+          "D": "The file-name extension, such as .exe or .docx"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "UNIX instead uses a 'magic number' at the start of some files."
+        },
+        {
+         "question": "Consistency semantics that make writes to an open file visible immediately to other users who have it open are:",
+         "options": {
+          "A": "UNIX semantics",
+          "B": "Session semantics",
+          "C": "Transaction semantics only",
+          "D": "Immutable-shared-file semantics"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Session semantics (AFS) show changes only after the file is closed."
+        },
+        {
+         "question": "A file that, once declared shared by its creator, cannot be modified is called:",
+         "options": {
+          "A": "A pipe",
+          "B": "A system file",
+          "C": "An immutable shared file",
+          "D": "A hidden file"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Its name may not be reused and its contents cannot change."
+        },
+        {
+         "question": "Consider the statements:\nI. A hard link points directly to the file's inode.\nII. A symbolic (soft) link stores the path name of the target file.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Deleting the target leaves a dangling symbolic link, but a hard link keeps the data alive."
+        },
+        {
+         "question": "Assertion (A): A two-level directory solves the name-collision problem between different users.\nReason (R): Each user has a separate user file directory.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Two users can then have files with the same name."
+        },
+        {
+         "question": "Assertion (A): In a single-level directory, two users can have files with the same name.\nReason (R): A single-level directory keeps all files in one directory.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Since all files share one directory, names must be unique."
+        },
+        {
+         "question": "Which of the following operations on a file needs the file to be searched in the directory first?",
+         "options": {
+          "A": "Open",
+          "B": "Read from an already opened file using its file handle",
+          "C": "Write using an open-file index",
+          "D": "Reposition within an already opened file"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). open() searches the directory once and returns an index into the open-file table."
+        },
+        {
+         "question": "A lock that allows several processes to read a file at once but only one to write is:",
+         "options": {
+          "A": "Deadlock",
+          "B": "Shared lock for readers and exclusive lock for writers",
+          "C": "Mandatory lock only",
+          "D": "Spinlock"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Windows uses mandatory locks; UNIX uses advisory locks."
+        },
+        {
+         "question": "Match the access method with an example:\na. Sequential\nb. Direct\nc. Indexed\n\n1. Finding a book via a catalogue\n2. Reading a tape\n3. Airline seat record by number",
+         "options": {
+          "A": "a-3, b-2, c-1",
+          "B": "a-2, b-1, c-3",
+          "C": "a-1, b-3, c-2",
+          "D": "a-2, b-3, c-1"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Indexed access uses an index like a library catalogue."
+        },
+        {
+         "question": "The OS keeps a table with information about all open files. The file is removed from this table when:",
+         "options": {
+          "A": "The file is read once",
+          "B": "The file-open count drops to zero after the last close",
+          "C": "The disk is formatted",
+          "D": "The CPU is idle"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each process also has its own per-process open-file table."
+        },
+        {
+         "question": "In MS-DOS, the command used to create a new directory is:",
+         "options": {
+          "A": "MD (MKDIR)",
+          "B": "DIR",
+          "C": "RD",
+          "D": "CD"
+         },
+         "answer": "A",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "CD changes, RD removes and DIR lists directories."
+        },
+        {
+         "question": "The Windows file system that supports file permissions, encryption, compression and journaling is:",
+         "options": {
+          "A": "FAT32",
+          "B": "CDFS",
+          "C": "FAT16",
+          "D": "NTFS"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). FAT32 is simpler and is still used on USB drives; exFAT removes FAT32's 4 GB file-size limit."
+        },
+        {
+         "question": "The maximum size of a single file on a FAT32 volume is:",
+         "options": {
+          "A": "32 MB",
+          "B": "2 TB",
+          "C": "4 GB minus 1 byte",
+          "D": "16 EB"
+         },
+         "answer": "C",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "exFAT and NTFS allow much larger files."
+        },
+        {
+         "question": "Which of these is a garbage-collection problem specific to general-graph directories?",
+         "options": {
+          "A": "Paths are too short",
+          "B": "Cycles can make files unreachable while their reference counts are not zero",
+          "C": "No sharing is possible",
+          "D": "Files cannot be named"
+         },
+         "answer": "B",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Acyclic graphs avoid this by forbidding links to directories."
+        },
+        {
+         "question": "The protection approach that associates with each file a list of users and their allowed operations is:",
+         "options": {
+          "A": "A free-space list",
+          "B": "A FAT chain",
+          "C": "A page table",
+          "D": "An access-control list (ACL)"
+         },
+         "answer": "D",
+         "subject": "File Concept, Access Methods, Directories, Mounting and Sharing",
+         "explanation": "Condensed versions use owner, group and universe classes."
+        }
+       ]
+      },
+      {
+       "name": "2 · Allocation Methods, Free-space Management, Efficiency and Recovery",
+       "questions": [
+        {
+         "question": "Which of the following file allocation methods would be efficient when dealing with a large number of small sized files?\ni. Contiguous allocation\nii. Linked allocation\niii. Indexed allocation\niv. File Allocation Table (FAT)",
+         "options": {
+          "A": "i and iii only",
+          "B": "ii and iv only",
+          "C": "i and ii only",
+          "D": "iii and iv only"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "The official key prefers linked allocation and FAT, which waste no space on an index block for each small file. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q44"
+        },
+        {
+         "question": "Contiguous allocation of disk space for files suffers from:",
+         "options": {
+          "A": "Slow sequential access",
+          "B": "Pointer overhead in every block",
+          "C": "External fragmentation and difficulty in growing files",
+          "D": "No problems at all"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). It gives excellent sequential and direct access, as on CDs."
+        },
+        {
+         "question": "In contiguous allocation, a file is described in the directory by:",
+         "options": {
+          "A": "Starting block and length",
+          "B": "Only an index block",
+          "C": "A chain of pointers in each block",
+          "D": "A hash value"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Block b + i is the i-th block of a file starting at b."
+        },
+        {
+         "question": "Linked allocation of files gives:",
+         "options": {
+          "A": "Fast direct access",
+          "B": "No pointer overhead",
+          "C": "No external fragmentation, but direct access is slow",
+          "D": "Need for compaction"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "To reach block i, the chain from the first block must be followed."
+        },
+        {
+         "question": "The File Allocation Table (FAT) used by MS-DOS is a variation of:",
+         "options": {
+          "A": "Hashed allocation",
+          "B": "Indexed allocation with inodes",
+          "C": "Contiguous allocation",
+          "D": "Linked allocation"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). The chain of pointers is kept in a table at the start of the volume rather than in the blocks."
+        },
+        {
+         "question": "Indexed allocation brings all the pointers of a file together into:",
+         "options": {
+          "A": "The boot block",
+          "B": "The FAT",
+          "C": "An index block",
+          "D": "The superblock"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Direct access is fast; small files waste most of the index block."
+        },
+        {
+         "question": "A UNIX inode has 12 direct pointers and single, double and triple indirect pointers. With 4 KB blocks and 4-byte pointers, a single indirect block holds:",
+         "options": {
+          "A": "256 pointers",
+          "B": "512 pointers",
+          "C": "4096 pointers",
+          "D": "1024 pointers"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). 4096 / 4 = 1024 block addresses."
+        },
+        {
+         "question": "With 4 KB blocks, 4-byte block pointers and 12 direct pointers, the largest file reachable with only the direct and single-indirect pointers is:",
+         "options": {
+          "A": "48 KB",
+          "B": "4144 KB (12 × 4 KB + 1024 × 4 KB)",
+          "C": "1 GB",
+          "D": "4 MB exactly"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "48 KB + 4096 KB = 4144 KB."
+        },
+        {
+         "question": "The UNIX inode scheme that combines direct and multi-level indirect blocks is called:",
+         "options": {
+          "A": "Combined scheme",
+          "B": "Contiguous scheme",
+          "C": "Bit-vector scheme",
+          "D": "Linked scheme"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Small files need only direct blocks, so access is fast."
+        },
+        {
+         "question": "A bit vector (bitmap) for free-space management uses one bit per:",
+         "options": {
+          "A": "Directory",
+          "B": "Track",
+          "C": "Disk block, 1 = free and 0 = allocated (Silberschatz convention)",
+          "D": "File"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "It is simple and makes it easy to find runs of free blocks."
+        },
+        {
+         "question": "A 1 TB disk with 4 KB blocks needs a free-space bitmap of about:",
+         "options": {
+          "A": "4 MB",
+          "B": "256 MB",
+          "C": "1 GB",
+          "D": "32 MB"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2^40 / 2^12 = 2^28 blocks → 2^28 bits = 2^25 bytes = 32 MB."
+        },
+        {
+         "question": "Keeping the address of the first free block, with each free block pointing to the next, is the free-space method called:",
+         "options": {
+          "A": "Bit vector",
+          "B": "Linked list",
+          "C": "Grouping",
+          "D": "Counting"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Grouping stores n free-block addresses in the first free block; counting stores (address, count) pairs."
+        },
+        {
+         "question": "The structure on disk that contains the details of a volume – number of blocks, block size, free-block count – is called the superblock in UNIX and the ____ in NTFS.",
+         "options": {
+          "A": "Inode table",
+          "B": "Master file table",
+          "C": "Boot block",
+          "D": "FAT"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). The boot control block holds the information needed to boot from the volume."
+        },
+        {
+         "question": "In the layered file system design, the layer that translates logical block addresses to physical block addresses is the:",
+         "options": {
+          "A": "Application programs",
+          "B": "I/O control (device drivers)",
+          "C": "File-organisation module",
+          "D": "Logical file system"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Layers: application → logical file system → file-organisation module → basic file system → I/O control → devices."
+        },
+        {
+         "question": "A directory implemented as a linear list of file names has the disadvantage of:",
+         "options": {
+          "A": "Collisions",
+          "B": "Fixed number of entries always",
+          "C": "No support for deletion",
+          "D": "Slow linear search for a file"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). A hash table speeds up search but must handle collisions."
+        },
+        {
+         "question": "Keeping frequently used directory entries and disk blocks in main memory to speed up the file system uses a:",
+         "options": {
+          "A": "Buffer cache / page cache",
+          "B": "TLB",
+          "C": "Swap space",
+          "D": "Spooler"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "A unified buffer cache avoids double caching of memory-mapped files."
+        },
+        {
+         "question": "A journaling (log-structured) file system records metadata changes in a log first so that:",
+         "options": {
+          "A": "Disk space is doubled",
+          "B": "No backup is ever needed",
+          "C": "Files become read-only",
+          "D": "The file system can be recovered quickly after a crash"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). ext4, NTFS and XFS are journaling file systems; fsck-style full checks are avoided."
+        },
+        {
+         "question": "The UNIX program that checks and repairs file-system consistency after a crash is:",
+         "options": {
+          "A": "fsck",
+          "B": "grep",
+          "C": "ping",
+          "D": "chmod"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Windows uses chkdsk."
+        },
+        {
+         "question": "Backing up only the files changed since the last full backup is called:",
+         "options": {
+          "A": "A mirror",
+          "B": "An incremental backup",
+          "C": "A snapshot of RAM",
+          "D": "A full backup"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). A restore needs the full backup plus every incremental backup since."
+        },
+        {
+         "question": "Consider the statements:\nI. Linked allocation supports efficient direct access.\nII. Indexed allocation supports direct access without external fragmentation.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Linked allocation needs a pointer chase for direct access."
+        },
+        {
+         "question": "Assertion (A): Contiguous allocation gives fast direct access.\nReason (R): The address of any block can be computed from the starting block and the block number.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Block b + i can be reached directly."
+        },
+        {
+         "question": "Assertion (A): FAT allocation needs no table in memory.\nReason (R): FAT is a variation of linked allocation.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "The FAT itself is a table, and it is usually cached in memory for speed."
+        },
+        {
+         "question": "Match the allocation method with its drawback:\na. Contiguous\nb. Linked\nc. Indexed\n\n1. Slow direct access\n2. Index-block overhead for small files\n3. External fragmentation",
+         "options": {
+          "A": "a-3, b-2, c-1",
+          "B": "a-1, b-3, c-2",
+          "C": "a-3, b-1, c-2",
+          "D": "a-2, b-1, c-3"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). The basic comparison of allocation methods."
+        },
+        {
+         "question": "Which allocation method was used by the original UNIX file system and ext2/ext3?",
+         "options": {
+          "A": "Indexed allocation with inodes",
+          "B": "Contiguous allocation only",
+          "C": "Hashing",
+          "D": "FAT"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "ext4 adds extents – contiguous runs of blocks."
+        },
+        {
+         "question": "An 'extent' in file systems such as ext4 and NTFS is:",
+         "options": {
+          "A": "A single sector",
+          "B": "A contiguous run of blocks described by a start and a length",
+          "C": "A free-space bit",
+          "D": "A directory name"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Extents reduce metadata and fragmentation for large files."
+        },
+        {
+         "question": "A 'virtual file system' (VFS) layer in an OS allows:",
+         "options": {
+          "A": "Different file-system types to be accessed through the same system-call interface",
+          "B": "Files to be stored only in memory",
+          "C": "Only one file system",
+          "D": "Disk encryption"
+         },
+         "answer": "A",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Linux VFS supports ext4, XFS, NFS, FAT and many others."
+        },
+        {
+         "question": "Which network file system protocol was developed by Sun and is widely used in UNIX/Linux?",
+         "options": {
+          "A": "SMB/CIFS",
+          "B": "FTP",
+          "C": "NFS",
+          "D": "SMTP"
+         },
+         "answer": "C",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Windows networks use SMB (CIFS)."
+        },
+        {
+         "question": "In a FAT file system, the FAT entry for the last block of a file contains:",
+         "options": {
+          "A": "Zero always means the last block",
+          "B": "The file's name",
+          "C": "The first block of the next file",
+          "D": "A special end-of-file value"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "Unused blocks are shown by a table value of 0."
+        },
+        {
+         "question": "Defragmentation of a disk mainly helps to:",
+         "options": {
+          "A": "Encrypt files",
+          "B": "Place the blocks of each file contiguously to speed up access",
+          "C": "Delete viruses",
+          "D": "Increase disk capacity"
+         },
+         "answer": "B",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "SSDs should not be defragmented in the usual way; they use TRIM instead."
+        },
+        {
+         "question": "The counting method of free-space management is efficient when:",
+         "options": {
+          "A": "The disk is a tape",
+          "B": "Every free block is isolated",
+          "C": "The disk is full",
+          "D": "Free blocks occur in contiguous runs"
+         },
+         "answer": "D",
+         "subject": "Allocation Methods, Free-space Management, Efficiency and Recovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each entry stores the first free block and the number of free blocks following it."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "I/O Systems",
+     "sets": [
+      {
+       "name": "1 · I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+       "questions": [
+        {
+         "question": "The time between the receival of an interrupt and its service is called",
+         "options": {
+          "A": "Interrupt delay",
+          "B": "Interrupt latency",
+          "C": "Cycle time",
+          "D": "Switching time"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Interrupt latency is the delay from the interrupt request to the start of its service routine. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q14"
+        },
+        {
+         "question": "Which one of the following statements is TRUE for memory-mapped I/O?",
+         "options": {
+          "A": "The I/O devices have separate address space",
+          "B": "The I/O devices and memory share the same address space",
+          "C": "A part of the memory is specially set aside for I/O operation",
+          "D": "The memory and I/O devices have an associated address space"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "In memory-mapped I/O, device registers occupy addresses in the same address space as memory and are accessed with ordinary load/store instructions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q15"
+        },
+        {
+         "question": "Match the following:\na. DRAM\nb. DMA\nc. Associative mapping\nd. Memory-mapped I/O\n(i) Offloads data transfer main memory to devices bypassing CPU\n(ii) Dynamic memory\n(iii) I/O devices treated as memory locations\n(iv) Flexible cache mapping by content",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "DRAM is dynamic memory, DMA bypasses the CPU, associative mapping places blocks anywhere, memory-mapped I/O uses memory addresses for devices. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q18"
+        },
+        {
+         "question": "Consider the following steps in a DMA transfer:\n(i) Disk controller initiates DMA transfer\n(ii) Disk driver tells disk controller to transfer of bytes from disk to buffer\n(iii) Disk controller sends each byte to DMA controller\n(iv) Device driver is told to transfer disk data to buffer\nIdentify the correct sequence.",
+         "options": {
+          "A": "(iv), (i), (ii), (iii)",
+          "B": "(i), (ii), (iii), (iv)",
+          "C": "(i), (iii), (iv), (ii)",
+          "D": "(iv), (ii), (i), (iii)"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Silberschatz's six-step DMA example begins: driver told → driver tells controller → controller initiates DMA → controller sends bytes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q49"
+        },
+        {
+         "question": "The DMA read operation transfer data from",
+         "options": {
+          "A": "Memory to the I/O device",
+          "B": "An I/O device to the memory",
+          "C": "Memory to CPU registers",
+          "D": "An I/O device to CPU register"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "In DMA-controller terms (e.g. Intel 8237), a 'DMA read' reads memory and writes to the I/O device; a 'DMA write' goes from the device to memory. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q21"
+        },
+        {
+         "question": "What is the primary function of a DMA controller in a computer system?",
+         "options": {
+          "A": "To manage memory hierarchy",
+          "B": "To provide direct access to IO devices",
+          "C": "To execute instructions directly",
+          "D": "To manage the control unit"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "It moves blocks of data between a device and memory without the CPU copying each byte. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q31"
+        },
+        {
+         "question": "Consider a computer with a 4-MHz processor. Its DMA controller can transfer 8 bytes in 1 cycle from a device to main memory through cycle stealing at regular intervals. Which one of the following is the data transfer rate (in bits per second) of the DMA controller if 1% of the processor cycles are used for DMA?",
+         "options": {
+          "A": "2,56,000",
+          "B": "3,200",
+          "C": "25,60,000",
+          "D": "32,000"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "1% of 4 × 10⁶ cycles = 40,000 cycles/s × 8 bytes = 320,000 bytes/s = 2,560,000 bits/s (a GATE 2004 question). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q5"
+        },
+        {
+         "question": "Which of the following does not interrupt a running process ?",
+         "options": {
+          "A": "A device",
+          "B": "Timer",
+          "C": "Scheduler process",
+          "D": "Power failure"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Devices, the timer and power failure raise hardware interrupts; the scheduler is invoked by them and does not itself interrupt. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q13"
+        },
+        {
+         "question": "A device communicates with the computer through a connection point called a:",
+         "options": {
+          "A": "Page",
+          "B": "Thread",
+          "C": "Port",
+          "D": "Frame"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). A set of wires shared by several devices with a protocol is a bus (e.g. PCIe)."
+        },
+        {
+         "question": "In polling (busy waiting), the CPU:",
+         "options": {
+          "A": "Sleeps until DMA finishes",
+          "B": "Is told by the device through an interrupt",
+          "C": "Ignores the device",
+          "D": "Repeatedly reads the device's status register until the device is ready"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Polling wastes CPU cycles if the device is slow."
+        },
+        {
+         "question": "The routine that the CPU executes when an interrupt occurs is the:",
+         "options": {
+          "A": "Linker",
+          "B": "Scheduler",
+          "C": "Bootstrap loader",
+          "D": "Interrupt handler (interrupt service routine)"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its address is found through the interrupt vector."
+        },
+        {
+         "question": "A table of addresses of interrupt handlers, indexed by interrupt number, is the:",
+         "options": {
+          "A": "Page table",
+          "B": "Device status table",
+          "C": "Interrupt vector",
+          "D": "File allocation table"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Interrupt chaining lets each entry point to a list of handlers."
+        },
+        {
+         "question": "Interrupts that can be turned off by the CPU before executing critical instruction sequences are called:",
+         "options": {
+          "A": "Traps only",
+          "B": "Non-maskable interrupts",
+          "C": "Page faults",
+          "D": "Maskable interrupts"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Non-maskable interrupts are reserved for events such as unrecoverable memory errors."
+        },
+        {
+         "question": "A software-generated interrupt caused by an error or by a user program's request for an OS service is a:",
+         "options": {
+          "A": "Cycle steal",
+          "B": "Non-maskable interrupt",
+          "C": "Trap (exception)",
+          "D": "DMA request"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). A system call is implemented with a trap instruction."
+        },
+        {
+         "question": "In cycle stealing, the DMA controller:",
+         "options": {
+          "A": "Runs only when the CPU is off",
+          "B": "Takes over the memory bus for one cycle at a time, slowing the CPU slightly",
+          "C": "Uses the CPU registers",
+          "D": "Stops the CPU permanently"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Burst mode transfers a whole block while holding the bus."
+        },
+        {
+         "question": "Which of the following devices is a block device?",
+         "options": {
+          "A": "Hard disk",
+          "B": "Keyboard",
+          "C": "Mouse",
+          "D": "Serial port"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). Keyboards and serial ports are character-stream devices."
+        },
+        {
+         "question": "The device-controller registers that hold the device's state (busy, ready, error) form the:",
+         "options": {
+          "A": "Control register",
+          "B": "Data-out register",
+          "C": "Status register",
+          "D": "Data-in register"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "The host writes commands in the control register."
+        },
+        {
+         "question": "An interrupt-driven I/O cycle involves:",
+         "options": {
+          "A": "The CPU starting I/O and continuing other work until the device signals completion",
+          "B": "The CPU continuously checking the device",
+          "C": "No involvement of the CPU at all",
+          "D": "Only DMA transfers"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "It avoids busy waiting."
+        },
+        {
+         "question": "Match:\na. Polling\nb. Interrupt\nc. DMA\nd. Memory-mapped I/O\n\n1. Block transfer without the CPU\n2. CPU checks a status bit repeatedly\n3. Device signals the CPU\n4. Device registers in the memory address space",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-2, b-3, c-1, d-4"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). The four basic ways of handling I/O."
+        },
+        {
+         "question": "Consider the statements:\nI. DMA is most useful for large data transfers.\nII. With DMA the CPU must copy every byte between the device and memory.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "With DMA the CPU only starts the transfer and is interrupted at the end."
+        },
+        {
+         "question": "Assertion (A): Interrupt-driven I/O is more efficient than polling for slow devices.\nReason (R): The CPU need not waste cycles waiting for the device.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Polling can be better only when the device is very fast."
+        },
+        {
+         "question": "Assertion (A): Non-maskable interrupts can be disabled by the CPU.\nReason (R): Maskable interrupts can be turned off during critical sections.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Non-maskable interrupts cannot be disabled; R is true."
+        },
+        {
+         "question": "In the Intel 8085, which instruction is used for I/O in isolated (I/O-mapped) I/O?",
+         "options": {
+          "A": "IN and OUT",
+          "B": "LDA and STA",
+          "C": "JMP",
+          "D": "MOV only"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). In memory-mapped I/O, ordinary memory instructions such as LDA/STA are used instead."
+        },
+        {
+         "question": "The interface between the hardware controller of a device and the kernel's I/O subsystem is the:",
+         "options": {
+          "A": "Compiler",
+          "B": "Device driver",
+          "C": "Shell",
+          "D": "Loader"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Drivers hide device differences from the rest of the kernel."
+        },
+        {
+         "question": "PCIe, USB and SATA are examples of:",
+         "options": {
+          "A": "File systems",
+          "B": "Page-replacement algorithms",
+          "C": "Buses / interfaces that connect devices",
+          "D": "Scheduling queues"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). PCIe connects fast devices such as graphics cards and NVMe SSDs."
+        },
+        {
+         "question": "An interrupt-priority level system lets the CPU:",
+         "options": {
+          "A": "Run two handlers on one core simultaneously",
+          "B": "Defer low-priority interrupts while handling high-priority ones",
+          "C": "Ignore all interrupts",
+          "D": "Avoid using handlers"
+         },
+         "answer": "B",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "High-priority interrupts can pre-empt the handling of low-priority ones."
+        },
+        {
+         "question": "In a DMA transfer, the signals used between the device controller and DMA controller are:",
+         "options": {
+          "A": "DMA-request and DMA-acknowledge",
+          "B": "Fetch and Execute",
+          "C": "Read and Write only",
+          "D": "Push and Pop"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). The DMA controller then takes the bus to place each word in memory."
+        },
+        {
+         "question": "The main advantage of memory-mapped I/O is that:",
+         "options": {
+          "A": "It removes the need for drivers",
+          "B": "It needs special I/O instructions",
+          "C": "It increases memory size",
+          "D": "The full instruction set can operate on device registers"
+         },
+         "answer": "D",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "It does use up part of the address space."
+        },
+        {
+         "question": "Which statement about I/O ports in x86 PCs is correct?",
+         "options": {
+          "A": "x86 supports both separate I/O instructions (IN/OUT) and memory-mapped I/O",
+          "B": "x86 uses only DMA",
+          "C": "x86 has no I/O instructions",
+          "D": "x86 cannot use interrupts"
+         },
+         "answer": "A",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "Graphics memory, for example, is memory-mapped."
+        },
+        {
+         "question": "The keyboard sends a signal to the CPU each time a key is pressed. This is an example of:",
+         "options": {
+          "A": "A trap from software",
+          "B": "Polling by the device",
+          "C": "A hardware interrupt",
+          "D": "A page fault"
+         },
+         "answer": "C",
+         "subject": "I/O Hardware – Polling, Interrupts, DMA and Memory-mapped I/O",
+         "explanation": "PYQ pattern (KEA / KSET papers). The keyboard controller raises an interrupt request (IRQ)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Application I/O Interface and Kernel I/O Subsystem",
+       "questions": [
+        {
+         "question": "Which of the following is an example of a synchronous I/O operation?",
+         "options": {
+          "A": "Reading data from a disk with no interruption",
+          "B": "Using an interrupt handler to signal completion of I/O",
+          "C": "A process waiting for data to arrive before continuing execution",
+          "D": "Writing data to a file while the process is executing"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "In synchronous (blocking) I/O the calling process waits until the I/O completes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q47"
+        },
+        {
+         "question": "A blocking I/O system call:",
+         "options": {
+          "A": "Never returns",
+          "B": "Suspends the calling process until the I/O completes",
+          "C": "Runs on the GPU",
+          "D": "Returns immediately with whatever data is available"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). Non-blocking calls return at once; asynchronous calls return and signal completion later."
+        },
+        {
+         "question": "An asynchronous I/O call:",
+         "options": {
+          "A": "Waits until the I/O is done",
+          "B": "Is never used",
+          "C": "Uses polling only",
+          "D": "Returns immediately and notifies the process later when the I/O completes"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "The process continues running while the I/O proceeds."
+        },
+        {
+         "question": "A buffer is used in I/O mainly to:",
+         "options": {
+          "A": "Store the page table",
+          "B": "Increase the number of interrupts",
+          "C": "Cope with speed mismatch between producer and consumer of data",
+          "D": "Replace the CPU cache"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). It also handles different data-transfer sizes and supports copy semantics."
+        },
+        {
+         "question": "Double buffering means:",
+         "options": {
+          "A": "Two CPUs share one buffer",
+          "B": "One buffer is filled while the other is emptied",
+          "C": "Each byte is written twice",
+          "D": "The buffer is twice as fast"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "It decouples the producer from the consumer."
+        },
+        {
+         "question": "Spooling is used for devices such as a printer that:",
+         "options": {
+          "A": "Are block devices",
+          "B": "Are very fast",
+          "C": "Have random access",
+          "D": "Can serve only one job at a time, so output is queued on disk"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). SPOOL = Simultaneous Peripheral Operations On-Line."
+        },
+        {
+         "question": "A cache differs from a buffer in that a cache:",
+         "options": {
+          "A": "Is used only for printers",
+          "B": "Holds a copy of data that also exists elsewhere, to speed up access",
+          "C": "Is always on disk",
+          "D": "Holds the only copy of the data"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "A buffer may hold the only existing copy of a data item."
+        },
+        {
+         "question": "The kernel I/O subsystem provides all of the following EXCEPT:",
+         "options": {
+          "A": "Compiling user programs",
+          "B": "I/O scheduling",
+          "C": "Error handling and device reservation",
+          "D": "Buffering, caching and spooling"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). Compilation is not a kernel service."
+        },
+        {
+         "question": "The ioctl() system call in UNIX is used to:",
+         "options": {
+          "A": "Open a file",
+          "B": "Create a process",
+          "C": "Send device-specific commands to a device driver",
+          "D": "Allocate memory"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "It is an 'escape' for functions not covered by the standard calls."
+        },
+        {
+         "question": "Devices accessed with get() and put() of one character at a time are:",
+         "options": {
+          "A": "Network sockets",
+          "B": "Memory-mapped files",
+          "C": "Block devices",
+          "D": "Character-stream devices"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "Keyboards, mice and serial ports are examples."
+        },
+        {
+         "question": "Network devices are usually accessed through which interface in UNIX and Windows?",
+         "options": {
+          "A": "Spool files",
+          "B": "Sockets",
+          "C": "ioctl only",
+          "D": "Block reads"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). select() manages a set of sockets."
+        },
+        {
+         "question": "The clock (timer) hardware is used by the OS to:",
+         "options": {
+          "A": "Translate addresses",
+          "B": "Encrypt data",
+          "C": "Give the current time, measure elapsed time and trigger operations such as pre-emption",
+          "D": "Store files"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "A programmable interval timer generates periodic interrupts."
+        },
+        {
+         "question": "Arrange the life cycle of a blocking read request in order:\n1. Process issues read() system call\n2. Driver sends commands to the controller\n3. Device controller completes the transfer and raises an interrupt\n4. Kernel moves data to the process and unblocks it",
+         "options": {
+          "A": "1, 2, 3, 4",
+          "B": "4, 3, 2, 1",
+          "C": "2, 1, 3, 4",
+          "D": "1, 3, 2, 4"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). The kernel first checks whether the data is already in the buffer cache."
+        },
+        {
+         "question": "STREAMS in UNIX System V provide:",
+         "options": {
+          "A": "A disk scheduler",
+          "B": "A file allocation table",
+          "C": "A full-duplex connection between a driver and a user process, with modules in between",
+          "D": "A page-replacement algorithm"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "Modules can be pushed onto a stream to add processing."
+        },
+        {
+         "question": "Which technique reduces the number of context switches for high-speed network I/O?",
+         "options": {
+          "A": "Disabling caching",
+          "B": "Using larger transfers and DMA / interrupt coalescing",
+          "C": "Smaller buffers",
+          "D": "More frequent polling of slow devices"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). Context switches and interrupts are expensive."
+        },
+        {
+         "question": "Device reservation in the kernel provides:",
+         "options": {
+          "A": "Exclusive access to a device such as a tape drive",
+          "B": "Virtual memory",
+          "C": "Faster interrupts",
+          "D": "Paging"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "The OS must then watch for deadlock."
+        },
+        {
+         "question": "Copy semantics in I/O ensure that:",
+         "options": {
+          "A": "Buffers are never used",
+          "B": "Files are copied on open",
+          "C": "Data is copied twice to disk",
+          "D": "The data written is the version at the time of the system call, even if the application changes its buffer afterwards"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "The kernel copies the application's data into a kernel buffer."
+        },
+        {
+         "question": "I/O scheduling in the kernel means:",
+         "options": {
+          "A": "Choosing a file name",
+          "B": "Allocating memory pages",
+          "C": "Ordering pending I/O requests to improve efficiency and fairness",
+          "D": "Assigning CPU time quanta"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). Disk scheduling is one example."
+        },
+        {
+         "question": "Consider the statements:\nI. Non-blocking I/O returns as much data as is available immediately.\nII. Asynchronous I/O always blocks the process.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "Asynchronous I/O does not block; the process is notified later."
+        },
+        {
+         "question": "Assertion (A): Spooling allows several processes to 'print' at the same time.\nReason (R): Each process's output is stored in a separate disk file and printed one after another.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "The spooler queues the files for the printer."
+        },
+        {
+         "question": "Assertion (A): A buffer always holds a copy of data that also exists elsewhere.\nReason (R): A cache holds a copy of data stored elsewhere.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "That describes a cache; a buffer may hold the only copy."
+        },
+        {
+         "question": "Match:\na. Buffering\nb. Caching\nc. Spooling\nd. Device reservation\n\n1. Fast copy of data\n2. Speed mismatch\n3. Exclusive access\n4. Queue output for a printer",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-2, b-4, c-1, d-3",
+          "D": "a-2, b-1, c-4, d-3"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). The services of the kernel I/O subsystem."
+        },
+        {
+         "question": "Error handling in I/O: when a disk read fails, the OS typically:",
+         "options": {
+          "A": "Retries the operation and returns an error code if it still fails",
+          "B": "Ignores the error",
+          "C": "Deletes the file",
+          "D": "Shuts down the computer"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "UNIX sets errno; SCSI devices report sense keys."
+        },
+        {
+         "question": "Kernel data structures that track open-file and device state, such as the open-file table, help the I/O subsystem to:",
+         "options": {
+          "A": "Translate virtual addresses",
+          "B": "Keep state information about the use of I/O components",
+          "C": "Choose the CPU quantum",
+          "D": "Encrypt the disk"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). UNIX uses an object-oriented design with dispatch tables."
+        },
+        {
+         "question": "A 'vectored I/O' (scatter–gather) system call such as readv() allows:",
+         "options": {
+          "A": "One call to read into several buffers",
+          "B": "Running two processes",
+          "C": "Disabling DMA",
+          "D": "Reading only one byte"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "It reduces system-call overhead."
+        },
+        {
+         "question": "The main reason for using device-independent I/O system calls is that:",
+         "options": {
+          "A": "Interrupts are eliminated",
+          "B": "Applications need not know the details of each device",
+          "C": "Drivers are not needed",
+          "D": "Devices become faster"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). New devices can be added by writing a new driver."
+        },
+        {
+         "question": "Power management in modern I/O systems (e.g. Android) includes:",
+         "options": {
+          "A": "Disabling interrupts",
+          "B": "Increasing clock speed always",
+          "C": "Removing caches",
+          "D": "Turning off idle components and using device trees to manage power"
+         },
+         "answer": "D",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "ACPI is used on PCs."
+        },
+        {
+         "question": "Which call returns immediately with the data available without waiting for more, useful for user interfaces?",
+         "options": {
+          "A": "fork()",
+          "B": "A blocking read",
+          "C": "A non-blocking read",
+          "D": "exec()"
+         },
+         "answer": "C",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). Multithreading is another way to overlap I/O with work."
+        },
+        {
+         "question": "The 'kernel I/O subsystem' sits between:",
+         "options": {
+          "A": "The keyboard and the mouse",
+          "B": "The system-call interface and the device drivers",
+          "C": "Two processes",
+          "D": "The CPU and the cache"
+         },
+         "answer": "B",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "Below the drivers are the device controllers and devices."
+        },
+        {
+         "question": "Which of the following is the slowest way for the CPU to handle a fast device transferring large blocks?",
+         "options": {
+          "A": "Programmed I/O with polling for every byte",
+          "B": "Interrupt per block",
+          "C": "DMA",
+          "D": "Bus mastering"
+         },
+         "answer": "A",
+         "subject": "Application I/O Interface and Kernel I/O Subsystem",
+         "explanation": "PYQ pattern (KEA / KSET papers). That is why disks use DMA."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "OS Security",
+     "sets": [
+      {
+       "name": "1 · Protection, Access Matrix, Access Control and Authentication",
+       "questions": [
+        {
+         "question": "____ is a general model of protection that provides a mechanism for protection without imposing a particular protection policy on the system or its users.",
+         "options": {
+          "A": "Global table",
+          "B": "Capability list",
+          "C": "Lock-key mechanism",
+          "D": "Access matrix"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Silberschatz: the access matrix separates mechanism from policy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q27"
+        },
+        {
+         "question": "Which one of the following statements is FALSE?",
+         "options": {
+          "A": "In Discretionary Access Control, the owner can determine the access privileges",
+          "B": "Discretionary Access Control has tighter security compared to Mandatory Access Control",
+          "C": "Discretionary Access Control is flexible with no rules and regulations",
+          "D": "Decisions will be based on the identity of the user and ownership in Discretionary Access Control"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Mandatory Access Control, with system-enforced labels, is the stricter model; DAC is flexible and owner-controlled. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q38"
+        },
+        {
+         "question": "Match the following:\ni. User authentication\nii. Firewalls\niii. Access control\niv. Encryption\n(a) controls incoming and outgoing traffic in a network\n(b) converts readable information into an unreadable format\n(c) process of verifying the identity of a user attempting to gain access to a computer network\n(d) authorizing the users to access the resources in a computer network",
+         "options": {
+          "A": "i – b, ii – c, iii – d, iv – a",
+          "B": "i – c, ii – a, iii – d, iv – b",
+          "C": "i – d, ii – a, iii – b, iv – c",
+          "D": "i – c, ii – d, iii – a, iv – b"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Authentication verifies identity, firewalls filter traffic, access control authorises, encryption makes data unreadable. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q50"
+        },
+        {
+         "question": "Which of the following attacks is a threat to Availability?",
+         "options": {
+          "A": "Modification",
+          "B": "Replaying",
+          "C": "Denial of Service",
+          "D": "Masquerading"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "DoS prevents legitimate use of a system; modification attacks integrity and masquerading attacks authentication. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q39"
+        },
+        {
+         "question": "____ is the most common security method with respect to using computers.",
+         "options": {
+          "A": "Lock and key",
+          "B": "Key card systems",
+          "C": "Passwords",
+          "D": "Surveillance system"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Passwords are the most widely used method of user authentication. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q44"
+        },
+        {
+         "question": "Protection, in OS terms, refers to:",
+         "options": {
+          "A": "Backing up the disk",
+          "B": "Mechanisms that control the access of processes and users to resources",
+          "C": "Speeding up the CPU",
+          "D": "Encrypting all files"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Security is the wider problem of defending the system against internal and external attacks."
+        },
+        {
+         "question": "The principle that each program and user should get only the privileges needed for its task is:",
+         "options": {
+          "A": "Belady's principle",
+          "B": "The principle of locality",
+          "C": "The 50-percent rule",
+          "D": "The principle of least privilege"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "It limits the damage from errors and attacks."
+        },
+        {
+         "question": "In an access matrix, rows represent ____ and columns represent ____.",
+         "options": {
+          "A": "Domains; objects",
+          "B": "Files; disks",
+          "C": "Objects; domains",
+          "D": "Users; passwords"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Entry access(i, j) is the set of operations a process in domain Di may perform on object Oj."
+        },
+        {
+         "question": "Storing the access matrix by columns, so that each object has a list of (domain, rights) pairs, gives:",
+         "options": {
+          "A": "Capability lists",
+          "B": "Access-control lists",
+          "C": "A lock–key scheme",
+          "D": "A global table"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Storing it by rows gives capability lists for each domain."
+        },
+        {
+         "question": "A capability list is associated with:",
+         "options": {
+          "A": "A domain (each subject), listing the objects and allowed operations",
+          "B": "A disk block",
+          "C": "The whole system as one table",
+          "D": "Each object"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). A capability is like a protected ticket that the process holds."
+        },
+        {
+         "question": "Revocation of access rights is easiest with:",
+         "options": {
+          "A": "Paper records",
+          "B": "Page tables",
+          "C": "Capability lists",
+          "D": "Access-control lists"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "With capabilities, finding and revoking every copy is hard (back-pointers, indirection, keys)."
+        },
+        {
+         "question": "In UNIX, the setuid bit on an executable file causes it to run with:",
+         "options": {
+          "A": "The privileges of the user running it",
+          "B": "No privileges",
+          "C": "Kernel privileges always",
+          "D": "The privileges of the file's owner"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "passwd uses setuid root so that ordinary users can change their own passwords."
+        },
+        {
+         "question": "Role-based access control (RBAC), used in Solaris and many databases, assigns privileges to:",
+         "options": {
+          "A": "Processes at random",
+          "B": "Files only",
+          "C": "Roles, which are then given to users",
+          "D": "Disks"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). It applies the principle of least privilege conveniently."
+        },
+        {
+         "question": "Mandatory Access Control (MAC) is typically enforced by:",
+         "options": {
+          "A": "Any user",
+          "B": "The system, using security labels that users cannot change",
+          "C": "The application only",
+          "D": "The file owner"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "SELinux implements MAC on Linux."
+        },
+        {
+         "question": "Domain switching in UNIX happens when:",
+         "options": {
+          "A": "A process executes a setuid program or makes a system call into the kernel",
+          "B": "A page fault occurs",
+          "C": "A file is closed",
+          "D": "The disk is full"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "The kernel runs in a privileged domain (kernel mode)."
+        },
+        {
+         "question": "The CIA triad of security stands for:",
+         "options": {
+          "A": "Confidentiality, Isolation and Audit",
+          "B": "Cipher, Integrity and Authentication",
+          "C": "Control, Identity and Access",
+          "D": "Confidentiality, Integrity and Availability"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Authentication and non-repudiation are often added to it."
+        },
+        {
+         "question": "Something you know, something you have and something you are – combining two of these is called:",
+         "options": {
+          "A": "Single sign-on",
+          "B": "Two-factor (multi-factor) authentication",
+          "C": "Encryption",
+          "D": "Hashing"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Example: password plus a one-time code (OTP) sent to the phone."
+        },
+        {
+         "question": "Passwords are stored securely in an OS by keeping:",
+         "options": {
+          "A": "A salted hash of each password, not the password itself",
+          "B": "Plain text in a file",
+          "C": "The password in the boot block",
+          "D": "Only the first letter"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Salting defeats pre-computed (rainbow-table) attacks."
+        },
+        {
+         "question": "Fingerprint and face recognition are examples of:",
+         "options": {
+          "A": "Biometric authentication",
+          "B": "Capabilities",
+          "C": "Encryption",
+          "D": "Access-control lists"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "They authenticate by 'something you are'."
+        },
+        {
+         "question": "A one-time password protects against:",
+         "options": {
+          "A": "Page faults",
+          "B": "Power failure",
+          "C": "Replay of a captured password",
+          "D": "Disk crashes"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each password is valid only once."
+        },
+        {
+         "question": "Consider the statements:\nI. Protection is an internal problem of controlling access to resources.\nII. Security also considers the external environment in which the system operates.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Silberschatz distinguishes protection (internal) from security (internal and external)."
+        },
+        {
+         "question": "Consider the statements:\nI. In an access-control list, rights are stored with each object.\nII. In a capability list, rights are stored with each domain.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "These are the two ways of storing the sparse access matrix."
+        },
+        {
+         "question": "Assertion (A): Capability lists make revocation of access rights difficult.\nReason (R): Capabilities are distributed throughout the system with the processes that hold them.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Schemes such as back-pointers and keys were invented to solve this."
+        },
+        {
+         "question": "Assertion (A): The principle of least privilege gives every user administrator rights.\nReason (R): Least privilege limits damage when a program is compromised.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Least privilege gives only the rights needed; R is correct."
+        },
+        {
+         "question": "Match:\na. Authentication\nb. Authorisation\nc. Auditing\nd. Encryption\n\n1. Recording what was done\n2. Verifying who the user is\n3. Deciding what the user may do\n4. Making data unreadable to outsiders",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "B",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Basic security vocabulary."
+        },
+        {
+         "question": "In Windows, the object that describes the security of a file, including its owner and ACL, is the:",
+         "options": {
+          "A": "Security descriptor",
+          "B": "Page table entry",
+          "C": "Boot sector",
+          "D": "Inode"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Each user has a security ID (SID) in an access token."
+        },
+        {
+         "question": "Sandboxing a program means:",
+         "options": {
+          "A": "Compressing it",
+          "B": "Running it twice",
+          "C": "Running it with strict limits on what it can access",
+          "D": "Giving it root privileges"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Browsers and mobile apps run in sandboxes."
+        },
+        {
+         "question": "The 'lock–key' scheme of protection gives each object a list of locks and each domain a list of:",
+         "options": {
+          "A": "Pages",
+          "B": "Passwords only",
+          "C": "Capabilities that can never change",
+          "D": "Keys; access is allowed if a domain key matches an object lock"
+         },
+         "answer": "D",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "It is a compromise between ACLs and capabilities."
+        },
+        {
+         "question": "Language-based protection (e.g. in Java) is enforced by:",
+         "options": {
+          "A": "The disk controller",
+          "B": "The BIOS",
+          "C": "The compiler and the run-time system (JVM) checking access",
+          "D": "The printer"
+         },
+         "answer": "C",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "Java uses stack inspection to check permissions."
+        },
+        {
+         "question": "A rule saying that a process in a lower-security level may not read data at a higher level ('no read up') belongs to the:",
+         "options": {
+          "A": "Bell–LaPadula model",
+          "B": "Producer–consumer model",
+          "C": "Working-set model",
+          "D": "Banker's algorithm"
+         },
+         "answer": "A",
+         "subject": "Protection, Access Matrix, Access Control and Authentication",
+         "explanation": "PYQ pattern (KEA / KSET papers). It protects confidentiality in military-style MAC systems."
+        }
+       ]
+      },
+      {
+       "name": "2 · Program and System Threats, Cryptography and Defences",
+       "questions": [
+        {
+         "question": "____ is built into the software by the original programmer in order to gain access to any system without going through the usual security access procedure.",
+         "options": {
+          "A": "Trojan Horse",
+          "B": "Logic Bomb",
+          "C": "Trap Door",
+          "D": "Worm"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "A trap door (back door) is a hidden entry point left by the programmer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q28"
+        },
+        {
+         "question": "Which of the following uses the spawn mechanism to duplicate itself ?",
+         "options": {
+          "A": "Trojan Horse",
+          "B": "Worm",
+          "C": "Keystroke Logger",
+          "D": "Logic Bomb"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "A worm spawns copies of itself and spreads through networks without needing a host program (Silberschatz). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 MCA · Q29"
+        },
+        {
+         "question": "____ can result in pop-up ads or redirection of a browser to a commercial website.",
+         "options": {
+          "A": "Spyware",
+          "B": "Backdoor",
+          "C": "Adware",
+          "D": "Virus"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Adware displays unwanted advertisements; spyware secretly collects information. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q36"
+        },
+        {
+         "question": "The threats presented by the programs that exploit vulnerabilities in computing systems are referred to as",
+         "options": {
+          "A": "Spamware",
+          "B": "Malware",
+          "C": "Virus",
+          "D": "Software"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Malware (malicious software) covers viruses, worms, Trojans, ransomware and spyware. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q47"
+        },
+        {
+         "question": "If your computer is rebooting itself, then it is likely that",
+         "options": {
+          "A": "It does not have enough memory",
+          "B": "There has been a power surge",
+          "C": "It has a virus",
+          "D": "It needs a CD - ROM"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Unexpected restarts are a common symptom of a malware infection. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q92"
+        },
+        {
+         "question": "In Cryptography, attacks that retrieve information from the system without affecting the system resources are called",
+         "options": {
+          "A": "Passive attacks",
+          "B": "Active attacks",
+          "C": "Safe attacks",
+          "D": "Silent attacks"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Eavesdropping and traffic analysis are passive; modification and DoS are active. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q89"
+        },
+        {
+         "question": "Hackers often gain entry into a network by pretending to be at a legitimate computer.",
+         "options": {
+          "A": "Phishing",
+          "B": "Forging",
+          "C": "Spoofing",
+          "D": "Spamming"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Spoofing fakes an identity such as an IP or MAC address. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q90"
+        },
+        {
+         "question": "The art of covered writing is called as ____",
+         "options": {
+          "A": "Steganography",
+          "B": "Cryptography",
+          "C": "Bibliography",
+          "D": "Autography"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Steganography hides the existence of a message (e.g. inside an image); cryptography makes the message unreadable. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q41"
+        },
+        {
+         "question": "Match the following:\na) Plain text\nb) Cipher text\nc) Symmetric encryption\nd) Public key encryption\ni. Scrambled message\nii. Readable message\niii. Uses two different keys for encryption and decryption\niv. Uses single key for both Encryption and Decryption",
+         "options": {
+          "A": "a – iv, b – ii, c – i, d – iii",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Plain text is readable, cipher text is scrambled, symmetric encryption uses one key and public-key encryption uses a key pair. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q42"
+        },
+        {
+         "question": "____ is used in a symmetric encryption",
+         "options": {
+          "A": "Public key",
+          "B": "Private key",
+          "C": "Candidate key",
+          "D": "Secret key"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Sender and receiver share one secret key (e.g. AES, DES). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q95"
+        },
+        {
+         "question": "Which of these are TRUE for public-private key encryption algorithm?\n(i) Private key of the receiver is used by the sender to encrypt the message\n(ii) Public key is used by the receiver to decrypt the message",
+         "options": {
+          "A": "Only (i) is true",
+          "B": "Only (ii) is true",
+          "C": "Both (i) and (ii) are true",
+          "D": "Both (i) and (ii) are false"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "The sender encrypts with the receiver's public key and the receiver decrypts with its own private key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q88"
+        },
+        {
+         "question": "The four primary security principles related to a message are",
+         "options": {
+          "A": "Confidentiality, authentication, integrity and non-repudiation.",
+          "B": "Confidentiality, access control, non-repudiation and integrity.",
+          "C": "Authentication, authorization, non-repudiation and availability.",
+          "D": "Availability, access control, authorization and authentication."
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "These four apply to a message itself; access control and availability apply to systems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q108"
+        },
+        {
+         "question": "In the RSA algorithm, let N = P × Q = 33, and let the decryption key D = 7. If the ciphertext corresponds to the letter \"E\", determine the original plaintext letter.\n(Assume A = 1, B = 2, ……, Z = 26).",
+         "options": {
+          "A": "S",
+          "B": "U",
+          "C": "N",
+          "D": "E"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "M = 5⁷ mod 33: 5² = 25, 5⁴ ≡ 31, 5⁷ ≡ 31 × 25 × 5 = 3875 ≡ 14 → N. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q89"
+        },
+        {
+         "question": "In a RSA cryptosystem, a participant A uses 2 prime numbers p = 13 and q = 17, to generate public and private keys if the public key of A is 35, then private key of A is",
+         "options": {
+          "A": "Private key of participant A = (d, n) = (11, 192)",
+          "B": "Private key of participant A = (d, n) = (11, 221)",
+          "C": "Private key of participant A = (d, n) = (7, 220)",
+          "D": "Private key of participant A = (d, n) = (10, 195)"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "n = 13 × 17 = 221, φ(n) = 12 × 16 = 192, and 35 × 11 = 385 = 2 × 192 + 1, so d = 11 and the private key is (11, 221). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q70"
+        },
+        {
+         "question": "A program that appears useful but secretly performs a harmful function is a:",
+         "options": {
+          "A": "Compiler",
+          "B": "Worm",
+          "C": "Daemon",
+          "D": "Trojan horse"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). Unlike viruses, Trojans do not replicate themselves."
+        },
+        {
+         "question": "Code that lies dormant until a particular date or condition occurs and then causes damage is a:",
+         "options": {
+          "A": "Worm",
+          "B": "Logic bomb",
+          "C": "Firewall",
+          "D": "Trap door"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "A time bomb is a logic bomb triggered by a date."
+        },
+        {
+         "question": "A virus differs from a worm in that a virus:",
+         "options": {
+          "A": "Cannot damage files",
+          "B": "Spreads on its own through networks",
+          "C": "Is a hardware fault",
+          "D": "Needs a host program and usually user action to spread"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). The 1988 Morris worm was one of the first internet worms."
+        },
+        {
+         "question": "Writing more data into a buffer than it can hold, so that the return address on the stack is overwritten, is a:",
+         "options": {
+          "A": "Brute-force attack",
+          "B": "Denial-of-service attack",
+          "C": "Buffer-overflow (stack-overflow) attack",
+          "D": "Phishing attack"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Defences include bounds checking, non-executable stacks and address-space layout randomisation (ASLR)."
+        },
+        {
+         "question": "Ransomware:",
+         "options": {
+          "A": "Encrypts the victim's files and demands payment for the key",
+          "B": "Shows advertisements",
+          "C": "Only slows the CPU",
+          "D": "Speeds up the computer"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). WannaCry (2017) was a major ransomware worm."
+        },
+        {
+         "question": "Trying every possible key until the right one is found is a:",
+         "options": {
+          "A": "Social engineering",
+          "B": "Brute-force attack",
+          "C": "Man-in-the-middle attack",
+          "D": "Replay attack"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Longer keys make brute force impractical."
+        },
+        {
+         "question": "An attacker intercepts and possibly alters messages between two parties who believe they are talking directly. This is a:",
+         "options": {
+          "A": "Worm",
+          "B": "Trap door",
+          "C": "Logic bomb",
+          "D": "Man-in-the-middle attack"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). Authentication of keys (certificates) defends against it."
+        },
+        {
+         "question": "DES, 3DES and AES are examples of:",
+         "options": {
+          "A": "Public-key algorithms",
+          "B": "Hash functions",
+          "C": "Symmetric (secret-key) block ciphers",
+          "D": "Digital certificates"
+         },
+         "answer": "C",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "AES uses 128-bit blocks and 128/192/256-bit keys."
+        },
+        {
+         "question": "A cryptographic hash function such as SHA-256 is used to:",
+         "options": {
+          "A": "Produce a fixed-size digest to check the integrity of a message",
+          "B": "Compress files",
+          "C": "Encrypt data so it can be decrypted",
+          "D": "Schedule processes"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). MD5 and SHA-1 are now considered weak."
+        },
+        {
+         "question": "A digital signature is created by encrypting the message digest with the sender's:",
+         "options": {
+          "A": "Receiver's private key",
+          "B": "Private key",
+          "C": "Public key",
+          "D": "Session key"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Anyone can verify it with the sender's public key, giving non-repudiation."
+        },
+        {
+         "question": "An intrusion-detection system (IDS) is designed to:",
+         "options": {
+          "A": "Allocate memory",
+          "B": "Compress network traffic",
+          "C": "Format disks",
+          "D": "Detect attempted or successful intrusions and raise alerts"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). Signature-based IDS look for known patterns; anomaly-based IDS look for unusual behaviour."
+        },
+        {
+         "question": "Consider the statements:\nI. A worm can spread without any user action.\nII. A Trojan horse replicates itself to other files.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Trojans do not replicate; viruses and worms do."
+        },
+        {
+         "question": "Assertion (A): Public-key cryptography solves the key-distribution problem of symmetric encryption.\nReason (R): The encryption key can be published openly while only the decryption key is kept secret.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Diffie and Hellman introduced the idea in 1976; RSA followed in 1977."
+        },
+        {
+         "question": "Assertion (A): A denial-of-service attack steals confidential data.\nReason (R): A DoS attack makes a system or service unavailable to legitimate users.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "DoS attacks availability, not confidentiality."
+        },
+        {
+         "question": "Match:\na. Virus\nb. Worm\nc. Trojan horse\nd. Trap door\n\n1. Disguised as useful software\n2. Attaches to a host program\n3. Secret entry left by the programmer\n4. Self-replicating over networks",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-2, b-4, c-1, d-3",
+          "C": "a-3, b-4, c-1, d-2",
+          "D": "a-4, b-2, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "PYQ pattern (KEA / KSET papers). Program-threat matching is very common."
+        },
+        {
+         "question": "Which of the following is NOT a defence against security threats?",
+         "options": {
+          "A": "Sharing the administrator password with all users",
+          "B": "Auditing and logging",
+          "C": "Using strong authentication",
+          "D": "Keeping software patched"
+         },
+         "answer": "A",
+         "subject": "Program and System Threats, Cryptography and Defences",
+         "explanation": "Defence in depth uses many layers of protection."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Linux Operating System",
+     "sets": [
+      {
+       "name": "1 · Design Principles, Kernel Modules and Basic Commands",
+       "questions": [
+        {
+         "question": "Which of the following is a key feature of Linux?",
+         "options": {
+          "A": "Closed Source",
+          "B": "Proprietary",
+          "C": "Open Source",
+          "D": "Single User"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Linux is free, open-source (GPL) and multi-user. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q30"
+        },
+        {
+         "question": "Which of the following Linux distributions is maintained by the Debian-based company Canonical?",
+         "options": {
+          "A": "openSUSE",
+          "B": "Ubuntu",
+          "C": "Fedora",
+          "D": "Arch Linux"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Fedora is sponsored by Red Hat; openSUSE by SUSE; Arch is community-run."
+        },
+        {
+         "question": "The Operating System which requires a command to run is",
+         "options": {
+          "A": "Mac-OS & Single user Operating System",
+          "B": "Mac-OS & Windows",
+          "C": "Mac-OS",
+          "D": "Kali Linux"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "The key picks Kali Linux, a Linux distribution whose tools are mostly run as commands in a terminal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q12"
+        },
+        {
+         "question": "Which of the following is/are not TRUE?\n(a) Kernel is the program that contains core of operating system\n(b) Kernel is the first part of operating system to load into memory during booting\n(c) Kernel is made of various modules which cannot be loaded in running operating system\n(d) Kernel remains in the memory during the entire computer session",
+         "options": {
+          "A": "(a) and (b)",
+          "B": "(a) and (c)",
+          "C": "Only (c)",
+          "D": "(c) and (d)"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Loadable kernel modules (e.g. Linux insmod / modprobe) can be added to a running kernel, so (c) is false. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q50"
+        },
+        {
+         "question": "Given the following statements with respect to Operating System:\nS1: Kernel is the heart of Operating System\nS2: Operating System acts as an interface between user and computer\nS3: Operating System is a hardware\nWhich of the following is correct?",
+         "options": {
+          "A": "S1, S2 and S3 are correct",
+          "B": "S1 and S2 are correct and S3 is not correct",
+          "C": "S1, S2 and S3 are incorrect",
+          "D": "S1 is correct and S2 & S3 are incorrect"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "An OS is system software, not hardware. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q45"
+        },
+        {
+         "question": "Linus Torvalds announced the first Linux kernel in 1991 while he was a student at the University of:",
+         "options": {
+          "A": "Bell Labs, USA",
+          "B": "California, Berkeley",
+          "C": "Helsinki, Finland",
+          "D": "Cambridge, UK"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stallman founded the GNU project (1983); Ritchie and Thompson created UNIX at Bell Labs."
+        },
+        {
+         "question": "Linux is distributed under which licence?",
+         "options": {
+          "A": "Freeware with no source",
+          "B": "BSD licence only",
+          "C": "Microsoft EULA",
+          "D": "GNU General Public License (GPL v2)"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "The GPL requires modified versions that are distributed to keep the source open."
+        },
+        {
+         "question": "A complete Linux system with the kernel, GNU tools, package manager and installer is called a:",
+         "options": {
+          "A": "Kernel module",
+          "B": "Distribution (distro)",
+          "C": "Shell",
+          "D": "File system"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: Ubuntu, Debian, Fedora, Red Hat Enterprise Linux, Linux Mint, Kali."
+        },
+        {
+         "question": "The Linux kernel design is best described as:",
+         "options": {
+          "A": "Monolithic, but modular with loadable kernel modules",
+          "B": "Exokernel",
+          "C": "Layered with no modules",
+          "D": "Pure microkernel"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "All core services run in kernel mode for performance; modules add drivers and file systems at run time."
+        },
+        {
+         "question": "Which three components make up a Linux system according to Silberschatz?",
+         "options": {
+          "A": "Compiler, linker and loader",
+          "B": "Kernel, system libraries and system utilities",
+          "C": "Shell, GUI and browser",
+          "D": "BIOS, CPU and RAM"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). The kernel runs in kernel mode; libraries and utilities run in user mode."
+        },
+        {
+         "question": "Which Linux command loads a kernel module along with its dependencies?",
+         "options": {
+          "A": "ping",
+          "B": "chmod",
+          "C": "mkdir",
+          "D": "modprobe"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "insmod loads one module; rmmod removes it; lsmod lists loaded modules."
+        },
+        {
+         "question": "The program that interprets commands typed by the user in Linux is the:",
+         "options": {
+          "A": "Compiler",
+          "B": "BIOS",
+          "C": "Shell (e.g. bash)",
+          "D": "Kernel"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Other shells include sh, zsh, csh and ksh."
+        },
+        {
+         "question": "The superuser account in Linux, with full administrative rights, is called:",
+         "options": {
+          "A": "root",
+          "B": "guest",
+          "C": "system",
+          "D": "admin"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "sudo lets an ordinary user run a single command as root."
+        },
+        {
+         "question": "Which Linux directory holds system configuration files?",
+         "options": {
+          "A": "/home",
+          "B": "/bin",
+          "C": "/etc",
+          "D": "/tmp"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). /home holds users' files, /bin essential commands, /tmp temporary files and /var logs."
+        },
+        {
+         "question": "In Linux, everything – including devices – is treated as a:",
+         "options": {
+          "A": "Thread",
+          "B": "Socket only",
+          "C": "Process",
+          "D": "File"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Devices appear in /dev, e.g. /dev/sda."
+        },
+        {
+         "question": "The first user-space process started by the Linux kernel at boot (PID 1) is today usually:",
+         "options": {
+          "A": "cron",
+          "B": "systemd (formerly init)",
+          "C": "bash",
+          "D": "sshd"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). It starts all other services."
+        },
+        {
+         "question": "Which statement about Linux and UNIX is correct?",
+         "options": {
+          "A": "Linux is a UNIX-like system written from scratch, not derived from UNIX source code",
+          "B": "Linux is the original UNIX from Bell Labs",
+          "C": "Linux cannot run on servers",
+          "D": "Linux is a version of Windows"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Linux follows POSIX standards."
+        },
+        {
+         "question": "Android uses which kernel?",
+         "options": {
+          "A": "A modified Linux kernel",
+          "B": "The Windows NT kernel",
+          "C": "The MS-DOS kernel",
+          "D": "The XNU kernel"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Apple's macOS and iOS use the XNU kernel."
+        },
+        {
+         "question": "Consider the statements:\nI. Linux is a multi-user, multitasking operating system.\nII. Linux can run only on desktop computers.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Linux runs on servers, supercomputers, phones and embedded devices."
+        },
+        {
+         "question": "Assertion (A): A new device driver can be added to Linux without rebuilding the kernel.\nReason (R): Linux supports loadable kernel modules.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "This is why the Linux kernel is called modular."
+        },
+        {
+         "question": "Assertion (A): Linux is a microkernel operating system.\nReason (R): The Linux kernel is a single address space that runs all core services in kernel mode.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "R describes a monolithic kernel, which Linux is; A is false."
+        },
+        {
+         "question": "Match:\na. Linus Torvalds\nb. Richard Stallman\nc. Dennis Ritchie\nd. Andrew Tanenbaum\n\n1. MINIX\n2. Linux kernel\n3. GNU project\n4. UNIX and C",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-1, b-3, c-4, d-2",
+          "D": "a-3, b-2, c-4, d-1"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Linux was inspired partly by MINIX."
+        },
+        {
+         "question": "The Linux command to display the manual page of a command is:",
+         "options": {
+          "A": "doc",
+          "B": "help me",
+          "C": "man",
+          "D": "info-all"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Example: man ls."
+        },
+        {
+         "question": "Which Linux command shows the currently running processes?",
+         "options": {
+          "A": "cd",
+          "B": "ls",
+          "C": "cat",
+          "D": "ps"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). top shows a continuously updated list; kill sends a signal to a process."
+        },
+        {
+         "question": "The Linux command used to search for a pattern in files is:",
+         "options": {
+          "A": "locate-only",
+          "B": "find-text",
+          "C": "grep",
+          "D": "search"
+         },
+         "answer": "C",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "find searches for files by name or attributes."
+        },
+        {
+         "question": "The standard package manager commands of Debian/Ubuntu and of Fedora/RHEL are:",
+         "options": {
+          "A": "exe and msi",
+          "B": "pip and npm",
+          "C": "brew and choco",
+          "D": "apt and dnf (yum)"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). They install, update and remove software packages."
+        },
+        {
+         "question": "Linux's graphical desktop environments include:",
+         "options": {
+          "A": "GNOME and KDE Plasma",
+          "B": "Metro",
+          "C": "Aqua",
+          "D": "Aero and Fluent"
+         },
+         "answer": "A",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "Both run on the X Window System or Wayland."
+        },
+        {
+         "question": "The Linux command 'pwd' displays:",
+         "options": {
+          "A": "Power settings",
+          "B": "The present working directory",
+          "C": "The password file",
+          "D": "Printer queue"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "cd changes the directory."
+        },
+        {
+         "question": "Which of these is NOT a Linux distribution?",
+         "options": {
+          "A": "Ubuntu",
+          "B": "Debian",
+          "C": "Fedora",
+          "D": "Windows Server"
+         },
+         "answer": "D",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "PYQ pattern (KEA / KSET papers). Windows Server is Microsoft's server OS."
+        },
+        {
+         "question": "Kernel mode and user mode in Linux are used to:",
+         "options": {
+          "A": "Make programs run slower deliberately",
+          "B": "Protect the kernel from faulty or malicious user programs",
+          "C": "Store files",
+          "D": "Encrypt the disk"
+         },
+         "answer": "B",
+         "subject": "Design Principles, Kernel Modules and Basic Commands",
+         "explanation": "User programs enter the kernel only through system calls."
+        }
+       ]
+      },
+      {
+       "name": "2 · Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+       "questions": [
+        {
+         "question": "Match the following and choose the correct option (in the Linux Virtual File System):\na) An inode object\nb) A file object\nc) A super block object\nd) A dentry object\ni. Represents an entire file system\nii. Represents an individual directory entry\niii. Represents an open file\niv. Represents an individual file",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "These are the four primary Linux VFS object types (Silberschatz). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q50"
+        },
+        {
+         "question": "Match the file management commands with its functionalities:\nList – I (Commands)\n(a) ls\n(b) pwd\n(c) touch\n(d) chmod\nList – II (Function)\n(i) Change file permissions\n(ii) List files and folders\n(iii) Display current working directory\n(iv) Update timestamp/create empty file",
+         "options": {
+          "A": "a – i, b – iv, c – iii, d – ii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "ls lists, pwd prints the working directory, touch updates the timestamp or creates an empty file, chmod changes permissions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q47"
+        },
+        {
+         "question": "In Linux, a new process is created with ____ and a new program is loaded into it with ____.",
+         "options": {
+          "A": "malloc(); free()",
+          "B": "fork(); exec()",
+          "C": "open(); close()",
+          "D": "exec(); fork()"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). Linux also has clone(), which lets the new task share chosen resources – used to create threads."
+        },
+        {
+         "question": "Linux does not distinguish between processes and threads; both are called:",
+         "options": {
+          "A": "Jobs",
+          "B": "Tasks, created with clone()",
+          "C": "Segments",
+          "D": "Inodes"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Flags to clone() decide what is shared (memory, files, signal handlers)."
+        },
+        {
+         "question": "The default Linux scheduler from kernel 2.6.23 to 6.5 was the:",
+         "options": {
+          "A": "Round robin with fixed quantum",
+          "B": "FCFS scheduler",
+          "C": "Completely Fair Scheduler (CFS)",
+          "D": "O(1) scheduler only"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "CFS used a red-black tree ordered by virtual run time; kernel 6.6 (2023) replaced it with EEVDF."
+        },
+        {
+         "question": "In Linux CFS, the 'nice' value of a process ranges from:",
+         "options": {
+          "A": "0 to 100",
+          "B": "1 to 10",
+          "C": "−100 to +100",
+          "D": "−20 (highest priority) to +19 (lowest)"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). A lower nice value gives a larger share of the CPU."
+        },
+        {
+         "question": "Linux real-time scheduling classes are:",
+         "options": {
+          "A": "SCHED_LRU and SCHED_OPT",
+          "B": "SCHED_DISK and SCHED_NET",
+          "C": "SCHED_FIFO and SCHED_RR",
+          "D": "SCHED_SJF only"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Real-time tasks always run before normal (SCHED_NORMAL) tasks."
+        },
+        {
+         "question": "Linux allocates physical pages for the kernel using the:",
+         "options": {
+          "A": "FAT",
+          "B": "Buddy system, with the slab allocator for kernel objects",
+          "C": "First-fit list only",
+          "D": "Paging to tape"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). Newer kernels use SLUB, a simplified slab allocator."
+        },
+        {
+         "question": "The standard file system of most Linux distributions today is:",
+         "options": {
+          "A": "NTFS",
+          "B": "ext4",
+          "C": "HFS",
+          "D": "FAT12"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "ext4 is journaling and uses extents; XFS and Btrfs are other options."
+        },
+        {
+         "question": "A Linux inode stores all of these EXCEPT:",
+         "options": {
+          "A": "Owner and permissions",
+          "B": "Size and timestamps",
+          "C": "Pointers to the data blocks",
+          "D": "The file's name"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). Names are stored in directory entries, which map names to inode numbers."
+        },
+        {
+         "question": "The /proc file system in Linux is:",
+         "options": {
+          "A": "The boot loader",
+          "B": "A disk partition for programs",
+          "C": "A virtual file system giving information about processes and the kernel",
+          "D": "A swap file"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Example: /proc/cpuinfo and /proc/<pid>/status."
+        },
+        {
+         "question": "Linux divides devices into three classes:",
+         "options": {
+          "A": "Block devices, character devices and network devices",
+          "B": "Local, remote and virtual",
+          "C": "Input, output and storage only",
+          "D": "Fast, slow and medium devices"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). Network devices are accessed through the socket interface."
+        },
+        {
+         "question": "Which of the following is an inter-process communication mechanism in Linux?",
+         "options": {
+          "A": "Page tables",
+          "B": "Inodes",
+          "C": "The boot block",
+          "D": "Pipes, signals, shared memory and message queues"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Pipes connect commands in the shell, e.g. ls | grep txt."
+        },
+        {
+         "question": "A signal in Linux is:",
+         "options": {
+          "A": "A kind of file system",
+          "B": "A hardware wire",
+          "C": "A software notification sent to a process that an event has occurred",
+          "D": "A disk block"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). kill -9 sends SIGKILL; Ctrl + C sends SIGINT."
+        },
+        {
+         "question": "Linux uses which technique to avoid copying all pages when fork() is called?",
+         "options": {
+          "A": "Swapping the whole process",
+          "B": "Copy-on-write",
+          "C": "Compaction",
+          "D": "Spooling"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Pages are copied only when the parent or child writes to them."
+        },
+        {
+         "question": "In the permission string -rwxr-xr--, the first character '-' indicates:",
+         "options": {
+          "A": "A regular file",
+          "B": "A device",
+          "C": "A symbolic link",
+          "D": "A directory"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). 'd' marks a directory, 'l' a symbolic link, 'c' and 'b' character and block devices."
+        },
+        {
+         "question": "The command chmod 644 report.txt gives:",
+         "options": {
+          "A": "Owner execute only",
+          "B": "Everyone full access",
+          "C": "Owner read–write; group and others read only",
+          "D": "No access for anyone"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "6 = rw-, 4 = r--."
+        },
+        {
+         "question": "Which Linux command changes the owner of a file?",
+         "options": {
+          "A": "chown",
+          "B": "chmod",
+          "C": "chgrp-only",
+          "D": "mv"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). chgrp changes only the group."
+        },
+        {
+         "question": "Linux networking is built around which protocol suite?",
+         "options": {
+          "A": "AppleTalk only",
+          "B": "TCP/IP, accessed through the BSD socket interface",
+          "C": "NetBEUI only",
+          "D": "X.25 only"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Netfilter (iptables / nftables) provides the firewall."
+        },
+        {
+         "question": "Linux security modules that add mandatory access control include:",
+         "options": {
+          "A": "GNOME and KDE",
+          "B": "FAT and NTFS",
+          "C": "CFS and EEVDF",
+          "D": "SELinux and AppArmor"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). SELinux was developed by the US NSA."
+        },
+        {
+         "question": "In Linux, kernel modules are compiled as:",
+         "options": {
+          "A": "Executable .exe files",
+          "B": "Text files",
+          "C": "Shell scripts",
+          "D": "Object files (.ko) that can be loaded and unloaded at run time"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Module management, driver registration and conflict resolution are handled by the kernel."
+        },
+        {
+         "question": "The Linux page-replacement policy is a variation of:",
+         "options": {
+          "A": "Optimal replacement",
+          "B": "Random replacement",
+          "C": "LRU approximation using active and inactive lists (clock-like)",
+          "D": "FIFO only"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Pages move between the active and inactive lists according to their reference bits."
+        },
+        {
+         "question": "Consider the statements:\nI. In Linux, threads are created with clone().\nII. In Linux, the fork() call copies the whole address space immediately.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "fork() uses copy-on-write, so pages are not copied immediately."
+        },
+        {
+         "question": "Assertion (A): Linux file names are case-sensitive.\nReason (R): Linux treats 'Report.txt' and 'report.txt' as two different files.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Windows (NTFS by default) is case-insensitive."
+        },
+        {
+         "question": "Assertion (A): In Linux, the file name is stored inside the inode.\nReason (R): A file can have several hard links with different names pointing to the same inode.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "Names are stored in directories, which is exactly why several names can link to one inode."
+        },
+        {
+         "question": "Which command shows disk-space usage of mounted file systems in Linux?",
+         "options": {
+          "A": "df -h",
+          "B": "du -x only",
+          "C": "uname",
+          "D": "free"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). du shows the space used by files and directories; free shows memory."
+        },
+        {
+         "question": "The Linux command 'ls -l' displays:",
+         "options": {
+          "A": "A long listing with permissions, owner, size and modification time",
+          "B": "Only hidden files",
+          "C": "Only directories",
+          "D": "The kernel version"
+         },
+         "answer": "A",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "ls -a also shows hidden files (names starting with '.')."
+        },
+        {
+         "question": "Which Linux command creates a new, empty directory?",
+         "options": {
+          "A": "rmdir",
+          "B": "mkdir",
+          "C": "cp",
+          "D": "touch"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). rmdir removes an empty directory; rm -r removes a directory with its contents."
+        },
+        {
+         "question": "The Linux command 'cat file1 file2 > file3' will:",
+         "options": {
+          "A": "Copy file3 to file1",
+          "B": "Delete file3",
+          "C": "Concatenate file1 and file2 and write the result into file3",
+          "D": "Compare the files"
+         },
+         "answer": "C",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": ">> appends instead of overwriting."
+        },
+        {
+         "question": "Match the Linux command with its use:\na. cp\nb. mv\nc. rm\nd. cat\n\n1. Copy\n2. Remove\n3. Display file contents\n4. Move / rename",
+         "options": {
+          "A": "a-4, b-1, c-2, d-3",
+          "B": "a-1, b-4, c-2, d-3",
+          "C": "a-3, b-4, c-2, d-1",
+          "D": "a-1, b-2, c-4, d-3"
+         },
+         "answer": "B",
+         "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
+         "explanation": "PYQ pattern (KEA / KSET papers). Basic command matching."
         }
        ]
       }
