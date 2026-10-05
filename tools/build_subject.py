@@ -27,7 +27,7 @@ PACKS = {
     "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
     "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h"]},
-    "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g"]},
+    "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g", "p1_gk_pyq", "p1_gk_notes"]},
     "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f"]},
     "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e", "p1_eng_f"]},
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d"]},
@@ -62,7 +62,8 @@ def build(key):
     content, notes = {}, {}
     for m in cfg["modules"]:
         mod = importlib.import_module(m)
-        content.update(mod.TOPICS)
+        for k, v in mod.TOPICS.items():  # a later module may add sets to a topic (e.g. a "Previous-Year Questions" set)
+            content.setdefault(k, []).extend(v)
         notes.update(getattr(mod, "NOTES", {}))  # optional ready-made notes per topic: [{"title", "md"}]
     missing = [t for t in content if t not in planned]
     assert not missing, f"topics not in the planner for {subject}: {missing}"
@@ -75,7 +76,10 @@ def build(key):
             num, sub = name.split(" · ", 1)
             assert num == str(i), f"{t} / {name}: sets must be numbered 1, 2, 3…"
             want_n = extra["sizes"].get(sub, size) if extra else size
-            assert len(qs) == want_n, f"{t} / {name}: {len(qs)} questions, expected {want_n}"
+            if sub.startswith("Previous-Year Questions"):  # real questions only – as many as the papers give
+                assert len(qs) >= 4, f"{t} / {name}: only {len(qs)} questions"
+            else:
+                assert len(qs) == want_n, f"{t} / {name}: {len(qs)} questions, expected {want_n}"
             sets.append({"name": name, "tag": sub, "questions": qs})
         want = smap.get(subject, {}).get(t)
         assert want == [s["tag"] for s in sets], f"{t}: sets {[s['tag'] for s in sets]} differ from syllabus_map {want}"

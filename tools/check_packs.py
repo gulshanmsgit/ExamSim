@@ -97,7 +97,8 @@ for f in sorted(listed):
                 where = f"{f}: {tname} / {st['name']}"
                 qs = st.get("questions", [])
                 size = EXTRA_SUBJECTS[sname]["sizes"].get(st["name"].split(" · ", 1)[-1], 20) if sname in EXTRA_SUBJECTS else 30 if paper2 else 20
-                if not legacy and len(qs) != size:
+                real = "Previous-Year Questions" in st["name"]  # real questions only: any size, printed answer letters
+                if not legacy and not real and len(qs) != size:
                     err(f"{where}: {len(qs)} questions, expected {size}")
                 letters, ar = Counter(), Counter()
                 for i, q in enumerate(qs, 1):
@@ -121,7 +122,7 @@ for f in sorted(listed):
                         seen[k] = f"{where} Q{i}"
                 if qs:
                     top, n = letters.most_common(1)[0]
-                    if n / len(qs) > 0.5 and not legacy:
+                    if n / len(qs) > 0.5 and not legacy and not real:
                         err(f"{where}: answer {top} is {n}/{len(qs)} — spread answers across A–D")
                     elif n / len(qs) > 0.4:
                         warn(f"{where}: answer {top} is {n}/{len(qs)}")
