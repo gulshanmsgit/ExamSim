@@ -1,0 +1,3731 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 9 — Data Communication & Networks",
+ "description": "5 of 14 topics so far (10 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 9 – Data Communication & Networks",
+   "icon": "🌐",
+   "topics": [
+    {
+     "name": "Data Communication – Part 1",
+     "sets": [
+      {
+       "name": "1 · Components, Transmission Modes, Analog and Digital Signals",
+       "questions": [
+        {
+         "question": "Data transmission used in walkie-talkie is",
+         "options": {
+          "A": "Simplex",
+          "B": "Duplex",
+          "C": "Half-duplex",
+          "D": "Complex"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Both sides can talk, but only one at a time (press-to-talk). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q88"
+        },
+        {
+         "question": "Simplex communication system can transmit data",
+         "options": {
+          "A": "In one direction",
+          "B": "In both directions",
+          "C": "Switch direction each time the direction of data transfer reverses",
+          "D": "None of the above"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Examples: keyboard to computer, radio and TV broadcasting. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q90"
+        },
+        {
+         "question": "The five components of a data communication system are:",
+         "options": {
+          "A": "CPU, RAM, ROM, disk and monitor",
+          "B": "Message, sender, receiver, transmission medium and protocol",
+          "C": "Client, server, router, switch and hub",
+          "D": "Bits, bytes, words, frames and packets"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Forouzan's basic model."
+        },
+        {
+         "question": "The fundamental characteristics of an effective data communication system are:",
+         "options": {
+          "A": "Voltage, current, power and resistance",
+          "B": "Delivery, accuracy, timeliness and jitter",
+          "C": "Encryption, compression, caching and paging",
+          "D": "Speed, colour, size and cost"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Jitter is the variation in packet arrival time, important for audio and video."
+        },
+        {
+         "question": "A set of rules that governs data communication is called a:",
+         "options": {
+          "A": "Topology",
+          "B": "Medium",
+          "C": "Signal",
+          "D": "Protocol"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its key elements are syntax, semantics and timing."
+        },
+        {
+         "question": "The three key elements of a protocol are:",
+         "options": {
+          "A": "Speed, cost and size",
+          "B": "Bits, bytes and frames",
+          "C": "Syntax, semantics and timing",
+          "D": "Sender, receiver and medium"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Syntax = format, semantics = meaning, timing = when and how fast."
+        },
+        {
+         "question": "A telephone conversation in which both people can talk and listen at the same time is an example of:",
+         "options": {
+          "A": "Full-duplex transmission",
+          "B": "Half-duplex transmission",
+          "C": "Broadcast only",
+          "D": "Simplex transmission"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). The channel capacity is shared in both directions at once."
+        },
+        {
+         "question": "A signal that can have an infinite number of values in a range is:",
+         "options": {
+          "A": "Discrete",
+          "B": "Digital",
+          "C": "Binary",
+          "D": "Analog"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "A digital signal has a limited number of defined values."
+        },
+        {
+         "question": "A sine wave is completely described by three characteristics:",
+         "options": {
+          "A": "Speed, size and colour",
+          "B": "Peak amplitude, frequency and phase",
+          "C": "Bit rate, baud rate and voltage",
+          "D": "Bandwidth, latency and jitter"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Wavelength = propagation speed × period."
+        },
+        {
+         "question": "A signal with frequency 1 kHz has a period of:",
+         "options": {
+          "A": "1 µs",
+          "B": "10 ms",
+          "C": "1 ms",
+          "D": "1 s"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Period = 1 / frequency = 1 / 1000 s."
+        },
+        {
+         "question": "A sine wave that is offset by one-quarter of a cycle with respect to time 0 has a phase of:",
+         "options": {
+          "A": "360°",
+          "B": "90°",
+          "C": "45°",
+          "D": "180°"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). One full cycle = 360°."
+        },
+        {
+         "question": "A periodic composite signal contains frequencies from 100 Hz to 1000 Hz. Its bandwidth is:",
+         "options": {
+          "A": "900 Hz",
+          "B": "1000 Hz",
+          "C": "1100 Hz",
+          "D": "100 Hz"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Bandwidth = highest frequency − lowest frequency."
+        },
+        {
+         "question": "According to Fourier analysis, any composite signal is a combination of:",
+         "options": {
+          "A": "Digital pulses only",
+          "B": "Random noise",
+          "C": "Square waves only",
+          "D": "Simple sine waves with different frequencies, amplitudes and phases"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). A digital signal is a composite analog signal with (in theory) infinite bandwidth."
+        },
+        {
+         "question": "The number of bits sent in one second is called the:",
+         "options": {
+          "A": "Bit rate",
+          "B": "Baud rate",
+          "C": "Frequency",
+          "D": "Bit length"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "The bit interval is the time for one bit = 1 / bit rate."
+        },
+        {
+         "question": "A digital signal has 8 levels. How many bits does each level represent?",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "3",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Bits per level = log₂ L = log₂ 8."
+        },
+        {
+         "question": "Transmitting a digital signal without changing it to analog, using a low-pass channel, is called:",
+         "options": {
+          "A": "Modulation",
+          "B": "Baseband transmission",
+          "C": "Multiplexing",
+          "D": "Broadband transmission"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Broadband transmission uses modulation to send over a band-pass channel."
+        },
+        {
+         "question": "The loss of energy of a signal as it travels through a medium is called:",
+         "options": {
+          "A": "Jitter",
+          "B": "Distortion",
+          "C": "Noise",
+          "D": "Attenuation"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Amplifiers or repeaters restore the signal."
+        },
+        {
+         "question": "A change in the shape of a signal because its frequency components travel at different speeds is called:",
+         "options": {
+          "A": "Distortion",
+          "B": "Attenuation",
+          "C": "Crosstalk",
+          "D": "Noise"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "It matters for composite signals."
+        },
+        {
+         "question": "The effect of one wire on another, as when you hear another call on a telephone line, is:",
+         "options": {
+          "A": "Attenuation",
+          "B": "Crosstalk",
+          "C": "Impulse noise",
+          "D": "Thermal noise"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Thermal noise comes from random electron motion; impulse noise from spikes like lightning."
+        },
+        {
+         "question": "A signal loses half its power. The loss in decibels is about:",
+         "options": {
+          "A": "−6 dB",
+          "B": "−10 dB",
+          "C": "−1 dB",
+          "D": "−3 dB"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "dB = 10 log₁₀(P₂/P₁) = 10 log₁₀(0.5) ≈ −3."
+        },
+        {
+         "question": "Which of the following is an example of half-duplex communication?",
+         "options": {
+          "A": "Keyboard input",
+          "B": "Television broadcast",
+          "C": "Walkie-talkie / CB radio",
+          "D": "Telephone call"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). TV is simplex; telephone is full duplex."
+        },
+        {
+         "question": "In data communication, 'timeliness' means:",
+         "options": {
+          "A": "Data must be compressed",
+          "B": "Data must be delivered in time; late real-time data (like video) is useless",
+          "C": "Data must be delivered only at night",
+          "D": "Data must be encrypted"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "It is one of the four fundamental characteristics."
+        },
+        {
+         "question": "The physical path through which a message travels from sender to receiver is the:",
+         "options": {
+          "A": "Transmission medium",
+          "B": "Message",
+          "C": "Protocol",
+          "D": "Receiver"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: twisted-pair cable, fibre, radio waves."
+        },
+        {
+         "question": "Consider the statements:\nI. In full-duplex mode, both stations can transmit and receive simultaneously.\nII. In simplex mode, only one of the two devices can transmit.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Both statements are correct."
+        },
+        {
+         "question": "Assertion (A): A digital signal needs a channel of very large bandwidth to be sent without distortion.\nReason (R): A digital signal is a composite analog signal with an infinite range of frequencies.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "In practice a low-pass channel of limited bandwidth gives an approximation."
+        },
+        {
+         "question": "Assertion (A): Attenuation increases signal strength over distance.\nReason (R): Amplifiers are used to compensate for attenuation.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "Attenuation is a loss of strength."
+        },
+        {
+         "question": "Match:\na. Simplex\nb. Half-duplex\nc. Full-duplex\n\n1. Radio broadcast\n2. Walkie-talkie\n3. Telephone",
+         "options": {
+          "A": "a-3, b-2, c-1",
+          "B": "a-1, b-3, c-2",
+          "C": "a-2, b-1, c-3",
+          "D": "a-1, b-2, c-3"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Basic transmission-mode matching."
+        },
+        {
+         "question": "A periodic signal completes one cycle in 4 ms. Its frequency is:",
+         "options": {
+          "A": "400 Hz",
+          "B": "4 Hz",
+          "C": "250 Hz",
+          "D": "25 Hz"
+         },
+         "answer": "C",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "f = 1/T = 1/0.004."
+        },
+        {
+         "question": "Which of the following is a digital signal characteristic, NOT an analog one?",
+         "options": {
+          "A": "Phase",
+          "B": "Peak amplitude",
+          "C": "Frequency",
+          "D": "Bit interval"
+         },
+         "answer": "D",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "PYQ pattern (KEA / KSET papers). Bit interval and bit rate describe digital signals."
+        },
+        {
+         "question": "Signals sent over long distances are restored by a regenerating device called a:",
+         "options": {
+          "A": "Router",
+          "B": "Repeater",
+          "C": "Modem",
+          "D": "Gateway"
+         },
+         "answer": "B",
+         "subject": "Components, Transmission Modes, Analog and Digital Signals",
+         "explanation": "A repeater regenerates the original bit pattern rather than amplifying noise."
+        }
+       ]
+      },
+      {
+       "name": "2 · Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+       "questions": [
+        {
+         "question": "The bandwidth of a noisy channel is 3000 Hz and whose signal to noise ratio is 3162. What will be the maximum data rate of the channel?",
+         "options": {
+          "A": "≅ 37524 bps",
+          "B": "≅ 36523 bps",
+          "C": "≅ 35922 bps",
+          "D": "≅ 34890 bps"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "Shannon: C = 3000 × log₂(1 + 3162) ≈ 3000 × 11.63 ≈ 34,880 bps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q83"
+        },
+        {
+         "question": "A system transmits data at 1200 bytes per second using 4 bits per signal limit. What is the baud rate?",
+         "options": {
+          "A": "2400 Baud",
+          "B": "9600 Baud",
+          "C": "38400 Baud",
+          "D": "4800 Baud"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "1200 × 8 = 9600 bps; 9600 / 4 bits per signal = 2400 baud. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q81"
+        },
+        {
+         "question": "A company has a secure wireless network with a maximum throughput of 600 Mbps. If 10 users are connected simultaneously and each is using 30 Mbps of bandwidth, what percentage of the total throughput is being utilized?",
+         "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "10 × 30 = 300 Mbps, which is half of 600 Mbps. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q81"
+        },
+        {
+         "question": "For a noiseless channel of bandwidth B and L signal levels, the maximum bit rate (Nyquist) is:",
+         "options": {
+          "A": "B log₂ (1 + SNR)",
+          "B": "2B / L",
+          "C": "2B log₂ L",
+          "D": "B / L"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Shannon's B log₂(1 + SNR) is for noisy channels."
+        },
+        {
+         "question": "A noiseless channel with a bandwidth of 3000 Hz transmits a signal with two signal levels. The maximum bit rate is:",
+         "options": {
+          "A": "3000 bps",
+          "B": "6000 bps",
+          "C": "1500 bps",
+          "D": "12000 bps"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "2 × 3000 × log₂ 2 = 6000 bps."
+        },
+        {
+         "question": "The same 3000 Hz noiseless channel with four signal levels can carry:",
+         "options": {
+          "A": "9000 bps",
+          "B": "24000 bps",
+          "C": "12000 bps",
+          "D": "6000 bps"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2 × 3000 × log₂ 4 = 12000 bps."
+        },
+        {
+         "question": "A noiseless 20 kHz channel uses 8 signal levels. Its maximum bit rate is:",
+         "options": {
+          "A": "40 kbps",
+          "B": "160 kbps",
+          "C": "120 kbps",
+          "D": "60 kbps"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "2 × 20,000 × 3 = 120,000 bps."
+        },
+        {
+         "question": "A channel with 1 MHz bandwidth has SNR = 63. Its Shannon capacity is:",
+         "options": {
+          "A": "63 Mbps",
+          "B": "12 Mbps",
+          "C": "1 Mbps",
+          "D": "6 Mbps"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1 × 10⁶ × log₂(64) = 6 × 10⁶ bps."
+        },
+        {
+         "question": "If the SNR of a channel is 0 (signal power is zero compared to noise), the Shannon capacity is:",
+         "options": {
+          "A": "Twice the bandwidth",
+          "B": "Zero",
+          "C": "Equal to the bandwidth",
+          "D": "Infinite"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "log₂(1 + 0) = 0 – no data can be sent."
+        },
+        {
+         "question": "An SNR of 1000 corresponds to:",
+         "options": {
+          "A": "3 dB",
+          "B": "10 dB",
+          "C": "30 dB",
+          "D": "100 dB"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). SNR_dB = 10 log₁₀ 1000 = 30."
+        },
+        {
+         "question": "Increasing the number of signal levels in Nyquist's formula:",
+         "options": {
+          "A": "Has no effect",
+          "B": "Reduces bandwidth",
+          "C": "Always reduces errors",
+          "D": "Increases the bit rate but makes the receiver's job harder and less reliable"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "Shannon's limit caps what noise allows."
+        },
+        {
+         "question": "The time it takes for a bit to travel from the sender to the receiver over the medium is the:",
+         "options": {
+          "A": "Processing time",
+          "B": "Propagation time",
+          "C": "Queuing time",
+          "D": "Transmission time"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Propagation time = distance / propagation speed."
+        },
+        {
+         "question": "A signal travels 12,000 km at 2.4 × 10⁸ m/s. The propagation time is:",
+         "options": {
+          "A": "0.5 ms",
+          "B": "50 ms",
+          "C": "5 ms",
+          "D": "500 ms"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "12 × 10⁶ / 2.4 × 10⁸ = 0.05 s."
+        },
+        {
+         "question": "Transmission time of a 2.5 KB (20,000-bit) message on a 1 Gbps link is:",
+         "options": {
+          "A": "200 µs",
+          "B": "20 ms",
+          "C": "2 ms",
+          "D": "20 µs"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Transmission time = message size / bandwidth."
+        },
+        {
+         "question": "Latency (total delay) of a message is the sum of:",
+         "options": {
+          "A": "Propagation time, transmission time, queuing time and processing delay",
+          "B": "Only bandwidth",
+          "C": "Only jitter",
+          "D": "Bit rate and baud rate"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "For short messages on long links propagation dominates."
+        },
+        {
+         "question": "The bandwidth-delay product of a 1 Mbps link with a 2 ms delay is:",
+         "options": {
+          "A": "2000 bits",
+          "B": "2 Mbits",
+          "C": "500 bits",
+          "D": "1000 bits"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is the number of bits that can 'fill' the link."
+        },
+        {
+         "question": "A network with 10 Mbps bandwidth passes an average of 12,000 frames per minute, each of 10,000 bits. Its throughput is:",
+         "options": {
+          "A": "1 Mbps",
+          "B": "12 Mbps",
+          "C": "2 Mbps",
+          "D": "10 Mbps"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "12,000 × 10,000 / 60 = 2,000,000 bps – one-fifth of the bandwidth."
+        },
+        {
+         "question": "Throughput is best defined as:",
+         "options": {
+          "A": "The number of signal levels",
+          "B": "The maximum possible frequency range",
+          "C": "The delay of one bit",
+          "D": "The actual rate at which data passes through a network"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Throughput ≤ bandwidth (bit rate) of the link."
+        },
+        {
+         "question": "In networking, 'bandwidth' is used in two senses:",
+         "options": {
+          "A": "Range of frequencies in hertz, and bit rate in bits per second",
+          "B": "Number of users and routers",
+          "C": "Cable length and colour",
+          "D": "Jitter and latency"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "An increase in hertz bandwidth means an increase in bps bandwidth."
+        },
+        {
+         "question": "Baud rate refers to:",
+         "options": {
+          "A": "The number of bits per second",
+          "B": "The number of signal elements (symbols) per second",
+          "C": "The number of errors per second",
+          "D": "The number of frames per second"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Bit rate = baud rate × bits per signal element."
+        },
+        {
+         "question": "A 16-QAM signal at 1000 baud carries a bit rate of:",
+         "options": {
+          "A": "1000 bps",
+          "B": "250 bps",
+          "C": "4000 bps",
+          "D": "16000 bps"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "16-QAM carries log₂ 16 = 4 bits per symbol."
+        },
+        {
+         "question": "Jitter in a network refers to:",
+         "options": {
+          "A": "Variation in packet delay",
+          "B": "Total loss of a packet",
+          "C": "Signal attenuation",
+          "D": "Encryption delay"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). Real-time audio and video suffer from jitter."
+        },
+        {
+         "question": "We need to send 265 kbps over a noiseless 20 kHz channel. Using Nyquist, the number of signal levels needed is about:",
+         "options": {
+          "A": "8",
+          "B": "16",
+          "C": "128 (since 98.7 is not a power of 2)",
+          "D": "64"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "265,000 = 2 × 20,000 × log₂ L → log₂ L ≈ 6.6 → L ≈ 98.7; choose 128 levels (or 64 and lower the rate)."
+        },
+        {
+         "question": "Consider the statements:\nI. The Shannon capacity gives the upper limit of the data rate of a noisy channel.\nII. Using more signal levels can increase the rate above the Shannon limit.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "No method can exceed the Shannon capacity."
+        },
+        {
+         "question": "Assertion (A): On a satellite link, propagation time can be much larger than transmission time.\nReason (R): Satellite signals travel very long distances (about 36,000 km each way).",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "Round trip to a geostationary satellite takes about a quarter of a second."
+        },
+        {
+         "question": "Assertion (A): Throughput is always equal to bandwidth.\nReason (R): Bandwidth is the potential capacity of a link.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "Throughput is the actual rate achieved and is usually lower than the bandwidth."
+        },
+        {
+         "question": "Match:\na. Nyquist\nb. Shannon\nc. Baud\nd. Latency\n\n1. Total delay\n2. Signal elements per second\n3. Noiseless channel bit rate\n4. Noisy channel capacity",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-3, b-2, c-4, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). A frequent matching question."
+        },
+        {
+         "question": "Telephone lines have a bandwidth of about 3000 Hz and SNR around 3162 (35 dB). Their theoretical maximum capacity is about:",
+         "options": {
+          "A": "350 kbps",
+          "B": "3 kbps",
+          "C": "3.5 Mbps",
+          "D": "35 kbps"
+         },
+         "answer": "D",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "≈ 3000 × 11.62 ≈ 34.86 kbps (Forouzan's classic example)."
+        },
+        {
+         "question": "The unit used to express the ratio of two signal powers on a logarithmic scale is:",
+         "options": {
+          "A": "Watt",
+          "B": "Baud",
+          "C": "Decibel (dB)",
+          "D": "Hertz"
+         },
+         "answer": "C",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "PYQ pattern (KEA / KSET papers). dB = 10 log₁₀(P₂/P₁)."
+        },
+        {
+         "question": "Doubling the bandwidth of a noiseless channel (same number of levels) will:",
+         "options": {
+          "A": "Halve the bit rate",
+          "B": "Double the maximum bit rate",
+          "C": "Make the channel noisy",
+          "D": "Leave the bit rate unchanged"
+         },
+         "answer": "B",
+         "subject": "Channel Capacity (Nyquist, Shannon), Bandwidth, Throughput and Latency",
+         "explanation": "Nyquist bit rate is directly proportional to B."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Data Communication – Part 2",
+     "sets": [
+      {
+       "name": "1 · Line Coding, Modulation, PCM and Multiplexing",
+       "questions": [
+        {
+         "question": "In Ethernet that uses Manchester encoding, the bit rate is",
+         "options": {
+          "A": "thrice the baud rate",
+          "B": "twice the baud rate",
+          "C": "half the baud rate",
+          "D": "same as the baud rate"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Manchester needs two signal elements per bit, so the baud rate is twice the bit rate. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q62"
+        },
+        {
+         "question": "If a carrier modulated by a digital bit stream has one of the possible phases of 0, 90, 180 and 270 degrees, such modulation is called as",
+         "options": {
+          "A": "BPSK",
+          "B": "QAM",
+          "C": "MSK",
+          "D": "QPSK"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Four phases, each carrying 2 bits, is quadrature phase-shift keying. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q81"
+        },
+        {
+         "question": "The process of dividing an analog signal into a string of discrete outputs, each denoting a constant amplitude is called as",
+         "options": {
+          "A": "Strobing",
+          "B": "Amplification",
+          "C": "Quantization",
+          "D": "Conditioning"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Quantisation maps sampled amplitudes onto a finite set of levels. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q85"
+        },
+        {
+         "question": "____ is a digital modulation technique where the amplitude of a carrier wave is varied in accordance with the digital data being transferred, while frequency and phase remain constant.",
+         "options": {
+          "A": "Amplitude shift keying",
+          "B": "Phase shift keying",
+          "C": "Frequency shift keying",
+          "D": "Quadrature amplitude modulation"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "ASK varies only the amplitude. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q82"
+        },
+        {
+         "question": "Suppose a digitized voice channel is made by digitizing 6 kHz bandwidth analog voice signal. It is required to sample the signal at twice the highest frequency (two samples per Hertz). What is the bit rate required, if it is assumed that each sample requires 8 bits ?",
+         "options": {
+          "A": "64 kbps",
+          "B": "96 kbps",
+          "C": "128 kbps",
+          "D": "256 kbps"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "12,000 samples/s × 8 bits = 96,000 bps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q102"
+        },
+        {
+         "question": "Five channels, each with a 100 kHz bandwidth are to be multiplexed together. What is the minimum bandwidth of the link if there is a need for a guard band of 10 kHz between the channels to prevent interference?",
+         "options": {
+          "A": "500 kHz",
+          "B": "540 kHz",
+          "C": "550 kHz",
+          "D": "100 kHz"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "5 × 100 + 4 guard bands × 10 = 540 kHz. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q90"
+        },
+        {
+         "question": "Converting digital data to a digital signal is called:",
+         "options": {
+          "A": "Demodulation",
+          "B": "Line coding",
+          "C": "Sampling",
+          "D": "Modulation"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: NRZ, RZ, Manchester, AMI."
+        },
+        {
+         "question": "In NRZ-I (non-return-to-zero inverted) encoding, a '1' bit is represented by:",
+         "options": {
+          "A": "A positive voltage always",
+          "B": "A zero voltage",
+          "C": "No change in level",
+          "D": "An inversion (transition) at the beginning of the bit"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "In NRZ-L the level itself represents the bit."
+        },
+        {
+         "question": "Differential Manchester encoding always has a transition:",
+         "options": {
+          "A": "In the middle of each bit (for synchronisation); a transition at the start means 0",
+          "B": "Only for 1s",
+          "C": "Never",
+          "D": "Only at the end of the frame"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is used in Token Ring (IEEE 802.5)."
+        },
+        {
+         "question": "Block coding schemes such as 4B/5B are used to:",
+         "options": {
+          "A": "Increase signal power",
+          "B": "Encrypt data",
+          "C": "Provide enough transitions for synchronisation and allow error detection",
+          "D": "Compress data"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "4B/5B maps each 4-bit group to a 5-bit code with no long runs of zeros; used in 100Base-FX/TX."
+        },
+        {
+         "question": "The overhead of 4B/5B block coding is:",
+         "options": {
+          "A": "50%",
+          "B": "25% (5 bits sent for every 4 data bits)",
+          "C": "0%",
+          "D": "100%"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). 8B/10B has the same 25% overhead."
+        },
+        {
+         "question": "Scrambling techniques such as B8ZS and HDB3 are used to:",
+         "options": {
+          "A": "Encrypt data",
+          "B": "Add parity bits",
+          "C": "Increase bandwidth",
+          "D": "Replace long runs of zeros so that synchronisation is not lost"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "B8ZS is used in North America; HDB3 in Europe and Japan."
+        },
+        {
+         "question": "Pulse Code Modulation (PCM) converts an analog signal to digital in three steps:",
+         "options": {
+          "A": "Modulating, filtering and amplifying",
+          "B": "Compressing, encrypting and sending",
+          "C": "Sampling, quantising and encoding",
+          "D": "Framing, routing and switching"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Nyquist: sample at least twice the highest frequency."
+        },
+        {
+         "question": "Voice of 4 kHz bandwidth sampled at the Nyquist rate with 8 bits per sample needs a bit rate of:",
+         "options": {
+          "A": "128 kbps",
+          "B": "8 kbps",
+          "C": "32 kbps",
+          "D": "64 kbps"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "8000 samples/s × 8 bits = 64 kbps (a standard telephone channel, DS0)."
+        },
+        {
+         "question": "Converting digital data to an analog signal (for example in a modem) uses:",
+         "options": {
+          "A": "PCM",
+          "B": "Delta modulation",
+          "C": "Digital-to-analog conversion: ASK, FSK, PSK and QAM",
+          "D": "Line coding only"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). QAM changes both amplitude and phase."
+        },
+        {
+         "question": "Analog-to-analog modulation techniques are:",
+         "options": {
+          "A": "PCM and DM",
+          "B": "AM, FM and PM",
+          "C": "NRZ and RZ",
+          "D": "ASK, FSK and PSK"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Radio broadcasting uses AM and FM."
+        },
+        {
+         "question": "Multiplexing is the technique of:",
+         "options": {
+          "A": "Sending several signals simultaneously over a single link",
+          "B": "Amplifying signals",
+          "C": "Encrypting signals",
+          "D": "Converting analog to digital"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). A multiplexer (MUX) combines and a demultiplexer (DEMUX) separates."
+        },
+        {
+         "question": "Frequency-Division Multiplexing (FDM) is used for:",
+         "options": {
+          "A": "Analog signals – each signal gets its own frequency band",
+          "B": "Only digital signals",
+          "C": "Only fibre optics",
+          "D": "Only Ethernet"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Radio and TV broadcasting and older telephone trunks use FDM."
+        },
+        {
+         "question": "Wavelength-Division Multiplexing (WDM) is used in:",
+         "options": {
+          "A": "Twisted pair",
+          "B": "Optical fibre",
+          "C": "Coaxial cable only",
+          "D": "Infrared remote controls"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). WDM is FDM applied to light."
+        },
+        {
+         "question": "Four sources each sending at 250 kbps are combined by synchronous TDM (no framing bits). The link rate is:",
+         "options": {
+          "A": "500 kbps",
+          "B": "250 kbps",
+          "C": "4 Mbps",
+          "D": "1 Mbps"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Synchronous TDM link rate = n × source rate."
+        },
+        {
+         "question": "In synchronous TDM, a time slot is wasted when:",
+         "options": {
+          "A": "Two sources collide",
+          "B": "The link is full",
+          "C": "Its source has no data to send",
+          "D": "The frame has parity"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Statistical TDM gives slots dynamically to active sources only."
+        },
+        {
+         "question": "Spread spectrum techniques such as FHSS and DSSS are used mainly to:",
+         "options": {
+          "A": "Make transmission secure and resistant to interference by spreading the signal over a wider band",
+          "B": "Reduce bandwidth",
+          "C": "Increase noise",
+          "D": "Compress data"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "They are used in Wi-Fi and Bluetooth."
+        },
+        {
+         "question": "Consider the statements:\nI. Manchester encoding has no DC component and is self-synchronising.\nII. NRZ-L has no problem with long runs of zeros.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "NRZ loses synchronisation during long runs of the same bit."
+        },
+        {
+         "question": "Assertion (A): QAM can carry more bits per symbol than simple PSK.\nReason (R): QAM varies both the amplitude and the phase of the carrier.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "64-QAM carries 6 bits per symbol."
+        },
+        {
+         "question": "Assertion (A): FDM is a digital multiplexing technique.\nReason (R): In FDM, signals are separated by frequency bands with guard bands between them.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "FDM is an analog technique; TDM is the digital one."
+        },
+        {
+         "question": "Match:\na. ASK\nb. FSK\nc. PSK\nd. QAM\n\n1. Amplitude and phase change\n2. Phase changes\n3. Frequency changes\n4. Amplitude changes",
+         "options": {
+          "A": "a-3, b-4, c-2, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-1, b-3, c-2, d-4"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Digital-to-analog conversion matching."
+        },
+        {
+         "question": "The minimum sampling rate required to reconstruct a signal with highest frequency f is:",
+         "options": {
+          "A": "4f",
+          "B": "f",
+          "C": "f/2",
+          "D": "2f (Nyquist rate)"
+         },
+         "answer": "D",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "Sampling below 2f causes aliasing."
+        },
+        {
+         "question": "Delta modulation differs from PCM in that it:",
+         "options": {
+          "A": "Is an analog method",
+          "B": "Sends only one bit per sample showing whether the signal went up or down",
+          "C": "Uses no sampling",
+          "D": "Sends 8 bits per sample"
+         },
+         "answer": "B",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is simpler but needs a higher sampling rate."
+        },
+        {
+         "question": "BPSK carries how many bits per signal element?",
+         "options": {
+          "A": "8",
+          "B": "2",
+          "C": "1",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "BPSK has two phases (0° and 180°); QPSK carries 2 bits."
+        },
+        {
+         "question": "A modem is so called because it performs:",
+         "options": {
+          "A": "Modulation and demodulation",
+          "B": "Multiplexing and demultiplexing",
+          "C": "Routing and switching",
+          "D": "Encoding and encrypting"
+         },
+         "answer": "A",
+         "subject": "Line Coding, Modulation, PCM and Multiplexing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It converts between digital data and analog signals on telephone lines."
+        }
+       ]
+      },
+      {
+       "name": "2 · Transmission Media, Baseband and Broadband, and Transmission Errors",
+       "questions": [
+        {
+         "question": "For the following encoding/decoding schemes, with respect to fast ethernet:\n(i) 100 Base-TX\n(ii) 100 Base-FX\n(iii) 100 Base-T4\nIdentify the medium support for each of the above.",
+         "options": {
+          "A": "Fiber, UTP or STP, UTP",
+          "B": "UTP or STP, Fiber, UTP",
+          "C": "UTP, UTP or STP, Fiber",
+          "D": "Fiber, UTP, UTP or STP"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "100Base-TX: two pairs of Cat 5 UTP or STP; 100Base-FX: fibre; 100Base-T4: four pairs of Cat 3 UTP. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q71"
+        },
+        {
+         "question": "Transmission media are broadly classified as:",
+         "options": {
+          "A": "Analog and digital",
+          "B": "Simplex and duplex",
+          "C": "Guided (wired) and unguided (wireless)",
+          "D": "Serial and parallel"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Guided: twisted pair, coaxial, fibre. Unguided: radio, microwave, infrared."
+        },
+        {
+         "question": "Wires are twisted in twisted-pair cable mainly to:",
+         "options": {
+          "A": "Make the cable stronger",
+          "B": "Reduce noise and crosstalk",
+          "C": "Carry light",
+          "D": "Increase cable length"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Twisting makes interference affect both wires equally, so it cancels at the receiver."
+        },
+        {
+         "question": "The connector most commonly used with UTP Ethernet cable is:",
+         "options": {
+          "A": "RJ-11",
+          "B": "BNC",
+          "C": "RJ-45",
+          "D": "ST"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). RJ-11 is for telephone lines; BNC is for coaxial cable; ST/SC for fibre."
+        },
+        {
+         "question": "Cable TV networks traditionally use:",
+         "options": {
+          "A": "Microwave only",
+          "B": "Infrared",
+          "C": "Twisted pair",
+          "D": "Coaxial cable"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Coaxial cable has a central conductor, insulation, metallic shield and outer jacket."
+        },
+        {
+         "question": "Optical fibre carries signals by:",
+         "options": {
+          "A": "Magnetic fields",
+          "B": "Radio waves",
+          "C": "Electrical current",
+          "D": "Total internal reflection of light"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). The core has a higher refractive index than the cladding."
+        },
+        {
+         "question": "Which statement about optical fibre is correct?",
+         "options": {
+          "A": "It carries electricity",
+          "B": "It has very high bandwidth and is immune to electromagnetic interference",
+          "C": "It is cheaper and easier to install than copper",
+          "D": "It cannot carry data over long distances"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Its disadvantages are cost, installation skill and one-way light propagation."
+        },
+        {
+         "question": "Single-mode fibre, compared to multimode fibre:",
+         "options": {
+          "A": "Uses many light paths",
+          "B": "Has a thick core and is used for short links",
+          "C": "Has a very narrow core, less dispersion and is used for long distances",
+          "D": "Cannot use lasers"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Multimode step-index and graded-index fibres are used for shorter links."
+        },
+        {
+         "question": "Microwave communication requires:",
+         "options": {
+          "A": "Light pulses",
+          "B": "No antennas",
+          "C": "Copper cable",
+          "D": "Line-of-sight between unidirectional antennas"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Towers are placed on hills or tall buildings; satellites also use microwaves."
+        },
+        {
+         "question": "Radio waves are mostly:",
+         "options": {
+          "A": "Unidirectional and blocked by walls",
+          "B": "Omnidirectional and able to penetrate walls",
+          "C": "Limited to a room",
+          "D": "Used only in fibre"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). AM/FM radio and paging use radio waves."
+        },
+        {
+         "question": "Infrared waves are used for short-range communication such as TV remotes because they:",
+         "options": {
+          "A": "Are omnidirectional through walls",
+          "B": "Travel thousands of kilometres",
+          "C": "Cannot penetrate walls, so they do not interfere with devices in other rooms",
+          "D": "Need copper wires"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "IrDA was used for short-range data links."
+        },
+        {
+         "question": "In baseband transmission, the whole bandwidth of the medium is used for:",
+         "options": {
+          "A": "One digital signal",
+          "B": "Many analog channels",
+          "C": "Only radio signals",
+          "D": "Only light signals"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ethernet (10Base-T) is baseband; cable TV is broadband."
+        },
+        {
+         "question": "Broadband transmission:",
+         "options": {
+          "A": "Uses only fibre",
+          "B": "Sends a single digital signal",
+          "C": "Cannot carry data",
+          "D": "Divides the medium's bandwidth into several channels using modulation"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Cable modems and DSL use broadband techniques."
+        },
+        {
+         "question": "Category 6 UTP cable is commonly used for Ethernet speeds up to:",
+         "options": {
+          "A": "100 Kbps",
+          "B": "1 Gbps (10 Gbps for short runs)",
+          "C": "1 Tbps",
+          "D": "10 Mbps only"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Cat 5e supports 1 Gbps; Cat 6A 10 Gbps up to 100 m."
+        },
+        {
+         "question": "A single-bit error means:",
+         "options": {
+          "A": "Only one bit of a data unit is changed",
+          "B": "Two or more bits are changed",
+          "C": "The whole frame is lost",
+          "D": "The frame is duplicated"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "A burst error changes two or more bits, not necessarily consecutive."
+        },
+        {
+         "question": "Burst errors are more likely than single-bit errors in serial transmission because:",
+         "options": {
+          "A": "Single bits are never sent",
+          "B": "Parity prevents single-bit errors",
+          "C": "Noise usually lasts longer than one bit duration",
+          "D": "Fibre is used"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). At higher data rates, a noise spike affects more bits."
+        },
+        {
+         "question": "The basic idea behind all error detection is:",
+         "options": {
+          "A": "Compression",
+          "B": "Encryption",
+          "C": "Multiplexing",
+          "D": "Redundancy – adding extra bits that the receiver can check"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Correction needs more redundancy than detection."
+        },
+        {
+         "question": "Sending a request for retransmission when an error is detected is called:",
+         "options": {
+          "A": "Multiplexing",
+          "B": "Encoding",
+          "C": "Backward error correction (ARQ)",
+          "D": "Forward error correction"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Forward error correction lets the receiver correct errors without retransmission."
+        },
+        {
+         "question": "Forward error correction is preferred when:",
+         "options": {
+          "A": "Retransmission is costly or impossible, as in deep-space or real-time links",
+          "B": "The link is very short",
+          "C": "There are no errors",
+          "D": "Only one bit is sent"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Hamming and Reed–Solomon codes are examples."
+        },
+        {
+         "question": "Which medium is the most secure against tapping?",
+         "options": {
+          "A": "Twisted pair",
+          "B": "Optical fibre",
+          "C": "Radio",
+          "D": "Coaxial cable"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Tapping light without detection is very difficult."
+        },
+        {
+         "question": "The type of noise caused by random motion of electrons in a conductor is:",
+         "options": {
+          "A": "Impulse noise",
+          "B": "Thermal (white) noise",
+          "C": "Echo",
+          "D": "Crosstalk"
+         },
+         "answer": "B",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "It is present in all electronic devices."
+        },
+        {
+         "question": "Shielded twisted pair (STP) differs from UTP in having:",
+         "options": {
+          "A": "A metal foil or braided mesh covering each pair",
+          "B": "No insulation",
+          "C": "Glass core",
+          "D": "Only one wire"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). STP reduces interference but is bulkier and costlier."
+        },
+        {
+         "question": "Satellite communication uses which frequency band mainly?",
+         "options": {
+          "A": "Infrared",
+          "B": "Extremely low frequencies",
+          "C": "Visible light",
+          "D": "Microwaves"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Geostationary satellites are at about 35,786 km."
+        },
+        {
+         "question": "Consider the statements:\nI. Coaxial cable has better shielding than twisted pair.\nII. Fibre optic cable is affected by electromagnetic interference.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Fibre carries light, so EMI does not affect it."
+        },
+        {
+         "question": "Assertion (A): Twisted-pair cable is the most widely used medium in LANs and telephone local loops.\nReason (R): It is cheap, flexible and easy to install.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Its bandwidth and distance are lower than fibre's."
+        },
+        {
+         "question": "Assertion (A): Microwaves can penetrate walls easily and need no line of sight.\nReason (R): Microwave antennas are unidirectional.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Higher-frequency microwaves are blocked by walls and need line of sight; R is true."
+        },
+        {
+         "question": "Match:\na. Twisted pair\nb. Coaxial\nc. Optical fibre\nd. Infrared\n\n1. Total internal reflection\n2. TV remote\n3. Cable TV\n4. Telephone and Ethernet",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-4, b-3, c-1, d-2",
+          "D": "a-2, b-3, c-1, d-4"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). Media matching is common."
+        },
+        {
+         "question": "In a simple parity check, adding a parity bit can detect:",
+         "options": {
+          "A": "All single-bit errors (and any odd number of bit errors)",
+          "B": "All burst errors",
+          "C": "No errors",
+          "D": "All errors"
+         },
+         "answer": "A",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Two-bit errors pass undetected."
+        },
+        {
+         "question": "The power of a signal falls from 100 mW to 10 mW over a cable. The attenuation is:",
+         "options": {
+          "A": "−90 dB",
+          "B": "−3 dB",
+          "C": "−20 dB",
+          "D": "−10 dB"
+         },
+         "answer": "D",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "PYQ pattern (KEA / KSET papers). 10 log₁₀(10/100) = −10 dB."
+        },
+        {
+         "question": "Bluetooth and Wi-Fi operate in which unlicensed band (among others)?",
+         "options": {
+          "A": "Visible light",
+          "B": "600 THz",
+          "C": "2.4 GHz ISM band",
+          "D": "100 MHz FM band"
+         },
+         "answer": "C",
+         "subject": "Transmission Media, Baseband and Broadband, and Transmission Errors",
+         "explanation": "Wi-Fi also uses 5 GHz and 6 GHz bands."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Computer Networks & Topologies",
+     "sets": [
+      {
+       "name": "1 · Network Topologies and Line Configuration",
+       "questions": [
+        {
+         "question": "In ____ topology, each device has a dedicated point-to-point connection with only the two devices on either side of it.",
+         "options": {
+          "A": "Bus",
+          "B": "Ring",
+          "C": "Mesh",
+          "D": "Star"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "In a ring, each device links to its two neighbours and the signal passes around the ring with repeaters. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q43"
+        },
+        {
+         "question": "Match the following types of network topologies with their characteristics.\nTopology\n(a) Star\n(b) Ring\n(c) Bus\n(d) Mesh\nCharacteristics\ni) Every device is connected to every other device\nii) All devices share a single communication medium\niii) Each device is connected to its neighbour in circular fashion\niv) Single central device controls communication",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Star – central hub/switch; ring – circular; bus – one shared cable; mesh – every device to every other. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q61"
+        },
+        {
+         "question": "For a network with n devices, the number of duplex-mode links required for mesh topology is:",
+         "options": {
+          "A": "n(n + 1)",
+          "B": "n(n − 1)",
+          "C": "n(n + 1) / 2",
+          "D": "n(n − 1) / 2"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Every pair needs one duplex link: C(n, 2) = n(n − 1)/2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q84"
+        },
+        {
+         "question": "In a mesh topology with 100 devices, the number of physical connections required is ____.",
+         "options": {
+          "A": "9900",
+          "B": "4950",
+          "C": "200",
+          "D": "9801"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "n(n − 1)/2 = 100 × 99 / 2 = 4950. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q85"
+        },
+        {
+         "question": "Consider the following statements regarding the interconnection topology.\ni. In star topology, if the master node is dead, the other nodes (processor) can still interact with each other.\nii. In bus topology, only two processors can interact with each other at any one given point in time.\niii. In hyper cube topology, two nodes are connected if there is change in two bits in their processor identity (processor id)",
+         "options": {
+          "A": "(i) is true, (ii) and (iii) are false",
+          "B": "(i) and (ii) are true, (iii) is false",
+          "C": "(ii) is true, (i) and (iii) are false",
+          "D": "(i) and (iii) are true, (ii) is false"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "In a star all traffic passes through the centre; a shared bus carries one transfer at a time; hypercube neighbours differ in exactly one bit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q20"
+        },
+        {
+         "question": "In a star topology, the failure of the central hub:",
+         "options": {
+          "A": "Affects only one device",
+          "B": "Has no effect",
+          "C": "Speeds up the network",
+          "D": "Brings down the whole network"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). But a failure of one link affects only that device."
+        },
+        {
+         "question": "Which topology needs a terminator at each end of the cable?",
+         "options": {
+          "A": "Mesh",
+          "B": "Bus",
+          "C": "Star",
+          "D": "Ring"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Terminators absorb the signal to prevent reflections."
+        },
+        {
+         "question": "A disadvantage of bus topology is:",
+         "options": {
+          "A": "Each device needs n − 1 ports",
+          "B": "A break in the backbone cable stops all transmission",
+          "C": "It needs the most cable",
+          "D": "It needs a central hub"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is cheap and easy to install."
+        },
+        {
+         "question": "In a fully connected mesh of 6 devices, each device needs how many I/O ports?",
+         "options": {
+          "A": "6",
+          "B": "15",
+          "C": "5",
+          "D": "30"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Each device connects to n − 1 = 5 others; total links = 15."
+        },
+        {
+         "question": "The main advantage of mesh topology is:",
+         "options": {
+          "A": "Easiest to install",
+          "B": "Least cabling",
+          "C": "Lowest cost",
+          "D": "Robustness – failure of one link does not affect the others, and dedicated links give privacy"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its drawback is the large amount of cabling and ports."
+        },
+        {
+         "question": "A topology that combines two or more different topologies, such as several star networks joined by a bus, is:",
+         "options": {
+          "A": "Point-to-point",
+          "B": "Mesh topology",
+          "C": "Ring topology",
+          "D": "Hybrid topology"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Tree topology is a hierarchy of stars."
+        },
+        {
+         "question": "Token Ring networks (IEEE 802.5) use which physical/logical arrangement?",
+         "options": {
+          "A": "A logical ring, often wired as a star through a MAU",
+          "B": "A tree only",
+          "C": "A full mesh",
+          "D": "A bus"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only the station holding the token can transmit."
+        },
+        {
+         "question": "In a dual ring (as in FDDI), the second ring is used to:",
+         "options": {
+          "A": "Double the cost only",
+          "B": "Keep the network working if the primary ring breaks",
+          "C": "Connect printers",
+          "D": "Carry power"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "FDDI used fibre at 100 Mbps."
+        },
+        {
+         "question": "A link that connects exactly two devices is called:",
+         "options": {
+          "A": "Broadcast",
+          "B": "Multipoint",
+          "C": "Point-to-point",
+          "D": "Mesh"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). In a multipoint (multidrop) link, several devices share one link."
+        },
+        {
+         "question": "Physical topology means:",
+         "options": {
+          "A": "The geometric arrangement of devices and links",
+          "B": "The routing protocol",
+          "C": "The IP addressing plan",
+          "D": "The application software"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Logical topology is how data actually flows."
+        },
+        {
+         "question": "Consider the statements:\nI. A star topology needs less cable than a mesh.\nII. In a star topology, devices communicate directly without the hub.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "In a star, all traffic passes through the hub/switch."
+        },
+        {
+         "question": "Assertion (A): Adding a new device to a star network is easy.\nReason (R): Only one link between the new device and the hub is needed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "This makes star the most popular LAN topology."
+        },
+        {
+         "question": "Assertion (A): Ring topology has no single point of failure.\nReason (R): In a simple ring, data travels in one direction from device to device.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "A break in a simple ring can disable the network unless a dual ring or bypass switch is used."
+        },
+        {
+         "question": "A mesh network requires 45 links. How many devices does it connect?",
+         "options": {
+          "A": "9",
+          "B": "15",
+          "C": "45",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). n(n − 1)/2 = 45 → n = 10."
+        },
+        {
+         "question": "Match:\na. Bus\nb. Star\nc. Ring\nd. Mesh\n\n1. One backbone cable\n2. Dedicated link between every pair\n3. Central hub\n4. Each node to two neighbours",
+         "options": {
+          "A": "a-2, b-3, c-4, d-1",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). Basic topology matching."
+        },
+        {
+         "question": "Which topology is used by a hub-based 10Base-T Ethernet?",
+         "options": {
+          "A": "Physical ring",
+          "B": "Physical mesh",
+          "C": "Physical star, logical bus",
+          "D": "Physical bus only"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "A hub repeats every signal to all ports."
+        },
+        {
+         "question": "Which topology is most fault-tolerant?",
+         "options": {
+          "A": "Mesh",
+          "B": "Ring",
+          "C": "Star",
+          "D": "Bus"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). Multiple paths exist between nodes."
+        },
+        {
+         "question": "In a tree topology, the root is usually:",
+         "options": {
+          "A": "A repeater at each end",
+          "B": "A terminator",
+          "C": "A central hub to which secondary hubs are connected",
+          "D": "A token"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "It is a hierarchy of star networks."
+        },
+        {
+         "question": "The number of cables needed to connect 8 computers in a star topology is:",
+         "options": {
+          "A": "7",
+          "B": "8",
+          "C": "16",
+          "D": "28"
+         },
+         "answer": "B",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). One cable from each computer to the hub; a mesh would need 28."
+        },
+        {
+         "question": "Which statement about bus topology is TRUE?",
+         "options": {
+          "A": "Only one device can transmit at a time, so collisions are possible",
+          "B": "Each device has a dedicated link",
+          "C": "Failure of one device stops all others",
+          "D": "It needs a central switch"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "CSMA/CD was designed for shared-bus Ethernet."
+        },
+        {
+         "question": "A 'daisy chain' connection is closest to:",
+         "options": {
+          "A": "A full mesh",
+          "B": "A satellite link",
+          "C": "A star",
+          "D": "A linear bus (devices connected one after another)"
+         },
+         "answer": "D",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). USB and SCSI devices can be daisy-chained."
+        },
+        {
+         "question": "In a ring topology, a signal is passed along the ring in one direction and each device incorporates a:",
+         "options": {
+          "A": "Repeater",
+          "B": "Router",
+          "C": "Firewall",
+          "D": "Gateway"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "The repeater regenerates the bits and passes them on."
+        },
+        {
+         "question": "The topology chosen for a network mainly depends on:",
+         "options": {
+          "A": "The web browser",
+          "B": "The colour of cables",
+          "C": "Cost, reliability, scalability and ease of installation",
+          "D": "The operating system only"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "PYQ pattern (KEA / KSET papers). No single topology is best for all cases."
+        },
+        {
+         "question": "In a hypercube interconnection of 2ⁿ processors, each processor is connected to:",
+         "options": {
+          "A": "n others (those whose IDs differ in one bit)",
+          "B": "2ⁿ − 1 others",
+          "C": "Only one other",
+          "D": "Two others"
+         },
+         "answer": "A",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "An 8-node (3-cube) hypercube has 3 links per node."
+        },
+        {
+         "question": "Consider the statements:\nI. A full mesh of n nodes needs n(n − 1)/2 links.\nII. A star of n nodes needs n links to the hub.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Network Topologies and Line Configuration",
+         "explanation": "Both formulas are correct."
+        }
+       ]
+      },
+      {
+       "name": "2 · LAN, MAN, WAN, Wireless Networks and the Internet",
+       "questions": [
+        {
+         "question": "Match the following:\na) LAN\nb) WAN\nc) Internet\nd) Protocol\ni. Connection of two or more networks that can communicate each other\nii. A Network limited in Size, spanning an office, building or a campus\niii. A Network has a wider geographical span, spanning a town, state, country or even the world\niv. Set of rules that govern data communication",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "A LAN covers a building or campus; a WAN covers a large area; an internet is a network of networks; a protocol is a set of rules. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q44"
+        },
+        {
+         "question": "MAN stands for",
+         "options": {
+          "A": "Metropolitan Area Network",
+          "B": "Main Area Network",
+          "C": "Modified Area Network",
+          "D": "Middle Area Network"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "A MAN covers a city, e.g. a cable TV network or a city-wide fibre network. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q92"
+        },
+        {
+         "question": "The ____ network is owned by multiple organizations.",
+         "options": {
+          "A": "LAN",
+          "B": "WAN",
+          "C": "MAN",
+          "D": "PAN"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "A WAN spans large areas and usually uses links owned by several carriers and organisations; a LAN is normally privately owned. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q93"
+        },
+        {
+         "question": "A network that connects devices around one person, such as a phone, smartwatch and earbuds via Bluetooth, is a:",
+         "options": {
+          "A": "MAN",
+          "B": "WAN",
+          "C": "PAN",
+          "D": "LAN"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Range is usually under 10 m."
+        },
+        {
+         "question": "Which of these is the correct order of networks by geographical size, from smallest to largest?",
+         "options": {
+          "A": "WAN, MAN, LAN, PAN",
+          "B": "PAN, LAN, MAN, WAN",
+          "C": "MAN, LAN, PAN, WAN",
+          "D": "LAN, PAN, WAN, MAN"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "The Internet is the largest internetwork."
+        },
+        {
+         "question": "The most widely used wired LAN technology today is:",
+         "options": {
+          "A": "ATM",
+          "B": "FDDI",
+          "C": "Ethernet (IEEE 802.3)",
+          "D": "Token Ring"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Wi-Fi (IEEE 802.11) is the wireless LAN standard."
+        },
+        {
+         "question": "The IEEE standard for wireless LANs (Wi-Fi) is:",
+         "options": {
+          "A": "802.3",
+          "B": "802.5",
+          "C": "802.15",
+          "D": "802.11"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "802.15 is for wireless PANs such as Bluetooth; 802.16 is WiMAX."
+        },
+        {
+         "question": "Bluetooth belongs to which IEEE standard family?",
+         "options": {
+          "A": "802.16",
+          "B": "802.3",
+          "C": "802.11",
+          "D": "802.15"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). A Bluetooth piconet has one primary and up to seven active secondaries."
+        },
+        {
+         "question": "WiMAX (IEEE 802.16) is used mainly for:",
+         "options": {
+          "A": "Optical networks",
+          "B": "Broadband wireless access over metropolitan distances",
+          "C": "Wired LANs",
+          "D": "Personal area networks"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "It is a wireless MAN technology."
+        },
+        {
+         "question": "A network of networks that uses a common protocol suite (TCP/IP) is called:",
+         "options": {
+          "A": "A LAN",
+          "B": "A PAN",
+          "C": "The Internet (an internetwork)",
+          "D": "An intranet only"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). An intranet is a private network using Internet technology."
+        },
+        {
+         "question": "An extranet is:",
+         "options": {
+          "A": "A home LAN",
+          "B": "A private network that allows controlled access to outside partners",
+          "C": "A satellite link",
+          "D": "The public Internet"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "Example: a supplier portal."
+        },
+        {
+         "question": "The Internet grew out of ARPANET, which was started in 1969 by the:",
+         "options": {
+          "A": "United Nations",
+          "B": "Indian Railways",
+          "C": "European Union",
+          "D": "US Department of Defense (ARPA)"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). TCP/IP replaced NCP on ARPANET on 1 January 1983."
+        },
+        {
+         "question": "In a client–server network:",
+         "options": {
+          "A": "All computers have equal roles",
+          "B": "Clients store all data",
+          "C": "Servers provide services that clients request",
+          "D": "There is no central computer at all"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "In a peer-to-peer network each computer can act as both client and server."
+        },
+        {
+         "question": "Internet Service Providers at the top of the hierarchy that connect to each other through peering points are called:",
+         "options": {
+          "A": "Local ISPs",
+          "B": "Tier-1 (backbone) ISPs",
+          "C": "Hubs",
+          "D": "Customers"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Regional and local ISPs buy access from higher tiers."
+        },
+        {
+         "question": "The 'last mile' connection from a home to the ISP can be provided by:",
+         "options": {
+          "A": "DSL, cable, fibre (FTTH) or wireless",
+          "B": "Only satellite",
+          "C": "Only Ethernet",
+          "D": "Only Bluetooth"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "DSL uses telephone lines; cable uses the cable-TV network."
+        },
+        {
+         "question": "Which technology carries Internet data over existing telephone lines while allowing voice calls at the same time?",
+         "options": {
+          "A": "Token Ring",
+          "B": "FDDI",
+          "C": "Dial-up only",
+          "D": "DSL (Digital Subscriber Line)"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). ADSL gives higher download than upload speed."
+        },
+        {
+         "question": "A switched WAN service in which customers' traffic is labelled and forwarded through the provider's network at 'layer 2.5' is:",
+         "options": {
+          "A": "Ethernet hub",
+          "B": "Token passing",
+          "C": "MPLS",
+          "D": "Bluetooth"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "MPLS is widely used by carriers."
+        },
+        {
+         "question": "A wireless network without any fixed infrastructure, where devices communicate directly, is called:",
+         "options": {
+          "A": "Infrastructure network",
+          "B": "Backbone network",
+          "C": "Ad hoc network",
+          "D": "Wired LAN"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mobile ad hoc networks (MANETs) are an example."
+        },
+        {
+         "question": "Consider the statements:\nI. A LAN is usually owned privately by one organisation.\nII. LANs typically have lower data rates than WANs.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "LANs usually have higher data rates (1–10 Gbps and more) than long-distance WAN links."
+        },
+        {
+         "question": "Assertion (A): The Internet is not owned by any single organisation.\nReason (R): The Internet is made up of many independently owned networks connected together.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "Bodies such as ICANN and the IETF coordinate names, numbers and standards."
+        },
+        {
+         "question": "Assertion (A): A PAN can cover an entire city.\nReason (R): A PAN connects devices close to one person.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "A PAN covers only a few metres."
+        },
+        {
+         "question": "Match:\na. PAN\nb. LAN\nc. MAN\nd. WAN\n\n1. Bank's all-India network\n2. College computer lab\n3. Bluetooth headset\n4. City cable-TV network",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-3, b-2, c-4, d-1"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Network-type matching."
+        },
+        {
+         "question": "Which body develops Internet standards published as RFCs?",
+         "options": {
+          "A": "ISO only",
+          "B": "IETF (Internet Engineering Task Force)",
+          "C": "IEEE only",
+          "D": "ITU only"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "IEEE makes LAN standards (802.x); ITU-T makes telecom standards."
+        },
+        {
+         "question": "A switched WAN in which a dedicated path is set up for the duration of a call, as in the old telephone network, uses:",
+         "options": {
+          "A": "Message switching",
+          "B": "Cell switching only",
+          "C": "Circuit switching",
+          "D": "Packet switching"
+         },
+         "answer": "C",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). The Internet uses packet switching."
+        },
+        {
+         "question": "A home network in which a Wi-Fi router connects phones and laptops to the Internet is an example of:",
+         "options": {
+          "A": "A wireless LAN in infrastructure mode",
+          "B": "A MAN",
+          "C": "A WAN",
+          "D": "An ad hoc network only"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "The router acts as the access point."
+        },
+        {
+         "question": "Which device connects a LAN to a different type of network and can translate between protocols?",
+         "options": {
+          "A": "Passive cable",
+          "B": "Hub",
+          "C": "Repeater",
+          "D": "Gateway"
+         },
+         "answer": "D",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). Devices are covered in detail in topic U9-06."
+        },
+        {
+         "question": "Wi-Fi 6 is the marketing name for:",
+         "options": {
+          "A": "IEEE 802.3ab",
+          "B": "IEEE 802.11ax",
+          "C": "IEEE 802.11b",
+          "D": "IEEE 802.15.1"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "Wi-Fi 5 = 802.11ac; Wi-Fi 4 = 802.11n."
+        },
+        {
+         "question": "A network spread over a university campus with several buildings connected by fibre is usually called a:",
+         "options": {
+          "A": "Campus area network (a large LAN)",
+          "B": "WAN",
+          "C": "PAN",
+          "D": "Satellite network"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is still under one organisation's control."
+        },
+        {
+         "question": "Which statement about WANs is correct?",
+         "options": {
+          "A": "They are limited to one building",
+          "B": "They usually use leased lines, MPLS or public networks provided by carriers",
+          "C": "They never use routers",
+          "D": "They are always wireless"
+         },
+         "answer": "B",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "Point-to-point WANs connect two sites; switched WANs connect many."
+        },
+        {
+         "question": "Consider the statements:\nI. The Internet uses the TCP/IP protocol suite.\nII. An intranet is open to everyone on the Internet.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "LAN, MAN, WAN, Wireless Networks and the Internet",
+         "explanation": "An intranet is private to an organisation."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Network Models",
+     "sets": [
+      {
+       "name": "1 · Layered Architecture – OSI Model and TCP/IP Suite",
+       "questions": [
+        {
+         "question": "Which layer of OSI reference model is responsible for decomposition of messages and generation of sequence numbers, in order to ensure correct re-composition, from end-to-end of a network?",
+         "options": {
+          "A": "Physical",
+          "B": "Data-link",
+          "C": "Transport",
+          "D": "Application"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "The transport layer segments messages and numbers the segments for end-to-end reassembly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q63"
+        },
+        {
+         "question": "What is the primary function of physical layer in the OSI model?",
+         "options": {
+          "A": "Provides routing of packets across networks",
+          "B": "Transmits raw bitstream over the physical medium",
+          "C": "Handles error correction and retransmission",
+          "D": "Manages data transfer between applications"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "It deals with bits, signals, connectors and the medium. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
+        },
+        {
+         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
+         "options": {
+          "A": "Link layer",
+          "B": "Transport layer",
+          "C": "Application layer",
+          "D": "Network layer"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "TCP and UDP provide process-to-process (end-to-end) delivery. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
+        },
+        {
+         "question": "Match the following Internal Protocols with their layer in OSI model.\nProtocol\n(a) IP\n(b) TCP\n(c) HTTP\n(d) Ethernet\nLayer\ni) Datalink layer\nii) Application layer\niii) Transport layer\niv) Network layer",
+         "options": {
+          "A": "a – i, b – iii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "IP – network; TCP – transport; HTTP – application; Ethernet – data link. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q65"
+        },
+        {
+         "question": "Which of the following are the examples of internet layer protocols in the TCP/IP model?\n(a) TCP\n(b) IP\n(c) ARP\n(d) HTTP",
+         "options": {
+          "A": "a and b",
+          "B": "b and c",
+          "C": "a, c and d",
+          "D": "a, b and c"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "IP and ARP work at the internet (network) layer; TCP is transport and HTTP is application. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q57"
+        },
+        {
+         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "OSI defines seven layers; TCP/IP is used in the Internet; the hybrid model combines both; the Internet model shows its structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
+        },
+        {
+         "question": "Match the following to one or more layers of TCP/IP protocol suite.\na) route determination\nb) Connection to transmission media\nc) Providing services to the end-user\nd) Handling the frames between adjacent nodes\ni. Application layer\nii. Physical layer\niii. Network layer\niv. Data Link layer",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Routing – network; media – physical; user services – application; frames between adjacent nodes – data link. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q46"
+        },
+        {
+         "question": "Which of the following statements is TRUE regarding the TCP/IP reference model's application layer compared to OSI reference model's application layer, presentation layer and session layer?",
+         "options": {
+          "A": "The TCP/IP application layer combines all functionalities of the presentation and session layers of the OSI model",
+          "B": "The TCP/IP application layer focusses only on user level data interaction",
+          "C": "The OSI model includes physical addressing at the application layer",
+          "D": "The TCP/IP model separates application and session functionalities distinctly"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "TCP/IP has no separate session and presentation layers; their work is done in the application layer. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q76"
+        },
+        {
+         "question": "Match the following\na. Physical\nb. Datalink\nc. Network\nd. Transport\ni. SCTP\nii. IP Sec\niii. PPP\niv. Cables",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Cables – physical; PPP – data link; IPsec – network; SCTP – transport. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q103"
+        },
+        {
+         "question": "If a file is encrypted and then transmitted over a network using TCP/IP, then which layer handles the encryption and which handles retransmission if the file is lost?",
+         "options": {
+          "A": "Application layer - Transport layer",
+          "B": "Presentation layer - Data link layer",
+          "C": "Session layer - Network layer",
+          "D": "Transport layer - Application layer"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "TCP/IP has no presentation layer, so encryption is done at the application layer; TCP (transport) retransmits lost segments. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q86"
+        },
+        {
+         "question": "The OSI reference model was developed by:",
+         "options": {
+          "A": "IETF",
+          "B": "ARPA",
+          "C": "IEEE",
+          "D": "ISO (International Organization for Standardization)"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). OSI = Open Systems Interconnection; it has 7 layers."
+        },
+        {
+         "question": "The correct order of OSI layers from bottom to top is:",
+         "options": {
+          "A": "Physical, Network, Data link, Transport, Session, Application, Presentation",
+          "B": "Application, Presentation, Session, Transport, Network, Data link, Physical",
+          "C": "Physical, Data link, Network, Transport, Session, Presentation, Application",
+          "D": "Data link, Physical, Network, Transport, Session, Presentation, Application"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Memory aid: 'Please Do Not Throw Sausage Pizza Away'."
+        },
+        {
+         "question": "Translation, encryption and compression of data are functions of the OSI:",
+         "options": {
+          "A": "Transport layer",
+          "B": "Presentation layer",
+          "C": "Session layer",
+          "D": "Network layer"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). It deals with the syntax and semantics of the information exchanged."
+        },
+        {
+         "question": "Dialog control and synchronisation (checkpoints) are functions of the OSI:",
+         "options": {
+          "A": "Physical layer",
+          "B": "Data link layer",
+          "C": "Presentation layer",
+          "D": "Session layer"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Checkpoints let a long transfer resume after a failure."
+        },
+        {
+         "question": "Logical addressing and routing of packets from source to destination across networks are done by the:",
+         "options": {
+          "A": "Transport layer",
+          "B": "Session layer",
+          "C": "Network layer",
+          "D": "Data link layer"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). The network layer delivers host to host; the data link layer delivers hop to hop."
+        },
+        {
+         "question": "The data unit at the data link layer is the:",
+         "options": {
+          "A": "Packet",
+          "B": "Frame",
+          "C": "Bit",
+          "D": "Segment"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Physical – bits; data link – frames; network – packets/datagrams; transport – segments/user datagrams."
+        },
+        {
+         "question": "Which layer is responsible for process-to-process delivery, segmentation, flow control and error control end to end?",
+         "options": {
+          "A": "Physical layer",
+          "B": "Network layer",
+          "C": "Data link layer",
+          "D": "Transport layer"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses port numbers to identify processes."
+        },
+        {
+         "question": "The original TCP/IP protocol suite (as described in older texts) had how many layers?",
+         "options": {
+          "A": "Nine",
+          "B": "Seven",
+          "C": "Four (host-to-network, internet, transport, application) – five in Forouzan's version",
+          "D": "Three"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Forouzan's five layers: physical, data link, network, transport, application."
+        },
+        {
+         "question": "Encapsulation in a layered model means:",
+         "options": {
+          "A": "Encrypting all data",
+          "B": "Each layer adds its own header (and sometimes trailer) to the data from the layer above",
+          "C": "Removing headers at the sender",
+          "D": "Compressing data"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). Decapsulation happens at the receiver."
+        },
+        {
+         "question": "In the OSI model, peer-to-peer processes communicate:",
+         "options": {
+          "A": "Logically with the same layer on the other machine, using that layer's protocol",
+          "B": "Only physically through the cable",
+          "C": "Without any protocol",
+          "D": "Only at the application layer"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Physically, data moves down the stack, across the medium and up the other stack."
+        },
+        {
+         "question": "Consider the statements:\nI. The OSI model is a reference model; TCP/IP is the protocol suite actually used in the Internet.\nII. The TCP/IP suite was developed after the OSI model was completed.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "TCP/IP was developed before OSI."
+        },
+        {
+         "question": "Assertion (A): The data link layer is responsible for hop-to-hop (node-to-node) delivery.\nReason (R): The data link layer uses physical (MAC) addresses of the next node.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "The network layer is responsible for source-to-destination delivery."
+        },
+        {
+         "question": "Assertion (A): Routing is a function of the transport layer.\nReason (R): The transport layer provides process-to-process delivery.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Routing is done at the network layer; R is true."
+        },
+        {
+         "question": "Match the protocol with its OSI layer:\na. FTP\nb. UDP\nc. ICMP\nd. PPP\n\n1. Application\n2. Data link\n3. Network\n4. Transport",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). Protocol-to-layer mapping is a favourite."
+        },
+        {
+         "question": "Which device works at the physical layer only?",
+         "options": {
+          "A": "Router",
+          "B": "Gateway",
+          "C": "Bridge",
+          "D": "Repeater / hub"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Bridges and switches work at layer 2; routers at layer 3."
+        },
+        {
+         "question": "The layer that converts frames into bits for the medium and is concerned with bit synchronisation and line configuration is the:",
+         "options": {
+          "A": "Transport layer",
+          "B": "Application layer",
+          "C": "Physical layer",
+          "D": "Session layer"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). It also defines transmission mode and topology."
+        },
+        {
+         "question": "SMTP, FTP, HTTP and DNS belong to the:",
+         "options": {
+          "A": "Data link layer",
+          "B": "Transport layer",
+          "C": "Network layer",
+          "D": "Application layer"
+         },
+         "answer": "D",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "They use the services of TCP or UDP."
+        },
+        {
+         "question": "In the TCP/IP model, the layer corresponding to OSI's network layer is the:",
+         "options": {
+          "A": "Host-to-network layer",
+          "B": "Internet layer",
+          "C": "Transport layer",
+          "D": "Application layer"
+         },
+         "answer": "B",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its main protocol is IP."
+        },
+        {
+         "question": "Which of the following is NOT a function of the data link layer?",
+         "options": {
+          "A": "Framing",
+          "B": "Flow control between adjacent nodes",
+          "C": "Routing between networks",
+          "D": "Error control and access control"
+         },
+         "answer": "C",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "Routing belongs to the network layer."
+        },
+        {
+         "question": "Header added by the transport layer contains:",
+         "options": {
+          "A": "Source and destination port numbers",
+          "B": "MAC addresses",
+          "C": "Only IP addresses",
+          "D": "The URL"
+         },
+         "answer": "A",
+         "subject": "Layered Architecture – OSI Model and TCP/IP Suite",
+         "explanation": "PYQ pattern (KEA / KSET papers). IP headers carry IP addresses; frame headers carry MAC addresses."
+        }
+       ]
+      },
+      {
+       "name": "2 · Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+       "questions": [
+        {
+         "question": "What is the type of address used in transport layer?",
+         "options": {
+          "A": "Logical address",
+          "B": "Names",
+          "C": "Port number",
+          "D": "Link layer address"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Transport-layer addresses are port numbers; IP addresses are logical (network-layer) addresses. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q69"
+        },
+        {
+         "question": "Datagram switching is done at",
+         "options": {
+          "A": "Data link layer",
+          "B": "Network layer",
+          "C": "Transport layer",
+          "D": "Physical layer"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Forouzan: datagram switching is normally done at the network layer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q70"
+        },
+        {
+         "question": "What is the maximum length of an MAC address?",
+         "options": {
+          "A": "32 bits",
+          "B": "48 bits",
+          "C": "64 bits",
+          "D": "128 bits"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "An Ethernet MAC address is 48 bits, written as 12 hexadecimal digits, e.g. 07:01:02:01:2C:4B. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
+        },
+        {
+         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
+         "options": {
+          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
+          "B": "MPLS uses labels to forward packets based on predetermined routes",
+          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
+          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "'Multiprotocol' means MPLS can carry many protocols, not only IP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
+        },
+        {
+         "question": "In a typical switching process, what is the correct order of operations for a switch when it receives a frame?",
+         "options": {
+          "A": "Check MAC address table → Forward the frame → compare with routing table → Determine next hop → Forward pixel",
+          "B": "Discard if unknown MAC → Forward the frame → Add MAC address to table",
+          "C": "Receive frame → Determine destination MAC → check MAC address table → forward frame",
+          "D": "Forward frame → check MAC address table → Receive frame"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "A switch reads the destination MAC, looks it up in its table and forwards (or floods if unknown). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q79"
+        },
+        {
+         "question": "The device identification on a network is done by",
+         "options": {
+          "A": "TCP/IP",
+          "B": "FTP",
+          "C": "HTTP",
+          "D": "SMTP"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "The key's answer: devices are identified by IP addresses under the TCP/IP suite (and MAC addresses on the local link). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q99"
+        },
+        {
+         "question": "The four levels of addresses used in the TCP/IP suite are:",
+         "options": {
+          "A": "Physical (MAC), logical (IP), port and specific (application) addresses",
+          "B": "Only IP addresses",
+          "C": "Street, city, state and country",
+          "D": "Bit, byte, word and frame"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Specific addresses include e-mail addresses and URLs."
+        },
+        {
+         "question": "A port number in TCP/IP is a:",
+         "options": {
+          "A": "128-bit address",
+          "B": "32-bit network address",
+          "C": "48-bit hardware number",
+          "D": "16-bit number identifying a process on a host"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Well-known ports: 0–1023, e.g. HTTP 80, HTTPS 443."
+        },
+        {
+         "question": "An IPv4 address is ____ bits long and an IPv6 address is ____ bits long.",
+         "options": {
+          "A": "48; 64",
+          "B": "32; 128",
+          "C": "64; 256",
+          "D": "16; 32"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Addressing is covered in detail in U9-07 and U9-08."
+        },
+        {
+         "question": "Which address changes at every hop as a packet travels across networks?",
+         "options": {
+          "A": "The URL",
+          "B": "The physical (MAC) address in the frame",
+          "C": "The source port",
+          "D": "The destination IP address"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "IP addresses normally stay the same end to end; MAC addresses are hop to hop."
+        },
+        {
+         "question": "In circuit switching, the three phases of communication are:",
+         "options": {
+          "A": "Encoding, decoding and storing",
+          "B": "Request, reply and caching",
+          "C": "Framing, routing and delivery",
+          "D": "Connection setup, data transfer and connection teardown"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Resources are reserved for the whole call."
+        },
+        {
+         "question": "Which switching technique does the traditional telephone network use?",
+         "options": {
+          "A": "Circuit switching",
+          "B": "Datagram packet switching",
+          "C": "Cell relay only",
+          "D": "Message switching"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "The Internet's network layer uses datagram switching."
+        },
+        {
+         "question": "In datagram (connectionless) packet switching:",
+         "options": {
+          "A": "All packets follow the same path always",
+          "B": "Each packet is routed independently and may arrive out of order",
+          "C": "A dedicated path is reserved",
+          "D": "No addresses are needed"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). There is no setup or teardown phase."
+        },
+        {
+         "question": "A virtual-circuit network:",
+         "options": {
+          "A": "Never sets up a path",
+          "B": "Is used only for e-mail",
+          "C": "Sets up a path before data transfer, and packets carry a virtual-circuit identifier",
+          "D": "Reserves a physical wire only"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "ATM and Frame Relay used virtual circuits; it combines features of circuit and datagram switching."
+        },
+        {
+         "question": "Message switching is also called:",
+         "options": {
+          "A": "Cut-through switching",
+          "B": "Circuit switching",
+          "C": "Space-division switching",
+          "D": "Store-and-forward switching of whole messages"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is rarely used today."
+        },
+        {
+         "question": "A crossbar switch connecting n inputs to m outputs needs:",
+         "options": {
+          "A": "n + m crosspoints",
+          "B": "n × m crosspoints",
+          "C": "n crosspoints",
+          "D": "m crosspoints"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Multistage switches reduce the number of crosspoints."
+        },
+        {
+         "question": "Space-division and time-division switches are used in:",
+         "options": {
+          "A": "Circuit-switched networks",
+          "B": "Only wireless LANs",
+          "C": "Only optical fibre",
+          "D": "Only software"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). A TSI (time-slot interchange) is a time-division switch."
+        },
+        {
+         "question": "Compared to circuit switching, packet switching:",
+         "options": {
+          "A": "Has no delay at all",
+          "B": "Cannot be used for data",
+          "C": "Uses bandwidth more efficiently but may add variable delay",
+          "D": "Reserves bandwidth for each call"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Bursty data traffic suits packet switching."
+        },
+        {
+         "question": "A cut-through switch:",
+         "options": {
+          "A": "Starts forwarding a frame as soon as it reads the destination address",
+          "B": "Waits for the whole frame and checks the CRC first",
+          "C": "Never forwards frames",
+          "D": "Works at layer 7"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Store-and-forward switches check the whole frame before forwarding."
+        },
+        {
+         "question": "Consider the statements:\nI. In circuit switching, resources are dedicated for the duration of the connection.\nII. In datagram switching, resources are allocated on demand.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Packets in a datagram network may arrive out of order.\nReason (R): Each packet can take a different route through the network.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "The transport layer (TCP) puts them back in order."
+        },
+        {
+         "question": "Assertion (A): A MAC address is assigned by the user and changes every time the computer moves to a new network.\nReason (R): IP addresses can change when a computer moves to a new network.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "A MAC address is burned into the NIC by the manufacturer (though it can be spoofed); IP addresses are logical."
+        },
+        {
+         "question": "Match the address with its layer:\na. MAC address\nb. IP address\nc. Port number\nd. URL / e-mail address\n\n1. Data link\n2. Transport\n3. Application\n4. Network",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-3, b-4, c-2, d-1",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Address-to-layer mapping."
+        },
+        {
+         "question": "The first 24 bits of a MAC address identify the:",
+         "options": {
+          "A": "Port",
+          "B": "Country",
+          "C": "Manufacturer (OUI – Organisationally Unique Identifier)",
+          "D": "Network"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "The rest identify the individual interface."
+        },
+        {
+         "question": "A unicast MAC address has the least significant bit of the first byte set to:",
+         "options": {
+          "A": "Any value",
+          "B": "1",
+          "C": "It has no such bit",
+          "D": "0 (1 indicates multicast; all 1s is broadcast)"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). The broadcast address is FF:FF:FF:FF:FF:FF."
+        },
+        {
+         "question": "In a datagram network, the routing (forwarding) table is based on:",
+         "options": {
+          "A": "Destination address",
+          "B": "Frame length",
+          "C": "Source port",
+          "D": "Virtual-circuit identifier"
+         },
+         "answer": "A",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "In a virtual-circuit network it is based on the VCI."
+        },
+        {
+         "question": "A 'well-known' port number used by HTTP is:",
+         "options": {
+          "A": "21",
+          "B": "80",
+          "C": "53",
+          "D": "25"
+         },
+         "answer": "B",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). FTP 21 (control), SMTP 25, DNS 53, HTTPS 443."
+        },
+        {
+         "question": "Delay in a circuit-switched network after the connection is set up mainly consists of:",
+         "options": {
+          "A": "Retransmissions",
+          "B": "Queuing at every switch",
+          "C": "Propagation and data transfer time – no waiting at switches",
+          "D": "Routing table lookups for each packet"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Setup and teardown add delay at the start and end."
+        },
+        {
+         "question": "Which statement about virtual circuits is correct?",
+         "options": {
+          "A": "They are used only in Ethernet hubs",
+          "B": "Each packet chooses its own path",
+          "C": "There is no connection setup",
+          "D": "All packets of a connection follow the same path and arrive in order"
+         },
+         "answer": "D",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Switching decisions are made using VCIs."
+        },
+        {
+         "question": "Consider the statements:\nI. Logical (IP) addresses are needed because physical addresses are only meaningful on a local network.\nII. Port addresses identify the application process on a host.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Addresses (Physical, Logical, Port, Specific) and Switching Techniques",
+         "explanation": "Both are correct."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Data Link Layer",
+     "sets": [
+      {
+       "name": "1 · Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+       "questions": [
+        {
+         "question": "A transmission uses CRC for error detection, the message is 1101011011 and the generator polynomial is G(x) = x⁴ + x + 1. What will be appended at the end of the message?",
+         "options": {
+          "A": "1111",
+          "B": "1110",
+          "C": "1101",
+          "D": "1100"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Divide 1101011011 0000 by 10011 (mod 2): the remainder is 1110 (Tanenbaum's example). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q84"
+        },
+        {
+         "question": "In (7,4) Hamming code ____ bits represent the message and ____ bits for error correction",
+         "options": {
+          "A": "4 bits and 3 bits",
+          "B": "3 bits and 4 bits",
+          "C": "4 bits and 7 bits",
+          "D": "7 bits and 4 bits"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "A (7,4) code has 7-bit codewords: 4 data bits and 3 parity bits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q61"
+        },
+        {
+         "question": "Which protocol does the PPP protocol provide for handling the capabilities of the connection/link on the network?",
+         "options": {
+          "A": "LCP",
+          "B": "NCP",
+          "C": "Both LCP and NCP",
+          "D": "TCP"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PPP's Link Control Protocol sets up, tests and negotiates link options; the Network Control Protocols configure network-layer protocols. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q41"
+        },
+        {
+         "question": "In GSM cellular communication system, a data block of 184 bits is encoded into 224 bits of codeword on the control channel before sending it to a convolution encoder. Determine the number of parity check bits added and the code rate of the block encoder used.",
+         "options": {
+          "A": "40 bits, 0.82",
+          "B": "20 bits, 0.5",
+          "C": "80 bits, 1.64",
+          "D": "60 bits, 0.72"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Parity bits = 224 − 184 = 40; code rate = k/n = 184/224 ≈ 0.82. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q105"
+        },
+        {
+         "question": "Dividing the stream of bits from the physical layer into manageable units with headers and trailers is called:",
+         "options": {
+          "A": "Routing",
+          "B": "Multiplexing",
+          "C": "Framing",
+          "D": "Modulation"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Frames can be fixed-size (as in ATM cells) or variable-size."
+        },
+        {
+         "question": "In a byte-oriented protocol, a special byte added before a flag-like byte inside the data is called:",
+         "options": {
+          "A": "A checksum",
+          "B": "An escape (ESC) byte – byte stuffing",
+          "C": "A parity byte",
+          "D": "A header"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "If ESC itself appears in the data, it is also preceded by ESC."
+        },
+        {
+         "question": "In bit stuffing (as in HDLC), the sender inserts a 0 after:",
+         "options": {
+          "A": "Six consecutive 1s",
+          "B": "Every byte",
+          "C": "Four consecutive 0s",
+          "D": "Five consecutive 1s"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). This prevents the data from looking like the flag 01111110."
+        },
+        {
+         "question": "The HDLC flag pattern is:",
+         "options": {
+          "A": "10101010",
+          "B": "01111110",
+          "C": "00000000",
+          "D": "11111111"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "The receiver removes the stuffed 0 that follows five 1s."
+        },
+        {
+         "question": "After bit stuffing, the data 0111111101 becomes:",
+         "options": {
+          "A": "01111110101",
+          "B": "011111101",
+          "C": "0111111101",
+          "D": "01111101101"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). A 0 is inserted after the first five 1s."
+        },
+        {
+         "question": "The Hamming distance between 10101 and 11110 is:",
+         "options": {
+          "A": "5",
+          "B": "2",
+          "C": "3",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "XOR = 01011, which has three 1s."
+        },
+        {
+         "question": "To detect up to s errors, the minimum Hamming distance of a code must be:",
+         "options": {
+          "A": "s",
+          "B": "s + 1",
+          "C": "2s",
+          "D": "2s + 1"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). To correct up to t errors, d_min must be 2t + 1."
+        },
+        {
+         "question": "A code with minimum Hamming distance 5 can correct up to:",
+         "options": {
+          "A": "4 errors",
+          "B": "5 errors",
+          "C": "2 errors",
+          "D": "1 error"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "2t + 1 = 5 → t = 2; it can detect up to 4 errors."
+        },
+        {
+         "question": "For m = 7 data bits, the number of redundancy bits r in a Hamming code must satisfy 2ʳ ≥ m + r + 1, so r is:",
+         "options": {
+          "A": "3",
+          "B": "7",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2⁴ = 16 ≥ 7 + 4 + 1 = 12."
+        },
+        {
+         "question": "Using CRC with generator 1011, the CRC appended to the data 1001 is:",
+         "options": {
+          "A": "000",
+          "B": "110",
+          "C": "011",
+          "D": "101"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Divide 1001000 by 1011 (mod 2); the remainder is 110."
+        },
+        {
+         "question": "CRC can detect:",
+         "options": {
+          "A": "All burst errors of length less than or equal to the degree of the generator polynomial",
+          "B": "No burst errors",
+          "C": "Only single-bit errors",
+          "D": "No errors at all"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). A good generator also detects all odd numbers of errors if it has the factor (x + 1)."
+        },
+        {
+         "question": "The Internet checksum is computed using:",
+         "options": {
+          "A": "Polynomial division",
+          "B": "Parity on each bit",
+          "C": "Hamming codes",
+          "D": "One's-complement arithmetic of 16-bit words"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "IP, UDP and TCP headers use it."
+        },
+        {
+         "question": "A two-dimensional parity check can:",
+         "options": {
+          "A": "Detect all 1-, 2- and 3-bit errors and correct single-bit errors",
+          "B": "Correct all errors",
+          "C": "Detect no burst errors",
+          "D": "Only detect odd errors in one row"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Some 4-bit error patterns are missed."
+        },
+        {
+         "question": "A linear block code is one in which:",
+         "options": {
+          "A": "The XOR of any two valid codewords is another valid codeword",
+          "B": "Codewords have different lengths",
+          "C": "Only one codeword exists",
+          "D": "Parity is never used"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Hamming codes are linear."
+        },
+        {
+         "question": "A cyclic code has the property that:",
+         "options": {
+          "A": "It cannot detect errors",
+          "B": "Codewords are random",
+          "C": "A cyclic shift of a codeword gives another codeword",
+          "D": "It uses only one bit"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). CRC is a cyclic code."
+        },
+        {
+         "question": "Consider the statements:\nI. Forward error correction needs more redundancy than error detection.\nII. Simple parity can correct single-bit errors.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Simple parity can only detect single-bit errors."
+        },
+        {
+         "question": "Assertion (A): Bit stuffing is needed in bit-oriented protocols such as HDLC.\nReason (R): The flag pattern might otherwise appear inside the data.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "The receiver de-stuffs the data."
+        },
+        {
+         "question": "Assertion (A): A code with d_min = 3 can correct two errors.\nReason (R): To correct t errors, d_min must be at least 2t + 1.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "d_min = 3 corrects only one error; R is true."
+        },
+        {
+         "question": "Match:\na. Parity bit\nb. CRC\nc. Checksum\nd. Hamming code\n\n1. Detects odd number of errors\n2. Polynomial division\n3. Single-error correction\n4. One's-complement sum",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-2, b-1, c-4, d-3",
+          "C": "a-1, b-2, c-4, d-3",
+          "D": "a-3, b-2, c-4, d-1"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Error-control matching."
+        },
+        {
+         "question": "The data link layer has two sublayers in IEEE LANs:",
+         "options": {
+          "A": "TCP and IP",
+          "B": "Session and presentation",
+          "C": "Physical and network",
+          "D": "LLC (Logical Link Control) and MAC (Media Access Control)"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "MAC handles access to the shared medium."
+        },
+        {
+         "question": "The generator x³ + x + 1 written as a binary divisor is:",
+         "options": {
+          "A": "111",
+          "B": "1011",
+          "C": "1001",
+          "D": "1101"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Coefficients of x³, x², x¹, x⁰ = 1, 0, 1, 1."
+        },
+        {
+         "question": "In a Hamming code with 4 data bits and 3 parity bits, the parity bits are placed at positions:",
+         "options": {
+          "A": "2, 4 and 6",
+          "B": "5, 6 and 7",
+          "C": "1, 2 and 4",
+          "D": "1, 3 and 5"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Parity bits go at powers of two."
+        },
+        {
+         "question": "The code rate of a block code that sends n-bit codewords for k data bits is:",
+         "options": {
+          "A": "k × n",
+          "B": "k / n",
+          "C": "n − k",
+          "D": "n / k"
+         },
+         "answer": "B",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). A (7,4) Hamming code has rate 4/7 ≈ 0.57."
+        },
+        {
+         "question": "If an even-parity bit is used and the data is 1011001, the parity bit is:",
+         "options": {
+          "A": "2",
+          "B": "1",
+          "C": "7",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "The data has four 1s, which is already even."
+        },
+        {
+         "question": "A burst error of length 5 means:",
+         "options": {
+          "A": "5 bits are added",
+          "B": "5 frames are lost",
+          "C": "Exactly 5 consecutive bits are wrong",
+          "D": "The first and last corrupted bits are 5 bits apart (inclusive), with possibly correct bits between"
+         },
+         "answer": "D",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Burst length is measured from the first to the last corrupted bit."
+        },
+        {
+         "question": "Consider the statements:\nI. CRC is widely used in Ethernet and Wi-Fi frames.\nII. The checksum is mainly used in the network and transport layers of the Internet.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Framing, Error Detection and Correction (Parity, CRC, Hamming)",
+         "explanation": "Both are correct."
+        }
+       ]
+      },
+      {
+       "name": "2 · Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+       "questions": [
+        {
+         "question": "When data and acknowledgement are sent in a same frame, it is known as",
+         "options": {
+          "A": "Routing",
+          "B": "Synchronization",
+          "C": "Piggy-bagging",
+          "D": "Discretization"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "Piggybacking attaches the acknowledgement to an outgoing data frame. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q86"
+        },
+        {
+         "question": "Assume the stop-and-wait system, the bandwidth of the line is 1 Mbps and 1 bit takes 20 milliseconds to make a round trip. Compute bandwidth-delay product if the system data packets are 1000 bits in length. What is the utilization percentage of the link?",
+         "options": {
+          "A": "2000 bits, 10%",
+          "B": "2,00,000 bits, 4.5%",
+          "C": "20,000 bits, 4.76%",
+          "D": "200 bits, 50%"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "BDP = 10⁶ × 0.02 = 20,000 bits. Sending 1000 bits takes 1 ms, so one cycle is 21 ms: 1/21 ≈ 4.76%. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q63"
+        },
+        {
+         "question": "Imagine two hosts are connected to each other by a point-to-point and they implement the stop-and-wait protocol.\nIn which of the following scenarios the link utilization is the lowest?",
+         "options": {
+          "A": "Longer link length and lower transmission rate",
+          "B": "Longer link length and higher transmission rate",
+          "C": "Shorter link length and lower transmission rate",
+          "D": "Shorter link length and higher transmission rate"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "Utilisation = Tt / (Tt + 2Tp); a long link (large Tp) with a high rate (small Tt) wastes the most time waiting. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q80"
+        },
+        {
+         "question": "Flow control in the data link layer means:",
+         "options": {
+          "A": "Correcting errors",
+          "B": "Restricting the amount of data the sender can send before waiting for acknowledgement",
+          "C": "Encrypting frames",
+          "D": "Routing frames"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). It prevents a fast sender from overwhelming a slow receiver."
+        },
+        {
+         "question": "In the Stop-and-Wait protocol, the sender:",
+         "options": {
+          "A": "Never waits",
+          "B": "Sends only acknowledgements",
+          "C": "Sends all frames at once",
+          "D": "Sends one frame and waits for its acknowledgement before sending the next"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "Sequence numbers 0 and 1 are enough."
+        },
+        {
+         "question": "Stop-and-Wait ARQ needs how many sequence numbers?",
+         "options": {
+          "A": "8",
+          "B": "1",
+          "C": "4",
+          "D": "2 (0 and 1)"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses a 1-bit sequence number; a timer handles lost frames."
+        },
+        {
+         "question": "The efficiency of Stop-and-Wait is 1 / (1 + 2a), where a is:",
+         "options": {
+          "A": "Frame size ÷ window size",
+          "B": "Propagation time ÷ transmission time",
+          "C": "Transmission time ÷ propagation time",
+          "D": "Bandwidth × delay"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "When a is large, efficiency is very low."
+        },
+        {
+         "question": "A frame takes 1 ms to transmit and the one-way propagation time is 10 ms. The Stop-and-Wait efficiency is about:",
+         "options": {
+          "A": "91%",
+          "B": "10%",
+          "C": "50%",
+          "D": "4.8%"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1 / (1 + 2 × 10) = 1/21 ≈ 4.76%."
+        },
+        {
+         "question": "In Go-Back-N ARQ with m-bit sequence numbers, the maximum sender window size is:",
+         "options": {
+          "A": "2ᵐ − 1",
+          "B": "2ᵐ",
+          "C": "2ᵐ⁻¹",
+          "D": "m"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "The receiver window size is 1."
+        },
+        {
+         "question": "In Selective Repeat ARQ with m-bit sequence numbers, the maximum sender and receiver window size is:",
+         "options": {
+          "A": "2ᵐ",
+          "B": "2ᵐ⁻¹",
+          "C": "1",
+          "D": "2ᵐ − 1"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). With m = 3, windows can be at most 4."
+        },
+        {
+         "question": "In Go-Back-N, when a frame is lost or damaged:",
+         "options": {
+          "A": "The sender resends that frame and all frames sent after it",
+          "B": "Only that frame is resent",
+          "C": "No frames are resent",
+          "D": "The connection is closed"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "The receiver discards out-of-order frames."
+        },
+        {
+         "question": "In Selective Repeat ARQ:",
+         "options": {
+          "A": "Only the damaged or lost frames are retransmitted; the receiver buffers out-of-order frames",
+          "B": "All frames are resent",
+          "C": "The window size is always 1",
+          "D": "No acknowledgements are used"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses bandwidth better but needs more receiver buffer and logic."
+        },
+        {
+         "question": "A sliding-window protocol with a 3-bit sequence number field uses sequence numbers:",
+         "options": {
+          "A": "0 to 7",
+          "B": "1 to 8",
+          "C": "0 to 15",
+          "D": "0 to 3"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "Numbers wrap around modulo 2³."
+        },
+        {
+         "question": "A negative acknowledgement (NAK) is used in Selective Repeat to:",
+         "options": {
+          "A": "Confirm all frames",
+          "B": "Reset the link",
+          "C": "Ask for a specific damaged frame to be resent quickly",
+          "D": "Close the window"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). It avoids waiting for the timer to expire."
+        },
+        {
+         "question": "HDLC (High-level Data Link Control) defines three types of frames:",
+         "options": {
+          "A": "Data, voice and video frames",
+          "B": "Unicast, multicast and broadcast frames",
+          "C": "Small, medium and large frames",
+          "D": "Information (I), Supervisory (S) and Unnumbered (U) frames"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "S-frames carry control such as RR, RNR, REJ and SREJ; U-frames carry link management."
+        },
+        {
+         "question": "The two common transfer modes of HDLC are:",
+         "options": {
+          "A": "Simplex and duplex",
+          "B": "Normal Response Mode (NRM) and Asynchronous Balanced Mode (ABM)",
+          "C": "Baseband and broadband",
+          "D": "Circuit and packet"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). In NRM a primary station polls secondaries; in ABM both stations are equal."
+        },
+        {
+         "question": "PPP (Point-to-Point Protocol) is:",
+         "options": {
+          "A": "A bit-oriented LAN protocol",
+          "B": "A routing protocol",
+          "C": "A byte-oriented protocol used for point-to-point links such as dial-up and DSL",
+          "D": "A transport protocol"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "It uses LCP for link setup and authentication protocols PAP and CHAP."
+        },
+        {
+         "question": "PAP and CHAP in PPP are used for:",
+         "options": {
+          "A": "Authentication",
+          "B": "Routing",
+          "C": "Compression only",
+          "D": "Error correction"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). CHAP is more secure because the password is never sent in clear text."
+        },
+        {
+         "question": "Piggybacking improves efficiency because:",
+         "options": {
+          "A": "It removes the need for sequence numbers",
+          "B": "Acknowledgements travel inside data frames instead of separate frames",
+          "C": "It disables flow control",
+          "D": "It adds more frames"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "It is used in bidirectional (full-duplex) communication."
+        },
+        {
+         "question": "Consider the statements:\nI. Go-Back-N receiver window size is 1.\nII. Selective Repeat receiver can accept out-of-order frames.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Sliding-window protocols improve link utilisation over Stop-and-Wait.\nReason (R): Several frames can be in transit before an acknowledgement arrives.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "The window should cover the bandwidth-delay product."
+        },
+        {
+         "question": "Assertion (A): In Go-Back-N, the sender window can be 2ᵐ.\nReason (R): A window of 2ᵐ could make a new frame indistinguishable from a retransmitted one.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "The maximum is 2ᵐ − 1; R explains why."
+        },
+        {
+         "question": "Match:\na. Stop-and-Wait\nb. Go-Back-N\nc. Selective Repeat\nd. Piggybacking\n\n1. Window of 1\n2. Resend only lost frames\n3. ACK carried in a data frame\n4. Resend from the lost frame onwards",
+         "options": {
+          "A": "a-3, b-4, c-2, d-1",
+          "B": "a-1, b-2, c-4, d-3",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). ARQ protocol matching."
+        },
+        {
+         "question": "A link of 1 Mbps has a round-trip time of 20 ms and frames of 1000 bits. To keep the link fully busy, the sender window should be about:",
+         "options": {
+          "A": "21 frames",
+          "B": "200 frames",
+          "C": "2 frames",
+          "D": "1 frame"
+         },
+         "answer": "A",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "BDP = 20,000 bits = 20 frames, plus the frame being sent ≈ 21."
+        },
+        {
+         "question": "In Stop-and-Wait ARQ, a timer is used to:",
+         "options": {
+          "A": "Measure bandwidth",
+          "B": "Delete frames",
+          "C": "Synchronise clocks",
+          "D": "Resend a frame if its acknowledgement does not arrive in time"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sequence numbers prevent duplicate frames from being accepted."
+        },
+        {
+         "question": "The ACK number in sliding-window protocols usually tells the sender:",
+         "options": {
+          "A": "The number of the last frame received",
+          "B": "The window size only",
+          "C": "The sequence number of the next frame the receiver expects",
+          "D": "The frame length"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "This is cumulative acknowledgement in Go-Back-N."
+        },
+        {
+         "question": "In HDLC, the control field of an S-frame with code REJ means:",
+         "options": {
+          "A": "Receive not ready",
+          "B": "Reject – go back N, resend from the indicated frame",
+          "C": "Receive ready",
+          "D": "Selective reject"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). SREJ asks for one frame only (Selective Repeat)."
+        },
+        {
+         "question": "Which protocol is typically used on the link between a home router and the ISP over DSL (as PPPoE)?",
+         "options": {
+          "A": "Token Ring",
+          "B": "PPP",
+          "C": "HDLC only",
+          "D": "FDDI"
+         },
+         "answer": "B",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PPPoE carries PPP frames over Ethernet."
+        },
+        {
+         "question": "The main difference between flow control and error control is:",
+         "options": {
+          "A": "Error control limits the rate",
+          "B": "Flow control fixes damaged bits",
+          "C": "They are the same",
+          "D": "Flow control limits the rate of sending; error control detects and recovers lost or damaged frames"
+         },
+         "answer": "D",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "PYQ pattern (KEA / KSET papers). In the data link layer both are usually combined (ARQ)."
+        },
+        {
+         "question": "Consider the statements:\nI. HDLC is a bit-oriented protocol.\nII. PPP is a byte-oriented protocol.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
+         "explanation": "HDLC uses bit stuffing; PPP uses byte stuffing."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

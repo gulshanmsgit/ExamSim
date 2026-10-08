@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 6 — System Software & Operating Systems",
- "description": "14 of 15 topics so far (28 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads; CPU Scheduling; Deadlocks; Memory Management; Virtual Memory; Storage Management; File Systems; I/O Systems; OS Security; Linux Operating System. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (30 sets × 30 questions): System Software; OS Basics; Process Management & IPC; Process Synchronization; Threads; CPU Scheduling; Deadlocks; Memory Management; Virtual Memory; Storage Management; File Systems; I/O Systems; OS Security; Linux Operating System; Windows Operating System. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 6 – System Software & Operating Systems",
@@ -10432,6 +10432,749 @@
          "answer": "B",
          "subject": "Process, Scheduling, Memory, File System, I/O and IPC in Linux",
          "explanation": "PYQ pattern (KEA / KSET papers). Basic command matching."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Windows Operating System",
+     "sets": [
+      {
+       "name": "1 · Design Principles, System Components, Terminal Services and Fast User Switching",
+       "questions": [
+        {
+         "question": "Which of the following components in Windows handles communication between hardware and operating system?",
+         "options": {
+          "A": "Windows Explorer",
+          "B": "Kernel",
+          "C": "Command prompt",
+          "D": "Active directory"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "The kernel (with the hardware abstraction layer below it) manages the hardware for the rest of the system; Explorer is only the shell. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q99"
+        },
+        {
+         "question": "Windows XP was released in the year :",
+         "options": {
+          "A": "2000",
+          "B": "1998",
+          "C": "1999",
+          "D": "2001"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Windows XP came out in October 2001 and introduced fast user switching for home users. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 MCA · Q35"
+        },
+        {
+         "question": "Which mode loads the minimal set of drivers when starting windows operating system?",
+         "options": {
+          "A": "Safe mode",
+          "B": "Normal mode",
+          "C": "VGA mode",
+          "D": "Network support mode"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Safe mode starts Windows with only essential drivers and services, for troubleshooting. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q46"
+        },
+        {
+         "question": "What is the main purpose of the Windows Pre-installation Environment (WinPE)?\n(a) To boot a system with a graphical user interface.\n(b) To perform disk management tasks\n(c) To connect windows update servers\n(d) To provide a minimal OS environment for installation, recovery and troubleshooting\nWhich of the above statement/statements is/are correct?",
+         "options": {
+          "A": "c and d only",
+          "B": "d only",
+          "C": "a only",
+          "D": "b only"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "WinPE is a small Windows used to install, deploy and repair Windows. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q94"
+        },
+        {
+         "question": "In windows, which feature allows multiple virtual desktops to be used for better organisations of open applications and windows?",
+         "options": {
+          "A": "SPAN asset",
+          "B": "Task View",
+          "C": "Aero peek",
+          "D": "Control Panel"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Task View (Win + Tab) shows open windows and lets you create virtual desktops (Ctrl + Win + D). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q98"
+        },
+        {
+         "question": "The Windows NT family of operating systems (the base of Windows 2000, XP, 7, 10 and 11) was designed by a team led by:",
+         "options": {
+          "A": "Dennis Ritchie",
+          "B": "Linus Torvalds",
+          "C": "Dave Cutler",
+          "D": "Bill Gates alone"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Cutler had earlier designed VMS at DEC; Windows NT 3.1 was released in 1993."
+        },
+        {
+         "question": "Which of the following is NOT one of the design goals of Windows listed by Silberschatz?",
+         "options": {
+          "A": "Reliability and compatibility",
+          "B": "Extensibility and portability",
+          "C": "Using a single-user, single-tasking design",
+          "D": "Security"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Others include performance, international support, energy efficiency and dynamic device support."
+        },
+        {
+         "question": "The Windows layer that hides differences between hardware chipsets from the kernel is the:",
+         "options": {
+          "A": "Win32 subsystem",
+          "B": "Shell",
+          "C": "Registry",
+          "D": "Hardware Abstraction Layer (HAL)"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only the HAL needs to change when Windows is moved to new hardware."
+        },
+        {
+         "question": "The collection of Windows kernel-mode services such as the object manager, virtual-memory manager, I/O manager and security reference monitor is called the:",
+         "options": {
+          "A": "Explorer",
+          "B": "Shell",
+          "C": "Executive",
+          "D": "Task Manager"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "The executive runs above the kernel and the HAL."
+        },
+        {
+         "question": "The Windows component that checks every access to an object against its access-control list is the:",
+         "options": {
+          "A": "Plug-and-Play manager",
+          "B": "Power manager",
+          "C": "Security reference monitor",
+          "D": "Cache manager"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each user has an access token with a security ID (SID)."
+        },
+        {
+         "question": "Windows' hierarchical database of configuration settings for hardware, software and users is the:",
+         "options": {
+          "A": "Master File Table",
+          "B": "Registry",
+          "C": "Page file",
+          "D": "Boot sector"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Its main hives include HKEY_LOCAL_MACHINE and HKEY_CURRENT_USER; it is edited with regedit."
+        },
+        {
+         "question": "Windows schedules threads using priority levels numbered:",
+         "options": {
+          "A": "0 to 31 – 16 to 31 for real-time and 1 to 15 for variable priority",
+          "B": "1 to 10",
+          "C": "0 to 99 with 0 highest",
+          "D": "Only two levels"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). The scheduler (dispatcher) is preemptive; priority 0 is used by the zero-page thread."
+        },
+        {
+         "question": "In Windows, the message-passing facility used between processes on the same machine, e.g. between a client and a subsystem server, is:",
+         "options": {
+          "A": "ARP",
+          "B": "SMTP",
+          "C": "FTP",
+          "D": "ALPC (Advanced Local Procedure Call)"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "It replaced the older LPC facility."
+        },
+        {
+         "question": "Which statement about the Windows kernel structure is correct?",
+         "options": {
+          "A": "It is a pure microkernel with all drivers in user mode",
+          "B": "It has no kernel mode",
+          "C": "It is a monolithic kernel with no layers",
+          "D": "It is a hybrid: a layered, object-based kernel with many services in kernel mode"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Graphics were moved into kernel mode in NT 4.0 for speed."
+        },
+        {
+         "question": "Windows Subsystem for Linux (WSL) lets users:",
+         "options": {
+          "A": "Replace NTFS",
+          "B": "Run Linux command-line tools and distributions on Windows",
+          "C": "Remove the kernel",
+          "D": "Run Windows inside a phone"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "WSL 2 runs a real Linux kernel in a lightweight virtual machine."
+        },
+        {
+         "question": "Hyper-V in Windows is a:",
+         "options": {
+          "A": "Web browser",
+          "B": "Antivirus",
+          "C": "Type-1 hypervisor for running virtual machines",
+          "D": "File system"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Virtualisation-based security also uses it."
+        },
+        {
+         "question": "The keyboard shortcut Ctrl + Shift + Esc opens the:",
+         "options": {
+          "A": "File Explorer",
+          "B": "Run dialog",
+          "C": "Control Panel",
+          "D": "Task Manager"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Win + R opens Run; Win + E opens File Explorer."
+        },
+        {
+         "question": "User Account Control (UAC) in Windows:",
+         "options": {
+          "A": "Speeds up booting",
+          "B": "Creates new user accounts automatically",
+          "C": "Asks for permission before a program makes changes that need administrator rights",
+          "D": "Encrypts the disk"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). It applies the principle of least privilege."
+        },
+        {
+         "question": "Windows Update, Windows Defender (Microsoft Defender) and BitLocker respectively provide:",
+         "options": {
+          "A": "Games, email and printing",
+          "B": "Patches, anti-malware protection and full-disk encryption",
+          "C": "Networking, sound and graphics",
+          "D": "Backup, compression and paging"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "BitLocker usually uses the TPM chip to protect keys."
+        },
+        {
+         "question": "In Windows, 'fast user switching' allows:",
+         "options": {
+          "A": "Several users to stay logged on, switching between sessions without closing programs",
+          "B": "Only one user per computer",
+          "C": "Users to change passwords quickly",
+          "D": "The PC to restart faster"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each user gets a separate session; it is built on Terminal Services technology."
+        },
+        {
+         "question": "Terminal Services, now called Remote Desktop Services, lets a user:",
+         "options": {
+          "A": "Format disks",
+          "B": "Copy files to USB",
+          "C": "Run a desktop session on a remote Windows computer over the network",
+          "D": "Print only"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "It uses the Remote Desktop Protocol (RDP), by default on TCP port 3389."
+        },
+        {
+         "question": "The protocol used by Windows Remote Desktop is:",
+         "options": {
+          "A": "RDP",
+          "B": "SMTP",
+          "C": "POP3",
+          "D": "SNMP"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). The client program is mstsc.exe."
+        },
+        {
+         "question": "Consider the statements:\nI. Windows supports multiple user sessions at the same time through Terminal Services.\nII. Fast user switching closes the first user's programs before the second user logs on.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Fast user switching keeps the first user's programs running in the background."
+        },
+        {
+         "question": "Assertion (A): Windows can be moved to a new hardware platform with relatively little change.\nReason (R): Hardware-dependent code is isolated in the HAL and a few kernel parts.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Portability was one of the original NT design goals."
+        },
+        {
+         "question": "Assertion (A): In Windows, all device drivers run in user mode.\nReason (R): Windows has a kernel mode and a user mode.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Most drivers run in kernel mode (user-mode drivers exist only for some devices)."
+        },
+        {
+         "question": "Match:\na. HAL\nb. Executive\nc. Registry\nd. Shell (Explorer)\n\n1. Kernel-mode services\n2. Hides hardware differences\n3. Configuration database\n4. User interface",
+         "options": {
+          "A": "a-4, b-1, c-3, d-2",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-3, c-1, d-4",
+          "D": "a-2, b-1, c-3, d-4"
+         },
+         "answer": "D",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). A common component-matching question."
+        },
+        {
+         "question": "Windows provides several environmental subsystems; the main one, used by almost all applications, is:",
+         "options": {
+          "A": "MS-DOS subsystem only",
+          "B": "Win32 (Windows API) subsystem",
+          "C": "OS/2 subsystem",
+          "D": "POSIX only"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Older versions also had POSIX and OS/2 subsystems."
+        },
+        {
+         "question": "Plug and Play in Windows means:",
+         "options": {
+          "A": "Devices are recognised and configured automatically when connected",
+          "B": "All devices must be configured manually",
+          "C": "Only keyboards work",
+          "D": "Drivers are never needed"
+         },
+         "answer": "A",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). The PnP manager loads the right driver."
+        },
+        {
+         "question": "The Windows component that keeps a log of system, security and application events is the:",
+         "options": {
+          "A": "Notepad",
+          "B": "Calculator",
+          "C": "Event Viewer",
+          "D": "Paint"
+         },
+         "answer": "C",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "Administrators use it to diagnose problems."
+        },
+        {
+         "question": "Windows 10 and Windows 11 were released in:",
+         "options": {
+          "A": "2012 and 2019",
+          "B": "2015 and 2021",
+          "C": "2009 and 2015",
+          "D": "2001 and 2007"
+         },
+         "answer": "B",
+         "subject": "Design Principles, System Components, Terminal Services and Fast User Switching",
+         "explanation": "PYQ pattern (KEA / KSET papers). Windows 7 – 2009; Windows 8 – 2012."
+        }
+       ]
+      },
+      {
+       "name": "2 · NTFS File System, Tools and Networking",
+       "questions": [
+        {
+         "question": "Which tool would you use to check the corrupted system files in window?",
+         "options": {
+          "A": "Disk Cleanup",
+          "B": "CHKDSK",
+          "C": "sfc/Scannow",
+          "D": "Device Manager"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "System File Checker (sfc /scannow) scans and repairs protected Windows system files. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q49"
+        },
+        {
+         "question": "Which command-line tool in Windows allows you to test the integrity of system files and repair missing or corrupted files?\n(a) Diskpart\n(b) Ipconfig\n(c) CHKDSK\n(d) SFC / scannow",
+         "options": {
+          "A": "a and c only",
+          "B": "d only",
+          "C": "c only",
+          "D": "d and b only"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "sfc /scannow repairs system files; CHKDSK checks the file system and disk; Diskpart manages partitions; Ipconfig shows network settings. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q97"
+        },
+        {
+         "question": "Which command line tool is used in Windows to specifically manage active directory domains and join a computer to a domain?",
+         "options": {
+          "A": "netsh.exe",
+          "B": "netdom.exe",
+          "C": "ipconfig.exe",
+          "D": "dsquery.exe"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "netdom joins computers to domains and manages trusts; dsquery searches Active Directory; netsh configures networking. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q100"
+        },
+        {
+         "question": "The native file system of modern Windows is:",
+         "options": {
+          "A": "HFS+",
+          "B": "APFS",
+          "C": "ext4",
+          "D": "NTFS"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). FAT32 and exFAT are still supported for removable drives; ReFS is used on servers."
+        },
+        {
+         "question": "In NTFS, the main structure that holds a record for every file and directory on the volume is the:",
+         "options": {
+          "A": "FAT",
+          "B": "Superblock",
+          "C": "Master File Table (MFT)",
+          "D": "Inode table"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "Small files can be stored entirely inside their MFT record."
+        },
+        {
+         "question": "NTFS recovers quickly after a crash because it:",
+         "options": {
+          "A": "Stores everything twice",
+          "B": "Has no metadata",
+          "C": "Logs metadata changes in a log file (journaling)",
+          "D": "Uses only FAT chains"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses transaction-based logging of metadata updates."
+        },
+        {
+         "question": "Which feature is supported by NTFS but NOT by FAT32?",
+         "options": {
+          "A": "Long file names",
+          "B": "Storing files",
+          "C": "Directories",
+          "D": "File-level permissions (ACLs), encryption (EFS) and compression"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "FAT32 also limits single files to 4 GB."
+        },
+        {
+         "question": "The NTFS feature that encrypts individual files and folders for a user is:",
+         "options": {
+          "A": "Defragmenter",
+          "B": "EFS (Encrypting File System)",
+          "C": "BitLocker",
+          "D": "Disk Cleanup"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). BitLocker encrypts the whole volume."
+        },
+        {
+         "question": "Volume Shadow Copy in Windows is used to:",
+         "options": {
+          "A": "Partition disks",
+          "B": "Hide files",
+          "C": "Take point-in-time snapshots of volumes for backup and 'Previous versions'",
+          "D": "Format disks"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "System Restore points also use it."
+        },
+        {
+         "question": "A Windows share whose name ends with '$', such as C$ or ADMIN$, is:",
+         "options": {
+          "A": "A corrupted share",
+          "B": "A hidden share that does not appear when browsing the network",
+          "C": "A read-only share",
+          "D": "A printer share"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Administrative shares are created automatically."
+        },
+        {
+         "question": "When both share permissions and NTFS permissions apply to a folder accessed over the network, the effective permission is:",
+         "options": {
+          "A": "The more restrictive of the two",
+          "B": "The less restrictive of the two",
+          "C": "Always Full Control",
+          "D": "Only the share permission"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "Locally, only NTFS permissions apply."
+        },
+        {
+         "question": "The Windows file-sharing protocol, also used by Samba on Linux, is:",
+         "options": {
+          "A": "SMB / CIFS",
+          "B": "SMTP",
+          "C": "NFS",
+          "D": "FTP"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). SMB 3 adds encryption."
+        },
+        {
+         "question": "Active Directory in Windows Server is a:",
+         "options": {
+          "A": "File system",
+          "B": "Web browser",
+          "C": "Antivirus",
+          "D": "Directory service that stores users, computers and policies for a domain"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "It uses LDAP for queries and Kerberos for authentication."
+        },
+        {
+         "question": "In a Windows domain, the server that authenticates users and holds a copy of Active Directory is the:",
+         "options": {
+          "A": "File server only",
+          "B": "Domain controller",
+          "C": "DHCP client",
+          "D": "Print server"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Group Policy settings are pushed from the domain."
+        },
+        {
+         "question": "The authentication protocol used by default in Active Directory domains is:",
+         "options": {
+          "A": "Kerberos",
+          "B": "FTP",
+          "C": "Telnet",
+          "D": "ARP"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "NTLM is the older challenge–response protocol."
+        },
+        {
+         "question": "A peer-to-peer group of Windows computers without a central server is a:",
+         "options": {
+          "A": "Domain",
+          "B": "Forest",
+          "C": "Tree",
+          "D": "Workgroup"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Domains are managed centrally; forests contain one or more domain trees."
+        },
+        {
+         "question": "The Windows command that shows the computer's IP address, subnet mask and default gateway is:",
+         "options": {
+          "A": "sfc",
+          "B": "chkdsk",
+          "C": "ipconfig",
+          "D": "diskpart"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "ipconfig /all shows details; ipconfig /flushdns clears the DNS cache."
+        },
+        {
+         "question": "The Windows networking programming interface for TCP/IP sockets is:",
+         "options": {
+          "A": "Winsock",
+          "B": "HAL",
+          "C": "NTFS",
+          "D": "Registry"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Windows also supports named pipes and RPC for networking."
+        },
+        {
+         "question": "Which Windows command checks a disk for file-system errors and bad sectors?",
+         "options": {
+          "A": "tracert",
+          "B": "ping",
+          "C": "chkdsk",
+          "D": "ipconfig"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "chkdsk /f fixes errors; /r also locates bad sectors."
+        },
+        {
+         "question": "The Windows tool used to create, delete and format partitions from the command line is:",
+         "options": {
+          "A": "tasklist",
+          "B": "whoami",
+          "C": "netstat",
+          "D": "diskpart"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Disk Management is the graphical equivalent."
+        },
+        {
+         "question": "The 'Map network drive' feature in Windows lets a user:",
+         "options": {
+          "A": "Create a new partition",
+          "B": "Assign a drive letter to a shared folder on another computer",
+          "C": "Defragment a drive",
+          "D": "Draw a map"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "The command-line equivalent is 'net use'."
+        },
+        {
+         "question": "Consider the statements:\nI. NTFS supports access-control lists on files and folders.\nII. NTFS has no journaling, so a full disk check is always needed after a crash.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "NTFS is a journaling file system."
+        },
+        {
+         "question": "Assertion (A): A file on an NTFS drive can be protected so that only selected users may read it.\nReason (R): NTFS stores an access-control list with each file.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "Permissions are set on the Security tab of the file's Properties."
+        },
+        {
+         "question": "Assertion (A): FAT32 is preferred for an internal Windows system drive.\nReason (R): FAT32 supports file permissions and encryption.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "Both are false – NTFS is used for system drives because FAT32 lacks permissions, encryption and journaling."
+        },
+        {
+         "question": "Match the Windows command with its use:\na. ping\nb. tracert\nc. netstat\nd. nslookup\n\n1. Test reachability\n2. Show the route to a host\n3. Show network connections and ports\n4. Query DNS",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-2, b-1, c-3, d-4",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-4, b-2, c-3, d-1"
+         },
+         "answer": "C",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Network-command matching is common."
+        },
+        {
+         "question": "In Windows, the 'Previous Versions' feature restores older copies of files using:",
+         "options": {
+          "A": "The recycle bin only",
+          "B": "The registry",
+          "C": "The BIOS",
+          "D": "Volume shadow copies or File History"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "File History backs up libraries to another drive."
+        },
+        {
+         "question": "ReFS (Resilient File System) in Windows Server mainly improves:",
+         "options": {
+          "A": "Data integrity and resilience for large storage",
+          "B": "Email delivery",
+          "C": "Gaming performance",
+          "D": "Printing"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses checksums for metadata and optionally data."
+        },
+        {
+         "question": "Which statement about NTFS file names is correct?",
+         "options": {
+          "A": "Names are case-sensitive by default",
+          "B": "Names can be up to 255 characters and are case-preserving but case-insensitive by default",
+          "C": "Names cannot contain spaces",
+          "D": "Names are limited to 8.3 characters"
+         },
+         "answer": "B",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "The old 8.3 limit belonged to MS-DOS FAT."
+        },
+        {
+         "question": "Group Policy in a Windows domain is used to:",
+         "options": {
+          "A": "Create partitions",
+          "B": "Browse the web",
+          "C": "Write documents",
+          "D": "Centrally control settings and security for users and computers"
+         },
+         "answer": "D",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "PYQ pattern (KEA / KSET papers). Policies are stored in Group Policy Objects (GPOs)."
+        },
+        {
+         "question": "The Windows Firewall (Windows Defender Firewall) works by:",
+         "options": {
+          "A": "Allowing or blocking network traffic according to rules",
+          "B": "Encrypting files",
+          "C": "Defragmenting disks",
+          "D": "Repairing system files"
+         },
+         "answer": "A",
+         "subject": "NTFS File System, Tools and Networking",
+         "explanation": "Rules can be set per program, port or network profile (domain, private, public)."
         }
        ]
       }

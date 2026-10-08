@@ -25,7 +25,7 @@ UNITS = ["Unit 1 – Fundamentals of Computers", "Unit 2 – Discrete Structures
          "Unit 7 – Software Engineering", "Unit 8 – Data Structures & Algorithms", "Unit 9 – Data Communication & Networks",
          "Unit 10 – Artificial Intelligence"]
 P2_PACK_UNIT = {"p2-u1-complete.json": 1, "p2-u2-complete.json": 2, "p2-u4.json": 4, "p2-u5-01-dbms-concepts.json": 5, "p2-u5.json": 5,
-                "p2-u6.json": 6, "p2-u8.json": 8}
+                "p2-u6.json": 6, "p2-u8.json": 8, "p2-u9.json": 9}
 
 # Keyword rules for the transcribed full papers: first match wins (order matters)
 UNIT_RULES = [

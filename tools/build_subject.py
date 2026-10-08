@@ -24,15 +24,16 @@ P2_GROUP = "② Paper 2 · Computer Science (30 questions per sub-topic)"
 PACKS = {
     "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e"]},
     "p2-u5": {"subject": "P2 · Unit 5 – Database Management Systems", "modules": ["p2u5_b", "p2u5_c", "p2u5_d", "p2u5_e", "p2u5_f"]},
-    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h"]},
+    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i"]},
+    "p2-u9": {"subject": "P2 · Unit 9 – Data Communication & Networks", "modules": ["p2u9_a", "p2u9_b"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
-    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j"]},
+    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j", "p1_psy_k"]},
     "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g", "p1_gk_pyq", "p1_gk_notes", "p1_gk_h"]},
-    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f", "p1_cl_g"]},
+    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f", "p1_cl_g", "p1_cl_h"]},
     "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e", "p1_eng_f", "p1_eng_g"]},
-    "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e"]},
-    "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d"]},
-    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_2026"]},
+    "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e", "p1_he_f"]},
+    "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e"]},
+    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_2026"]},
 }
 
 # Subjects that are not in the planner. Current affairs: one topic per month ("January 2026", …) with a
