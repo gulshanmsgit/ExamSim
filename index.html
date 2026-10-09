@@ -1391,7 +1391,18 @@ async function extractPdf(file) {
    Question sets are split into metadata (sets) and questions (setq)
    so the library can load without downloading every question.
    ============================================================ */
-const D = { subjects: [], topics: [], sets: [], attempts: [], mocks: [], days: {}, prefs: { dailyGoal: 30 }, plan: null, planState: {} };
+const D = { subjects: [], topics: [], sets: [], attempts: [], mocks: [], days: {}, prefs: { dailyGoal: 30 }, plan: null, plans: {}, planState: {} };
+// Exam modes: each has its own study plan (a synced prefs document); topics, questions, notes and topic progress are shared,
+// because plans refer to the same topic IDs (e.g. P2-U6-08). Only the calendar, dates and 'day done' ticks differ per exam.
+const EXAMS = {
+  gpstr: { name: 'GPSTR / CST 2026', short: 'GPSTR', doc: 'studyPlan', file: 'gpstr-cst-2026-plan.json' },
+  kries: { name: 'KRIES Computer Teacher 2026', short: 'KRIES', doc: 'studyPlan-kries', file: 'kries-2026-plan.json' }
+};
+const examKey = () => (D.prefs.examMode in EXAMS ? D.prefs.examMode : 'gpstr');
+const planKeyOf = sp => (sp && sp.key in EXAMS ? sp.key : 'gpstr');
+// 'Day done' ticks are stored per exam so that the same date in two plans is ticked separately (GPSTR keeps the old keys)
+const dayDoneKey = date => (planKeyOf(D.plan) === 'gpstr' ? 'day:' : 'day:' + planKeyOf(D.plan) + ':') + date;
+function setActivePlan() { D.plan = D.plans[examKey()] || D.plans.gpstr || Object.values(D.plans).find(Boolean) || null; }
 const qCache = new Map();
 let store = null, WS = null, fb = null;
 
@@ -1448,12 +1459,13 @@ async function loadAll() {
     mocks: mocks.sort(byName),
     days: Object.fromEntries(days.map(d => [d.id, d.q || 0])),
     prefs: { dailyGoal: 30, ...(prefs.find(p => p.id === 'main') || {}) },
-    plan: prefs.find(p => p.id === 'studyPlan') || null,
+    plans: Object.fromEntries(Object.entries(EXAMS).map(([k, x]) => [k, prefs.find(p => p.id === x.doc) || null])),
     planState: prefs.find(p => p.id === 'planState') || {},
     errNotes: prefs.find(p => p.id === 'errlog') || {}
   });
   delete D.planState.id;
   delete D.errNotes.id;
+  setActivePlan();
   repairPlanLinks();
   qCache.clear();
 }
@@ -2272,7 +2284,7 @@ function taskHTML(t) {
     ${top ? `<button class="btn" data-notes="${top.id}" title="Notes"><svg class=ic><use href=#i-notes></use></svg>${topicNoteCount(top) ? ' ' + topicNoteCount(top) : ''}</button><button class="btn" data-nav="topic:${top.id}">${n ? 'Practise' : 'Open'}</button>` : ''}</div>`;
 }
 function calRowFor(date) { return (D.plan.calendar || []).find(d => d.date === date); }
-function dayDone(d) { const s = D.planState['day:' + d.date]; return s && s.d !== undefined ? s.d : !!d.done; }
+function dayDone(d) { const s = D.planState[dayDoneKey(d.date)]; return s && s.d !== undefined ? s.d : !!d.done; }
 const taskId = t => { const m = /^(P[12]-[A-Z0-9]+-\d+)\s/.exec(t); return m ? m[1] : null; };
 // A calendar cell can hold several tasks, one per line (as in the Excel sheet)
 const dayTasks = (d, k) => (d[k] || []).flatMap(t => String(t).split('\n')).map(t => t.trim()).filter(Boolean);
@@ -2500,7 +2512,7 @@ document.addEventListener('change', async e => {
     await setPlanField(id, f, v);
     if (f === 's' || f === 'c') refreshPlanViews();
   } else if (el.matches('[data-daydone]')) {
-    await setPlanField('day:' + el.dataset.daydone, 'd', el.checked);
+    await setPlanField(dayDoneKey(el.dataset.daydone), 'd', el.checked);
     refreshPlanViews();
   }
 });
@@ -2742,8 +2754,9 @@ function renderTopic() {
   let h = crumbs([['Library', 'home'], [s ? s.name : 'Subject', s ? 'subject:' + s.id : null], [t.name]]) + pageHead(t.name, 'Topic', s);
   {
     const p = t.plan || {}, pr = D.plan && p.id && planRow(p.id), pst = pr && rowState(pr), subs = topicSubs(t), fd = d => planDate(d).toLocaleDateString([], { day: 'numeric', month: 'short' });
+    const ps0 = pr ? pr.start : D.plan ? null : p.start, pe0 = pr ? pr.target : D.plan ? null : p.end;
     h += `<div class="card topic-ov" style="--sc:${subjColor(s)}">
-      ${p.id ? `<div class="row small muted" style="gap:8px">${pidPill(p.id)}${p.start ? `<span>${I('calendar')} ${esc(fd(p.start))}${p.end && p.end !== p.start ? ' – ' + esc(fd(p.end)) : ''}</span>` : ''}${p.priority ? `<span>${esc(p.priority)} priority</span>` : ''}
+      ${p.id ? `<div class="row small muted" style="gap:8px">${pidPill(p.id)}${ps0 ? `<span>${I('calendar')} ${esc(fd(ps0))}${pe0 && pe0 !== ps0 ? ' – ' + esc(fd(pe0)) : ''}</span>` : ''}${p.priority ? `<span>${esc(p.priority)} priority</span>` : ''}
         ${pst ? `<span class="spacer"></span><button class="st-chip ${stClass(pst.status)}" data-cycle="${esc(p.id)}" title="Status – tap to change">${esc(ST_SHORT[pst.status] || pst.status)}</button>` : ''}</div>` : ''}
       ${p.coverage ? `<div class="cov" style="margin-top:8px">${esc(p.coverage)}</div>` : ''}
       ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
@@ -3351,11 +3364,28 @@ async function importPack(pack, onTick) {
   D.mocks.sort(byName);
   // A study plan (converted from the Excel planner) is kept as one synced document; progress is kept separately
   if (pack.studyPlan && pack.studyPlan.sheets) {
-    D.plan = { ...clone(pack.studyPlan), id: 'studyPlan' };
-    await store.put('prefs', 'studyPlan', pack.studyPlan);
+    const key = planKeyOf(pack.studyPlan), doc = EXAMS[key].doc, first = !D.plans[key];
+    D.plans[key] = { ...clone(pack.studyPlan), id: doc };
+    await store.put('prefs', doc, pack.studyPlan);
+    await migrateDayTicks(key, pack.studyPlan);
+    // Importing a new exam's plan for the first time switches to that exam; updates never change the mode
+    if (first && key !== examKey() && D.plans[examKey()]) { D.prefs.examMode = key; await savePrefs().catch(() => {}); res.modeSwitched = EXAMS[key].name; }
+    setActivePlan();
     res.plan = true;
   }
   return res;
+}
+// A rescheduled plan carries dateMap {old date: new date}; 'day done' ticks on old dates move with their study day (once)
+async function migrateDayTicks(key, sp) {
+  const map = sp.dateMap, mark = 'resched:' + key;
+  if (!map || !sp.rescheduled || (D.planState[mark] || {}).v === sp.rescheduled) return;
+  const pre = key === 'gpstr' ? 'day:' : 'day:' + key + ':', upd = {};
+  const ticked = Object.entries(map).filter(([o, n]) => o !== n && (D.planState[pre + o] || {}).d);
+  ticked.forEach(([o]) => { upd[pre + o] = { d: false }; });
+  ticked.forEach(([, n]) => { upd[pre + n] = { d: true }; });
+  upd[mark] = { v: sp.rescheduled };
+  Object.entries(upd).forEach(([k, v]) => { D.planState[k] = { ...(D.planState[k] || {}), ...v }; });
+  try { await store.merge('prefs', 'planState', upd); } catch (e) { toast(errText(e), 'error'); }
 }
 // "Where did it go?" list shown after an import
 function whereHTML(res) {
@@ -3440,7 +3470,8 @@ async function quickImport(p, btn, quiet) {
       <tr><td>New subjects / topics</td><td class="num"><b>${res.subjects} / ${res.topics}</b></td></tr>
       <tr><td>Already present (skipped)</td><td class="num"><b>${res.skipped}</b></td></tr>
       ${res.mocks ? `<tr><td>Mock test presets</td><td class="num"><b>${res.mocks}</b></td></tr>` : ''}${res.notes ? `<tr><td>Notes added</td><td class="num"><b>${res.notes}</b></td></tr>` : ''}</table>
-      ${res.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}${whereHTML(res)}`,
+      ${res.plan ? '<p class="status ok"><svg class=ic><use href=#i-calendar></use></svg> Your study plan is loaded. Open it from <b>Study plan</b> in the bottom bar.</p>' : ''}
+      ${res.modeSwitched ? `<p class="status ok">🎯 Exam mode is now <b>${esc(res.modeSwitched)}</b>. Switch back any time in Profile → Exam mode.</p>` : ''}${whereHTML(res)}`,
       [{ label: 'Stay here' }, res.plan ? { label: 'Open study plan', cls: 'primary', onClick: () => openPlan('days') } : { label: 'Go to Library', cls: 'primary', onClick: () => goHome() }]);
   } catch (e) { toast(errText(e), 'error'); }
   document.querySelectorAll('[data-bankfile]').forEach(b => b.disabled = false);
@@ -4610,7 +4641,7 @@ function renderToday() {
   const pRows = ids.map(planRow).filter(Boolean), pDone = pRows.filter(r => rowState(r).status === 'Completed').length, pc = pRows.length ? Math.round(pDone / pRows.length * 100) : 0;
   const practised = D.days[date] || 0, done = d && dayDone(d);
   let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
-      <div class="td-eyebrow">${esc(rel || 'Study day')}${d ? ` · Day ${i + 1} of ${cal.length} · Week ${Math.floor(i / 7) + 1}` : ''}</div>
+      <div class="td-eyebrow">${esc(rel || 'Study day')}${planKeyOf(D.plan) !== 'gpstr' ? ' · ' + esc(EXAMS[planKeyOf(D.plan)].short) : ''}${d ? ` · Day ${i + 1} of ${cal.length} · Week ${Math.floor(i / 7) + 1}` : ''}</div>
       <h1>${esc(pd.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' }))}</h1>
       <div class="td-sub">${d ? esc(d.phase) + ' phase · ' + d.hours + ' h planned' : 'Outside the study plan'}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
       ${d ? `<div class="ring" style="--p:${pc}" title="${pDone} of ${pRows.length} topics done"><span>${pDone}/${pRows.length}</span><small>topics</small></div>` : ''}</div>
@@ -4673,7 +4704,7 @@ function tdDoneHTML(date) {
 }
 document.addEventListener('click', async e => {
   const b = e.target.closest('[data-daydone-toggle]');
-  if (b) { e.preventDefault(); const dt = b.dataset.daydoneToggle, d = calRowFor(dt); await setPlanField('day:' + dt, 'd', !dayDone(d)); refreshPlanViews(); return; }
+  if (b) { e.preventDefault(); const dt = b.dataset.daydoneToggle, d = calRowFor(dt); await setPlanField(dayDoneKey(dt), 'd', !dayDone(d)); refreshPlanViews(); return; }
   if (e.target.closest('[data-edit-goal]')) {
     e.preventDefault();
     const v = await askText('Daily goal', 'Questions to practise per day (tests + flashcards)', String(D.prefs.dailyGoal || 30));
@@ -5298,6 +5329,7 @@ function renderProfile() {
   } else {
     h += `<div class="card"><h2>⚠ Demo mode</h2><p class="small">Nothing is saved: refreshing the page clears everything.</p><button class="btn" id="pfLeaveDemo">Leave demo</button></div>`;
   }
+  h += examModeCard();
   h += `<div class="card"><h2>🤖 AI keys</h2>
     <p class="small muted" style="margin-top:0">Use your own free keys. They are stored <b>only on this device</b>, never in your library, Firebase or GitHub, and are sent only to Google or Groq. Add them again on each phone or computer you use.</p>
     ${['gem', 'groq'].map(p => aiKeyBlock(p, cfg)).join('')}
@@ -5322,6 +5354,7 @@ function renderProfile() {
     };
   } else $('#pfLeaveDemo').onclick = () => { store = null; renderConnect(); };
 
+  el.querySelectorAll('[data-exam]').forEach(b => b.onclick = () => setExamMode(b.dataset.exam));
   ['gem', 'groq'].forEach(p => wireAiKey(p));
   $('#pfLang').onchange = () => setAiCfg({ lang: $('#pfLang').value });
   $('#pfTheme').onchange = () => { theme = $('#pfTheme').value; applyTheme(theme); lsSet(LS_THEME, theme); };
@@ -5332,6 +5365,30 @@ function renderProfile() {
     const old = D.prefs.dailyGoal; D.prefs.dailyGoal = n;
     try { await savePrefs(); toast('Daily goal saved'); } catch (e) { D.prefs.dailyGoal = old; toast(errText(e), 'error'); }
   };
+}
+// Exam mode: which exam's study plan drives Today, the Study plan and progress
+function examModeCard() {
+  const cur = examKey(), sp = k => D.plans[k];
+  const when = k => {
+    const x = sp(k); if (!x) return 'Plan not imported yet';
+    const ex = x.exams || (x.examDate ? [{ paper: 'Exam', date: x.examDate }] : []), cal = x.calendar || [];
+    return ex.map(e => `${esc(e.paper)} ${esc(fmtPD(e.date))}`).join(' · ') + (cal.length ? ` · plan ${esc(fmtPD(cal[0].date))} – ${esc(fmtPD(cal[cal.length - 1].date))}` : '');
+  };
+  return `<div class="card"><h2>🎯 Exam mode</h2>
+    <p class="small muted" style="margin-top:0">Choose the exam you are preparing for now. Today, the Study plan and progress follow its calendar. Questions, notes and topic progress are shared between exams.</p>
+    ${Object.entries(EXAMS).map(([k, x]) => `<div class="list-row"><div class="grow"><b>${esc(x.name)}</b> ${k === cur && sp(k) ? '<span class="pill correct">✓ Active</span>' : ''}<div class="small muted">${when(k)}</div></div>
+      ${k === cur && sp(k) ? '' : sp(k) ? `<button class="btn primary" data-exam="${k}">Switch</button>` : `<button class="btn" data-exam="${k}">${I('download')} Import plan</button>`}</div>`).join('')}</div>`;
+}
+async function setExamMode(k) {
+  if (!D.plans[k]) {
+    const idx = await getPackIndex().catch(() => null), p = idx && (idx.packs || []).find(x => x.file === EXAMS[k].file);
+    if (!p) { toast('The ' + EXAMS[k].name + ' plan is not in the question bank yet', 'error'); return; }
+    await quickImport(p, null, true);
+    if (!D.plans[k]) return;
+  }
+  const old = D.prefs.examMode; D.prefs.examMode = k; setActivePlan(); TD.date = null;
+  try { await savePrefs(); } catch (e) { D.prefs.examMode = old; setActivePlan(); toast(errText(e), 'error'); return; }
+  toast('Exam mode: ' + EXAMS[k].name); renderProfile();
 }
 function aiKeyBlock(p, cfg) {
   const P = AI_PROVIDERS[p], key = cfg[p + 'Key'], model = cfg[p + 'Model'];

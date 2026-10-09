@@ -1,0 +1,1070 @@
+{
+ "examsimPack": 1,
+ "name": "Study plan · KRIES Computer Teacher 2026",
+ "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 on 26 Oct, Paper 2 on 27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus two KRIES-only topics (Java, Computer Graphics). Importing it switches the app to KRIES mode; switch back to GPSTR any time in Profile → Exam mode.",
+ "subjects": [
+  {
+   "name": "P2 · KRIES – Additional Topics",
+   "icon": "🖥",
+   "topics": [
+    {
+     "name": "Basic Java Programming",
+     "plan": {
+      "id": "P2-KR-01",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "Basic Java – features, JVM and bytecode, data types, operators, control statements, classes and objects, constructors, inheritance, interfaces, packages, exception handling, strings, applets"
+     }
+    },
+    {
+     "name": "Computer Graphics",
+     "plan": {
+      "id": "P2-KR-02",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "Computer Graphics – display devices, line and circle drawing (DDA, Bresenham), 2-D transformations, windowing and clipping, colour models"
+     }
+    }
+   ]
+  }
+ ],
+ "studyPlan": {
+  "key": "kries",
+  "title": "KRIES Computer Teacher 2026 study plan",
+  "examDate": "2026-10-27",
+  "exams": [
+   {
+    "paper": "Paper 1",
+    "date": "2026-10-26"
+   },
+   {
+    "paper": "Paper 2",
+    "date": "2026-10-27"
+   }
+  ],
+  "marks": {},
+  "notes": [
+   "KRIES Paper 2 (Computer Teacher) syllabus: C Programming, Data Structures and Operating System in detail; OOPS using C++, DBMS, Software Engineering, System Software, Internet Technology, Basic Java and UNIX, Computer Graphics and Computer Networks by name.",
+   "Paper 1 syllabus: to be added."
+  ],
+  "statuses": [
+   "Not Started",
+   "In Progress",
+   "Completed",
+   "Review Required"
+  ],
+  "sheets": {
+   "p1": {
+    "title": "PAPER 1 — KRIES 2026",
+    "source": "Syllabus to be added",
+    "howTo": "",
+    "groups": []
+   },
+   "p2": {
+    "title": "PAPER 2 (COMPUTER TEACHER) — KRIES 2026",
+    "source": "KRIES Computer Teacher syllabus (Paper 2)",
+    "howTo": "Topics reuse the GPSTR question bank; progress is shared between the two exams.",
+    "groups": [
+     {
+      "name": "C Programming",
+      "meta": [
+       "KRIES core area · Unit 4 topics",
+       "2 topics"
+      ],
+      "rows": [
+       {
+        "id": "P2-U4-03",
+        "subject": "C Programming",
+        "topic": "Programming in C – Part 1",
+        "coverage": "History and structure of a C program, character set, constants, variables, keywords; type declaration, arithmetic instructions, integer/float conversion, operators and their hierarchy; formatted and unformatted I/O; if/else, logical, relational and conditional operators; while, do-while, for, break, continue, switch, goto; 1-D and 2-D arrays, bubble sort; strings and library functions; structures, unions, typedef, enum, bit fields",
+        "priority": "High",
+        "hours": 3.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U4-04",
+        "subject": "C Programming",
+        "topic": "Programming in C – Part 2",
+        "coverage": "Functions – definition, prototypes, types, arguments, recursion, passing arrays; storage classes (auto, register, extern, static); pointers – notation, pointers and arrays, arrays of pointers, call by value / reference, pointer to pointer; bitwise operators (AND, OR, XOR, complement, shifts); preprocessor – macros, file inclusion; files – modes, text and binary files, high- and low-level I/O, command-line arguments",
+        "priority": "High",
+        "hours": 3.0,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Data Structures",
+      "meta": [
+       "KRIES core area · Unit 8 topics",
+       "5 topics"
+      ],
+      "rows": [
+       {
+        "id": "P2-U8-06",
+        "subject": "Data Structures",
+        "topic": "Performance Analysis & Recurrences",
+        "coverage": "Introduction to time and space complexity",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U8-01",
+        "subject": "Data Structures",
+        "topic": "Linear Data Structures",
+        "coverage": "Definition, classification and operations; primitive data structures and strings using pointers; 1-D and 2-D array storage, insertion and deletion; linked lists (singly, circular, doubly) with dynamic memory allocation; stacks – sequential and linked, Tower of Hanoi, infix to postfix, postfix evaluation; queues – circular, priority, deque",
+        "priority": "High",
+        "hours": 2.0,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U8-02",
+        "subject": "Data Structures",
+        "topic": "Trees",
+        "coverage": "Binary trees, sequential and linked representation, insertion and deletion, traversals",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U8-03",
+        "subject": "Data Structures",
+        "topic": "Sets & Graph Representation",
+        "coverage": "Graph concepts, sequential and linked representation, BFS and DFS",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U8-04",
+        "subject": "Data Structures",
+        "topic": "Sorting and Searching",
+        "coverage": "Linear and binary search; selection, insertion, quick and merge sort (bubble sort with C arrays)",
+        "priority": "High",
+        "hours": 1.25,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Operating System",
+      "meta": [
+       "KRIES core area · Unit 6 topics",
+       "8 topics"
+      ],
+      "rows": [
+       {
+        "id": "P2-U6-02",
+        "subject": "Operating System",
+        "topic": "OS Basics",
+        "coverage": "History; batch, multiprogrammed, time-sharing, personal, distributed and real-time systems; OS structures – command interpreter, services, system calls, system programs",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-03",
+        "subject": "Operating System",
+        "topic": "Process Management & IPC",
+        "coverage": "Process concept, process control block, process scheduling",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-06",
+        "subject": "Operating System",
+        "topic": "CPU Scheduling",
+        "coverage": "Basic concepts; FIFO, RR, SJF, multilevel and multilevel feedback queue scheduling",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-08",
+        "subject": "Operating System",
+        "topic": "Memory Management",
+        "coverage": "Logical and physical address space, swapping, contiguous allocation, paging, segmentation",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-09",
+        "subject": "Operating System",
+        "topic": "Virtual Memory",
+        "coverage": "Demand paging, page replacement and its algorithms, allocation of frames, thrashing, demand segmentation",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-11",
+        "subject": "Operating System",
+        "topic": "File Systems",
+        "coverage": "File concept, access methods, directory structure, protection, file-system structure, allocation methods, free-space management",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-10",
+        "subject": "Operating System",
+        "topic": "Storage Management",
+        "coverage": "Secondary storage – disk structure, disk scheduling",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-12",
+        "subject": "Operating System",
+        "topic": "I/O Systems",
+        "coverage": "Overview of I/O systems and I/O interfaces",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Other areas in the syllabus",
+      "meta": [
+       "Listed by name only in the KRIES syllabus – revise the basics",
+       "25 topics"
+      ],
+      "rows": [
+       {
+        "id": "P2-U4-05",
+        "subject": "Other areas in the syllabus",
+        "topic": "Object Oriented Programming",
+        "coverage": "OOPS using C++ – classes, objects, inheritance, polymorphism",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U4-06",
+        "subject": "Other areas in the syllabus",
+        "topic": "Programming in C++ – Part 1",
+        "coverage": "OOPS using C++ – tokens, functions, classes, constructors and destructors",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U4-07",
+        "subject": "Other areas in the syllabus",
+        "topic": "Programming in C++ – Part 2",
+        "coverage": "OOPS using C++ – overloading, virtual functions, inheritance, templates, exceptions, files",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U5-01",
+        "subject": "Other areas in the syllabus",
+        "topic": "DBMS Concepts and Architecture",
+        "coverage": "Database Management System – concepts and architecture",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U5-02",
+        "subject": "Other areas in the syllabus",
+        "topic": "ER Model & Relational Model",
+        "coverage": "Database Management System – ER and relational model",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U5-04",
+        "subject": "Other areas in the syllabus",
+        "topic": "SQL – Part 1",
+        "coverage": "Database Management System – SQL",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U5-06",
+        "subject": "Other areas in the syllabus",
+        "topic": "Normalization",
+        "coverage": "Database Management System – normalization",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U7-01",
+        "subject": "Other areas in the syllabus",
+        "topic": "Software Process Models",
+        "coverage": "Software Engineering – process models",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U7-03",
+        "subject": "Other areas in the syllabus",
+        "topic": "Software Requirements",
+        "coverage": "Software Engineering – requirements",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U7-04",
+        "subject": "Other areas in the syllabus",
+        "topic": "Software Design",
+        "coverage": "Software Engineering – design",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U7-05",
+        "subject": "Other areas in the syllabus",
+        "topic": "Software Testing",
+        "coverage": "Software Engineering – testing",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-01",
+        "subject": "Other areas in the syllabus",
+        "topic": "System Software",
+        "coverage": "System Software – assemblers, loaders, linkers, compilers, interpreters",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U4-08",
+        "subject": "Other areas in the syllabus",
+        "topic": "Web Programming – HTML, DHTML, CSS",
+        "coverage": "Internet Technology / Internet Lab – HTML, CSS",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U4-09",
+        "subject": "Other areas in the syllabus",
+        "topic": "Web Programming – XML, Scripting, JavaScript",
+        "coverage": "Internet Technology – XML, JavaScript",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-10",
+        "subject": "Other areas in the syllabus",
+        "topic": "World Wide Web & Applications",
+        "coverage": "Internet Technology – URL, DNS, e-mail, FTP, TELNET",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KR-01",
+        "subject": "Other areas in the syllabus",
+        "topic": "Basic Java Programming",
+        "coverage": "Basic Java – features, JVM and bytecode, data types, operators, control statements, classes and objects, constructors, inheritance, interfaces, packages, exception handling, strings, applets",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U6-14",
+        "subject": "Other areas in the syllabus",
+        "topic": "Linux Operating System",
+        "coverage": "UNIX programming – commands, file system, permissions, shell",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KR-02",
+        "subject": "Other areas in the syllabus",
+        "topic": "Computer Graphics",
+        "coverage": "Computer Graphics – display devices, line and circle drawing (DDA, Bresenham), 2-D transformations, windowing and clipping, colour models",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-01",
+        "subject": "Other areas in the syllabus",
+        "topic": "Data Communication – Part 1",
+        "coverage": "Computer Networks – data communication basics",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-03",
+        "subject": "Other areas in the syllabus",
+        "topic": "Computer Networks & Topologies",
+        "coverage": "Computer Networks – topologies, LAN, MAN, WAN",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-04",
+        "subject": "Other areas in the syllabus",
+        "topic": "Network Models",
+        "coverage": "Computer Networks – OSI and TCP/IP models",
+        "priority": "High",
+        "hours": 0.75,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-05",
+        "subject": "Other areas in the syllabus",
+        "topic": "Data Link Layer",
+        "coverage": "Computer Networks – error detection, flow control",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-06",
+        "subject": "Other areas in the syllabus",
+        "topic": "Multiple Access, Devices & VLANs",
+        "coverage": "Computer Networks – CSMA/CD, network devices",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-07",
+        "subject": "Other areas in the syllabus",
+        "topic": "IPv4 Addressing",
+        "coverage": "Computer Networks – IP addressing",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-U9-09",
+        "subject": "Other areas in the syllabus",
+        "topic": "Transport Layer",
+        "coverage": "Computer Networks – TCP and UDP",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "calendar": [
+   {
+    "date": "2026-10-10",
+    "day": "Sat",
+    "phase": "Learning",
+    "hours": 6.5,
+    "p2": [
+     "P2-U4-03 Programming in C – Part 1"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-11",
+    "day": "Sun",
+    "phase": "Learning",
+    "hours": 6.5,
+    "p2": [
+     "P2-U4-04 Programming in C – Part 2",
+     "P2-U8-06 Performance Analysis & Recurrences"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-12",
+    "day": "Mon",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U8-01 Linear Data Structures"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-13",
+    "day": "Tue",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U8-02 Trees",
+     "P2-U8-03 Sets & Graph Representation",
+     "P2-U8-04 Sorting and Searching"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-14",
+    "day": "Wed",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U6-02 OS Basics",
+     "P2-U6-03 Process Management & IPC",
+     "P2-U6-06 CPU Scheduling"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-15",
+    "day": "Thu",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U6-08 Memory Management",
+     "P2-U6-09 Virtual Memory"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-16",
+    "day": "Fri",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U6-11 File Systems",
+     "P2-U6-10 Storage Management",
+     "P2-U6-12 I/O Systems"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-17",
+    "day": "Sat",
+    "phase": "Learning",
+    "hours": 6.5,
+    "p2": [
+     "P2-U4-05 Object Oriented Programming",
+     "P2-U4-06 Programming in C++ – Part 1",
+     "P2-U4-07 Programming in C++ – Part 2"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-18",
+    "day": "Sun",
+    "phase": "Learning",
+    "hours": 6.5,
+    "p2": [
+     "P2-U5-01 DBMS Concepts and Architecture",
+     "P2-U5-02 ER Model & Relational Model",
+     "P2-U5-04 SQL – Part 1",
+     "P2-U5-06 Normalization"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-19",
+    "day": "Mon",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U7-01 Software Process Models",
+     "P2-U7-03 Software Requirements",
+     "P2-U7-04 Software Design",
+     "P2-U7-05 Software Testing"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-20",
+    "day": "Tue",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U6-01 System Software",
+     "P2-U4-08 Web Programming – HTML, DHTML, CSS",
+     "P2-U4-09 Web Programming – XML, Scripting, JavaScript",
+     "P2-U9-10 World Wide Web & Applications"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-21",
+    "day": "Wed",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-KR-01 Basic Java Programming"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-22",
+    "day": "Thu",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U6-14 Linux Operating System",
+     "P2-KR-02 Computer Graphics"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-23",
+    "day": "Fri",
+    "phase": "Learning",
+    "hours": 3.0,
+    "p2": [
+     "P2-U9-01 Data Communication – Part 1",
+     "P2-U9-03 Computer Networks & Topologies",
+     "P2-U9-04 Network Models",
+     "P2-U9-05 Data Link Layer"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-24",
+    "day": "Sat",
+    "phase": "Learning",
+    "hours": 6.5,
+    "p2": [
+     "P2-U9-06 Multiple Access, Devices & VLANs",
+     "P2-U9-07 IPv4 Addressing",
+     "P2-U9-09 Transport Layer",
+     "Revision – C Programming (output and pointer questions)"
+    ],
+    "p1": [
+     "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-25",
+    "day": "Sun",
+    "phase": "MOCK TEST",
+    "hours": 6.5,
+    "p2": [
+     "Full mock test – Paper 2 (C, Data Structures, OS) + analysis; revise Data Structures and OS"
+    ],
+    "p1": [
+     "Paper 1 – final revision"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-26",
+    "day": "Mon",
+    "phase": "Exam",
+    "hours": 3.0,
+    "p2": [
+     "Evening: light revision of C, Data Structures and OS short notes"
+    ],
+    "p1": [
+     "PAPER 1 EXAM (KRIES)"
+    ],
+    "habit": "15 min current affairs",
+    "done": false
+   },
+   {
+    "date": "2026-10-27",
+    "day": "Tue",
+    "phase": "Exam",
+    "hours": 3.0,
+    "p2": [
+     "PAPER 2 EXAM – Computer Teacher (KRIES)"
+    ],
+    "p1": [],
+    "habit": "15 min current affairs",
+    "done": false
+   }
+  ]
+ }
+}

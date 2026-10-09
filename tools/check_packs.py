@@ -96,7 +96,7 @@ for f in sorted(listed):
             for st in sets:
                 where = f"{f}: {tname} / {st['name']}"
                 qs = st.get("questions", [])
-                size = EXTRA_SUBJECTS[sname]["sizes"].get(st["name"].split(" · ", 1)[-1], 20) if sname in EXTRA_SUBJECTS else 30 if paper2 else 20
+                size = EXTRA_SUBJECTS[sname]["sizes"].get(st["name"].split(" · ", 1)[-1], EXTRA_SUBJECTS[sname].get("size", 20)) if sname in EXTRA_SUBJECTS else 30 if paper2 else 20
                 real = "Previous-Year Questions" in st["name"]  # real questions only: any size, printed answer letters
                 if not legacy and not real and len(qs) != size:
                     err(f"{where}: {len(qs)} questions, expected {size}")

@@ -48,7 +48,11 @@ CA_PLAN = {"Current International Affairs": "P1-CA-01", "Current National Affair
            "Indian Constitution": "P1-CA-13", "Highways, Railways and Airport Names": "P1-CA-14", "Abbreviations": "P1-CA-15"}
 EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PLAN) + [f"{m} {y}" for y in (2026, 2027) for m in MONTHS],
                                           "plan": CA_PLAN, "sizes": {"Karnataka": 30, "National": 10},
-                                          "group": "③ Current affairs (planner topics + monthly · 75% Karnataka, 25% national)"}}
+                                          "group": "③ Current affairs (planner topics + monthly · 75% Karnataka, 25% national)"},
+                  # KRIES Computer Teacher topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); Paper 2 sets of 30
+                  "P2 · KRIES – Additional Topics": {"icon": "🖥", "topics": ["Basic Java Programming", "Computer Graphics"],
+                                                     "plan": {"Basic Java Programming": "P2-KR-01", "Computer Graphics": "P2-KR-02"}, "sizes": {}, "size": 30,
+                                                     "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"}}
 
 
 def build(key):
