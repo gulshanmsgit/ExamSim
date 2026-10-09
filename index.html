@@ -1403,6 +1403,16 @@ const planKeyOf = sp => (sp && sp.key in EXAMS ? sp.key : 'gpstr');
 // 'Day done' ticks are stored per exam so that the same date in two plans is ticked separately (GPSTR keeps the old keys)
 const dayDoneKey = date => (planKeyOf(D.plan) === 'gpstr' ? 'day:' : 'day:' + planKeyOf(D.plan) + ':') + date;
 function setActivePlan() { D.plan = D.plans[examKey()] || D.plans.gpstr || Object.values(D.plans).find(Boolean) || null; }
+// Exams other than GPSTR (KRIES = Paper 2 only) show just their own plan's topics in the Library, subject pages and Plan
+let _scope = null, _scopeOf = null;
+function examScope() {
+  if (planKeyOf(D.plan) === 'gpstr') return null;
+  if (_scopeOf !== D.plan) { _scope = new Set(planRows().map(r => r.id)); _scopeOf = D.plan; }
+  return _scope;
+}
+const inScopeT = t => { const sc = examScope(); return !sc || !!(t.plan && sc.has(t.plan.id)); };
+const inScopeS = sj => !examScope() || D.topics.some(t => t.subjectId === sj.id && inScopeT(t));
+const planPapers = () => (D.plan && D.plan.papers) || ['p1', 'p2'];
 const qCache = new Map();
 let store = null, WS = null, fb = null;
 
@@ -1838,7 +1848,8 @@ async function deleteTopicFlow(t) {
 }
 /* ---------- Library layout: grouped by paper, so it stays readable as packs grow ---------- */
 function subjectStats(s) {
-  const topics = D.topics.filter(t => t.subjectId === s.id), sets = D.sets.filter(x => x.subjectId === s.id);
+  const allT = D.topics.filter(t => t.subjectId === s.id), scoped = allT.filter(inScopeT), topics = scoped.length ? scoped : allT;
+  const tIds = new Set(topics.map(t => t.id)), sets = D.sets.filter(x => x.subjectId === s.id && (x.topicId == null || tIds.has(x.topicId)));
   const atts = D.attempts.filter(a => a.subjectId === s.id);
   const planned = topics.filter(t => t.plan && t.plan.id);
   return {
@@ -1863,8 +1874,9 @@ function subjectCard(s) {
 const LS_LIBCLOSED = 'examsim.libclosed';
 function libraryHTML() {
   const closed = lsGet(LS_LIBCLOSED, []) || [];
-  return [[1, 'Paper 1 · General'], [2, 'Paper 2 · Computer Science'], [0, 'My subjects']].map(([p, title]) => {
-    const list = D.subjects.filter(s => paperOf(s) === p);
+  const scopeNote = examScope() ? `<p class="small muted" style="margin:0 0 10px">🎯 ${esc(EXAMS[planKeyOf(D.plan)].name)} mode – showing only its syllabus (${plural(examScope().size, 'topic')}). Switch exam in <a href="#" data-profile>Profile</a>.</p>` : '';
+  return scopeNote + [[1, 'Paper 1 · General'], [2, 'Paper 2 · Computer Science'], [0, 'My subjects']].map(([p, title]) => {
+    const list = D.subjects.filter(s => paperOf(s) === p && inScopeS(s));
     if (!list.length) return '';
     const nQ = D.sets.filter(x => list.some(s => s.id === x.subjectId)).reduce((n, x) => n + (x.count || 0), 0);
     return `<details class="lib-group" data-paper="${p}" ${closed.includes(p) ? '' : 'open'}><summary><span class="lib-title">${title}</span>
@@ -2262,12 +2274,13 @@ function renderPlan() {
   const body = $('#planBody');
   if (PL.tab === 'days') { body.innerHTML = planDaysHTML(); wireDayBlocks(body); }
   else if (PL.tab === 'subjects') {
-    const key = PL.paper === 'p2' ? 'p2' : 'p1';
-    body.innerHTML = `<div class="seg" style="margin-bottom:10px"><button data-ppaper="p1" class="${key === 'p1' ? 'on' : ''}">Paper 1 · General</button><button data-ppaper="p2" class="${key === 'p2' ? 'on' : ''}">Paper 2 · Computer Science</button></div>` + planSheetHTML(key);
+    const papers = planPapers(), key = papers.length === 1 ? papers[0] : PL.paper === 'p2' ? 'p2' : 'p1';
+    body.innerHTML = (papers.length > 1 ? `<div class="seg" style="margin-bottom:10px"><button data-ppaper="p1" class="${key === 'p1' ? 'on' : ''}">Paper 1 · General</button><button data-ppaper="p2" class="${key === 'p2' ? 'on' : ''}">Paper 2 · Computer Science</button></div>` : '') + planSheetHTML(key);
   } else {
     const p1 = planStats(planRows('p1')), p2 = planStats(planRows('p2'));
-    body.innerHTML = `<div class="stats plan-kpi">${statBox(all.pct + '%', 'Overall complete')}${statBox(p1.pct + '%', 'Paper 1')}${statBox(p2.pct + '%', 'Paper 2')}
-      ${statBox(all.overdue, 'Topics overdue')}${statBox(readiness() + '%', 'P1 readiness')}</div><details class="adv"><summary>Detailed tracker tables (advanced)</summary>${planTrackerHTML()}</details><div id="plProg"></div>`;
+    const both = planPapers().length > 1;
+    body.innerHTML = `<div class="stats plan-kpi">${statBox(all.pct + '%', 'Overall complete')}${both ? statBox(p1.pct + '%', 'Paper 1') + statBox(p2.pct + '%', 'Paper 2') : ''}
+      ${statBox(all.overdue, 'Topics overdue')}${both ? statBox(readiness() + '%', 'P1 readiness') : ''}</div><details class="adv"><summary>Detailed tracker tables (advanced)</summary>${planTrackerHTML()}</details><div id="plProg"></div>`;
     renderProgress($('#plProg'));
   }
   const q = $('#plQ');
@@ -2690,7 +2703,8 @@ function openSubject(id) { cur.subjectId = id; cur.topicId = null; renderSubject
 function renderSubject() {
   const s = byId('subjects', cur.subjectId);
   if (!s) return goHome();
-  const topics = D.topics.filter(t => t.subjectId === s.id).sort(byTopicOrder), acc = topicAccuracy();
+  const allT = D.topics.filter(t => t.subjectId === s.id), scoped = allT.filter(inScopeT);
+  const topics = (scoped.length ? scoped : allT).sort(byTopicOrder), acc = topicAccuracy();
   const atts = D.attempts.filter(a => a.subjectId === s.id);
   const sets = D.sets.filter(x => x.subjectId === s.id);
   const st = { ...DEFAULT_SETTINGS, ...s.settings };

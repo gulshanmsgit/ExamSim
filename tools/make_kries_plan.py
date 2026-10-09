@@ -5,7 +5,8 @@ Paper 2 on 27 Oct 2026. The Paper 2 syllabus for the Computer Teacher post (C Pr
 C++, DBMS, Software Engineering, System Software, Internet Technology, Java and UNIX, Computer Graphics, Computer Networks) is mapped
 onto the GPSTR topics we already have (same plan IDs, so questions, notes and progress are shared). Only two areas are not in the
 GPSTR syllabus; they become topics of the extra subject 'P2 · KRIES – Additional Topics' (P2-KR-01 Java, P2-KR-02 Computer Graphics).
-Paper 1's syllabus has not been shared yet, so the plan's Paper 1 sheet is empty and the calendar only reminds about it.
+The owner wants KRIES mode to cover Paper 2 only, so the plan has no Paper 1 sheet rows or tasks, and in KRIES mode the app shows
+only the subjects and topics in this plan.
 
 Writes packs/kries-2026-plan.json and adds it to packs/index.json (group '① Start here'). Run tools/make_index.py afterwards.
 Usage: python tools/make_kries_plan.py
@@ -83,7 +84,7 @@ GROUPS = [
 ]
 
 # Calendar: (Paper 2 plan IDs, extra Paper 2 text, Paper 1 text, phase)
-P1_NOTE = "Paper 1 (26 Oct): syllabus to be added – revise general knowledge and current affairs daily"
+P1_NOTE = ""  # KRIES mode covers Paper 2 only (owner's choice, 10 Oct 2026)
 DAYS = [
     (["P2-U4-03"], "", P1_NOTE, "Learning"),                                            # Sat 10
     (["P2-U4-04", "P2-U8-06"], "", P1_NOTE, "Learning"),                                # Sun 11
@@ -100,8 +101,8 @@ DAYS = [
     (["P2-U6-14", "P2-KR-02"], "", P1_NOTE, "Learning"),                                # Thu 22
     (["P2-U9-01", "P2-U9-03", "P2-U9-04", "P2-U9-05"], "", P1_NOTE, "Learning"),        # Fri 23
     (["P2-U9-06", "P2-U9-07", "P2-U9-09"], "Revision – C Programming (output and pointer questions)", P1_NOTE, "Learning"),  # Sat 24
-    ([], "Full mock test – Paper 2 (C, Data Structures, OS) + analysis; revise Data Structures and OS", "Paper 1 – final revision", "MOCK TEST"),  # Sun 25
-    ([], "Evening: light revision of C, Data Structures and OS short notes", "PAPER 1 EXAM (KRIES)", "Exam"),  # Mon 26
+    ([], "Full mock test – Paper 2 (C, Data Structures, OS) + analysis", "", "MOCK TEST"),  # Sun 25
+    ([], "Final revision – C, Data Structures and OS short notes; weak topics from the mock", "", "Final Revision"),  # Mon 26
     ([], "PAPER 2 EXAM – Computer Teacher (KRIES)", "", "Exam"),                    # Tue 27
 ]
 
@@ -116,7 +117,7 @@ def main():
         weekend = d.weekday() >= 5
         cal.append({"date": d.isoformat(), "day": d.strftime("%a"), "phase": phase, "hours": 6.5 if weekend else 3.0,
                     "p2": [f"{pid} {rows[pid][1][1]}" for pid in ids] + ([extra] if extra else []),
-                    "p1": [p1] if p1 else [], "habit": "15 min current affairs", "done": False})
+                    "p1": [p1] if p1 else [], "habit": "Solve 10 C output-prediction questions", "done": False})
     missing = set(rows) - set(when)
     assert not missing, f"plan rows not on the calendar: {missing}"
     groups = []
@@ -133,16 +134,16 @@ def main():
     pack = {
         "examsimPack": 1,
         "name": "Study plan · KRIES Computer Teacher 2026",
-        "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 on 26 Oct, Paper 2 on 27 Oct 2026. An 18-day plan from 10 Oct mapped "
+        "description": "Exam mode for KRIES Computer Teacher recruitment (KEA), Paper 2 (Computer Teacher) on 27 Oct 2026. An 18-day plan from 10 Oct mapped "
                        "onto the topics you already have, plus two KRIES-only topics (Java, Computer Graphics). Importing it switches the app to KRIES mode; "
                        "switch back to GPSTR any time in Profile → Exam mode.",
         "subjects": [{"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
         "studyPlan": {
             "key": "kries", "title": "KRIES Computer Teacher 2026 study plan", "examDate": "2026-10-27",
-            "exams": [{"paper": "Paper 1", "date": "2026-10-26"}, {"paper": "Paper 2", "date": "2026-10-27"}],
+            "exams": [{"paper": "Paper 2", "date": "2026-10-27"}], "papers": ["p2"],
             "marks": {}, "notes": ["KRIES Paper 2 (Computer Teacher) syllabus: C Programming, Data Structures and Operating System in detail; OOPS using C++, "
                                    "DBMS, Software Engineering, System Software, Internet Technology, Basic Java and UNIX, Computer Graphics and Computer "
-                                   "Networks by name.", "Paper 1 syllabus: to be added."],
+                                   "Networks by name.", "KRIES mode shows only the Paper 2 (Computer Teacher) syllabus."],
             "statuses": ["Not Started", "In Progress", "Completed", "Review Required"],
             "sheets": {"p1": {"title": "PAPER 1 — KRIES 2026", "source": "Syllabus to be added", "howTo": "", "groups": []},
                        "p2": {"title": "PAPER 2 (COMPUTER TEACHER) — KRIES 2026", "source": "KRIES Computer Teacher syllabus (Paper 2)",
