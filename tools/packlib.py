@@ -21,13 +21,19 @@ AR = ["Both A and R are true, and R is the correct explanation of A",
       "Both A and R are true, but R is not the correct explanation of A",
       "A is true, but R is false", "A is false, but R is true"]
 I_II = ["Only I", "Only II", "Both I and II", "Neither I nor II"]
+# Kannada versions in KEA's wording (KRIES Paper 1 is written in Kannada)
+AR_KN = ["(A) ಮತ್ತು (R) ಎರಡೂ ಸರಿ ಮತ್ತು (R) ಎಂಬುದು (A) ಗೆ ಸರಿಯಾದ ವಿವರಣೆಯಾಗಿದೆ",
+         "(A) ಮತ್ತು (R) ಎರಡೂ ಸರಿ, ಆದರೆ (R) ಎಂಬುದು (A) ಗೆ ಸರಿಯಾದ ವಿವರಣೆಯಲ್ಲ",
+         "(A) ಸರಿ, ಆದರೆ (R) ತಪ್ಪು", "(A) ತಪ್ಪು, ಆದರೆ (R) ಸರಿ"]
+I_II_KN = ["I ಮಾತ್ರ", "II ಮಾತ್ರ", "I ಮತ್ತು II ಎರಡೂ", "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"]
 
 # Only option sets whose order carries meaning stay fixed; sequences and matchings are self-contained, so they shuffle.
 _ORDERED = re.compile(r"^(Only|Both|Neither|A is|All of|None of)")
+_ORDERED_KN = set(AR_KN + I_II_KN)
 
 
 def _keep_order(q, opts):
-    return "Assertion (A)" in q or any(_ORDERED.search(o) for o in opts)
+    return "Assertion (A)" in q or any(_ORDERED.search(o) or o in _ORDERED_KN for o in opts)
 
 
 # Match-the-following: stem ends with a line "1. …  2. …  3. …  4. …" and options are codes like "a-4, b-3, c-2, d-1".

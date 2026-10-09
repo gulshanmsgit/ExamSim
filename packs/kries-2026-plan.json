@@ -1,8 +1,113 @@
 {
  "examsimPack": 1,
  "name": "Study plan · KRIES Computer Teacher 2026",
- "description": "Exam mode for KRIES Computer Teacher recruitment (KEA), Paper 2 (Computer Teacher) on 27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus two KRIES-only topics (Java, Computer Graphics). Importing it switches the app to KRIES mode; switch back to GPSTR any time in Profile → Exam mode.",
+ "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 (general paper) on 26 Oct and Paper 2 (Computer Teacher) on 27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus KRIES-only topics (Paper 1: Karnataka land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC arithmetic and social science – in Kannada; Paper 2: Java, Computer Graphics). Importing it switches the app to KRIES mode; switch back to GPSTR any time in Profile → Exam mode.",
  "subjects": [
+  {
+   "name": "P1 · KRIES – Karnataka & General Studies",
+   "icon": "🏛",
+   "topics": [
+    {
+     "name": "Land Reforms and Social Change in Karnataka",
+     "plan": {
+      "id": "P1-KR-01",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(J) Land reforms in Karnataka after independence and social change – 1961 and 1974 Acts, land tribunals, Devaraj Urs, backward-class commissions, debt relief and bonded labour"
+     }
+    },
+    {
+     "name": "Karnataka Economy – Strengths, Weaknesses and Current Status",
+     "plan": {
+      "id": "P1-KR-02",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(K) Karnataka's economy – strengths and weaknesses, current status (economic survey, budget, GSDP, sectors, schemes)"
+     }
+    },
+    {
+     "name": "Rural Development, Panchayat Raj and Rural Co-operatives",
+     "plan": {
+      "id": "P1-KR-03",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(L) Rural development, Panchayat Raj institutions and rural co-operatives"
+     }
+    },
+    {
+     "name": "Science and Technology in Karnataka Administration",
+     "plan": {
+      "id": "P1-KR-04",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(M) Role of science and technology in effective administration in Karnataka (e-governance)"
+     }
+    },
+    {
+     "name": "Environment and Development of Karnataka",
+     "plan": {
+      "id": "P1-KR-05",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(N) Environmental problems and development of Karnataka"
+     }
+    },
+    {
+     "name": "Mental Ability – Reasoning",
+     "plan": {
+      "id": "P1-KR-06",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H, O) Mental ability – series, analogy, coding–decoding, blood relations, directions, ranking, calendar, clocks, statements and conclusions"
+     }
+    },
+    {
+     "name": "Practical Knowledge – SSLC Arithmetic",
+     "plan": {
+      "id": "P1-KR-07",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H) Practical knowledge – percentages, ratio, averages, profit and loss, interest, time and work, speed, mensuration"
+     }
+    },
+    {
+     "name": "Social Science – SSLC Basics",
+     "plan": {
+      "id": "P1-KR-08",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(D) Social science at SSLC level – civics, economics, sociology, business studies"
+     }
+    },
+    {
+     "name": "Social and Cultural History of Karnataka",
+     "plan": {
+      "id": "P1-KR-09",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Social and cultural history of Karnataka – religious and social reform (Basavanna, Dasas), Wodeyars and Dewans, armed rebellions, freedom movement, unification, literature and culture"
+     }
+    }
+   ]
+  },
   {
    "name": "P2 · KRIES – Additional Topics",
    "icon": "🖥",
@@ -35,20 +140,26 @@
  "studyPlan": {
   "key": "kries",
   "title": "KRIES Computer Teacher 2026 study plan",
-  "examDate": "2026-10-27",
+  "examDate": "2026-10-26",
   "exams": [
+   {
+    "paper": "Paper 1",
+    "date": "2026-10-26"
+   },
    {
     "paper": "Paper 2",
     "date": "2026-10-27"
    }
   ],
   "papers": [
+   "p1",
    "p2"
   ],
   "marks": {},
   "notes": [
+   "KRIES Paper 1 (100 questions, 100 marks, 2 hours): KEA's general paper – current affairs, general science, geography, social science, history of India and Karnataka, Constitution and public administration, mental ability (SSLC level) and Karnataka's history, land reforms, economy, Panchayat Raj, administration and environment.",
    "KRIES Paper 2 (Computer Teacher) syllabus: C Programming, Data Structures and Operating System in detail; OOPS using C++, DBMS, Software Engineering, System Software, Internet Technology, Basic Java and UNIX, Computer Graphics and Computer Networks by name.",
-   "KRIES mode shows only the Paper 2 (Computer Teacher) syllabus."
+   "KRIES mode shows only the topics in this plan."
   ],
   "statuses": [
    "Not Started",
@@ -58,10 +169,524 @@
   ],
   "sheets": {
    "p1": {
-    "title": "PAPER 1 — KRIES 2026",
-    "source": "Syllabus to be added",
-    "howTo": "",
-    "groups": []
+    "title": "PAPER 1 (GENERAL) — KRIES 2026",
+    "source": "KRIES notification §10, Paper 1 items A–O",
+    "howTo": "GK and current-affairs topics are shared with GPSTR; Karnataka items and mental ability are KRIES topics (in Kannada).",
+    "groups": [
+     {
+      "name": "Karnataka (items I–N)",
+      "meta": [
+       "KRIES Paper 1 · Karnataka-specific items – heavily asked in KEA general papers",
+       "6 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KR-09",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Social and Cultural History of Karnataka",
+        "coverage": "(I) Social and cultural history of Karnataka – religious and social reform (Basavanna, Dasas), Wodeyars and Dewans, armed rebellions, freedom movement, unification, literature and culture",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-01",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Land Reforms and Social Change in Karnataka",
+        "coverage": "(J) Land reforms in Karnataka after independence and social change – 1961 and 1974 Acts, land tribunals, Devaraj Urs, backward-class commissions, debt relief and bonded labour",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-02",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Karnataka Economy – Strengths, Weaknesses and Current Status",
+        "coverage": "(K) Karnataka's economy – strengths and weaknesses, current status (economic survey, budget, GSDP, sectors, schemes)",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-03",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Rural Development, Panchayat Raj and Rural Co-operatives",
+        "coverage": "(L) Rural development, Panchayat Raj institutions and rural co-operatives",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-04",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Science and Technology in Karnataka Administration",
+        "coverage": "(M) Role of science and technology in effective administration in Karnataka (e-governance)",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-05",
+        "subject": "Karnataka (items I–N)",
+        "topic": "Environment and Development of Karnataka",
+        "coverage": "(N) Environmental problems and development of Karnataka",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "History, society and culture (items E, F)",
+      "meta": [
+       "GPSTR GK topics",
+       "4 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-GK-05",
+        "subject": "History, society and culture (items E, F)",
+        "topic": "Karnataka History, Culture and Art",
+        "coverage": "(F) History of Karnataka – dynasties, culture, art and architecture",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-06",
+        "subject": "History, society and culture (items E, F)",
+        "topic": "Indian History and Culture – Ancient",
+        "coverage": "(E, F) Indian society and its history – ancient India",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-07",
+        "subject": "History, society and culture (items E, F)",
+        "topic": "Indian History and Culture – Medieval",
+        "coverage": "(E, F) Medieval India",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-08",
+        "subject": "History, society and culture (items E, F)",
+        "topic": "Indian History and Culture – Modern",
+        "coverage": "(E, F) Modern India and the freedom struggle",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Constitution and public administration (item G)",
+      "meta": [
+       "GPSTR GK and current-affairs topics",
+       "2 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-GK-15",
+        "subject": "Constitution and public administration (item G)",
+        "topic": "Indian Constitution – Fundamental Rights, Legislature, Executive, Judiciary",
+        "coverage": "(G) Indian Constitution – fundamental rights, legislature, executive, judiciary; public administration",
+        "priority": "High",
+        "hours": 2.0,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-CA-13",
+        "subject": "Constitution and public administration (item G)",
+        "topic": "Indian Constitution",
+        "coverage": "(G) Constitution – amendments, articles and bodies in the news",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Science, geography and social science (items B, C, D)",
+      "meta": [
+       "GPSTR GK topics + SSLC social science",
+       "9 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-GK-02",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Important Inventions and Discoveries",
+        "coverage": "(B) Inventions and discoveries",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-03",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Basic Science – Concepts and Scientific Phenomena",
+        "coverage": "(B) General science – physics, chemistry, biology (SSLC level)",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-04",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Health and Hygiene",
+        "coverage": "(B) Health and hygiene",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-10",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Geography – Basic Concepts, Land and People",
+        "coverage": "(C) Geography – basic concepts, land and people",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-11",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Geography – Festivals, Population and Literacy",
+        "coverage": "(C) Geography – population, literacy, festivals",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-12",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Geography – Natural Regions, Natural Resources, Food Crops",
+        "coverage": "(C) Geography – natural regions, resources, crops",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-CA-09",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Monuments and National Forests",
+        "coverage": "(C) Monuments and national parks",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-08",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Social Science – SSLC Basics",
+        "coverage": "(D) Social science at SSLC level – civics, economics, sociology, business studies",
+        "priority": "Medium",
+        "hours": 1.0,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-13",
+        "subject": "Science, geography and social science (items B, C, D)",
+        "topic": "Indian Economics – Major Industries, Projects, Public Undertakings",
+        "coverage": "(D) Indian economy – industries, projects, public undertakings",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Practical knowledge and mental ability (items H, O)",
+      "meta": [
+       "SSLC-level reasoning and arithmetic",
+       "2 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KR-06",
+        "subject": "Practical knowledge and mental ability (items H, O)",
+        "topic": "Mental Ability – Reasoning",
+        "coverage": "(H, O) Mental ability – series, analogy, coding–decoding, blood relations, directions, ranking, calendar, clocks, statements and conclusions",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KR-07",
+        "subject": "Practical knowledge and mental ability (items H, O)",
+        "topic": "Practical Knowledge – SSLC Arithmetic",
+        "coverage": "(H) Practical knowledge – percentages, ratio, averages, profit and loss, interest, time and work, speed, mensuration",
+        "priority": "High",
+        "hours": 1.5,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "Current affairs (item A)",
+      "meta": [
+       "Planner CA topics + monthly current affairs (P1 · Current Affairs)",
+       "4 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-CA-01",
+        "subject": "Current affairs (item A)",
+        "topic": "Current International Affairs",
+        "coverage": "(A) International affairs",
+        "priority": "High",
+        "hours": 0.75,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-CA-02",
+        "subject": "Current affairs (item A)",
+        "topic": "Current National Affairs",
+        "coverage": "(A) National affairs",
+        "priority": "High",
+        "hours": 0.75,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-GK-14",
+        "subject": "Current affairs (item A)",
+        "topic": "Awards, Honours and Prizes",
+        "coverage": "(A) Awards, honours and prizes",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-CA-05",
+        "subject": "Current affairs (item A)",
+        "topic": "Important Days and Slogans",
+        "coverage": "(A) Important days and slogans",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     }
+    ]
    },
    "p2": {
     "title": "PAPER 2 (COMPUTER TEACHER) — KRIES 2026",
@@ -792,242 +1417,291 @@
     "date": "2026-10-10",
     "day": "Sat",
     "phase": "Learning",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
      "P2-U4-03 Programming in C – Part 1"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-05 Karnataka History, Culture and Art",
+     "P1-KR-01 Land Reforms and Social Change in Karnataka"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-11",
     "day": "Sun",
     "phase": "Learning",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
      "P2-U4-04 Programming in C – Part 2",
      "P2-U8-06 Performance Analysis & Recurrences"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-06 Indian History and Culture – Ancient",
+     "P1-GK-07 Indian History and Culture – Medieval",
+     "P1-KR-09 Social and Cultural History of Karnataka"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-12",
     "day": "Mon",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U8-01 Linear Data Structures"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-08 Indian History and Culture – Modern"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-13",
     "day": "Tue",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U8-02 Trees",
      "P2-U8-03 Sets & Graph Representation",
      "P2-U8-04 Sorting and Searching"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-15 Indian Constitution – Fundamental Rights, Legislature, Executive, Judiciary"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-14",
     "day": "Wed",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U6-02 OS Basics",
      "P2-U6-03 Process Management & IPC",
      "P2-U6-06 CPU Scheduling"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-CA-13 Indian Constitution",
+     "Constitution revision – public administration"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-15",
     "day": "Thu",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U6-08 Memory Management",
      "P2-U6-09 Virtual Memory"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-03 Rural Development, Panchayat Raj and Rural Co-operatives"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-16",
     "day": "Fri",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U6-11 File Systems",
      "P2-U6-10 Storage Management",
      "P2-U6-12 I/O Systems"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-02 Karnataka Economy – Strengths, Weaknesses and Current Status",
+     "P1-GK-13 Indian Economics – Major Industries, Projects, Public Undertakings"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-17",
     "day": "Sat",
     "phase": "Learning",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
      "P2-U4-05 Object Oriented Programming",
      "P2-U4-06 Programming in C++ – Part 1",
      "P2-U4-07 Programming in C++ – Part 2"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-10 Geography – Basic Concepts, Land and People",
+     "P1-GK-11 Geography – Festivals, Population and Literacy",
+     "P1-GK-12 Geography – Natural Regions, Natural Resources, Food Crops"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-18",
     "day": "Sun",
     "phase": "Learning",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
      "P2-U5-01 DBMS Concepts and Architecture",
      "P2-U5-02 ER Model & Relational Model",
      "P2-U5-04 SQL – Part 1",
      "P2-U5-06 Normalization"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-05 Environment and Development of Karnataka",
+     "P1-CA-09 Monuments and National Forests"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-19",
     "day": "Mon",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U7-01 Software Process Models",
      "P2-U7-03 Software Requirements",
      "P2-U7-04 Software Design",
      "P2-U7-05 Software Testing"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-02 Important Inventions and Discoveries",
+     "P1-GK-03 Basic Science – Concepts and Scientific Phenomena",
+     "P1-GK-04 Health and Hygiene"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-20",
     "day": "Tue",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U6-01 System Software",
      "P2-U4-08 Web Programming – HTML, DHTML, CSS",
      "P2-U4-09 Web Programming – XML, Scripting, JavaScript",
      "P2-U9-10 World Wide Web & Applications"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-04 Science and Technology in Karnataka Administration"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-21",
     "day": "Wed",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-KR-01 Basic Java Programming"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-06 Mental Ability – Reasoning"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-22",
     "day": "Thu",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U6-14 Linux Operating System",
      "P2-KR-02 Computer Graphics"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-KR-07 Practical Knowledge – SSLC Arithmetic",
+     "P1-KR-08 Social Science – SSLC Basics"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-23",
     "day": "Fri",
     "phase": "Learning",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "P2-U9-01 Data Communication – Part 1",
      "P2-U9-03 Computer Networks & Topologies",
      "P2-U9-04 Network Models",
      "P2-U9-05 Data Link Layer"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-CA-01 Current International Affairs",
+     "P1-CA-02 Current National Affairs",
+     "Monthly current affairs January – June 2026 (P1 · Current Affairs)"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-24",
     "day": "Sat",
     "phase": "Learning",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
      "P2-U9-06 Multiple Access, Devices & VLANs",
      "P2-U9-07 IPv4 Addressing",
      "P2-U9-09 Transport Layer",
-     "Revision – C Programming (output and pointer questions)"
+     "Full mock test – Paper 2 (evening) + analysis"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "P1-GK-14 Awards, Honours and Prizes",
+     "P1-CA-05 Important Days and Slogans",
+     "Monthly current affairs July – October 2026 (P1 · Current Affairs)"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-25",
     "day": "Sun",
     "phase": "MOCK TEST",
-    "hours": 6.5,
+    "hours": 8.0,
     "p2": [
-     "Full mock test – Paper 2 (C, Data Structures, OS) + analysis"
+     "Light revision – C output and pointer questions, Data Structures and OS short notes"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "Full mock test – Paper 1 (KEA general paper, 100 questions, 2 hours) + analysis; Karnataka notes"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-26",
     "day": "Mon",
-    "phase": "Final Revision",
-    "hours": 3.0,
+    "phase": "Exam",
+    "hours": 4.5,
     "p2": [
-     "Final revision – C, Data Structures and OS short notes; weak topics from the mock"
+     "Evening: Paper 2 weak topics from the mock (light)"
     ],
-    "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "p1": [
+     "PAPER 1 EXAM – General paper (KRIES)"
+    ],
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    },
    {
     "date": "2026-10-27",
     "day": "Tue",
     "phase": "Exam",
-    "hours": 3.0,
+    "hours": 4.5,
     "p2": [
      "PAPER 2 EXAM – Computer Teacher (KRIES)"
     ],
     "p1": [],
-    "habit": "Solve 10 C output-prediction questions",
+    "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
    }
   ]

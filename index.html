@@ -1403,7 +1403,7 @@ const planKeyOf = sp => (sp && sp.key in EXAMS ? sp.key : 'gpstr');
 // 'Day done' ticks are stored per exam so that the same date in two plans is ticked separately (GPSTR keeps the old keys)
 const dayDoneKey = date => (planKeyOf(D.plan) === 'gpstr' ? 'day:' : 'day:' + planKeyOf(D.plan) + ':') + date;
 function setActivePlan() { D.plan = D.plans[examKey()] || D.plans.gpstr || Object.values(D.plans).find(Boolean) || null; }
-// Exams other than GPSTR (KRIES = Paper 2 only) show just their own plan's topics in the Library, subject pages and Plan
+// Exams other than GPSTR (KRIES) show just their own plan's topics in the Library, subject pages and Plan
 let _scope = null, _scopeOf = null;
 function examScope() {
   if (planKeyOf(D.plan) === 'gpstr') return null;

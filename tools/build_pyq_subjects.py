@@ -19,7 +19,8 @@ MIN_SET = 4
 
 P1_PACKS = OrderedDict([("p1-gk.json", "General Knowledge"), ("p1-ca.json", "Current Affairs"), ("p1-eng.json", "General English"),
                         ("p1-psy.json", "Educational Psychology"), ("p1-cl.json", "Computer Literacy"),
-                        ("p1-he.json", "Health Education"), ("p1-ve.json", "Value Education")])
+                        ("p1-he.json", "Health Education"), ("p1-ve.json", "Value Education"),
+                        ("p1-kries.json", "KRIES – Karnataka & General Studies")])
 UNITS = ["Unit 1 – Fundamentals of Computers", "Unit 2 – Discrete Structures & Optimization", "Unit 3 – Computer System Architecture",
          "Unit 4 – Programming Languages & Web", "Unit 5 – Database Management Systems", "Unit 6 – System Software & Operating Systems",
          "Unit 7 – Software Engineering", "Unit 8 – Data Structures & Algorithms", "Unit 9 – Data Communication & Networks",

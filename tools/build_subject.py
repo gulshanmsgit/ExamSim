@@ -34,6 +34,8 @@ PACKS = {
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e", "p1_he_f"]},
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e"]},
     "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_2026"]},
+    # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
+    "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a"]},
 }
 
 # Subjects that are not in the planner. Current affairs: one topic per month ("January 2026", …) with a
@@ -52,7 +54,19 @@ EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PL
                   # KRIES Computer Teacher topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); Paper 2 sets of 30
                   "P2 · KRIES – Additional Topics": {"icon": "🖥", "topics": ["Basic Java Programming", "Computer Graphics"],
                                                      "plan": {"Basic Java Programming": "P2-KR-01", "Computer Graphics": "P2-KR-02"}, "sizes": {}, "size": 30,
-                                                     "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"}}
+                                                     "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"},
+                  # KRIES Paper 1 topics that are not in the GPSTR syllabus (P1-KR-01…09, tools/make_kries_plan.py); sets of 20, in Kannada
+                  "P1 · KRIES – Karnataka & General Studies": {"icon": "🏛", "topics": [
+                      "Land Reforms and Social Change in Karnataka", "Karnataka Economy – Strengths, Weaknesses and Current Status",
+                      "Rural Development, Panchayat Raj and Rural Co-operatives", "Science and Technology in Karnataka Administration",
+                      "Environment and Development of Karnataka", "Mental Ability – Reasoning", "Practical Knowledge – SSLC Arithmetic",
+                      "Social Science – SSLC Basics", "Social and Cultural History of Karnataka"],
+                      "plan": {"Land Reforms and Social Change in Karnataka": "P1-KR-01", "Karnataka Economy – Strengths, Weaknesses and Current Status": "P1-KR-02",
+                               "Rural Development, Panchayat Raj and Rural Co-operatives": "P1-KR-03", "Science and Technology in Karnataka Administration": "P1-KR-04",
+                               "Environment and Development of Karnataka": "P1-KR-05", "Mental Ability – Reasoning": "P1-KR-06",
+                               "Practical Knowledge – SSLC Arithmetic": "P1-KR-07", "Social Science – SSLC Basics": "P1-KR-08",
+                               "Social and Cultural History of Karnataka": "P1-KR-09"},
+                      "sizes": {}, "size": 20, "group": "② Paper 1 · General (20 questions per set)"}}
 
 
 def build(key):
@@ -95,7 +109,7 @@ def build(key):
     covered = "all topics" if len(topics) == len(planned) else f"{len(topics)} of {len(planned)} topics"
     desc = (f"{covered.capitalize()} so far ({n_sets} sets × {size} questions): " + "; ".join(t["name"] for t in topics)
             + ". More topics are added to this pack as the plan goes on; re-importing only adds the new sets.")
-    if extra:
+    if extra and subject == "P1 · Current Affairs":
         plan_t = [t["name"] for t in topics if t.get("plan")]
         months = [t["name"] for t in topics if not t.get("plan")]
         desc = ("The planner's current-affairs topics (with detailed notes and real KEA questions)" + (": " + "; ".join(plan_t) if plan_t else "")
