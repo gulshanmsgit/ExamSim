@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 629. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 647. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -7053,19 +7053,6 @@
          "source": "KSET 2025 CS&A · Q7"
         },
         {
-         "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
-         "options": {
-          "A": "X̅",
-          "B": "Y",
-          "C": "X̅ + Y",
-          "D": "X + Z̅"
-         },
-         "answer": "B",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "XYZ + XYZ̅ = XY; XY + X̅Y = Y. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q8"
-        },
-        {
          "question": "Consider a weighted complete graph G on the vertex set {V₁, V₂, V₃, V₄, …, Vₙ} such that the weight of the edge (Vᵢ, Vⱼ) is 2|i − j|. The weight of minimum spanning tree of G is",
          "options": {
           "A": "n² − 1",
@@ -7172,194 +7159,7 @@
        ]
       },
       {
-       "name": "3 · KSET 2024 CS&A",
-       "questions": [
-        {
-         "question": "Which one of the following logical equivalences involve biconditional statements?",
-         "options": {
-          "A": "p → q ≡ ¬p ∨ q",
-          "B": "p ∨ q ≡ ¬p → q",
-          "C": "(p → q) ∧ (p → r) ≡ p → (q ∧ r)",
-          "D": "¬(p ↔ q) ≡ p ↔ ¬q"
-         },
-         "answer": "D",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "Only option 4 uses the biconditional ↔; the others use implication, disjunction and conjunction. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q1"
-        },
-        {
-         "question": "From the following arguments, determine whether they are correct or incorrect.\n(i) Ice cream is delicious to eat. Rahul's dessert is not ice cream. Therefore, Rahul's dessert is not delicious to eat.\n(ii) All registered voters are eligible to participate in elections. Ranjith is not eligible to participate in elections. Therefore, Ranjith is not a registered voter.",
-         "options": {
-          "A": "Both (i) and (ii) are correct",
-          "B": "(i) is incorrect and (ii) is correct",
-          "C": "(i) is correct and (ii) is incorrect",
-          "D": "Both (i) and (ii) are incorrect"
-         },
-         "answer": "B",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "(i) commits the fallacy of denying the antecedent; (ii) is valid by modus tollens (P → Q, ¬Q ⊢ ¬P). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q2"
-        },
-        {
-         "question": "Relation R is defined on set A = {a, b, c, d, e}, where R = {(a,d), (b,c), (c,a), (d,e)}. Determine if R forms a tree. If it does, find the root.",
-         "options": {
-          "A": "R is not a tree",
-          "B": "R is a tree with root a",
-          "C": "R is a tree with root b",
-          "D": "R is a tree with root d"
-         },
-         "answer": "C",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "The edges form the path b → c → a → d → e: connected, acyclic, and b is the only vertex with in-degree 0, so b is the root. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q3"
-        },
-        {
-         "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
-         "options": {
-          "A": "A + B",
-          "B": "A·B̅·C + A·B·C̅",
-          "C": "A + C",
-          "D": "A·B + C"
-         },
-         "answer": "B",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "In canonical sum-of-products form every product term (minterm) contains all the variables, complemented or not. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q4"
-        },
-        {
-         "question": "The chances of a defective material in three boxes x, y and z are 1/5, 1/6 and 1/7 respectively. A box is selected at random and the material drawn is found to be defective. Find the probability that it came from box A.",
-         "options": {
-          "A": "40/107",
-          "B": "41/107",
-          "C": "42/107",
-          "D": "43/107"
-         },
-         "answer": "C",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "The paper says 'box A' for the first box, x. Bayes: (1/3·1/5) / (1/3·(1/5 + 1/6 + 1/7)) = (42/210) / (107/210) = 42/107. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q5"
-        },
-        {
-         "question": "Match the following terms related to the given Pigeonhole principle scenario and choose the correct answer.\na) Pigeonhole principle\nb) Contradiction\nc) Assigned Pigeons\nd) Overcrowded hole\ni. States that when m < n, not all pigeons can be assigned\nii. More than one pigeon assigned to the same pigeonhole\niii. Each pigeonhole contains at most one pigeon\niv. The assumption that all pigeons are assigned",
-         "options": {
-          "A": "a – i, b – iv, c – iii, d – ii",
-          "B": "a – ii, b – i, c – iii, d – iv",
-          "C": "a – i, b – ii, c – iv, d – iii",
-          "D": "a – iii, b – ii, c – i, d – iv"
-         },
-         "answer": "A",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "The proof assumes every pigeon gets its own hole (iv) and derives a contradiction; an overcrowded hole holds more than one pigeon. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q6"
-        },
-        {
-         "question": "Let G be a group of order 6; H be a subgroup of G, such that 1 < |H| < 6. Choose the best option from below.",
-         "options": {
-          "A": "Both G and H may not be cyclic",
-          "B": "G may not be cyclic; but H is always cyclic",
-          "C": "G is always cyclic; but H may not be cyclic",
-          "D": "Both G and H are always cyclic"
-         },
-         "answer": "B",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "G may be S₃, which is not cyclic. By Lagrange, |H| is 2 or 3 – a prime – and every group of prime order is cyclic. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q7"
-        },
-        {
-         "question": "Match the following terms with their correct definitions and choose the correct option.\na) Weighted Graph\nb) Weight\nc) Unweighted Graph\ni. A graph with no labelled edges\nii. A graph where each edge has a numerical value\niii. A numerical value associated with an edge\niv. A graph that has no vertices",
-         "options": {
-          "A": "a – ii, b – iii, c – i",
-          "B": "a – i, b – iv, c – ii",
-          "C": "a – ii, b – i, c – iii",
-          "D": "a – iii, b – ii, c – iv"
-         },
-         "answer": "A",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "A weighted graph has a number on each edge; that number is the weight; an unweighted graph has no such labels. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q8"
-        },
-        {
-         "question": "Given the following Linear Programming Problem,\nminimize Z = 6x + 3y\nsubject to the constraints\n4x + y ≥ 80\nx + 5y ≥ 115\n3x + 2y ≤ 150\nx ≥ 0, y ≥ 0\nThe minimum value of Z is ____",
-         "options": {
-          "A": "228",
-          "B": "150",
-          "C": "285",
-          "D": "240"
-         },
-         "answer": "B",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "Corner points: (15, 20) → 150; (2, 72) → 228; (40, 15) → 285. The minimum is 150 at x = 15, y = 20. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q9"
-        },
-        {
-         "question": "The grammar that is used to accept L = {aⁱbʲ | i > j} is given by:",
-         "options": {
-          "A": "S → aSb, S → aS, S → a",
-          "B": "S → aSb, S → bS, S → b",
-          "C": "S → abS, S → b",
-          "D": "S → abS, S → bS, S → b"
-         },
-         "answer": "A",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "aSb adds a matched a…b pair, aS adds extra a's, and the base case a guarantees at least one more a than b. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q71"
-        },
-        {
-         "question": "Which one of the following is TRUE for a finite-state machine L1 and regular expressions L2 both representing the same class of language?",
-         "options": {
-          "A": "L1 < L2",
-          "B": "L1 >= L2",
-          "C": "L1 ∪ L2 = .*",
-          "D": "L1 = L2"
-         },
-         "answer": "D",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "Kleene's theorem: finite automata and regular expressions describe exactly the same class (the regular languages). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q72"
-        },
-        {
-         "question": "Which one of the following grammars is in Chomsky normal form?",
-         "options": {
-          "A": "S → AB | BC | CD, A → 0, B → 1, C → 2, D → 3",
-          "B": "S → AB, S → BCA | 0 | 1 | 2 | 3",
-          "C": "S → ABa, A → aab, B → Ac",
-          "D": "S → aSb, S → ab"
-         },
-         "answer": "A",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "In CNF every production is A → BC or A → a; only option 1 satisfies this. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q73"
-        },
-        {
-         "question": "The Halting Problem for a Turing Machine is",
-         "options": {
-          "A": "Solvable for all Turing Machines",
-          "B": "Solvable for deterministic Turing Machines only",
-          "C": "Solvable if the machine has a finite tape",
-          "D": "Undecidable"
-         },
-         "answer": "D",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "Turing (1936): no algorithm decides, for every TM and input, whether the machine halts. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q74"
-        },
-        {
-         "question": "Which one of the following instances of the Post Correspondence Problem has a viable sequence?",
-         "options": {
-          "A": "{(b, bb), (bb, bab), (bab, abb), (abb, babb)}",
-          "B": "{(ab, aba), (baa, aa), (aba, baa)}",
-          "C": "{(ab, abb), (ba, aaa), (aa, a)}",
-          "D": "{(ab, b), (b, a)}"
-         },
-         "answer": "C",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "Pairs 1, 2, 3, 3 give ab·ba·aa·aa = abbaaaaa on top and abb·aaa·a·a = abbaaaaa below. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q75"
-        }
-       ]
-      },
-      {
-       "name": "4 · KSET 2023 CS&A",
+       "name": "3 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "A DPDA is a PDA in which:",
@@ -7529,6 +7329,180 @@
          "subject": "KSET 2023 CS&A",
          "explanation": "Total float is the delay that does not delay the project; free float does not delay the next activity. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2023 CS&A · Q90"
+        }
+       ]
+      },
+      {
+       "name": "4 · KSET 2024 CS&A",
+       "questions": [
+        {
+         "question": "Which one of the following logical equivalences involve biconditional statements?",
+         "options": {
+          "A": "p → q ≡ ¬p ∨ q",
+          "B": "p ∨ q ≡ ¬p → q",
+          "C": "(p → q) ∧ (p → r) ≡ p → (q ∧ r)",
+          "D": "¬(p ↔ q) ≡ p ↔ ¬q"
+         },
+         "answer": "D",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "Only option 4 uses the biconditional ↔; the others use implication, disjunction and conjunction. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q1"
+        },
+        {
+         "question": "From the following arguments, determine whether they are correct or incorrect.\n(i) Ice cream is delicious to eat. Rahul's dessert is not ice cream. Therefore, Rahul's dessert is not delicious to eat.\n(ii) All registered voters are eligible to participate in elections. Ranjith is not eligible to participate in elections. Therefore, Ranjith is not a registered voter.",
+         "options": {
+          "A": "Both (i) and (ii) are correct",
+          "B": "(i) is incorrect and (ii) is correct",
+          "C": "(i) is correct and (ii) is incorrect",
+          "D": "Both (i) and (ii) are incorrect"
+         },
+         "answer": "B",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "(i) commits the fallacy of denying the antecedent; (ii) is valid by modus tollens (P → Q, ¬Q ⊢ ¬P). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q2"
+        },
+        {
+         "question": "Relation R is defined on set A = {a, b, c, d, e}, where R = {(a,d), (b,c), (c,a), (d,e)}. Determine if R forms a tree. If it does, find the root.",
+         "options": {
+          "A": "R is not a tree",
+          "B": "R is a tree with root a",
+          "C": "R is a tree with root b",
+          "D": "R is a tree with root d"
+         },
+         "answer": "C",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "The edges form the path b → c → a → d → e: connected, acyclic, and b is the only vertex with in-degree 0, so b is the root. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q3"
+        },
+        {
+         "question": "The chances of a defective material in three boxes x, y and z are 1/5, 1/6 and 1/7 respectively. A box is selected at random and the material drawn is found to be defective. Find the probability that it came from box A.",
+         "options": {
+          "A": "40/107",
+          "B": "41/107",
+          "C": "42/107",
+          "D": "43/107"
+         },
+         "answer": "C",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "The paper says 'box A' for the first box, x. Bayes: (1/3·1/5) / (1/3·(1/5 + 1/6 + 1/7)) = (42/210) / (107/210) = 42/107. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q5"
+        },
+        {
+         "question": "Match the following terms related to the given Pigeonhole principle scenario and choose the correct answer.\na) Pigeonhole principle\nb) Contradiction\nc) Assigned Pigeons\nd) Overcrowded hole\ni. States that when m < n, not all pigeons can be assigned\nii. More than one pigeon assigned to the same pigeonhole\niii. Each pigeonhole contains at most one pigeon\niv. The assumption that all pigeons are assigned",
+         "options": {
+          "A": "a – i, b – iv, c – iii, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iv, d – iii",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "The proof assumes every pigeon gets its own hole (iv) and derives a contradiction; an overcrowded hole holds more than one pigeon. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q6"
+        },
+        {
+         "question": "Let G be a group of order 6; H be a subgroup of G, such that 1 < |H| < 6. Choose the best option from below.",
+         "options": {
+          "A": "Both G and H may not be cyclic",
+          "B": "G may not be cyclic; but H is always cyclic",
+          "C": "G is always cyclic; but H may not be cyclic",
+          "D": "Both G and H are always cyclic"
+         },
+         "answer": "B",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "G may be S₃, which is not cyclic. By Lagrange, |H| is 2 or 3 – a prime – and every group of prime order is cyclic. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q7"
+        },
+        {
+         "question": "Match the following terms with their correct definitions and choose the correct option.\na) Weighted Graph\nb) Weight\nc) Unweighted Graph\ni. A graph with no labelled edges\nii. A graph where each edge has a numerical value\niii. A numerical value associated with an edge\niv. A graph that has no vertices",
+         "options": {
+          "A": "a – ii, b – iii, c – i",
+          "B": "a – i, b – iv, c – ii",
+          "C": "a – ii, b – i, c – iii",
+          "D": "a – iii, b – ii, c – iv"
+         },
+         "answer": "A",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "A weighted graph has a number on each edge; that number is the weight; an unweighted graph has no such labels. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q8"
+        },
+        {
+         "question": "Given the following Linear Programming Problem,\nminimize Z = 6x + 3y\nsubject to the constraints\n4x + y ≥ 80\nx + 5y ≥ 115\n3x + 2y ≤ 150\nx ≥ 0, y ≥ 0\nThe minimum value of Z is ____",
+         "options": {
+          "A": "228",
+          "B": "150",
+          "C": "285",
+          "D": "240"
+         },
+         "answer": "B",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "Corner points: (15, 20) → 150; (2, 72) → 228; (40, 15) → 285. The minimum is 150 at x = 15, y = 20. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q9"
+        },
+        {
+         "question": "The grammar that is used to accept L = {aⁱbʲ | i > j} is given by:",
+         "options": {
+          "A": "S → aSb, S → aS, S → a",
+          "B": "S → aSb, S → bS, S → b",
+          "C": "S → abS, S → b",
+          "D": "S → abS, S → bS, S → b"
+         },
+         "answer": "A",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "aSb adds a matched a…b pair, aS adds extra a's, and the base case a guarantees at least one more a than b. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q71"
+        },
+        {
+         "question": "Which one of the following is TRUE for a finite-state machine L1 and regular expressions L2 both representing the same class of language?",
+         "options": {
+          "A": "L1 < L2",
+          "B": "L1 >= L2",
+          "C": "L1 ∪ L2 = .*",
+          "D": "L1 = L2"
+         },
+         "answer": "D",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "Kleene's theorem: finite automata and regular expressions describe exactly the same class (the regular languages). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q72"
+        },
+        {
+         "question": "Which one of the following grammars is in Chomsky normal form?",
+         "options": {
+          "A": "S → AB | BC | CD, A → 0, B → 1, C → 2, D → 3",
+          "B": "S → AB, S → BCA | 0 | 1 | 2 | 3",
+          "C": "S → ABa, A → aab, B → Ac",
+          "D": "S → aSb, S → ab"
+         },
+         "answer": "A",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "In CNF every production is A → BC or A → a; only option 1 satisfies this. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q73"
+        },
+        {
+         "question": "The Halting Problem for a Turing Machine is",
+         "options": {
+          "A": "Solvable for all Turing Machines",
+          "B": "Solvable for deterministic Turing Machines only",
+          "C": "Solvable if the machine has a finite tape",
+          "D": "Undecidable"
+         },
+         "answer": "D",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "Turing (1936): no algorithm decides, for every TM and input, whether the machine halts. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q74"
+        },
+        {
+         "question": "Which one of the following instances of the Post Correspondence Problem has a viable sequence?",
+         "options": {
+          "A": "{(b, bb), (bb, bab), (bab, abb), (abb, babb)}",
+          "B": "{(ab, aba), (baa, aa), (aba, baa)}",
+          "C": "{(ab, abb), (ba, aaa), (aa, a)}",
+          "D": "{(ab, b), (b, a)}"
+         },
+         "answer": "C",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "Pairs 1, 2, 3, 3 give ab·ba·aa·aa = abbaaaaa on top and abb·aaa·a·a = abbaaaaa below. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q75"
         }
        ]
       }
@@ -7798,6 +7772,19 @@
        "name": "3 · KSET 2025 CS&A",
        "questions": [
         {
+         "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
+         "options": {
+          "A": "X̅",
+          "B": "Y",
+          "C": "X̅ + Y",
+          "D": "X + Z̅"
+         },
+         "answer": "B",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "XYZ + XYZ̅ = XY; XY + X̅Y = Y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q8"
+        },
+        {
          "question": "The decimal equivalent of the hexadecimal number F3E is",
          "options": {
           "A": "8530",
@@ -7907,6 +7894,19 @@
        "name": "4 · KSET 2024 CS&A",
        "questions": [
         {
+         "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
+         "options": {
+          "A": "A + B",
+          "B": "A·B̅·C + A·B·C̅",
+          "C": "A + C",
+          "D": "A·B + C"
+         },
+         "answer": "B",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "In canonical sum-of-products form every product term (minterm) contains all the variables, complemented or not. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q4"
+        },
+        {
          "question": "Which algorithm includes repeated addition of two predetermined values A and B to a product P and then performs a rightward arithmetic shift on P?",
          "options": {
           "A": "Strassen algorithm",
@@ -7983,6 +7983,245 @@
          "subject": "KSET 2024 CS&A",
          "explanation": "A crossbar has one crosspoint for every processor–memory pair: 9 × 6 = 54. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 CS&A · Q20"
+        }
+       ]
+      },
+      {
+       "name": "5 · Other papers",
+       "questions": [
+        {
+         "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
+         "options": {
+          "A": "Half the frequency of clock input",
+          "B": "Equal to the frequency of clock input",
+          "C": "Twice the frequency of clock input",
+          "D": "Independent of the frequency of clock input"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "With J = K = 1 the output toggles on every active clock edge, so its period is two clock periods. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q39"
+        },
+        {
+         "question": "Decoder is a logic circuit with n inputs and how many outputs?",
+         "options": {
+          "A": "n²",
+          "B": "2ⁿ",
+          "C": "1",
+          "D": "n² + 1"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "An n-to-2ⁿ line decoder activates one output for each input combination. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q40"
+        },
+        {
+         "question": "Along with synchronous control inputs what to use to transfer a change in the flip-flop?",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "clock",
+          "D": "present output"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Synchronous inputs (J, K, D, T) act only at the clock edge. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q41"
+        },
+        {
+         "question": "Number of output in a half adder is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Sum and Carry. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q71"
+        },
+        {
+         "question": "The functional difference between SR flipflop and JK flipflop is",
+         "options": {
+          "A": "JK flipflop is faster than SR flipflop",
+          "B": "JK flipflop is slower than SR flipflop",
+          "C": "JK flipflop accepts both inputs 1",
+          "D": "JK flipflop does not require external clock"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "For J = K = 1 the JK toggles; S = R = 1 is not allowed in an SR flip-flop. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q73"
+        },
+        {
+         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
+         "options": {
+          "A": "Gate-level minimization",
+          "B": "Door-level minimization",
+          "C": "Gate-level maximization",
+          "D": "Circuit-level maximization"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q18"
+        },
+        {
+         "question": "The characteristics of the combinational circuits are:\na. Output at any time is function of inputs at that time.\nb. Contains memory elements.\nc. Do not have feedback path.\nd. Clock is used to trigger the circuit to obtain the outputs.",
+         "options": {
+          "A": "Only a and b",
+          "B": "Only a and c",
+          "C": "Only b and c",
+          "D": "Only b and d"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Memory, feedback and clocks belong to sequential circuits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q24"
+        },
+        {
+         "question": "The minimum number of 2-input NAND gates required to implement a 2-input XOR gate is",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Classic 4-NAND XOR: X = (AB)', then output = ((A·X)' · (B·X)')'. With NOR gates it needs 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q37"
+        },
+        {
+         "question": "Race around condition is an undesirable phenomenon in Flip-Flops. The remedy for the same is",
+         "options": {
+          "A": "S-R",
+          "B": "D-Flip flop",
+          "C": "J-K Flip flop",
+          "D": "Master slave JK Flipflop"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q80"
+        },
+        {
+         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
+         "options": {
+          "A": "a, b and c",
+          "B": "a only",
+          "C": "c only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q86"
+        },
+        {
+         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
+         "options": {
+          "A": "a > b",
+          "B": "a < b",
+          "C": "a = b²",
+          "D": "a = b"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q89"
+        },
+        {
+         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
+         "options": {
+          "A": "x∧y",
+          "B": "x'∧y",
+          "C": "x'∧y'",
+          "D": "x∧x'"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q90"
+        },
+        {
+         "question": "In Boolean algebra, which of the following is correct?",
+         "options": {
+          "A": "x∧y = x'∨y",
+          "B": "x∨y = x'∧y",
+          "C": "x∧(x∨y) = x",
+          "D": "x∨1 = x"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Absorption law; x∨1 = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q14"
+        },
+        {
+         "question": "In Boolean algebra, simplified form of (x∧y)∨x'∨y' is",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "y",
+          "D": "x"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "x'∨y' = (x∧y)' by De Morgan, so the expression is P∨P' = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q15"
+        },
+        {
+         "question": "Given the following statements:\nS1: NAND and NOR are universal gates\nS2: AND, OR, NOT are basic gates\nWhich of the following is the correct answer?",
+         "options": {
+          "A": "S1: true and S2: true",
+          "B": "S1: false and S2: false",
+          "C": "S1: false and S2: true",
+          "D": "S1: true and S2: false"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Any Boolean function can be built from NAND alone or NOR alone. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q27"
+        },
+        {
+         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "options": {
+          "A": "(a), (b), (c) and (d)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(a) and (c)"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q14"
+        },
+        {
+         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
+         "options": {
+          "A": "I0",
+          "B": "I1",
+          "C": "I2",
+          "D": "I3"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q21"
+        },
+        {
+         "question": "The Boolean expressions (AB)' = A' + B' and (A + B)' = A'B' represent",
+         "options": {
+          "A": "Absorption law",
+          "B": "Distributive law",
+          "C": "De Morgan's law",
+          "D": "Idempotent law"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "De Morgan's theorems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q19"
         }
        ]
       }

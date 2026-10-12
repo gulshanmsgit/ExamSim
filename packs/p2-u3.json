@@ -1,0 +1,1520 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 3 — Computer System Architecture",
+ "description": "2 of 9 topics so far (4 sets × 30 questions): Digital Logic – Combinational; Digital Logic – Sequential. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 3 – Computer System Architecture",
+   "icon": "🔌",
+   "topics": [
+    {
+     "name": "Digital Logic – Combinational",
+     "sets": [
+      {
+       "name": "1 · Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+       "questions": [
+        {
+         "question": "Select the equivalent of NOR gate from the following (the paper shows gate symbols):",
+         "options": {
+          "A": "NAND gate (AND with output bubble)",
+          "B": "AND gate with both inputs inverted",
+          "C": "OR gate with both inputs inverted",
+          "D": "AND gate with both inputs and the output inverted"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "De Morgan: (A + B)′ = A′·B′, an AND gate with inverted inputs. Option 3 equals NAND and option 4 equals OR. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q91"
+        },
+        {
+         "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
+         "options": {
+          "A": "A + B",
+          "B": "A·B̅·C + A·B·C̅",
+          "C": "A + C",
+          "D": "A·B + C"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "In canonical sum-of-products form every product term (minterm) contains all the variables, complemented or not. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q4"
+        },
+        {
+         "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
+         "options": {
+          "A": "X̅",
+          "B": "Y",
+          "C": "X̅ + Y",
+          "D": "X + Z̅"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "XYZ + XYZ̅ = XY; XY + X̅Y = Y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q8"
+        },
+        {
+         "question": "In a variable entered K-MAP for a four-variable expression, if two variables are entered inside the map, how many cells/locations will the map contain?",
+         "options": {
+          "A": "4 locations",
+          "B": "8 locations",
+          "C": "16 locations",
+          "D": "2 locations"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Two of the four variables are entered in the cells, so the map is on the other two variables: 2² = 4 cells. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q23"
+        },
+        {
+         "question": "Give the minimal SOP expression for the following expression:\nf(A, B, C) = Σm(0, 2, 4, 6)",
+         "options": {
+          "A": "C",
+          "B": "C̅",
+          "C": "B̅C",
+          "D": "BC̅"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Minterms 0, 2, 4, 6 are exactly the even ones, where C = 0: f = C̅. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q24"
+        },
+        {
+         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
+         "options": {
+          "A": "Gate-level minimization",
+          "B": "Door-level minimization",
+          "C": "Gate-level maximization",
+          "D": "Circuit-level maximization"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q18"
+        },
+        {
+         "question": "The minimum number of 2-input NAND gates required to implement a 2-input XOR gate is",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Classic 4-NAND XOR: X = (AB)', then output = ((A·X)' · (B·X)')'. With NOR gates it needs 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q37"
+        },
+        {
+         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
+         "options": {
+          "A": "a, b and c",
+          "B": "a only",
+          "C": "c only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q86"
+        },
+        {
+         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
+         "options": {
+          "A": "a > b",
+          "B": "a < b",
+          "C": "a = b²",
+          "D": "a = b"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q89"
+        },
+        {
+         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
+         "options": {
+          "A": "x∧y",
+          "B": "x'∧y",
+          "C": "x'∧y'",
+          "D": "x∧x'"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q90"
+        },
+        {
+         "question": "In Boolean algebra, which of the following is correct?",
+         "options": {
+          "A": "x∧y = x'∨y",
+          "B": "x∨y = x'∧y",
+          "C": "x∧(x∨y) = x",
+          "D": "x∨1 = x"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Absorption law; x∨1 = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q14"
+        },
+        {
+         "question": "In Boolean algebra, simplified form of (x∧y)∨x'∨y' is",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "y",
+          "D": "x"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "x'∨y' = (x∧y)' by De Morgan, so the expression is P∨P' = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q15"
+        },
+        {
+         "question": "Given the following statements:\nS1: NAND and NOR are universal gates\nS2: AND, OR, NOT are basic gates\nWhich of the following is the correct answer?",
+         "options": {
+          "A": "S1: true and S2: true",
+          "B": "S1: false and S2: false",
+          "C": "S1: false and S2: true",
+          "D": "S1: true and S2: false"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Any Boolean function can be built from NAND alone or NOR alone. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q27"
+        },
+        {
+         "question": "The Boolean expressions (AB)' = A' + B' and (A + B)' = A'B' represent",
+         "options": {
+          "A": "Absorption law",
+          "B": "Distributive law",
+          "C": "De Morgan's law",
+          "D": "Idempotent law"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "De Morgan's theorems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q19"
+        },
+        {
+         "question": "A digital computer works with signals that have:",
+         "options": {
+          "A": "Two discrete levels representing 0 and 1",
+          "B": "Continuously varying levels",
+          "C": "Ten voltage levels",
+          "D": "Only analog values"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). Binary digits (bits)."
+        },
+        {
+         "question": "The output of an XOR gate is 1 when:",
+         "options": {
+          "A": "The inputs are different",
+          "B": "Both inputs are 1",
+          "C": "Both inputs are 0",
+          "D": "Any input is 1"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). A ⊕ B = A'B + AB'; XNOR is 1 when inputs are equal (equality detector)."
+        },
+        {
+         "question": "Using Boolean algebra, A + A'B simplifies to:",
+         "options": {
+          "A": "A",
+          "B": "B",
+          "C": "A + B",
+          "D": "AB"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). A + A'B = (A + A')(A + B) = A + B."
+        },
+        {
+         "question": "Using the absorption law, A + AB simplifies to:",
+         "options": {
+          "A": "B",
+          "B": "AB",
+          "C": "A + B",
+          "D": "A"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "A(1 + B) = A."
+        },
+        {
+         "question": "The dual of the Boolean identity A + 0 = A is:",
+         "options": {
+          "A": "A + 1 = 1",
+          "B": "A · 0 = 0",
+          "C": "A' + 0 = A'",
+          "D": "A · 1 = A"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). Swap + and ·, and 0 and 1."
+        },
+        {
+         "question": "How many different Boolean functions of two variables are possible?",
+         "options": {
+          "A": "8",
+          "B": "4",
+          "C": "16",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "2^(2^n) = 2^4 = 16 for n = 2."
+        },
+        {
+         "question": "In a K-map, cells are arranged in Gray-code order (00, 01, 11, 10) so that:",
+         "options": {
+          "A": "Minterms are grouped by parity",
+          "B": "Cells are in numerical order",
+          "C": "Adjacent cells differ in only one variable",
+          "D": "Maxterms come first"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). This lets adjacent 1s be combined."
+        },
+        {
+         "question": "In a 4-variable K-map, a group of 8 adjacent 1s (an octet) eliminates how many variables?",
+         "options": {
+          "A": "4",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Pair – 1 variable, quad – 2, octet – 3."
+        },
+        {
+         "question": "Simplify F(A, B, C) = Σm(1, 3, 5, 7).",
+         "options": {
+          "A": "A",
+          "B": "C",
+          "C": "AC",
+          "D": "B'"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). All minterms with C = 1 → F = C."
+        },
+        {
+         "question": "Simplify F(A, B, C, D) = Σm(0, 2, 8, 10).",
+         "options": {
+          "A": "A'B'",
+          "B": "C'D'",
+          "C": "BD",
+          "D": "B'D'"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "The four corner cells form a quad: B = 0 and D = 0."
+        },
+        {
+         "question": "'Don't-care' conditions in a K-map are used to:",
+         "options": {
+          "A": "Always be treated as 1",
+          "B": "Increase the number of gates",
+          "C": "Form larger groups when convenient, giving a simpler expression",
+          "D": "Always be treated as 0"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). Marked X or d."
+        },
+        {
+         "question": "F(A, B) = Σm(1, 2) is equivalent to:",
+         "options": {
+          "A": "A + B",
+          "B": "AB",
+          "C": "A ⊙ B (XNOR)",
+          "D": "A ⊕ B"
+         },
+         "answer": "D",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "m1 = A'B, m2 = AB'."
+        },
+        {
+         "question": "A prime implicant that covers at least one minterm not covered by any other prime implicant is called:",
+         "options": {
+          "A": "A maxterm",
+          "B": "A redundant implicant",
+          "C": "An essential prime implicant",
+          "D": "A don't-care"
+         },
+         "answer": "C",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "PYQ pattern (KEA / KSET papers). It must appear in the minimal SOP."
+        },
+        {
+         "question": "To make a NOT gate from a 2-input NAND gate, you:",
+         "options": {
+          "A": "It is impossible",
+          "B": "Join both inputs together",
+          "C": "Ground one input",
+          "D": "Connect the output to an input"
+         },
+         "answer": "B",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "(A·A)' = A'."
+        },
+        {
+         "question": "Consider the statements:\nI. A canonical SOP expression uses minterms.\nII. A canonical POS expression uses minterms.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "Only I. POS uses maxterms."
+        },
+        {
+         "question": "Assertion (A): NAND is called a universal gate.\nReason (R): AND, OR and NOT can all be built using only NAND gates.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Digital Computers, Logic Gates, Boolean Algebra and K-map Simplification",
+         "explanation": "R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+       "questions": [
+        {
+         "question": "Match the terms in List-I with List-II:\n(a) Decoders\n(b) Encoders\n(c) Multiplexer (Mux)\n(d) Demultiplexer (Demux)\n(i) n to 1\n(ii) 1 to n\n(iii) n to 2ⁿ line\n(iv) 2ⁿ to n line",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Decoder n → 2ⁿ, encoder 2ⁿ → n, MUX many-to-one, DEMUX one-to-many. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q28"
+        },
+        {
+         "question": "Decoder is a logic circuit with n inputs and how many outputs?",
+         "options": {
+          "A": "n²",
+          "B": "2ⁿ",
+          "C": "1",
+          "D": "n² + 1"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "An n-to-2ⁿ line decoder activates one output for each input combination. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q40"
+        },
+        {
+         "question": "Number of output in a half adder is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Sum and Carry. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q71"
+        },
+        {
+         "question": "The characteristics of the combinational circuits are:\na. Output at any time is function of inputs at that time.\nb. Contains memory elements.\nc. Do not have feedback path.\nd. Clock is used to trigger the circuit to obtain the outputs.",
+         "options": {
+          "A": "Only a and b",
+          "B": "Only a and c",
+          "C": "Only b and c",
+          "D": "Only b and d"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Memory, feedback and clocks belong to sequential circuits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q24"
+        },
+        {
+         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
+         "options": {
+          "A": "I0",
+          "B": "I1",
+          "C": "I2",
+          "D": "I3"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q21"
+        },
+        {
+         "question": "For a half adder with inputs A and B, the outputs are:",
+         "options": {
+          "A": "Sum = A + B, Carry = AB",
+          "B": "Sum = A ⊙ B, Carry = A + B",
+          "C": "Sum = AB, Carry = A ⊕ B",
+          "D": "Sum = A ⊕ B, Carry = AB"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). A half adder cannot add an incoming carry."
+        },
+        {
+         "question": "For a full adder with inputs A, B and Cin, the sum and carry-out are:",
+         "options": {
+          "A": "S = A + B + Cin; Cout = ABCin",
+          "B": "S = AB + Cin; Cout = A ⊕ B",
+          "C": "S = A ⊕ B; Cout = A + B",
+          "D": "S = A ⊕ B ⊕ Cin; Cout = AB + Cin(A ⊕ B)"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Cout can also be written AB + BCin + ACin (majority function)."
+        },
+        {
+         "question": "A full adder can be built from:",
+         "options": {
+          "A": "Two half adders only",
+          "B": "Three XOR gates only",
+          "C": "Two half adders and one OR gate",
+          "D": "One half adder and one AND gate"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). The two half-adder carries are ORed."
+        },
+        {
+         "question": "In an n-bit ripple-carry adder, the delay grows:",
+         "options": {
+          "A": "Not at all",
+          "B": "Logarithmically",
+          "C": "Exponentially",
+          "D": "Linearly with n, because each stage waits for the previous carry"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "A carry look-ahead adder computes carries in parallel to reduce delay."
+        },
+        {
+         "question": "For a half subtractor computing A − B, the borrow output is:",
+         "options": {
+          "A": "A'B",
+          "B": "AB",
+          "C": "AB'",
+          "D": "A + B"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Difference = A ⊕ B."
+        },
+        {
+         "question": "A 3-to-8 line decoder has:",
+         "options": {
+          "A": "3 inputs and 3 outputs",
+          "B": "1 input and 8 outputs",
+          "C": "3 inputs and 8 outputs, exactly one output active at a time",
+          "D": "8 inputs and 3 outputs"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Each output is one minterm."
+        },
+        {
+         "question": "Any 3-variable Boolean function can be implemented with:",
+         "options": {
+          "A": "A half adder",
+          "B": "A 3-to-8 decoder and an OR gate collecting the required minterms",
+          "C": "A single AND gate",
+          "D": "A 2-to-1 multiplexer only"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano: decoder + OR = sum of minterms."
+        },
+        {
+         "question": "An 8-to-3 encoder (octal to binary) has:",
+         "options": {
+          "A": "8 inputs and 8 outputs",
+          "B": "3 inputs and 8 outputs",
+          "C": "1 input and 3 outputs",
+          "D": "8 inputs and 3 outputs"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Reverse of a decoder."
+        },
+        {
+         "question": "A priority encoder:",
+         "options": {
+          "A": "Gives the code of the highest-priority active input when several inputs are 1",
+          "B": "Activates all outputs",
+          "C": "Is a sequential circuit",
+          "D": "Works only with one input"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). It also has a 'valid' output for when no input is active."
+        },
+        {
+         "question": "How many select lines are needed for an 8-to-1 multiplexer?",
+         "options": {
+          "A": "8",
+          "B": "3",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "2ⁿ inputs need n select lines."
+        },
+        {
+         "question": "A multiplexer is also called a:",
+         "options": {
+          "A": "Data selector",
+          "B": "Comparator",
+          "C": "Data distributor",
+          "D": "Code converter"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). A demultiplexer is a data distributor."
+        },
+        {
+         "question": "How many 4-to-1 multiplexers are needed to build a 16-to-1 multiplexer?",
+         "options": {
+          "A": "8",
+          "B": "4",
+          "C": "5",
+          "D": "16"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Four in the first level + one to select among them."
+        },
+        {
+         "question": "How many 2-to-1 multiplexers are needed to build an 8-to-1 multiplexer?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). 4 + 2 + 1 = 7."
+        },
+        {
+         "question": "A 1-to-8 demultiplexer needs how many select lines?",
+         "options": {
+          "A": "3",
+          "B": "2",
+          "C": "8",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "A decoder with an enable input can work as a demultiplexer."
+        },
+        {
+         "question": "For a 1-bit magnitude comparator, the output 'A > B' is:",
+         "options": {
+          "A": "A ⊙ B",
+          "B": "AB'",
+          "C": "A'B",
+          "D": "AB"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). A = B is A ⊙ B (XNOR); A < B is A'B."
+        },
+        {
+         "question": "Convert binary 1011 to Gray code.",
+         "options": {
+          "A": "0111",
+          "B": "1011",
+          "C": "1101",
+          "D": "1110"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "g3 = 1; g2 = 1⊕0 = 1; g1 = 0⊕1 = 1; g0 = 1⊕1 = 0."
+        },
+        {
+         "question": "Which gate is used to build parity generators and checkers?",
+         "options": {
+          "A": "AND",
+          "B": "NOR",
+          "C": "XOR",
+          "D": "NAND"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). XOR of all bits gives even-parity bit."
+        },
+        {
+         "question": "Adding 0111 and 0101 with a 4-bit binary adder gives:",
+         "options": {
+          "A": "0100",
+          "B": "1110",
+          "C": "1010",
+          "D": "1100"
+         },
+         "answer": "D",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "7 + 5 = 12 = 1100."
+        },
+        {
+         "question": "In a BCD adder, when the 4-bit sum exceeds 9 (or a carry occurs), the correction is to add:",
+         "options": {
+          "A": "0011 (3)",
+          "B": "0110 (6)",
+          "C": "1010 (10)",
+          "D": "1001 (9)"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). This skips the six invalid codes 1010–1111."
+        },
+        {
+         "question": "A BCD-to-seven-segment decoder is used to:",
+         "options": {
+          "A": "Store BCD data",
+          "B": "Convert analog to digital",
+          "C": "Display decimal digits on a 7-segment display",
+          "D": "Add BCD numbers"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Each digit lights a pattern of segments a–g."
+        },
+        {
+         "question": "Short unwanted pulses at a combinational output caused by unequal path delays are called:",
+         "options": {
+          "A": "Hazards (glitches)",
+          "B": "Races",
+          "C": "Latches",
+          "D": "Fan-out errors"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). A static-1 hazard can be removed by adding a redundant (consensus) term."
+        },
+        {
+         "question": "Which circuit compares two binary numbers and outputs A > B, A = B and A < B?",
+         "options": {
+          "A": "Encoder",
+          "B": "Magnitude comparator",
+          "C": "Counter",
+          "D": "Multiplexer"
+         },
+         "answer": "B",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "IC 7485 is a 4-bit comparator."
+        },
+        {
+         "question": "A 4-to-1 multiplexer can implement any 3-variable function by:",
+         "options": {
+          "A": "It cannot",
+          "B": "Using all three variables as select lines",
+          "C": "Using two variables as select lines and feeding 0, 1, the third variable or its complement to the data inputs",
+          "D": "Adding an OR gate only"
+         },
+         "answer": "C",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano: implementing Boolean functions with multiplexers."
+        },
+        {
+         "question": "Consider the statements:\nI. A decoder has more outputs than inputs.\nII. An encoder has more outputs than inputs.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "Only I."
+        },
+        {
+         "question": "Assertion (A): A ripple-carry adder is slow for wide words.\nReason (R): Each full adder must wait for the carry from the previous stage.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Combinational Circuits – Adders, Subtractors, Decoders, Encoders and Multiplexers",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Combinational logic – revision sheet",
+       "md": "## Gates and Boolean algebra\n- Basic: AND, OR, NOT; **universal: NAND, NOR**; XOR = A'B + AB' (1 when different); XNOR = equality\n- NAND-only XOR needs **4** gates (NOR-only 5); NOT from NAND – join inputs\n- Laws: identity (x+0=x, x·1=x), complement, idempotent, **absorption** (x + xy = x, x(x+y) = x), x + x'y = x + y, **De Morgan** ((AB)' = A' + B', (A+B)' = A'B'), duality\n- Number of functions of n variables = 2^(2ⁿ)\n\n## K-maps\n- Gray order 00 01 11 10; pair eliminates 1 variable, quad 2, octet 3; corners and edges are adjacent\n- Σm(1,3,5,7) = C; Σm(0,2,8,10) = B'D'; Σm(0,2,4,6) = C'\n- Don't-cares (X) help make larger groups; essential prime implicants; canonical SOP (minterms) / POS (maxterms)\n- Variable-entered map: 4 variables with 2 map-entered → 4 cells\n\n## Combinational circuits (no memory, no feedback, no clock)\n| Circuit | Key facts |\n|---|---|\n| Half adder | S = A⊕B, C = AB (2 outputs) |\n| Full adder | S = A⊕B⊕Cin, Cout = AB + Cin(A⊕B); = 2 HA + OR |\n| Half subtractor | D = A⊕B, Borrow = A'B |\n| Ripple adder | delay ∝ n; carry look-ahead is faster |\n| BCD adder | add 0110 if sum > 9 |\n| Decoder | n → 2ⁿ, one minterm per output; decoder + OR = any function |\n| Encoder | 2ⁿ → n; priority encoder |\n| MUX | 2ⁿ:1 with n select lines (data selector); 16:1 = 5 × 4:1; 8:1 = 7 × 2:1 |\n| DEMUX | 1:2ⁿ (data distributor) |\n| Comparator | A>B = AB', A=B = A⊙B, A<B = A'B |\n- Binary→Gray: g = b ⊕ (b >> 1) (1011 → 1110); parity – XOR; hazards – add consensus term\n"
+      }
+     ]
+    },
+    {
+     "name": "Digital Logic – Sequential",
+     "sets": [
+      {
+       "name": "1 · Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+       "questions": [
+        {
+         "question": "Match the following.\n(a) SR flip flop\n(b) JK flip flop\n(c) D flip flop\n(d) T flip flop\n(i) Register\n(ii) Asynchronous counter design\n(iii) Race around condition\n(iv) Forbidden state",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – i, b – ii, c – iv, d – iii",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "SR has the forbidden S = R = 1 state; JK has race-around; D flip-flops build registers; T flip-flops build ripple counters. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q27"
+        },
+        {
+         "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
+         "options": {
+          "A": "Half the frequency of clock input",
+          "B": "Equal to the frequency of clock input",
+          "C": "Twice the frequency of clock input",
+          "D": "Independent of the frequency of clock input"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "With J = K = 1 the output toggles on every active clock edge, so its period is two clock periods. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q39"
+        },
+        {
+         "question": "Along with synchronous control inputs what to use to transfer a change in the flip-flop?",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "clock",
+          "D": "present output"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Synchronous inputs (J, K, D, T) act only at the clock edge. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q41"
+        },
+        {
+         "question": "The functional difference between SR flipflop and JK flipflop is",
+         "options": {
+          "A": "JK flipflop is faster than SR flipflop",
+          "B": "JK flipflop is slower than SR flipflop",
+          "C": "JK flipflop accepts both inputs 1",
+          "D": "JK flipflop does not require external clock"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "For J = K = 1 the JK toggles; S = R = 1 is not allowed in an SR flip-flop. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q73"
+        },
+        {
+         "question": "Race around condition is an undesirable phenomenon in Flip-Flops. The remedy for the same is",
+         "options": {
+          "A": "S-R",
+          "B": "D-Flip flop",
+          "C": "J-K Flip flop",
+          "D": "Master slave JK Flipflop"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q80"
+        },
+        {
+         "question": "A sequential circuit differs from a combinational circuit because its output depends on:",
+         "options": {
+          "A": "Clock frequency only",
+          "B": "Present inputs and the past history (stored state)",
+          "C": "Present inputs only",
+          "D": "Power supply only"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). It contains memory elements – flip-flops."
+        },
+        {
+         "question": "The difference between a latch and a flip-flop is that:",
+         "options": {
+          "A": "A flip-flop stores two bits",
+          "B": "A latch is level-sensitive; a flip-flop changes only at a clock edge",
+          "C": "A latch is edge-triggered; a flip-flop is level-sensitive",
+          "D": "A latch has no memory"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Edge triggering avoids multiple changes during one clock pulse."
+        },
+        {
+         "question": "In an SR latch built with NOR gates, the input combination that is not allowed is:",
+         "options": {
+          "A": "S = 1, R = 0",
+          "B": "S = 0, R = 1",
+          "C": "S = 0, R = 0",
+          "D": "S = 1, R = 1"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Both outputs would be forced to 0 and the next state is unpredictable."
+        },
+        {
+         "question": "In an SR latch built with NAND gates (active-low inputs), the forbidden input is:",
+         "options": {
+          "A": "S' = 1, R' = 1",
+          "B": "S' = 0, R' = 0",
+          "C": "S' = 1, R' = 0",
+          "D": "S' = 0, R' = 1"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "NAND latch inputs are active low."
+        },
+        {
+         "question": "The next state of a D flip-flop is:",
+         "options": {
+          "A": "Q(t+1) = D ⊕ Q",
+          "B": "Q(t+1) = D'",
+          "C": "Q(t+1) = Q'",
+          "D": "Q(t+1) = D"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used as a delay element and in registers."
+        },
+        {
+         "question": "The characteristic equation of a JK flip-flop is:",
+         "options": {
+          "A": "Q(t+1) = JK + Q",
+          "B": "Q(t+1) = JQ' + K'Q",
+          "C": "Q(t+1) = J + K'Q",
+          "D": "Q(t+1) = J ⊕ K"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "JK = 00 hold, 01 reset, 10 set, 11 toggle."
+        },
+        {
+         "question": "In a JK flip-flop, J = 0 and K = 1 at the clock edge gives:",
+         "options": {
+          "A": "Toggle",
+          "B": "Q = 1 (set)",
+          "C": "Q = 0 (reset)",
+          "D": "No change"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). JK = 01 resets the flip-flop; 10 sets it."
+        },
+        {
+         "question": "The characteristic equation of a T flip-flop is:",
+         "options": {
+          "A": "Q(t+1) = T ⊕ Q",
+          "B": "Q(t+1) = T + Q",
+          "C": "Q(t+1) = TQ",
+          "D": "Q(t+1) = T"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "T = 1 toggles; T = 0 holds."
+        },
+        {
+         "question": "A T flip-flop can be made from a JK flip-flop by:",
+         "options": {
+          "A": "Connecting J to Q",
+          "B": "Grounding K",
+          "C": "Connecting J and K together as the T input",
+          "D": "Inverting the clock"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Then JK is 00 (hold) or 11 (toggle)."
+        },
+        {
+         "question": "A D flip-flop can be made from a JK flip-flop by connecting:",
+         "options": {
+          "A": "J = D' and K = D",
+          "B": "J = 1 and K = D",
+          "C": "J = K = D",
+          "D": "J = D and K = D'"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Then JK is never 11 and Q follows D."
+        },
+        {
+         "question": "The race-around condition in a level-triggered JK flip-flop occurs when:",
+         "options": {
+          "A": "J = K = 1 and the clock pulse is longer than the flip-flop's propagation delay",
+          "B": "The clock is very short",
+          "C": "J = 1, K = 0",
+          "D": "J = K = 0"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). The output keeps toggling during the pulse."
+        },
+        {
+         "question": "In the excitation table of a JK flip-flop, the transition Q: 0 → 1 requires:",
+         "options": {
+          "A": "J = 1, K = 1 only",
+          "B": "J = 1, K = X (don't care)",
+          "C": "J = X, K = 0",
+          "D": "J = 0, K = 1"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Excitation tables are used to design counters."
+        },
+        {
+         "question": "In the excitation table of an SR flip-flop, the transition Q: 1 → 0 requires:",
+         "options": {
+          "A": "S = X, R = 0",
+          "B": "S = 1, R = 1",
+          "C": "S = 1, R = 0",
+          "D": "S = 0, R = 1"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Reset the flip-flop: S = 0, R = 1."
+        },
+        {
+         "question": "Preset and clear inputs of a flip-flop are:",
+         "options": {
+          "A": "Asynchronous – they act immediately, independent of the clock",
+          "B": "Synchronous with the clock",
+          "C": "Data inputs",
+          "D": "Used only in combinational circuits"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Used to initialise the flip-flop."
+        },
+        {
+         "question": "The minimum time the data input must be stable BEFORE the clock edge is the:",
+         "options": {
+          "A": "Hold time",
+          "B": "Clock period",
+          "C": "Setup time",
+          "D": "Propagation delay"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Hold time – stable time AFTER the edge."
+        },
+        {
+         "question": "In a Mealy machine, the output depends on:",
+         "options": {
+          "A": "The inputs only",
+          "B": "The present state and the present inputs",
+          "C": "The present state only",
+          "D": "The clock only"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Moore machine – output depends on the present state only."
+        },
+        {
+         "question": "How many flip-flops are needed for a state machine with 10 states?",
+         "options": {
+          "A": "3",
+          "B": "10",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). ⌈log₂ 10⌉ = 4."
+        },
+        {
+         "question": "The characteristic equation of an SR flip-flop (with the condition SR = 0) is:",
+         "options": {
+          "A": "Q(t+1) = S + R'Q",
+          "B": "Q(t+1) = SR + Q'",
+          "C": "Q(t+1) = S ⊕ R",
+          "D": "Q(t+1) = S'R + Q"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "S sets, R resets, otherwise Q holds; S = R = 1 is excluded."
+        },
+        {
+         "question": "A flip-flop is also known as a:",
+         "options": {
+          "A": "Schmitt trigger",
+          "B": "Astable multivibrator",
+          "C": "Monostable multivibrator",
+          "D": "Bistable multivibrator"
+         },
+         "answer": "D",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). It has two stable states."
+        },
+        {
+         "question": "Three T flip-flops with T = 1 are connected in cascade (each output clocks the next). If the clock is 8 kHz, the output of the last flip-flop is:",
+         "options": {
+          "A": "2 kHz",
+          "B": "1 kHz",
+          "C": "4 kHz",
+          "D": "8 kHz"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Each stage divides by 2: 8 → 4 → 2 → 1 kHz."
+        },
+        {
+         "question": "A sequential circuit whose state changes only at clock edges is called:",
+         "options": {
+          "A": "Combinational",
+          "B": "Analog",
+          "C": "Synchronous",
+          "D": "Asynchronous"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "PYQ pattern (KEA / KSET papers). Asynchronous circuits change whenever inputs change."
+        },
+        {
+         "question": "A flip-flop stores:",
+         "options": {
+          "A": "One byte",
+          "B": "One bit",
+          "C": "One word",
+          "D": "Four bits"
+         },
+         "answer": "B",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "n flip-flops store n bits."
+        },
+        {
+         "question": "Consider the statements:\nI. A D flip-flop has no invalid input combination.\nII. A T flip-flop holds its state when T = 1.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Only I. T = 1 toggles."
+        },
+        {
+         "question": "Consider the statements:\nI. In a Moore machine the output depends only on the present state.\nII. Master–slave JK flip-flops remove the race-around condition.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Both."
+        },
+        {
+         "question": "Assertion (A): A JK flip-flop with J = K = 1 can be used as a frequency divider.\nReason (R): It toggles on every active clock edge.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Latches, Flip-Flops (SR, D, JK, T) and Sequential Circuits",
+         "explanation": "Output frequency = clock/2; R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Registers, Counters, Integrated Circuits and the Memory Unit",
+       "questions": [
+        {
+         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "options": {
+          "A": "(a), (b), (c) and (d)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(a) and (c)"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q14"
+        },
+        {
+         "question": "The popular TTL IC 7490 is a:",
+         "options": {
+          "A": "Full adder",
+          "B": "4-bit shift register",
+          "C": "Decade (mod-10) ripple counter",
+          "D": "3-to-8 decoder"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). 7493 – 4-bit binary counter; 74138 – 3-to-8 decoder; 7483 – 4-bit adder."
+        },
+        {
+         "question": "A register is:",
+         "options": {
+          "A": "A single logic gate",
+          "B": "A type of decoder",
+          "C": "An analog device",
+          "D": "A group of flip-flops that stores a binary word"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). An n-bit register has n flip-flops."
+        },
+        {
+         "question": "The four types of shift registers by data movement are:",
+         "options": {
+          "A": "SR, JK, D and T",
+          "B": "Up, down, ring and Johnson",
+          "C": "SISO, SIPO, PISO and PIPO",
+          "D": "SSI, MSI, LSI and VLSI"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "S = serial, P = parallel, I = in, O = out."
+        },
+        {
+         "question": "Which shift register converts serial data to parallel data?",
+         "options": {
+          "A": "SISO",
+          "B": "SIPO",
+          "C": "PIPO",
+          "D": "PISO"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). PISO converts parallel to serial (e.g. for transmission)."
+        },
+        {
+         "question": "Shifting a binary number one place to the left (with 0 entering) is equivalent to:",
+         "options": {
+          "A": "Complementing",
+          "B": "Dividing by 2",
+          "C": "Adding 1",
+          "D": "Multiplying by 2"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Right shift divides by 2 (for unsigned numbers)."
+        },
+        {
+         "question": "How many clock pulses are needed to load 4 bits serially into an empty 4-bit SISO shift register?",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "8",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). One bit enters per clock."
+        },
+        {
+         "question": "A universal shift register (e.g. IC 74194) can:",
+         "options": {
+          "A": "Shift left, shift right, load in parallel and hold",
+          "B": "Only shift right",
+          "C": "Only count",
+          "D": "Only decode"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Mode-select inputs S1 S0 choose hold, shift right, shift left or parallel load."
+        },
+        {
+         "question": "A ring counter with n flip-flops has how many states?",
+         "options": {
+          "A": "n − 1",
+          "B": "2ⁿ",
+          "C": "n",
+          "D": "2n"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). A single 1 circulates."
+        },
+        {
+         "question": "A 4-bit Johnson (twisted-ring) counter has how many states?",
+         "options": {
+          "A": "16",
+          "B": "4",
+          "C": "15",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "2n states; the complement of the last output is fed back to the first."
+        },
+        {
+         "question": "In an asynchronous (ripple) counter:",
+         "options": {
+          "A": "All flip-flops share the same clock",
+          "B": "Each flip-flop is clocked by the output of the previous one",
+          "C": "No flip-flops are used",
+          "D": "Outputs change simultaneously"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). Delays add up along the chain."
+        },
+        {
+         "question": "A 4-bit ripple counter uses flip-flops with 10 ns propagation delay each. The maximum safe clock frequency is about:",
+         "options": {
+          "A": "100 MHz",
+          "B": "10 MHz",
+          "C": "25 MHz",
+          "D": "40 MHz"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Total delay 4 × 10 = 40 ns → f = 1/40 ns = 25 MHz."
+        },
+        {
+         "question": "In a synchronous counter:",
+         "options": {
+          "A": "All flip-flops are triggered by the same clock at the same time",
+          "B": "Each flip-flop clocks the next",
+          "C": "There is no clock",
+          "D": "Only one flip-flop is used"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). Faster than ripple counters; uses gates to decide which flip-flops toggle."
+        },
+        {
+         "question": "How many flip-flops are needed for a mod-10 (decade) counter?",
+         "options": {
+          "A": "10",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "⌈log₂ 10⌉ = 4."
+        },
+        {
+         "question": "The maximum count of a 4-bit binary counter is:",
+         "options": {
+          "A": "4",
+          "B": "15",
+          "C": "16",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). It counts 0 to 15 (mod 16)."
+        },
+        {
+         "question": "A decade (BCD) counter counts from 0 to 9 and then resets on reaching:",
+         "options": {
+          "A": "1111",
+          "B": "1000",
+          "C": "1001",
+          "D": "1010"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "The 1010 state is detected and used to clear the flip-flops."
+        },
+        {
+         "question": "To make a mod-6 counter from a 3-bit binary ripple counter, the counter is reset when it reaches:",
+         "options": {
+          "A": "011",
+          "B": "111",
+          "C": "110",
+          "D": "101"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). States 000–101 remain."
+        },
+        {
+         "question": "A mod-16 counter driven by a 1.6 MHz clock gives an output frequency of:",
+         "options": {
+          "A": "1.6 MHz",
+          "B": "160 kHz",
+          "C": "16 MHz",
+          "D": "100 kHz"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Counters divide frequency by their modulus."
+        },
+        {
+         "question": "Which level of integration has the highest number of gates per chip?",
+         "options": {
+          "A": "VLSI",
+          "B": "SSI",
+          "C": "MSI",
+          "D": "LSI"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). SSI < MSI < LSI < VLSI (ULSI beyond)."
+        },
+        {
+         "question": "Which logic family is known for very low power consumption?",
+         "options": {
+          "A": "TTL",
+          "B": "RTL",
+          "C": "CMOS",
+          "D": "ECL"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "ECL is the fastest (non-saturating) but power hungry."
+        },
+        {
+         "question": "The number of gate inputs that one gate output can drive reliably is called:",
+         "options": {
+          "A": "Noise margin",
+          "B": "Fan-out",
+          "C": "Propagation delay",
+          "D": "Fan-in"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). Fan-in = number of inputs of a gate."
+        },
+        {
+         "question": "A memory unit with k address lines and n data lines stores:",
+         "options": {
+          "A": "k words of n bits",
+          "B": "2ᵏ words of n bits each",
+          "C": "k × n words",
+          "D": "n words of 2ᵏ bits"
+         },
+         "answer": "B",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Mano, memory unit."
+        },
+        {
+         "question": "How many address lines are needed for a 1K × 8 memory?",
+         "options": {
+          "A": "8",
+          "B": "1024",
+          "C": "10",
+          "D": "13"
+         },
+         "answer": "C",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1K = 1024 = 2¹⁰."
+        },
+        {
+         "question": "A 64K × 16 memory has:",
+         "options": {
+          "A": "20 address lines and 8 data lines",
+          "B": "64 address lines and 16 data lines",
+          "C": "16 address lines and 64 data lines",
+          "D": "16 address lines, 16 data lines and a capacity of 128 KB"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "64K = 2¹⁶ words × 2 bytes = 128 KB."
+        },
+        {
+         "question": "How many 256 × 4 RAM chips are needed to build a 1K × 8 memory?",
+         "options": {
+          "A": "8",
+          "B": "2",
+          "C": "16",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). (1024/256) × (8/4) = 4 × 2 = 8."
+        },
+        {
+         "question": "Static RAM differs from dynamic RAM because SRAM:",
+         "options": {
+          "A": "Is non-volatile",
+          "B": "Stores bits in capacitors and needs refreshing",
+          "C": "Is slower and cheaper",
+          "D": "Stores bits in flip-flops and needs no refreshing"
+         },
+         "answer": "D",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "DRAM uses capacitors, is denser and cheaper, and must be refreshed."
+        },
+        {
+         "question": "Which ROM can be erased with ultraviolet light and reprogrammed?",
+         "options": {
+          "A": "EPROM",
+          "B": "EEPROM",
+          "C": "PROM",
+          "D": "Mask ROM"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PYQ pattern (KEA / KSET papers). EEPROM and Flash are erased electrically."
+        },
+        {
+         "question": "A PLA differs from a PAL because in a PLA:",
+         "options": {
+          "A": "Both the AND array and the OR array are programmable",
+          "B": "Only the OR array is programmable",
+          "C": "Neither array is programmable",
+          "D": "There is no AND array"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "PAL: programmable AND array, fixed OR array."
+        },
+        {
+         "question": "Consider the statements:\nI. A Johnson counter with n flip-flops has 2n states.\nII. A ripple counter is faster than a synchronous counter.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "Only I."
+        },
+        {
+         "question": "Assertion (A): A Johnson counter gives twice as many states as a ring counter with the same flip-flops.\nReason (R): The Johnson counter feeds back the complement of the last flip-flop's output.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Registers, Counters, Integrated Circuits and the Memory Unit",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Sequential logic – revision sheet",
+       "md": "## Latches and flip-flops\n- Sequential = output depends on inputs + stored state; latch (level) vs flip-flop (edge); bistable multivibrator\n- **SR**: NOR latch – S=R=1 invalid; NAND latch – S'=R'=0 invalid; Q+ = S + R'Q (SR = 0)\n- **D**: Q+ = D (no invalid state; delay; registers)\n- **JK**: Q+ = JQ' + K'Q; 00 hold, 01 reset, 10 set, 11 toggle; race-around when J=K=1 with a long pulse → **master–slave** / edge triggering\n- **T**: Q+ = T ⊕ Q; JK→T: J = K = T; JK→D: J = D, K = D'\n- J=K=1 → output = clock/2 (frequency divider)\n- Excitation: JK 0→1 = (1, X); SR 1→0 = (0, 1); D = Q+\n- Preset/clear asynchronous; setup time (before edge), hold time (after edge)\n- Mealy (state + input) vs Moore (state only); flip-flops for N states = ⌈log₂ N⌉\n\n## Registers and counters\n- Shift registers SISO, SIPO (serial→parallel), PISO, PIPO; left shift ×2; universal 74194\n- Ring counter n states; **Johnson 2n** states\n- Ripple (asynchronous) – delays add (4 × 10 ns → 25 MHz max); synchronous – common clock\n- n-bit counter: 0 … 2ⁿ−1; decade counter resets at 1010; mod-6 resets at 110; mod-N divides frequency by N\n\n## ICs and memory\n- SSI < MSI < LSI < VLSI; CMOS low power, ECL fastest, TTL common; fan-in/fan-out, noise margin\n- Memory with k address and n data lines = 2ᵏ × n; 1K × 8 → 10 address lines; 64K × 16 → 16 lines, 128 KB\n- Chips needed = (total words / chip words) × (total width / chip width)\n- SRAM (flip-flops, no refresh) vs DRAM (capacitors, refresh); ROM, PROM, EPROM (UV), EEPROM, Flash\n- PLA (AND + OR programmable) vs PAL (AND programmable, OR fixed)\n"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
