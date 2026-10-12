@@ -34,7 +34,7 @@ PACKS = {
     "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e", "p1_eng_f", "p1_eng_g"]},
     "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e", "p1_he_f"]},
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e"]},
-    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026"]},
+    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026", "p1_ca_2026_b"]},
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
