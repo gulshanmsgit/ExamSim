@@ -1,0 +1,1865 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · KRIES — Additional Topics",
+ "description": "All topics so far (5 sets × 30 questions): Basic Java Programming; Computer Graphics. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · KRIES – Additional Topics",
+   "icon": "🖥",
+   "topics": [
+    {
+     "name": "Basic Java Programming",
+     "plan": {
+      "id": "P2-KR-01"
+     },
+     "sets": [
+      {
+       "name": "1 · Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+       "questions": [
+        {
+         "question": "What is the size of float and double in Java?",
+         "options": {
+          "A": "32 and 64",
+          "B": "32 and 32",
+          "C": "64 and 64",
+          "D": "64 and 32"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "float – 32-bit, double – 64-bit IEEE 754, on every platform. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q11"
+        },
+        {
+         "question": "Which of the following options leads to the portability and security of Java?",
+         "options": {
+          "A": "Byte code is executed by JVM",
+          "B": "The applet makes the Java code secure & portable",
+          "C": "Use of exception handling",
+          "D": "Dynamic binding between objects"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "The same bytecode runs on any JVM, which also verifies it before execution. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q18"
+        },
+        {
+         "question": "Which component is used to compile, debug and execute the Java Programs?",
+         "options": {
+          "A": "JRE",
+          "B": "JIT",
+          "C": "JDK",
+          "D": "JVM"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "JDK = JRE + development tools (javac, jdb, javadoc…); JRE = JVM + libraries. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q91"
+        },
+        {
+         "question": "Which of the following operators is used to allocate memory to array variable in Java?",
+         "options": {
+          "A": "alloc",
+          "B": "malloc",
+          "C": "new",
+          "D": "new malloc"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "int[] a = new int[5]; Java has no malloc. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q33"
+        },
+        {
+         "question": "Java was developed by ____ at Sun Microsystems and released in 1995 (it was first called Oak).",
+         "options": {
+          "A": "Guido van Rossum",
+          "B": "Bjarne Stroustrup",
+          "C": "Dennis Ritchie",
+          "D": "James Gosling"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stroustrup – C++; Ritchie – C; van Rossum – Python."
+        },
+        {
+         "question": "The Java compiler (javac) converts source code into:",
+         "options": {
+          "A": "Native machine code (.exe)",
+          "B": "Assembly code",
+          "C": "HTML",
+          "D": "Bytecode stored in .class files"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "The JVM interprets bytecode or compiles hot parts to native code with the JIT compiler."
+        },
+        {
+         "question": "The JIT (Just-In-Time) compiler in the JVM:",
+         "options": {
+          "A": "Removes unused objects",
+          "B": "Compiles frequently executed bytecode to native machine code at run time to improve speed",
+          "C": "Compiles Java source to bytecode",
+          "D": "Checks syntax before compilation"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Garbage collection removes unused objects."
+        },
+        {
+         "question": "How many primitive data types does Java have?",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "8 – byte, short, int, long, float, double, char, boolean",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "String is a class, not a primitive type."
+        },
+        {
+         "question": "The size of char in Java is:",
+         "options": {
+          "A": "32 bits",
+          "B": "16 bits (Unicode)",
+          "C": "8 bits (ASCII)",
+          "D": "Depends on the platform"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Java uses UTF-16 code units for char."
+        },
+        {
+         "question": "The range of the byte data type in Java is:",
+         "options": {
+          "A": "−256 to 255",
+          "B": "0 to 255",
+          "C": "−32768 to 32767",
+          "D": "−128 to 127"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "byte – 8 bits; short – 16; int – 32; long – 64."
+        },
+        {
+         "question": "What is printed?\nint x = 10;\nSystem.out.println(x++ + ++x);",
+         "options": {
+          "A": "21",
+          "B": "23",
+          "C": "20",
+          "D": "22"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). x++ gives 10 (x becomes 11), ++x makes x 12 and gives 12 → 10 + 12 = 22."
+        },
+        {
+         "question": "What is printed?\nSystem.out.println(5 / 2 + 5 % 2);",
+         "options": {
+          "A": "3.5",
+          "B": "3",
+          "C": "2",
+          "D": "2.5"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "Integer division 5/2 = 2; 5 % 2 = 1; 2 + 1 = 3."
+        },
+        {
+         "question": "What is printed?\nSystem.out.println(1 + 2 + \"A\" + 1 + 2);",
+         "options": {
+          "A": "A33",
+          "B": "3A3",
+          "C": "3A12",
+          "D": "12A12"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Left to right: 1 + 2 = 3, then string concatenation: \"3A\" + 1 + 2 = \"3A12\"."
+        },
+        {
+         "question": "What happens with:\nbyte b = 10;\nb = b + 1;",
+         "options": {
+          "A": "Compile-time error: possible lossy conversion from int to byte",
+          "B": "b becomes 11",
+          "C": "b becomes 1",
+          "D": "Run-time exception"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "b + 1 is promoted to int; an explicit cast (byte)(b + 1) or b += 1 is needed."
+        },
+        {
+         "question": "The value of (int) 3.99 in Java is:",
+         "options": {
+          "A": "3",
+          "B": "3.99",
+          "C": "Compile error",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Narrowing a floating value to int truncates toward zero."
+        },
+        {
+         "question": "Which Java operator is the unsigned right shift?",
+         "options": {
+          "A": ">>",
+          "B": "<<<",
+          "C": "~>",
+          "D": ">>>"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": ">> keeps the sign bit; >>> fills with zeros."
+        },
+        {
+         "question": "Since which version can a switch statement in Java use String values?",
+         "options": {
+          "A": "Java 11",
+          "B": "Java 7",
+          "C": "Java 5",
+          "D": "Java 1.0"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Switch also works with byte, short, char, int, their wrappers and enums."
+        },
+        {
+         "question": "What is printed?\nint[] a = new int[3];\nSystem.out.println(a[1] + a.length);",
+         "options": {
+          "A": "Compile error",
+          "B": "1",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "Array elements default to 0; a.length is a field (3), not a method."
+        },
+        {
+         "question": "Accessing a[5] in an array of length 5 throws:",
+         "options": {
+          "A": "ClassCastException",
+          "B": "NullPointerException",
+          "C": "ArrayIndexOutOfBoundsException",
+          "D": "ArithmeticException"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). Indices run from 0 to length − 1."
+        },
+        {
+         "question": "A 'jagged' array in Java is:",
+         "options": {
+          "A": "An array of size zero",
+          "B": "An unsorted array",
+          "C": "An array of mixed types",
+          "D": "A two-dimensional array whose rows have different lengths"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "int[][] t = new int[3][]; t[0] = new int[2]; t[1] = new int[5]; …"
+        },
+        {
+         "question": "The correct signature of the main method used by the JVM is:",
+         "options": {
+          "A": "public static void main(String[] args)",
+          "B": "private static void Main(String[] args)",
+          "C": "static int main()",
+          "D": "public void main(String args)"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). It must be public (callable by JVM) and static (called without an object)."
+        },
+        {
+         "question": "Which of these words is reserved in Java but NOT used?",
+         "options": {
+          "A": "native",
+          "B": "goto",
+          "C": "static",
+          "D": "final"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "goto and const are reserved keywords with no meaning in Java."
+        },
+        {
+         "question": "What is printed?\nfor (int i = 0; i < 5; i++) { if (i == 3) break; System.out.print(i); }",
+         "options": {
+          "A": "124",
+          "B": "012",
+          "C": "0123",
+          "D": "01234"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). The loop stops when i becomes 3."
+        },
+        {
+         "question": "What is printed?\nint x = 7;\nSystem.out.println(x > 5 ? \"big\" : \"small\");",
+         "options": {
+          "A": "true",
+          "B": "small",
+          "C": "7",
+          "D": "big"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "The ternary operator ?: chooses one of two values."
+        },
+        {
+         "question": "The enhanced for loop 'for (int v : arr)' is used to:",
+         "options": {
+          "A": "Iterate over every element of an array or collection without an index",
+          "B": "Run forever",
+          "C": "Modify the array length",
+          "D": "Iterate backwards only"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). It was introduced in Java 5."
+        },
+        {
+         "question": "Local variables in Java:",
+         "options": {
+          "A": "Are always 0",
+          "B": "Are initialised by the garbage collector",
+          "C": "Must be initialised before use; they get no default value",
+          "D": "Are always null"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "Instance and static fields do get defaults (0, false, null)."
+        },
+        {
+         "question": "Assertion (A): Java is platform independent.\nReason (R): The Java compiler produces bytecode that can run on any machine with a JVM.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). 'Write once, run anywhere'."
+        },
+        {
+         "question": "Consider the statements:\nI. Java supports explicit pointers and pointer arithmetic.\nII. Java has automatic garbage collection.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "Only II: Java uses references without pointer arithmetic, which improves security."
+        },
+        {
+         "question": "What is printed?\nSystem.out.println(10 == 10.0);",
+         "options": {
+          "A": "false",
+          "B": "Compile error",
+          "C": "true",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "PYQ pattern (KEA / KSET papers). The int is widened to double before comparison."
+        },
+        {
+         "question": "Which statement about Java's 'labelled break' is correct?",
+         "options": {
+          "A": "It exits the program",
+          "B": "It is not allowed in Java",
+          "C": "It jumps to any line like goto",
+          "D": "break outer; exits the loop labelled 'outer', even from inside a nested loop"
+         },
+         "answer": "D",
+         "subject": "Java Basics – Features, JVM, Data Types, Operators, Control Statements and Arrays",
+         "explanation": "continue can also take a label."
+        }
+       ]
+      },
+      {
+       "name": "2 · Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+       "questions": [
+        {
+         "question": "Which of the following is NOT an oops concept in Java?",
+         "options": {
+          "A": "Polymorphism",
+          "B": "Inheritance",
+          "C": "Compilation",
+          "D": "Encapsulation"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "The four OOP pillars: encapsulation, abstraction, inheritance, polymorphism. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q92"
+        },
+        {
+         "question": "Which of these class is a superclass of every class in Java?",
+         "options": {
+          "A": "String class",
+          "B": "Abstract class",
+          "C": "Arraylist class",
+          "D": "Object class"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "java.lang.Object is the root of the class hierarchy. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q93"
+        },
+        {
+         "question": "A constructor in Java:",
+         "options": {
+          "A": "Must return void",
+          "B": "Has the same name as the class and no return type",
+          "C": "Is called only explicitly",
+          "D": "Can have any name"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is called automatically when an object is created with new."
+        },
+        {
+         "question": "Java supplies a default (no-argument) constructor:",
+         "options": {
+          "A": "Only if the class defines no constructor at all",
+          "B": "Always, in addition to user-defined ones",
+          "C": "Never",
+          "D": "Only for abstract classes"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Once you write any constructor, the compiler no longer adds the default one."
+        },
+        {
+         "question": "Inside a constructor, a call to this(…) or super(…):",
+         "options": {
+          "A": "Can be anywhere",
+          "B": "Must be the first statement",
+          "C": "Is not allowed",
+          "D": "Must be the last statement"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only one of them can appear."
+        },
+        {
+         "question": "What is printed by new C()?\nclass A { A() { System.out.print(\"A\"); } }\nclass B extends A { B() { System.out.print(\"B\"); } }\nclass C extends B { C() { System.out.print(\"C\"); } }",
+         "options": {
+          "A": "CBA",
+          "B": "AC",
+          "C": "C",
+          "D": "ABC"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Each constructor implicitly calls super() first, so superclass constructors run first."
+        },
+        {
+         "question": "What is printed?\nclass A { void show() { System.out.print(\"A\"); } }\nclass B extends A { void show() { System.out.print(\"B\"); } }\n… A obj = new B(); obj.show();",
+         "options": {
+          "A": "B",
+          "B": "A",
+          "C": "AB",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Dynamic method dispatch: the overriding method of the actual object runs (run-time polymorphism)."
+        },
+        {
+         "question": "Method overloading and method overriding are examples of, respectively:",
+         "options": {
+          "A": "Compile-time and run-time polymorphism",
+          "B": "Inheritance and encapsulation",
+          "C": "Run-time and compile-time polymorphism",
+          "D": "Abstraction and encapsulation"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Overloading – same name, different parameter lists; overriding – same signature in a subclass."
+        },
+        {
+         "question": "Arrange Java access levels from MOST to LEAST restrictive:",
+         "options": {
+          "A": "public, protected, default, private",
+          "B": "default, private, protected, public",
+          "C": "private, protected, default, public",
+          "D": "private, default (package), protected, public"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). protected also allows subclasses in other packages."
+        },
+        {
+         "question": "The keyword 'final' applied to a class means:",
+         "options": {
+          "A": "All methods are static",
+          "B": "The class cannot be extended (e.g. String)",
+          "C": "The class cannot be instantiated",
+          "D": "The class is abstract"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "A final method cannot be overridden; a final variable cannot be reassigned."
+        },
+        {
+         "question": "Java does not support multiple inheritance of classes mainly to avoid:",
+         "options": {
+          "A": "Slow compilation",
+          "B": "Garbage collection",
+          "C": "Large class files",
+          "D": "The diamond problem (ambiguity of inherited members)"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). A class can implement many interfaces instead."
+        },
+        {
+         "question": "Which statement about abstract classes is correct?",
+         "options": {
+          "A": "They cannot be extended",
+          "B": "They cannot be instantiated but can have constructors, fields and concrete methods",
+          "C": "They must have only abstract methods",
+          "D": "They can be instantiated with new"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "A subclass must implement all abstract methods or itself be abstract."
+        },
+        {
+         "question": "Fields declared in a Java interface are implicitly:",
+         "options": {
+          "A": "transient",
+          "B": "protected",
+          "C": "public static final",
+          "D": "private"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Methods are implicitly public abstract (Java 8 adds default and static methods)."
+        },
+        {
+         "question": "Which keyword does a class use to inherit from an interface?",
+         "options": {
+          "A": "implements",
+          "B": "uses",
+          "C": "extends",
+          "D": "inherits"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "An interface itself uses 'extends' to inherit from other interfaces."
+        },
+        {
+         "question": "Since Java 8, an interface can contain:",
+         "options": {
+          "A": "constructors",
+          "B": "default and static methods with bodies",
+          "C": "private constructors only",
+          "D": "instance variables"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Java 9 added private interface methods."
+        },
+        {
+         "question": "The package imported automatically into every Java program is:",
+         "options": {
+          "A": "java.lang",
+          "B": "java.io",
+          "C": "java.util",
+          "D": "java.awt"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "It contains String, Math, Object, System and the wrapper classes."
+        },
+        {
+         "question": "In a Java source file, the 'package' statement must be:",
+         "options": {
+          "A": "Inside the class",
+          "B": "The last statement",
+          "C": "After all imports",
+          "D": "The first statement (before imports)"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Package names usually follow the reverse domain, e.g. in.kea.exam."
+        },
+        {
+         "question": "The 'super' keyword is used to:",
+         "options": {
+          "A": "Create a new object",
+          "B": "Exit a loop",
+          "C": "Refer to members or the constructor of the immediate superclass",
+          "D": "Declare a constant"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "e.g. super(name) calls the parent constructor; super.show() calls the parent's version of an overridden method."
+        },
+        {
+         "question": "Static methods in Java:",
+         "options": {
+          "A": "Need an object to be called",
+          "B": "Are always private",
+          "C": "Belong to the class and cannot directly use instance variables or 'this'",
+          "D": "Can be overridden polymorphically"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). A static method in a subclass with the same signature hides (not overrides) the superclass method."
+        },
+        {
+         "question": "Which method of Object is used to compare the contents of two objects (when overridden)?",
+         "options": {
+          "A": "==",
+          "B": "hashCode() alone",
+          "C": "compare()",
+          "D": "equals()"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "== compares references; equals() and hashCode() should be overridden together."
+        },
+        {
+         "question": "Converting a primitive int to an Integer object automatically is called:",
+         "options": {
+          "A": "Autoboxing (Java 5)",
+          "B": "Serialization",
+          "C": "Unboxing",
+          "D": "Casting"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Unboxing is the reverse conversion."
+        },
+        {
+         "question": "The 'instanceof' operator is used to:",
+         "options": {
+          "A": "Compare two numbers",
+          "B": "Test whether an object is an instance of a given class or interface",
+          "C": "Copy an object",
+          "D": "Create an instance"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "obj instanceof String is true if obj refers to a String; it is used before a safe downcast."
+        },
+        {
+         "question": "Garbage collection in Java:",
+         "options": {
+          "A": "Deletes local variables only",
+          "B": "Must be called manually after every object",
+          "C": "Is done by the compiler",
+          "D": "Automatically frees memory of objects that are no longer reachable"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). System.gc() only requests a collection."
+        },
+        {
+         "question": "Encapsulation in Java is achieved by:",
+         "options": {
+          "A": "Using only static methods",
+          "B": "Making fields private and providing public getter and setter methods",
+          "C": "Making everything public",
+          "D": "Avoiding classes"
+         },
+         "answer": "B",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Data hiding: other classes reach the fields only through controlled methods."
+        },
+        {
+         "question": "Assertion (A): An abstract class cannot be instantiated.\nReason (R): An abstract class must contain at least one abstract method.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "R is false: a class can be declared abstract even with no abstract methods."
+        },
+        {
+         "question": "Consider the statements:\nI. A Java class can extend only one class.\nII. A Java class can implement more than one interface.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Both are correct."
+        },
+        {
+         "question": "An anonymous inner class is:",
+         "options": {
+          "A": "A static class",
+          "B": "A final class",
+          "C": "A class without a name, declared and instantiated in one expression, often to implement an interface",
+          "D": "A class with a hidden file"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Lambda expressions (Java 8) replace many anonymous classes for functional interfaces."
+        },
+        {
+         "question": "The 'this' keyword refers to:",
+         "options": {
+          "A": "The current object",
+          "B": "The superclass",
+          "C": "The main method",
+          "D": "The class itself (static context)"
+         },
+         "answer": "A",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is often used when parameter names hide field names."
+        },
+        {
+         "question": "Which statement about method overriding is correct?",
+         "options": {
+          "A": "Static methods can be overridden",
+          "B": "Private methods are overridden",
+          "C": "The return type must be different",
+          "D": "The overriding method cannot have a weaker access modifier than the overridden one"
+         },
+         "answer": "D",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "Private methods are not inherited; final methods cannot be overridden."
+        },
+        {
+         "question": "To use the class ArrayList without its full name you write:",
+         "options": {
+          "A": "include java.util.ArrayList;",
+          "B": "using java.util;",
+          "C": "import java.util.ArrayList;",
+          "D": "#import ArrayList"
+         },
+         "answer": "C",
+         "subject": "Classes, Objects, Constructors, Inheritance, Interfaces and Packages",
+         "explanation": "PYQ pattern (KEA / KSET papers). import java.util.*; imports all public classes of the package."
+        }
+       ]
+      },
+      {
+       "name": "3 · Exception Handling, Strings, Multithreading, Applets and JDBC",
+       "questions": [
+        {
+         "question": "Which of the following describes the proper sequence for the life cycle methods of an applet?",
+         "options": {
+          "A": "start() → init() → stop() → paint() → destroy()",
+          "B": "init() → paint() → start() → destroy() → stop()",
+          "C": "init() → start() → paint() → stop() → destroy()",
+          "D": "start() → init() → paint() → stop() → destroy()"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "init once, start each time it becomes visible, paint to draw, stop when hidden, destroy at the end. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q72"
+        },
+        {
+         "question": "In Java's exception hierarchy, the root class is:",
+         "options": {
+          "A": "Object only",
+          "B": "Exception",
+          "C": "RuntimeException",
+          "D": "Throwable (with subclasses Error and Exception)"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). RuntimeException and its subclasses are unchecked."
+        },
+        {
+         "question": "Which is a CHECKED exception?",
+         "options": {
+          "A": "ArrayIndexOutOfBoundsException",
+          "B": "ArithmeticException",
+          "C": "IOException",
+          "D": "NullPointerException"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Checked exceptions must be caught or declared with throws."
+        },
+        {
+         "question": "A finally block:",
+         "options": {
+          "A": "Replaces catch",
+          "B": "Executes whether or not an exception occurs (unless the JVM exits, e.g. System.exit)",
+          "C": "Runs only if no exception occurs",
+          "D": "Runs only if an exception occurs"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is used to release resources."
+        },
+        {
+         "question": "What is printed?\ntry { System.out.print(\"T\"); int x = 5 / 0; System.out.print(\"X\"); }\ncatch (ArithmeticException e) { System.out.print(\"C\"); }\nfinally { System.out.print(\"F\"); }",
+         "options": {
+          "A": "TF",
+          "B": "TXF",
+          "C": "TXCF",
+          "D": "TCF"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Integer division by zero throws ArithmeticException before X is printed."
+        },
+        {
+         "question": "The difference between 'throw' and 'throws' is:",
+         "options": {
+          "A": "They are the same",
+          "B": "throws raises an exception; throw declares it",
+          "C": "throw is used only for errors",
+          "D": "throw raises an exception object; throws declares exceptions a method may pass on"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). throw new IOException(\"x\"); inside a method; void read() throws IOException in the method header."
+        },
+        {
+         "question": "If a catch block for Exception is written BEFORE a catch block for ArithmeticException:",
+         "options": {
+          "A": "A compile-time error occurs because the second catch is unreachable",
+          "B": "Both run",
+          "C": "Only the second runs",
+          "D": "The program runs normally"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Catch subclasses before superclasses."
+        },
+        {
+         "question": "What is the result of System.out.println(5.0 / 0);",
+         "options": {
+          "A": "0",
+          "B": "Infinity",
+          "C": "ArithmeticException",
+          "D": "NaN"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). Floating-point division by zero gives Infinity; 0.0/0 gives NaN."
+        },
+        {
+         "question": "A user-defined checked exception is created by:",
+         "options": {
+          "A": "Extending the Exception class",
+          "B": "Using the 'exception' keyword",
+          "C": "Implementing Runnable",
+          "D": "Extending the Error class only"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "class LowBalanceException extends Exception { … } – extending RuntimeException instead makes it unchecked."
+        },
+        {
+         "question": "try-with-resources (Java 7) automatically closes objects that implement:",
+         "options": {
+          "A": "Serializable",
+          "B": "Comparable",
+          "C": "AutoCloseable",
+          "D": "Cloneable"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). e.g. try (FileReader fr = new FileReader(\"a.txt\")) { … }"
+        },
+        {
+         "question": "Which statement about String in Java is correct?",
+         "options": {
+          "A": "String cannot be used in switch",
+          "B": "String is a primitive type",
+          "C": "String objects are immutable",
+          "D": "Strings can be changed in place with setCharAt()"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "StringBuffer (synchronized) and StringBuilder (faster, not synchronized) are mutable."
+        },
+        {
+         "question": "What is printed?\nString a = \"hi\";\nString b = new String(\"hi\");\nSystem.out.println((a == b) + \" \" + a.equals(b));",
+         "options": {
+          "A": "false true",
+          "B": "false false",
+          "C": "true true",
+          "D": "true false"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). new creates a separate object; equals() compares characters."
+        },
+        {
+         "question": "What is printed?\nSystem.out.println(\"Hello\".substring(1, 3));",
+         "options": {
+          "A": "ell",
+          "B": "el",
+          "C": "He",
+          "D": "llo"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "substring(begin, end) includes begin and excludes end."
+        },
+        {
+         "question": "What is printed?\nSystem.out.println(\"Java\".indexOf('a'));",
+         "options": {
+          "A": "0",
+          "B": "2",
+          "C": "3",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). Indexing starts at 0; the first 'a' is at index 1."
+        },
+        {
+         "question": "\"apple\".compareTo(\"banana\") returns:",
+         "options": {
+          "A": "true",
+          "B": "A positive number",
+          "C": "A negative number",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "compareTo returns 0 for equal strings, negative if the caller comes first in dictionary order."
+        },
+        {
+         "question": "Which class should be used for building a string in a single thread with many modifications?",
+         "options": {
+          "A": "StringBuilder",
+          "B": "String",
+          "C": "StringTokenizer",
+          "D": "StringBuffer (always faster)"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). StringBuffer's synchronisation adds overhead."
+        },
+        {
+         "question": "A thread can be created in Java by:",
+         "options": {
+          "A": "Calling run() directly only",
+          "B": "Extending Thread or implementing Runnable (then calling start())",
+          "C": "Using the 'thread' keyword",
+          "D": "Extending Object only"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Calling run() directly runs it in the current thread; start() creates a new thread."
+        },
+        {
+         "question": "The default priority of a Java thread is:",
+         "options": {
+          "A": "10",
+          "B": "0",
+          "C": "1",
+          "D": "5 (NORM_PRIORITY), on a scale of 1 to 10"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). MIN_PRIORITY = 1, MAX_PRIORITY = 10."
+        },
+        {
+         "question": "The methods wait(), notify() and notifyAll() belong to the class:",
+         "options": {
+          "A": "Object",
+          "B": "System",
+          "C": "Runnable",
+          "D": "Thread"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "They must be called from synchronized code that holds the object's monitor."
+        },
+        {
+         "question": "The 'synchronized' keyword is used to:",
+         "options": {
+          "A": "Stop a thread",
+          "B": "Allow only one thread at a time to execute a block or method on the same object (mutual exclusion)",
+          "C": "Speed up threads",
+          "D": "Create a thread"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). The thread must acquire the object's monitor lock, which prevents race conditions on shared data."
+        },
+        {
+         "question": "Applets in Java are:",
+         "options": {
+          "A": "Database drivers",
+          "B": "Server-side programs",
+          "C": "Programs with a main() run from the command line",
+          "D": "Small programs that subclass java.applet.Applet and run in a browser or appletviewer (deprecated since Java 9)"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Servlets run on the server; applets ran on the client."
+        },
+        {
+         "question": "In an applet, calling repaint() leads to:",
+         "options": {
+          "A": "stop()",
+          "B": "init()",
+          "C": "update() being called, which calls paint(Graphics g)",
+          "D": "destroy()"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). repaint() schedules update(), which clears the area and calls paint(Graphics g)."
+        },
+        {
+         "question": "An applet reads values given in the HTML <param> tag using:",
+         "options": {
+          "A": "readParam()",
+          "B": "System.getenv()",
+          "C": "getParameter(\"name\")",
+          "D": "args[0]"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "The applet is embedded with <applet code=\"MyApplet.class\" width=… height=…>."
+        },
+        {
+         "question": "In Java's delegation event model, a button click is handled by implementing:",
+         "options": {
+          "A": "ActionListener and its actionPerformed() method",
+          "B": "Serializable",
+          "C": "MouseMotionListener only",
+          "D": "Runnable"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). Swing components are lightweight; AWT components are heavyweight."
+        },
+        {
+         "question": "The correct JDBC step to obtain a database connection is:",
+         "options": {
+          "A": "Database.open()",
+          "B": "DriverManager.getConnection(url, user, password)",
+          "C": "new Connection()",
+          "D": "SQL.connect()"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PreparedStatement with ? placeholders helps prevent SQL injection."
+        },
+        {
+         "question": "Which collection class allows duplicates and keeps insertion order with fast random access?",
+         "options": {
+          "A": "HashMap",
+          "B": "TreeSet",
+          "C": "HashSet",
+          "D": "ArrayList"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sets reject duplicates; HashMap stores key–value pairs and allows one null key."
+        },
+        {
+         "question": "Assertion (A): The finally block is a good place to close files and connections.\nReason (R): finally runs whether or not an exception is thrown.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "Java 7's try-with-resources does this automatically."
+        },
+        {
+         "question": "Consider the statements:\nI. StringBuilder is thread-safe.\nII. String objects are immutable.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only II: StringBuffer is the synchronised (thread-safe) one."
+        },
+        {
+         "question": "Which Thread state does a thread enter after start() is called and before it gets the CPU?",
+         "options": {
+          "A": "Terminated",
+          "B": "Blocked",
+          "C": "Runnable",
+          "D": "New"
+         },
+         "answer": "C",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "States: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED."
+        },
+        {
+         "question": "What does this print?\nint[] a = {1, 2};\ntry { System.out.print(a[2]); }\ncatch (Exception e) { System.out.print(\"E\"); }\nSystem.out.print(\"Z\");",
+         "options": {
+          "A": "E",
+          "B": "2Z",
+          "C": "Z",
+          "D": "EZ"
+         },
+         "answer": "D",
+         "subject": "Exception Handling, Strings, Multithreading, Applets and JDBC",
+         "explanation": "PYQ pattern (KEA / KSET papers). a[2] throws ArrayIndexOutOfBoundsException, caught by the Exception handler; execution then continues."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Computer Graphics",
+     "plan": {
+      "id": "P2-KR-02"
+     },
+     "sets": [
+      {
+       "name": "1 · Display Devices, Line, Circle and Curve Drawing, and Filling",
+       "questions": [
+        {
+         "question": "In the Digital Differential Analyser algorithm, the decision increment either x or y is based on:",
+         "options": {
+          "A": "The midpoint of the line",
+          "B": "The product of x and y coordinates",
+          "C": "The error value",
+          "D": "Whether the slope is greater than 1 or less than 1"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "If |m| ≤ 1 x is stepped by 1 and y by m; otherwise y is stepped by 1 and x by 1/m. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Raichur University 2024 CS&A · Q27"
+        },
+        {
+         "question": "The algorithm that is typically used to compute points on a Bezier curve is",
+         "options": {
+          "A": "Midpoint algorithm",
+          "B": "Bresenham's algorithm",
+          "C": "de Casteljau's algorithm",
+          "D": "DDA algorithm"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "de Casteljau's algorithm uses repeated linear interpolation of control points. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Raichur University 2024 CS&A · Q29"
+        },
+        {
+         "question": "In a raster-scan CRT, the picture is:",
+         "options": {
+          "A": "Generated by a laser",
+          "B": "Stored as intensity values in a frame (refresh) buffer and painted line by line",
+          "C": "Drawn as lines directly by the beam from a display list",
+          "D": "Stored permanently on the phosphor"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Random-scan (vector) displays draw lines from a display file."
+        },
+        {
+         "question": "A frame buffer for a 1024 × 768 display with 24 bits per pixel needs about:",
+         "options": {
+          "A": "768 KB",
+          "B": "2.25 MB (2,359,296 bytes)",
+          "C": "24 MB",
+          "D": "1 MB"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "1024 × 768 × 3 bytes = 2,359,296 bytes."
+        },
+        {
+         "question": "With 8 bits per pixel, the number of different colours that can be shown at once is:",
+         "options": {
+          "A": "65,536",
+          "B": "16",
+          "C": "8",
+          "D": "256"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2⁸ = 256; 24-bit 'true colour' gives about 16.7 million."
+        },
+        {
+         "question": "Persistence of a phosphor is defined as:",
+         "options": {
+          "A": "The brightness of the screen",
+          "B": "The number of pixels",
+          "C": "The time for the emitted light to decay to one-tenth of its original intensity",
+          "D": "The refresh rate"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "Lower persistence needs a higher refresh rate to avoid flicker."
+        },
+        {
+         "question": "Aspect ratio of a display is the ratio of:",
+         "options": {
+          "A": "Colours to pixels",
+          "B": "Memory to pixels",
+          "C": "Refresh rate to resolution",
+          "D": "Vertical points to horizontal points needed to produce equal-length lines in both directions"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Hearn & Baker's definition; an aspect ratio of 3/4 means a vertical line plotted with 3 points equals a horizontal line with 4."
+        },
+        {
+         "question": "In colour CRTs, the shadow-mask method:",
+         "options": {
+          "A": "Needs no electron gun",
+          "B": "Uses three electron guns and red, green and blue phosphor dot triads",
+          "C": "Uses two phosphor layers and beam penetration",
+          "D": "Shows only monochrome"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "Beam penetration gives only a few colours (red, orange, yellow, green)."
+        },
+        {
+         "question": "A direct-view storage tube (DVST):",
+         "options": {
+          "A": "Needs refresh at 60 Hz",
+          "B": "Keeps the picture without refreshing but cannot selectively erase parts",
+          "C": "Is a type of LCD",
+          "D": "Is a plotter"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). The picture is stored as a charge distribution behind the phosphor; erasing needs the whole screen to be cleared."
+        },
+        {
+         "question": "Interlaced refresh means:",
+         "options": {
+          "A": "Odd scan lines are drawn in one pass and even lines in the next",
+          "B": "Every line twice per frame",
+          "C": "Only half the screen is ever drawn",
+          "D": "Pixels are drawn randomly"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "It reduces flicker on low refresh rates."
+        },
+        {
+         "question": "DDA from (2, 3) to (6, 5): the number of steps and the increments (Δx, Δy) per step are:",
+         "options": {
+          "A": "4 steps; Δx = 1, Δy = 0.5",
+          "B": "4 steps; Δx = 0.5, Δy = 1",
+          "C": "6 steps; Δx = 1, Δy = 1",
+          "D": "2 steps; Δx = 2, Δy = 1"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). dx = 4, dy = 2, steps = max(|dx|, |dy|) = 4; increments dx/4 and dy/4."
+        },
+        {
+         "question": "The main disadvantage of DDA compared with Bresenham's algorithm is that DDA:",
+         "options": {
+          "A": "Cannot draw lines",
+          "B": "Needs no arithmetic",
+          "C": "Uses floating-point arithmetic and rounding, which is slower and accumulates error",
+          "D": "Works only for circles"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "Rounding of floating-point values at every step also makes long lines drift from the true path."
+        },
+        {
+         "question": "For Bresenham's line from (20, 10) to (30, 18), the initial decision parameter p0 = 2Δy − Δx is:",
+         "options": {
+          "A": "−6",
+          "B": "16",
+          "C": "2",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Δx = 10, Δy = 8 → p0 = 16 − 10 = 6."
+        },
+        {
+         "question": "For the same line, p0 = 6 ≥ 0, so the next pixel is (21, 11). The next decision parameter p1 is:",
+         "options": {
+          "A": "14",
+          "B": "6",
+          "C": "−2",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "p ≥ 0 → y increments and p1 = p0 + 2Δy − 2Δx = 6 + 16 − 20 = 2."
+        },
+        {
+         "question": "For the midpoint circle algorithm with radius r = 10, the initial decision parameter p0 = 1 − r is:",
+         "options": {
+          "A": "1",
+          "B": "9",
+          "C": "−9",
+          "D": "−10"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pixels are generated in one octant and mirrored using eight-way symmetry."
+        },
+        {
+         "question": "In Bresenham's circle algorithm, the initial decision variable is d = 3 − 2r. For r = 10 it is:",
+         "options": {
+          "A": "−17",
+          "B": "3",
+          "C": "17",
+          "D": "−23"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "3 − 20 = −17."
+        },
+        {
+         "question": "A circle-drawing algorithm needs to compute points in only one octant because of:",
+         "options": {
+          "A": "Rotational symmetry of 45° lines",
+          "B": "Eight-way symmetry of the circle",
+          "C": "Four-way symmetry",
+          "D": "Two-way symmetry"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). An ellipse has four-way symmetry."
+        },
+        {
+         "question": "The midpoint ellipse algorithm divides the first quadrant into two regions according to:",
+         "options": {
+          "A": "Where x = y",
+          "B": "Where y = 0",
+          "C": "Where the slope of the curve becomes −1",
+          "D": "The centre"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "In region 1 (|slope| < 1) x is stepped; in region 2 (|slope| > 1) y is stepped."
+        },
+        {
+         "question": "The boundary-fill and flood-fill algorithms can use:",
+         "options": {
+          "A": "4-connected or 8-connected neighbourhoods",
+          "B": "Only 2-connected",
+          "C": "Only scan lines",
+          "D": "Only vectors"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Scan-line polygon filling uses edge intersections and an active edge list."
+        },
+        {
+         "question": "The odd–even (even–odd) rule decides whether a point is inside a polygon by:",
+         "options": {
+          "A": "Using a z-buffer",
+          "B": "Counting edge crossings of a ray from the point: odd = inside",
+          "C": "Checking colour",
+          "D": "Measuring the area"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "The nonzero winding-number rule is the other inside–outside test."
+        },
+        {
+         "question": "The 'staircase' or jagged appearance of lines on raster displays is called aliasing; it is reduced by:",
+         "options": {
+          "A": "Increasing persistence",
+          "B": "Lowering resolution",
+          "C": "Using DDA",
+          "D": "Antialiasing techniques such as supersampling and area sampling"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Aliasing comes from sampling a continuous line at discrete pixels; antialiasing varies pixel intensities along the edge."
+        },
+        {
+         "question": "A Bezier curve with 4 control points is of degree:",
+         "options": {
+          "A": "3 (cubic)",
+          "B": "4",
+          "C": "2",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "Degree = number of control points − 1; it passes through the first and last points and lies in the convex hull."
+        },
+        {
+         "question": "Compared with Bezier curves, B-splines offer:",
+         "options": {
+          "A": "Global control only",
+          "B": "Local control – moving one control point affects only part of the curve",
+          "C": "Exactly two control points",
+          "D": "No continuity"
+         },
+         "answer": "B",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). The degree of a B-spline is independent of the number of control points; Bezier curves have global control."
+        },
+        {
+         "question": "Which is a graphics standard/API?",
+         "options": {
+          "A": "SNMP",
+          "B": "SMTP",
+          "C": "OpenGL",
+          "D": "JDBC"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "GKS and PHIGS are older graphics standards."
+        },
+        {
+         "question": "A light pen is used to:",
+         "options": {
+          "A": "Print images",
+          "B": "Store graphics",
+          "C": "Scan documents",
+          "D": "Select screen positions by detecting light from the CRT"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Other input devices: tablet (digitiser), joystick, mouse, touch panel."
+        },
+        {
+         "question": "Assertion (A): Bresenham's line algorithm is faster than DDA.\nReason (R): It uses only integer addition, subtraction and multiplication by 2.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "No floating-point operations or rounding are needed."
+        },
+        {
+         "question": "Consider the statements:\nI. A random-scan display draws pictures as a set of line segments.\nII. A raster-scan display stores the picture as an array of pixel intensities in a frame buffer.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Both are correct."
+        },
+        {
+         "question": "In a raster scan, the return of the beam to the left of the next line is called:",
+         "options": {
+          "A": "Horizontal retrace",
+          "B": "Refresh",
+          "C": "Interlacing",
+          "D": "Vertical retrace"
+         },
+         "answer": "A",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "At the end of each frame the beam returns to the top left – vertical retrace."
+        },
+        {
+         "question": "LCD (liquid crystal display) screens produce images by:",
+         "options": {
+          "A": "Firing electrons at phosphor",
+          "B": "Using a laser",
+          "C": "Passing polarised light through liquid crystals that twist or align to block or pass light",
+          "D": "Burning plasma gas only"
+         },
+         "answer": "C",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Plasma panels use ionised gas; LED displays use light-emitting diodes."
+        },
+        {
+         "question": "Resolution of a display is:",
+         "options": {
+          "A": "The colour depth only",
+          "B": "The screen size in inches",
+          "C": "The refresh rate",
+          "D": "The maximum number of points (pixels) that can be displayed without overlap"
+         },
+         "answer": "D",
+         "subject": "Display Devices, Line, Circle and Curve Drawing, and Filling",
+         "explanation": "It is usually stated as pixels across × down, e.g. 1920 × 1080."
+        }
+       ]
+      },
+      {
+       "name": "2 · 2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+       "questions": [
+        {
+         "question": "We rotate a point P(2,5) by 60° about a pivot point (1,2). The new transformed Point P' would be",
+         "options": {
+          "A": "(−4, 1)",
+          "B": "(1, −4)",
+          "C": "(−1, 4)",
+          "D": "(1, 4)"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Translate by (−1, −2) → (1, 3); rotate 60°: x = 0.5 − 3(0.866) ≈ −2.10, y = 0.866 + 1.5 ≈ 2.37; translate back → (−1.10, 4.37) ≈ (−1, 4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Raichur University 2024 CS&A · Q28"
+        },
+        {
+         "question": "In the Cohen-Sutherland line clipping algorithm, the region codes (out codes) are:",
+         "options": {
+          "A": "2-bit codes for each region",
+          "B": "8-bit codes for each region",
+          "C": "16-bit codes for each region",
+          "D": "4-bit codes for each region"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Four bits – top, bottom, right, left – for the nine regions around the window. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Raichur University 2024 CS&A · Q30"
+        },
+        {
+         "question": "Homogeneous coordinates are used in 2-D graphics so that:",
+         "options": {
+          "A": "Pixels can be filled",
+          "B": "Translation, rotation and scaling can all be represented as 3 × 3 matrix multiplications and composed",
+          "C": "Lines can be clipped",
+          "D": "Colours can be stored"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). A 2-D point (x, y) becomes (x, y, 1)."
+        },
+        {
+         "question": "Scaling the point (2, 3) about the origin with sx = 2 and sy = 3 gives:",
+         "options": {
+          "A": "(4, 6)",
+          "B": "(4, 9)",
+          "C": "(6, 6)",
+          "D": "(2, 9)"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "x' = sx·x, y' = sy·y."
+        },
+        {
+         "question": "Rotating the point (3, 4) by 90° anticlockwise about the origin gives:",
+         "options": {
+          "A": "(4, 3)",
+          "B": "(4, −3)",
+          "C": "(−4, 3)",
+          "D": "(−3, −4)"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). x' = x cos θ − y sin θ, y' = x sin θ + y cos θ; for 90°: (−y, x)."
+        },
+        {
+         "question": "Reflection of the point (5, 2) about the line y = x gives:",
+         "options": {
+          "A": "(5, −2)",
+          "B": "(−2, −5)",
+          "C": "(2, 5)",
+          "D": "(−5, 2)"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Reflection about the x-axis gives (5, −2); about the y-axis (−5, 2); about y = −x gives (−2, −5)."
+        },
+        {
+         "question": "An x-direction shear with shx = 2 applied to the point (2, 3) gives:",
+         "options": {
+          "A": "(4, 6)",
+          "B": "(5, 3)",
+          "C": "(2, 7)",
+          "D": "(8, 3)"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). x' = x + shx·y = 2 + 6 = 8; y unchanged."
+        },
+        {
+         "question": "Rotation about an arbitrary pivot point (xr, yr) is performed as:",
+         "options": {
+          "A": "Translate pivot to origin → rotate → translate back: T(xr, yr)·R(θ)·T(−xr, −yr)",
+          "B": "Rotate → translate",
+          "C": "Scale → rotate",
+          "D": "Only rotate"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Scaling about a fixed point uses the same translate–transform–translate sequence."
+        },
+        {
+         "question": "Two successive translations (tx1, ty1) and (tx2, ty2) are equivalent to:",
+         "options": {
+          "A": "A rotation",
+          "B": "A single translation (tx1 + tx2, ty1 + ty2)",
+          "C": "A shear",
+          "D": "A scaling by the product"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Two rotations add angles; two scalings multiply factors."
+        },
+        {
+         "question": "Which transformations are 'rigid-body' (preserve lengths and angles)?",
+         "options": {
+          "A": "Translation and rotation",
+          "B": "Non-uniform scaling",
+          "C": "Scaling and shear",
+          "D": "Shear only"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Uniform scaling preserves shape (angles) but not size."
+        },
+        {
+         "question": "In computer graphics, a 'window' and a 'viewport' are respectively:",
+         "options": {
+          "A": "A device area and a world area",
+          "B": "The area of the world-coordinate scene selected for display, and the area on the display device where it is shown",
+          "C": "The same thing",
+          "D": "A colour table and a frame buffer"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Window = what to show; viewport = where to show it."
+        },
+        {
+         "question": "Window (0,0)–(10,10) is mapped to viewport (0,0)–(100,50). The point (5,5) maps to:",
+         "options": {
+          "A": "(25, 50)",
+          "B": "(5, 5)",
+          "C": "(100, 50)",
+          "D": "(50, 25)"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "sx = 100/10 = 10, sy = 50/10 = 5 → (5×10, 5×5)."
+        },
+        {
+         "question": "Making the window smaller while keeping the viewport fixed produces:",
+         "options": {
+          "A": "A zoom-out effect",
+          "B": "A rotation",
+          "C": "A zoom-in effect (objects appear larger)",
+          "D": "No change"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Panning moves a fixed-size window across the scene."
+        },
+        {
+         "question": "In Cohen–Sutherland clipping, a line is trivially ACCEPTED when:",
+         "options": {
+          "A": "Both end-point codes are 0000",
+          "B": "The logical AND of the codes is non-zero",
+          "C": "One code is 0000",
+          "D": "Both codes are 1111"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "It is trivially rejected when the logical AND of the two codes is non-zero (both ends on the same outside side)."
+        },
+        {
+         "question": "For window xmin = 0, xmax = 10, ymin = 0, ymax = 10 and bit order TBRL (top, bottom, right, left), the region code of point (12, 5) is:",
+         "options": {
+          "A": "0100",
+          "B": "1000",
+          "C": "0001",
+          "D": "0010"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). x > xmax sets the 'right' bit only."
+        },
+        {
+         "question": "The Liang–Barsky line clipping algorithm is generally more efficient than Cohen–Sutherland because it:",
+         "options": {
+          "A": "Uses the parametric line equation and computes fewer intersections",
+          "B": "Clips polygons only",
+          "C": "Uses region codes",
+          "D": "Uses colours"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Cyrus–Beck is the general parametric method for convex windows."
+        },
+        {
+         "question": "The Sutherland–Hodgman algorithm is used for:",
+         "options": {
+          "A": "Hidden-surface removal",
+          "B": "Circle drawing",
+          "C": "Polygon clipping against each window edge in turn",
+          "D": "Line drawing"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Weiler–Atherton clipping handles concave polygons correctly."
+        },
+        {
+         "question": "A point (x, y) is retained by point clipping if:",
+         "options": {
+          "A": "y < ymin",
+          "B": "xmin ≤ x ≤ xmax and ymin ≤ y ≤ ymax",
+          "C": "x = y",
+          "D": "x > xmax"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Otherwise the point lies outside the clip window and is not displayed."
+        },
+        {
+         "question": "The RGB colour model is ____ and is used in ____.",
+         "options": {
+          "A": "subtractive; printers",
+          "B": "subtractive; monitors",
+          "C": "additive; monitors and displays",
+          "D": "additive; printers"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Red + green + blue at full intensity give white."
+        },
+        {
+         "question": "The CMY values corresponding to RGB (1, 1, 0) (yellow) are:",
+         "options": {
+          "A": "(0, 0, 1)",
+          "B": "(1, 0, 1)",
+          "C": "(0, 1, 0)",
+          "D": "(1, 1, 0)"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "C = 1 − R, M = 1 − G, Y = 1 − B. CMYK adds black (K) for printing."
+        },
+        {
+         "question": "The HSV colour model describes colour by:",
+         "options": {
+          "A": "Red, green and blue only",
+          "B": "Hue, saturation and value – an intuitive, user-oriented model (hexcone)",
+          "C": "Luminance and two chrominance signals",
+          "D": "Height, size and volume"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). YIQ (luminance + chrominance) was used for NTSC television."
+        },
+        {
+         "question": "In a perspective projection:",
+         "options": {
+          "A": "Object size never changes",
+          "B": "Parallel lines stay parallel",
+          "C": "Depth is ignored",
+          "D": "Lines converge to vanishing points and distant objects look smaller"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Parallel projections (orthographic, oblique) keep parallel lines parallel."
+        },
+        {
+         "question": "The z-buffer (depth-buffer) method for hidden-surface removal:",
+         "options": {
+          "A": "Sorts polygons by colour",
+          "B": "Clips lines",
+          "C": "Draws circles",
+          "D": "Compares depth values per pixel and keeps the nearest surface"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is an image-space method needing an extra buffer of depth values."
+        },
+        {
+         "question": "Back-face detection removes polygons whose:",
+         "options": {
+          "A": "Colour is black",
+          "B": "Surface normal points away from the viewer",
+          "C": "Area is small",
+          "D": "Edges are clipped"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "If N · V > 0 (normal pointing away from the viewing direction), the face is hidden on a closed solid."
+        },
+        {
+         "question": "The standard 2-D viewing pipeline is:",
+         "options": {
+          "A": "Device → world → model",
+          "B": "Viewport → window → world",
+          "C": "Modelling coordinates → world coordinates → viewing coordinates → normalised coordinates → device coordinates",
+          "D": "World → device → model"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). The normalisation step makes the viewing system device-independent."
+        },
+        {
+         "question": "The 3 × 3 homogeneous matrix for translation by (tx, ty) is:",
+         "options": {
+          "A": "[[1, 0, tx], [0, 1, ty], [0, 0, 1]]",
+          "B": "[[1, tx, 0], [ty, 1, 0], [0, 0, 1]]",
+          "C": "[[tx, 0, 0], [0, ty, 0], [0, 0, 1]]",
+          "D": "[[0, 0, tx], [0, 0, ty], [1, 1, 1]]"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "The scaling matrix has sx and sy on the diagonal."
+        },
+        {
+         "question": "Assertion (A): Rotating and then translating an object always gives the same result as translating and then rotating it.\nReason (R): Matrix multiplication is, in general, not commutative.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). A is false (order matters); R is true."
+        },
+        {
+         "question": "Consider the statements about Cohen–Sutherland clipping:\nI. A line with both end-point codes 0000 is trivially accepted.\nII. If the logical AND of the two codes is non-zero, the line must be subdivided and clipped further.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "Only I: a non-zero AND means the line is completely outside – trivially rejected."
+        },
+        {
+         "question": "Uniform scaling means:",
+         "options": {
+          "A": "sx ≠ sy",
+          "B": "Scaling only in x",
+          "C": "sx = sy, so the shape is preserved",
+          "D": "Negative scaling"
+         },
+         "answer": "C",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "PYQ pattern (KEA / KSET papers). Negative factors also reflect the object."
+        },
+        {
+         "question": "Mid-point subdivision clipping:",
+         "options": {
+          "A": "Uses colours",
+          "B": "Repeatedly divides a partially visible line at its mid-point until the visible part is found",
+          "C": "Draws arcs",
+          "D": "Fills polygons"
+         },
+         "answer": "B",
+         "subject": "2-D Transformations, Windowing, Clipping, Colour Models and Projections",
+         "explanation": "It suits hardware implementation because dividing by 2 is a shift operation."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

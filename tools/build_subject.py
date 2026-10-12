@@ -36,6 +36,7 @@ PACKS = {
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e"]},
     "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026"]},
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
+    "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c"]},
 }
 
