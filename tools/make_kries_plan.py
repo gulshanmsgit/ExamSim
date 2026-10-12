@@ -58,6 +58,15 @@ P2_GROUPS = [
         ("P2-U6-10", "Storage Management", "Secondary storage – disk structure, disk scheduling", "Medium", 0.75),
         ("P2-U6-12", "I/O Systems", "Overview of I/O systems and I/O interfaces", "Low", 0.5),
     ]),
+    ("Computer fundamentals", "Not named in the KRIES syllabus, but KEA computer papers usually ask basics – quick revision (Unit 1)", [
+        ("P2-U1-01", "Introduction & Functional Components", "Computer basics – functional units, characteristics", "Low", 0.5),
+        ("P2-U1-02", "Evolution, Generations, Classification, Applications", "Generations and types of computers", "Low", 0.5),
+        ("P2-U1-03", "Input, Output and Memory Devices", "Input/output devices, primary and secondary memory", "Medium", 0.5),
+        ("P2-U1-04", "Software Concepts & Problem Solving Methodology", "System and application software, algorithms, flowcharts", "Medium", 0.5),
+        ("P2-U1-05", "Word Processing, Spreadsheets, PowerPoint", "Office tools – Word, Excel, PowerPoint", "Low", 0.5),
+        ("P2-U1-06", "Computer Configuration & Motherboard", "Motherboard, ports, configuration", "Low", 0.5),
+        ("P2-U1-07", "Memory, Power Supply & Assembling", "RAM/ROM types, SMPS, assembling a PC", "Low", 0.5),
+    ]),
     ("Other areas in the syllabus", "Listed by name only in the KRIES syllabus – revise the basics", [
         ("P2-U4-05", "Object Oriented Programming", "OOPS using C++ – classes, objects, inheritance, polymorphism", "Medium", 0.75),
         ("P2-U4-06", "Programming in C++ – Part 1", "OOPS using C++ – tokens, functions, classes, constructors and destructors", "Medium", 1.0),
@@ -168,7 +177,7 @@ DAYS = [
      "Monthly current affairs January – June 2026 (P1 · Current Affairs)", "Learning"),                     # Fri 23
     (["P2-U9-06", "P2-U9-07", "P2-U9-09"], "Full mock test – Paper 2 (evening) + analysis", ["P1-GK-14", "P1-CA-05"],
      "Monthly current affairs July – October 2026 (P1 · Current Affairs)", "Learning"),                     # Sat 24
-    ([], "Light revision – C output and pointer questions, Data Structures and OS short notes",
+    (["P2-U1-01", "P2-U1-02", "P2-U1-03", "P2-U1-04", "P2-U1-05", "P2-U1-06", "P2-U1-07"], "Light revision – computer fundamentals (Unit 1), C output and pointer questions, Data Structures and OS short notes",
      [], "Full mock test – Paper 1 (KEA general paper, 100 questions, 2 hours) + analysis; Karnataka notes", "MOCK TEST"),  # Sun 25
     ([], "Evening: Paper 2 weak topics from the mock (light)", [], "PAPER 1 EXAM – General paper (KRIES)", "Exam"),   # Mon 26
     ([], "PAPER 2 EXAM – Computer Teacher (KRIES)", [], "", "Exam"),                                        # Tue 27

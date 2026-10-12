@@ -5376,15 +5376,22 @@ $('#rvBack').onclick = () => show('results');
 /* ============================================================
    Profile: library / sync code, AI keys, preferences
    AI keys are kept ONLY in this browser (localStorage). They are never
-   written to Firebase or GitHub, and are sent only to Google / Groq.
+   written to Firebase or GitHub, and are sent only to Google / Groq / OpenRouter.
    ============================================================ */
 const LS_AI = 'examsim.ai';
 const aiCfg = () => lsGet(LS_AI, {}) || {};
 const setAiCfg = patch => lsSet(LS_AI, { ...aiCfg(), ...patch });
 const AI_PROVIDERS = {
-  gem: { name: 'Google Gemini', use: 'Used for ✨ generating question sets.', keyUrl: 'https://aistudio.google.com/apikey', keyHost: 'aistudio.google.com' },
-  groq: { name: 'Groq', use: 'Used for 💡 “Explain with AI” in review and flashcards.', keyUrl: 'https://console.groq.com/keys', keyHost: 'console.groq.com' }
+  groq: { name: 'Groq', use: 'Fast and free. Used for 💡 “Explain with AI” and 🤖 answers inside the app.', keyUrl: 'https://console.groq.com/keys', keyHost: 'console.groq.com' },
+  gem: { name: 'Google Gemini', use: 'Used for ✨ generating question sets, and also for 🤖 answers inside the app.', keyUrl: 'https://aistudio.google.com/apikey', keyHost: 'aistudio.google.com' },
+  or: { name: 'OpenRouter', use: 'One key for many free models (DeepSeek, Llama, Qwen, Gemma …) – another option for 🤖 answers inside the app.', keyUrl: 'https://openrouter.ai/keys', keyHost: 'openrouter.ai' }
 };
+const AI_CHAT_ORDER = ['groq', 'gem', 'or'];
+// Providers with a saved key, the preferred one first
+function chatProviders() {
+  const c = aiCfg(), have = AI_CHAT_ORDER.filter(p => c[p + 'Key'] && c[p + 'Model']);
+  return c.chatProvider && have.includes(c.chatProvider) ? [c.chatProvider, ...have.filter(p => p !== c.chatProvider)] : have;
+}
 
 function openProfile() { renderProfile(); show('profile'); }
 function renderProfile() {
@@ -5402,8 +5409,8 @@ function renderProfile() {
   }
   h += examModeCard();
   h += `<div class="card"><h2>🤖 AI keys</h2>
-    <p class="small muted" style="margin-top:0">Use your own free keys. They are stored <b>only on this device</b>, never in your library, Firebase or GitHub, and are sent only to Google or Groq. Add them again on each phone or computer you use.</p>
-    ${['gem', 'groq'].map(p => aiKeyBlock(p, cfg)).join('')}
+    <p class="small muted" style="margin-top:0">Use your own free keys. They are stored <b>only on this device</b>, never in your library, Firebase or GitHub, and are sent only to Groq, Google or OpenRouter. Add them again on each phone or computer you use. With any one of these keys, 🤖 Ask AI answers inside the app and you can save the answer to your notes.</p>
+    ${AI_CHAT_ORDER.map(p => aiKeyBlock(p, cfg)).join('')}
     <label class="small muted" style="display:block;margin-top:14px;font-weight:600">Language for AI explanations
       <select id="pfLang" style="width:auto;margin-left:6px">${['English', 'Kannada', 'Hindi', 'English and Kannada (bilingual)'].map(l => `<option ${cfg.lang === l ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>`;
   h += `<div class="card"><h2>⚙ Preferences</h2><div class="settings">
@@ -5426,7 +5433,7 @@ function renderProfile() {
   } else $('#pfLeaveDemo').onclick = () => { store = null; renderConnect(); };
 
   el.querySelectorAll('[data-exam]').forEach(b => b.onclick = () => setExamMode(b.dataset.exam));
-  ['gem', 'groq'].forEach(p => wireAiKey(p));
+  AI_CHAT_ORDER.forEach(p => wireAiKey(p));
   $('#pfLang').onchange = () => setAiCfg({ lang: $('#pfLang').value });
   $('#pfTheme').onchange = () => { theme = $('#pfTheme').value; applyTheme(theme); lsSet(LS_THEME, theme); };
   $('#pfText').onchange = () => { lsSet(LS_TEXT, $('#pfText').value); applyTextSize($('#pfText').value); };
@@ -5508,6 +5515,7 @@ document.addEventListener('click', e => { if (e.target.closest('[data-profile]')
 /* ---------- AI providers (browser calls with the user's own key) ---------- */
 const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/';
 const GROQ = 'https://api.groq.com/openai/v1/';
+const OPENROUTER = 'https://openrouter.ai/api/v1/';
 async function apiJson(res) {
   let j = null;
   try { j = await res.json(); } catch (e) { /* not JSON */ }
@@ -5527,6 +5535,16 @@ async function listModels(p, key) {
       .map(m => m.name.replace(/^models\//, ''))
       .filter(n => /gemini/i.test(n) && !/embed|image|tts|audio|live|vision|aqa/i.test(n));
   }
+  if (p === 'or') {
+    // The model list is public, so check the key with a one-token request to a free model
+    const j = await apiJson(await fetch(OPENROUTER + 'models'));
+    const free = (j.data || []).map(m => m.id).filter(id => /:free$/.test(id) && !/vision|vl\b|image|audio|embed/i.test(id)).sort();
+    if (free.length) await apiJson(await fetch(OPENROUTER + 'chat/completions', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key },
+      body: JSON.stringify({ model: pickDefaultModel('or', free), max_tokens: 1, messages: [{ role: 'user', content: 'Hi' }] })
+    }));
+    return free;
+  }
   const j = await apiJson(await fetch(GROQ + 'models', { headers: { Authorization: 'Bearer ' + key } }));
   return (j.data || []).filter(m => m.active !== false).map(m => m.id)
     .filter(id => !/whisper|tts|guard|playai|orpheus|prompt-guard|distil/i.test(id)).sort();
@@ -5534,6 +5552,7 @@ async function listModels(p, key) {
 function pickDefaultModel(p, models) {
   const prefs = p === 'gem'
     ? [/^gemini-[\d.]+-flash$/, /^gemini-.*flash(?!.*lite)/, /flash/]
+    : p === 'or' ? [/deepseek.*chat.*:free$/, /llama-3\.3-70b.*:free$/, /qwen.*:free$/, /gemma.*:free$/, /:free$/]
     : [/^openai\/gpt-oss-120b$/, /^llama-3\.3-70b/, /70b/, /llama/];
   const byVersionDesc = [...models].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
   for (const re of prefs) { const m = byVersionDesc.find(x => re.test(x)); if (m) return m; }
@@ -5625,7 +5644,42 @@ $('#aiGenBtn').onclick = async () => {
   } finally { btn.disabled = false; }
 };
 
-/* ---------- 💡 Explain with AI (Groq) ---------- */
+/* ---------- One chat call for every provider (Groq, Gemini, OpenRouter) with the user's own key ---------- */
+const NO_CHATTER = 'Start directly with the content. No introduction, greeting or restating of the request, and no closing remarks, summary of what you did, or offers of further help.';
+// Remove a chatty first line ("Sure! Here are…") and closing line ("Hope this helps…") if a model adds them anyway
+function tidyAi(txt) {
+  const paras = String(txt || '').replace(/<think>[\s\S]*?<\/think>/g, '').trim().split(/\n\s*\n/);
+  if (paras.length > 1 && paras[0].length < 220 && /^(sure|certainly|of course|okay|ok\b|great|absolutely|alright|here('s| is| are)|below (is|are)|i('m| am| would be) (happy|glad)|happy to|let'?s )/i.test(paras[0].trim())) paras.shift();
+  if (paras.length > 1 && paras[paras.length - 1].length < 260 && /^\W*(let me know|i hope|hope this|feel free|good luck|all the best|best of luck|happy (studying|learning)|would you like|do you want|if you (have|need|want|'d like))/i.test(paras[paras.length - 1].trim())) paras.pop();
+  return paras.join('\n\n').replace(/\n-{3,}\s*$/, '').trim();
+}
+async function aiChat({ system, user, maxTokens = 2000, provider }) {
+  const c = aiCfg(), p = provider || chatProviders()[0];
+  if (!p) throw new Error('Add a free Groq, Gemini or OpenRouter key in Profile first.');
+  const key = c[p + 'Key'], model = c[p + 'Model'];
+  let text = '';
+  if (p === 'gem') {
+    const j = await apiJson(await fetch(GEMINI + 'models/' + encodeURIComponent(model) + ':generateContent', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+      body: JSON.stringify({ systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: user }] }], generationConfig: { temperature: 0.3, maxOutputTokens: maxTokens } })
+    }));
+    const cand = j.candidates && j.candidates[0];
+    text = cand && cand.content && (cand.content.parts || []).map(x => x.text || '').join('');
+  } else {
+    const headers = { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key };
+    if (p === 'or') { headers['HTTP-Referer'] = location.origin; headers['X-Title'] = 'ExamSim'; }
+    const j = await apiJson(await fetch((p === 'or' ? OPENROUTER : GROQ) + 'chat/completions', {
+      method: 'POST', headers,
+      body: JSON.stringify({ model, temperature: 0.3, max_tokens: maxTokens, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] })
+    }));
+    text = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
+  }
+  text = tidyAi(text);
+  if (!text) throw new Error(AI_PROVIDERS[p].name + ' returned an empty answer. Try another model in Profile.');
+  return { text, model, provider: p };
+}
+
+/* ---------- 💡 Explain with AI ---------- */
 const explainCache = new Map();
 const EXPLAIN_SYSTEM = `You are a patient tutor helping a student prepare for a competitive multiple-choice exam.
 Explain in plain text, 60-120 words, with no headings or tables:
@@ -5638,26 +5692,20 @@ function explainBlock() {
 }
 async function explainWithAI(container, q, sel) {
   const out = $('.ai-out', container), btn = $('[data-explain]', container);
-  const { groqKey, groqModel, lang } = aiCfg();
-  if (!groqKey) { out.innerHTML = '<div class="status info">Add your free Groq API key in your <a href="#" data-profile>Profile</a> to get AI explanations.</div>'; return; }
+  const { lang } = aiCfg();
+  if (!chatProviders().length) { out.innerHTML = '<div class="status info">Add a free Groq, Gemini or OpenRouter key in your <a href="#" data-profile>Profile</a> to get AI explanations.</div>'; return; }
   const cacheKey = q.key + '|' + (sel || '') + '|' + (lang || '');
-  const render = txt => {
+  const render = ({ text: txt, model }) => {
     // light formatting: **bold** only, everything else escaped
-    out.innerHTML = `<div class="expl ai"><b><svg class=ic><use href=#i-bulb></use></svg> AI explanation</b> <span class="small muted">(${esc(groqModel)}, may contain mistakes)</span>\n${esc(txt).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^#+\s*/gm, '')}</div>`;
+    out.innerHTML = `<div class="expl ai"><b><svg class=ic><use href=#i-bulb></use></svg> AI explanation</b> <span class="small muted">(${esc(model)}, may contain mistakes)</span>\n${esc(txt).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^#+\s*/gm, '')}</div>`;
   };
   if (explainCache.has(cacheKey)) { render(explainCache.get(cacheKey)); btn.hidden = true; return; }
   btn.disabled = true; btn.textContent = '💡 Thinking…';
   try {
     const user = `Question: ${q.question}\n${LETTERS.map(L => `${L}. ${q.options[L]}`).join('\n')}\nCorrect answer: ${q.answer}\nStudent's answer: ${sel === 'E' ? 'skipped (chose "I don\'t know")' : sel || 'not answered'}`;
-    const j = await apiJson(await fetch(GROQ + 'chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + groqKey },
-      body: JSON.stringify({ model: groqModel, temperature: 0.3, max_tokens: 700, messages: [{ role: 'system', content: EXPLAIN_SYSTEM + `\nReply in ${lang || 'English'}.` }, { role: 'user', content: user }] })
-    }));
-    const txt = String((j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '').replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-    if (!txt) throw new Error('Groq returned an empty answer. Try another model in Profile.');
-    explainCache.set(cacheKey, txt);
-    render(txt); btn.hidden = true;
+    const r = await aiChat({ system: EXPLAIN_SYSTEM + `\nReply in ${lang || 'English'}. ${NO_CHATTER}`, user, maxTokens: 700 });
+    explainCache.set(cacheKey, r);
+    render(r); btn.hidden = true;
   } catch (e) {
     out.innerHTML = `<div class="status error">${esc(e.message)}</div>`;
     btn.disabled = false; btn.textContent = '💡 Explain with AI';
@@ -5706,19 +5754,22 @@ async function askAiContext({ topicId, q, sel }) {
 function askAiPrompt() {
   const goals = AK.opts.q ? [ASK_Q_GOAL, ...ASK_GOALS] : ASK_GOALS, g = goals.find(x => x[0] === AK.goal) || goals[0];
   const doubt = ($('#akDoubt') && $('#akDoubt').value.trim()) || '[type your doubt here]';
-  return `${AK.ctx}\n\nWhat I want: ${g[2]}${g[0] === 'doubt' ? doubt : ''}\n\nReply in ${aiCfg().lang || 'English'}. Keep it exam-focused and accurate, and say clearly if you are unsure of any fact.`;
+  return `${AK.ctx}\n\nWhat I want: ${g[2]}${g[0] === 'doubt' ? doubt : ''}\n\nReply in ${aiCfg().lang || 'English'}. Keep it exam-focused and accurate, and say clearly if you are unsure of any fact. ${NO_CHATTER}`;
 }
 async function openAskAi(opts) {
   AK.opts = opts; AK.ctx = await askAiContext(opts); AK.goal = opts.q ? 'q' : 'deep';
-  const goals = opts.q ? [ASK_Q_GOAL, ...ASK_GOALS] : ASK_GOALS, { groqKey } = aiCfg(), t = opts.topicId && byId('topics', opts.topicId);
+  const goals = opts.q ? [ASK_Q_GOAL, ...ASK_GOALS] : ASK_GOALS, provs = chatProviders(), t = opts.topicId && byId('topics', opts.topicId);
   openModal(`<h3>${I('bulb')} Ask AI${t ? ' · ' + esc(t.name) : ''}</h3>
     <p class="small muted" style="margin-top:0">The prompt already says you are preparing for GPSTR-CST and includes the topic, its syllabus, what your notes cover${opts.q ? ' and this question' : ''}. Pick what you want, edit if you like, then send it.</p>
     <div class="seg ak-goals">${goals.map(g => `<button data-akg="${g[0]}" class="${g[0] === AK.goal ? 'on' : ''}">${esc(g[1])}</button>`).join('')}</div>
     <input id="akDoubt" placeholder="Type your doubt…" hidden style="width:100%;margin-top:8px">
     <textarea id="akPrompt" rows="9" style="width:100%;margin-top:8px;font-size:.85rem"></textarea>
     <div class="row" style="margin-top:8px"><button class="btn primary" data-ak="chatgpt">Copy &amp; open ChatGPT</button><button class="btn" data-ak="claude">Claude</button><button class="btn" data-ak="gemini">Gemini</button><button class="btn ghost" data-ak="copy">${I('clipboard')} Copy</button>
-      ${groqKey ? `<button class="btn" data-ak="here">${I('bulb')} Answer here</button>` : ''}</div>
-    ${groqKey ? '' : '<p class="small muted" style="margin:6px 0 0">Add a free Groq key in <a href="#" data-profile>Profile</a> to get the answer inside the app and save it to your notes.</p>'}
+</div>
+    ${provs.length ? `<div class="row" style="margin-top:8px"><button class="btn primary" data-ak="here">${I('bulb')} Answer here</button>
+      ${provs.length > 1 ? `<select id="akProv" style="width:auto" title="Which AI answers inside the app">${provs.map(p => `<option value="${p}">${esc(AI_PROVIDERS[p].name)} · ${esc(aiCfg()[p + 'Model'])}</option>`).join('')}</select>` : `<span class="small muted">${esc(AI_PROVIDERS[provs[0]].name)} · ${esc(aiCfg()[provs[0] + 'Model'])}</span>`}
+      <span class="small muted">– the answer stays in the app and can be saved to notes</span></div>`
+      : '<p class="small muted" style="margin:6px 0 0">Add a free <b>Groq</b>, <b>Gemini</b> or <b>OpenRouter</b> key in <a href="#" data-profile>Profile</a> to get the answer inside the app and save it straight to your notes.</p>'}
     <div id="akOut"></div>`, [{ label: 'Close' }]);
   const m = $('#modal'), fill = () => { $('#akPrompt').value = askAiPrompt(); };
   fill();
@@ -5737,25 +5788,30 @@ async function openAskAi(opts) {
   });
 }
 async function askAiHere(prompt) {
-  const out = $('#akOut'), { groqKey, groqModel } = aiCfg(), t = AK.opts.topicId && byId('topics', AK.opts.topicId);
+  const out = $('#akOut'), t = AK.opts.topicId && byId('topics', AK.opts.topicId);
+  const provider = ($('#akProv') && $('#akProv').value) || chatProviders()[0];
+  if (provider) setAiCfg({ chatProvider: provider });
   out.innerHTML = '<p class="small muted">💡 Thinking…</p>';
   try {
-    const j = await apiJson(await fetch(GROQ + 'chat/completions', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + groqKey },
-      body: JSON.stringify({ model: groqModel, temperature: 0.3, max_tokens: 2000, messages: [{ role: 'system', content: 'You are an expert, accurate tutor for Indian teacher-recruitment exams. Answer in well-structured Markdown.' }, { role: 'user', content: prompt }] })
-    }));
-    const md = String((j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '').replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-    if (!md) throw new Error('Groq returned an empty answer. Try another model in Profile.');
-    out.innerHTML = `<div class="small muted" style="margin:10px 0 4px">AI answer (${esc(groqModel)}, may contain mistakes)</div><div class="md ak-ans"></div>
-      ${t ? `<div class="row" style="margin-top:8px"><button class="btn primary" id="akSave">${I('notes')} Save to this topic's notes</button></div>` : ''}`;
+    const { text: md, model } = await aiChat({ system: 'You are an expert, accurate tutor for Indian teacher-recruitment exams. Answer in well-structured Markdown. ' + NO_CHATTER, user: prompt, maxTokens: 2500, provider });
+    // Topic to save into: this topic, or one the student picks (answers opened from a question may have none)
+    const topics = t ? [] : D.topics.filter(inScopeT).map(x => ({ x, s: byId('subjects', x.subjectId) })).filter(o => o.s)
+      .sort((a, b) => displayName(a.s).localeCompare(displayName(b.s)) || byTopicOrder(a.x, b.x));
+    out.innerHTML = `<div class="small muted" style="margin:10px 0 4px">AI answer (${esc(AI_PROVIDERS[provider].name)} · ${esc(model)}, may contain mistakes)</div><div class="md ak-ans"></div>
+      <div class="row" style="margin-top:8px">${t ? '' : `<select id="akTopic" style="flex:1;min-width:180px"><option value="">Choose a topic to save into…</option>${topics.map(o => `<option value="${o.x.id}">${esc(displayName(o.s))} – ${esc(o.x.name)}</option>`).join('')}</select>`}
+        <button class="btn primary" id="akSave">${I('notes')} Save to ${t ? "this topic's" : 'topic'} notes</button><button class="btn ghost" id="akCopy">${I('clipboard')} Copy</button></div>`;
     await renderMdInto($('.ak-ans', out), md);
-    if (t) $('#akSave').onclick = async () => {
+    $('#akCopy').onclick = async () => { await copyText(md); toast('Answer copied'); };
+    $('#akSave').onclick = async () => {
+      const tt = t || byId('topics', $('#akTopic').value);
+      if (!tt) { toast('Choose a topic first', 'error'); return; }
       const goals = [ASK_Q_GOAL, ...ASK_GOALS], g = goals.find(x => x[0] === AK.goal), now = Date.now();
-      const x = { id: newId(), topicId: t.id, title: `AI – ${g ? g[1] : 'answer'}${AK.opts.q ? ': ' + AK.opts.q.question.slice(0, 50) : ''}`, md, source: 'Other', order: now, createdAt: now, updatedAt: now };
+      const x = { id: newId(), topicId: tt.id, title: `AI – ${g ? g[1] : 'answer'}${AK.opts.q ? ': ' + AK.opts.q.question.slice(0, 50) : ''}`, md, source: 'Other', order: now, createdAt: now, updatedAt: now };
       try {
         await save('notes', x);
-        t.notes = (t.notes || 0) + 1; save('topics', t).catch(() => {});
+        tt.notes = (tt.notes || 0) + 1; save('topics', tt).catch(() => {});
         $('#akSave').disabled = true; $('#akSave').textContent = 'Saved to notes ✓';
+        toast('Saved to the notes of ' + tt.name);
       } catch (e) { toast(errText(e), 'error'); }
     };
   } catch (e) { out.innerHTML = `<div class="status error">${esc(e.message)}</div>`; }
