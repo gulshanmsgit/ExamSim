@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 9 — Data Communication & Networks",
- "description": "10 of 14 topics so far (20 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; IPv6, ARP, Delivery & Routing; Transport Layer; World Wide Web & Applications. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "11 of 14 topics so far (22 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; IPv6, ARP, Delivery & Routing; Transport Layer; World Wide Web & Applications; Network Security. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 9 – Data Communication & Networks",
@@ -7467,6 +7467,759 @@
          "explanation": "For example, Outlook's 'Rules' move incoming mail into folders automatically."
         }
        ]
+      }
+     ]
+    },
+    {
+     "name": "Network Security",
+     "sets": [
+      {
+       "name": "1 · Threats, Malware, Firewalls, VPN and Security Protocols",
+       "questions": [
+        {
+         "question": "Match the following in relation to security\n(a) Firewall  (b) Firmware  (c) Malware  (d) Phishing\ni) Exploits device and data  ii) Steals user's sensitive data  iii) Is a security tool  iv) Controls basic function",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Firmware is low-level software in hardware (e.g. BIOS); phishing tricks users into revealing data. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q6"
+        },
+        {
+         "question": "Which of the followings are true about firewalls?",
+         "options": {
+          "A": "Firewalls can protect against the attacks that bypass the firewall",
+          "B": "Firewalls may not protect fully against internal threats",
+          "C": "Wireless LAN may not be accessed from outside the organisation",
+          "D": "Any portable storage device can be infected outside and cannot be used internally"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "A firewall only controls traffic that passes through it; insiders and bypassing links (Wi-Fi, USB drives) need other defences. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q48"
+        },
+        {
+         "question": "______ is a useful program or command procedure containing hidden code which performs harmful function when it is invoked.",
+         "options": {
+          "A": "Malicious Software",
+          "B": "Mobile Code",
+          "C": "Logic Bomb",
+          "D": "Trojan Horse"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Stallings' definition of a Trojan horse; a logic bomb fires when a condition (date, event) is met. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q50"
+        },
+        {
+         "question": "What is cross-site scripting in JavaScript?",
+         "options": {
+          "A": "A method of encrypting user data",
+          "B": "A vulnerability where attackers inject malicious scripts into web pages",
+          "C": "A way to store cookies securely",
+          "D": "A protocol to prevent SQL injection"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "XSS runs the attacker's script in other users' browsers; defend by escaping output and validating input. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q41"
+        },
+        {
+         "question": "Which one of the following is not a hacking method?",
+         "options": {
+          "A": "Sniffing",
+          "B": "Social engineering",
+          "C": "Spoofing",
+          "D": "Malware"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Sniffing, social engineering and spoofing are attack techniques; malware is the malicious software itself. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q107"
+        },
+        {
+         "question": "Which software prevents the external access to a system?",
+         "options": {
+          "A": "Firewall",
+          "B": "Gateway",
+          "C": "Router",
+          "D": "Virus checker"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "A firewall filters incoming/outgoing traffic by rules. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q12"
+        },
+        {
+         "question": "The three goals of information security (the CIA triad) are:",
+         "options": {
+          "A": "Cryptography, Identification, Authorisation",
+          "B": "Coding, Indexing, Archiving",
+          "C": "Confidentiality, Integrity, Availability",
+          "D": "Control, Inspection, Audit"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Attacks: on confidentiality – snooping, traffic analysis; integrity – modification, masquerading, replay; availability – denial of service."
+        },
+        {
+         "question": "Eavesdropping and traffic analysis are examples of:",
+         "options": {
+          "A": "Active attacks",
+          "B": "Replay attacks",
+          "C": "Passive attacks",
+          "D": "Denial of service"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Passive attacks only read data and are hard to detect; active attacks change data or disrupt service."
+        },
+        {
+         "question": "Malware that copies itself across a network WITHOUT needing a host program or user action is a:",
+         "options": {
+          "A": "Logic bomb",
+          "B": "Virus",
+          "C": "Worm",
+          "D": "Trojan horse"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). A virus attaches to a host file and spreads when it runs."
+        },
+        {
+         "question": "Malware that encrypts the victim's files and demands payment for the key is:",
+         "options": {
+          "A": "Rootkit",
+          "B": "Spyware",
+          "C": "Adware",
+          "D": "Ransomware"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "WannaCry (2017) is a well-known example."
+        },
+        {
+         "question": "A network of infected computers controlled remotely by an attacker, often used for DDoS attacks, is a:",
+         "options": {
+          "A": "DMZ",
+          "B": "Honeypot",
+          "C": "Botnet",
+          "D": "VPN"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each infected machine is a 'bot' or 'zombie'."
+        },
+        {
+         "question": "Flooding a server with traffic from many machines so that legitimate users cannot reach it is a:",
+         "options": {
+          "A": "Man-in-the-middle attack",
+          "B": "SQL injection",
+          "C": "Phishing attack",
+          "D": "Distributed denial-of-service (DDoS) attack"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "It attacks availability."
+        },
+        {
+         "question": "Sending a fake e-mail that looks like it is from a bank to steal passwords is:",
+         "options": {
+          "A": "Phishing",
+          "B": "Brute force",
+          "C": "Sniffing",
+          "D": "Spoofing of MAC address"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Spear phishing targets a specific person; vishing uses phone calls."
+        },
+        {
+         "question": "An attacker secretly relays and possibly alters messages between two parties who believe they are talking directly. This is:",
+         "options": {
+          "A": "Dictionary attack",
+          "B": "Denial of service",
+          "C": "Replay attack",
+          "D": "Man-in-the-middle attack"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Authentication and certificates prevent it."
+        },
+        {
+         "question": "A packet-filter firewall makes decisions mainly using:",
+         "options": {
+          "A": "The MAC address only",
+          "B": "Network- and transport-layer header fields (IP addresses, ports, protocol)",
+          "C": "User passwords",
+          "D": "The contents of e-mails"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). A proxy (application-level gateway) firewall examines application data."
+        },
+        {
+         "question": "A firewall that remembers the state of connections and allows only packets belonging to established sessions is a:",
+         "options": {
+          "A": "Stateful inspection firewall",
+          "B": "Repeater",
+          "C": "Stateless packet filter",
+          "D": "Bridge"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Stateless filters judge each packet alone."
+        },
+        {
+         "question": "A DMZ (demilitarised zone) in a network is:",
+         "options": {
+          "A": "The internal LAN",
+          "B": "A backup power area",
+          "C": "A separate segment for public servers, between the Internet and the internal network",
+          "D": "A wireless hotspot"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Web and mail servers sit in the DMZ."
+        },
+        {
+         "question": "A VPN (Virtual Private Network) provides:",
+         "options": {
+          "A": "A secure encrypted tunnel for private communication over a public network",
+          "B": "Faster Internet always",
+          "C": "Free Internet access",
+          "D": "A physical private cable"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "VPNs commonly use IPsec or TLS."
+        },
+        {
+         "question": "IPsec provides security at the:",
+         "options": {
+          "A": "Application layer",
+          "B": "Physical layer",
+          "C": "Data link layer only",
+          "D": "Network layer"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). SSL/TLS – between transport and application; PGP/S-MIME – e-mail."
+        },
+        {
+         "question": "In IPsec, the protocol that provides encryption (confidentiality) in addition to authentication is:",
+         "options": {
+          "A": "IKE only",
+          "B": "ESP (Encapsulating Security Payload)",
+          "C": "ARP",
+          "D": "AH (Authentication Header)"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "AH gives authentication and integrity but no encryption."
+        },
+        {
+         "question": "IPsec 'tunnel mode' differs from 'transport mode' because it:",
+         "options": {
+          "A": "Protects only the payload",
+          "B": "Uses no encryption",
+          "C": "Protects the entire original IP packet inside a new IP packet",
+          "D": "Works only on LANs"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Tunnel mode is used between gateways (site-to-site VPNs)."
+        },
+        {
+         "question": "HTTPS secures web traffic by running HTTP over:",
+         "options": {
+          "A": "IPsec on port 80",
+          "B": "UDP on port 53",
+          "C": "SSH on port 22",
+          "D": "TLS/SSL on port 443"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "The browser shows a padlock."
+        },
+        {
+         "question": "Which protocol is used for secure remote login, replacing Telnet?",
+         "options": {
+          "A": "SSH (port 22)",
+          "B": "SMTP (port 25)",
+          "C": "HTTP (port 80)",
+          "D": "FTP (port 21)"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Telnet sends passwords in plain text."
+        },
+        {
+         "question": "Kerberos is an authentication service that uses:",
+         "options": {
+          "A": "Passwords sent in clear text",
+          "B": "Tickets issued by a Key Distribution Centre (Authentication Server + Ticket-Granting Server)",
+          "C": "Public-key certificates only",
+          "D": "Biometrics only"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Developed at MIT; based on symmetric keys."
+        },
+        {
+         "question": "A system that monitors network traffic and raises alerts on suspicious activity is an:",
+         "options": {
+          "A": "Router",
+          "B": "Proxy cache",
+          "C": "Intrusion Detection System (IDS)",
+          "D": "DNS server"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). An IPS (intrusion prevention system) can also block it."
+        },
+        {
+         "question": "A deliberately vulnerable system set up to lure and study attackers is a:",
+         "options": {
+          "A": "Bastion host",
+          "B": "Proxy",
+          "C": "Honeypot",
+          "D": "Firewall"
+         },
+         "answer": "C",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Used to learn attackers' methods."
+        },
+        {
+         "question": "Two-factor authentication combines, for example:",
+         "options": {
+          "A": "Two security questions",
+          "B": "A username and a password",
+          "C": "Two passwords",
+          "D": "A password (something you know) and an OTP on your phone (something you have)"
+         },
+         "answer": "D",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Factors: know, have, are (biometrics)."
+        },
+        {
+         "question": "Consider the statements:\nI. A virus needs a host file to spread.\nII. A worm cannot spread without user action.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Only I. Worms spread on their own over networks."
+        },
+        {
+         "question": "Consider the statements:\nI. A firewall protects fully against insider attacks.\nII. A firewall can block traffic to specific ports.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "Only II (see GTTC 2024 Q48)."
+        },
+        {
+         "question": "Assertion (A): Public servers are often placed in a DMZ.\nReason (R): If a public server is compromised, the internal network remains separated by the inner firewall.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Threats, Malware, Firewalls, VPN and Security Protocols",
+         "explanation": "R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+       "questions": [
+        {
+         "question": "A signs the message and sends to B, to prove that he is the sender of the message. Which of the following keys does A need to use?",
+         "options": {
+          "A": "A's public key",
+          "B": "B's public key",
+          "C": "A's private key",
+          "D": "B's private key"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Only A has A's private key; anyone can verify with A's public key. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q40"
+        },
+        {
+         "question": "Match the following message digest size with the given Hash functions.\na) SHA-1  b) SHA-224  c) SHA-256  d) SHA-512\ni. 512 bits  ii. 160 bits  iii. 224 bits  iv. 256 bits",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "SHA-2 names give the digest size; SHA-1 gives 160 bits, MD5 128 bits. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q49"
+        },
+        {
+         "question": "What is the purpose of XML signature?",
+         "options": {
+          "A": "To ensure the authenticity of the XML document by providing integrity and authenticity",
+          "B": "To compress the XML data for faster transmission",
+          "C": "To encrypt the XML document for confidentiality",
+          "D": "To format the XML data for human-readable output"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Signatures give integrity and authentication; XML Encryption is a separate standard for confidentiality. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q49"
+        },
+        {
+         "question": "Encrypt the plain text message \"INTRANET\" using Transposition cipher technique with the following key:\n3 5 2 1 4 (Cipher text)\n1 2 3 4 5 (Plain text)\nUse 'X' as bogus character.",
+         "options": {
+          "A": "TANIRTXENX",
+          "B": "TNAIRTXENX",
+          "C": "TANRITXENX",
+          "D": "TANIRTEXNX"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Blocks of 5: INTRA, NETXX. Output order = plaintext positions 3, 5, 2, 1, 4: INTRA → T A N I R; NETXX → T X E N X. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q104"
+        },
+        {
+         "question": "Which of the following are used to generate a message digest by the network security protocols?\nP. RSA  Q. SHA-1  R. DES  S. MD5",
+         "options": {
+          "A": "P and R only",
+          "B": "Q and R only",
+          "C": "Q and S only",
+          "D": "R and S only"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "SHA-1 and MD5 are hash functions; RSA and DES are encryption algorithms. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q112"
+        },
+        {
+         "question": "______ is a popular cryptographic algorithm for digital signatures and public key infrastructure.",
+         "options": {
+          "A": "RSA",
+          "B": "MD5",
+          "C": "AES",
+          "D": "SHA-1"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "RSA is public-key; AES is symmetric; MD5/SHA-1 are hashes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Raichur University 2024 CS&A · Q48"
+        },
+        {
+         "question": "Why is the ECB (Electronic Codebook) mode of a block cipher considered weak?",
+         "options": {
+          "A": "It is slower than all other modes",
+          "B": "Identical plaintext blocks give identical ciphertext blocks, revealing patterns",
+          "C": "It cannot decrypt",
+          "D": "It uses no key"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). CBC, CFB, OFB and CTR modes mix in an IV or previous block to hide patterns."
+        },
+        {
+         "question": "In symmetric-key (secret-key) cryptography:",
+         "options": {
+          "A": "The same key is used to encrypt and decrypt",
+          "B": "Two different keys are used",
+          "C": "No key is used",
+          "D": "Only hashing is done"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). Examples: DES, 3DES, AES, Blowfish, RC4."
+        },
+        {
+         "question": "How many secret keys are needed for every pair of 10 people to communicate privately using symmetric-key cryptography?",
+         "options": {
+          "A": "20",
+          "B": "10",
+          "C": "100",
+          "D": "45"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). n(n − 1)/2 = 10 × 9 / 2 = 45. With public-key cryptography each person needs one key pair (20 keys)."
+        },
+        {
+         "question": "DES uses a block size and an effective key length of:",
+         "options": {
+          "A": "64-bit block, 128-bit key",
+          "B": "32-bit block, 64-bit key",
+          "C": "128-bit block, 128-bit key, 10 rounds",
+          "D": "64-bit block, 56-bit key, 16 rounds"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Triple DES applies DES three times (encrypt–decrypt–encrypt)."
+        },
+        {
+         "question": "AES uses a block size of:",
+         "options": {
+          "A": "64 bits with a 56-bit key",
+          "B": "128 bits, with 128-, 192- or 256-bit keys (10, 12 or 14 rounds)",
+          "C": "32 bits",
+          "D": "256 bits with a 512-bit key"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). Based on the Rijndael cipher."
+        },
+        {
+         "question": "Using the Caesar cipher (shift of 3), 'HELLO' is encrypted as:",
+         "options": {
+          "A": "LIPPS",
+          "B": "KHOOR",
+          "C": "EBIIL",
+          "D": "IFMMP"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). H→K, E→H, L→O, L→O, O→R."
+        },
+        {
+         "question": "A cipher that rearranges the order of characters without changing them is a:",
+         "options": {
+          "A": "Hash function",
+          "B": "Substitution cipher",
+          "C": "Stream cipher",
+          "D": "Transposition cipher"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Substitution ciphers replace characters (Caesar, Playfair, Vigenère)."
+        },
+        {
+         "question": "The Vigenère cipher is an example of a:",
+         "options": {
+          "A": "Public-key cipher",
+          "B": "Polyalphabetic substitution cipher",
+          "C": "Transposition cipher",
+          "D": "Monoalphabetic cipher"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "The one-time pad is theoretically unbreakable if the key is random and used once."
+        },
+        {
+         "question": "In RSA with p = 3 and q = 11, n and φ(n) are:",
+         "options": {
+          "A": "n = 14, φ(n) = 33",
+          "B": "n = 33, φ(n) = 32",
+          "C": "n = 30, φ(n) = 20",
+          "D": "n = 33, φ(n) = 20"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). n = p·q = 33; φ(n) = (p − 1)(q − 1) = 2 × 10 = 20."
+        },
+        {
+         "question": "In RSA with n = 33, φ(n) = 20 and public exponent e = 3, the private exponent d is:",
+         "options": {
+          "A": "11",
+          "B": "13",
+          "C": "7",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "d is the inverse of e mod 20: 3 × 7 = 21 ≡ 1 (mod 20)."
+        },
+        {
+         "question": "Using RSA with public key (e = 3, n = 33), the plaintext M = 4 is encrypted to:",
+         "options": {
+          "A": "12",
+          "B": "31",
+          "C": "64",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). C = M^e mod n = 4³ mod 33 = 64 mod 33 = 31. Check: 31⁷ mod 33 = 4."
+        },
+        {
+         "question": "Diffie–Hellman with p = 23, g = 5, Alice's secret a = 4 and Bob's secret b = 3 gives the shared key:",
+         "options": {
+          "A": "23",
+          "B": "10",
+          "C": "4",
+          "D": "18"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "A = 5⁴ mod 23 = 4; B = 5³ mod 23 = 10; key = 10⁴ mod 23 = 4³ mod 23 = 18."
+        },
+        {
+         "question": "The Diffie–Hellman algorithm is used for:",
+         "options": {
+          "A": "Hashing passwords",
+          "B": "Digital signatures only",
+          "C": "Securely agreeing on a shared secret key over an insecure channel",
+          "D": "Compressing data"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is vulnerable to man-in-the-middle attacks without authentication."
+        },
+        {
+         "question": "A digital signature provides:",
+         "options": {
+          "A": "Authentication, integrity and non-repudiation",
+          "B": "Only confidentiality",
+          "C": "Only compression",
+          "D": "Only availability"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "To add confidentiality, the message must also be encrypted."
+        },
+        {
+         "question": "To verify a digital signature, the receiver uses:",
+         "options": {
+          "A": "A shared secret key",
+          "B": "The sender's public key",
+          "C": "The receiver's private key",
+          "D": "The sender's private key"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sign with private key → verify with public key."
+        },
+        {
+         "question": "To send a message that only B can read, A encrypts it with:",
+         "options": {
+          "A": "A's public key",
+          "B": "A's private key",
+          "C": "B's public key",
+          "D": "B's private key"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Only B's private key can decrypt it."
+        },
+        {
+         "question": "A hash function used in security must be:",
+         "options": {
+          "A": "Keyed with a public key",
+          "B": "Reversible",
+          "C": "Variable-length output",
+          "D": "One-way and collision-resistant, producing a fixed-length digest"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). MD5 – 128 bits; SHA-1 – 160 bits (both now considered weak)."
+        },
+        {
+         "question": "A digital certificate binds:",
+         "options": {
+          "A": "A private key to an IP address",
+          "B": "A public key to the identity of its owner, signed by a Certifying Authority (CA)",
+          "C": "Two private keys",
+          "D": "A password to a username"
+         },
+         "answer": "B",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Format X.509; in India CAs are licensed by the Controller of Certifying Authorities under the IT Act, 2000."
+        },
+        {
+         "question": "Steganography is:",
+         "options": {
+          "A": "Encrypting with two keys",
+          "B": "Compressing data",
+          "C": "Hiding the existence of a message, e.g. inside an image",
+          "D": "Checking passwords"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). LSB (least-significant-bit) image hiding is common."
+        },
+        {
+         "question": "Which of the following is an asymmetric (public-key) algorithm?",
+         "options": {
+          "A": "Blowfish",
+          "B": "AES",
+          "C": "DES",
+          "D": "Elliptic Curve Cryptography (ECC)"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Public-key: RSA, ECC, ElGamal, DSA."
+        },
+        {
+         "question": "A Message Authentication Code (MAC) such as HMAC provides:",
+         "options": {
+          "A": "Non-repudiation",
+          "B": "Compression",
+          "C": "Encryption of the message",
+          "D": "Integrity and authentication using a shared secret key"
+         },
+         "answer": "D",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "PYQ pattern (KEA / KSET papers). MAC cannot give non-repudiation because both sides share the key."
+        },
+        {
+         "question": "Consider the statements:\nI. In public-key cryptography the private key must be kept secret.\nII. MD5 produces a 160-bit digest.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Only I. MD5 → 128 bits; SHA-1 → 160 bits."
+        },
+        {
+         "question": "Consider the statements:\nI. A digital signature gives non-repudiation.\nII. Symmetric-key encryption is generally faster than public-key encryption.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "Both. Hence hybrid systems: public key to exchange a session key, symmetric key for the data (as in TLS)."
+        },
+        {
+         "question": "Assertion (A): TLS uses public-key cryptography only to set up a session key.\nReason (R): Symmetric encryption is much faster for bulk data.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Cryptography – Ciphers, Secret-Key and Public-Key Algorithms, Hashes and Digital Signatures",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Network security – revision sheet",
+       "md": "## Goals and attacks\n- **CIA**: confidentiality, integrity, availability (+ authentication, non-repudiation)\n- Passive (snooping, traffic analysis) vs active (modification, masquerade, replay, DoS)\n- Malware: **virus** (needs host), **worm** (self-spreading), **Trojan** (hidden harmful code), **logic bomb** (condition), ransomware, spyware, adware, rootkit, botnet\n- Phishing, spoofing, sniffing, MITM, DDoS, XSS, SQL injection, social engineering\n\n## Defences\n- **Firewall**: packet filter (IP/port), stateful, proxy/application gateway; cannot stop insiders or bypass links\n- DMZ for public servers; IDS/IPS; honeypot; 2FA (know + have + are)\n- **VPN** – encrypted tunnel; **IPsec** (network layer): AH (auth) / **ESP** (auth + encryption); transport vs **tunnel** mode\n- **TLS/SSL** – HTTPS 443; **SSH 22** replaces Telnet; PGP/S-MIME – e-mail\n- **Kerberos** – tickets from KDC (AS + TGS)\n\n## Cryptography\n| | Symmetric | Asymmetric |\n|---|---|---|\n| Keys | one shared | public + private |\n| Examples | DES (64-bit block, 56-bit key, 16 rounds), 3DES, AES (128-bit block, 128/192/256 key) | RSA, ECC, ElGamal, DSA |\n| Keys for n users | n(n−1)/2 | 2n |\n- Classical: substitution (Caesar shift 3, Playfair, Vigenère = polyalphabetic), transposition; one-time pad\n- **RSA**: n = pq, φ = (p−1)(q−1), e·d ≡ 1 mod φ; C = M^e mod n (p=3, q=11, e=3 → d=7; M=4 → C=31)\n- **Diffie–Hellman**: key agreement (p=23, g=5, a=4, b=3 → key 18); needs authentication against MITM\n- **Hash**: MD5 128, SHA-1 160, SHA-224/256/512 as named; one-way, collision-resistant\n- **MAC/HMAC** – shared key, integrity + auth\n- **Digital signature**: sign with **sender's private key**, verify with sender's public key → auth + integrity + non-repudiation\n- Confidentiality: encrypt with **receiver's public key**\n- Certificates: X.509 by CA; India – Controller of Certifying Authorities (IT Act 2000)\n- **Steganography** – hiding a message's existence (LSB in images)\n"
       }
      ]
     }
