@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 416, Paper 2: 531. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 416, Paper 2: 548. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -11187,6 +11187,247 @@
          "subject": "KSET 2025 CS&A",
          "explanation": "Changing the underlying platform is what platform volatility measures. (Strictly, PVOL belongs to the Post-Architecture model; this is the intended answer.) (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2025 CS&A · Q60"
+        }
+       ]
+      },
+      {
+       "name": "4 · GTTC 2024 Lecturer CS",
+       "questions": [
+        {
+         "question": "In the following phases of SDLC, choose the correct phases of SDLC\na. Maintenance phase\nb. Design phase\nc. Debugging phase\nd. Requirement analysis phase",
+         "options": {
+          "A": "a, b, c and d are phases of SDLC",
+          "B": "a, b and d are phases of SDLC",
+          "C": "b, c and d are phases of SDLC",
+          "D": "b and d are only phases of SDLC"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Debugging is an activity within coding/testing, not a separate SDLC phase. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q66"
+        },
+        {
+         "question": "Match the following and choose the correct answer\na. Waterfall model  b. Agile model  c. Iterative model  d. V model\ni. Emphasises flexibility and customer satisfaction  ii. Sequential design process  iii. Validation and verification  iv. Repeated cycle",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Waterfall – sequential; agile – flexibility; iterative – repeated cycles; V-model – verification and validation. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q67"
+        },
+        {
+         "question": "In software modelling, analysis pattern's purpose is",
+         "options": {
+          "A": "It slows down the development of abstract analysis model",
+          "B": "It speeds up the development of abstract analysis model",
+          "C": "It slows down the design phase",
+          "D": "It speeds up the design phase"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Analysis patterns reuse proven domain solutions to build the analysis model faster. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q68"
+        },
+        {
+         "question": "In the software iterative process flow, mark the correct order and choose the correct answer\na. Planning\nb. Communication\nc. Construction\nd. Modelling\ne. Deployment",
+         "options": {
+          "A": "a, b, c, d, e",
+          "B": "b, a, c, d, e",
+          "C": "b, a, d, c, e",
+          "D": "a, b, d, c, e"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Pressman's generic framework: communication → planning → modelling → construction → deployment. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q69"
+        },
+        {
+         "question": "Examine the following statements and choose the correct answer: Which of the following is correct?\nA: In software engineering design phase follows testing phase\nB. In the design phase creation of system architecture and data model definition is done",
+         "options": {
+          "A": "Both A and B are true and B is the correct explanation of A",
+          "B": "Both A and B are false and B is not the correct explanation of A",
+          "C": "A is true but B is false",
+          "D": "A is false but B is true"
+         },
+         "answer": "D",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Testing follows design, not the other way round. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q70"
+        }
+       ]
+      },
+      {
+       "name": "5 · GTTC 2024 Technician Gr-III CS (C1)",
+       "questions": [
+        {
+         "question": "How many phases are there in scrum?",
+         "options": {
+          "A": "two",
+          "B": "three",
+          "C": "four",
+          "D": "five"
+         },
+         "answer": "D",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "KEA's key gives five. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q57"
+        },
+        {
+         "question": "Arrange the following software processes in correct order.\n(i) Detailed Design\n(ii) Coding\n(iii) Operation & Maintenance\n(iv) Testing\n(v) Feasibility Analysis",
+         "options": {
+          "A": "i, ii, iii, iv, v",
+          "B": "v, i, ii, iv, iii",
+          "C": "v, ii, iii, iv, i",
+          "D": "i, v, iv, iii, ii"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "Feasibility → design → coding → testing → operation and maintenance. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q58"
+        },
+        {
+         "question": "3 Cs of user stories do not include this",
+         "options": {
+          "A": "Card",
+          "B": "Conversation",
+          "C": "Correction",
+          "D": "Confirmation"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "Ron Jeffries' 3 Cs: Card, Conversation, Confirmation. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q59"
+        },
+        {
+         "question": "____ is NOT among the eight principles followed by software code of Ethics.",
+         "options": {
+          "A": "PUBLIC",
+          "B": "PRODUCT",
+          "C": "ENVIRONMENT",
+          "D": "PROFESSION"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "ACM/IEEE-CS code: Public, Client and Employer, Product, Judgment, Management, Profession, Colleagues, Self. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q60"
+        }
+       ]
+      },
+      {
+       "name": "6 · Legislative Council 2024 Computer Operator P2",
+       "questions": [
+        {
+         "question": "Two statements are given below : One is Assertion (A) and the other is Reason (R)\nRead the statements carefully & choose the correct answer.\nAssertion (A) : Testing is the process of validating the correctness of a program\nReason (R) : Testing objective is to demonstrate that the program meets its design specification",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "KEA's key accepts R as the explanation of A. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q8"
+        },
+        {
+         "question": "Identify the correct sequence of software development life cycle phases.",
+         "options": {
+          "A": "Requirement → Implementation → Design → Testing",
+          "B": "Requirement → Design → Implementation → Testing",
+          "C": "Design → Requirement → Testing → Implementation",
+          "D": "Implementation → Design → Testing → Requirement"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Requirements first, then design, coding and testing. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q13"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(I) In UML class diagram, classes are represented by rectangles with their attributes & methods inside\n(II) A sequence diagram in UML shows the static structure of a database\n(III) A use case diagram can be used to show how users interact with database system",
+         "options": {
+          "A": "All the statements are true",
+          "B": "III is true",
+          "C": "I and III are true",
+          "D": "I and II are true"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "A sequence diagram shows the time-ordered exchange of messages (dynamic behaviour), not static structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q28"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(I) In UML, an association class is used to represent the attributes of a relationship between two classes.\n(II) In UML, a \"generalization\" relationship indicates that a class inherits behaviour from another class\n(III) A class diagram can only represent entities and not relationship in a DBMS",
+         "options": {
+          "A": "II and III are true",
+          "B": "I and II are true",
+          "C": "II is true",
+          "D": "I is true"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Class diagrams show associations, generalisation and dependencies too. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q29"
+        }
+       ]
+      },
+      {
+       "name": "7 · Legislative Council 2024 Junior Console Operator P2",
+       "questions": [
+        {
+         "question": "Which software development model is known for its iterative approach where feedback is gathered after each cycle?",
+         "options": {
+          "A": "Waterfall Model",
+          "B": "Agile Model",
+          "C": "V - Model",
+          "D": "Spiral Model"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Agile delivers small increments and gathers customer feedback each iteration. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q76"
+        },
+        {
+         "question": "What is the primary purpose of software testing?",
+         "options": {
+          "A": "To enhance the features of the software",
+          "B": "To find and fix bugs and errors",
+          "C": "To improve the user interface",
+          "D": "To make the software compatible with all devices"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Testing finds errors; debugging then fixes them. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q79"
+        },
+        {
+         "question": "What is the primary purpose of assertions in software development?",
+         "options": {
+          "A": "To make the code more readable",
+          "B": "To check for logical errors during run time",
+          "C": "To enhance the performance by skipping checks",
+          "D": "To validate user inputs"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "An assertion states a condition that must hold at that point; if it fails, a logic error is revealed. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q80"
+        },
+        {
+         "question": "Which of the following tools is used for version control in software development?",
+         "options": {
+          "A": "Git",
+          "B": "Eclipse",
+          "C": "Photoshop",
+          "D": "Visual studio"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Git is a distributed version-control system; Eclipse and Visual Studio are IDEs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q83"
         }
        ]
       }

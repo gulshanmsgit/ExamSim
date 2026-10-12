@@ -1,0 +1,2999 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 7 — Software Engineering",
+ "description": "All topics so far (8 sets × 30 questions): Software Process Models; Agile Process Models; Software Requirements; Software Design; Software Testing. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 7 – Software Engineering",
+   "icon": "🛠️",
+   "topics": [
+    {
+     "name": "Software Process Models",
+     "sets": [
+      {
+       "name": "1 · Software Process, Generic Process Model and the Life Cycle",
+       "questions": [
+        {
+         "question": "In the software generic process model, ____ executes the activities in a circular manner.",
+         "options": {
+          "A": "Linear Process Flow",
+          "B": "Iterative Process Flow",
+          "C": "Evolutionary Process Flow",
+          "D": "Parallel Process Flow"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Pressman: an evolutionary process flow executes the activities in a circular manner; an iterative flow repeats activities before moving on. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q31"
+        },
+        {
+         "question": "In the software iterative process flow, mark the correct order and choose the correct answer\na. Planning\nb. Communication\nc. Construction\nd. Modelling\ne. Deployment",
+         "options": {
+          "A": "a, b, c, d, e",
+          "B": "b, a, c, d, e",
+          "C": "b, a, d, c, e",
+          "D": "a, b, d, c, e"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Pressman's generic framework: communication → planning → modelling → construction → deployment. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q69"
+        },
+        {
+         "question": "In the following phases of SDLC, choose the correct phases of SDLC\na. Maintenance phase\nb. Design phase\nc. Debugging phase\nd. Requirement analysis phase",
+         "options": {
+          "A": "a, b, c and d are phases of SDLC",
+          "B": "a, b and d are phases of SDLC",
+          "C": "b, c and d are phases of SDLC",
+          "D": "b and d are only phases of SDLC"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Debugging is an activity within coding/testing, not a separate SDLC phase. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q66"
+        },
+        {
+         "question": "Identify the correct sequence of software development life cycle phases.",
+         "options": {
+          "A": "Requirement → Implementation → Design → Testing",
+          "B": "Requirement → Design → Implementation → Testing",
+          "C": "Design → Requirement → Testing → Implementation",
+          "D": "Implementation → Design → Testing → Requirement"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Requirements first, then design, coding and testing. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q13"
+        },
+        {
+         "question": "Arrange the following software processes in correct order.\n(i) Detailed Design\n(ii) Coding\n(iii) Operation & Maintenance\n(iv) Testing\n(v) Feasibility Analysis",
+         "options": {
+          "A": "i, ii, iii, iv, v",
+          "B": "v, i, ii, iv, iii",
+          "C": "v, ii, iii, iv, i",
+          "D": "i, v, iv, iii, ii"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Feasibility → design → coding → testing → operation and maintenance. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q58"
+        },
+        {
+         "question": "Examine the following statements and choose the correct answer: Which of the following is correct?\nA: In software engineering design phase follows testing phase\nB. In the design phase creation of system architecture and data model definition is done",
+         "options": {
+          "A": "Both A and B are true and B is the correct explanation of A",
+          "B": "Both A and B are false and B is not the correct explanation of A",
+          "C": "A is true but B is false",
+          "D": "A is false but B is true"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Testing follows design, not the other way round. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q70"
+        },
+        {
+         "question": "____ is NOT among the eight principles followed by software code of Ethics.",
+         "options": {
+          "A": "PUBLIC",
+          "B": "PRODUCT",
+          "C": "ENVIRONMENT",
+          "D": "PROFESSION"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "ACM/IEEE-CS code: Public, Client and Employer, Product, Judgment, Management, Profession, Colleagues, Self. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q60"
+        },
+        {
+         "question": "Pressman's generic process framework consists of which five framework activities?",
+         "options": {
+          "A": "Analysis, design, coding, testing, maintenance",
+          "B": "Specification, development, validation, evolution, retirement",
+          "C": "Inception, elaboration, construction, transition, production",
+          "D": "Communication, planning, modelling, construction, deployment"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Inception…production are Unified Process phases; Sommerville's four activities are specification, development, validation, evolution."
+        },
+        {
+         "question": "Which of the following is NOT an umbrella activity in the generic process framework?",
+         "options": {
+          "A": "Software configuration management",
+          "B": "Risk management",
+          "C": "Software project tracking and control",
+          "D": "Construction"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Umbrella activities span the whole project: tracking, risk management, SQA, technical reviews, measurement, SCM, reusability management, work-product preparation."
+        },
+        {
+         "question": "In Pressman's layered view of software engineering, the 'bedrock' and the 'foundation' are respectively:",
+         "options": {
+          "A": "Methods and quality focus",
+          "B": "Tools and methods",
+          "C": "Quality focus and process",
+          "D": "Process and methods"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Layers bottom-up: quality focus → process → methods → tools."
+        },
+        {
+         "question": "A 'task set' in a software process is:",
+         "options": {
+          "A": "The list of software tools",
+          "B": "The set of test cases",
+          "C": "The schedule chart of the project",
+          "D": "The collection of work tasks, work products, quality assurance points and milestones for a framework action"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Different projects choose different task sets for the same action (e.g. requirements gathering)."
+        },
+        {
+         "question": "A process pattern describes:",
+         "options": {
+          "A": "A design pattern for classes",
+          "B": "A process-related problem met during software work, its environment and a proven solution",
+          "C": "A testing technique",
+          "D": "A coding standard"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ambler's process patterns are of three types: stage, task and phase patterns."
+        },
+        {
+         "question": "Match the process flows with their descriptions:\na. Linear\nb. Iterative\nc. Evolutionary\nd. Parallel\n\n1. Activities executed in a circular manner, each circuit giving a more complete version\n2. Repeats one or more activities before moving to the next\n3. Each framework activity executed once in sequence\n4. Executes one or more activities alongside others",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-4, b-2, c-1, d-3",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Pressman, chapter 2."
+        },
+        {
+         "question": "Assertion (A): Software does not 'wear out' the way hardware does.\nReason (R): Software is not susceptible to the environmental maladies (dust, heat, vibration) that cause hardware to wear out.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Software deteriorates because of change (side-effects of modifications), giving the 'actual' failure curve with spikes."
+        },
+        {
+         "question": "The CMMI maturity level at which processes are measured and controlled using statistical and quantitative techniques is:",
+         "options": {
+          "A": "Level 2 – Managed",
+          "B": "Level 5 – Optimizing",
+          "C": "Level 4 – Quantitatively Managed",
+          "D": "Level 3 – Defined"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Levels: 1 Initial, 2 Managed, 3 Defined, 4 Quantitatively Managed, 5 Optimizing (continuous improvement)."
+        },
+        {
+         "question": "Match the process assessment approaches:\na. SCAMPI\nb. SPICE\nc. ISO 9001:2000\nd. CBA IPI\n\n1. ISO/IEC 15504 standard\n2. Generic quality-management standard\n3. SEI's five-step assessment model for CMMI\n4. SEI's diagnostic for process maturity",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-1, b-3, c-2, d-4",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Standard CMMI-Based Appraisal Method for Process Improvement = SCAMPI."
+        },
+        {
+         "question": "The Personal Software Process (PSP) and the Team Software Process (TSP) were proposed by:",
+         "options": {
+          "A": "Ivar Jacobson",
+          "B": "Watts Humphrey",
+          "C": "Kent Beck",
+          "D": "Barry Boehm"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PSP framework activities: planning, high-level design, HLD review, development, postmortem."
+        },
+        {
+         "question": "Modifying software so that it continues to work after the operating system is upgraded is an example of:",
+         "options": {
+          "A": "Adaptive maintenance",
+          "B": "Perfective maintenance",
+          "C": "Corrective maintenance",
+          "D": "Preventive maintenance"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Corrective – fix bugs; perfective – new features/performance; preventive – improve future maintainability (re-engineering)."
+        },
+        {
+         "question": "The term 'software engineering' was popularised at the 1968 conference organised by:",
+         "options": {
+          "A": "IBM",
+          "B": "ACM",
+          "C": "NATO",
+          "D": "IEEE"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "It responded to the 'software crisis' – late, over-budget, unreliable software."
+        },
+        {
+         "question": "IEEE defines software engineering as:",
+         "options": {
+          "A": "Testing software after delivery",
+          "B": "The study of computer hardware",
+          "C": "Writing code in a high-level language",
+          "D": "The application of a systematic, disciplined, quantifiable approach to the development, operation and maintenance of software"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "IEEE Std 610.12."
+        },
+        {
+         "question": "Consider the statements:\nI. The waterfall model is also called the classic life cycle.\nII. The waterfall model suits projects whose requirements keep changing.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only I: waterfall needs stable, well-understood requirements; changing requirements suit incremental or agile models."
+        },
+        {
+         "question": "A throwaway prototype differs from an evolutionary prototype in that it:",
+         "options": {
+          "A": "Is built only after coding",
+          "B": "Is discarded once requirements are understood",
+          "C": "Never involves the customer",
+          "D": "Becomes the final product"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Prototyping can be used within any process model to clarify fuzzy requirements."
+        },
+        {
+         "question": "Lehman's first law of software evolution, the law of 'continuing change', states that:",
+         "options": {
+          "A": "A program used in a real-world environment must change or become progressively less useful",
+          "B": "Complexity always decreases",
+          "C": "Quality improves automatically with age",
+          "D": "Program size stays constant"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Lehman's laws apply to E-type (real-world) systems."
+        },
+        {
+         "question": "Brooks' law states that:",
+         "options": {
+          "A": "Adding manpower to a late software project makes it later",
+          "B": "80% of effort goes into 20% of the code",
+          "C": "Software size doubles every two years",
+          "D": "Testing can show only the presence of bugs"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Fred Brooks, The Mythical Man-Month (1975); he also wrote 'No Silver Bullet' (1986)."
+        },
+        {
+         "question": "The 'deployment' framework activity includes:",
+         "options": {
+          "A": "Code generation and testing",
+          "B": "Delivery, support and feedback",
+          "C": "Estimation and scheduling",
+          "D": "Requirements gathering only"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Construction = code generation + testing; planning = estimates, schedule, risks."
+        },
+        {
+         "question": "According to Pressman, software consists of:",
+         "options": {
+          "A": "Instructions, data structures and documentation",
+          "B": "Only executable code",
+          "C": "Hardware drivers only",
+          "D": "Compilers and interpreters"
+         },
+         "answer": "A",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Programs that give function, data structures that let programs manipulate information, and documents that describe them."
+        },
+        {
+         "question": "Which statement about legacy software is correct?",
+         "options": {
+          "A": "It refers to open-source software only",
+          "B": "It never needs maintenance",
+          "C": "It is older software that is often business-critical and may need adaptation, enhancement or re-engineering",
+          "D": "It is always discarded on upgrade"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Legacy systems evolve to meet new environments, requirements and interoperability."
+        },
+        {
+         "question": "The software failure-rate curve of Pressman shows that, unlike hardware, software:",
+         "options": {
+          "A": "Never fails after testing",
+          "B": "Fails more as it ages because of dust and heat",
+          "C": "Has a constant failure rate",
+          "D": "Has no wear-out phase, but failure rate spikes after each change"
+         },
+         "answer": "D",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). The hardware curve is the 'bathtub curve' (infant mortality, wear out)."
+        },
+        {
+         "question": "'A general statement of objectives is sufficient to begin writing programs – we can fill in the details later.' This is a:",
+         "options": {
+          "A": "Management myth",
+          "B": "Practitioner myth",
+          "C": "Customer myth",
+          "D": "Proven principle"
+         },
+         "answer": "C",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "PYQ pattern (KEA / KSET papers). Practitioner myth: 'once the program works, our job is done'; management myth: 'if we fall behind, we can add more programmers'."
+        },
+        {
+         "question": "In a feasibility study, checking whether the organisation's staff and users will accept and use the proposed system is:",
+         "options": {
+          "A": "Schedule feasibility",
+          "B": "Operational feasibility",
+          "C": "Technical feasibility",
+          "D": "Economic feasibility"
+         },
+         "answer": "B",
+         "subject": "Software Process, Generic Process Model and the Life Cycle",
+         "explanation": "Technical – can it be built; economic – cost–benefit; schedule – can it be done in time."
+        }
+       ]
+      },
+      {
+       "name": "2 · Prescriptive and Specialised Process Models, Estimation and Project Management",
+       "questions": [
+        {
+         "question": "Match the following and choose the correct answer\na. Waterfall model  b. Agile model  c. Iterative model  d. V model\ni. Emphasises flexibility and customer satisfaction  ii. Sequential design process  iii. Validation and verification  iv. Repeated cycle",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Waterfall – sequential; agile – flexibility; iterative – repeated cycles; V-model – verification and validation. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q67"
+        },
+        {
+         "question": "Arrange the component-based development process activities in the correct order:\na. Requirement analysis\nb. Component qualification\nc. System design with reuse\nd. Component adaptation\ne. Component composition\nf. Component discovery\ng. System integration and testing",
+         "options": {
+          "A": "f, a, b, c, d, g, e",
+          "B": "a, c, f, b, d, e, g",
+          "C": "b, a, f, c, d, e, g",
+          "D": "a, f, c, b, d, g, e"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Requirements first, then architectural design with reuse, then find, qualify, adapt and compose components, and finally integrate and test. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q51"
+        },
+        {
+         "question": "In a spiral model cycle, the probability of failure for each iteration due to risk is 10%. If there are 4 cycles, then what is the probability that the project completes all cycles without failure?",
+         "options": {
+          "A": "0.6561",
+          "B": "0.9",
+          "C": "0.3439",
+          "D": "0.9999"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "0.9⁴ = 0.6561. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q52"
+        },
+        {
+         "question": "How to estimate the effort using cost per person-month to calculate total cost of a software, if it has 10 persons-months and the average cost per person-month as $5000. The total cost is:",
+         "options": {
+          "A": "$50,000",
+          "B": "$40,000",
+          "C": "$60,000",
+          "D": "$70,000"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "10 person-months × $5,000 = $50,000. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q54"
+        },
+        {
+         "question": "A software is requiring 5000 Lines (LoC). Using basic COCOMO model, the effort E is calculated as E = 3 × (KLoC)^1.2. With these details, derive the estimated effort rightly in person-months.",
+         "options": {
+          "A": "E = 3 × (5)^1.2",
+          "B": "E = 3 × (10)^1.2",
+          "C": "E = 3 × (4)^1.2",
+          "D": "E = 3 × (2)^1.2"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "5000 LoC = 5 KLoC, so E = 3 × 5^1.2 ≈ 20.7 person-months. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q58"
+        },
+        {
+         "question": "The ____ is a dynamic multivariable model that assumes a specific distribution of effort over the life of a software development project.",
+         "options": {
+          "A": "COCOMO",
+          "B": "LOC",
+          "C": "Software Equation",
+          "D": "FP"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Putnam's software equation is the dynamic multivariable model described in Pressman. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q37"
+        },
+        {
+         "question": "____ approach is used when a project encompasses the use of existing software that must be modified in some way as part of a project",
+         "options": {
+          "A": "Fuzzy Logic Sizing",
+          "B": "Standard Component Sizing",
+          "C": "Function Point Sizing",
+          "D": "Change Sizing"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Change sizing estimates the modifications (reuse, adding, changing, deleting code) made to existing software. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q56"
+        },
+        {
+         "question": "Assume a software team applies COCOMO II Early Design Model. If the system is later migrated to a cloud-native microservices architecture, then which cost driver becomes the most volatile and error-prone in recalculating effort?",
+         "options": {
+          "A": "Product Complexity",
+          "B": "Platform Volatility",
+          "C": "Required Software Reliability",
+          "D": "Database Size"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Changing the underlying platform is what platform volatility measures. (Strictly, PVOL belongs to the Post-Architecture model; this is the intended answer.) (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q60"
+        },
+        {
+         "question": "In Pressman's V-model, which pair of a development activity and its testing activity is correct?",
+         "options": {
+          "A": "Architectural design ↔ unit testing",
+          "B": "Code generation ↔ system testing",
+          "C": "Component design ↔ acceptance testing",
+          "D": "Requirements modelling ↔ acceptance testing"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Requirements ↔ acceptance; architectural design ↔ system testing; component design ↔ integration testing; code ↔ unit testing."
+        },
+        {
+         "question": "In the incremental model, the first increment is usually:",
+         "options": {
+          "A": "A core product addressing basic requirements",
+          "B": "The complete system",
+          "C": "A throwaway prototype",
+          "D": "Only the test plan"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Each later increment adds features based on the customer's evaluation."
+        },
+        {
+         "question": "In Boehm's spiral model, the radial dimension represents:",
+         "options": {
+          "A": "The number of developers",
+          "B": "The number of defects",
+          "C": "The cumulative cost incurred so far",
+          "D": "The size of the code"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each loop has four quadrants: determine objectives, identify and resolve risks, develop and test, plan the next iteration."
+        },
+        {
+         "question": "The Rapid Application Development (RAD) model is suitable when:",
+         "options": {
+          "A": "The system is safety-critical and novel",
+          "B": "Technical risk is very high",
+          "C": "No customer involvement is possible",
+          "D": "Requirements are well understood, scope is constrained and reusable components exist (60–90 day cycles)"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "RAD is a high-speed incremental model relying on component reuse."
+        },
+        {
+         "question": "In the concurrent development model, all software engineering activities:",
+         "options": {
+          "A": "Are performed only by testers",
+          "B": "Happen strictly one after another",
+          "C": "Exist concurrently but reside in different states (e.g. under development, awaiting changes, done)",
+          "D": "Are skipped for small projects"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "It is represented as a series of framework activities with state transitions triggered by events."
+        },
+        {
+         "question": "Cleanroom software engineering is an example of:",
+         "options": {
+          "A": "The RAD model",
+          "B": "Extreme Programming",
+          "C": "Formal methods – mathematical specification and correctness verification",
+          "D": "Aspect-oriented development"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Formal specification languages include Z and VDM; formal methods are costly but suit safety-critical systems."
+        },
+        {
+         "question": "Aspect-oriented software development (AOSD) addresses:",
+         "options": {
+          "A": "Network routing",
+          "B": "Crosscutting concerns such as security, logging and transaction handling",
+          "C": "Database normalisation",
+          "D": "Hardware design"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). An 'aspect' captures a concern that cuts across many components."
+        },
+        {
+         "question": "In the Unified Process, the phase that establishes an executable architectural baseline and refines use cases is:",
+         "options": {
+          "A": "Construction",
+          "B": "Transition",
+          "C": "Inception",
+          "D": "Elaboration"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Inception – business case; construction – build; transition – beta and delivery; production – operation."
+        },
+        {
+         "question": "The four Ps of effective software project management are:",
+         "options": {
+          "A": "Plan, program, price and profit",
+          "B": "People, platform, price and product",
+          "C": "People, product, process and project",
+          "D": "Process, protocol, program and plan"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "People are listed first as the most important factor."
+        },
+        {
+         "question": "Boehm's W5HH principle asks questions such as:",
+         "options": {
+          "A": "Who pays, who uses, who tests?",
+          "B": "Why is the system being developed? What will be done? When? Who is responsible? Where are they? How will it be done? How much is needed?",
+          "C": "What tests, what tools, what reports?",
+          "D": "Which language, which compiler, which hardware?"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). It gives a project plan outline for small and large projects."
+        },
+        {
+         "question": "Using basic COCOMO for an organic project of 32 KLOC (E = 2.4 × KLOC^1.05), the estimated effort is about:",
+         "options": {
+          "A": "77 person-months",
+          "B": "38 person-months",
+          "C": "145 person-months",
+          "D": "91 person-months"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "32^1.05 ≈ 38.05; 2.4 × 38.05 ≈ 91.3 PM. Semi-detached: 3.0 × KLOC^1.12; embedded: 3.6 × KLOC^1.20."
+        },
+        {
+         "question": "The unadjusted function point count of a system is 300 and the sum of the 14 value adjustment factors is 45. The adjusted FP is:",
+         "options": {
+          "A": "285",
+          "B": "330",
+          "C": "300",
+          "D": "345"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). FP = UFP × [0.65 + 0.01 × ΣFi] = 300 × 1.10 = 330."
+        },
+        {
+         "question": "A risk has a 60% probability of occurring and would cost ₹50,000 if it occurs. Its risk exposure is:",
+         "options": {
+          "A": "₹50,000",
+          "B": "₹80,000",
+          "C": "₹30,000",
+          "D": "₹20,000"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "RE = P × C = 0.6 × 50,000. Risks are handled through an RMMM (mitigation, monitoring, management) plan."
+        },
+        {
+         "question": "Tasks: A (3 days) precedes B (4 days) and C (6 days); B and C both precede D (2 days). The length of the critical path is:",
+         "options": {
+          "A": "9 days",
+          "B": "13 days",
+          "C": "15 days",
+          "D": "11 days"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Paths: A-B-D = 9, A-C-D = 11. The critical path is the longest path; its tasks have zero slack."
+        },
+        {
+         "question": "If BCWP (earned value) = 40 and BCWS (planned value) = 50, the schedule performance index (SPI) is:",
+         "options": {
+          "A": "1.25 – ahead of schedule",
+          "B": "0.8 – the project is behind schedule",
+          "C": "10 – on schedule",
+          "D": "0.8 – ahead of schedule"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "SPI = BCWP/BCWS; CPI = BCWP/ACWP. Values below 1 mean behind schedule / over budget."
+        },
+        {
+         "question": "COCOMO II's Application Composition model sizes software using:",
+         "options": {
+          "A": "Lines of code only",
+          "B": "Story points",
+          "C": "Object points",
+          "D": "Use-case points only"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "The Early Design and Post-Architecture models use function points or KLOC."
+        },
+        {
+         "question": "Putnam's software equation is derived from the:",
+         "options": {
+          "A": "Rayleigh–Norden curve of effort distribution",
+          "B": "Bathtub curve",
+          "C": "Normal distribution of defects",
+          "D": "Pareto principle"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Effort = [LOC × B^0.333 / P]³ × (1/t⁴)."
+        },
+        {
+         "question": "Assertion (A): The spiral model suits large, high-risk projects.\nReason (R): Every loop of the spiral includes an explicit risk-analysis step.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Risk-driven iteration is the defining feature of the spiral."
+        },
+        {
+         "question": "Consider the statements:\nI. The incremental model delivers an operational product with each increment.\nII. In the prototyping model the prototype is always delivered as the final product.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "Only I: prototypes are often thrown away after clarifying requirements."
+        },
+        {
+         "question": "Component-based development (CBD) mainly relies on:",
+         "options": {
+          "A": "Pair programming",
+          "B": "Writing every module from scratch",
+          "C": "Formal proofs of correctness",
+          "D": "Commercial off-the-shelf (COTS) and reusable components"
+         },
+         "answer": "D",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "It follows the evolutionary (spiral-like) approach and focuses on integration."
+        },
+        {
+         "question": "A Gantt chart in project scheduling shows:",
+         "options": {
+          "A": "Class relationships",
+          "B": "Tasks as horizontal bars against a time line",
+          "C": "The network of task dependencies with probabilistic times",
+          "D": "The flow of data between processes"
+         },
+         "answer": "B",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PERT uses three time estimates: te = (o + 4m + p)/6."
+        },
+        {
+         "question": "With PERT, a task with optimistic 2, most likely 4 and pessimistic 12 days has expected time:",
+         "options": {
+          "A": "6 days",
+          "B": "4 days",
+          "C": "5 days",
+          "D": "6.5 days"
+         },
+         "answer": "C",
+         "subject": "Prescriptive and Specialised Process Models, Estimation and Project Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). te = (2 + 4×4 + 12)/6 = 30/6 = 5."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Agile Process Models",
+     "sets": [
+      {
+       "name": "1 · Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+       "questions": [
+        {
+         "question": "What are the phases of the Adaptive Software Development Model?",
+         "options": {
+          "A": "Speculation, Collaboration and Learning",
+          "B": "Requirements, Analysis, Design, Evolution and Delivery",
+          "C": "Feasibility Study, Business Study, Functional Model Iteration, Design and Build Iteration, Implementation",
+          "D": "Planning, Design, Coding, Testing"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "ASD (Highsmith) cycles through speculation, collaboration and learning; option 3 lists the DSDM phases. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q51"
+        },
+        {
+         "question": "What is the primary purpose of Sprint Retrospective in SCRUM FRAMEWORK?",
+         "options": {
+          "A": "To plan for another Scrum's Sprint",
+          "B": "To review test cases from the beginning",
+          "C": "To review the past Scrum's Sprint and identify any improvement",
+          "D": "None of the above"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "The retrospective inspects how the last sprint went and plans improvements; sprint planning is a separate event. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q52"
+        },
+        {
+         "question": "Match the Agile practices with their corresponding principles or benefits:\na. Pair Programming\nb. Test-driven Development\nc. Continuous Integration\nd. Refactoring\n(i) Avoids integration issues by validating changes frequently in shared repositories.\n(ii) Ensures correctness through automated specification before implementation.\n(iii) Facilitates early problem discovery and real-time code review.\n(iv) Improves internal code quality without altering external behaviour",
+         "options": {
+          "A": "a → i, b → ii, c → iii, d → iv",
+          "B": "a → ii, b → iii, c → iv, d → i",
+          "C": "a → iv, b → i, c → ii, d → iii",
+          "D": "a → iii, b → ii, c → i, d → iv"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Pair programming = continuous review; TDD = tests first; CI = frequent integration; refactoring = better structure, same behaviour. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q53"
+        },
+        {
+         "question": "Which software development model is known for its iterative approach where feedback is gathered after each cycle?",
+         "options": {
+          "A": "Waterfall Model",
+          "B": "Agile Model",
+          "C": "V - Model",
+          "D": "Spiral Model"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Agile delivers small increments and gathers customer feedback each iteration. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q76"
+        },
+        {
+         "question": "How many phases are there in scrum?",
+         "options": {
+          "A": "two",
+          "B": "three",
+          "C": "four",
+          "D": "five"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "KEA's key gives five. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q57"
+        },
+        {
+         "question": "3 Cs of user stories do not include this",
+         "options": {
+          "A": "Card",
+          "B": "Conversation",
+          "C": "Correction",
+          "D": "Confirmation"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Ron Jeffries' 3 Cs: Card, Conversation, Confirmation. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q59"
+        },
+        {
+         "question": "Which of the following is NOT one of the four values of the Agile Manifesto (2001)?",
+         "options": {
+          "A": "Comprehensive documentation over working software",
+          "B": "Responding to change over following a plan",
+          "C": "Individuals and interactions over processes and tools",
+          "D": "Customer collaboration over contract negotiation"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). The real value is 'working software over comprehensive documentation'."
+        },
+        {
+         "question": "The five values of Extreme Programming (XP) are:",
+         "options": {
+          "A": "Communication, simplicity, feedback, courage and respect",
+          "B": "Inspect, adapt, review, retrospect and release",
+          "C": "Speculation, collaboration, learning, delivery and review",
+          "D": "Planning, design, coding, testing and deployment"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "XP was proposed by Kent Beck."
+        },
+        {
+         "question": "In XP, a 'spike solution' is:",
+         "options": {
+          "A": "A user story",
+          "B": "A test case",
+          "C": "A final release",
+          "D": "An operational prototype built to lower risk on a difficult design problem"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). XP design uses CRC (class-responsibility-collaborator) cards and the KIS (keep it simple) principle."
+        },
+        {
+         "question": "In XP, which practice is followed BEFORE writing the code for a story?",
+         "options": {
+          "A": "Deploying to production",
+          "B": "Developing unit tests for the story (test-first)",
+          "C": "Code freeze",
+          "D": "Writing the user manual"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Unit tests are automated so they can be run repeatedly for regression testing."
+        },
+        {
+         "question": "In pair programming, the two roles are:",
+         "options": {
+          "A": "Driver and navigator",
+          "B": "Tester and debugger",
+          "C": "Product owner and scrum master",
+          "D": "Analyst and designer"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). The driver types; the navigator reviews and thinks strategically; roles switch often."
+        },
+        {
+         "question": "In Scrum, the person responsible for maximising the value of the product and managing the product backlog is the:",
+         "options": {
+          "A": "Project sponsor",
+          "B": "Product Owner",
+          "C": "Development team",
+          "D": "Scrum Master"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "The Scrum Master is a servant-leader who removes impediments."
+        },
+        {
+         "question": "The maximum length of a sprint in the Scrum Guide is:",
+         "options": {
+          "A": "One week",
+          "B": "Three months",
+          "C": "Six months",
+          "D": "One month"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). Typical sprints are two to four weeks; the daily scrum is time-boxed to 15 minutes."
+        },
+        {
+         "question": "The purpose of the Sprint Review is to:",
+         "options": {
+          "A": "Improve the team's process",
+          "B": "Plan the next day's work",
+          "C": "Inspect the increment with stakeholders and adapt the product backlog",
+          "D": "Assign blame for defects"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Retrospective = improve the process; daily scrum = sync for 24 hours."
+        },
+        {
+         "question": "A team's velocity is 30 story points per sprint and the remaining product backlog is 120 points. About how many sprints are needed?",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). 120 / 30 = 4. A burndown chart plots the remaining work against time."
+        },
+        {
+         "question": "DSDM (Dynamic Systems Development Method) is based on which principle?",
+         "options": {
+          "A": "Every feature must take two weeks",
+          "B": "80 percent of an application can be delivered in 20 percent of the time it would take to deliver the complete application",
+          "C": "Testing is done only at the end",
+          "D": "All requirements must be frozen first"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "DSDM uses MoSCoW prioritisation and phases: feasibility study, business study, functional model iteration, design & build iteration, implementation."
+        },
+        {
+         "question": "In Feature Driven Development (FDD), a feature is:",
+         "options": {
+          "A": "A test case",
+          "B": "A class in the design",
+          "C": "A client-valued function that can be implemented in two weeks or less",
+          "D": "A database table"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). FDD processes: develop an overall model, build a features list, plan by feature, design by feature, build by feature."
+        },
+        {
+         "question": "In Adaptive Software Development, 'speculation' refers to:",
+         "options": {
+          "A": "Adaptive cycle planning using the customer's mission statement, project constraints and basic requirements",
+          "B": "Final deployment",
+          "C": "Writing code without tests",
+          "D": "Pair programming"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Collaboration uses JAD-style teamwork; learning uses focus groups, technical reviews and postmortems."
+        },
+        {
+         "question": "Kanban as an agile method is characterised by:",
+         "options": {
+          "A": "Formal proofs",
+          "B": "Fixed one-month sprints",
+          "C": "Visualising work on a board and limiting work in progress (WIP)",
+          "D": "Heavy documentation"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). It originated in Toyota's lean production system."
+        },
+        {
+         "question": "The Crystal family of agile methods (Alistair Cockburn) is organised by:",
+         "options": {
+          "A": "Programming language",
+          "B": "Number of sprints",
+          "C": "Database size",
+          "D": "Team size and system criticality (colour-coded: Clear, Yellow, Orange, Red…)"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Lean software development (Poppendieck) focuses on eliminating waste."
+        },
+        {
+         "question": "Refactoring, as used in XP, means:",
+         "options": {
+          "A": "Removing all comments",
+          "B": "Changing the internal structure of code to improve it without changing its external behaviour",
+          "C": "Adding new features",
+          "D": "Rewriting requirements"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). Defined by Martin Fowler; it keeps the design simple as the code grows."
+        },
+        {
+         "question": "Assertion (A): Agile methods value working software over comprehensive documentation.\nReason (R): Agile methods forbid any documentation.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "R is false: agile keeps documentation that adds value; it just does not let documents replace working software."
+        },
+        {
+         "question": "Consider the statements about Scrum:\nI. The Scrum Master is a project manager who assigns tasks to developers.\nII. The daily scrum is time-boxed to 15 minutes.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Only II: the development team is self-organising and picks its own tasks."
+        },
+        {
+         "question": "The 'cost of change' curve in agile development is claimed to be:",
+         "options": {
+          "A": "Flattened, because of incremental delivery, continuous testing and pair programming",
+          "B": "Steeper than in waterfall",
+          "C": "Highest at the start of the project",
+          "D": "Zero at all stages"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). In conventional processes the cost of change grows sharply late in the project."
+        },
+        {
+         "question": "Industrial XP (IXP) adds to XP practices such as:",
+         "options": {
+          "A": "Formal Z specifications",
+          "B": "Removing unit tests",
+          "C": "Waterfall phases",
+          "D": "Readiness assessment, project community, project chartering, test-driven management, retrospectives"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "IXP adapts XP for large organisations."
+        },
+        {
+         "question": "The Agile Unified Process (AUP) is described as:",
+         "options": {
+          "A": "Serial in the large and iterative in the small",
+          "B": "Purely sequential",
+          "C": "Iterative in the large and serial in the small",
+          "D": "Without phases"
+         },
+         "answer": "A",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "It keeps the UP phases (inception, elaboration, construction, transition) but iterates within them."
+        },
+        {
+         "question": "In XP planning, customers write requirements as:",
+         "options": {
+          "A": "Formal SRS documents",
+          "B": "Test scripts",
+          "C": "User stories on index cards with a value (priority)",
+          "D": "UML sequence diagrams only"
+         },
+         "answer": "C",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). Developers assign each story a cost in development weeks; stories over three weeks are split."
+        },
+        {
+         "question": "The three Scrum artifacts are:",
+         "options": {
+          "A": "SRS, design document and test plan",
+          "B": "Product backlog, sprint backlog and increment",
+          "C": "User story, CRC card and spike",
+          "D": "Burndown chart, Gantt chart and PERT chart"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "PYQ pattern (KEA / KSET papers). The increment must meet the team's Definition of Done."
+        },
+        {
+         "question": "Continuous integration in agile means:",
+         "options": {
+          "A": "Integrating hardware components",
+          "B": "Integrating only at the end of the project",
+          "C": "Writing documentation continuously",
+          "D": "Integrating and testing code changes into the shared repository many times a day"
+         },
+         "answer": "D",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Smoke tests are run on each daily build."
+        },
+        {
+         "question": "Which statement about agile and plan-driven approaches is correct?",
+         "options": {
+          "A": "Plan-driven methods have no planning",
+          "B": "Agile suits projects with changing requirements and close customer involvement",
+          "C": "Agile cannot be used by small teams",
+          "D": "Agile requires all requirements frozen upfront"
+         },
+         "answer": "B",
+         "subject": "Agile Manifesto, XP, Scrum, ASD, DSDM and FDD",
+         "explanation": "Large, safety-critical systems often combine plan-driven and agile practices."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Software Requirements",
+     "sets": [
+      {
+       "name": "1 · Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+       "questions": [
+        {
+         "question": "The first step in writing a use case is to define the set of ____ that will be involved in the story.",
+         "options": {
+          "A": "Actors",
+          "B": "Devices",
+          "C": "User",
+          "D": "Storyteller"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Pressman: the first step in writing a use case is to define the actors. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q53"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(I) In UML class diagram, classes are represented by rectangles with their attributes & methods inside\n(II) A sequence diagram in UML shows the static structure of a database\n(III) A use case diagram can be used to show how users interact with database system",
+         "options": {
+          "A": "All the statements are true",
+          "B": "III is true",
+          "C": "I and III are true",
+          "D": "I and II are true"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "A sequence diagram shows the time-ordered exchange of messages (dynamic behaviour), not static structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q28"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(I) In UML, an association class is used to represent the attributes of a relationship between two classes.\n(II) In UML, a \"generalization\" relationship indicates that a class inherits behaviour from another class\n(III) A class diagram can only represent entities and not relationship in a DBMS",
+         "options": {
+          "A": "II and III are true",
+          "B": "I and II are true",
+          "C": "II is true",
+          "D": "I is true"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Class diagrams show associations, generalisation and dependencies too. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q29"
+        },
+        {
+         "question": "In software modelling, analysis pattern's purpose is",
+         "options": {
+          "A": "It slows down the development of abstract analysis model",
+          "B": "It speeds up the development of abstract analysis model",
+          "C": "It slows down the design phase",
+          "D": "It speeds up the design phase"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Analysis patterns reuse proven domain solutions to build the analysis model faster. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q68"
+        },
+        {
+         "question": "'The system shall respond to any search query within 2 seconds.' This is a:",
+         "options": {
+          "A": "Functional requirement",
+          "B": "Domain requirement only",
+          "C": "Design constraint on the database",
+          "D": "Non-functional (performance) requirement"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Functional requirements state what the system does; non-functional ones state qualities – performance, security, usability, reliability."
+        },
+        {
+         "question": "Pressman's requirements engineering tasks in order are:",
+         "options": {
+          "A": "Design, coding, testing, deployment",
+          "B": "Elicitation, inception, validation, specification",
+          "C": "Planning, analysis, design, implementation",
+          "D": "Inception, elicitation, elaboration, negotiation, specification, validation, management"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Some tasks overlap and are adapted to the project."
+        },
+        {
+         "question": "Which is NOT a typical problem of requirements elicitation?",
+         "options": {
+          "A": "Problems of understanding",
+          "B": "Problems of scope",
+          "C": "Problems of compilation",
+          "D": "Problems of volatility"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Scope (boundary unclear), understanding (customers unsure of needs), volatility (requirements change)."
+        },
+        {
+         "question": "In Quality Function Deployment (QFD), requirements that the customer does not state but expects (e.g. ease of installation) are:",
+         "options": {
+          "A": "Exciting requirements",
+          "B": "Derived requirements",
+          "C": "Normal requirements",
+          "D": "Expected requirements"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Normal – stated goals; exciting – beyond expectations and delighting the customer."
+        },
+        {
+         "question": "An 'actor' in a use case is:",
+         "options": {
+          "A": "A test case",
+          "B": "A class inside the system",
+          "C": "Anything (person, device or system) outside the system that communicates with it",
+          "D": "A database table"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Primary actors use the system to achieve goals; secondary actors support it."
+        },
+        {
+         "question": "In UML use case diagrams, <<include>> differs from <<extend>> in that:",
+         "options": {
+          "A": "Extend is mandatory, include is optional",
+          "B": "An included use case is always executed as part of the base use case; an extending use case adds optional behaviour",
+          "C": "Include is used only for actors",
+          "D": "They are identical"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Include factors out common steps; extend adds conditional behaviour at extension points."
+        },
+        {
+         "question": "The four elements of Pressman's requirements (analysis) model are:",
+         "options": {
+          "A": "Input, output, storage and control",
+          "B": "Data, process, network and people",
+          "C": "Scenario-based, class-based, behavioural and flow-oriented elements",
+          "D": "Code, test, deploy and maintain"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Scenario – use cases, activity diagrams; class – class diagrams, CRC; behavioural – state diagrams; flow – DFDs."
+        },
+        {
+         "question": "A level-0 DFD, showing the whole system as a single bubble with external entities, is also called the:",
+         "options": {
+          "A": "State diagram",
+          "B": "Entity–relationship diagram",
+          "C": "Structure chart",
+          "D": "Context diagram"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Each bubble is then refined into lower-level DFDs (balancing inputs and outputs)."
+        },
+        {
+         "question": "A data dictionary contains:",
+         "options": {
+          "A": "Definitions of all data objects, their composition and where they are used",
+          "B": "Only the source code",
+          "C": "The project schedule",
+          "D": "User manuals"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "It supports DFDs and ERDs with a precise meaning for every data item."
+        },
+        {
+         "question": "In an ER diagram, 'modality' of a relationship tells:",
+         "options": {
+          "A": "The primary key",
+          "B": "Whether the relationship is mandatory (1) or optional (0)",
+          "C": "The data type of attributes",
+          "D": "The maximum number of instances"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Cardinality gives the maximum number (1:1, 1:N, M:N)."
+        },
+        {
+         "question": "Which IEEE 830 characteristic is NOT expected of a good SRS?",
+         "options": {
+          "A": "Verifiable",
+          "B": "Written in terms of implementation (how the system will be coded)",
+          "C": "Unambiguous",
+          "D": "Traceable"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "A good SRS is correct, unambiguous, complete, consistent, ranked, verifiable, modifiable and traceable – it says what, not how."
+        },
+        {
+         "question": "A requirements traceability matrix links:",
+         "options": {
+          "A": "Modules to compilers",
+          "B": "Users to passwords",
+          "C": "Developers to salaries",
+          "D": "Requirements to their sources, design elements and test cases"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). It helps assess the impact of a change and confirms every requirement is tested."
+        },
+        {
+         "question": "A state diagram in the requirements model represents:",
+         "options": {
+          "A": "Data flow between processes",
+          "B": "Physical deployment",
+          "C": "Behaviour – states of an object or system and events that cause transitions",
+          "D": "Static class structure"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Sequence diagrams show how events cause flow among objects over time."
+        },
+        {
+         "question": "CRC modelling in requirements analysis uses index cards listing a class's:",
+         "options": {
+          "A": "Inputs, outputs and stores",
+          "B": "Attributes, keys and indexes",
+          "C": "Tests, bugs and fixes",
+          "D": "Name, responsibilities and collaborators"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Responsibilities are attributes and operations; collaborators are classes it needs to fulfil them."
+        },
+        {
+         "question": "Requirements negotiation aims at:",
+         "options": {
+          "A": "Removing all requirements",
+          "B": "Writing code before requirements",
+          "C": "A 'win-win' agreement where customers and developers reconcile conflicting requirements with priorities, cost and risk",
+          "D": "Choosing the cheapest vendor"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Boehm's win-win negotiation identifies key stakeholders and their win conditions."
+        },
+        {
+         "question": "Requirements validation checks whether:",
+         "options": {
+          "A": "The network is secure",
+          "B": "Requirements are consistent, complete, unambiguous and reflect real stakeholder needs",
+          "C": "Hardware is available",
+          "D": "Code compiles"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Techniques: technical reviews, prototyping, test-case generation."
+        },
+        {
+         "question": "Stakeholders, in requirements engineering, are:",
+         "options": {
+          "A": "Anyone who benefits directly or indirectly from the system being developed",
+          "B": "Only the programmers",
+          "C": "Only the project manager",
+          "D": "Only end users"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Managers, customers, end users, engineers, support staff and others."
+        },
+        {
+         "question": "Which statement is a good analysis-model rule of thumb?",
+         "options": {
+          "A": "Maximise coupling between elements",
+          "B": "Delay all modelling until testing",
+          "C": "The model should focus on requirements visible in the problem or business domain, at a high level of abstraction",
+          "D": "Include detailed code"
+         },
+         "answer": "C",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Also: minimise coupling, add value for all stakeholders, keep it simple."
+        },
+        {
+         "question": "Domain analysis aims to:",
+         "options": {
+          "A": "Analyse one function's code",
+          "B": "Test a domain name server",
+          "C": "Measure network delay",
+          "D": "Identify common, reusable requirements and patterns across an application domain"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Its output feeds analysis patterns and reusable components."
+        },
+        {
+         "question": "An activity diagram with swimlanes shows:",
+         "options": {
+          "A": "Hardware nodes",
+          "B": "The flow of activities and which actor or class is responsible for each",
+          "C": "Static class structure",
+          "D": "Database schema"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "It supplements the use case with a graphical view of the scenario."
+        },
+        {
+         "question": "Assertion (A): Non-functional requirements can be more critical than individual functional requirements.\nReason (R): Failing a non-functional requirement such as safety or performance may make the whole system unusable.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "E.g. an aircraft control system that is too slow fails even if every function exists."
+        },
+        {
+         "question": "Consider the statements:\nI. Use cases are written from the actor's point of view.\nII. A use case diagram shows the order of messages exchanged between objects.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Only I: the order of messages is shown by a sequence diagram."
+        },
+        {
+         "question": "Prototyping during requirements engineering is most useful when:",
+         "options": {
+          "A": "Requirements are fuzzy and the user interface must be validated with users",
+          "B": "Requirements are fully known and frozen",
+          "C": "There are no users",
+          "D": "Only performance matters"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). The prototype helps users react to something concrete."
+        },
+        {
+         "question": "'Requirements management' as a task means:",
+         "options": {
+          "A": "Buying software licences",
+          "B": "Identifying, controlling and tracking requirements and their changes throughout the project",
+          "C": "Running performance tests",
+          "D": "Writing the code"
+         },
+         "answer": "B",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Traceability tables and change control support it."
+        },
+        {
+         "question": "Which of the following is a functional requirement for an ATM?",
+         "options": {
+          "A": "The interface shall be in Kannada and English",
+          "B": "The system shall be available 99.9% of the time",
+          "C": "The system shall encrypt all data with AES-256",
+          "D": "The system shall allow a user to withdraw cash after PIN verification"
+         },
+         "answer": "D",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "Availability, language support and encryption are non-functional (quality or constraint) requirements."
+        },
+        {
+         "question": "Collaborative requirements gathering (e.g. JAD sessions) involves:",
+         "options": {
+          "A": "Meetings of developers and stakeholders with a facilitator, agenda and definition mechanism to identify requirements",
+          "B": "Only reading old manuals",
+          "C": "Developers working alone",
+          "D": "Automated code generation"
+         },
+         "answer": "A",
+         "subject": "Functional and Non-functional Requirements, Elicitation, Use Cases, Analysis Modelling and SRS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Joint Application Development was developed at IBM."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Software Design",
+     "sets": [
+      {
+       "name": "1 · Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+       "questions": [
+        {
+         "question": "____ is an indication of the relative functional strength of a module.",
+         "options": {
+          "A": "Coupling",
+          "B": "Refinement",
+          "C": "Aspects",
+          "D": "Cohesion"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Cohesion measures a module's functional strength; coupling measures interdependence between modules. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q35"
+        },
+        {
+         "question": "Assertion (A): High cohesion within a module and low coupling between modules result in increased maintainability and reusability of a software system.\nReason (R): High cohesion implies that each module performs multiple unrelated tasks, increasing its independence from other modules.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "High cohesion means a module does one closely related job; R describes low (coincidental) cohesion. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q54"
+        },
+        {
+         "question": "A software processes user requests and produces responses as below:\n• Number of Inputs: 4\n• Number of Outputs: 2\nWhat is the 'functional independence' based on the 'output to input' ratio?",
+         "options": {
+          "A": "2",
+          "B": "4.0",
+          "C": "0.5",
+          "D": "0.0"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "As the question defines it, the ratio is outputs / inputs = 2 / 4 = 0.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q60"
+        },
+        {
+         "question": "Arrange the types of cohesion from WORST (lowest) to BEST (highest):\n1. Functional  2. Coincidental  3. Temporal  4. Sequential  5. Logical  6. Communicational  7. Procedural",
+         "options": {
+          "A": "5, 2, 3, 7, 6, 4, 1",
+          "B": "2, 5, 3, 7, 6, 4, 1",
+          "C": "2, 5, 7, 3, 6, 4, 1",
+          "D": "2, 3, 5, 7, 4, 6, 1"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Coincidental < logical < temporal < procedural < communicational < sequential < functional."
+        },
+        {
+         "question": "Arrange the types of coupling from BEST (lowest) to WORST (highest):\n1. Content  2. Data  3. Control  4. Stamp  5. Common  6. External",
+         "options": {
+          "A": "2, 3, 4, 5, 6, 1",
+          "B": "2, 4, 3, 6, 5, 1",
+          "C": "4, 2, 3, 6, 5, 1",
+          "D": "2, 4, 6, 3, 5, 1"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Data < stamp < control < external < common < content."
+        },
+        {
+         "question": "When one module directly modifies or depends on the internal data of another module, the coupling is:",
+         "options": {
+          "A": "Stamp coupling",
+          "B": "Data coupling",
+          "C": "Control coupling",
+          "D": "Content coupling"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Content coupling is the worst kind – it violates information hiding."
+        },
+        {
+         "question": "Two modules that share a global variable exhibit:",
+         "options": {
+          "A": "Data coupling",
+          "B": "Control coupling",
+          "C": "Common coupling",
+          "D": "External coupling"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Changes to the global affect every module using it."
+        },
+        {
+         "question": "Passing a flag that tells the called module which function to perform is an example of:",
+         "options": {
+          "A": "Content coupling",
+          "B": "Control coupling",
+          "C": "Data coupling",
+          "D": "Stamp coupling"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Stamp coupling passes a whole data structure when only part is needed."
+        },
+        {
+         "question": "A module that groups together tasks executed at the same time (e.g. all initialisation steps) has:",
+         "options": {
+          "A": "Logical cohesion",
+          "B": "Functional cohesion",
+          "C": "Sequential cohesion",
+          "D": "Temporal cohesion"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Logical cohesion selects one of several related tasks by a flag."
+        },
+        {
+         "question": "A module where the output of one element is the input to the next has:",
+         "options": {
+          "A": "Procedural cohesion",
+          "B": "Coincidental cohesion",
+          "C": "Sequential cohesion",
+          "D": "Temporal cohesion"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Communicational cohesion – elements operate on the same data; procedural – elements follow a specific order of control."
+        },
+        {
+         "question": "'Information hiding', the principle that modules should hide design decisions from others, was proposed by:",
+         "options": {
+          "A": "Tom DeMarco",
+          "B": "Niklaus Wirth",
+          "C": "Edsger Dijkstra",
+          "D": "David Parnas"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Wirth proposed stepwise refinement (top-down elaboration)."
+        },
+        {
+         "question": "Functional independence of a module is assessed using:",
+         "options": {
+          "A": "Lines of code and comments",
+          "B": "Cohesion and coupling",
+          "C": "Speed and memory",
+          "D": "Classes and objects"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Independent modules have a single-minded function and an aversion to excessive interaction with other modules."
+        },
+        {
+         "question": "Regarding the number of modules, Pressman's cost curve shows that:",
+         "options": {
+          "A": "Both under-modularity and over-modularity should be avoided; there is a region of minimum total cost",
+          "B": "More modules always reduce cost",
+          "C": "Fewer modules always reduce cost",
+          "D": "Module count has no effect on cost"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Integration cost rises as modules multiply, development cost per module falls."
+        },
+        {
+         "question": "Procedural abstraction refers to:",
+         "options": {
+          "A": "A database view",
+          "B": "A named sequence of instructions with a specific, limited function (e.g. 'open door')",
+          "C": "Hiding hardware",
+          "D": "A named collection of data (e.g. 'door')"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Data abstraction names a collection of data describing an object."
+        },
+        {
+         "question": "Separation of concerns suggests that:",
+         "options": {
+          "A": "Testing and coding must be done together",
+          "B": "Security is the only concern",
+          "C": "A complex problem is easier to handle when divided into pieces that can each be solved and optimised independently",
+          "D": "All features must be in one module"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Modularity, aspects and functional independence follow from it."
+        },
+        {
+         "question": "FURPS, used to judge design quality, stands for:",
+         "options": {
+          "A": "Feasibility, Usability, Reliability, Productivity, Simplicity",
+          "B": "Functionality, Utility, Reusability, Portability, Scalability",
+          "C": "Flexibility, Usability, Readability, Portability, Security",
+          "D": "Functionality, Usability, Reliability, Performance, Supportability"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Proposed at Hewlett-Packard."
+        },
+        {
+         "question": "Elements of the design model include:",
+         "options": {
+          "A": "Data/class design, architectural design, interface design, component-level design and deployment design",
+          "B": "Only code and tests",
+          "C": "Requirements, budget and schedule",
+          "D": "Use cases and user stories only"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each element is derived from parts of the requirements model."
+        },
+        {
+         "question": "Match the GoF design patterns with their categories:\na. Singleton\nb. Adapter\nc. Observer\nd. Builder\n\n1. Structural\n2. Creational (step-by-step object construction)\n3. Creational\n4. Behavioural",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-4, b-1, c-3, d-2",
+          "D": "a-3, b-4, c-1, d-2"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "The Gang of Four catalogue has 23 patterns: 5 creational, 7 structural, 11 behavioural."
+        },
+        {
+         "question": "A design pattern is best described as:",
+         "options": {
+          "A": "A testing tool",
+          "B": "A proven solution to a recurring design problem within a certain context",
+          "C": "A programming language feature",
+          "D": "A project schedule"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). It has a name, problem, context, solution and consequences."
+        },
+        {
+         "question": "High fan-in for a module in a structure chart indicates:",
+         "options": {
+          "A": "Many modules call it – good reuse",
+          "B": "It calls many modules – poor design",
+          "C": "It has many parameters",
+          "D": "It is never used"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Guideline: keep fan-out moderate and increase fan-in."
+        },
+        {
+         "question": "Software architecture is defined as:",
+         "options": {
+          "A": "The user manual",
+          "B": "The hardware configuration",
+          "C": "The structure of the system's components, their externally visible properties and the relationships among them",
+          "D": "The source code listing"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Bass, Clements and Kazman's definition used by Pressman."
+        },
+        {
+         "question": "Refactoring during design is:",
+         "options": {
+          "A": "Rewriting in another language",
+          "B": "Adding new requirements",
+          "C": "Deleting tests",
+          "D": "Reorganising the design to simplify it without changing its function or behaviour"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "It removes redundancy, unused elements, inefficient algorithms and poorly built data structures."
+        },
+        {
+         "question": "Pressman's five types of design classes are:",
+         "options": {
+          "A": "User interface, business domain, process, persistent and system classes",
+          "B": "Public, private, protected, default and friend",
+          "C": "Abstract, concrete, static, final and generic",
+          "D": "Input, output, process, store and control"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Persistent classes represent data stores."
+        },
+        {
+         "question": "Modules that communicate through an externally imposed data format, protocol or device interface show:",
+         "options": {
+          "A": "Data coupling",
+          "B": "Stamp coupling",
+          "C": "External coupling",
+          "D": "Content coupling"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "It is worse than control coupling but better than common coupling."
+        },
+        {
+         "question": "Assertion (A): Information hiding makes software easier to change.\nReason (R): Modules hide internal details and communicate only through well-defined interfaces, so changes stay local.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Errors introduced during modification are less likely to spread."
+        },
+        {
+         "question": "Consider the statements:\nI. Low coupling and high cohesion are design goals.\nII. Content coupling is the most desirable form of coupling.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only I: data coupling is the most desirable; content coupling is the worst."
+        },
+        {
+         "question": "Stepwise refinement is a design strategy that:",
+         "options": {
+          "A": "Combines all modules into one",
+          "B": "Moves from a high-level statement of function to progressively more detailed descriptions",
+          "C": "Starts with code and documents it later",
+          "D": "Tests each line individually"
+         },
+         "answer": "B",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Abstraction and refinement are complementary concepts."
+        },
+        {
+         "question": "Which pair correctly matches a module with its cohesion type?",
+         "options": {
+          "A": "'Read input, then print totals' because both happen at start-up – functional cohesion",
+          "B": "A module that computes one square root – coincidental cohesion",
+          "C": "A module of unrelated utility routines – sequential cohesion",
+          "D": "'Compute pay, print payslip, update ledger' using the same employee record – communicational cohesion"
+         },
+         "answer": "D",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "Elements operating on the same input or output data have communicational cohesion; a module doing one well-defined task has functional cohesion."
+        },
+        {
+         "question": "Pressman suggests that a well-designed module should exhibit:",
+         "options": {
+          "A": "Low cohesion and high coupling",
+          "B": "Low cohesion and low coupling",
+          "C": "High cohesion and low coupling",
+          "D": "High cohesion and high coupling"
+         },
+         "answer": "C",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ideally each module does one thing (high cohesion) and depends minimally on others (low coupling)."
+        },
+        {
+         "question": "Which design principle says 'design should not reinvent the wheel'?",
+         "options": {
+          "A": "Use design patterns and reusable components wherever possible",
+          "B": "Avoid modularity",
+          "C": "Write everything from scratch",
+          "D": "Maximise coupling"
+         },
+         "answer": "A",
+         "subject": "Design Concepts – Abstraction, Patterns, Modularity, Information Hiding, Cohesion and Coupling",
+         "explanation": "PYQ pattern (KEA / KSET papers). Davis' design principles include traceability to the analysis model and minimal intellectual distance."
+        }
+       ]
+      },
+      {
+       "name": "2 · Architectural, Component-level, User Interface and UML Design",
+       "questions": [
+        {
+         "question": "Match the architectural styles with examples:\na. Data-centred\nb. Data-flow (pipe and filter)\nc. Layered\nd. Call-and-return\n\n1. Unix command pipeline\n2. OSI protocol stack\n3. Repository accessed by many clients\n4. Main program calling subprograms",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Object-oriented architecture is another style."
+        },
+        {
+         "question": "In the pipe-and-filter style, if the data flow degenerates into a single line of transforms, it is called:",
+         "options": {
+          "A": "Peer-to-peer",
+          "B": "Client–server",
+          "C": "Blackboard",
+          "D": "Batch sequential"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Filters work independently of neighbouring filters."
+        },
+        {
+         "question": "In the Model-View-Controller (MVC) pattern, the component that handles user input and updates the model is the:",
+         "options": {
+          "A": "Router",
+          "B": "View",
+          "C": "Controller",
+          "D": "Model"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Model – data and business logic; view – presentation."
+        },
+        {
+         "question": "ATAM, a method for evaluating software architectures, was developed by:",
+         "options": {
+          "A": "IEEE",
+          "B": "The Software Engineering Institute (SEI)",
+          "C": "ISO",
+          "D": "Microsoft"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Architecture Trade-off Analysis Method weighs quality attributes and risks."
+        },
+        {
+         "question": "In an architectural context diagram, systems that use the target system as part of higher-level processing are:",
+         "options": {
+          "A": "Actors",
+          "B": "Subordinate systems",
+          "C": "Peer-level systems",
+          "D": "Superordinate systems"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Subordinate systems are used by the target; peers interact on equal terms."
+        },
+        {
+         "question": "An 'archetype' in architectural design is:",
+         "options": {
+          "A": "A test case",
+          "B": "A class or pattern that represents a core abstraction critical to the system's architecture",
+          "C": "A hardware node",
+          "D": "A database index"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). E.g. node, detector, indicator and controller for a home security system."
+        },
+        {
+         "question": "OMG UML defines a component as:",
+         "options": {
+          "A": "A requirement",
+          "B": "A single line of code",
+          "C": "A database table",
+          "D": "A modular, deployable and replaceable part of a system that encapsulates implementation and exposes interfaces"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Component-level design follows architectural design."
+        },
+        {
+         "question": "The Open–Closed Principle states that a module should be:",
+         "options": {
+          "A": "Open for modification but closed for extension",
+          "B": "Open to all users",
+          "C": "Open for extension but closed for modification",
+          "D": "Closed to all change"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). New behaviour is added through abstractions (interfaces, inheritance) without editing tested code."
+        },
+        {
+         "question": "The Liskov Substitution Principle requires that:",
+         "options": {
+          "A": "Base classes depend on subclasses",
+          "B": "Every class has one method",
+          "C": "Subclasses be substitutable for their base classes without breaking the program",
+          "D": "Interfaces be as large as possible"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "The Dependency Inversion Principle says depend on abstractions, not concretions."
+        },
+        {
+         "question": "The Interface Segregation Principle says:",
+         "options": {
+          "A": "Use one interface for everything",
+          "B": "Avoid interfaces",
+          "C": "Interfaces must contain data",
+          "D": "Many client-specific interfaces are better than one general-purpose interface"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Other package principles: release-reuse equivalency, common closure, common reuse."
+        },
+        {
+         "question": "Theo Mandel's three 'golden rules' of user interface design are:",
+         "options": {
+          "A": "Use bright colours, big fonts and sounds",
+          "B": "Place the user in control, reduce the user's memory load, make the interface consistent",
+          "C": "Minimise screens, maximise text, avoid help",
+          "D": "Hide errors, auto-save, use menus only"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "They guide interface analysis and design."
+        },
+        {
+         "question": "User interface analysis focuses on four areas:",
+         "options": {
+          "A": "Networks, servers, storage and clients",
+          "B": "Cost, time, scope and risk",
+          "C": "Code, data, tests and builds",
+          "D": "Users, tasks, content and work environment"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Task analysis may use use cases, task elaboration and object elaboration."
+        },
+        {
+         "question": "'System response time' issues in UI design concern:",
+         "options": {
+          "A": "Its length and its variability",
+          "B": "Only screen colour",
+          "C": "Only font size",
+          "D": "The number of developers"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Highly variable response times frustrate users even if the average is low."
+        },
+        {
+         "question": "Which UML diagram shows the physical nodes (hardware) and the software artifacts deployed on them?",
+         "options": {
+          "A": "Use case diagram",
+          "B": "Deployment diagram",
+          "C": "Activity diagram",
+          "D": "Sequence diagram"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Component diagrams show components and their interfaces."
+        },
+        {
+         "question": "Which of the following is a STRUCTURAL UML diagram?",
+         "options": {
+          "A": "State machine diagram",
+          "B": "Activity diagram",
+          "C": "Component diagram",
+          "D": "Sequence diagram"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Structural: class, object, component, deployment, package, composite structure. Behavioural: use case, activity, state, sequence, communication, timing."
+        },
+        {
+         "question": "A UML sequence diagram emphasises:",
+         "options": {
+          "A": "The time ordering of messages exchanged between objects",
+          "B": "Class inheritance",
+          "C": "Package dependencies",
+          "D": "Physical deployment"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). A communication diagram shows the same interaction organised by links between objects."
+        },
+        {
+         "question": "Match the GoF patterns with their intent:\na. Factory Method\nb. Facade\nc. Strategy\nd. Decorator\n\n1. Make algorithms interchangeable at run time\n2. Attach responsibilities to an object dynamically\n3. Provide a simple interface to a complex subsystem\n4. Let subclasses decide which class to instantiate",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-2, b-3, c-1, d-4",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Factory Method is creational, Facade and Decorator structural, Strategy behavioural."
+        },
+        {
+         "question": "Language-specific patterns that implement an algorithmic element or a component (e.g. a loop idiom in C) are called:",
+         "options": {
+          "A": "Architectural patterns",
+          "B": "Archetypes",
+          "C": "Frameworks",
+          "D": "Idioms"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pattern levels: architectural patterns → design patterns → idioms."
+        },
+        {
+         "question": "Data design at the architectural level may involve:",
+         "options": {
+          "A": "Writing loop counters",
+          "B": "Choosing a font",
+          "C": "Designing databases and a data warehouse for business data",
+          "D": "Planning sprints"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "At component level, data design focuses on data structures used by the algorithms."
+        },
+        {
+         "question": "In component-level design, a component with 'layer cohesion' is one where:",
+         "options": {
+          "A": "Every layer calls every other layer",
+          "B": "A higher layer accesses the services of lower layers, but lower layers do not access higher ones",
+          "C": "All operations are unrelated",
+          "D": "Components share global data"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pressman's OO cohesion types: functional, layer, communicational."
+        },
+        {
+         "question": "Which statement about the client–server architecture is correct?",
+         "options": {
+          "A": "Clients store all shared data",
+          "B": "There is no network",
+          "C": "Servers provide services that clients request over a network",
+          "D": "Every node is equal"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Peer-to-peer has no dedicated server; in a three-tier design the logic sits in a middle tier."
+        },
+        {
+         "question": "Interface design in the design model covers:",
+         "options": {
+          "A": "The user interface, external interfaces to other systems and internal interfaces between components",
+          "B": "Only the screen colours",
+          "C": "Only the network cable",
+          "D": "Only the database"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). It defines how information flows into and out of the system and among components."
+        },
+        {
+         "question": "A WebApp's 'navigation design' defines:",
+         "options": {
+          "A": "The database schema",
+          "B": "The pathways that let users access content and functions",
+          "C": "The server hardware",
+          "D": "The compiler options"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "The WebApp design pyramid: interface, aesthetic, content, navigation, architecture and component design."
+        },
+        {
+         "question": "Error messages in a good user interface should:",
+         "options": {
+          "A": "Blame the user",
+          "B": "Show only an error code",
+          "C": "Close the program immediately",
+          "D": "Describe the problem in plain language and suggest how to recover"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). They should also indicate any negative consequences and be accompanied by an audible or visual cue."
+        },
+        {
+         "question": "The Dependency Inversion Principle states:",
+         "options": {
+          "A": "Depend on abstractions; do not depend on concretions",
+          "B": "Every class should depend on every other class",
+          "C": "High-level modules should depend on low-level modules",
+          "D": "Avoid interfaces"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Together with OCP, LSP and ISP it forms part of SOLID."
+        },
+        {
+         "question": "An object-oriented architecture packages:",
+         "options": {
+          "A": "Data and the operations that manipulate it inside components that communicate through message passing",
+          "B": "Only data",
+          "C": "Only functions",
+          "D": "Hardware drivers"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Encapsulation and messaging coordinate the components."
+        },
+        {
+         "question": "A state machine diagram in design is used to:",
+         "options": {
+          "A": "Show physical servers",
+          "B": "Specify how an object changes state in response to events, including guards and actions",
+          "C": "List requirements",
+          "D": "Show the project schedule"
+         },
+         "answer": "B",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "Useful for controllers and objects with life cycles (e.g. an order: placed → paid → shipped)."
+        },
+        {
+         "question": "Assertion (A): MVC separates presentation from business logic.\nReason (R): In MVC, the view directly updates the database tables.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "R is false: the model manages data; the view only presents it."
+        },
+        {
+         "question": "Consider the statements:\nI. A deployment diagram shows physical nodes and the artifacts deployed on them.\nII. A component diagram shows the run-time order of messages.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only I: message order is shown by sequence diagrams."
+        },
+        {
+         "question": "The 'common closure principle' for packaging components says:",
+         "options": {
+          "A": "Close all files after use",
+          "B": "Packages must never change",
+          "C": "Every class needs its own package",
+          "D": "Classes that change together belong together"
+         },
+         "answer": "D",
+         "subject": "Architectural, Component-level, User Interface and UML Design",
+         "explanation": "The common reuse principle: classes that are not reused together should not be grouped together."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Software Testing",
+     "sets": [
+      {
+       "name": "1 · Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+       "questions": [
+        {
+         "question": "Two statements are given below : One is Assertion (A) and the other is Reason (R)\nRead the statements carefully & choose the correct answer.\nAssertion (A) : Testing is the process of validating the correctness of a program\nReason (R) : Testing objective is to demonstrate that the program meets its design specification",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "KEA's key accepts R as the explanation of A. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q8"
+        },
+        {
+         "question": "What is the primary purpose of software testing?",
+         "options": {
+          "A": "To enhance the features of the software",
+          "B": "To find and fix bugs and errors",
+          "C": "To improve the user interface",
+          "D": "To make the software compatible with all devices"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Testing finds errors; debugging then fixes them. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q79"
+        },
+        {
+         "question": "What is the primary purpose of assertions in software development?",
+         "options": {
+          "A": "To make the code more readable",
+          "B": "To check for logical errors during run time",
+          "C": "To enhance the performance by skipping checks",
+          "D": "To validate user inputs"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "An assertion states a condition that must hold at that point; if it fails, a logic error is revealed. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q80"
+        },
+        {
+         "question": "____ is not related to Black-box Testing.",
+         "options": {
+          "A": "Equivalence Partitioning",
+          "B": "Boundary Value Analysis",
+          "C": "Orthogonal Array Testing",
+          "D": "Condition Testing"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Condition testing exercises the logical conditions in the code – a white-box technique. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q38"
+        },
+        {
+         "question": "In basic path testing, the number of independent paths through the code is computed using cyclomatic complexity. Which of the following statements is correct regarding cyclomatic complexity?",
+         "options": {
+          "A": "Cyclomatic complexity = number of nodes − number of edges + 1.",
+          "B": "Cyclomatic complexity provides an upper bound on the number of required performance tests.",
+          "C": "Cyclomatic complexity helps in identifying infeasible test cases for black-box testing.",
+          "D": "Cyclomatic complexity = E − N + 2P, where P is the number of connected components in the control flow graph."
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "V(G) = E − N + 2P; it bounds the number of basis-path tests, a white-box measure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q55"
+        },
+        {
+         "question": "Assertion (A): White-box testing is essential for detecting logic errors that may not be exposed through black-box testing, especially in safety-critical systems such as avionics or medical devices.\nReason (R): White-box testing allows analysis of control structures including decision points, loops and internal data flow, ensuring thorough coverage of execution paths.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Because white-box tests exercise the internal logic, they can reveal errors that input/output tests miss. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q56"
+        },
+        {
+         "question": "Boehm's definitions: 'Are we building the product right?' and 'Are we building the right product?' refer respectively to:",
+         "options": {
+          "A": "Alpha and beta testing",
+          "B": "Unit and system testing",
+          "C": "Verification and validation",
+          "D": "Validation and verification"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Verification checks conformance to specification; validation checks that it meets the customer's needs."
+        },
+        {
+         "question": "The correct chain of terms is:",
+         "options": {
+          "A": "A bug and a failure are always the same",
+          "B": "A failure causes an error, which causes a fault",
+          "C": "A fault is a user complaint",
+          "D": "A human error introduces a fault (bug) in the code, which may cause a failure when executed"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "A fault may stay dormant until a particular input exercises it."
+        },
+        {
+         "question": "Pressman's testing strategy spiral proceeds in the order:",
+         "options": {
+          "A": "Unit testing → integration testing → validation testing → system testing",
+          "B": "Integration → unit → system → validation",
+          "C": "Validation → unit → system → integration",
+          "D": "System → validation → integration → unit"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It moves outward from code to design to requirements to system engineering."
+        },
+        {
+         "question": "In unit testing, a 'stub' is:",
+         "options": {
+          "A": "A main program that calls the component under test",
+          "B": "A test report",
+          "C": "A dummy subprogram that replaces a module called by the component under test",
+          "D": "A real database"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "A driver is a dummy 'main' that calls the unit and passes test data."
+        },
+        {
+         "question": "Top-down integration testing generally needs ____, while bottom-up integration needs ____.",
+         "options": {
+          "A": "stubs; drivers",
+          "B": "neither; both",
+          "C": "only drivers; only stubs",
+          "D": "drivers; stubs"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Sandwich (hybrid) integration combines both."
+        },
+        {
+         "question": "Smoke testing, used for time-critical products, involves:",
+         "options": {
+          "A": "Testing hardware heat",
+          "B": "Testing documentation",
+          "C": "Testing only in production",
+          "D": "Building the software daily and running a set of tests to catch 'show-stopper' errors early"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "It is an integration testing approach for shrink-wrapped software."
+        },
+        {
+         "question": "A control flow graph has 11 edges and 9 nodes (one connected component). Its cyclomatic complexity is:",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "20",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). V(G) = E − N + 2 = 11 − 9 + 2 = 4, which bounds the number of basis-path test cases."
+        },
+        {
+         "question": "A program's flow graph has 3 simple predicate (decision) nodes. Its cyclomatic complexity is:",
+         "options": {
+          "A": "2",
+          "B": "6",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "V(G) = P + 1. It also equals the number of regions of the planar flow graph."
+        },
+        {
+         "question": "Using equivalence partitioning for an input valid between 1 and 100, the number of equivalence classes is usually:",
+         "options": {
+          "A": "2",
+          "B": "1",
+          "C": "100",
+          "D": "3 (one valid, two invalid)"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Valid 1–100; invalid below 1; invalid above 100."
+        },
+        {
+         "question": "For an input range 1 to 100, boundary value analysis typically tests:",
+         "options": {
+          "A": "Any random values",
+          "B": "50 only",
+          "C": "0, 1, 2, 99, 100, 101",
+          "D": "1 and 100 only"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Errors cluster at the edges of input domains."
+        },
+        {
+         "question": "Loop testing classes in white-box testing are:",
+         "options": {
+          "A": "Infinite loops only",
+          "B": "Simple, nested, concatenated and unstructured loops",
+          "C": "For, while and do loops only",
+          "D": "Fast, slow and medium loops"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Unstructured loops should be redesigned using structured constructs."
+        },
+        {
+         "question": "Data flow testing selects test paths according to:",
+         "options": {
+          "A": "The locations of definitions and uses of variables (DEF-USE chains)",
+          "B": "The number of users",
+          "C": "Response time",
+          "D": "The UI layout"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "It is a white-box control-structure testing technique, like condition testing."
+        },
+        {
+         "question": "'Program testing can be used to show the presence of bugs, but never to show their absence.' This was said by:",
+         "options": {
+          "A": "Edsger Dijkstra",
+          "B": "Glenford Myers",
+          "C": "Barry Boehm",
+          "D": "Grace Hopper"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Myers: a good test case has a high probability of finding an as-yet undiscovered error."
+        },
+        {
+         "question": "In mutation testing, 40 mutants are created and the test suite kills 32 of them. The mutation score is:",
+         "options": {
+          "A": "32%",
+          "B": "80%",
+          "C": "75%",
+          "D": "60%"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Mutation score = killed / total (non-equivalent) mutants = 32/40."
+        },
+        {
+         "question": "A module of 15 KLOC is found to contain 30 defects. Its defect density is:",
+         "options": {
+          "A": "0.5 defects per KLOC",
+          "B": "15 defects per KLOC",
+          "C": "45 defects per KLOC",
+          "D": "2 defects per KLOC"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). 30 / 15 = 2."
+        },
+        {
+         "question": "Reviews, inspections and walkthroughs, which examine work products without executing them, are called:",
+         "options": {
+          "A": "Stress testing",
+          "B": "Load testing",
+          "C": "Static testing",
+          "D": "Dynamic testing"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Dynamic testing executes the code with test inputs."
+        },
+        {
+         "question": "Assertion (A): Exhaustive testing is impossible for most real programs.\nReason (R): Thorough testing can prove that a program is completely free of errors.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). R is false: testing shows the presence of errors, not their absence; the input/path space is far too large to test exhaustively."
+        },
+        {
+         "question": "Consider the statements:\nI. Black-box testing requires knowledge of the internal code.\nII. Equivalence partitioning is a black-box testing technique.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Only II: black-box testing is based on requirements and specifications, not on code."
+        },
+        {
+         "question": "A test oracle is:",
+         "options": {
+          "A": "A mechanism that determines whether the output of a test is correct",
+          "B": "A type of stub",
+          "C": "A test-case generator",
+          "D": "A database product"
+         },
+         "answer": "A",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It may be a specification, another program or a human expert."
+        },
+        {
+         "question": "Branch (decision) coverage requires that:",
+         "options": {
+          "A": "Every function is called once",
+          "B": "Every statement runs at least once",
+          "C": "Every decision in the program takes both true and false outcomes at least once",
+          "D": "Every path runs"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Branch coverage subsumes statement coverage; path coverage is stronger still."
+        },
+        {
+         "question": "Integration testing that combines all modules at once and tests the whole system is called:",
+         "options": {
+          "A": "Bottom-up integration",
+          "B": "Sandwich integration",
+          "C": "Top-down integration",
+          "D": "Big-bang integration"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It makes isolating errors difficult."
+        },
+        {
+         "question": "Graph-based testing begins by:",
+         "options": {
+          "A": "Drawing a bar chart",
+          "B": "Creating a graph of important objects and their relationships and devising tests that cover each object and relationship",
+          "C": "Measuring response time",
+          "D": "Counting lines of code"
+         },
+         "answer": "B",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "It is a black-box technique, like orthogonal array testing."
+        },
+        {
+         "question": "Unit testing focuses on:",
+         "options": {
+          "A": "The whole system in production",
+          "B": "Customer acceptance",
+          "C": "The smallest unit of design – a component or module – including its interface, local data structures, boundary conditions, independent paths and error handling paths",
+          "D": "Network performance"
+         },
+         "answer": "C",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is usually done by the developer."
+        },
+        {
+         "question": "Regression testing during integration means:",
+         "options": {
+          "A": "Testing only new code",
+          "B": "Testing the oldest modules only",
+          "C": "Removing failed tests",
+          "D": "Re-executing a subset of tests already run to make sure changes have not introduced unintended side effects"
+         },
+         "answer": "D",
+         "subject": "Verification and Validation, Testing Strategies, White-box and Black-box Testing",
+         "explanation": "Automated capture/playback tools help with regression testing."
+        }
+       ]
+      },
+      {
+       "name": "2 · Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+       "questions": [
+        {
+         "question": "The ____ is conducted at the developer's site by a representative group of end users.",
+         "options": {
+          "A": "Alpha Testing",
+          "B": "Beta Testing",
+          "C": "Configuration Review",
+          "D": "Recovery Testing"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Alpha tests happen at the developer's site; beta tests at the users' sites. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q39"
+        },
+        {
+         "question": "The extent to which a program can be expected to perform its intended function with the required precision. This definition belongs to ____ software quality factor.",
+         "options": {
+          "A": "Correctness",
+          "B": "Reliability",
+          "C": "Integrity",
+          "D": "Usability"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "McCall: reliability is performing the intended function with required precision; correctness is satisfying the specification. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q36"
+        },
+        {
+         "question": "____ combines procedures and tools to manage different versions of configuration objects that are created during the software process.",
+         "options": {
+          "A": "Change Control",
+          "B": "Version Control",
+          "C": "Audit Trail",
+          "D": "Configuration Audit"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Pressman's definition of version control. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q40"
+        },
+        {
+         "question": "A ____ complements the technical review by assessing a configuration object for characteristics that are generally not considered during the review.",
+         "options": {
+          "A": "Version Control",
+          "B": "Change Control",
+          "C": "Software Configuration Audit",
+          "D": "Status Reporting"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Pressman: the software configuration audit complements the technical review. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q59"
+        },
+        {
+         "question": "Which of the following best captures the distinction between change control and version control in software configuration management?",
+         "options": {
+          "A": "Change control handles concurrent file updates, version control manages customer requirement changes.",
+          "B": "Change control deals with evaluating and approving changes, version control maintains the history and integrity of source artifacts.",
+          "C": "Change control is applied only during testing, version control is applied during development.",
+          "D": "Change control eliminates the needs, version control is applied in agile environments."
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Change control decides which changes are made; version control records and manages the versions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q58"
+        },
+        {
+         "question": "Consider the given statements.\nStatement 1: Cost of conducting technical reviews for Software Engineering work products\nStatement 2: Cost of data collection and metrics evaluation\nStatement 3: Cost of testing and debugging\nThese statements are the examples of ____",
+         "options": {
+          "A": "External Failure Costs",
+          "B": "Prevention Costs",
+          "C": "Internal Failure Costs",
+          "D": "Appraisal Costs"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Pressman lists technical reviews, data collection and metrics evaluation, and testing and debugging as appraisal costs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q55"
+        },
+        {
+         "question": "Which of the following tools is used for version control in software development?",
+         "options": {
+          "A": "Git",
+          "B": "Eclipse",
+          "C": "Photoshop",
+          "D": "Visual studio"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Git is a distributed version-control system; Eclipse and Visual Studio are IDEs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q83"
+        },
+        {
+         "question": "Beta testing is conducted:",
+         "options": {
+          "A": "At one or more end-user sites, usually without the developer present",
+          "B": "At the developer's site under supervision",
+          "C": "Only on unit level",
+          "D": "By the compiler"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Acceptance testing is conducted by the customer to decide whether to accept the system."
+        },
+        {
+         "question": "Match the system tests with their purpose:\na. Recovery testing\nb. Security testing\nc. Stress testing\nd. Performance testing\n\n1. Verifies protection mechanisms against improper penetration\n2. Forces failure and checks that recovery is properly performed\n3. Executes the system with abnormal quantity, frequency or volume of resources\n4. Tests run-time performance within the integrated system",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Deployment (configuration) testing checks the software on each target platform."
+        },
+        {
+         "question": "Debugging approaches described by Pressman are:",
+         "options": {
+          "A": "Unit, integration and system",
+          "B": "Static, dynamic and hybrid",
+          "C": "Alpha, beta and gamma",
+          "D": "Brute force, backtracking and cause elimination"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Debugging occurs as a consequence of successful testing – when a test uncovers an error."
+        },
+        {
+         "question": "The IEEE standard for software test documentation (test plan, test case and incident reports) is:",
+         "options": {
+          "A": "IEEE 754",
+          "B": "IEEE 802.3",
+          "C": "IEEE 829",
+          "D": "IEEE 830"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "IEEE 830 – SRS; 802.3 – Ethernet; 754 – floating point."
+        },
+        {
+         "question": "For a formal technical review, Pressman recommends:",
+         "options": {
+          "A": "One reviewer and a day-long meeting",
+          "B": "Reviews only after delivery",
+          "C": "3–5 reviewers, advance preparation of no more than 2 hours each, and a meeting of less than 2 hours",
+          "D": "20 reviewers with no preparation"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). The review is of the product, not the producer."
+        },
+        {
+         "question": "Fagan inspection differs from a walkthrough in that:",
+         "options": {
+          "A": "Inspection is done by the compiler",
+          "B": "Inspection is formal, with defined roles (moderator, reader, recorder), checklists and recorded metrics",
+          "C": "Inspection is informal",
+          "D": "Walkthroughs always use checklists"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "In a walkthrough the author leads the team through the product."
+        },
+        {
+         "question": "In McCall's quality model, maintainability, flexibility and testability belong to:",
+         "options": {
+          "A": "Product operation",
+          "B": "Product transition",
+          "C": "Product deployment",
+          "D": "Product revision"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Operation: correctness, reliability, efficiency, integrity, usability. Transition: portability, reusability, interoperability."
+        },
+        {
+         "question": "Six Sigma quality means a defect rate of about:",
+         "options": {
+          "A": "Zero defects",
+          "B": "1 defect per thousand",
+          "C": "3.4 defects per million opportunities",
+          "D": "6 defects per hundred"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Its core method is DMAIC: define, measure, analyse, improve, control."
+        },
+        {
+         "question": "A system has MTTF = 68 hours and MTTR = 3 hours. Its availability is about:",
+         "options": {
+          "A": "4.2%",
+          "B": "71%",
+          "C": "100%",
+          "D": "95.8%"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Availability = MTTF / (MTTF + MTTR) = 68/71 ≈ 0.958. MTBF = MTTF + MTTR = 71 hours."
+        },
+        {
+         "question": "Which of these is an EXTERNAL failure cost of quality?",
+         "options": {
+          "A": "Technical reviews",
+          "B": "Warranty work and handling customer complaints after release",
+          "C": "Training and quality planning",
+          "D": "Rework found in testing"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Prevention – planning, training; appraisal – reviews, testing; internal failure – rework before release."
+        },
+        {
+         "question": "In software configuration management, a 'baseline' is:",
+         "options": {
+          "A": "The first line of code",
+          "B": "A specification or product that has been formally reviewed and agreed upon and can be changed only through formal change control",
+          "C": "The project budget",
+          "D": "The test report"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Items placed under SCM are software configuration items (SCIs)."
+        },
+        {
+         "question": "In change control, the person or group that decides whether a change request is approved is the:",
+         "options": {
+          "A": "End user",
+          "B": "Compiler",
+          "C": "Tester",
+          "D": "Change control authority (CCA) / change control board"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Steps: change request → change report → CCA decision → engineering change order → check-out/check-in → audit."
+        },
+        {
+         "question": "Configuration status reporting (status accounting) answers:",
+         "options": {
+          "A": "Which bugs are fixed by users",
+          "B": "How many lines were deleted",
+          "C": "What happened, who did it, when it happened and what else will be affected",
+          "D": "How fast the code runs"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). The other SCM tasks are identification, version control, change control and configuration audit."
+        },
+        {
+         "question": "A key difference between Git and SVN is that:",
+         "options": {
+          "A": "Git is distributed (every clone has the full history), SVN is centralised",
+          "B": "Git is centralised, SVN distributed",
+          "C": "Both are IDEs",
+          "D": "SVN cannot store versions"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Git was created by Linus Torvalds in 2005."
+        },
+        {
+         "question": "Software reliability is defined as:",
+         "options": {
+          "A": "The number of lines of code",
+          "B": "The cost of development",
+          "C": "The speed of execution",
+          "D": "The probability of failure-free program operation in a specified environment for a specified time"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Software safety focuses on hazards that can lead to mishaps."
+        },
+        {
+         "question": "ISO/IEC 25010 (successor of ISO 9126) defines:",
+         "options": {
+          "A": "A UML notation",
+          "B": "A network standard",
+          "C": "A product quality model with characteristics such as functional suitability, performance efficiency, reliability, security and maintainability",
+          "D": "A programming language"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "ISO 9126 had six characteristics: functionality, reliability, usability, efficiency, maintainability, portability."
+        },
+        {
+         "question": "Validation testing succeeds when:",
+         "options": {
+          "A": "All code compiles",
+          "B": "Software functions in a manner that can reasonably be expected by the customer, as defined in the SRS",
+          "C": "No stubs are used",
+          "D": "The schedule is met"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Validation-test criteria come from the requirements specification."
+        },
+        {
+         "question": "Assertion (A): Acceptance testing is carried out by the developers alone.\nReason (R): Acceptance testing validates the system against the user's requirements.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "A is false: acceptance testing is done by (or with) the customer; R is true."
+        },
+        {
+         "question": "Consider the statements:\nI. Alpha testing is performed at the developer's site.\nII. Beta testing is performed in a controlled environment at the developer's site.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Only I: beta testing is a 'live' application in the users' environment."
+        },
+        {
+         "question": "Software quality assurance (SQA) includes:",
+         "options": {
+          "A": "Standards, reviews and audits, testing, error collection and analysis, change management and education",
+          "B": "Only coding",
+          "C": "Only marketing",
+          "D": "Only hardware procurement"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). An SQA plan is defined by IEEE 730."
+        },
+        {
+         "question": "A test case should specify at least:",
+         "options": {
+          "A": "The input data, preconditions and the expected output/result",
+          "B": "Only the programmer's name",
+          "C": "Only the code listing",
+          "D": "Only the bug count"
+         },
+         "answer": "A",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "PYQ pattern (KEA / KSET papers). Comparing actual and expected results decides pass or fail."
+        },
+        {
+         "question": "Testing a web application with 10,000 simultaneous virtual users to find the point where response time becomes unacceptable is:",
+         "options": {
+          "A": "Static analysis",
+          "B": "Usability testing",
+          "C": "Load/stress testing",
+          "D": "Unit testing"
+         },
+         "answer": "C",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Load testing checks expected peak load; stress testing pushes beyond it to find the breaking point."
+        },
+        {
+         "question": "Re-running previously passed tests after a bug fix to ensure nothing else broke is:",
+         "options": {
+          "A": "Smoke testing",
+          "B": "Regression testing",
+          "C": "Stress testing",
+          "D": "Recovery testing"
+         },
+         "answer": "B",
+         "subject": "Validation and System Testing, Debugging, Quality Assurance and Configuration Management",
+         "explanation": "Regression suites are usually automated."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
