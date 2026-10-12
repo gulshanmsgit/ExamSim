@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "8 of 14 topics so far (16 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "9 of 14 topics so far (18 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -4004,6 +4004,518 @@
          "explanation": "Notes can be shared and turned into Docs."
         }
        ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 4 – Internet Basics",
+     "sets": [
+      {
+       "name": "1 · History of the Internet, ISPs, URLs and the WWW",
+       "questions": [
+        {
+         "question": "The internet is evolved from the basic ideas of",
+         "options": {
+          "A": "ARPANET",
+          "B": ".NET",
+          "C": "USENET News",
+          "D": "Network"
+         },
+         "answer": "A",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "ARPANET (1969) of the US Department of Defense's ARPA was the first packet-switched network to use TCP/IP (from 1 January 1983). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q75"
+        },
+        {
+         "question": "The glue that holds the Internet is",
+         "options": {
+          "A": "UDP",
+          "B": "RPC",
+          "C": "TCP/IP",
+          "D": "FTP"
+         },
+         "answer": "C",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "TCP/IP is the protocol suite every Internet host uses; UDP and FTP are parts of it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q95"
+        },
+        {
+         "question": "The internet that provides the basic services to its users are",
+         "options": {
+          "A": "Telnet, FTP, Email",
+          "B": "Scanning",
+          "C": "Network analysis",
+          "D": "Probing devices"
+         },
+         "answer": "A",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "Classic Internet services: e-mail, file transfer (FTP), remote login (Telnet), the WWW. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q86"
+        },
+        {
+         "question": "The total number of IP addresses of IPv6 version is",
+         "options": {
+          "A": "2^32",
+          "B": "2^48",
+          "C": "2^128",
+          "D": "2^256"
+         },
+         "answer": "C",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "IPv6 addresses are 128 bits; IPv4 addresses are 32 bits (2^32). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q82"
+        },
+        {
+         "question": "Who invented the World Wide Web (1989–91) at CERN?",
+         "options": {
+          "A": "Vint Cerf",
+          "B": "Bill Gates",
+          "C": "Marc Andreessen",
+          "D": "Tim Berners-Lee"
+         },
+         "answer": "D",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). He also wrote the first browser and web server and defined HTML, HTTP and URLs. Vint Cerf and Bob Kahn designed TCP/IP – 'fathers of the Internet'."
+        },
+        {
+         "question": "The Internet and the World Wide Web are:",
+         "options": {
+          "A": "The WWW is older than the Internet",
+          "B": "Exactly the same thing",
+          "C": "The Internet runs on the WWW",
+          "D": "Different – the Internet is the network; the WWW is a service of linked pages running on it"
+         },
+         "answer": "D",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). E-mail and FTP also use the Internet but are not part of the WWW."
+        },
+        {
+         "question": "Public Internet access in India began on 15 August 1995 through:",
+         "options": {
+          "A": "Reliance Jio",
+          "B": "VSNL",
+          "C": "ERNET",
+          "D": "BSNL"
+         },
+         "answer": "B",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "Videsh Sanchar Nigam Limited; ERNET (1986) linked educational institutions earlier."
+        },
+        {
+         "question": "A company that provides customers with access to the Internet is called a(n):",
+         "options": {
+          "A": "URL",
+          "B": "Web browser",
+          "C": "DNS",
+          "D": "ISP – Internet Service Provider"
+         },
+         "answer": "D",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Examples: BSNL, Airtel, Jio, ACT Fibernet."
+        },
+        {
+         "question": "In the URL https://www.karnataka.gov.in/index.html, 'https' is the:",
+         "options": {
+          "A": "File name",
+          "B": "Protocol",
+          "C": "Path",
+          "D": "Domain name"
+         },
+         "answer": "B",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). URL = protocol :// host (domain) / path / file. 'gov.in' – Indian government domain; '.in' is India's country-code TLD."
+        },
+        {
+         "question": "URL stands for:",
+         "options": {
+          "A": "Universal Record Link",
+          "B": "Uniform Request Locator",
+          "C": "Unique Resource Line",
+          "D": "Uniform Resource Locator"
+         },
+         "answer": "D",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "It is the address of a resource on the web."
+        },
+        {
+         "question": "What is the well-known port number associated with the HTTP (Hypertext Transfer Protocol)?",
+         "options": {
+          "A": "21",
+          "B": "80",
+          "C": "443",
+          "D": "25"
+         },
+         "answer": "B",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "HTTP 80; HTTPS 443; FTP 21; SMTP 25. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q94"
+        },
+        {
+         "question": "Which system converts a domain name such as www.google.com into an IP address?",
+         "options": {
+          "A": "DNS (Domain Name System)",
+          "B": "DHCP",
+          "C": "FTP",
+          "D": "HTML"
+         },
+         "answer": "A",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). DHCP gives IP addresses to devices automatically."
+        },
+        {
+         "question": "Which top-level domain is generally used by educational institutions?",
+         "options": {
+          "A": ".net",
+          "B": ".org",
+          "C": ".mil",
+          "D": ".edu"
+         },
+         "answer": "D",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": ".com – commercial; .org – organisations; .gov – government; .mil – military; .ac.in – Indian academic."
+        },
+        {
+         "question": "The language used to create web pages is:",
+         "options": {
+          "A": "SQL",
+          "B": "C",
+          "C": "HTML",
+          "D": "COBOL"
+         },
+         "answer": "C",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). HyperText Markup Language; pages are fetched with HTTP."
+        },
+        {
+         "question": "Match the following:\na. Web Client  b. Cloud  c. Website  d. Webpage\ni. Collection of web pages  ii. An HTML document  iii. The device used to access Internet  iv. Internet-based storage and devices",
+         "options": {
+          "A": "a-i, b-iv, c-ii, d-iii",
+          "B": "a-iii, b-i, c-iv, d-ii",
+          "C": "a-iii, b-iv, c-i, d-ii",
+          "D": "a-i, b-ii, c-ii, d-iv"
+         },
+         "answer": "C",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "A website is a set of related web pages; each page is an HTML document. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q73"
+        },
+        {
+         "question": "A hyperlink on a web page:",
+         "options": {
+          "A": "Takes you to another page, file or place when clicked",
+          "B": "Prints the page",
+          "C": "Saves the password",
+          "D": "Deletes the page"
+         },
+         "answer": "A",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "Links usually appear underlined/blue; the mouse pointer turns into a hand."
+        },
+        {
+         "question": "The first page of a website is called its:",
+         "options": {
+          "A": "Index card",
+          "B": "Home page",
+          "C": "Web server",
+          "D": "Main frame"
+         },
+         "answer": "B",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Usually index.html."
+        },
+        {
+         "question": "Which communication device is used in the conversion of digital data to analog form and vice versa?",
+         "options": {
+          "A": "Modulator",
+          "B": "Modem",
+          "C": "Demodulator",
+          "D": "Network interface card"
+         },
+         "answer": "B",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "Modem = MOdulator + DEModulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q93"
+        },
+        {
+         "question": "Consider the statements:\nI. HTTPS encrypts data between the browser and the website.\nII. A padlock symbol in the address bar shows an HTTPS connection.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "Both are true; HTTPS uses TLS/SSL certificates."
+        },
+        {
+         "question": "Assertion (A): Every device on the Internet needs an IP address.\nReason (R): Data packets are delivered to devices using their IP addresses.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "History of the Internet, ISPs, URLs and the WWW",
+         "explanation": "R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Browsers, Search Engines, Web Servers, LAN and WAN",
+       "questions": [
+        {
+         "question": "Match the following:\n(a) Cookies  (b) Bookmark  (c) History  (d) Session\n(i) A record stored by web browser of all webpages a user has visited\n(ii) Temporary storage of user data on the server\n(iii) User created shortcut to a specific webpage\n(iv) A small file stored by website on user's device",
+         "options": {
+          "A": "a-iii, b-ii, c-iv, d-i",
+          "B": "a-iv, b-iii, c-i, d-ii",
+          "C": "a-iii, b-i, c-iv, d-ii",
+          "D": "a-iv, b-ii, c-i, d-iii"
+         },
+         "answer": "B",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Cookie – small file on your device; bookmark/favourite – saved link; history – list of visited pages; session – server-side data for one visit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q90"
+        },
+        {
+         "question": "Wi-Fi is a standard for wireless LANs called",
+         "options": {
+          "A": "IEEE 802.9",
+          "B": "IEEE 802.10",
+          "C": "IEEE 802.11",
+          "D": "IEEE 802.12"
+         },
+         "answer": "C",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "802.3 – Ethernet; 802.11 – Wi-Fi; 802.15.1 – Bluetooth. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q77"
+        },
+        {
+         "question": "Match List I with List II:\n(Scenario)\na. Three different buildings in the same city want to connect to a central server\nb. Set up a WiFi network for a small coffee shop\nc. An MNC that connects Bengaluru, New York and London offices\n(Network Technology) i. WAN  ii. MAN  iii. LAN",
+         "options": {
+          "A": "a-ii, b-iii, c-i",
+          "B": "a-iii, b-i, c-ii",
+          "C": "a-iii, b-ii, c-i",
+          "D": "a-ii, b-i, c-iii"
+         },
+         "answer": "A",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "City-wide – MAN; one shop/building – LAN; countries – WAN. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q76"
+        },
+        {
+         "question": "Match List I with List II:\n(Network Device) a. Hubs  b. Fibre Optic Cables  c. Modems\n(Network) i. WAN  ii. LAN  iii. MAN",
+         "options": {
+          "A": "a-ii, b-i, c-iii",
+          "B": "a-iii, b-ii, c-i",
+          "C": "a-ii, b-iii, c-i",
+          "D": "a-i, b-ii, c-iii"
+         },
+         "answer": "C",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Hubs join computers in a LAN; fibre backbones serve city networks; modems reach WAN/ISP links. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q77"
+        },
+        {
+         "question": "Which network covers the smallest area – for example, devices around one person (phone, earbuds, smartwatch)?",
+         "options": {
+          "A": "MAN",
+          "B": "LAN",
+          "C": "WAN",
+          "D": "PAN"
+         },
+         "answer": "D",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). PAN < LAN < MAN < WAN. The Internet is the largest WAN."
+        },
+        {
+         "question": "A software application used to view web pages is a:",
+         "options": {
+          "A": "Compiler",
+          "B": "Search engine",
+          "C": "Web server",
+          "D": "Web browser"
+         },
+         "answer": "D",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Chrome, Firefox, Edge, Safari, Opera. Mosaic (1993) was the first popular graphical browser."
+        },
+        {
+         "question": "Which of the following is a search engine, not a browser?",
+         "options": {
+          "A": "Safari",
+          "B": "Mozilla Firefox",
+          "C": "Google Search",
+          "D": "Microsoft Edge"
+         },
+         "answer": "C",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Search engines: Google, Bing, DuckDuckGo, Yahoo; they index pages using crawlers (spiders)."
+        },
+        {
+         "question": "A computer that stores websites and sends pages to browsers on request is a:",
+         "options": {
+          "A": "Modem",
+          "B": "Web client",
+          "C": "Router only",
+          "D": "Web server"
+         },
+         "answer": "D",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Apache, Nginx and IIS are web-server programs; the browser is the client."
+        },
+        {
+         "question": "The program used by search engines to visit and index web pages automatically is called a:",
+         "options": {
+          "A": "Crawler (spider/bot)",
+          "B": "Firewall",
+          "C": "Cookie",
+          "D": "Plug-in"
+         },
+         "answer": "A",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Results are ranked by algorithms (e.g. Google's PageRank)."
+        },
+        {
+         "question": "Which browser mode does not save browsing history or cookies after the window is closed?",
+         "options": {
+          "A": "Reader mode",
+          "B": "Incognito / private mode",
+          "C": "Full-screen mode",
+          "D": "Safe mode"
+         },
+         "answer": "B",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "It does not hide your IP address from websites or your ISP."
+        },
+        {
+         "question": "To keep a website's address for quick access later, you:",
+         "options": {
+          "A": "Clear history",
+          "B": "Bookmark it (add to favourites)",
+          "C": "Delete its cookies",
+          "D": "Refresh it"
+         },
+         "answer": "B",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Ctrl + D adds a bookmark in most browsers."
+        },
+        {
+         "question": "Which keyboard shortcut reloads (refreshes) the current web page in most browsers?",
+         "options": {
+          "A": "F12",
+          "B": "F1",
+          "C": "Ctrl + P",
+          "D": "F5"
+         },
+         "answer": "D",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Ctrl + T – new tab; Ctrl + W – close tab; Ctrl + H – history; Ctrl + F – find."
+        },
+        {
+         "question": "Downloading means:",
+         "options": {
+          "A": "Copying a file from the Internet to your computer",
+          "B": "Sending a file from your computer to a server",
+          "C": "Printing a web page",
+          "D": "Deleting a web page"
+         },
+         "answer": "A",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Uploading is the reverse – your computer to a server."
+        },
+        {
+         "question": "Which of the following is NOT a web browser?",
+         "options": {
+          "A": "Mozilla Firefox",
+          "B": "Brave",
+          "C": "Google Drive",
+          "D": "Opera"
+         },
+         "answer": "C",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Google Drive is cloud storage."
+        },
+        {
+         "question": "Internet speed (bandwidth) is commonly measured in:",
+         "options": {
+          "A": "MB (megabytes)",
+          "B": "GHz",
+          "C": "dpi",
+          "D": "Mbps (megabits per second)"
+         },
+         "answer": "D",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). 1 byte = 8 bits; a 100 Mbps line moves about 12.5 MB per second."
+        },
+        {
+         "question": "Which kind of website shows the same fixed content to every visitor, without a database?",
+         "options": {
+          "A": "Web application",
+          "B": "Dynamic website",
+          "C": "Static website",
+          "D": "Search engine"
+         },
+         "answer": "C",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Dynamic sites build pages on the server (PHP, databases, CMS such as WordPress)."
+        },
+        {
+         "question": "An intranet is:",
+         "options": {
+          "A": "A public Wi-Fi hotspot",
+          "B": "A private network of an organisation that uses Internet technology",
+          "C": "A search engine",
+          "D": "Another name for the WWW"
+         },
+         "answer": "B",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). An extranet gives limited access to outside partners."
+        },
+        {
+         "question": "Which device connects different networks and forwards data packets between them using IP addresses?",
+         "options": {
+          "A": "Router",
+          "B": "Repeater",
+          "C": "Keyboard",
+          "D": "Hub"
+         },
+         "answer": "A",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "A hub repeats to all ports; a switch sends to one port using MAC addresses."
+        },
+        {
+         "question": "Consider the statements:\nI. A web browser and a search engine are the same thing.\nII. Google Chrome is a web browser.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "Only II. A browser opens pages; a search engine is a website that finds pages."
+        },
+        {
+         "question": "Assertion (A): Optical-fibre cables are used for high-speed Internet backbones.\nReason (R): Optical fibre carries data as light with very large bandwidth and low loss.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Browsers, Search Engines, Web Servers, LAN and WAN",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Internet basics – revision sheet",
+       "md": "## History\n- **ARPANET 1969** (US DoD) → TCP/IP adopted 1 Jan 1983; Vint Cerf & Bob Kahn – 'fathers of the Internet'\n- **WWW** – Tim Berners-Lee, CERN, 1989–91 (HTML, HTTP, URL, first browser and server)\n- First graphical browser – Mosaic (1993)\n- India: ERNET 1986; public Internet via **VSNL, 15 Aug 1995**\n\n## Addresses\n- **URL** = protocol://domain/path/file – e.g. https://www.karnataka.gov.in/index.html\n- **IP address**: IPv4 32-bit (2^32), IPv6 128-bit (2^128); **DNS** turns names into IP addresses\n- Domains: .com, .org, .net, .edu, .gov, .mil; country codes .in, .uk; .gov.in, .ac.in, .nic.in\n- Ports: HTTP **80**, HTTPS **443**, FTP 21, SMTP 25, DNS 53\n\n## Web terms\n| Term | Meaning |\n|---|---|\n| Web page | one HTML document |\n| Website | collection of related pages; first page = home page |\n| Hyperlink | clickable link to another page/file |\n| Browser | Chrome, Firefox, Edge, Safari, Opera |\n| Search engine | Google, Bing, DuckDuckGo – uses crawlers |\n| Web server | stores and serves pages (Apache, Nginx, IIS) |\n| Cookie | small file a website stores on your device |\n| Bookmark | saved link (Ctrl + D) |\n| History | list of visited pages (Ctrl + H) |\n| Incognito | no local history/cookies kept (IP still visible) |\n| Static / dynamic site | fixed pages / pages built from a database |\n- Shortcuts: F5 refresh, Ctrl + T new tab, Ctrl + W close tab, Ctrl + F find\n\n## Networks\n| Type | Area | Example |\n|---|---|---|\n| PAN | a few metres | Bluetooth earbuds |\n| LAN | room / building | school lab, Wi-Fi in a shop |\n| MAN | city | cable TV / city network |\n| WAN | country / world | Internet, MNC offices |\n- Devices: hub (LAN, all ports), switch (MAC), router (IP, between networks), modem (digital ↔ analog)\n- Wi-Fi = **IEEE 802.11**; Ethernet 802.3; Bluetooth 802.15\n- **ISP** – BSNL, Jio, Airtel; speed in **Mbps**\n- Intranet = private; extranet = partners; Internet = public\n\n## ⚠ Traps\n- Internet ≠ WWW; browser ≠ search engine\n- 'Glue' of the Internet = **TCP/IP**\n"
       }
      ]
     }

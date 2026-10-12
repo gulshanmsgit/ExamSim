@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 9 — Data Communication & Networks",
- "description": "9 of 14 topics so far (18 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; Transport Layer; World Wide Web & Applications. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "10 of 14 topics so far (20 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; IPv6, ARP, Delivery & Routing; Transport Layer; World Wide Web & Applications. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 9 – Data Communication & Networks",
@@ -5211,6 +5211,764 @@
          "explanation": "ICMP reports errors and queries for IP, which has no error-reporting mechanism of its own."
         }
        ]
+      }
+     ]
+    },
+    {
+     "name": "IPv6, ARP, Delivery & Routing",
+     "sets": [
+      {
+       "name": "1 · IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+       "questions": [
+        {
+         "question": "Which of the following statements about IPV6 are true?\na. It uses 128 bit addresses\nb. IPV6 eliminates the need for DHCP\nc. IPV6 can coexist with IPV4 in dual stack environment\nd. IPV6 addresses are always written in decimal notation",
+         "options": {
+          "A": "a and c only",
+          "B": "a and b only",
+          "C": "a, c and d only",
+          "D": "c and b only"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "IPv6 still uses DHCPv6 (besides SLAAC) and is written in hexadecimal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q58"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses\nReason (R): ARP is used only in IPV4 networks and is not necessary in IPV6",
+         "options": {
+          "A": "Both (A) and (R) are correct and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are correct but (R) is not the correct explanation of (A)",
+          "C": "(A) is correct but (R) is incorrect",
+          "D": "Both (A) and (R) are incorrect"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "KEA treats R as wrong: IPv6 still needs address resolution – it is done by ICMPv6 Neighbor Discovery instead of ARP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q11"
+        },
+        {
+         "question": "Which sequence accurately describes the process of sending data in IPV6?",
+         "options": {
+          "A": "Host → Switch → Destination",
+          "B": "Host → Router → Destination",
+          "C": "Host → Network → Router → Destination",
+          "D": "Host → Router → Switch → Destination"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "KEA's key: the host hands the packet to a router, which forwards it to the destination network. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q64"
+        },
+        {
+         "question": "What is the correct sequence of ARP (Address resolution protocol)?",
+         "options": {
+          "A": "ARP Request → Data Transmission → ARP Reply → Caching",
+          "B": "ARP Reply → ARP Request → Data Transmission → Caching",
+          "C": "ARP Request → ARP Reply → Caching → Data Transmission",
+          "D": "ARP Request → Caching → ARP Reply → Data Transmission"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Broadcast request → unicast reply with the MAC address → store it in the ARP cache → send the frame. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q48"
+        },
+        {
+         "question": "Match the following types of internet connection with their description\n(a) Unicast  (b) Multicast  (c) Broadcast  (d) Any cast\ni) Broadcasts communication to all devices  ii) Communication from one device to many devices\niii) Communication from one device to another only  iv) Communication to the nearest device in a group",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "IPv6 has unicast, multicast and anycast addresses – no broadcast. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q51"
+        },
+        {
+         "question": "The role of Address Resolution Protocol (ARP) is to find the",
+         "options": {
+          "A": "IP address from the DNS",
+          "B": "IP address of the client",
+          "C": "IP address that corresponds to a MAC address",
+          "D": "MAC address that corresponds to an IP address"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "ARP maps a known IP address to a MAC address on the local network (RARP does the reverse). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q87"
+        },
+        {
+         "question": "Which among the following features is present in IPv6 but not in IPv4?",
+         "options": {
+          "A": "Fragmentation",
+          "B": "Header checksum",
+          "C": "Options",
+          "D": "Auto configuration"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Stateless address autoconfiguration (SLAAC); IPv6 dropped the header checksum and router fragmentation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q44"
+        },
+        {
+         "question": "In IPv6 header, the base header can be followed by up to ______ extension headers.",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "6",
+          "D": "7"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Forouzan: up to six extension headers – hop-by-hop, destination, routing, fragmentation, authentication, ESP. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q45"
+        },
+        {
+         "question": "An IPv6 address is written as:",
+         "options": {
+          "A": "Six groups of two hex digits separated by hyphens",
+          "B": "Eight groups of four hexadecimal digits separated by colons",
+          "C": "Four decimal numbers separated by dots",
+          "D": "Sixteen octal numbers"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). IPv6 – colon-hex (128 bits); IPv4 – dotted decimal (32 bits); MAC – 48 bits, hex."
+        },
+        {
+         "question": "The abbreviated form of 2001:0DB8:0000:0000:0000:FF00:0042:8329 is:",
+         "options": {
+          "A": "2001::DB8::FF00:42:8329",
+          "B": "2001:DB8::FF00:42:8329",
+          "C": "21:DB8::FF:42:8329",
+          "D": "2001:DB8:FF00:42:8329"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Drop leading zeros in each group; replace ONE run of all-zero groups by '::'."
+        },
+        {
+         "question": "Why can '::' appear only once in an IPv6 address?",
+         "options": {
+          "A": "Otherwise the number of zero groups each '::' stands for would be ambiguous",
+          "B": "It is used only for IPv4",
+          "C": "It is a reserved prefix",
+          "D": "It marks the end of the address"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). The address must expand back to exactly eight groups."
+        },
+        {
+         "question": "The size of the IPv6 base header is:",
+         "options": {
+          "A": "20 to 60 bytes",
+          "B": "32 bytes",
+          "C": "128 bytes",
+          "D": "40 bytes (fixed)"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). IPv4 header is 20–60 bytes (variable)."
+        },
+        {
+         "question": "Which IPv4 header field is removed in IPv6 because upper layers and link layers already check errors?",
+         "options": {
+          "A": "Version",
+          "B": "Header checksum",
+          "C": "Source address",
+          "D": "Payload length"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Removing it speeds up router processing."
+        },
+        {
+         "question": "The IPv6 field that plays the role of IPv4's TTL is:",
+         "options": {
+          "A": "Traffic class",
+          "B": "Flow label",
+          "C": "Hop limit",
+          "D": "Next header"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Decremented at each router; packet dropped at 0."
+        },
+        {
+         "question": "In IPv6, the 'Next Header' field identifies:",
+         "options": {
+          "A": "The next router's address",
+          "B": "The number of hops left",
+          "C": "The packet's priority",
+          "D": "The type of the next extension header or the upper-layer protocol (e.g. TCP)"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "It works like IPv4's Protocol field."
+        },
+        {
+         "question": "The 20-bit 'Flow label' in the IPv6 header is used to:",
+         "options": {
+          "A": "Identify packets that need special handling, such as real-time audio/video flows",
+          "B": "Count hops",
+          "C": "Detect errors",
+          "D": "Fragment packets"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Traffic class – priority."
+        },
+        {
+         "question": "In IPv6, fragmentation is done:",
+         "options": {
+          "A": "Only by the source host (using path-MTU discovery)",
+          "B": "By every router",
+          "C": "Only by the destination",
+          "D": "Never – packets cannot exceed 64 KB"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Routers send ICMPv6 'Packet too big' instead of fragmenting."
+        },
+        {
+         "question": "The IPv6 loopback address is:",
+         "options": {
+          "A": "127.0.0.1",
+          "B": "::1",
+          "C": "FE80::1",
+          "D": "FF02::1"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). 127.0.0.1 is the IPv4 loopback."
+        },
+        {
+         "question": "IPv6 link-local addresses begin with the prefix:",
+         "options": {
+          "A": "FC00::/7",
+          "B": "FF00::/8",
+          "C": "FE80::/10",
+          "D": "2000::/3"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "FF00::/8 – multicast; 2000::/3 – global unicast; FC00::/7 – unique local."
+        },
+        {
+         "question": "Which three strategies were defined for the transition from IPv4 to IPv6?",
+         "options": {
+          "A": "Subnetting, supernetting and NAT",
+          "B": "Dual stack, tunnelling and header translation",
+          "C": "Flooding, forwarding and filtering",
+          "D": "Static, dynamic and default routing"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Forouzan ch. 22."
+        },
+        {
+         "question": "When two IPv6 hosts must communicate across an IPv4-only region, the IPv6 packet is placed inside an IPv4 packet. This is:",
+         "options": {
+          "A": "Tunnelling",
+          "B": "Header translation",
+          "C": "Dual stack",
+          "D": "Fragmentation"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "The IPv4 protocol field is set to 41 for IPv6-in-IPv4."
+        },
+        {
+         "question": "In IPv6, the job of ARP is done by:",
+         "options": {
+          "A": "DHCPv6 only",
+          "B": "RARP",
+          "C": "IGMP",
+          "D": "ICMPv6 Neighbor Discovery"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). ND also finds routers and checks duplicate addresses; IGMP's role is done by MLD."
+        },
+        {
+         "question": "An ARP request and an ARP reply are sent respectively as:",
+         "options": {
+          "A": "Unicast and broadcast",
+          "B": "Multicast and multicast",
+          "C": "Broadcast and unicast",
+          "D": "Unicast and unicast"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). Every host on the LAN sees the request; only the owner replies."
+        },
+        {
+         "question": "RARP was used to:",
+         "options": {
+          "A": "Assign ports",
+          "B": "Resolve domain names",
+          "C": "Find a MAC address from an IP address",
+          "D": "Find a host's IP address from its MAC address (for diskless machines)"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Replaced by BOOTP and then DHCP."
+        },
+        {
+         "question": "A router that answers ARP requests on behalf of hosts on another network is performing:",
+         "options": {
+          "A": "Reverse ARP",
+          "B": "Proxy ARP",
+          "C": "Gratuitous ARP",
+          "D": "Inverse NAT"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Gratuitous ARP – a host announces its own IP–MAC pair (also detects duplicate IPs)."
+        },
+        {
+         "question": "ARP messages are carried:",
+         "options": {
+          "A": "Directly inside data-link frames (Ethernet type 0x0806)",
+          "B": "Inside ICMP messages",
+          "C": "Inside TCP segments",
+          "D": "Inside UDP datagrams"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). IPv4 uses Ethernet type 0x0800."
+        },
+        {
+         "question": "Why are entries in an ARP cache removed after some time?",
+         "options": {
+          "A": "To save power",
+          "B": "Because ARP is a routing protocol",
+          "C": "Because IP-to-MAC mappings can change (e.g. a NIC is replaced)",
+          "D": "Because MAC addresses expire yearly"
+         },
+         "answer": "C",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Stale entries would send frames to the wrong host."
+        },
+        {
+         "question": "About how many addresses does IPv6 provide?",
+         "options": {
+          "A": "2^48",
+          "B": "2^128 ≈ 3.4 × 10^38",
+          "C": "2^64",
+          "D": "2^32 ≈ 4.3 × 10^9"
+         },
+         "answer": "B",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "PYQ pattern (KEA / KSET papers). IPv4: 2^32."
+        },
+        {
+         "question": "In modified EUI-64, a 48-bit MAC address is turned into a 64-bit IPv6 interface ID by:",
+         "options": {
+          "A": "Adding 16 zeros at the end",
+          "B": "Hashing it with MD5",
+          "C": "Repeating the last 16 bits",
+          "D": "Inserting FFFE in the middle and inverting the universal/local (7th) bit"
+         },
+         "answer": "D",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Used in stateless autoconfiguration."
+        },
+        {
+         "question": "Consider the statements:\nI. IPv6 has no broadcast addresses.\nII. The IPv6 base header contains a header checksum.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "IPv6 Addressing, Header and Transition; ARP and Neighbour Discovery",
+         "explanation": "Only I. IPv6 uses multicast (e.g. FF02::1 all nodes) instead of broadcast and has no header checksum."
+        }
+       ]
+      },
+      {
+       "name": "2 · Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+       "questions": [
+        {
+         "question": "Which of the following statements are true about the BGP (Border Gateway Protocol)?\na) BGP is a distance vector routing protocol\nb) BGP is used for routing between different autonomous systems\nc) BGP is a path vector protocol\nd) BGP uses hop count as its routing metric",
+         "options": {
+          "A": "b and c",
+          "B": "a and b",
+          "C": "b and d",
+          "D": "a, b and d"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "BGP is a path-vector inter-AS protocol using policies and path attributes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q6"
+        },
+        {
+         "question": "Match the routing protocols with their characteristics.\na) RIP  b) OSPF  c) BGP  d) EIGRP\ni) Uses link state algorithm  ii) Uses distance vector algorithm\niii) Path-vector protocol used for inter-domain routing  iv) Hybrid of distance vector and link-state protocols",
+         "options": {
+          "A": "a - ii, b - i, c - iii, d - iv",
+          "B": "a - i, b - ii, c - iv, d - iii",
+          "C": "a - ii, b - i, c - iv, d - iii",
+          "D": "a - i, b - iv, c - iii, d - ii"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "RIP – distance vector; OSPF – link state; BGP – path vector; EIGRP – advanced distance vector ('hybrid'). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q8"
+        },
+        {
+         "question": "Which of the following code value is NOT an Error-reporting message of ICMP message?",
+         "options": {
+          "A": "03",
+          "B": "05",
+          "C": "08",
+          "D": "11"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Type 8 is echo request (a query, used by ping). 3 – destination unreachable, 5 – redirect, 11 – time exceeded. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q75"
+        },
+        {
+         "question": "A router sends an ICMP 'redirect' (type 5) message to a host when:",
+         "options": {
+          "A": "The destination port is closed",
+          "B": "The TTL reaches zero",
+          "C": "The packet is too big",
+          "D": "The host sent a packet to this router although a better next-hop router exists on the same network"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The host then updates its routing table."
+        },
+        {
+         "question": "Which of the following statement/s is/are not correct?\na. OSPF is based on distance vector routing protocol.\nb. Both link-state and distance vector routing are based on the least cost goal.\nc. BGP is based on the path vector algorithm.\nd. The three-node instability can be avoided using split horizon combined with Poison reverse.\ne. RIP is based on link state algorithm.",
+         "options": {
+          "A": "a, d and e only",
+          "B": "a and b only",
+          "C": "b and c only",
+          "D": "b, c and e only"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "OSPF is link state and RIP distance vector; split horizon + poison reverse fixes two-node loops, not three-node instability. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q70"
+        },
+        {
+         "question": "Why does topological addressing enable large networks to be built?",
+         "options": {
+          "A": "It reduces the size of routing tables and the amount of information that must be exchanged",
+          "B": "It reduces the size and information in forwarding table",
+          "C": "It only reduces the size of routing table",
+          "D": "It reduces the size of routing table and increases the amount of information to be exchanged"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Hierarchical addresses let one entry (prefix) stand for a whole region – route aggregation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q62"
+        },
+        {
+         "question": "Each router in a link state protocol performs these 5 steps, arrange them in chronological order.\n(a) Send the packet to all other routers\n(b) Measure the delay or cost to each of its neighbours\n(c) Compute the shortest path to every other router\n(d) Construct a packet telling all it has just learned\n(e) Discover its neighbours and learn their network address",
+         "options": {
+          "A": "e, b, a, d, c",
+          "B": "b, c, e, a, d",
+          "C": "c, d, a, e, b",
+          "D": "e, b, d, a, c"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Tanenbaum's five steps: discover, measure, build LSP, flood, run Dijkstra. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q64"
+        },
+        {
+         "question": "In the distance vector routing algorithm each router",
+         "options": {
+          "A": "Sends the entire network topology to all routers periodically",
+          "B": "Maintains only the distance to each destination and the next hop and exchanges this with neighbours",
+          "C": "Chooses routers based on source-routing headers",
+          "D": "Requires a centralized controller to compute all paths"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Topology flooding is link state; distance vector shares its vector only with neighbours (Bellman–Ford). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q66"
+        },
+        {
+         "question": "The IPv6 version of BGP is",
+         "options": {
+          "A": "MP-BGPv4",
+          "B": "BGPv5",
+          "C": "BGP IPv6",
+          "D": "MP-BGPv2"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Multiprotocol extensions to BGP-4 (RFC 4760) carry IPv6 routes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q42"
+        },
+        {
+         "question": "In a communication network, if a path from Site A to Site B is fixed for the duration of one session, the routing scheme adopted is called ____.",
+         "options": {
+          "A": "Fixed routing",
+          "B": "Virtual routing",
+          "C": "Dynamic routing",
+          "D": "Static routing"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Virtual routing fixes the path for one session; fixed routing always uses the same path; dynamic routing chooses per message. (Official answer: KEA revised key, 28 Mar 2024.)",
+         "source": "KSET 2023 CS&A · Q30"
+        },
+        {
+         "question": "Delivery of a packet is called 'direct' when:",
+         "options": {
+          "A": "It is a broadcast",
+          "B": "It uses a default route",
+          "C": "The destination is on the same network as the deliverer",
+          "D": "It passes through at least one router"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Indirect delivery – from router to router until the last (direct) delivery."
+        },
+        {
+         "question": "A forwarding table that lists one entry per destination NETWORK (not per host) uses:",
+         "options": {
+          "A": "Host-specific forwarding",
+          "B": "Next-hop only",
+          "C": "Network-specific forwarding",
+          "D": "Source routing"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Techniques: next-hop, network-specific, host-specific, default."
+        },
+        {
+         "question": "The default route in an IPv4 forwarding table is written as:",
+         "options": {
+          "A": "127.0.0.0/8",
+          "B": "0.0.0.0/0",
+          "C": "255.255.255.255/32",
+          "D": "224.0.0.0/4"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used when no other entry matches."
+        },
+        {
+         "question": "In the Internet, each router forwards a packet by looking mainly at:",
+         "options": {
+          "A": "The TCP port number",
+          "B": "The full path written by the source",
+          "C": "The source MAC address",
+          "D": "The packet's destination address and its own forwarding table (hop-by-hop)"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "IP is connectionless; each router decides only the next hop. Source routing is optional and rarely used."
+        },
+        {
+         "question": "When several forwarding-table entries match a destination address, a router chooses the entry with:",
+         "options": {
+          "A": "The shortest prefix",
+          "B": "The longest prefix (most specific mask)",
+          "C": "The first entry",
+          "D": "The lowest interface number"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Longest-prefix match in classless addressing."
+        },
+        {
+         "question": "In RIP, the maximum hop count for a reachable network is:",
+         "options": {
+          "A": "100",
+          "B": "255",
+          "C": "15 (16 means infinity)",
+          "D": "30"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). So RIP suits small networks."
+        },
+        {
+         "question": "RIP sends periodic updates every 30 seconds using:",
+         "options": {
+          "A": "IP protocol 89",
+          "B": "UDP port 53",
+          "C": "TCP port 179",
+          "D": "UDP port 520"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "BGP – TCP 179; OSPF – directly over IP, protocol 89."
+        },
+        {
+         "question": "OSPF computes shortest paths using:",
+         "options": {
+          "A": "Bellman–Ford algorithm",
+          "B": "Flooding only",
+          "C": "Kruskal's algorithm",
+          "D": "Dijkstra's algorithm"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). OSPF divides an AS into areas joined by backbone area 0."
+        },
+        {
+         "question": "BGP sessions between routers run over:",
+         "options": {
+          "A": "IP protocol 89",
+          "B": "UDP port 520",
+          "C": "TCP port 179",
+          "D": "ICMP"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Reliable transport is needed for large route updates."
+        },
+        {
+         "question": "The 'count-to-infinity' problem occurs in:",
+         "options": {
+          "A": "Flooding",
+          "B": "Distance-vector routing",
+          "C": "Static routing",
+          "D": "Link-state routing"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Remedies: split horizon, poison reverse, hold-down timers, a small 'infinity' (16 in RIP)."
+        },
+        {
+         "question": "RIP and OSPF are ______ routing protocols, while BGP is ______.",
+         "options": {
+          "A": "Intra-domain (interior); inter-domain (exterior)",
+          "B": "Inter-domain; intra-domain",
+          "C": "Both inter-domain",
+          "D": "Both static"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Interior gateway vs exterior gateway protocols."
+        },
+        {
+         "question": "An autonomous system (AS) is:",
+         "options": {
+          "A": "A self-configuring host",
+          "B": "A group of networks and routers under one administrative authority",
+          "C": "A single router",
+          "D": "A type of IPv6 address"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each AS has an AS number; BGP routes between ASes."
+        },
+        {
+         "question": "Router A has neighbours B (link cost 2) and C (link cost 5). B reports a distance of 3 to network D; C reports 1. A's distance to D and next hop are:",
+         "options": {
+          "A": "6 via C",
+          "B": "3 via B",
+          "C": "1 via C",
+          "D": "5 via B"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Bellman–Ford: min(2 + 3, 5 + 1) = 5 through B."
+        },
+        {
+         "question": "Links: A–B 4, A–C 1, C–B 2, B–D 1, C–D 5. The shortest-path cost from A to D (Dijkstra) is:",
+         "options": {
+          "A": "6 (A–C–D)",
+          "B": "5 (A–B–D)",
+          "C": "4 (A–C–B–D)",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). A–C 1, C–B 2 (B = 3), B–D 1 → 4; A–B–D = 5; A–C–D = 6."
+        },
+        {
+         "question": "'Static routing' means:",
+         "options": {
+          "A": "Routes change every second",
+          "B": "Routes are chosen randomly",
+          "C": "Routes are learnt by RIP",
+          "D": "Routes are entered manually by the administrator and do not adapt automatically"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Dynamic routing uses protocols such as RIP, OSPF, BGP."
+        },
+        {
+         "question": "The 'ping' command uses which ICMP messages?",
+         "options": {
+          "A": "Redirect",
+          "B": "Destination unreachable",
+          "C": "Echo request and echo reply",
+          "D": "Time exceeded only"
+         },
+         "answer": "C",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "PYQ pattern (KEA / KSET papers). traceroute/tracert uses increasing TTL values and 'time exceeded' replies."
+        },
+        {
+         "question": "Which protocol do hosts use to tell a local multicast router which multicast groups they want to join (IPv4)?",
+         "options": {
+          "A": "ICMP",
+          "B": "IGMP",
+          "C": "OSPF",
+          "D": "ARP"
+         },
+         "answer": "B",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "IPv6 uses MLD (part of ICMPv6)."
+        },
+        {
+         "question": "Link-state routing generally converges faster than distance-vector routing because:",
+         "options": {
+          "A": "It needs no memory",
+          "B": "It uses hop count only",
+          "C": "It never floods packets",
+          "D": "Every router has the complete topology and computes routes itself"
+         },
+         "answer": "D",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Changes are flooded at once instead of spreading hop by hop."
+        },
+        {
+         "question": "Consider the statements:\nI. OSPF is a link-state protocol.\nII. RIP is a path-vector protocol.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "Only I. RIP is distance vector; BGP is path vector."
+        },
+        {
+         "question": "Assertion (A): BGP can avoid routing loops between autonomous systems.\nReason (R): A BGP route carries the full list of ASes (AS-path) it has passed through.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Delivery, Forwarding and Routing Protocols (RIP, OSPF, BGP) and ICMP",
+         "explanation": "A router rejects a route whose AS-path already contains its own AS number; R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "IPv6, ARP and routing – revision sheet",
+       "md": "## IPv6\n- **128-bit**, colon-hex, 8 groups; drop leading zeros; **'::' once** for zero groups\n- Base header **40 bytes fixed**; up to **6 extension headers**; no checksum; fragmentation only at source\n- Fields: version, traffic class, **flow label (20 bits)**, payload length, **next header**, **hop limit** (= TTL), source, destination\n- Addresses: unicast, multicast, **anycast** – **no broadcast**; ::1 loopback; FE80::/10 link-local; FF00::/8 multicast; 2000::/3 global\n- SLAAC autoconfiguration (modified EUI-64: insert FFFE, flip 7th bit); DHCPv6 still exists\n- Transition: **dual stack, tunnelling (IPv6 in IPv4, protocol 41), header translation**\n- ICMPv6 Neighbor Discovery replaces ARP; MLD replaces IGMP\n\n## ARP family\n| Protocol | Maps |\n|---|---|\n| ARP | IP → MAC (request broadcast, reply unicast) |\n| RARP | MAC → IP (old; now DHCP) |\n| Proxy ARP | router replies for hosts behind it |\n| Gratuitous ARP | host announces itself / finds duplicate IP |\n- Sequence: request → reply → cache → send data; Ethernet type 0x0806\n\n## Delivery and forwarding\n- Direct (same network) vs indirect (via routers)\n- Next-hop, network-specific, host-specific, **default (0.0.0.0/0)**; **longest-prefix match**\n\n## Routing protocols\n| | RIP | OSPF | BGP |\n|---|---|---|---|\n| Type | distance vector | link state | path vector |\n| Algorithm | Bellman–Ford | Dijkstra | path attributes |\n| Scope | intra-AS | intra-AS (areas, area 0) | inter-AS |\n| Transport | UDP 520 | IP proto 89 | TCP 179 |\n| Metric | hop count, max 15 | cost | policy / AS-path |\n- Count-to-infinity in DV → split horizon, poison reverse, hold-down (not enough for 3-node loops)\n- Link-state steps: discover → measure → build LSP → flood → Dijkstra\n- Distributed-system routing (Silberschatz): fixed, **virtual (fixed per session)**, dynamic\n\n## ICMP\n- Errors: 3 destination unreachable, 4 source quench, 5 redirect, 11 time exceeded, 12 parameter problem\n- Queries: 8/0 echo request/reply (ping); traceroute uses TTL + time exceeded\n- TTL −1 at each router; 0 → discard + ICMP 11\n"
       }
      ]
     },
