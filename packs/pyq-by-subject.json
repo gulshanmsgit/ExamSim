@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 416, Paper 2: 548. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 416, Paper 2: 589. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -11956,7 +11956,685 @@
      "name": "Unit 9 – Data Communication & Networks",
      "sets": [
       {
-       "name": "1 · KSET 2025 CS&A",
+       "name": "1 · Legislative Council 2024 Junior Console Operator P2",
+       "questions": [
+        {
+         "question": "Which of the following is a connectionless protocol?",
+         "options": {
+          "A": "TCP",
+          "B": "UDP",
+          "C": "FTP",
+          "D": "SMTP"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "UDP sends independent user datagrams without connection set-up. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q1"
+        },
+        {
+         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
+         "options": {
+          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
+          "B": "MPLS uses labels to forward packets based on predetermined routes",
+          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
+          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "'Multiprotocol' means MPLS can carry many protocols, not only IP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
+        },
+        {
+         "question": "What is the maximum number of devices that can be addressed using a class C IP address?",
+         "options": {
+          "A": "254",
+          "B": "256",
+          "C": "512",
+          "D": "1024"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "2⁸ − 2 = 254 (network and broadcast addresses excluded). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q3"
+        },
+        {
+         "question": "Which of the following statements are true about ethernet protocol?\na) Ethernet operates at the data link layer of the OSI model\nb) Ethernet uses MAC addresses to identify devices within local network\nc) Ethernet is a wireless communication protocol\nd) Ethernet uses a token based method for collision detection.",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a and d only",
+          "D": "c and d only"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Ethernet is wired (IEEE 802.3) and uses CSMA/CD, not tokens. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q4"
+        },
+        {
+         "question": "Steps in which sequence occur when a packet is lost during TCP transmission?",
+         "options": {
+          "A": "Timeout → Retransmission → Acknowledgement",
+          "B": "Acknowledgement → Timeout → Retransmission",
+          "C": "Retransmission → Timeout → Acknowledgement",
+          "D": "Timeout → Acknowledgement → Retransmission"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "The retransmission timer expires, the segment is resent, then acknowledged. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q5"
+        },
+        {
+         "question": "Which of the following statements are true about the Internet Protocol (IP)?\na. IP provides reliable end-to-end communication\nb. IP is connectionless protocol\nc. Internet Protocol uses IP addresses to deliver packets\nd. IP guarantees the order of packet delivery",
+         "options": {
+          "A": "a, c and d",
+          "B": "b and c",
+          "C": "a, b and c",
+          "D": "a, b and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "IP is a best-effort, connectionless, unreliable protocol; reliability and ordering come from TCP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q10"
+        },
+        {
+         "question": "Match the following IP address classes with their default subnet mask\nIP address class: a. Class A  b. Class B  c. Class C  d. Class D\nSubnet mask: i. 255.255.0.0  ii. 255.255.255.0  iii. 255.0.0.0.  iv. N/A (Multicast Address)",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A /8, B /16, C /24; class D is multicast with no mask. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q12"
+        },
+        {
+         "question": "In TCP sliding window mechanism, which is the correct sequence of events when the receiver gets a segment?",
+         "options": {
+          "A": "Sequence number check → Data Transfer → Buffering → Acknowledgement",
+          "B": "Sequence number check → Buffering → Data Transfer → Acknowledgement",
+          "C": "Data Transfer → Buffering → Acknowledgement → Sequence number check",
+          "D": "Acknowledgement → Sequence number check → Data Transfer → Buffering"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q14"
+        },
+        {
+         "question": "What is the maximum length of an MAC address?",
+         "options": {
+          "A": "32 bits",
+          "B": "48 bits",
+          "C": "64 bits",
+          "D": "128 bits"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "An Ethernet MAC address is 48 bits, written as 12 hexadecimal digits, e.g. 07:01:02:01:2C:4B. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
+        },
+        {
+         "question": "What does the subnet mask in IP configuration do?",
+         "options": {
+          "A": "It determines the default gateway for the network",
+          "B": "It specifies the range of IP addresses in the network",
+          "C": "It encrypts the data sent over the network",
+          "D": "It translates domain names to IP addresses"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "ANDing an address with the mask gives the network address. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q52"
+        },
+        {
+         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "OSI defines seven layers; TCP/IP is used in the Internet; the hybrid model combines both; the Internet model shows its structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
+        },
+        {
+         "question": "Which of the following statements are true about DNS (Domain Name System)?\na. DNS maps domain names to IP addresses\nb. DNS servers always use a centralized database for resolution\nc. DNS provides scalability and redundancy in name resolution\nd. DNS works with IPV4 addresses.",
+         "options": {
+          "A": "a and b only",
+          "B": "a and c only",
+          "C": "a and d only",
+          "D": "b and c only"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "DNS is a distributed, hierarchical database. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q54"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): DNS servers cache the IP addresses of domain names to speed up subsequent requests\nReason (R): Caching degrades DNS look up efficiency by storing previously resolved domain name entries.",
+         "options": {
+          "A": "Both Assertion and Reason are true and Reason is the correct explanation of Assertion",
+          "B": "Assertion is true but Reason is false",
+          "C": "Assertion is false but Reason is true",
+          "D": "Both Assertion and Reason are false"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Caching improves efficiency (subject to TTL). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q55"
+        },
+        {
+         "question": "Which of the following is the correct sequence of events when a packet is routed in an IP network?",
+         "options": {
+          "A": "Packet creation → Routing → Fragmentation → Transmission → Delivery",
+          "B": "Packet creation → Fragmentation → Routing → Transmission → Delivery",
+          "C": "Packet creation → Routing → Transmission → Delivery → Fragmentation",
+          "D": "Packet creation → Routing → Transmission → Fragmentation → Delivery"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q56"
+        },
+        {
+         "question": "Which of the following are correct matches for the Transmission Control Protocol (TCP)?\na. Connection-oriented protocol\nb. Unreliable data delivery\nc. Error detection and correction\nd. No flow control",
+         "options": {
+          "A": "a and c only",
+          "B": "a and d only",
+          "C": "a, b and c only",
+          "D": "All of the above"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "TCP is reliable and provides flow, error and congestion control. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q59"
+        },
+        {
+         "question": "Match the following types of Internet addresses with their purpose\na. IPV4  b. IPV6  c. Private address  d. Public address\ni. Used for local N/W communication  ii. 32-bit address format  iii. 128-bit address format  iv. Used for communication over internet",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Private ranges: 10/8, 172.16/12, 192.168/16. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q60"
+        },
+        {
+         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
+         "options": {
+          "A": "Link layer",
+          "B": "Transport layer",
+          "C": "Application layer",
+          "D": "Network layer"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "TCP and UDP provide process-to-process (end-to-end) delivery. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): IPV4 addresses consist of 128 bits\nReason (R): Uses a 32 bit address format",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "IPv4 = 32 bits; IPv6 = 128 bits. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q62"
+        },
+        {
+         "question": "Match the following DNS record types with their purposes\nRecord Type: a. A  b. MX  c. CNAME  d. PTR\nPurpose: i. Maps IP address to domain name  ii. Alias for domain name  iii. Mail exchange server record  iv. Maps domain name to IP address.",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "AAAA maps a name to an IPv6 address; NS names the authoritative server. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q63"
+        },
+        {
+         "question": "Match the following IP address classes with their range\na. Class A  b. Class B  c. Class C  d. Class D\ni) 0.0.0.0 to 127.255.255.255  ii) 192.0.0.0 to 223.225.255.255  iii) 128.0.0.0 to 191.255.255.255  iv) 224.0.0.0 to 239.255.255.255",
+         "options": {
+          "A": "a – i, b – iii, c – ii, d – iv",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Class E is 240.0.0.0–255.255.255.255 (reserved). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q65"
+        },
+        {
+         "question": "Which of the following is a disadvantage of NAT (Network address Translation)?",
+         "options": {
+          "A": "It allows devices on the private network to access the public internet",
+          "B": "It simplifies the IP address allocation scheme",
+          "C": "It can cause issues with protocols that require end-to-end connectivity",
+          "D": "It consumes a lot of network bandwidth."
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "NAT hides private hosts behind one public address, breaking end-to-end addressing for some protocols (e.g. some VoIP, IPsec). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q66"
+        },
+        {
+         "question": "What is the primary function of physical layer in the OSI model?",
+         "options": {
+          "A": "Provides routing of packets across networks",
+          "B": "Transmits raw bitstream over the physical medium",
+          "C": "Handles error correction and retransmission",
+          "D": "Manages data transfer between applications"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "It deals with bits, signals, connectors and the medium. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
+        }
+       ]
+      },
+      {
+       "name": "2 · Legislative Council 2024 Computer Operator P2",
+       "questions": [
+        {
+         "question": "Two statements are given below : One is Assertion (A) and the other is Reason (R)\nRead the statements carefully & choose the correct answer.\nAssertion (A) : The internet is a collection of interconnected computers linked by transmission media such as fiber, optical cables, etc.\nReason (R) : World Wide Web (WWW) is a collection of websites or web pages stored in a web server & is connected to local computers through the internet.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "The Web is a service that runs on the Internet; it does not explain what the Internet is. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q7"
+        },
+        {
+         "question": "What is the purpose of a router in a network?",
+         "options": {
+          "A": "To store data",
+          "B": "To provide a wireless connection",
+          "C": "To direct internet traffic",
+          "D": "To cool down the network"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "A router forwards packets between networks. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q16"
+        },
+        {
+         "question": "Match the following internet protocol with their functions.\nProtocol: (a) FTP  (b) HTTP  (c) DNS  (d) DHCP\nFunction: i) Transfers files between systems  ii) Retrieves web pages from servers  iii) Resolves domain names to IPs  iv) Assigns IP address dynamically",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – i, c – iii, d – ii"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q52"
+        },
+        {
+         "question": "Which of the following is the correct sequence for an HTTP request and response cycle?",
+         "options": {
+          "A": "Client sends GET request → Server processes request → Server sends HTTP response",
+          "B": "Client sends HTTP request → Server sends GET response → Server processes request",
+          "C": "Server processes request → Client sends HTTP request → Server sends HTTP response",
+          "D": "Client sends HTTP request → Server processes request → Server sends HTTP response"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "KEA's key gives the general form (any method, not only GET). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q53"
+        },
+        {
+         "question": "Which of the following is the primary role of a router in a network?",
+         "options": {
+          "A": "To regulate the flow of data between devices within the same network",
+          "B": "To forward packets between different network based on IP addresses",
+          "C": "To maintain the list of MAC addresses in the network",
+          "D": "To store data packets temporarily before forwarding them."
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Keeping a MAC table is the job of a switch (link layer). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q54"
+        },
+        {
+         "question": "Which of the following are the valid IP addresses classes in IPV4?\n(a) Class A  (b) Class B\n(c) Class E  (d) Class C",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and d only",
+          "C": "a, b and c only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "KEA's key treats classes A, B and C as the usable unicast classes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q55"
+        },
+        {
+         "question": "Which protocol is used to resolve a domain name into an IP address?",
+         "options": {
+          "A": "HTTP",
+          "B": "FTP",
+          "C": "SMTP",
+          "D": "DNS"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "DNS – Domain Name System. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q56"
+        },
+        {
+         "question": "Which of the following are the examples of internet layer protocols in the TCP/IP model?\n(a) TCP\n(b) IP\n(c) ARP\n(d) HTTP",
+         "options": {
+          "A": "a and b",
+          "B": "b and c",
+          "C": "a, c and d",
+          "D": "a, b and c"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "IP and ARP work at the internet (network) layer; TCP is transport and HTTP is application. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q57"
+        },
+        {
+         "question": "Which sequence correctly describes the process of establishing a TCP connection?",
+         "options": {
+          "A": "SYN-ACK → ACK → Data transfer → SYN",
+          "B": "SYN → SYN-ACK → Data transfer",
+          "C": "SYN → SYN-ACK → ACK → Data transfer",
+          "D": "SYN → ACK → SYN-ACK → Data transfer"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Three-way handshake. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q59"
+        },
+        {
+         "question": "Assertion (A) : The Domain Name System (DNS) is used to map domain names to IP addresses.\nReason (R) : DNS acts as a directory service providing a mapping between user-friendly domain names and machine reliable IP addresses",
+         "options": {
+          "A": "Both (A) & (R) are true and the reason is the correct explanation for the assertion.",
+          "B": "Both (A) & (R) are true but the reason is not the correct explanation for the assertion",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) and (R) are false"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q60"
+        },
+        {
+         "question": "Match the following types of network topologies with their characteristics.\nTopology\n(a) Star\n(b) Ring\n(c) Bus\n(d) Mesh\nCharacteristics\ni) Every device is connected to every other device\nii) All devices share a single communication medium\niii) Each device is connected to its neighbour in circular fashion\niv) Single central device controls communication",
+         "options": {
+          "A": "a – iii, b – ii, c – iv, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Star – central hub/switch; ring – circular; bus – one shared cable; mesh – every device to every other. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q61"
+        },
+        {
+         "question": "Which protocol is used for dynamic IP address allocation in a network?",
+         "options": {
+          "A": "ARP",
+          "B": "DHCP",
+          "C": "DNS",
+          "D": "ICMP"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "DHCP uses UDP ports 67 (server) and 68 (client): Discover, Offer, Request, Acknowledge. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q62"
+        },
+        {
+         "question": "Which of the following are the protocols used in the internet for secure communication?\n(a) SSL / TLS  (b) FTP\n(c) HTTPS  (d) HTTP",
+         "options": {
+          "A": "a and b",
+          "B": "b and c",
+          "C": "a and c",
+          "D": "b and d"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Secure versions: SFTP/FTPS, HTTPS, SMTPS, SSH. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q63"
+        },
+        {
+         "question": "Match the following HTTP status codes with their descriptions.\nCode: (a) 200  (b) 301  (c) 404  (d) 503\nDescription: i) Not found  ii) Request successful  iii) Moved permanently  iv) Service unavailable",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "1xx informational, 2xx success, 3xx redirection, 4xx client error, 5xx server error. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q64"
+        },
+        {
+         "question": "Match the following Internal Protocols with their layer in OSI model.\nProtocol\n(a) IP\n(b) TCP\n(c) HTTP\n(d) Ethernet\nLayer\ni) Datalink layer\nii) Application layer\niii) Transport layer\niv) Network layer",
+         "options": {
+          "A": "a – i, b – iii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "IP – network; TCP – transport; HTTP – application; Ethernet – data link. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q65"
+        },
+        {
+         "question": "Consider the following statements and choose the correct option:\nAssertion (A) : HTTP is used for sending mail.\nReason (R) : Email transmission uses SMTP for sending emails, not HTTP",
+         "options": {
+          "A": "Both (A) & (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) & (R) are false"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Mail between servers uses SMTP (webmail uses HTTP only between browser and mail server). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q66"
+        },
+        {
+         "question": "Consider the following statements and choose the correct option:\nAssertion (A) : HTTP is a stateless protocol\nReason (R) : HTTP does not retain any information about previous requests from the same client",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Cookies are used to keep state across requests. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q67"
+        },
+        {
+         "question": "Which of the following is the correct sequence of operations that occur when a user access a website?",
+         "options": {
+          "A": "DNS lookup → HTTP request → TCP connection → HTTP response → TCP termination",
+          "B": "DNS lookup → TCP connection → HTTP request → HTTP response → TCP termination",
+          "C": "TCP connection → DNS lookup → HTTP request → HTTP response → TCP termination",
+          "D": "DNS lookup → TCP connection → HTTP response → HTTP request → TCP termination"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q68"
+        },
+        {
+         "question": "Which of the following is true in the view of e-mail?\n(a) You can create folders to store & organize emails\n(b) You can add attachments of any size to an email\n(c) You can add signature to your emails to give personal contact details\n(d) Using cc feature, hides all recipients from each other",
+         "options": {
+          "A": "a & b only",
+          "B": "a & c only",
+          "C": "a & d only",
+          "D": "b, c & d only"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Attachments have size limits; Bcc (not Cc) hides recipients. (The paper prints 'cofeature, hides call recipients' in (d) – read as 'cc feature, hides all recipients'.) (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q81"
+        }
+       ]
+      },
+      {
+       "name": "3 · GTTC 2024 Lecturer CS",
+       "questions": [
+        {
+         "question": "Among the following protocols which is NOT used to resolve one form of address to another?",
+         "options": {
+          "A": "ARP",
+          "B": "RARP",
+          "C": "DNS",
+          "D": "DHCP"
+         },
+         "answer": "D",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "DHCP assigns addresses; ARP: IP→MAC, RARP: MAC→IP, DNS: name→IP. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q74"
+        },
+        {
+         "question": "Which of the following statements is TRUE regarding the TCP/IP reference model's application layer compared to OSI reference model's application layer, presentation layer and session layer?",
+         "options": {
+          "A": "The TCP/IP application layer combines all functionalities of the presentation and session layers of the OSI model",
+          "B": "The TCP/IP application layer focusses only on user level data interaction",
+          "C": "The OSI model includes physical addressing at the application layer",
+          "D": "The TCP/IP model separates application and session functionalities distinctly"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "TCP/IP has no separate session and presentation layers; their work is done in the application layer. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q76"
+        },
+        {
+         "question": "A pure-ALOHA network transmits 100-bit frames on a shared channel of 100 Kbps. What is the throughput if the system (all stations together) produces 1000 frames per second?",
+         "options": {
+          "A": "100 frames out of 1000 will probably survive.",
+          "B": "135 frames out of 1000 will probably survive",
+          "C": "256 frames out of 1000 will probably survive",
+          "D": "1000 frames out of 1000 will probably survive"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Frame time = 100/100 000 = 1 ms, so G = 1000 × 1 ms = 1; S = G·e^(−2G) = e^(−2) ≈ 0.135 → 135 frames. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q77"
+        },
+        {
+         "question": "In the context of different notations in IPV4 addressing, pick the ODD one out from the following",
+         "options": {
+          "A": "Binary",
+          "B": "Dotted-decimal",
+          "C": "Octal",
+          "D": "Hexadecimal"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Forouzan shows binary, dotted-decimal and hexadecimal notations. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q78"
+        },
+        {
+         "question": "In a typical switching process, what is the correct order of operations for a switch when it receives a frame?",
+         "options": {
+          "A": "Check MAC address table → Forward the frame → compare with routing table → Determine next hop → Forward pixel",
+          "B": "Discard if unknown MAC → Forward the frame → Add MAC address to table",
+          "C": "Receive frame → Determine destination MAC → check MAC address table → forward frame",
+          "D": "Forward frame → check MAC address table → Receive frame"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "A switch reads the destination MAC, looks it up in its table and forwards (or floods if unknown). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q79"
+        },
+        {
+         "question": "Imagine two hosts are connected to each other by a point-to-point and they implement the stop-and-wait protocol.\nIn which of the following scenarios the link utilization is the lowest?",
+         "options": {
+          "A": "Longer link length and lower transmission rate",
+          "B": "Longer link length and higher transmission rate",
+          "C": "Shorter link length and lower transmission rate",
+          "D": "Shorter link length and higher transmission rate"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Utilisation = Tt / (Tt + 2Tp); a long link (large Tp) with a high rate (small Tt) wastes the most time waiting. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q80"
+        },
+        {
+         "question": "A company has a secure wireless network with a maximum throughput of 600 Mbps. If 10 users are connected simultaneously and each is using 30 Mbps of bandwidth, what percentage of the total throughput is being utilized?",
+         "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "10 × 30 = 300 Mbps, which is half of 600 Mbps. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q81"
+        },
+        {
+         "question": "Identify the correct order of a general form of a HTTP response and choose the correct option\na. Response header field\nb. Blank line\nc. Response body\nd. Status line",
+         "options": {
+          "A": "b d c a",
+          "B": "d a b c",
+          "C": "d b c a",
+          "D": "c b a d"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Status line, headers, blank line, body. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q84"
+        },
+        {
+         "question": "In a HTTP request query string is commonly used in",
+         "options": {
+          "A": "GET method only",
+          "B": "POST method only",
+          "C": "PUT method only",
+          "D": "Both in GET and POST methods"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "KEA's key: the query string appears in the URL of GET requests; POST sends data in the body. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q86"
+        },
+        {
+         "question": "Redirection in HTTP has the following status code format",
+         "options": {
+          "A": "2XX",
+          "B": "3XX",
+          "C": "4XX",
+          "D": "5XX"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "301 moved permanently, 302 found, 304 not modified. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q89"
+        }
+       ]
+      },
+      {
+       "name": "4 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "Consider the following statements regarding the interconnection topology.\ni. In star topology, if the master node is dead, the other nodes (processor) can still interact with each other.\nii. In bus topology, only two processors can interact with each other at any one given point in time.\niii. In hyper cube topology, two nodes are connected if there is change in two bits in their processor identity (processor id)",
@@ -12091,7 +12769,7 @@
        ]
       },
       {
-       "name": "2 · KEA 2026 CS Paper-2",
+       "name": "5 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "Assume the stop-and-wait system, the bandwidth of the line is 1 Mbps and 1 bit takes 20 milliseconds to make a round trip. Compute bandwidth-delay product if the system data packets are 1000 bits in length. What is the utilization percentage of the link?",
@@ -12213,7 +12891,7 @@
        ]
       },
       {
-       "name": "3 · KSET 2024 CS&A",
+       "name": "6 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "If a carrier modulated by a digital bit stream has one of the possible phases of 0, 90, 180 and 270 degrees, such modulation is called as",
@@ -12335,7 +13013,7 @@
        ]
       },
       {
-       "name": "4 · KSET 2023 CS&A",
+       "name": "7 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "Consider a CSMA/CD network that transmits data at the rate of 100 Mbps (10⁸ bits per second) over 1 km cable without repeaters. Let the minimum frame size required for this network be 1250 bytes. Compute the signal speed of the cable, in terms of km/sec.",
@@ -12444,134 +13122,77 @@
        ]
       },
       {
-       "name": "5 · Legislative Council 2024 Junior Console Operator P2",
+       "name": "8 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
-         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
+         "question": "____ is a reliable connection-oriented transport protocol.",
          "options": {
-          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
-          "B": "MPLS uses labels to forward packets based on predetermined routes",
-          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
-          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
+          "A": "TCP",
+          "B": "UDP",
+          "C": "SMTP",
+          "D": "SCTP"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "KEA's key gives TCP (SCTP is also reliable and connection-oriented, but message-oriented). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q37"
+        },
+        {
+         "question": "In ____ topology, each device has a dedicated point-to-point connection with only the two devices on either side of it.",
+         "options": {
+          "A": "Bus",
+          "B": "Ring",
+          "C": "Mesh",
+          "D": "Star"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "In a ring, each device links to its two neighbours and the signal passes around the ring with repeaters. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q43"
+        },
+        {
+         "question": "Match the following:\na) LAN\nb) WAN\nc) Internet\nd) Protocol\ni. Connection of two or more networks that can communicate each other\nii. A Network limited in Size, spanning an office, building or a campus\niii. A Network has a wider geographical span, spanning a town, state, country or even the world\niv. Set of rules that govern data communication",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "A LAN covers a building or campus; a WAN covers a large area; an internet is a network of networks; a protocol is a set of rules. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q44"
+        },
+        {
+         "question": "Match the following to one or more layers of TCP/IP protocol suite.\na) route determination\nb) Connection to transmission media\nc) Providing services to the end-user\nd) Handling the frames between adjacent nodes\ni. Application layer\nii. Physical layer\niii. Network layer\niv. Data Link layer",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iii, b – ii, c – i, d – iv"
          },
          "answer": "D",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "'Multiprotocol' means MPLS can carry many protocols, not only IP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "Routing – network; media – physical; user services – application; frames between adjacent nodes – data link. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q46"
         },
         {
-         "question": "What is the maximum length of an MAC address?",
+         "question": "Which of the following protocols is commonly used in IoT for device communication?",
          "options": {
-          "A": "32 bits",
-          "B": "48 bits",
-          "C": "64 bits",
-          "D": "128 bits"
+          "A": "HTTP-Hypertext transfer protocol",
+          "B": "MQTT-Message queue telemetry transport",
+          "C": "FTP-file transfer Protocol",
+          "D": "POP3-Post office protocol version 3"
          },
          "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "An Ethernet MAC address is 48 bits, written as 12 hexadecimal digits, e.g. 07:01:02:01:2C:4B. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
-        },
-        {
-         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
-         "options": {
-          "A": "a – ii, b – i, c – iv, d – iii",
-          "B": "a – ii, b – iv, c – i, d – iii",
-          "C": "a – iv, b – ii, c – iii, d – i",
-          "D": "a – iv, b – iii, c – ii, d – i"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "OSI defines seven layers; TCP/IP is used in the Internet; the hybrid model combines both; the Internet model shows its structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
-        },
-        {
-         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
-         "options": {
-          "A": "Link layer",
-          "B": "Transport layer",
-          "C": "Application layer",
-          "D": "Network layer"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "TCP and UDP provide process-to-process (end-to-end) delivery. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
-        },
-        {
-         "question": "What is the primary function of physical layer in the OSI model?",
-         "options": {
-          "A": "Provides routing of packets across networks",
-          "B": "Transmits raw bitstream over the physical medium",
-          "C": "Handles error correction and retransmission",
-          "D": "Manages data transfer between applications"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "It deals with bits, signals, connectors and the medium. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "MQTT is a lightweight publish–subscribe protocol (port 1883). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q68"
         }
        ]
       },
       {
-       "name": "6 · GTTC 2024 Lecturer CS",
-       "questions": [
-        {
-         "question": "Which of the following statements is TRUE regarding the TCP/IP reference model's application layer compared to OSI reference model's application layer, presentation layer and session layer?",
-         "options": {
-          "A": "The TCP/IP application layer combines all functionalities of the presentation and session layers of the OSI model",
-          "B": "The TCP/IP application layer focusses only on user level data interaction",
-          "C": "The OSI model includes physical addressing at the application layer",
-          "D": "The TCP/IP model separates application and session functionalities distinctly"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Lecturer CS",
-         "explanation": "TCP/IP has no separate session and presentation layers; their work is done in the application layer. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q76"
-        },
-        {
-         "question": "In a typical switching process, what is the correct order of operations for a switch when it receives a frame?",
-         "options": {
-          "A": "Check MAC address table → Forward the frame → compare with routing table → Determine next hop → Forward pixel",
-          "B": "Discard if unknown MAC → Forward the frame → Add MAC address to table",
-          "C": "Receive frame → Determine destination MAC → check MAC address table → forward frame",
-          "D": "Forward frame → check MAC address table → Receive frame"
-         },
-         "answer": "C",
-         "subject": "GTTC 2024 Lecturer CS",
-         "explanation": "A switch reads the destination MAC, looks it up in its table and forwards (or floods if unknown). (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q79"
-        },
-        {
-         "question": "Imagine two hosts are connected to each other by a point-to-point and they implement the stop-and-wait protocol.\nIn which of the following scenarios the link utilization is the lowest?",
-         "options": {
-          "A": "Longer link length and lower transmission rate",
-          "B": "Longer link length and higher transmission rate",
-          "C": "Shorter link length and lower transmission rate",
-          "D": "Shorter link length and higher transmission rate"
-         },
-         "answer": "B",
-         "subject": "GTTC 2024 Lecturer CS",
-         "explanation": "Utilisation = Tt / (Tt + 2Tp); a long link (large Tp) with a high rate (small Tt) wastes the most time waiting. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q80"
-        },
-        {
-         "question": "A company has a secure wireless network with a maximum throughput of 600 Mbps. If 10 users are connected simultaneously and each is using 30 Mbps of bandwidth, what percentage of the total throughput is being utilized?",
-         "options": {
-          "A": "25%",
-          "B": "50%",
-          "C": "75%",
-          "D": "100%"
-         },
-         "answer": "B",
-         "subject": "GTTC 2024 Lecturer CS",
-         "explanation": "10 × 30 = 300 Mbps, which is half of 600 Mbps. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q81"
-        }
-       ]
-      },
-      {
-       "name": "7 · Legislative Council 2024 Data Entry Operator P2",
+       "name": "9 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
          "question": "Data transmission used in walkie-talkie is",
@@ -12628,7 +13249,7 @@
        ]
       },
       {
-       "name": "8 · Other papers",
+       "name": "10 · Other papers",
        "questions": [
         {
          "question": "Suppose a digitized voice channel is made by digitizing 6 kHz bandwidth analog voice signal. It is required to sample the signal at twice the highest frequency (two samples per Hertz). What is the bit rate required, if it is assumed that each sample requires 8 bits ?",
@@ -12670,45 +13291,6 @@
          "source": "GFGC 2021 CS · Q105"
         },
         {
-         "question": "In ____ topology, each device has a dedicated point-to-point connection with only the two devices on either side of it.",
-         "options": {
-          "A": "Bus",
-          "B": "Ring",
-          "C": "Mesh",
-          "D": "Star"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "In a ring, each device links to its two neighbours and the signal passes around the ring with repeaters. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q43"
-        },
-        {
-         "question": "Match the following:\na) LAN\nb) WAN\nc) Internet\nd) Protocol\ni. Connection of two or more networks that can communicate each other\nii. A Network limited in Size, spanning an office, building or a campus\niii. A Network has a wider geographical span, spanning a town, state, country or even the world\niv. Set of rules that govern data communication",
-         "options": {
-          "A": "a – ii, b – iii, c – i, d – iv",
-          "B": "a – i, b – ii, c – iv, d – iii",
-          "C": "a – ii, b – i, c – iii, d – iv",
-          "D": "a – iv, b – ii, c – i, d – iii"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "A LAN covers a building or campus; a WAN covers a large area; an internet is a network of networks; a protocol is a set of rules. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q44"
-        },
-        {
-         "question": "Match the following to one or more layers of TCP/IP protocol suite.\na) route determination\nb) Connection to transmission media\nc) Providing services to the end-user\nd) Handling the frames between adjacent nodes\ni. Application layer\nii. Physical layer\niii. Network layer\niv. Data Link layer",
-         "options": {
-          "A": "a – i, b – ii, c – iii, d – iv",
-          "B": "a – ii, b – iii, c – iv, d – i",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – iii, b – ii, c – i, d – iv"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "Routing – network; media – physical; user services – application; frames between adjacent nodes – data link. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q46"
-        },
-        {
          "question": "The device identification on a network is done by",
          "options": {
           "A": "TCP/IP",
@@ -12720,45 +13302,6 @@
          "subject": "Other papers",
          "explanation": "The key's answer: devices are identified by IP addresses under the TCP/IP suite (and MAC addresses on the local link). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q99"
-        },
-        {
-         "question": "Which of the following are the examples of internet layer protocols in the TCP/IP model?\n(a) TCP\n(b) IP\n(c) ARP\n(d) HTTP",
-         "options": {
-          "A": "a and b",
-          "B": "b and c",
-          "C": "a, c and d",
-          "D": "a, b and c"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "IP and ARP work at the internet (network) layer; TCP is transport and HTTP is application. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q57"
-        },
-        {
-         "question": "Match the following types of network topologies with their characteristics.\nTopology\n(a) Star\n(b) Ring\n(c) Bus\n(d) Mesh\nCharacteristics\ni) Every device is connected to every other device\nii) All devices share a single communication medium\niii) Each device is connected to its neighbour in circular fashion\niv) Single central device controls communication",
-         "options": {
-          "A": "a – iii, b – ii, c – iv, d – i",
-          "B": "a – i, b – iii, c – ii, d – iv",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – ii, b – iii, c – iv, d – i"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Star – central hub/switch; ring – circular; bus – one shared cable; mesh – every device to every other. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q61"
-        },
-        {
-         "question": "Match the following Internal Protocols with their layer in OSI model.\nProtocol\n(a) IP\n(b) TCP\n(c) HTTP\n(d) Ethernet\nLayer\ni) Datalink layer\nii) Application layer\niii) Transport layer\niv) Network layer",
-         "options": {
-          "A": "a – i, b – iii, c – iii, d – iv",
-          "B": "a – i, b – iii, c – ii, d – iv",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – iv, b – ii, c – iii, d – i"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "IP – network; TCP – transport; HTTP – application; Ethernet – data link. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q65"
         },
         {
          "question": "Which protocol does the PPP protocol provide for handling the capabilities of the connection/link on the network?",

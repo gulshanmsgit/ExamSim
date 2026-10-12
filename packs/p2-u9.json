@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 9 — Data Communication & Networks",
- "description": "5 of 14 topics so far (10 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "9 of 14 topics so far (18 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; Transport Layer; World Wide Web & Applications. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 9 – Data Communication & Networks",
@@ -3720,6 +3720,2993 @@
          "answer": "C",
          "subject": "Flow and Error Control – Stop-and-Wait, Sliding Window, HDLC and PPP",
          "explanation": "HDLC uses bit stuffing; PPP uses byte stuffing."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Multiple Access, Devices & VLANs",
+     "sets": [
+      {
+       "name": "1 · Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+       "questions": [
+        {
+         "question": "A pure-ALOHA network transmits 100-bit frames on a shared channel of 100 Kbps. What is the throughput if the system (all stations together) produces 1000 frames per second?",
+         "options": {
+          "A": "100 frames out of 1000 will probably survive.",
+          "B": "135 frames out of 1000 will probably survive",
+          "C": "256 frames out of 1000 will probably survive",
+          "D": "1000 frames out of 1000 will probably survive"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Frame time = 100/100 000 = 1 ms, so G = 1000 × 1 ms = 1; S = G·e^(−2G) = e^(−2) ≈ 0.135 → 135 frames. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q77"
+        },
+        {
+         "question": "Consider a CSMA/CD network that transmits data at the rate of 100 Mbps (10⁸ bits per second) over 1 km cable without repeaters. Let the minimum frame size required for this network be 1250 bytes. Compute the signal speed of the cable, in terms of km/sec.",
+         "options": {
+          "A": "10000",
+          "B": "20000",
+          "C": "15000",
+          "D": "24000"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Frame = 10,000 bits → transmission time 10⁻⁴ s = 2 × propagation time, so propagation = 5 × 10⁻⁵ s for 1 km → 20,000 km/s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q61"
+        },
+        {
+         "question": "Which of the following statements are true about ethernet protocol?\na) Ethernet operates at the data link layer of the OSI model\nb) Ethernet uses MAC addresses to identify devices within local network\nc) Ethernet is a wireless communication protocol\nd) Ethernet uses a token based method for collision detection.",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a and d only",
+          "D": "c and d only"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Ethernet is wired (IEEE 802.3) and uses CSMA/CD, not tokens. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q4"
+        },
+        {
+         "question": "The maximum throughput of pure ALOHA and slotted ALOHA is respectively about:",
+         "options": {
+          "A": "50% and 100%",
+          "B": "36.8% and 18.4%",
+          "C": "18.4% and 18.4%",
+          "D": "18.4% (at G = 0.5) and 36.8% (at G = 1)"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pure: S = G·e^(−2G); slotted: S = G·e^(−G). Slotting halves the vulnerable time."
+        },
+        {
+         "question": "The vulnerable time for pure ALOHA and for slotted ALOHA is respectively (Tfr = frame transmission time):",
+         "options": {
+          "A": "4 × Tfr and 2 × Tfr",
+          "B": "Tfr and Tfr",
+          "C": "2 × Tfr and Tfr",
+          "D": "Tfr and 2 × Tfr"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Fewer collisions in slotted ALOHA because frames start only at slot boundaries."
+        },
+        {
+         "question": "A slotted-ALOHA channel has 1 ms slots and stations together generate 1000 frames per second. About how many frames per second succeed?",
+         "options": {
+          "A": "500",
+          "B": "135",
+          "C": "1000",
+          "D": "368"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). G = 1; S = G·e^(−G) = e^(−1) ≈ 0.368 → 368 frames/s (the maximum)."
+        },
+        {
+         "question": "In CSMA/CD, to detect a collision before the last bit is sent, the frame transmission time must be at least:",
+         "options": {
+          "A": "Zero",
+          "B": "Half the propagation time",
+          "C": "Equal to the propagation time",
+          "D": "Twice the maximum propagation time (Tfr ≥ 2 × Tp)"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "That is why classic Ethernet has a minimum frame size of 64 bytes."
+        },
+        {
+         "question": "A 10 Mbps CSMA/CD network has a maximum round-trip propagation time of 51.2 µs. The minimum frame size is:",
+         "options": {
+          "A": "256 bits",
+          "B": "64 bits",
+          "C": "512 bits (64 bytes)",
+          "D": "1024 bits"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Minimum frame = bandwidth × 2Tp = 10⁷ × 51.2 × 10⁻⁶ = 512 bits."
+        },
+        {
+         "question": "In the 1-persistent method of CSMA, a station that finds the line idle:",
+         "options": {
+          "A": "Waits a random time first",
+          "B": "Sends its frame immediately (probability 1)",
+          "C": "Sends with probability p",
+          "D": "Never sends"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Non-persistent waits a random time if busy; p-persistent sends with probability p in slotted channels."
+        },
+        {
+         "question": "In Ethernet's binary exponential backoff, after the k-th collision a station waits a random number of slots chosen from:",
+         "options": {
+          "A": "0 to k",
+          "B": "0 to 2k",
+          "C": "Always 1 slot",
+          "D": "0 to 2^k − 1 (k capped at 10)"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). After about 15 attempts the frame is aborted."
+        },
+        {
+         "question": "CSMA/CA is used in wireless LANs instead of CSMA/CD mainly because:",
+         "options": {
+          "A": "Wireless needs tokens",
+          "B": "Wireless stations cannot reliably detect collisions while transmitting, and hidden stations exist",
+          "C": "Collisions never happen in wireless",
+          "D": "Wireless is faster"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "CSMA/CA uses IFS, a contention window and acknowledgements; RTS/CTS solves the hidden-station problem."
+        },
+        {
+         "question": "The hidden-station problem in wireless LANs is reduced using:",
+         "options": {
+          "A": "Parity bits",
+          "B": "Bit stuffing",
+          "C": "RTS/CTS handshake",
+          "D": "Token passing"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). CTS from the receiver tells hidden stations to keep quiet (NAV)."
+        },
+        {
+         "question": "Match the controlled-access methods:\na. Reservation\nb. Polling\nc. Token passing\n\n1. A primary station asks secondaries whether they have data (poll/select)\n2. A station may send only when it holds a special frame\n3. Stations reserve slots in a reservation frame before sending",
+         "options": {
+          "A": "a-3, b-1, c-2",
+          "B": "a-2, b-1, c-3",
+          "C": "a-3, b-2, c-1",
+          "D": "a-1, b-3, c-2"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Controlled access avoids collisions entirely."
+        },
+        {
+         "question": "In polling, the 'select' function is used when the primary:",
+         "options": {
+          "A": "Detects a collision",
+          "B": "Wants to receive data",
+          "C": "Has something to send to a secondary",
+          "D": "Loses the token"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). The 'poll' function asks secondaries if they have data to send."
+        },
+        {
+         "question": "FDMA, TDMA and CDMA are examples of:",
+         "options": {
+          "A": "Error-control protocols",
+          "B": "Channelization (channel partitioning) protocols",
+          "C": "Random-access protocols",
+          "D": "Routing protocols"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "FDMA divides frequency, TDMA divides time, CDMA uses different codes on the same channel at the same time."
+        },
+        {
+         "question": "In CDMA, the chip sequences assigned to stations are:",
+         "options": {
+          "A": "Random letters",
+          "B": "Prime numbers",
+          "C": "Identical for all",
+          "D": "Orthogonal (inner product of different sequences = 0), e.g. Walsh codes"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). The inner product of a sequence with itself equals the number of chips; with another sequence it is 0."
+        },
+        {
+         "question": "Two stations use CDMA chips C1 = [+1 +1] and C2 = [+1 −1]. Station 1 sends bit 1 (+1) and station 2 sends bit 0 (−1). The channel carries:",
+         "options": {
+          "A": "[0 +2]",
+          "B": "[+2 0]",
+          "C": "[0 0]",
+          "D": "[+1 −1]"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "(+1)·[+1 +1] + (−1)·[+1 −1] = [0 +2]; multiplying by C1 and dividing by 2 gives +1 (bit 1)."
+        },
+        {
+         "question": "In token ring, if the token is lost, it is regenerated by the:",
+         "options": {
+          "A": "DNS server",
+          "B": "Router",
+          "C": "Bridge",
+          "D": "Monitor station"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Token-holding time limits how long a station keeps the token."
+        },
+        {
+         "question": "Which IEEE standard defines Ethernet?",
+         "options": {
+          "A": "IEEE 802.15",
+          "B": "IEEE 802.3",
+          "C": "IEEE 802.11",
+          "D": "IEEE 802.5"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "802.11 – Wi-Fi; 802.5 – token ring; 802.15 – Bluetooth/WPAN."
+        },
+        {
+         "question": "An Ethernet MAC address is:",
+         "options": {
+          "A": "16 bits",
+          "B": "128 bits",
+          "C": "48 bits, written as six hexadecimal bytes",
+          "D": "32 bits in dotted decimal"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). If the least significant bit of the first byte is 1, it is a multicast address; all 1s is broadcast."
+        },
+        {
+         "question": "The minimum and maximum lengths of a standard Ethernet frame (excluding preamble and SFD) are:",
+         "options": {
+          "A": "46 bytes and 1500 bytes",
+          "B": "64 bytes and 1518 bytes",
+          "C": "18 bytes and 1518 bytes",
+          "D": "64 bytes and 1500 bytes"
+         },
+         "answer": "B",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Payload 46–1500 bytes plus 18 bytes of header and CRC."
+        },
+        {
+         "question": "Assertion (A): Collisions cannot occur in a properly working token-passing network.\nReason (R): Only the station holding the token may transmit.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Controlled access gives collision-free transmission."
+        },
+        {
+         "question": "Consider the statements:\nI. In p-persistent CSMA, a station that finds the line idle sends with probability p.\nII. CSMA completely eliminates collisions.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Only I: collisions remain possible because of propagation delay."
+        },
+        {
+         "question": "In CSMA/CA, the 'interframe space' (IFS) is used to:",
+         "options": {
+          "A": "Wait after sensing an idle channel and give priority classes before contending",
+          "B": "Detect collisions",
+          "C": "Assign IP addresses",
+          "D": "Encrypt frames"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Shorter IFS (SIFS) gives higher priority, e.g. for ACK and CTS."
+        },
+        {
+         "question": "Throughput of slotted ALOHA is maximum when the offered load G equals:",
+         "options": {
+          "A": "0.5",
+          "B": "2",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). dS/dG = 0 gives G = 1 for S = G·e^(−G)."
+        },
+        {
+         "question": "Which of the following is a random-access protocol?",
+         "options": {
+          "A": "TDMA",
+          "B": "Polling",
+          "C": "CSMA/CD",
+          "D": "Token passing"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Random access: ALOHA, CSMA, CSMA/CD, CSMA/CA."
+        },
+        {
+         "question": "GSM combines which two channel-access methods?",
+         "options": {
+          "A": "ALOHA and CSMA",
+          "B": "Token passing and polling",
+          "C": "CDMA and CSMA",
+          "D": "FDMA and TDMA"
+         },
+         "answer": "D",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each 200 kHz carrier is time-shared by eight users."
+        },
+        {
+         "question": "Assertion (A): CDMA allows many stations to use the whole bandwidth at the same time.\nReason (R): In CDMA each station is given a different frequency band.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "R describes FDMA; CDMA separates stations by code."
+        },
+        {
+         "question": "In switched (full-duplex) Ethernet:",
+         "options": {
+          "A": "Each station has a dedicated link to the switch, so CSMA/CD is not needed",
+          "B": "All stations share one collision domain",
+          "C": "Only one station can send at a time",
+          "D": "Token passing is used"
+         },
+         "answer": "A",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Fast, Gigabit and 10-Gigabit Ethernet are normally full-duplex."
+        },
+        {
+         "question": "Manchester encoding is used in standard (10 Mbps) Ethernet because:",
+         "options": {
+          "A": "It removes the need for CRC",
+          "B": "It uses less bandwidth",
+          "C": "It provides synchronisation with a transition in the middle of each bit",
+          "D": "It doubles the data rate"
+         },
+         "answer": "C",
+         "subject": "Random, Controlled and Channelization Access (ALOHA, CSMA/CD, CSMA/CA, Polling, Token Passing, FDMA, TDMA, CDMA)",
+         "explanation": "Fast Ethernet uses 4B/5B with MLT-3; Gigabit uses 8B/10B or 4D-PAM5."
+        }
+       ]
+      },
+      {
+       "name": "2 · Connecting Devices, Backbone Networks and VLANs",
+       "questions": [
+        {
+         "question": "What is the purpose of a router in a network?",
+         "options": {
+          "A": "To store data",
+          "B": "To provide a wireless connection",
+          "C": "To direct internet traffic",
+          "D": "To cool down the network"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "A router forwards packets between networks. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q16"
+        },
+        {
+         "question": "Which of the following is the primary role of a router in a network?",
+         "options": {
+          "A": "To regulate the flow of data between devices within the same network",
+          "B": "To forward packets between different network based on IP addresses",
+          "C": "To maintain the list of MAC addresses in the network",
+          "D": "To store data packets temporarily before forwarding them."
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Keeping a MAC table is the job of a switch (link layer). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q54"
+        },
+        {
+         "question": "Match the devices with the highest OSI layer at which they work:\na. Repeater/hub\nb. Bridge/two-layer switch\nc. Router\nd. Gateway\n\n1. Up to the application layer (protocol conversion)\n2. Physical layer\n3. Network layer\n4. Data link layer",
+         "options": {
+          "A": "a-2, b-3, c-4, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-2, b-4, c-3, d-1"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). A three-layer switch is a router with faster forwarding."
+        },
+        {
+         "question": "A repeater differs from an amplifier in that it:",
+         "options": {
+          "A": "Routes packets by IP address",
+          "B": "Filters frames by MAC address",
+          "C": "Converts protocols",
+          "D": "Regenerates the original bit pattern instead of amplifying the whole signal including noise"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "A repeater connects segments of the same LAN; it does not filter."
+        },
+        {
+         "question": "A 24-port switch (with no VLANs) connects 24 PCs. The number of collision domains and broadcast domains is:",
+         "options": {
+          "A": "1 collision domain, 24 broadcast domains",
+          "B": "24 collision domains, 1 broadcast domain",
+          "C": "24 and 24",
+          "D": "1 and 1"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each switch port is its own collision domain; a router (or VLAN) is needed to split broadcast domains."
+        },
+        {
+         "question": "A 16-port hub connects 16 PCs. The number of collision domains is:",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "16",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "A hub is a multiport repeater – all ports share one collision domain."
+        },
+        {
+         "question": "A learning bridge builds its table by:",
+         "options": {
+          "A": "Reading the destination port number",
+          "B": "Using IP routing tables",
+          "C": "Asking the DNS server",
+          "D": "Recording the source MAC address of each incoming frame against the port it arrived on"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Unknown destinations are flooded on all ports except the incoming one."
+        },
+        {
+         "question": "The Spanning Tree Protocol (IEEE 802.1D) in bridged LANs is used to:",
+         "options": {
+          "A": "Increase bandwidth",
+          "B": "Prevent loops by creating a loop-free logical topology",
+          "C": "Encrypt frames",
+          "D": "Assign IP addresses"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Redundant links are blocked but remain available as backups."
+        },
+        {
+         "question": "A VLAN (virtual LAN) is:",
+         "options": {
+          "A": "A type of router",
+          "B": "A separate physical cable",
+          "C": "A logical grouping of stations into one broadcast domain by software, regardless of physical location",
+          "D": "A wireless LAN"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Membership can be by port, MAC address, IP address or multicast."
+        },
+        {
+         "question": "The IEEE standard for VLAN frame tagging (trunking) is:",
+         "options": {
+          "A": "802.11ac",
+          "B": "802.5",
+          "C": "802.3u",
+          "D": "802.1Q"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "It inserts a 4-byte tag with a 12-bit VLAN ID (up to 4094 usable VLANs)."
+        },
+        {
+         "question": "Which statement about VLANs is correct?",
+         "options": {
+          "A": "VLANs reduce broadcast traffic and improve security; communication between VLANs needs a router or layer-3 switch",
+          "B": "VLAN members must be on the same floor",
+          "C": "VLANs increase collision domains to one",
+          "D": "VLANs need separate switches for each group"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). VLANs split one switched LAN into several logical broadcast domains; traffic between them must be routed."
+        },
+        {
+         "question": "A gateway is used to:",
+         "options": {
+          "A": "Connect networks using different protocols and translate between them",
+          "B": "Regenerate signals",
+          "C": "Store web pages",
+          "D": "Filter frames by MAC address only"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "In TCP/IP usage, 'default gateway' means the router that leads out of the local network."
+        },
+        {
+         "question": "In a star backbone, the backbone is:",
+         "options": {
+          "A": "A satellite link",
+          "B": "A single switch connecting the LANs",
+          "C": "A ring of routers",
+          "D": "A long bus cable"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). A bus backbone connects LANs through bridges on a shared medium; star backbones are common in buildings."
+        },
+        {
+         "question": "A NIC (network interface card) works at:",
+         "options": {
+          "A": "The physical and data link layers, and carries the station's MAC address",
+          "B": "Only the application layer",
+          "C": "Only the network layer",
+          "D": "The transport layer"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "The MAC address is burned into the NIC by the manufacturer."
+        },
+        {
+         "question": "The main difference between a switch and a hub is that a switch:",
+         "options": {
+          "A": "Works only at the physical layer",
+          "B": "Broadcasts every frame to all ports",
+          "C": "Forwards a frame only to the port of the destination MAC address",
+          "D": "Cannot connect computers"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). This reduces collisions and improves security and throughput."
+        },
+        {
+         "question": "A router's forwarding decision is based on:",
+         "options": {
+          "A": "The port number of the application",
+          "B": "The source MAC address",
+          "C": "The frame's CRC",
+          "D": "The destination IP address and the routing table"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Routers also separate broadcast domains."
+        },
+        {
+         "question": "A modem is needed to:",
+         "options": {
+          "A": "Store e-mail",
+          "B": "Route IP packets",
+          "C": "Resolve domain names",
+          "D": "Convert digital data to analog signals for transmission over telephone lines and back"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Modulator–demodulator; DSL modems use the telephone line's higher frequencies."
+        },
+        {
+         "question": "A wireless access point (AP) mainly:",
+         "options": {
+          "A": "Assigns MAC addresses",
+          "B": "Connects wireless stations to a wired network (BSS with an AP – infrastructure mode)",
+          "C": "Acts as a DNS server",
+          "D": "Is a repeater for fibre"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "A BSS without an AP is an ad hoc network; multiple BSSs joined by a distribution system form an ESS."
+        },
+        {
+         "question": "Assertion (A): A router breaks up broadcast domains.\nReason (R): A router does not forward link-layer broadcast frames to other networks.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each router interface is a separate broadcast domain."
+        },
+        {
+         "question": "Consider the statements:\nI. A bridge can connect two LAN segments and filter frames by MAC address.\nII. A hub can filter frames using MAC addresses.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Only I: a hub has no filtering capability."
+        },
+        {
+         "question": "A 'three-layer switch' is best described as:",
+         "options": {
+          "A": "A router that uses fast switching hardware to forward packets",
+          "B": "A hub with three ports",
+          "C": "A modem",
+          "D": "A repeater for three segments"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "A two-layer switch is a bridge with many ports."
+        },
+        {
+         "question": "Which device would you use to connect a LAN to the Internet?",
+         "options": {
+          "A": "Hub",
+          "B": "Repeater",
+          "C": "Router",
+          "D": "Passive coaxial tap"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Home 'Wi-Fi routers' combine router, switch, access point and NAT."
+        },
+        {
+         "question": "Which of the following is a passive device?",
+         "options": {
+          "A": "A passive hub (connector)",
+          "B": "A gateway",
+          "C": "A router",
+          "D": "A layer-3 switch"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Passive hubs just connect wires; active hubs regenerate the signal."
+        },
+        {
+         "question": "When a switch receives a frame for a destination MAC address not in its table, it:",
+         "options": {
+          "A": "Drops it",
+          "B": "Sends it to the DNS server",
+          "C": "Sends it back",
+          "D": "Floods the frame out of all ports except the one it came in on"
+         },
+         "answer": "D",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Once the destination replies, the switch learns its port."
+        },
+        {
+         "question": "Assertion (A): VLANs can group users of the same department on different floors.\nReason (R): VLAN membership depends only on the physical port location of each switch.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "R is false: membership is logical and may be by port, MAC address or IP address; switches share membership information."
+        },
+        {
+         "question": "Which device operates at the physical layer only?",
+         "options": {
+          "A": "Bridge",
+          "B": "Router",
+          "C": "Repeater",
+          "D": "Gateway"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Bridges – data link; routers – network; gateways – up to application."
+        },
+        {
+         "question": "A firewall placed between a private network and the Internet:",
+         "options": {
+          "A": "Assigns MAC addresses",
+          "B": "Filters packets according to security rules",
+          "C": "Acts as a DNS root server",
+          "D": "Amplifies signals"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Packet-filter firewalls work at the network/transport layer; proxy firewalls at the application layer."
+        },
+        {
+         "question": "Connecting devices: which one is used to divide a large LAN into smaller segments to reduce traffic while staying one IP network?",
+         "options": {
+          "A": "Gateway",
+          "B": "Bridge or switch",
+          "C": "Modem",
+          "D": "Router"
+         },
+         "answer": "B",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Bridges filter traffic between segments without changing the IP network."
+        },
+        {
+         "question": "Consider the statements:\nI. A VLAN trunk link carries frames of several VLANs between switches.\nII. Frames on a trunk link carry a VLAN tag.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Both are correct (IEEE 802.1Q)."
+        },
+        {
+         "question": "Backbone networks are used to:",
+         "options": {
+          "A": "Connect several LANs, often of the same or different types",
+          "B": "Store backups",
+          "C": "Replace all routers",
+          "D": "Connect a CPU to memory"
+         },
+         "answer": "A",
+         "subject": "Connecting Devices, Backbone Networks and VLANs",
+         "explanation": "Common designs: bus backbone, star backbone, and remote LANs connected by point-to-point links."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "IPv4 Addressing",
+     "sets": [
+      {
+       "name": "1 · IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+       "questions": [
+        {
+         "question": "Which of the following are the valid IP addresses classes in IPV4?\n(a) Class A  (b) Class B\n(c) Class E  (d) Class C",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and d only",
+          "C": "a, b and c only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "KEA's key treats classes A, B and C as the usable unicast classes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q55"
+        },
+        {
+         "question": "What is the maximum number of devices that can be addressed using a class C IP address?",
+         "options": {
+          "A": "254",
+          "B": "256",
+          "C": "512",
+          "D": "1024"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "2⁸ − 2 = 254 (network and broadcast addresses excluded). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q3"
+        },
+        {
+         "question": "Match the following IP address classes with their default subnet mask\nIP address class: a. Class A  b. Class B  c. Class C  d. Class D\nSubnet mask: i. 255.255.0.0  ii. 255.255.255.0  iii. 255.0.0.0.  iv. N/A (Multicast Address)",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "A /8, B /16, C /24; class D is multicast with no mask. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q12"
+        },
+        {
+         "question": "What does the subnet mask in IP configuration do?",
+         "options": {
+          "A": "It determines the default gateway for the network",
+          "B": "It specifies the range of IP addresses in the network",
+          "C": "It encrypts the data sent over the network",
+          "D": "It translates domain names to IP addresses"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "ANDing an address with the mask gives the network address. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q52"
+        },
+        {
+         "question": "Match the following types of Internet addresses with their purpose\na. IPV4  b. IPV6  c. Private address  d. Public address\ni. Used for local N/W communication  ii. 32-bit address format  iii. 128-bit address format  iv. Used for communication over internet",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Private ranges: 10/8, 172.16/12, 192.168/16. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q60"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): IPV4 addresses consist of 128 bits\nReason (R): Uses a 32 bit address format",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "IPv4 = 32 bits; IPv6 = 128 bits. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q62"
+        },
+        {
+         "question": "Match the following IP address classes with their range\na. Class A  b. Class B  c. Class C  d. Class D\ni) 0.0.0.0 to 127.255.255.255  ii) 192.0.0.0 to 223.225.255.255  iii) 128.0.0.0 to 191.255.255.255  iv) 224.0.0.0 to 239.255.255.255",
+         "options": {
+          "A": "a – i, b – iii, c – ii, d – iv",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Class E is 240.0.0.0–255.255.255.255 (reserved). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q65"
+        },
+        {
+         "question": "Which of the following is a disadvantage of NAT (Network address Translation)?",
+         "options": {
+          "A": "It allows devices on the private network to access the public internet",
+          "B": "It simplifies the IP address allocation scheme",
+          "C": "It can cause issues with protocols that require end-to-end connectivity",
+          "D": "It consumes a lot of network bandwidth."
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "NAT hides private hosts behind one public address, breaking end-to-end addressing for some protocols (e.g. some VoIP, IPsec). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q66"
+        },
+        {
+         "question": "In the context of different notations in IPV4 addressing, pick the ODD one out from the following",
+         "options": {
+          "A": "Binary",
+          "B": "Dotted-decimal",
+          "C": "Octal",
+          "D": "Hexadecimal"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Forouzan shows binary, dotted-decimal and hexadecimal notations. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q78"
+        },
+        {
+         "question": "Match the following for IPv4 addressing and select the correct key\na) class A\nb) class B\nc) class C\nd) class D\n(i) 2 bytes for network portion, 2 bytes for host portion\n(ii) multicasting\n(iii) 1 byte for network portion, 3 bytes for host portion\n(iv) 3 portions for network portion, 1 byte for host portion",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – iii, b – i, c – iv, d – ii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Class A = 8 network bits, class B = 16, class C = 24; class D addresses are for multicast. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q82"
+        },
+        {
+         "question": "Match the following:\ni. 0.0.0.0\nii. 127.255.255.255\niii. 192.0.2.0/24\niv. 224.0.0.1\n(a) Documentation/examples (RFC 5737)\n(b) Multicast address for all hosts on a subnet\n(c) Unknown or default route address\n(d) Local host loopback testing",
+         "options": {
+          "A": "i – c, ii – d, iii – a, iv – b",
+          "B": "i – d, ii – a, iii – b, iv – c",
+          "C": "i – b, ii – c, iii – a, iv – d",
+          "D": "i – b, ii – a, iii – d, iv – c"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "0.0.0.0 = default/unknown, 127.x.x.x = loopback, 192.0.2.0/24 = TEST-NET-1, 224.0.0.1 = all-hosts multicast. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q87"
+        },
+        {
+         "question": "The total IPv4 address space is:",
+         "options": {
+          "A": "2¹⁶ addresses",
+          "B": "2⁶⁴ addresses",
+          "C": "2¹²⁸ addresses",
+          "D": "2³² ≈ 4.29 billion addresses"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). Address depletion led to CIDR, NAT and IPv6."
+        },
+        {
+         "question": "In the block 205.16.37.39/28, the first (network) and last addresses are:",
+         "options": {
+          "A": "205.16.37.39 and 205.16.37.54",
+          "B": "205.16.37.0 and 205.16.37.255",
+          "C": "205.16.37.16 and 205.16.37.31",
+          "D": "205.16.37.32 and 205.16.37.47"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "/28 keeps the top 4 bits of the last byte: 39 = 0010 0111 → 0010 0000 = 32; block size 16 → last = 47."
+        },
+        {
+         "question": "How many usable host addresses are in a /26 block?",
+         "options": {
+          "A": "64",
+          "B": "30",
+          "C": "126",
+          "D": "62"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2⁶ = 64 addresses minus network and broadcast = 62."
+        },
+        {
+         "question": "A /20 prefix corresponds to the subnet mask:",
+         "options": {
+          "A": "255.255.224.0",
+          "B": "255.240.0.0",
+          "C": "255.255.255.240",
+          "D": "255.255.240.0"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "20 ones: 255.255.(11110000)=240.0."
+        },
+        {
+         "question": "192.168.10.0/24 is divided into 4 equal subnets. The new mask is:",
+         "options": {
+          "A": "255.255.255.128 (/25)",
+          "B": "255.255.255.192 (/26)",
+          "C": "255.255.255.224 (/27)",
+          "D": "255.255.255.240 (/28)"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). Borrowing 2 bits gives 4 subnets of 64 addresses: .0, .64, .128, .192."
+        },
+        {
+         "question": "The directed broadcast address of the network 172.16.0.0/16 is:",
+         "options": {
+          "A": "255.255.255.255",
+          "B": "172.16.0.255",
+          "C": "172.16.255.255",
+          "D": "172.255.255.255"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "255.255.255.255 is the limited broadcast (this network only)."
+        },
+        {
+         "question": "Which of these is a private IPv4 address?",
+         "options": {
+          "A": "172.32.5.9",
+          "B": "192.169.1.1",
+          "C": "11.0.0.1",
+          "D": "172.20.5.9"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). 172.16.0.0–172.31.255.255 is private; 172.32.x.x is public."
+        },
+        {
+         "question": "Addresses beginning with 127 (e.g. 127.0.0.1) are used for:",
+         "options": {
+          "A": "Multicast",
+          "B": "Loopback testing of the local host",
+          "C": "Private networks",
+          "D": "Broadcast to all networks"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Packets sent to 127.x never leave the host."
+        },
+        {
+         "question": "Classless Inter-Domain Routing (CIDR) mainly helps by:",
+         "options": {
+          "A": "Encrypting addresses",
+          "B": "Making all networks class A",
+          "C": "Allocating variable-size blocks and aggregating routes (supernetting)",
+          "D": "Removing subnet masks"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). A block of 2ⁿ addresses must start at an address divisible by 2ⁿ."
+        },
+        {
+         "question": "Borrowing 3 host bits for subnetting a class C network creates how many subnets?",
+         "options": {
+          "A": "16",
+          "B": "6",
+          "C": "3",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "2³ = 8 subnets, each of 32 addresses (30 usable hosts)."
+        },
+        {
+         "question": "In classful addressing, the number of usable hosts in one class B network is:",
+         "options": {
+          "A": "65,534",
+          "B": "16,777,214",
+          "C": "254",
+          "D": "65,536"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2¹⁶ − 2 = 65,534; class A gives 2²⁴ − 2 = 16,777,214."
+        },
+        {
+         "question": "Port Address Translation (PAT, NAPT) lets many private hosts share one public IP address by:",
+         "options": {
+          "A": "Assigning each host a MAC address",
+          "B": "Using IPv6",
+          "C": "Using different transport-layer port numbers in the translation table",
+          "D": "Using broadcast"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "The NAT router rewrites the source address and port of outgoing packets."
+        },
+        {
+         "question": "Assertion (A): CIDR reduced the wastage of IPv4 addresses.\nReason (R): CIDR lets an organisation receive a block sized to its needs instead of a fixed class A, B or C.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). Classful addressing wasted many addresses, especially in class B."
+        },
+        {
+         "question": "Consider the statements:\nI. 10.0.0.0/8 is a private address block.\nII. Private addresses are routed on the public Internet.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Only I: private addresses are used inside organisations and need NAT to reach the Internet."
+        },
+        {
+         "question": "The address 0.0.0.0 is used:",
+         "options": {
+          "A": "By a host at boot time that does not know its address, and as the default route",
+          "B": "For loopback",
+          "C": "As a multicast group",
+          "D": "For broadcast to all hosts"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "DHCP clients send their first request from 0.0.0.0 to 255.255.255.255."
+        },
+        {
+         "question": "Which IPv4 address range is used for multicasting?",
+         "options": {
+          "A": "127.0.0.0 to 127.255.255.255",
+          "B": "240.0.0.0 to 255.255.255.255",
+          "C": "192.0.0.0 to 223.255.255.255",
+          "D": "224.0.0.0 to 239.255.255.255 (class D)"
+         },
+         "answer": "D",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). 224.0.0.1 = all hosts on this subnet."
+        },
+        {
+         "question": "Given the address 130.45.70.10/18, the network address is:",
+         "options": {
+          "A": "130.45.128.0",
+          "B": "130.45.64.0",
+          "C": "130.45.70.0",
+          "D": "130.45.0.0"
+         },
+         "answer": "B",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Third byte 70 = 0100 0110; keep 2 bits → 0100 0000 = 64."
+        },
+        {
+         "question": "Supernetting means:",
+         "options": {
+          "A": "Assigning IPv6 addresses",
+          "B": "Dividing a network into subnets",
+          "C": "Combining several smaller (e.g. class C) blocks into one larger block with a shorter prefix",
+          "D": "Using two NICs"
+         },
+         "answer": "C",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "PYQ pattern (KEA / KSET papers). Route aggregation reduces routing-table size."
+        },
+        {
+         "question": "An IPv4 address is written in dotted-decimal notation as four numbers, each in the range:",
+         "options": {
+          "A": "0 to 255",
+          "B": "0 to 999",
+          "C": "1 to 256",
+          "D": "0 to 127"
+         },
+         "answer": "A",
+         "subject": "IPv4 Address Space, Classful and Classless Addressing, Subnetting and NAT",
+         "explanation": "Each number is one byte; leading zeros are not allowed in Forouzan's notation."
+        }
+       ]
+      },
+      {
+       "name": "2 · IPv4 Datagram, Fragmentation, Checksum and Options",
+       "questions": [
+        {
+         "question": "Which of the following statements are true about the Internet Protocol (IP)?\na. IP provides reliable end-to-end communication\nb. IP is connectionless protocol\nc. Internet Protocol uses IP addresses to deliver packets\nd. IP guarantees the order of packet delivery",
+         "options": {
+          "A": "a, c and d",
+          "B": "b and c",
+          "C": "a, b and c",
+          "D": "a, b and d"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "IP is a best-effort, connectionless, unreliable protocol; reliability and ordering come from TCP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q10"
+        },
+        {
+         "question": "Which of the following is the correct sequence of events when a packet is routed in an IP network?",
+         "options": {
+          "A": "Packet creation → Routing → Fragmentation → Transmission → Delivery",
+          "B": "Packet creation → Fragmentation → Routing → Transmission → Delivery",
+          "C": "Packet creation → Routing → Transmission → Delivery → Fragmentation",
+          "D": "Packet creation → Routing → Transmission → Fragmentation → Delivery"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q56"
+        },
+        {
+         "question": "Which of these statements are CORRECT?\n(i) When a router receives the packet, TTL is reduced by one\n(ii) When a router receives the packet, TTL is increased by one\n(iii) If the TTL count is zero and the packet has not reached the destination, the packet is discarded\n(iv) If the TTL count is 255 and the packet has not reached the destination, the packet is discarded",
+         "options": {
+          "A": "Only (i) is correct",
+          "B": "Only (ii) is correct",
+          "C": "Only (i) and (iii) are correct",
+          "D": "Only (ii) and (iv) are correct"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Each router decrements TTL and discards the packet when TTL reaches zero. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q89"
+        },
+        {
+         "question": "The size of the IPv4 header is:",
+         "options": {
+          "A": "20 bytes fixed",
+          "B": "8 bytes",
+          "C": "40 bytes fixed",
+          "D": "20 to 60 bytes"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). The HLEN field gives the header length in 4-byte words (5 to 15)."
+        },
+        {
+         "question": "An IPv4 datagram has HLEN = 8. The header length is:",
+         "options": {
+          "A": "16 bytes",
+          "B": "64 bytes",
+          "C": "8 bytes",
+          "D": "32 bytes"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "8 × 4 = 32 bytes, so 12 bytes of options are present."
+        },
+        {
+         "question": "The 'total length' field of IPv4 is 16 bits, so the maximum datagram size is:",
+         "options": {
+          "A": "4,096 bytes",
+          "B": "65,536 bits",
+          "C": "65,535 bytes",
+          "D": "1,500 bytes"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Data size = total length − header length."
+        },
+        {
+         "question": "The 'protocol' field of the IPv4 header has the value 6 for:",
+         "options": {
+          "A": "ICMP",
+          "B": "IGMP",
+          "C": "TCP",
+          "D": "UDP"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "17 = UDP, 1 = ICMP, 2 = IGMP, 89 = OSPF."
+        },
+        {
+         "question": "A 4000-byte IPv4 datagram (20-byte header, 3980 bytes data) must pass a network with MTU 1500 bytes. How many fragments are created?",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each fragment carries at most 1480 data bytes (a multiple of 8): 1480 + 1480 + 1020 = 3980."
+        },
+        {
+         "question": "In the fragmentation above, the fragment offsets of the three fragments are:",
+         "options": {
+          "A": "1, 186 and 371",
+          "B": "0, 1500 and 3000",
+          "C": "0, 1480 and 2960",
+          "D": "0, 185 and 370"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Offset is measured in units of 8 bytes: 1480/8 = 185, 2960/8 = 370."
+        },
+        {
+         "question": "A fragment has offset value 100. The number of the first data byte it carries is:",
+         "options": {
+          "A": "100",
+          "B": "12.5",
+          "C": "800",
+          "D": "1600"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Offset × 8."
+        },
+        {
+         "question": "In fragmentation, the 'M' (more fragments) flag is 0 for:",
+         "options": {
+          "A": "All middle fragments",
+          "B": "The first fragment",
+          "C": "Every fragment",
+          "D": "The last fragment (or an unfragmented datagram)"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "D (do not fragment) = 1 forbids fragmentation; the router then discards the datagram and sends an ICMP error."
+        },
+        {
+         "question": "Fragments of an IPv4 datagram are reassembled at:",
+         "options": {
+          "A": "The first router",
+          "B": "The final destination host",
+          "C": "The DNS server",
+          "D": "Every router"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). All fragments carry the same identification number."
+        },
+        {
+         "question": "The IPv4 header checksum covers:",
+         "options": {
+          "A": "Only the header, and is recalculated at every router",
+          "B": "Header and data",
+          "C": "Only the data",
+          "D": "Nothing – IPv4 has no checksum"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "TTL changes at each hop, so the checksum must be updated; IPv6 dropped the header checksum."
+        },
+        {
+         "question": "The IPv4 checksum uses:",
+         "options": {
+          "A": "Parity bits",
+          "B": "CRC-32",
+          "C": "MD5 hashing",
+          "D": "One's-complement addition of 16-bit words, then complementing the result"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). The header is split into 16-bit words, added with one's-complement arithmetic, and the sum is complemented; the receiver's result must be all 0s."
+        },
+        {
+         "question": "A packet starts with TTL = 64. After passing through 10 routers it arrives with TTL:",
+         "options": {
+          "A": "64",
+          "B": "54",
+          "C": "74",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Each router decrements TTL by 1; at 0 the packet is discarded (ICMP time exceeded)."
+        },
+        {
+         "question": "IPv4 option that lets the sender specify the exact path the datagram must follow is:",
+         "options": {
+          "A": "Strict source route",
+          "B": "No-operation",
+          "C": "Timestamp",
+          "D": "Record route"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Loose source route lists routers that must be visited but allows others in between."
+        },
+        {
+         "question": "The service provided by IPv4 is described as:",
+         "options": {
+          "A": "Ordered delivery",
+          "B": "Reliable and connection-oriented",
+          "C": "Best-effort, connectionless and unreliable",
+          "D": "Encrypted"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "IP makes no delivery guarantees – reliability, ordering and flow control are left to TCP or the application."
+        },
+        {
+         "question": "Assertion (A): IPv4 performs fragmentation when a datagram is larger than the MTU of the next network.\nReason (R): Each data-link protocol has its own maximum frame payload (MTU).",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ethernet's MTU is 1500 bytes."
+        },
+        {
+         "question": "Consider the statements:\nI. The identification field is the same for all fragments of one datagram.\nII. The fragment offset is counted in bytes.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Only I: the offset is counted in units of 8 bytes."
+        },
+        {
+         "question": "The 'service type' (DiffServ) byte of IPv4 is used to:",
+         "options": {
+          "A": "Carry the port number",
+          "B": "Hold the checksum",
+          "C": "Specify the class of service / priority of the datagram",
+          "D": "Store the TTL"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Originally 'type of service'; now differentiated services code point plus ECN bits."
+        },
+        {
+         "question": "Which field prevents a datagram from circulating forever in a routing loop?",
+         "options": {
+          "A": "Time to live (TTL)",
+          "B": "Total length",
+          "C": "Identification",
+          "D": "Protocol"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each router decrements TTL; when it reaches 0 the datagram is discarded and an ICMP time-exceeded message is sent."
+        },
+        {
+         "question": "The data unit of the network layer is called:",
+         "options": {
+          "A": "Bit",
+          "B": "Segment",
+          "C": "Frame",
+          "D": "Packet (datagram)"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Transport – segment (TCP)/user datagram (UDP); data link – frame."
+        },
+        {
+         "question": "If the D flag is set and the datagram is bigger than the next MTU, the router:",
+         "options": {
+          "A": "Fragments it anyway",
+          "B": "Discards the datagram and sends an ICMP error to the source",
+          "C": "Sends it back unchanged",
+          "D": "Delivers it"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). This is used by Path MTU Discovery."
+        },
+        {
+         "question": "Assertion (A): IPv4 is called a connectionless protocol.\nReason (R): Each datagram is handled independently and may follow a different route.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "That is also why datagrams may arrive out of order."
+        },
+        {
+         "question": "The minimum value of HLEN in a valid IPv4 header is:",
+         "options": {
+          "A": "20",
+          "B": "0",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 × 4 = 20 bytes, the minimum header."
+        },
+        {
+         "question": "A datagram has total length 1000 and HLEN 5. The number of data bytes is:",
+         "options": {
+          "A": "1000",
+          "B": "995",
+          "C": "1020",
+          "D": "980"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "1000 − 5 × 4 = 980."
+        },
+        {
+         "question": "The 'Identification' field of IPv4 is used to:",
+         "options": {
+          "A": "Identify the fragments that belong to the same original datagram",
+          "B": "Store the port number",
+          "C": "Identify the sender's MAC address",
+          "D": "Encrypt the payload"
+         },
+         "answer": "A",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is 16 bits long."
+        },
+        {
+         "question": "Which of the following is NOT a field of the IPv4 header?",
+         "options": {
+          "A": "Header checksum",
+          "B": "Sequence number",
+          "C": "Fragment offset",
+          "D": "Time to live"
+         },
+         "answer": "B",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "Sequence numbers belong to TCP."
+        },
+        {
+         "question": "The IPv4 'Protocol' value 17 indicates that the payload is:",
+         "options": {
+          "A": "OSPF",
+          "B": "ICMP",
+          "C": "UDP",
+          "D": "TCP"
+         },
+         "answer": "C",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "PYQ pattern (KEA / KSET papers). 6 = TCP, 17 = UDP, 1 = ICMP, 2 = IGMP, 89 = OSPF."
+        },
+        {
+         "question": "ICMP messages are carried:",
+         "options": {
+          "A": "Directly in Ethernet frames without IP",
+          "B": "Inside UDP datagrams",
+          "C": "Inside TCP segments",
+          "D": "Inside IP datagrams (protocol number 1)"
+         },
+         "answer": "D",
+         "subject": "IPv4 Datagram, Fragmentation, Checksum and Options",
+         "explanation": "ICMP reports errors and queries for IP, which has no error-reporting mechanism of its own."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Transport Layer",
+     "sets": [
+      {
+       "name": "1 · Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+       "questions": [
+        {
+         "question": "Which of the following is a connectionless protocol?",
+         "options": {
+          "A": "TCP",
+          "B": "UDP",
+          "C": "FTP",
+          "D": "SMTP"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "UDP sends independent user datagrams without connection set-up. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q1"
+        },
+        {
+         "question": "____ is a reliable connection-oriented transport protocol.",
+         "options": {
+          "A": "TCP",
+          "B": "UDP",
+          "C": "SMTP",
+          "D": "SCTP"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "KEA's key gives TCP (SCTP is also reliable and connection-oriented, but message-oriented). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q37"
+        },
+        {
+         "question": "Which of the following are correct matches for the Transmission Control Protocol (TCP)?\na. Connection-oriented protocol\nb. Unreliable data delivery\nc. Error detection and correction\nd. No flow control",
+         "options": {
+          "A": "a and c only",
+          "B": "a and d only",
+          "C": "a, b and c only",
+          "D": "All of the above"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "TCP is reliable and provides flow, error and congestion control. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q59"
+        },
+        {
+         "question": "The transport layer provides:",
+         "options": {
+          "A": "Physical signal transmission",
+          "B": "Node-to-node delivery using MAC addresses",
+          "C": "Host-to-host delivery using IP addresses only",
+          "D": "Process-to-process delivery using port numbers"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). IP gives host-to-host delivery; the data link layer gives node-to-node delivery."
+        },
+        {
+         "question": "A socket address is the combination of:",
+         "options": {
+          "A": "MAC address and port number",
+          "B": "Port number and protocol only",
+          "C": "IP address and port number",
+          "D": "IP address and MAC address"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "The IP address identifies the host and the port number identifies the process; a TCP connection is identified by a pair of socket addresses."
+        },
+        {
+         "question": "Port numbers are 16 bits. The well-known, registered and dynamic (ephemeral) ranges are:",
+         "options": {
+          "A": "0–255, 256–1023 and 1024–65535",
+          "B": "1–1024, 1025–32767 and 32768–65535",
+          "C": "0–999, 1000–9999 and 10000–65535",
+          "D": "0–1023, 1024–49151 and 49152–65535"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). IANA ranges."
+        },
+        {
+         "question": "Match the protocols with their well-known ports:\na. HTTP\nb. SMTP\nc. DNS\nd. HTTPS\n\n1. 25\n2. 443\n3. 80\n4. 53",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-3, b-1, c-4, d-2",
+          "C": "a-3, b-4, c-1, d-2",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "FTP 20/21, SSH 22, Telnet 23, POP3 110, IMAP 143."
+        },
+        {
+         "question": "The UDP header is:",
+         "options": {
+          "A": "4 bytes",
+          "B": "20 bytes",
+          "C": "20 to 60 bytes",
+          "D": "8 bytes – source port, destination port, length and checksum"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The TCP header is 20–60 bytes."
+        },
+        {
+         "question": "A UDP user datagram has total length 1000 bytes. The data carried is:",
+         "options": {
+          "A": "980 bytes",
+          "B": "1008 bytes",
+          "C": "992 bytes",
+          "D": "1000 bytes"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "1000 − 8-byte header."
+        },
+        {
+         "question": "Which application commonly uses UDP rather than TCP?",
+         "options": {
+          "A": "FTP file transfer",
+          "B": "SMTP mail transfer",
+          "C": "DNS queries, SNMP, TFTP and real-time media",
+          "D": "HTTP/1.1 web pages"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). UDP has low overhead and no connection set-up, suitable for short request–response and real-time traffic."
+        },
+        {
+         "question": "TCP is called a byte-stream protocol because:",
+         "options": {
+          "A": "It uses UDP underneath",
+          "B": "It numbers bytes, not segments, and delivers a continuous stream of bytes to the application",
+          "C": "It cannot send messages",
+          "D": "It sends one byte per segment"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "Message boundaries are not preserved (unlike UDP and SCTP)."
+        },
+        {
+         "question": "A TCP segment with sequence number 1001 carries 500 bytes of data. The acknowledgement number sent back after receiving it is:",
+         "options": {
+          "A": "1001",
+          "B": "501",
+          "C": "1500",
+          "D": "1501"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). TCP acknowledges the next byte expected (cumulative ACK)."
+        },
+        {
+         "question": "The minimum TCP header length is:",
+         "options": {
+          "A": "40 bytes",
+          "B": "60 bytes",
+          "C": "20 bytes",
+          "D": "8 bytes"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "HLEN (data offset) is counted in 4-byte words, from 5 to 15."
+        },
+        {
+         "question": "Which TCP flag is set to request connection termination?",
+         "options": {
+          "A": "SYN",
+          "B": "FIN",
+          "C": "URG",
+          "D": "PSH"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). SYN – synchronise sequence numbers; RST – reset; PSH – push data; URG – urgent pointer valid."
+        },
+        {
+         "question": "SCTP differs from TCP in supporting:",
+         "options": {
+          "A": "Multistreaming and multihoming, and being message-oriented",
+          "B": "Only connectionless service",
+          "C": "No congestion control",
+          "D": "Only one IP address per end"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "SCTP uses a four-way handshake with a cookie to resist SYN-flooding attacks."
+        },
+        {
+         "question": "In SCTP, a connection is called:",
+         "options": {
+          "A": "A session",
+          "B": "A socket",
+          "C": "A circuit",
+          "D": "An association"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Data chunks are numbered with TSNs."
+        },
+        {
+         "question": "Which statement about UDP is correct?",
+         "options": {
+          "A": "It guarantees delivery",
+          "B": "It sets up connections",
+          "C": "It provides no flow control and no acknowledgements; its checksum is optional in IPv4",
+          "D": "It retransmits lost data"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "UDP is connectionless and unreliable: no handshake, no acknowledgements, no retransmission and no flow or congestion control."
+        },
+        {
+         "question": "Multiplexing at the transport layer means:",
+         "options": {
+          "A": "Sending one packet to many routers",
+          "B": "Splitting IP addresses",
+          "C": "Combining analog signals",
+          "D": "Many application processes at the sender share one transport protocol, distinguished by port numbers"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Demultiplexing at the receiver delivers each message to the right process."
+        },
+        {
+         "question": "Assertion (A): Streaming audio and video often use UDP.\nReason (R): Retransmitting late packets is useless for real-time playback, and UDP has low overhead.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "Real-time Transport Protocol (RTP) runs over UDP."
+        },
+        {
+         "question": "Consider the statements:\nI. TCP preserves message boundaries.\nII. UDP is message-oriented.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only II: TCP is a byte stream; UDP and SCTP preserve message boundaries."
+        },
+        {
+         "question": "TCP provides 'full-duplex' service, meaning:",
+         "options": {
+          "A": "Data can flow in both directions at the same time on one connection",
+          "B": "Only one direction at a time",
+          "C": "Only broadcast",
+          "D": "Two separate connections are needed"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "Each side has its own sending and receiving buffers, and acknowledgements can be piggybacked on data going the other way."
+        },
+        {
+         "question": "A process uses the client port 52000 to talk to a web server. This port is:",
+         "options": {
+          "A": "A registered port of HTTP",
+          "B": "An ephemeral (dynamic) port chosen by the client OS",
+          "C": "Reserved for DNS",
+          "D": "A well-known port"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Ports 49152–65535 are dynamic (ephemeral); the client OS picks one temporarily, while the server listens on the well-known port 80/443."
+        },
+        {
+         "question": "The 'window size' field in the TCP header is used for:",
+         "options": {
+          "A": "Encryption",
+          "B": "Routing",
+          "C": "Flow control – the receiver advertises how many bytes it can accept (rwnd)",
+          "D": "Error detection"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "It is 16 bits; the window-scale option allows larger windows."
+        },
+        {
+         "question": "The TCP checksum covers:",
+         "options": {
+          "A": "The header, the data and a pseudo-header with IP addresses",
+          "B": "Only the data",
+          "C": "Only the header",
+          "D": "Nothing – TCP has no checksum"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The UDP checksum also uses a pseudo-header."
+        },
+        {
+         "question": "Assertion (A): TCP is reliable.\nReason (R): TCP runs over IP, which guarantees delivery.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "R is false: IP is unreliable; TCP adds sequence numbers, acknowledgements and retransmission."
+        },
+        {
+         "question": "Which of the following is NOT a TCP service?",
+         "options": {
+          "A": "Message-boundary preservation",
+          "B": "Connection-oriented service",
+          "C": "Congestion control",
+          "D": "Reliable delivery"
+         },
+         "answer": "A",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). TCP delivers a byte stream, so message boundaries are lost; UDP and SCTP preserve them."
+        },
+        {
+         "question": "TFTP (Trivial File Transfer Protocol) uses:",
+         "options": {
+          "A": "TCP port 21",
+          "B": "TCP port 69",
+          "C": "UDP port 21",
+          "D": "UDP port 69"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "FTP uses TCP ports 20 and 21."
+        },
+        {
+         "question": "The URG flag with the urgent pointer in TCP is used to:",
+         "options": {
+          "A": "Reset the connection",
+          "B": "Mark data that should be delivered to the application out of order, e.g. an interrupt",
+          "C": "Start a connection",
+          "D": "Close a connection"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "The urgent pointer marks where urgent data ends, e.g. a Ctrl+C interrupt in a remote session."
+        },
+        {
+         "question": "Which transport protocol would be chosen for loading a web page reliably?",
+         "options": {
+          "A": "UDP",
+          "B": "TCP",
+          "C": "ICMP",
+          "D": "ARP"
+         },
+         "answer": "B",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "PYQ pattern (KEA / KSET papers). HTTP/1.1 and HTTP/2 run over TCP; HTTP/3 runs over QUIC (UDP)."
+        },
+        {
+         "question": "Port number 23 is used by:",
+         "options": {
+          "A": "SMTP",
+          "B": "SSH",
+          "C": "FTP data",
+          "D": "TELNET"
+         },
+         "answer": "D",
+         "subject": "Process-to-Process Delivery, Ports, UDP, TCP and SCTP",
+         "explanation": "SSH 22 is the secure replacement for Telnet."
+        }
+       ]
+      },
+      {
+       "name": "2 · TCP Connection Management, Flow, Error and Congestion Control",
+       "questions": [
+        {
+         "question": "Which sequence correctly describes the process of establishing a TCP connection?",
+         "options": {
+          "A": "SYN-ACK → ACK → Data transfer → SYN",
+          "B": "SYN → SYN-ACK → Data transfer",
+          "C": "SYN → SYN-ACK → ACK → Data transfer",
+          "D": "SYN → ACK → SYN-ACK → Data transfer"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Three-way handshake. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q59"
+        },
+        {
+         "question": "Steps in which sequence occur when a packet is lost during TCP transmission?",
+         "options": {
+          "A": "Timeout → Retransmission → Acknowledgement",
+          "B": "Acknowledgement → Timeout → Retransmission",
+          "C": "Retransmission → Timeout → Acknowledgement",
+          "D": "Timeout → Acknowledgement → Retransmission"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "The retransmission timer expires, the segment is resent, then acknowledged. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q5"
+        },
+        {
+         "question": "In TCP sliding window mechanism, which is the correct sequence of events when the receiver gets a segment?",
+         "options": {
+          "A": "Sequence number check → Data Transfer → Buffering → Acknowledgement",
+          "B": "Sequence number check → Buffering → Data Transfer → Acknowledgement",
+          "C": "Data Transfer → Buffering → Acknowledgement → Sequence number check",
+          "D": "Acknowledgement → Sequence number check → Data Transfer → Buffering"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q14"
+        },
+        {
+         "question": "A SYN segment in TCP:",
+         "options": {
+          "A": "Consumes no sequence number",
+          "B": "Is sent only by the server",
+          "C": "Carries data and no sequence number",
+          "D": "Carries no data but consumes one sequence number"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). A FIN segment also consumes one sequence number if it carries no data."
+        },
+        {
+         "question": "The SYN flooding attack exploits:",
+         "options": {
+          "A": "DNS caching",
+          "B": "The FIN flag",
+          "C": "Half-open connections created by many SYN segments with forged source addresses",
+          "D": "UDP checksums"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Defences include SYN cookies and limiting half-open connections."
+        },
+        {
+         "question": "TCP connection termination commonly uses:",
+         "options": {
+          "A": "No messages",
+          "B": "A two-way SYN exchange",
+          "C": "A single RST always",
+          "D": "A four-way (or three-way) handshake with FIN and ACK segments"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). A half-close lets one side stop sending while still receiving."
+        },
+        {
+         "question": "After sending the final ACK, the side that closed actively stays in the TIME-WAIT state for:",
+         "options": {
+          "A": "One RTT",
+          "B": "2 × MSL (maximum segment lifetime)",
+          "C": "Until a new SYN arrives",
+          "D": "Zero time"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "It makes sure the last ACK arrived and old duplicates die out."
+        },
+        {
+         "question": "The sender's effective window in TCP is:",
+         "options": {
+          "A": "Always 64 KB",
+          "B": "max(rwnd, cwnd)",
+          "C": "min(rwnd, cwnd)",
+          "D": "rwnd + cwnd"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). rwnd – receiver window (flow control); cwnd – congestion window."
+        },
+        {
+         "question": "Silly window syndrome created by the sending application is solved by:",
+         "options": {
+          "A": "Clark's solution",
+          "B": "Nagle's algorithm",
+          "C": "Jacobson's algorithm",
+          "D": "Karn's algorithm"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Clark's solution / delayed acknowledgement handles the receiver side; Karn's algorithm handles RTT samples of retransmitted segments."
+        },
+        {
+         "question": "TCP fast retransmit resends a segment when the sender receives:",
+         "options": {
+          "A": "A FIN",
+          "B": "One ACK",
+          "C": "A SYN",
+          "D": "Three duplicate ACKs"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). It does not wait for the retransmission timer."
+        },
+        {
+         "question": "In TCP slow start, starting from cwnd = 1 MSS and with every segment acknowledged, cwnd after 4 RTTs is:",
+         "options": {
+          "A": "8 MSS",
+          "B": "5 MSS",
+          "C": "4 MSS",
+          "D": "16 MSS"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "It doubles each RTT: 1 → 2 → 4 → 8 → 16 (exponential growth)."
+        },
+        {
+         "question": "When cwnd reaches ssthresh, TCP switches from slow start to:",
+         "options": {
+          "A": "Fast retransmit",
+          "B": "Exponential growth",
+          "C": "Congestion avoidance – additive increase of about 1 MSS per RTT",
+          "D": "Connection termination"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). AIMD: additive increase, multiplicative decrease."
+        },
+        {
+         "question": "In TCP Tahoe, a timeout occurs when cwnd = 20 MSS. The new ssthresh and cwnd are:",
+         "options": {
+          "A": "ssthresh = 20, cwnd = 20",
+          "B": "ssthresh = 10 MSS, cwnd = 1 MSS",
+          "C": "ssthresh = 10, cwnd = 10",
+          "D": "ssthresh = 40, cwnd = 1"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "ssthresh = cwnd/2; cwnd restarts slow start from 1. TCP Reno on three duplicate ACKs sets cwnd = ssthresh (+3) – fast recovery."
+        },
+        {
+         "question": "TCP estimates RTT with EstimatedRTT = (1 − α)·EstimatedRTT + α·SampleRTT. With α = 0.125, EstimatedRTT = 100 ms and SampleRTT = 140 ms, the new estimate is:",
+         "options": {
+          "A": "120 ms",
+          "B": "112.5 ms",
+          "C": "105 ms",
+          "D": "140 ms"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). 0.875 × 100 + 0.125 × 140 = 87.5 + 17.5 = 105 ms."
+        },
+        {
+         "question": "Jacobson's retransmission timeout is computed as:",
+         "options": {
+          "A": "RTO = SRTT − RTTVAR",
+          "B": "RTO = 2 × SRTT always",
+          "C": "RTO = RTT/2",
+          "D": "RTO = SRTT + 4 × RTTVAR"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "RTTVAR is the smoothed deviation of RTT."
+        },
+        {
+         "question": "Karn's algorithm says that:",
+         "options": {
+          "A": "ACKs must be sent for every byte",
+          "B": "RTT samples of retransmitted segments should not be used to update the RTT estimate",
+          "C": "Every lost segment doubles cwnd",
+          "D": "Windows must be closed after every segment"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). It also doubles the RTO after each retransmission (exponential backoff)."
+        },
+        {
+         "question": "The receiver advertises rwnd = 0. The sender then:",
+         "options": {
+          "A": "Closes the connection",
+          "B": "Switches to UDP",
+          "C": "Stops sending data and uses the persistence timer to send probes",
+          "D": "Sends faster"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "The persistence timer prevents deadlock if the window-update segment is lost."
+        },
+        {
+         "question": "TCP error control uses:",
+         "options": {
+          "A": "Checksum, acknowledgements and retransmission (timeout or three duplicate ACKs)",
+          "B": "Only parity",
+          "C": "Only NAKs",
+          "D": "No mechanism"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). Corrupted segments are discarded (checksum); missing ones are resent after a timeout or after three duplicate ACKs."
+        },
+        {
+         "question": "Congestion in a network happens when:",
+         "options": {
+          "A": "There are no routers",
+          "B": "All links are idle",
+          "C": "Checksums fail",
+          "D": "The load on the network is greater than its capacity"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Open-loop methods prevent congestion; closed-loop methods (back-pressure, choke packets, implicit/explicit signalling) remove it."
+        },
+        {
+         "question": "Assertion (A): TCP slow start grows the congestion window exponentially.\nReason (R): TCP adds 1 MSS to cwnd for every acknowledgement received during slow start.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). One extra MSS per ACK doubles cwnd each RTT."
+        },
+        {
+         "question": "Consider the statements:\nI. In TCP, the receiver controls flow using rwnd.\nII. TCP congestion control is done by the routers setting cwnd.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Only I: cwnd is kept by the sender, which infers congestion from timeouts and duplicate ACKs."
+        },
+        {
+         "question": "The keepalive timer in TCP is used to:",
+         "options": {
+          "A": "Measure RTT",
+          "B": "Detect whether an idle connection's other end has failed",
+          "C": "Start slow start",
+          "D": "Avoid silly windows"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). After a long idle period the server sends probes; if there is no response, the connection is closed."
+        },
+        {
+         "question": "In TCP, a cumulative acknowledgement number 5001 means:",
+         "options": {
+          "A": "Byte 5001 was received",
+          "B": "All bytes up to 5000 have been received; byte 5001 is expected next",
+          "C": "5001 segments arrived",
+          "D": "The connection is closed"
+         },
+         "answer": "B",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "TCP's ACK number is the number of the next byte the receiver expects."
+        },
+        {
+         "question": "Explicit Congestion Notification (ECN) lets routers:",
+         "options": {
+          "A": "Mark packets to signal congestion instead of dropping them",
+          "B": "Encrypt packets",
+          "C": "Assign ports",
+          "D": "Resolve names"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). The receiver echoes the mark to the sender, which then reduces its congestion window – fewer packets are lost."
+        },
+        {
+         "question": "Assertion (A): A lost FIN or SYN can be retransmitted.\nReason (R): SYN and FIN consume sequence numbers and must be acknowledged.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Since they are numbered, they are covered by TCP's reliability."
+        },
+        {
+         "question": "Selective acknowledgement (SACK) in TCP allows the receiver to:",
+         "options": {
+          "A": "Increase rwnd to infinity",
+          "B": "Reject all segments",
+          "C": "Report non-contiguous blocks received, so the sender retransmits only the missing ones",
+          "D": "Acknowledge only the first byte"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is a TCP option."
+        },
+        {
+         "question": "Which statement about the TCP three-way handshake is correct?",
+         "options": {
+          "A": "The client sends SYN, the server replies SYN+ACK, and the client sends ACK",
+          "B": "The server always sends the first SYN",
+          "C": "Only two segments are needed",
+          "D": "No sequence numbers are exchanged"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Each side chooses a random initial sequence number (ISN)."
+        },
+        {
+         "question": "The leaky-bucket algorithm is used for:",
+         "options": {
+          "A": "Name resolution",
+          "B": "Routing",
+          "C": "Error correction",
+          "D": "Traffic shaping – smoothing bursty traffic into a fixed output rate"
+         },
+         "answer": "D",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). The token-bucket algorithm allows bursts up to the bucket size."
+        },
+        {
+         "question": "A token bucket holds up to 100 tokens and receives 10 tokens per second. Starting full, the maximum data units it can send in the first 5 seconds is:",
+         "options": {
+          "A": "150",
+          "B": "500",
+          "C": "100",
+          "D": "50"
+         },
+         "answer": "A",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "Bucket capacity + rate × time = 100 + 10 × 5."
+        },
+        {
+         "question": "Which state does a TCP server enter after a passive open?",
+         "options": {
+          "A": "TIME-WAIT",
+          "B": "ESTABLISHED",
+          "C": "LISTEN",
+          "D": "SYN-SENT"
+         },
+         "answer": "C",
+         "subject": "TCP Connection Management, Flow, Error and Congestion Control",
+         "explanation": "PYQ pattern (KEA / KSET papers). The client after sending SYN is in SYN-SENT."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "World Wide Web & Applications",
+     "sets": [
+      {
+       "name": "1 · Internet, World Wide Web, HTTP, URL and DNS",
+       "questions": [
+        {
+         "question": "Two statements are given below : One is Assertion (A) and the other is Reason (R)\nRead the statements carefully & choose the correct answer.\nAssertion (A) : The internet is a collection of interconnected computers linked by transmission media such as fiber, optical cables, etc.\nReason (R) : World Wide Web (WWW) is a collection of websites or web pages stored in a web server & is connected to local computers through the internet.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "The Web is a service that runs on the Internet; it does not explain what the Internet is. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q7"
+        },
+        {
+         "question": "Which of the following is the correct sequence for an HTTP request and response cycle?",
+         "options": {
+          "A": "Client sends GET request → Server processes request → Server sends HTTP response",
+          "B": "Client sends HTTP request → Server sends GET response → Server processes request",
+          "C": "Server processes request → Client sends HTTP request → Server sends HTTP response",
+          "D": "Client sends HTTP request → Server processes request → Server sends HTTP response"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "KEA's key gives the general form (any method, not only GET). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q53"
+        },
+        {
+         "question": "Which protocol is used to resolve a domain name into an IP address?",
+         "options": {
+          "A": "HTTP",
+          "B": "FTP",
+          "C": "SMTP",
+          "D": "DNS"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "DNS – Domain Name System. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q56"
+        },
+        {
+         "question": "Assertion (A) : The Domain Name System (DNS) is used to map domain names to IP addresses.\nReason (R) : DNS acts as a directory service providing a mapping between user-friendly domain names and machine reliable IP addresses",
+         "options": {
+          "A": "Both (A) & (R) are true and the reason is the correct explanation for the assertion.",
+          "B": "Both (A) & (R) are true but the reason is not the correct explanation for the assertion",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) and (R) are false"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q60"
+        },
+        {
+         "question": "Match the following HTTP status codes with their descriptions.\nCode: (a) 200  (b) 301  (c) 404  (d) 503\nDescription: i) Not found  ii) Request successful  iii) Moved permanently  iv) Service unavailable",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "1xx informational, 2xx success, 3xx redirection, 4xx client error, 5xx server error. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q64"
+        },
+        {
+         "question": "Consider the following statements and choose the correct option:\nAssertion (A) : HTTP is a stateless protocol\nReason (R) : HTTP does not retain any information about previous requests from the same client",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Cookies are used to keep state across requests. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q67"
+        },
+        {
+         "question": "Which of the following is the correct sequence of operations that occur when a user access a website?",
+         "options": {
+          "A": "DNS lookup → HTTP request → TCP connection → HTTP response → TCP termination",
+          "B": "DNS lookup → TCP connection → HTTP request → HTTP response → TCP termination",
+          "C": "TCP connection → DNS lookup → HTTP request → HTTP response → TCP termination",
+          "D": "DNS lookup → TCP connection → HTTP response → HTTP request → TCP termination"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q68"
+        },
+        {
+         "question": "Which of the following statements are true about DNS (Domain Name System)?\na. DNS maps domain names to IP addresses\nb. DNS servers always use a centralized database for resolution\nc. DNS provides scalability and redundancy in name resolution\nd. DNS works with IPV4 addresses.",
+         "options": {
+          "A": "a and b only",
+          "B": "a and c only",
+          "C": "a and d only",
+          "D": "b and c only"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "DNS is a distributed, hierarchical database. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q54"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): DNS servers cache the IP addresses of domain names to speed up subsequent requests\nReason (R): Caching degrades DNS look up efficiency by storing previously resolved domain name entries.",
+         "options": {
+          "A": "Both Assertion and Reason are true and Reason is the correct explanation of Assertion",
+          "B": "Assertion is true but Reason is false",
+          "C": "Assertion is false but Reason is true",
+          "D": "Both Assertion and Reason are false"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Caching improves efficiency (subject to TTL). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q55"
+        },
+        {
+         "question": "Match the following DNS record types with their purposes\nRecord Type: a. A  b. MX  c. CNAME  d. PTR\nPurpose: i. Maps IP address to domain name  ii. Alias for domain name  iii. Mail exchange server record  iv. Maps domain name to IP address.",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "AAAA maps a name to an IPv6 address; NS names the authoritative server. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q63"
+        },
+        {
+         "question": "Identify the correct order of a general form of a HTTP response and choose the correct option\na. Response header field\nb. Blank line\nc. Response body\nd. Status line",
+         "options": {
+          "A": "b d c a",
+          "B": "d a b c",
+          "C": "d b c a",
+          "D": "c b a d"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Status line, headers, blank line, body. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q84"
+        },
+        {
+         "question": "In a HTTP request query string is commonly used in",
+         "options": {
+          "A": "GET method only",
+          "B": "POST method only",
+          "C": "PUT method only",
+          "D": "Both in GET and POST methods"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "KEA's key: the query string appears in the URL of GET requests; POST sends data in the body. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q86"
+        },
+        {
+         "question": "Redirection in HTTP has the following status code format",
+         "options": {
+          "A": "2XX",
+          "B": "3XX",
+          "C": "4XX",
+          "D": "5XX"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "301 moved permanently, 302 found, 304 not modified. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q89"
+        },
+        {
+         "question": "Among the following protocols which is NOT used to resolve one form of address to another?",
+         "options": {
+          "A": "ARP",
+          "B": "RARP",
+          "C": "DNS",
+          "D": "DHCP"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "DHCP assigns addresses; ARP: IP→MAC, RARP: MAC→IP, DNS: name→IP. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q74"
+        },
+        {
+         "question": "A piece of icon or image on a webpage, associated with another webpage is called",
+         "options": {
+          "A": "URL",
+          "B": "Plug-in",
+          "C": "Hyper icon",
+          "D": "Hyperlink"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Any text or image that links to another resource is a hyperlink. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q67"
+        },
+        {
+         "question": "A ____ server that transfers the complete information about a zone from another server and stores the file on its local disk with respect to DNS.",
+         "options": {
+          "A": "Primary server",
+          "B": "Root server",
+          "C": "Secondary server",
+          "D": "Load server"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "A secondary server obtains the zone by zone transfer from the primary. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q64"
+        },
+        {
+         "question": "In the URL https://www.example.com:8080/docs/index.html, the port number is:",
+         "options": {
+          "A": "80",
+          "B": "/docs",
+          "C": "8080",
+          "D": "443"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). URL = protocol://host:port/path; without a port, HTTPS uses 443 and HTTP 80."
+        },
+        {
+         "question": "The World Wide Web was invented by:",
+         "options": {
+          "A": "Marc Andreessen",
+          "B": "Vint Cerf",
+          "C": "Tim Berners-Lee at CERN (1989)",
+          "D": "Ray Tomlinson"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Vint Cerf and Bob Kahn designed TCP/IP; Ray Tomlinson sent the first e-mail."
+        },
+        {
+         "question": "Which HTTP method is used to send form data in the body of the request?",
+         "options": {
+          "A": "POST",
+          "B": "HEAD",
+          "C": "GET",
+          "D": "TRACE"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). HEAD fetches only the headers; PUT uploads a resource; DELETE removes one."
+        },
+        {
+         "question": "Persistent connections are the default in:",
+         "options": {
+          "A": "HTTP/1.0",
+          "B": "FTP",
+          "C": "SMTP",
+          "D": "HTTP/1.1"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "HTTP/1.0 used non-persistent connections (one TCP connection per object)."
+        },
+        {
+         "question": "A cookie in HTTP is used to:",
+         "options": {
+          "A": "Store state information about the client so the server can recognise it later",
+          "B": "Speed up DNS",
+          "C": "Encrypt pages",
+          "D": "Compress images"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used for sessions, shopping carts and personalisation."
+        },
+        {
+         "question": "A proxy server (web cache):",
+         "options": {
+          "A": "Acts as a DNS root server",
+          "B": "Assigns IP addresses",
+          "C": "Keeps copies of recently requested responses to answer later requests locally",
+          "D": "Sends e-mail"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "It reduces response time and traffic on the access link; the client is configured to send requests to the proxy."
+        },
+        {
+         "question": "DNS resolution in which the local server asks the root, then the TLD server, then the authoritative server itself is called:",
+         "options": {
+          "A": "Broadcast resolution",
+          "B": "Recursive resolution",
+          "C": "Iterative resolution",
+          "D": "Reverse resolution"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). In recursive resolution each server asks the next on behalf of the client and returns the final answer."
+        },
+        {
+         "question": "DNS normally uses:",
+         "options": {
+          "A": "UDP port 67",
+          "B": "UDP port 53 for queries (TCP 53 for zone transfers and large responses)",
+          "C": "TCP port 80",
+          "D": "TCP port 25"
+         },
+         "answer": "B",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Short queries fit in one UDP message; zone transfers between primary and secondary servers use TCP."
+        },
+        {
+         "question": "In the domain name 'www.kea.kar.nic.in.', the top-level domain is:",
+         "options": {
+          "A": "in",
+          "B": "www",
+          "C": "nic",
+          "D": "kea"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). A fully qualified domain name ends with a dot for the root; 'in' is the country-code TLD."
+        },
+        {
+         "question": "Reverse DNS lookup (IP address to name) uses the domain:",
+         "options": {
+          "A": "edu with CNAME records",
+          "B": "com with A records",
+          "C": "root with MX records",
+          "D": "in-addr.arpa with PTR records"
+         },
+         "answer": "D",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "The address is written in reverse, e.g. 10.2.0.192.in-addr.arpa for 192.0.2.10, and the answer is a PTR record."
+        },
+        {
+         "question": "Assertion (A): DNS is organised as a distributed hierarchical database.\nReason (R): A single central server for all names would not scale and would be a single point of failure.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). There are 13 named root-server systems (A to M) with many replicas."
+        },
+        {
+         "question": "Consider the statements:\nI. A static web page is the same for every request until the file is changed.\nII. A dynamic web page is created by the server when the request arrives.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "Both are correct; an active page runs a program at the client (e.g. JavaScript, applets)."
+        },
+        {
+         "question": "HTTPS secures HTTP by running it over:",
+         "options": {
+          "A": "ICMP",
+          "B": "FTP",
+          "C": "TLS/SSL",
+          "D": "UDP"
+         },
+         "answer": "C",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "PYQ pattern (KEA / KSET papers). Default port 443."
+        },
+        {
+         "question": "Which part of a URL identifies the protocol used?",
+         "options": {
+          "A": "The scheme, e.g. 'http' or 'ftp'",
+          "B": "The fragment",
+          "C": "The path",
+          "D": "The host name"
+         },
+         "answer": "A",
+         "subject": "Internet, World Wide Web, HTTP, URL and DNS",
+         "explanation": "In 'https://host:port/path?query#fragment' the scheme comes first; the host is the server's domain name."
+        }
+       ]
+      },
+      {
+       "name": "2 · E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+       "questions": [
+        {
+         "question": "Match the following internet protocol with their functions.\nProtocol: (a) FTP  (b) HTTP  (c) DNS  (d) DHCP\nFunction: i) Transfers files between systems  ii) Retrieves web pages from servers  iii) Resolves domain names to IPs  iv) Assigns IP address dynamically",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – i, c – iii, d – ii"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q52"
+        },
+        {
+         "question": "Consider the following statements and choose the correct option:\nAssertion (A) : HTTP is used for sending mail.\nReason (R) : Email transmission uses SMTP for sending emails, not HTTP",
+         "options": {
+          "A": "Both (A) & (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) & (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) & (R) are false"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Mail between servers uses SMTP (webmail uses HTTP only between browser and mail server). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q66"
+        },
+        {
+         "question": "Which of the following is true in the view of e-mail?\n(a) You can create folders to store & organize emails\n(b) You can add attachments of any size to an email\n(c) You can add signature to your emails to give personal contact details\n(d) Using cc feature, hides all recipients from each other",
+         "options": {
+          "A": "a & b only",
+          "B": "a & c only",
+          "C": "a & d only",
+          "D": "b, c & d only"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Attachments have size limits; Bcc (not Cc) hides recipients. (The paper prints 'cofeature, hides call recipients' in (d) – read as 'cc feature, hides all recipients'.) (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q81"
+        },
+        {
+         "question": "Which protocol is used for dynamic IP address allocation in a network?",
+         "options": {
+          "A": "ARP",
+          "B": "DHCP",
+          "C": "DNS",
+          "D": "ICMP"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "DHCP uses UDP ports 67 (server) and 68 (client): Discover, Offer, Request, Acknowledge. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q62"
+        },
+        {
+         "question": "Which of the following are the protocols used in the internet for secure communication?\n(a) SSL / TLS  (b) FTP\n(c) HTTPS  (d) HTTP",
+         "options": {
+          "A": "a and b",
+          "B": "b and c",
+          "C": "a and c",
+          "D": "b and d"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Secure versions: SFTP/FTPS, HTTPS, SMTPS, SSH. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q63"
+        },
+        {
+         "question": "Which of the following protocols is commonly used in IoT for device communication?",
+         "options": {
+          "A": "HTTP-Hypertext transfer protocol",
+          "B": "MQTT-Message queue telemetry transport",
+          "C": "FTP-file transfer Protocol",
+          "D": "POP3-Post office protocol version 3"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "MQTT is a lightweight publish–subscribe protocol (port 1883). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q68"
+        },
+        {
+         "question": "In the e-mail system, the protocol used to SEND (push) mail from the client to the server and between mail servers is:",
+         "options": {
+          "A": "HTTP",
+          "B": "IMAP4",
+          "C": "POP3",
+          "D": "SMTP"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). POP3 and IMAP4 are mail access (pull) protocols."
+        },
+        {
+         "question": "Match the mail protocols with their default ports:\na. SMTP\nb. POP3\nc. IMAP4\nd. SMTP submission\n\n1. 143\n2. 587\n3. 110\n4. 25",
+         "options": {
+          "A": "a-3, b-4, c-1, d-2",
+          "B": "a-2, b-3, c-1, d-4",
+          "C": "a-4, b-1, c-3, d-2",
+          "D": "a-4, b-3, c-1, d-2"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Secure variants: SMTPS 465, POP3S 995, IMAPS 993."
+        },
+        {
+         "question": "Which statement best distinguishes IMAP4 from POP3?",
+         "options": {
+          "A": "IMAP keeps mail on the server, supports folders and partial download; POP3 normally downloads and deletes",
+          "B": "POP3 is newer than IMAP",
+          "C": "POP3 supports server-side folders",
+          "D": "IMAP sends mail between servers"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). IMAP suits users who read mail from several devices."
+        },
+        {
+         "question": "MIME (Multipurpose Internet Mail Extensions) is used to:",
+         "options": {
+          "A": "Route e-mail",
+          "B": "Assign mail addresses",
+          "C": "Encrypt e-mail",
+          "D": "Send non-ASCII data such as images, audio and other languages through e-mail"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "SMTP itself carries only 7-bit ASCII text."
+        },
+        {
+         "question": "In e-mail architecture, the program that transfers mail between servers is the:",
+         "options": {
+          "A": "Message transfer agent (MTA)",
+          "B": "Message access agent (MAA)",
+          "C": "User agent (UA)",
+          "D": "Browser"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). UA – composes/reads mail (e.g. Outlook, Thunderbird); MAA – POP/IMAP."
+        },
+        {
+         "question": "Which SMTP command identifies the recipient of a message?",
+         "options": {
+          "A": "DATA",
+          "B": "RCPT TO",
+          "C": "HELO",
+          "D": "MAIL FROM"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Order: HELO/EHLO → MAIL FROM → RCPT TO → DATA → QUIT."
+        },
+        {
+         "question": "FTP uses two TCP connections:",
+         "options": {
+          "A": "One UDP connection on port 69",
+          "B": "Two UDP connections",
+          "C": "One TCP connection on port 80",
+          "D": "A persistent control connection on port 21 and a non-persistent data connection (port 20 in active mode)"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). In passive mode the server opens a random data port for the client to connect to."
+        },
+        {
+         "question": "In FTP, the control connection carries ____ and the data connection carries ____.",
+         "options": {
+          "A": "passwords only; nothing",
+          "B": "commands and replies; files and directory listings",
+          "C": "e-mail; web pages",
+          "D": "files; commands"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Commands such as USER, PASS, RETR, STOR and LIST go on the control connection; the data connection opens for each transfer."
+        },
+        {
+         "question": "FTP file types include:",
+         "options": {
+          "A": "JPEG, PNG and GIF",
+          "B": "TCP, UDP and IP",
+          "C": "Stream, block and compressed",
+          "D": "ASCII, EBCDIC and image (binary)"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stream, block and compressed are FTP transmission modes; file, record and page are data structures."
+        },
+        {
+         "question": "Anonymous FTP allows:",
+         "options": {
+          "A": "Users to access public files with the user name 'anonymous' and a guest password",
+          "B": "Uploading viruses",
+          "C": "Anonymous e-mail",
+          "D": "Hidden IP addresses"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Public archives let anyone download files, usually with read-only access."
+        },
+        {
+         "question": "TELNET is a protocol for:",
+         "options": {
+          "A": "Transferring mail",
+          "B": "Resolving names",
+          "C": "Remote login to another computer using a network virtual terminal (NVT)",
+          "D": "Assigning addresses"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). It runs over TCP port 23 and sends data, including passwords, in plain text."
+        },
+        {
+         "question": "SSH replaced TELNET mainly because:",
+         "options": {
+          "A": "SSH encrypts the session, including passwords",
+          "B": "SSH is faster on LANs only",
+          "C": "SSH uses UDP",
+          "D": "TELNET cannot work on TCP"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "SSH uses TCP port 22."
+        },
+        {
+         "question": "The NVT (network virtual terminal) in TELNET is used to:",
+         "options": {
+          "A": "Detect collisions",
+          "B": "Assign ports",
+          "C": "Encrypt data",
+          "D": "Provide a common character set so different systems can communicate"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Local characters are translated to NVT form, sent, and translated to the remote system's form."
+        },
+        {
+         "question": "The DHCP message sequence for obtaining an address is:",
+         "options": {
+          "A": "Discover → Request → Offer → Acknowledge",
+          "B": "Discover → Offer → Request → Acknowledge",
+          "C": "Offer → Discover → Acknowledge → Request",
+          "D": "Request → Offer → Discover → Acknowledge"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "Easy to remember as 'DORA'."
+        },
+        {
+         "question": "SNMP (Simple Network Management Protocol) uses:",
+         "options": {
+          "A": "UDP port 53",
+          "B": "TCP port 25",
+          "C": "UDP ports 161 (agent) and 162 (traps)",
+          "D": "TCP port 21"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). It uses a MIB to describe managed objects."
+        },
+        {
+         "question": "Assertion (A): Webmail users do not need a mail user agent installed on their computer.\nReason (R): The browser communicates with the mail server using HTTP.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "The mail server still uses SMTP to exchange messages with other servers."
+        },
+        {
+         "question": "Consider the statements:\nI. POP3 has two modes – delete and keep.\nII. SMTP is a pull protocol.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only I: SMTP is a push protocol; POP3/IMAP pull mail from the server."
+        },
+        {
+         "question": "An e-mail address 'user@kea.kar.nic.in' consists of:",
+         "options": {
+          "A": "A local part (mailbox) and a domain name",
+          "B": "An IP address and MAC address",
+          "C": "A port and a path",
+          "D": "A protocol and host"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "The domain's MX record gives the mail server for that domain."
+        },
+        {
+         "question": "Which protocol would a mail client use to read mail stored in server-side folders from several devices?",
+         "options": {
+          "A": "TFTP",
+          "B": "ARP",
+          "C": "SMTP",
+          "D": "IMAP4"
+         },
+         "answer": "D",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). IMAP4 keeps messages and folders on the server, so every device sees the same mailbox."
+        },
+        {
+         "question": "Which of these application-layer protocols uses UDP?",
+         "options": {
+          "A": "TELNET",
+          "B": "FTP",
+          "C": "DHCP",
+          "D": "SMTP"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "FTP, SMTP, TELNET and HTTP use TCP; DNS, DHCP, SNMP and TFTP normally use UDP."
+        },
+        {
+         "question": "In the client–server paradigm, the server:",
+         "options": {
+          "A": "Runs only when the user clicks",
+          "B": "Runs continuously, waiting for requests from clients",
+          "C": "Has no IP address",
+          "D": "Starts communication with clients"
+         },
+         "answer": "B",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). In the peer-to-peer paradigm (e.g. BitTorrent) peers act as both clients and servers."
+        },
+        {
+         "question": "Assertion (A): FTP sends the user name and password in plain text.\nReason (R): FTP encrypts the data connection by default.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "R is false: plain FTP encrypts nothing; FTPS or SFTP must be used for security."
+        },
+        {
+         "question": "Which statement about Bcc in e-mail is correct?",
+         "options": {
+          "A": "Bcc recipients receive the mail but are hidden from the other recipients",
+          "B": "Bcc encrypts the mail",
+          "C": "Bcc sends only to the first recipient",
+          "D": "Bcc recipients can see all other Bcc recipients"
+         },
+         "answer": "A",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Cc recipients are visible to all."
+        },
+        {
+         "question": "The e-mail 'spam' filter and the 'rules' that sort incoming mail into folders work on:",
+         "options": {
+          "A": "The DNS root server",
+          "B": "The DHCP server",
+          "C": "The mail user agent or mail server, based on headers and content",
+          "D": "The Ethernet switch"
+         },
+         "answer": "C",
+         "subject": "E-mail (SMTP, POP3, IMAP), FTP, TELNET and Other Application Protocols",
+         "explanation": "For example, Outlook's 'Rules' move incoming mail into folders automatically."
         }
        ]
       }
