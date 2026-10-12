@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 9 — Data Communication & Networks",
- "description": "11 of 14 topics so far (22 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; IPv6, ARP, Delivery & Routing; Transport Layer; World Wide Web & Applications; Network Security. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (28 sets × 30 questions): Data Communication – Part 1; Data Communication – Part 2; Computer Networks & Topologies; Network Models; Data Link Layer; Multiple Access, Devices & VLANs; IPv4 Addressing; IPv6, ARP, Delivery & Routing; Transport Layer; World Wide Web & Applications; Network Security; Mobile Technology – Part 1; Mobile Technology – Part 2; Cloud Computing and IoT. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 9 – Data Communication & Networks",
@@ -8220,6 +8220,2244 @@
       {
        "title": "Network security – revision sheet",
        "md": "## Goals and attacks\n- **CIA**: confidentiality, integrity, availability (+ authentication, non-repudiation)\n- Passive (snooping, traffic analysis) vs active (modification, masquerade, replay, DoS)\n- Malware: **virus** (needs host), **worm** (self-spreading), **Trojan** (hidden harmful code), **logic bomb** (condition), ransomware, spyware, adware, rootkit, botnet\n- Phishing, spoofing, sniffing, MITM, DDoS, XSS, SQL injection, social engineering\n\n## Defences\n- **Firewall**: packet filter (IP/port), stateful, proxy/application gateway; cannot stop insiders or bypass links\n- DMZ for public servers; IDS/IPS; honeypot; 2FA (know + have + are)\n- **VPN** – encrypted tunnel; **IPsec** (network layer): AH (auth) / **ESP** (auth + encryption); transport vs **tunnel** mode\n- **TLS/SSL** – HTTPS 443; **SSH 22** replaces Telnet; PGP/S-MIME – e-mail\n- **Kerberos** – tickets from KDC (AS + TGS)\n\n## Cryptography\n| | Symmetric | Asymmetric |\n|---|---|---|\n| Keys | one shared | public + private |\n| Examples | DES (64-bit block, 56-bit key, 16 rounds), 3DES, AES (128-bit block, 128/192/256 key) | RSA, ECC, ElGamal, DSA |\n| Keys for n users | n(n−1)/2 | 2n |\n- Classical: substitution (Caesar shift 3, Playfair, Vigenère = polyalphabetic), transposition; one-time pad\n- **RSA**: n = pq, φ = (p−1)(q−1), e·d ≡ 1 mod φ; C = M^e mod n (p=3, q=11, e=3 → d=7; M=4 → C=31)\n- **Diffie–Hellman**: key agreement (p=23, g=5, a=4, b=3 → key 18); needs authentication against MITM\n- **Hash**: MD5 128, SHA-1 160, SHA-224/256/512 as named; one-way, collision-resistant\n- **MAC/HMAC** – shared key, integrity + auth\n- **Digital signature**: sign with **sender's private key**, verify with sender's public key → auth + integrity + non-repudiation\n- Confidentiality: encrypt with **receiver's public key**\n- Certificates: X.509 by CA; India – Controller of Certifying Authorities (IT Act 2000)\n- **Steganography** – hiding a message's existence (LSB in images)\n"
+      }
+     ]
+    },
+    {
+     "name": "Mobile Technology – Part 1",
+     "sets": [
+      {
+       "name": "1 · GSM and CDMA – Architecture, Services and Generations",
+       "questions": [
+        {
+         "question": "The Mobile Application Part (MAP) is a/an ____ protocol that provides an application layer for the various nodes in GSM and UMTS mobile core networks and GPRS core networks.",
+         "options": {
+          "A": "SS7",
+          "B": "SNMP",
+          "C": "SMTP",
+          "D": "HTTP"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "MAP is an application-layer protocol of the SS7 (Signalling System No. 7) stack. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q90"
+        },
+        {
+         "question": "GSM is a second-generation (2G) cellular system that uses which multiple-access method?",
+         "options": {
+          "A": "CDMA only",
+          "B": "Pure ALOHA",
+          "C": "OFDMA only",
+          "D": "TDMA combined with FDMA"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each 200 kHz carrier is divided into 8 time slots."
+        },
+        {
+         "question": "In GSM-900, the uplink and downlink bands are:",
+         "options": {
+          "A": "1800–1900 MHz both",
+          "B": "890–915 MHz (uplink) and 935–960 MHz (downlink)",
+          "C": "935–960 MHz (uplink) and 890–915 MHz (downlink)",
+          "D": "2.4 GHz both"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Duplex separation 45 MHz; 124 carriers of 200 kHz each."
+        },
+        {
+         "question": "How many time slots does one GSM carrier (TDMA frame) have?",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "16",
+          "D": "124"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). A TDMA frame lasts about 4.615 ms."
+        },
+        {
+         "question": "The three main subsystems of the GSM architecture are:",
+         "options": {
+          "A": "Router, switch and hub",
+          "B": "Sender, channel and receiver",
+          "C": "Mobile Station, Base Station Subsystem and Network & Switching Subsystem (plus OSS)",
+          "D": "Client, server and database"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "BSS = BTS + BSC; NSS = MSC + HLR + VLR + AuC + EIR; OSS = operation and support."
+        },
+        {
+         "question": "In GSM, the database that stores permanent subscriber information (service profile, current location area) is the:",
+         "options": {
+          "A": "VLR (Visitor Location Register)",
+          "B": "BSC",
+          "C": "EIR",
+          "D": "HLR (Home Location Register)"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). VLR keeps temporary data for subscribers currently in the MSC's area."
+        },
+        {
+         "question": "The GSM register that holds the list of valid, stolen or blocked handsets (by IMEI) is the:",
+         "options": {
+          "A": "HLR",
+          "B": "VLR",
+          "C": "AuC",
+          "D": "EIR (Equipment Identity Register)"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "IMEI identifies the handset; IMSI (on the SIM) identifies the subscriber."
+        },
+        {
+         "question": "The Authentication Centre (AuC) in GSM stores:",
+         "options": {
+          "A": "Cell tower locations",
+          "B": "Handset IMEIs",
+          "C": "The secret key Ki of each subscriber and generates authentication triplets",
+          "D": "Call records"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Algorithms: A3 (authentication), A8 (cipher-key generation), A5 (air-interface encryption)."
+        },
+        {
+         "question": "The GSM component that controls several BTSs, allocates radio channels and manages handovers between them is the:",
+         "options": {
+          "A": "SIM",
+          "B": "BSC (Base Station Controller)",
+          "C": "MSC",
+          "D": "HLR"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "The MSC switches calls and connects to the public telephone network."
+        },
+        {
+         "question": "The GSM air interface between the mobile station and the BTS is called:",
+         "options": {
+          "A": "A interface",
+          "B": "Abis interface",
+          "C": "Um interface",
+          "D": "Gb interface"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Abis – BTS to BSC; A – BSC to MSC."
+        },
+        {
+         "question": "The SIM card in a GSM phone stores:",
+         "options": {
+          "A": "The HLR database",
+          "B": "The handset's IMEI only",
+          "C": "The operating system",
+          "D": "The IMSI, the secret key Ki and personal data such as contacts"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "SIM = Subscriber Identity Module."
+        },
+        {
+         "question": "GSM services are classified as:",
+         "options": {
+          "A": "Simplex, half duplex and full duplex",
+          "B": "Bearer services, teleservices and supplementary services",
+          "C": "IaaS, PaaS and SaaS",
+          "D": "Unicast, multicast and broadcast"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Teleservices – voice, SMS, fax; supplementary – call forwarding, call waiting, caller ID."
+        },
+        {
+         "question": "A single SMS message in GSM can carry up to:",
+         "options": {
+          "A": "1600 characters",
+          "B": "255 bytes of video",
+          "C": "160 characters (7-bit)",
+          "D": "16 characters"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Longer texts are split and joined (concatenated SMS)."
+        },
+        {
+         "question": "GPRS, often called 2.5G, added to GSM:",
+         "options": {
+          "A": "Satellite links",
+          "B": "Analog voice",
+          "C": "Optical fibre",
+          "D": "Packet-switched data service"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). EDGE (2.75G) improved data rates further."
+        },
+        {
+         "question": "CDMA allows many users to share the same frequency band at the same time by:",
+         "options": {
+          "A": "Using only one user at a time",
+          "B": "Giving each user a unique spreading code",
+          "C": "Giving each user a separate time slot",
+          "D": "Giving each user a separate carrier frequency"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Spread-spectrum; codes are orthogonal (e.g. Walsh codes). IS-95 was the first CDMA cellular standard."
+        },
+        {
+         "question": "Which handoff is possible in CDMA but not in GSM?",
+         "options": {
+          "A": "Soft handoff – connected to two base stations at the same time",
+          "B": "No handoff at all",
+          "C": "Hard handoff",
+          "D": "Manual handoff"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). GSM uses hard handoff ('break before make')."
+        },
+        {
+         "question": "The 'near–far problem' in CDMA is handled by:",
+         "options": {
+          "A": "Tight power control of mobile transmitters",
+          "B": "Adding time slots",
+          "C": "Using larger antennas",
+          "D": "Reducing the number of codes"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "A nearby strong signal can drown distant weak ones."
+        },
+        {
+         "question": "In CDMA, the frequency reuse factor is typically:",
+         "options": {
+          "A": "12",
+          "B": "4",
+          "C": "1 – every cell uses the same frequency",
+          "D": "7"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). FDMA/TDMA systems need a cluster of several cells."
+        },
+        {
+         "question": "Match the generation with its key technology:\na. 1G\nb. 2G\nc. 3G\nd. 4G\n\n1. Analog FDMA (AMPS)\n2. LTE with OFDMA, all-IP\n3. Digital GSM/TDMA\n4. WCDMA/UMTS",
+         "options": {
+          "A": "a-3, b-1, c-4, d-2",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "5G NR adds mmWave, massive MIMO, network slicing and very low latency."
+        },
+        {
+         "question": "Which statement about 4G LTE is correct?",
+         "options": {
+          "A": "It uses circuit switching for data",
+          "B": "It cannot carry video",
+          "C": "It is analog",
+          "D": "It is an all-IP packet network; voice is carried as VoLTE"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Downlink OFDMA, uplink SC-FDMA."
+        },
+        {
+         "question": "A major feature of 5G is:",
+         "options": {
+          "A": "Network slicing, very low latency and support for massive IoT",
+          "B": "Analog voice",
+          "C": "Only 2G compatibility",
+          "D": "Circuit-switched data only"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Uses sub-6 GHz and mmWave bands."
+        },
+        {
+         "question": "In a GSM network, when a subscriber roams into another MSC area, the subscriber's temporary data is stored in the:",
+         "options": {
+          "A": "EIR",
+          "B": "SIM only",
+          "C": "HLR of the visited network",
+          "D": "VLR of the visited MSC"
+         },
+         "answer": "D",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). The HLR is updated with the new location."
+        },
+        {
+         "question": "The 15-digit number that uniquely identifies a mobile handset is the:",
+         "options": {
+          "A": "MSISDN",
+          "B": "IMEI",
+          "C": "IMSI",
+          "D": "TMSI"
+         },
+         "answer": "B",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "*#06# shows it. MSISDN is the phone number; TMSI a temporary identity for privacy."
+        },
+        {
+         "question": "Frequency hopping in GSM is used to:",
+         "options": {
+          "A": "Reduce the effect of fading and interference",
+          "B": "Encrypt calls",
+          "C": "Locate users",
+          "D": "Increase the number of SIMs"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). The carrier frequency changes from frame to frame."
+        },
+        {
+         "question": "Which multiple-access technique is the basis of 4G LTE downlink?",
+         "options": {
+          "A": "TDMA only",
+          "B": "Pure CDMA",
+          "C": "OFDMA",
+          "D": "FDMA only"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Orthogonal Frequency-Division Multiple Access."
+        },
+        {
+         "question": "Which statement about GSM security is correct?",
+         "options": {
+          "A": "The SIM and the AuC share a secret key used for challenge–response authentication",
+          "B": "Encryption is done by the HLR",
+          "C": "GSM has no authentication",
+          "D": "GSM sends passwords in plain text"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "PYQ pattern (KEA / KSET papers). A random challenge (RAND) produces a signed response (SRES)."
+        },
+        {
+         "question": "Paging in a cellular network means:",
+         "options": {
+          "A": "Sending SMS",
+          "B": "Turning off the phone",
+          "C": "Broadcasting a message in a location area to find a mobile for an incoming call",
+          "D": "Charging the battery"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Location updates tell the network which area to page."
+        },
+        {
+         "question": "Consider the statements:\nI. GSM uses hard handoff.\nII. CDMA users are separated by time slots.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Only I. CDMA users are separated by codes."
+        },
+        {
+         "question": "Consider the statements:\nI. The HLR stores permanent subscriber data.\nII. The EIR stores handset identities.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Both."
+        },
+        {
+         "question": "Assertion (A): CDMA needs strict power control.\nReason (R): All users share the same band, so a strong nearby signal can mask weak distant ones.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "GSM and CDMA – Architecture, Services and Generations",
+         "explanation": "Near–far problem; R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Mobile Computing, Middleware, Gateways and Mobile IP",
+       "questions": [
+        {
+         "question": "What is the key characteristic of hybrid mobile applications?",
+         "options": {
+          "A": "They are written in platform-specific languages",
+          "B": "They are built using web technologies and run inside a native container",
+          "C": "They require separate code bases for each platform",
+          "D": "They offer performance equivalent to native apps"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "HTML/CSS/JavaScript wrapped in a native shell (e.g. Cordova/Ionic); native apps use Kotlin/Java or Swift. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q64"
+        },
+        {
+         "question": "Mobile computing differs from fixed computing mainly because of:",
+         "options": {
+          "A": "Larger screens",
+          "B": "Wired connections only",
+          "C": "Unlimited power",
+          "D": "Mobility, limited battery and resources, and changing or intermittent wireless connectivity"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Applications must handle disconnections and low bandwidth."
+        },
+        {
+         "question": "In mobile computing, 'middleware' is:",
+         "options": {
+          "A": "A radio tower",
+          "B": "The phone's battery",
+          "C": "A type of SIM",
+          "D": "Software that sits between the mobile application and the network/OS, hiding heterogeneity (e.g. messaging, synchronisation)"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Examples: message-oriented middleware, mobile agents, data-sync middleware."
+        },
+        {
+         "question": "A WAP gateway's role was to:",
+         "options": {
+          "A": "Route GSM calls",
+          "B": "Encrypt Wi-Fi",
+          "C": "Translate between WAP (WML, compressed protocols) on phones and HTTP/HTML on the Internet",
+          "D": "Store SIM data"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). WAP – Wireless Application Protocol; WML – Wireless Markup Language."
+        },
+        {
+         "question": "The main problem that Mobile IP solves is:",
+         "options": {
+          "A": "Keeping the same IP address while a host moves between networks",
+          "B": "Speeding up DNS",
+          "C": "Encrypting data",
+          "D": "Assigning MAC addresses"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Normally an IP address ties a host to one network."
+        },
+        {
+         "question": "In Mobile IP, the router on the mobile host's home network that forwards its packets is the:",
+         "options": {
+          "A": "Foreign agent",
+          "B": "Home agent",
+          "C": "DHCP server",
+          "D": "Correspondent node"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The foreign agent is on the visited network."
+        },
+        {
+         "question": "The temporary address of a mobile host in the visited network in Mobile IP is the:",
+         "options": {
+          "A": "Loopback address",
+          "B": "MAC address",
+          "C": "Care-of address (COA)",
+          "D": "Home address"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "It may be the foreign agent's address or a co-located address from DHCP."
+        },
+        {
+         "question": "In Mobile IP, the home agent delivers packets to the care-of address by:",
+         "options": {
+          "A": "Dropping them",
+          "B": "Broadcasting",
+          "C": "Changing the destination MAC",
+          "D": "Tunnelling (IP-in-IP encapsulation)"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The foreign agent decapsulates and delivers them."
+        },
+        {
+         "question": "The three phases of Mobile IP operation are:",
+         "options": {
+          "A": "Ping, trace and route",
+          "B": "Dial, talk and hang up",
+          "C": "Encode, send and decode",
+          "D": "Agent discovery, registration and data transfer (tunnelling)"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Agents send advertisements; mobiles may send solicitations."
+        },
+        {
+         "question": "'Triangle routing' in Mobile IP refers to:",
+         "options": {
+          "A": "Routing in three cells",
+          "B": "Three home agents",
+          "C": "Packets from a correspondent going via the home agent while replies go directly – an inefficient path",
+          "D": "A routing loop"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Route optimisation lets the correspondent learn the care-of address."
+        },
+        {
+         "question": "A 'co-located care-of address' is:",
+         "options": {
+          "A": "The home agent's address",
+          "B": "An address obtained by the mobile host itself (e.g. via DHCP) in the foreign network",
+          "C": "The foreign agent's MAC",
+          "D": "A multicast address"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Then the mobile host decapsulates packets itself."
+        },
+        {
+         "question": "Which of the following is a mobile operating system?",
+         "options": {
+          "A": "Android",
+          "B": "Unix System V",
+          "C": "OS/2",
+          "D": "MS-DOS"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Android (Linux kernel, Google) and iOS (Apple)."
+        },
+        {
+         "question": "Android applications are packaged as:",
+         "options": {
+          "A": ".deb files",
+          "B": ".apk (or .aab) files",
+          "C": ".dmg files",
+          "D": ".exe files"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "iOS apps: .ipa."
+        },
+        {
+         "question": "In Android, an 'Activity' represents:",
+         "options": {
+          "A": "A background database",
+          "B": "A network protocol",
+          "C": "A SIM card",
+          "D": "A single screen with a user interface"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Others: services, broadcast receivers, content providers; an Intent starts another activity."
+        },
+        {
+         "question": "Location-based services on mobiles mainly use:",
+         "options": {
+          "A": "GPS and cell/Wi-Fi positioning",
+          "B": "Only the IMEI",
+          "C": "Only SMS",
+          "D": "Bluetooth printers"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Used in maps, cab booking."
+        },
+        {
+         "question": "Which of the following is a challenge for mobile databases?",
+         "options": {
+          "A": "Disconnected operation and synchronisation of replicas",
+          "B": "Unlimited bandwidth",
+          "C": "No battery limits",
+          "D": "Fixed location"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Caching and later sync solve some problems."
+        },
+        {
+         "question": "SMS, USSD and mobile banking apps are examples of:",
+         "options": {
+          "A": "Satellite links",
+          "B": "Optical networks",
+          "C": "Mobile services used for m-commerce / m-governance",
+          "D": "Operating systems"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "USSD codes like *99# work without Internet."
+        },
+        {
+         "question": "Bluetooth-based pairing between a phone and a smartwatch forms a:",
+         "options": {
+          "A": "MAN",
+          "B": "Personal area network (piconet)",
+          "C": "SAN",
+          "D": "WAN"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Up to 7 active slaves with one master."
+        },
+        {
+         "question": "A 'mobile agent' is:",
+         "options": {
+          "A": "A sales person",
+          "B": "A base station",
+          "C": "A SIM card",
+          "D": "A program that moves from one host to another, carrying its state, to do work near the data"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Reduces network traffic for disconnected users."
+        },
+        {
+         "question": "Which protocol layer change does Mobile IP require in correspondent hosts?",
+         "options": {
+          "A": "A new Ethernet",
+          "B": "A new DNS",
+          "C": "None – correspondent hosts need no change",
+          "D": "A new TCP version"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only home agent, foreign agent and mobile host take part."
+        },
+        {
+         "question": "Which statement about mobile computing is correct?",
+         "options": {
+          "A": "Context-aware applications adapt to location, time and device state",
+          "B": "Mobile devices never lose connectivity",
+          "C": "Batteries are not a concern",
+          "D": "Mobile apps cannot use the cloud"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Context awareness is a key mobile-computing feature."
+        },
+        {
+         "question": "Which device in a mobile network acts as a gateway between the cellular core and the Internet for packet data (GPRS)?",
+         "options": {
+          "A": "SIM",
+          "B": "GGSN (Gateway GPRS Support Node)",
+          "C": "HLR",
+          "D": "BTS"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). SGSN serves mobiles in its area; GGSN connects to external packet networks."
+        },
+        {
+         "question": "In 4G LTE, the gateway that connects the mobile network to the Internet is the:",
+         "options": {
+          "A": "MSC",
+          "B": "VLR",
+          "C": "BSC",
+          "D": "P-GW (Packet Data Network Gateway)"
+         },
+         "answer": "D",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "LTE core = EPC (MME, S-GW, P-GW, HSS)."
+        },
+        {
+         "question": "Push notifications on smartphones are delivered by:",
+         "options": {
+          "A": "Platform notification services such as Firebase Cloud Messaging or Apple Push Notification service",
+          "B": "The battery",
+          "C": "The SIM card",
+          "D": "SMS only"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). The app server sends to the push service, which delivers to the device."
+        },
+        {
+         "question": "An app that works offline and syncs data later is following the design principle of:",
+         "options": {
+          "A": "Always-on connectivity",
+          "B": "Batch processing",
+          "C": "Disconnected operation / offline-first",
+          "D": "Thin client only"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Important for mobile users in weak-network areas."
+        },
+        {
+         "question": "Which is an example of a cross-platform mobile development framework?",
+         "options": {
+          "A": "Microsoft Excel",
+          "B": "Flutter",
+          "C": "Apache Tomcat",
+          "D": "Oracle Database"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "PYQ pattern (KEA / KSET papers). Others: React Native, Xamarin."
+        },
+        {
+         "question": "A 'thin client' mobile application:",
+         "options": {
+          "A": "Does most processing on the server and mainly displays results",
+          "B": "Is always native",
+          "C": "Does all processing on the device",
+          "D": "Has no network connection"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Fat (thick) clients do more processing locally."
+        },
+        {
+         "question": "Consider the statements:\nI. In Mobile IP the foreign agent is on the visited network.\nII. The care-of address changes when the mobile moves to another network.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Both."
+        },
+        {
+         "question": "Consider the statements:\nI. Hybrid apps always perform exactly like native apps.\nII. Native Android apps are commonly written in Kotlin or Java.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "Only II (see GTTC 2024 Q64)."
+        },
+        {
+         "question": "Assertion (A): Mobile IP uses tunnelling.\nReason (R): The packet addressed to the home address must reach the mobile at its care-of address without changing the original header.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Mobile Computing, Middleware, Gateways and Mobile IP",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "GSM, CDMA and mobile computing – revision sheet",
+       "md": "## GSM (2G)\n- TDMA + FDMA; GSM-900: up 890–915, down 935–960 MHz; 124 × 200 kHz carriers; **8 slots** per carrier\n- **MS** (ME + SIM) · **BSS** (BTS, BSC) · **NSS** (MSC, HLR, VLR, AuC, EIR) · OSS\n- HLR permanent data; VLR visitors; AuC key Ki (A3 auth, A8 key, A5 encryption); EIR – IMEI list\n- Interfaces: Um (air), Abis (BTS–BSC), A (BSC–MSC); MAP runs on **SS7**\n- IDs: IMEI (handset, 15 digits), IMSI (SIM), MSISDN (number), TMSI (temporary)\n- Services: bearer, teleservices (voice, SMS 160 chars), supplementary\n- GPRS 2.5G (packet; SGSN, GGSN), EDGE 2.75G; hard handoff\n\n## CDMA and generations\n- Unique spreading codes; reuse factor 1; **soft handoff**; power control (near–far)\n- 1G analog AMPS → 2G GSM/IS-95 → 3G WCDMA/UMTS, CDMA2000 → 4G LTE (OFDMA, all-IP, VoLTE; EPC: MME, S-GW, P-GW, HSS) → 5G NR (slicing, mmWave, low latency)\n\n## Mobile computing\n- Constraints: mobility, battery, bandwidth, disconnections; context-aware apps; offline-first sync\n- Middleware; mobile agents; WAP gateway (WML ↔ HTML); thin vs fat clients\n- Native (Kotlin/Java, Swift) vs **hybrid** (web tech in native container) vs cross-platform (Flutter, React Native)\n- Android: .apk, Activity, Intent; push via FCM/APNs\n\n## Mobile IP\n- Home agent (home network), foreign agent (visited), **care-of address** (FA or co-located via DHCP)\n- Phases: agent discovery → registration → **tunnelling (IP-in-IP)**; triangle routing → route optimisation\n- Correspondent hosts need no change\n"
+      }
+     ]
+    },
+    {
+     "name": "Mobile Technology – Part 2",
+     "sets": [
+      {
+       "name": "1 · Communication Satellites, Cellular Topology and Wireless Transmission",
+       "questions": [
+        {
+         "question": "A geostationary (GEO) satellite orbits the earth at an altitude of about:",
+         "options": {
+          "A": "500 km, with a period of 90 minutes",
+          "B": "384,000 km",
+          "C": "20,200 km, with a period of 12 hours",
+          "D": "35,786 km, with a period of 24 hours"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). It appears fixed above the equator; three GEO satellites can cover almost the whole earth except the poles."
+        },
+        {
+         "question": "GPS satellites are in which type of orbit?",
+         "options": {
+          "A": "GEO",
+          "B": "MEO (about 20,200 km)",
+          "C": "Polar GEO",
+          "D": "LEO below 500 km"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "India's NavIC uses GEO and geosynchronous satellites."
+        },
+        {
+         "question": "Starlink and Iridium use which type of orbit?",
+         "options": {
+          "A": "GEO",
+          "B": "MEO",
+          "C": "LEO (low earth orbit)",
+          "D": "HEO only"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). LEO gives low delay but needs many satellites and handovers."
+        },
+        {
+         "question": "The main disadvantage of GEO satellites for interactive communication is:",
+         "options": {
+          "A": "They move fast across the sky",
+          "B": "They need many handovers",
+          "C": "Long propagation delay (about 0.24 s up and down; about 0.5 s round trip)",
+          "D": "They cover very small areas"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Distance ≈ 2 × 36,000 km at 3 × 10⁸ m/s."
+        },
+        {
+         "question": "A device on a communication satellite that receives an uplink signal, amplifies it and retransmits it on a different frequency is a:",
+         "options": {
+          "A": "Router",
+          "B": "Transponder",
+          "C": "Modem",
+          "D": "Hub"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Uplink and downlink use different frequencies (e.g. C-band 6/4 GHz) to avoid interference."
+        },
+        {
+         "question": "In satellite communication, the uplink frequency is usually:",
+         "options": {
+          "A": "Equal to the downlink frequency",
+          "B": "Zero",
+          "C": "Lower than the downlink frequency",
+          "D": "Higher than the downlink frequency"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "E.g. Ku-band 14 GHz up / 12 GHz down."
+        },
+        {
+         "question": "Cells in cellular network planning are drawn as hexagons because:",
+         "options": {
+          "A": "It is required by law",
+          "B": "Hexagons cover an area without gaps or overlaps and approximate a circle",
+          "C": "It reduces the number of users",
+          "D": "Towers are hexagonal"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Real coverage areas are irregular."
+        },
+        {
+         "question": "In a cellular system, the cluster size N is given by N = i² + ij + j². With i = 2 and j = 1, N is:",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "7",
+          "D": "12"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "4 + 2 + 1 = 7. Valid values: 1, 3, 4, 7, 9, 12, 13, …"
+        },
+        {
+         "question": "The co-channel reuse ratio D/R for cluster size N is √(3N). For N = 7 it is about:",
+         "options": {
+          "A": "7",
+          "B": "21",
+          "C": "2.65",
+          "D": "4.58"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). √21 ≈ 4.58. Larger N → less interference but fewer channels per cell."
+        },
+        {
+         "question": "A system has 700 duplex channels and uses a 7-cell cluster. How many channels does each cell get?",
+         "options": {
+          "A": "70",
+          "B": "100",
+          "C": "4,900",
+          "D": "700"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "700 ÷ 7 = 100."
+        },
+        {
+         "question": "Reusing the same set of frequencies in cells that are far enough apart is called:",
+         "options": {
+          "A": "Frequency reuse",
+          "B": "Multiplexing",
+          "C": "Handoff",
+          "D": "Frequency hopping"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is what gives cellular systems their capacity."
+        },
+        {
+         "question": "Dividing a congested cell into smaller cells with lower-power base stations is called:",
+         "options": {
+          "A": "Sectoring",
+          "B": "Paging",
+          "C": "Roaming",
+          "D": "Cell splitting"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Sectoring uses directional antennas (e.g. three 120° sectors) to cut interference."
+        },
+        {
+         "question": "Transferring an ongoing call from one cell's base station to another as the user moves is called:",
+         "options": {
+          "A": "Roaming",
+          "B": "Paging",
+          "C": "Handoff (handover)",
+          "D": "Registration"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Roaming = using another operator's network."
+        },
+        {
+         "question": "Which frequency band is used by microwaves for line-of-sight point-to-point links?",
+         "options": {
+          "A": "300 GHz to 400 THz",
+          "B": "3 kHz to 1 GHz",
+          "C": "Below 300 Hz",
+          "D": "About 1 GHz to 300 GHz"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Radio waves 3 kHz–1 GHz (omnidirectional); infrared 300 GHz–400 THz."
+        },
+        {
+         "question": "Infrared communication (e.g. TV remotes) cannot be used for long-distance links mainly because:",
+         "options": {
+          "A": "It needs cables",
+          "B": "It is illegal",
+          "C": "Infrared cannot pass through walls and is affected by sunlight",
+          "D": "It is too slow"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). But it gives security inside a room."
+        },
+        {
+         "question": "Signals arriving at a receiver by several reflected paths at slightly different times cause:",
+         "options": {
+          "A": "Attenuation only",
+          "B": "Multipath fading",
+          "C": "Thermal noise",
+          "D": "Crosstalk"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "OFDM and diversity antennas reduce its effect."
+        },
+        {
+         "question": "Radio waves are suitable for broadcasting (AM/FM radio) mainly because they are:",
+         "options": {
+          "A": "Omnidirectional and can penetrate walls",
+          "B": "Unable to travel far",
+          "C": "Unidirectional",
+          "D": "Visible light"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Microwaves are unidirectional."
+        },
+        {
+         "question": "India's satellite navigation system is:",
+         "options": {
+          "A": "BeiDou",
+          "B": "NavIC (IRNSS)",
+          "C": "Galileo",
+          "D": "GLONASS"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "GLONASS – Russia; Galileo – EU; BeiDou – China."
+        },
+        {
+         "question": "Which satellite launch vehicle is used by ISRO to place communication satellites in geosynchronous transfer orbit?",
+         "options": {
+          "A": "BrahMos",
+          "B": "SLV-3 only",
+          "C": "Agni",
+          "D": "GSLV / LVM3"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). PSLV is mainly for polar/sun-synchronous orbits."
+        },
+        {
+         "question": "VSAT stands for:",
+         "options": {
+          "A": "Very Small Aperture Terminal – small dish earth stations for satellite data links",
+          "B": "Very Secure Access Token",
+          "C": "Virtual Satellite Transmission",
+          "D": "Voice Signal Amplifier"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Used by banks, lottery, remote offices."
+        },
+        {
+         "question": "A 'footprint' of a satellite is:",
+         "options": {
+          "A": "Its weight",
+          "B": "Its launch pad",
+          "C": "The area on earth covered by its signal",
+          "D": "Its orbit time"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Spot beams cover smaller areas with higher power."
+        },
+        {
+         "question": "Which orbit needs the most satellites to give continuous global coverage?",
+         "options": {
+          "A": "All need the same number",
+          "B": "GEO",
+          "C": "LEO",
+          "D": "MEO"
+         },
+         "answer": "C",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "LEO satellites cover small areas and move fast."
+        },
+        {
+         "question": "A cellular system designer wants to increase capacity in a busy city without new spectrum. The best option is:",
+         "options": {
+          "A": "Removing base stations",
+          "B": "Cell splitting and sectoring (smaller cells, more reuse)",
+          "C": "Using only GEO satellites",
+          "D": "Increasing cluster size"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Small cells, microcells and femtocells."
+        },
+        {
+         "question": "A 'hard handoff' is described as:",
+         "options": {
+          "A": "Break-before-make – the old link is dropped before the new one is set up",
+          "B": "No handoff",
+          "C": "Handoff between satellites only",
+          "D": "Make-before-break"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Soft handoff (CDMA) is make-before-break."
+        },
+        {
+         "question": "The time a signal takes to travel is called:",
+         "options": {
+          "A": "Jitter",
+          "B": "Bandwidth",
+          "C": "Throughput",
+          "D": "Propagation delay"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Delay = distance / speed."
+        },
+        {
+         "question": "Which statement about LEO satellites is correct?",
+         "options": {
+          "A": "They stay fixed above one point",
+          "B": "They have low delay but each is visible from a ground point for only a few minutes",
+          "C": "They need no handover",
+          "D": "They are at 35,786 km"
+         },
+         "answer": "B",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "So handover between satellites is needed."
+        },
+        {
+         "question": "A 'transponder' commonly has a bandwidth of about:",
+         "options": {
+          "A": "3.6 Hz",
+          "B": "36 kHz",
+          "C": "36 GHz",
+          "D": "36 MHz"
+         },
+         "answer": "D",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "PYQ pattern (KEA / KSET papers). Typical C-band transponder width."
+        },
+        {
+         "question": "Consider the statements:\nI. A GEO satellite's period equals the earth's rotation period.\nII. GPS satellites are geostationary.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Only I. GPS is MEO."
+        },
+        {
+         "question": "Consider the statements:\nI. Larger cluster size reduces co-channel interference.\nII. Larger cluster size increases channels per cell.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "Only I. Channels per cell = total ÷ N, which falls."
+        },
+        {
+         "question": "Assertion (A): Uplink and downlink frequencies of a satellite are different.\nReason (R): Using different frequencies prevents the strong transmitted signal from interfering with the weak received signal.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Communication Satellites, Cellular Topology and Wireless Transmission",
+         "explanation": "R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+       "questions": [
+        {
+         "question": "In IEEE 802.11, a group of stations communicating directly without an access point forms an:",
+         "options": {
+          "A": "ESS",
+          "B": "Infrastructure BSS",
+          "C": "WAN",
+          "D": "Ad hoc network (IBSS)"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Infrastructure BSS uses an access point (AP); several BSSs joined by a distribution system form an ESS."
+        },
+        {
+         "question": "802.11 wireless LANs use which MAC method?",
+         "options": {
+          "A": "Pure ALOHA",
+          "B": "CSMA/CA",
+          "C": "Token passing",
+          "D": "CSMA/CD"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Collision detection is hard on radio, so collisions are avoided (IFS, backoff, ACK)."
+        },
+        {
+         "question": "The RTS/CTS exchange in 802.11 mainly helps with the:",
+         "options": {
+          "A": "Exposed-terminal problem only",
+          "B": "Count-to-infinity problem",
+          "C": "Near–far problem",
+          "D": "Hidden-terminal problem"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stations hearing CTS stay silent (set their NAV)."
+        },
+        {
+         "question": "The NAV (Network Allocation Vector) in 802.11 is used for:",
+         "options": {
+          "A": "Encryption",
+          "B": "Addressing",
+          "C": "Virtual carrier sensing – how long the medium will be busy",
+          "D": "Routing"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Physical carrier sensing listens to the channel."
+        },
+        {
+         "question": "Match the 802.11 standard with its main feature:\na. 802.11b\nb. 802.11a\nc. 802.11n\nd. 802.11ax\n\n1. 5 GHz, 54 Mbps (OFDM)\n2. Wi-Fi 6 (OFDMA)\n3. MIMO, up to 600 Mbps\n4. 2.4 GHz, 11 Mbps (DSSS)",
+         "options": {
+          "A": "a-4, b-3, c-1, d-2",
+          "B": "a-4, b-1, c-3, d-2",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "802.11g – 2.4 GHz, 54 Mbps; 802.11ac – 5 GHz (Wi-Fi 5)."
+        },
+        {
+         "question": "The name that identifies a wireless LAN to users is the:",
+         "options": {
+          "A": "MAC address",
+          "B": "IMEI",
+          "C": "SSID",
+          "D": "BSSID only"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). BSSID is the AP's MAC address."
+        },
+        {
+         "question": "Which Wi-Fi security protocol is considered weak and should not be used?",
+         "options": {
+          "A": "WPA2-AES",
+          "B": "802.1X with EAP",
+          "C": "WPA3",
+          "D": "WEP"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "WEP's RC4 key handling is easily cracked."
+        },
+        {
+         "question": "Bluetooth (IEEE 802.15.1) operates in the 2.4 GHz band using:",
+         "options": {
+          "A": "Direct-sequence only",
+          "B": "Frequency-hopping spread spectrum (about 1600 hops per second)",
+          "C": "OFDMA",
+          "D": "Infrared"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Short range (about 10 m for class 2)."
+        },
+        {
+         "question": "A Bluetooth piconet can have one master and at most how many ACTIVE slaves?",
+         "options": {
+          "A": "255",
+          "B": "7",
+          "C": "1",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Up to 255 parked slaves; piconets linked together form a scatternet."
+        },
+        {
+         "question": "Zigbee, used in low-power sensor and home-automation networks, is based on:",
+         "options": {
+          "A": "IEEE 802.15.4",
+          "B": "IEEE 802.3",
+          "C": "IEEE 802.11",
+          "D": "IEEE 802.16"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). WiMAX is IEEE 802.16 (broadband wireless MAN)."
+        },
+        {
+         "question": "A MANET (Mobile Ad hoc Network) is:",
+         "options": {
+          "A": "A wired campus network",
+          "B": "A cellular core network",
+          "C": "A self-configuring network of mobile nodes without fixed infrastructure, using multi-hop routing",
+          "D": "A satellite constellation"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Each node acts as a router; topology changes often."
+        },
+        {
+         "question": "Which routing protocol for MANETs is reactive (on-demand)?",
+         "options": {
+          "A": "OSPF",
+          "B": "DSDV",
+          "C": "OLSR",
+          "D": "AODV"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). DSR is also reactive; DSDV and OLSR are proactive (table-driven); ZRP is hybrid."
+        },
+        {
+         "question": "DSDV (Destination-Sequenced Distance Vector) avoids routing loops by using:",
+         "options": {
+          "A": "Flooding every packet",
+          "B": "Source routes in packets",
+          "C": "Sequence numbers for routes",
+          "D": "Hop count only"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "A proactive extension of Bellman–Ford for MANETs."
+        },
+        {
+         "question": "In DSR (Dynamic Source Routing), the route is carried:",
+         "options": {
+          "A": "In the header of each data packet (source routing)",
+          "B": "Only in routing tables",
+          "C": "In the DNS",
+          "D": "In the SIM"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Route discovery floods a route request."
+        },
+        {
+         "question": "A key challenge of MANETs is:",
+         "options": {
+          "A": "Fixed topology",
+          "B": "Dynamic topology, limited battery and bandwidth, and security without a central authority",
+          "C": "Wired links",
+          "D": "Unlimited power"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Used in disaster relief, military, VANETs."
+        },
+        {
+         "question": "The 'exposed terminal problem' causes a station to:",
+         "options": {
+          "A": "Send without hearing others",
+          "B": "Lose power",
+          "C": "Receive two signals",
+          "D": "Wrongly hold back from sending although its transmission would not cause a collision"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Reduces throughput."
+        },
+        {
+         "question": "Which device connects wireless stations to a wired LAN in an infrastructure Wi-Fi network?",
+         "options": {
+          "A": "Access point (AP)",
+          "B": "Modem only",
+          "C": "Hub",
+          "D": "Repeater only"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "An AP acts as a bridge between 802.11 and Ethernet."
+        },
+        {
+         "question": "Wi-Fi in the 2.4 GHz band in India has how many non-overlapping 20 MHz channels commonly used?",
+         "options": {
+          "A": "3 (channels 1, 6 and 11)",
+          "B": "24",
+          "C": "1",
+          "D": "13"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 GHz offers many more non-overlapping channels."
+        },
+        {
+         "question": "Which wireless topology has every node connected to several others so that traffic can take multiple paths?",
+         "options": {
+          "A": "Bus",
+          "B": "Ring",
+          "C": "Mesh",
+          "D": "Star"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Wireless mesh networks extend coverage without cables."
+        },
+        {
+         "question": "Which is a common wireless network topology in homes, with all devices talking through one access point?",
+         "options": {
+          "A": "Bus",
+          "B": "Mesh",
+          "C": "Ring",
+          "D": "Star (infrastructure mode)"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). The AP is the centre."
+        },
+        {
+         "question": "Vehicular ad hoc networks (VANETs) are a special case of:",
+         "options": {
+          "A": "Optical networks",
+          "B": "MANETs",
+          "C": "Wired LANs",
+          "D": "Satellite networks"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Vehicles exchange safety messages."
+        },
+        {
+         "question": "802.11 frames are acknowledged because:",
+         "options": {
+          "A": "Ethernet needs them",
+          "B": "The sender cannot detect collisions on a wireless channel",
+          "C": "ACKs encrypt data",
+          "D": "ACKs reduce power"
+         },
+         "answer": "B",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). No ACK → assume collision/loss and retransmit."
+        },
+        {
+         "question": "Li-Fi transmits data using:",
+         "options": {
+          "A": "Radio waves",
+          "B": "Sound waves",
+          "C": "Visible light from LEDs",
+          "D": "Copper wires"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Cannot pass through walls."
+        },
+        {
+         "question": "WPA2 uses which encryption by default?",
+         "options": {
+          "A": "No encryption",
+          "B": "DES",
+          "C": "RC4 (WEP)",
+          "D": "AES-CCMP"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). WPA3 adds SAE for stronger password protection."
+        },
+        {
+         "question": "Which is the main advantage of wireless LANs?",
+         "options": {
+          "A": "Mobility and easy installation without cables",
+          "B": "Higher security than wired LANs by default",
+          "C": "Unlimited range",
+          "D": "No interference"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Wired LANs are generally faster and more secure."
+        },
+        {
+         "question": "In an 802.11 ESS, stations moving between APs is supported by:",
+         "options": {
+          "A": "GSM MSC",
+          "B": "Mobile IP only",
+          "C": "DNS",
+          "D": "The distribution system linking the APs"
+         },
+         "answer": "D",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "PYQ pattern (KEA / KSET papers). Handover between APs at layer 2."
+        },
+        {
+         "question": "LoRaWAN is designed for:",
+         "options": {
+          "A": "High-speed video streaming",
+          "B": "Satellite TV",
+          "C": "Long-range, low-power, low-data-rate IoT communication",
+          "D": "Gigabit Ethernet"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Can reach several kilometres."
+        },
+        {
+         "question": "Consider the statements:\nI. AODV discovers routes only when needed.\nII. OLSR is a reactive protocol.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Only I. OLSR is proactive."
+        },
+        {
+         "question": "Consider the statements:\nI. Bluetooth uses frequency hopping.\nII. A piconet can have 7 active slaves.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "Both."
+        },
+        {
+         "question": "Assertion (A): 802.11 uses CSMA/CA rather than CSMA/CD.\nReason (R): A wireless station cannot reliably detect collisions while transmitting, and hidden stations may exist.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Wireless LANs, Bluetooth, Wireless Topologies and MANETs",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Satellites, cellular design and wireless LANs – revision sheet",
+       "md": "## Satellites\n| Orbit | Altitude | Example |\n|---|---|---|\n| LEO | 500–2000 km | Starlink, Iridium |\n| MEO | ~20,200 km | GPS |\n| GEO | **35,786 km**, 24 h | INSAT/GSAT |\n- GEO delay ≈ 0.24 s one way (≈0.5 s round trip); 3 GEOs cover the earth (not poles)\n- Transponder (~36 MHz); uplink > downlink frequency (C 6/4, Ku 14/12 GHz); footprint; VSAT; NavIC (India)\n\n## Cellular design\n- Hexagonal cells; **N = i² + ij + j²** (1, 3, 4, 7, 12…); **D/R = √(3N)** (N=7 → 4.58)\n- Channels per cell = total ÷ N; cell splitting, sectoring; hard (break-before-make) vs soft handoff; roaming, paging\n- Radio waves 3 kHz–1 GHz omni; microwaves 1–300 GHz line of sight; infrared no walls; multipath fading\n\n## Wireless LANs (802.11)\n- Ad hoc (IBSS) vs infrastructure (BSS with AP); ESS via distribution system; SSID/BSSID\n- **CSMA/CA** + ACK; RTS/CTS for hidden terminal; NAV = virtual carrier sense; exposed terminal problem\n- 802.11b 2.4 GHz 11 Mbps · a 5 GHz 54 · g 2.4 GHz 54 · n MIMO 600 · ac 5 GHz · ax Wi-Fi 6\n- Security: WEP (weak) → WPA2 (AES-CCMP) → WPA3\n- Bluetooth 802.15.1: FHSS 1600 hops/s, piconet 1 master + **7 active**, scatternet; Zigbee 802.15.4; WiMAX 802.16; Li-Fi; LoRaWAN\n\n## MANET\n- No infrastructure, multi-hop, dynamic topology; VANET\n- Proactive: DSDV (sequence numbers), OLSR · Reactive: **AODV**, DSR (source routing) · Hybrid: ZRP\n"
+      }
+     ]
+    },
+    {
+     "name": "Cloud Computing and IoT",
+     "sets": [
+      {
+       "name": "1 · Cloud Service and Deployment Models, Virtualization and Storage",
+       "questions": [
+        {
+         "question": "Which of the following best describes \"Infrastructure as a service (IaaS)\" in cloud computing?",
+         "options": {
+          "A": "A model where users manage software applications while the vendor handles infrastructure",
+          "B": "A delivery model providing visualized computing resources over the Internet",
+          "C": "A cloud service that abstracts hardware management from the user completely",
+          "D": "A platform allowing developers to build, test and deploy application without worrying about the underlying hardware"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "IaaS gives virtualised servers, storage and networks (e.g. AWS EC2); option 4 describes PaaS. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q94"
+        },
+        {
+         "question": "Examine the following statements and choose the correct option\nStatement A: Cloud data security is primarily the responsibility of the cloud service provider\nStatement B: Customer still need to ensure proper data governance, access controls and compliance with regulations.",
+         "options": {
+          "A": "Both A and B are true and B is the correct explanation for A",
+          "B": "Both A and B are true and B is not the correct explanation of A",
+          "C": "A is true, but B is false",
+          "D": "A is false but B is true"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "KEA's key; it reflects the shared-responsibility model – provider secures the infrastructure, the customer secures its data and access. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q95"
+        },
+        {
+         "question": "Match the following:\na) Public Cloud  b) Private Cloud  c) Hybrid Cloud\ni. Used exclusively by a single business or organisation  ii. Allows data and applications to be shared  iii. Owned and operated by third party providers",
+         "options": {
+          "A": "a – iii, b – i, c – ii",
+          "B": "a – iii, b – ii, c – i",
+          "C": "a – i, b – iii, c – ii",
+          "D": "a – i, b – ii, c – iii"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "A hybrid cloud combines public and private clouds and moves data/apps between them. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q61"
+        },
+        {
+         "question": "What type of computing technology refers to services and applications that typically run on a distributed network through virtualized resources?",
+         "options": {
+          "A": "Distributed computing",
+          "B": "Cloud computing",
+          "C": "Soft computing",
+          "D": "Parallel computing"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "On-demand, virtualised resources over the network. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q106"
+        },
+        {
+         "question": "Which of the following protocol is used for discovering and retrieving objects from a cloud?",
+         "options": {
+          "A": "OCCI",
+          "B": "SMTP",
+          "C": "HTTP",
+          "D": "FTP"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Open Cloud Computing Interface – a REST-based standard for managing cloud resources. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q111"
+        },
+        {
+         "question": "In ____ technique, Virtual Memory Managers (VMMs) do not virtualize real hardware but instead create an optimized virtual system.",
+         "options": {
+          "A": "Paravirtualization",
+          "B": "Emulator",
+          "C": "Application containment",
+          "D": "Programming-Environment Virtualization"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "In programming-environment virtualization (e.g. the Java VM), the VMM presents an optimised virtual system rather than real hardware. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q49"
+        },
+        {
+         "question": "Consider the following:\na) Cloud computing  b) The internet of things  c) Machine learning  d) Artificial intelligence\nWhich of the above is/are related to industrial revolution 4.0?",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "Both a and b",
+          "D": "a, b, c and d"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Industry 4.0 = cyber-physical systems: IoT, cloud, AI/ML, big data, robotics. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P1 · Q85"
+        },
+        {
+         "question": "The five essential characteristics of cloud computing (NIST) include:",
+         "options": {
+          "A": "Local storage only",
+          "B": "Fixed capacity and manual provisioning",
+          "C": "On-demand self-service, broad network access, resource pooling, rapid elasticity and measured service",
+          "D": "One user per server"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). NIST SP 800-145."
+        },
+        {
+         "question": "Gmail, Google Docs and Salesforce are examples of:",
+         "options": {
+          "A": "On-premises software",
+          "B": "IaaS",
+          "C": "SaaS",
+          "D": "PaaS"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "The user just uses the application."
+        },
+        {
+         "question": "Google App Engine and Heroku, where developers deploy code without managing servers, are examples of:",
+         "options": {
+          "A": "DaaS",
+          "B": "IaaS",
+          "C": "SaaS",
+          "D": "PaaS"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). IaaS – AWS EC2, Azure VMs, Google Compute Engine."
+        },
+        {
+         "question": "In which service model does the customer manage the operating system, middleware and applications, while the provider manages hardware and virtualisation?",
+         "options": {
+          "A": "None",
+          "B": "SaaS",
+          "C": "IaaS",
+          "D": "PaaS"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "The customer's control is highest in IaaS and lowest in SaaS."
+        },
+        {
+         "question": "A cloud shared by several organisations with common concerns (e.g. government departments) is a:",
+         "options": {
+          "A": "Private cloud",
+          "B": "Community cloud",
+          "C": "Personal cloud",
+          "D": "Public cloud"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Four NIST deployment models: public, private, community, hybrid."
+        },
+        {
+         "question": "The ability of a cloud to add or remove resources automatically as demand rises and falls is:",
+         "options": {
+          "A": "Resource pooling",
+          "B": "Multi-tenancy",
+          "C": "Rapid elasticity",
+          "D": "Measured service"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Pay-as-you-go billing uses measured service."
+        },
+        {
+         "question": "Serving many customers from the same physical resources while keeping their data separate is called:",
+         "options": {
+          "A": "Load shedding",
+          "B": "Sharding only",
+          "C": "Single sign-on",
+          "D": "Multi-tenancy"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Enabled by virtualisation."
+        },
+        {
+         "question": "A hypervisor is:",
+         "options": {
+          "A": "A database",
+          "B": "A fast CPU",
+          "C": "A network cable",
+          "D": "Software that creates and runs virtual machines on physical hardware"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Also called a virtual machine monitor (VMM)."
+        },
+        {
+         "question": "Type-1 (bare-metal) hypervisors include:",
+         "options": {
+          "A": "Microsoft Word",
+          "B": "VMware ESXi, Microsoft Hyper-V, Xen and KVM",
+          "C": "VirtualBox and VMware Workstation",
+          "D": "Docker Desktop only"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Type-2 (hosted) hypervisors run on a host OS: VirtualBox, VMware Workstation."
+        },
+        {
+         "question": "Paravirtualisation differs from full virtualisation because:",
+         "options": {
+          "A": "No hypervisor is used",
+          "B": "The guest OS cannot run",
+          "C": "The guest OS is modified to cooperate with the hypervisor",
+          "D": "Hardware is emulated in software only"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Xen popularised paravirtualisation."
+        },
+        {
+         "question": "Containers (e.g. Docker) differ from virtual machines because containers:",
+         "options": {
+          "A": "Need a type-1 hypervisor",
+          "B": "Cannot run applications",
+          "C": "Each include a full guest OS",
+          "D": "Share the host OS kernel and are lighter and faster to start"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Kubernetes orchestrates containers."
+        },
+        {
+         "question": "Amazon S3 is an example of:",
+         "options": {
+          "A": "Block storage",
+          "B": "Object storage",
+          "C": "A CPU",
+          "D": "A relational database"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Block storage – EBS volumes; file storage – EFS/NFS."
+        },
+        {
+         "question": "A cloud-hosted database managed by the provider (backups, patching, scaling) is called:",
+         "options": {
+          "A": "A flat file",
+          "B": "IaaS only",
+          "C": "DBaaS (Database as a Service)",
+          "D": "A local database"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). E.g. Amazon RDS, Azure SQL Database, Google Cloud SQL."
+        },
+        {
+         "question": "A 'virtual server' in the cloud is:",
+         "options": {
+          "A": "A virtual machine that behaves like a dedicated server",
+          "B": "A physical rack server",
+          "C": "A network switch",
+          "D": "A web browser"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Also called a VPS or cloud instance."
+        },
+        {
+         "question": "Moving computation close to where data is produced (e.g. at a factory gateway) instead of a distant data centre is called:",
+         "options": {
+          "A": "Edge computing",
+          "B": "Mainframe computing",
+          "C": "Grid computing",
+          "D": "Batch computing"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Fog computing extends the cloud to the network edge."
+        },
+        {
+         "question": "A key advantage of cloud computing for a school or small business is:",
+         "options": {
+          "A": "Unlimited free storage",
+          "B": "No need for Internet",
+          "C": "No large upfront hardware cost – pay only for what is used",
+          "D": "Guaranteed zero downtime"
+         },
+         "answer": "C",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "CapEx becomes OpEx."
+        },
+        {
+         "question": "A key risk of cloud computing is:",
+         "options": {
+          "A": "No scalability",
+          "B": "Dependence on the provider and Internet connectivity, and data-privacy concerns",
+          "C": "Too much local hardware",
+          "D": "No remote access"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Vendor lock-in is another risk."
+        },
+        {
+         "question": "Which Indian government cloud initiative provides cloud services to government departments?",
+         "options": {
+          "A": "DigiLocker",
+          "B": "BHIM",
+          "C": "UMANG",
+          "D": "MeghRaj (GI Cloud)"
+         },
+         "answer": "D",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "MeghRaj – Government of India's cloud initiative."
+        },
+        {
+         "question": "Live migration in virtualisation means:",
+         "options": {
+          "A": "Moving a running VM from one physical host to another with almost no downtime",
+          "B": "Shutting down a VM",
+          "C": "Reinstalling the OS",
+          "D": "Copying files to USB"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used for maintenance and load balancing."
+        },
+        {
+         "question": "Which statement about SaaS is correct?",
+         "options": {
+          "A": "Users manage the hypervisor",
+          "B": "The provider manages the application, OS and hardware; users access it through a browser",
+          "C": "It needs no Internet",
+          "D": "Users install it on their own servers"
+         },
+         "answer": "B",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Subscription-based."
+        },
+        {
+         "question": "Consider the statements:\nI. In IaaS the customer manages the operating system.\nII. In SaaS the customer manages the hardware.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Only I."
+        },
+        {
+         "question": "Consider the statements:\nI. Containers share the host kernel.\nII. Type-2 hypervisors run directly on hardware without a host OS.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "Only I. Type-1 hypervisors run on bare metal."
+        },
+        {
+         "question": "Assertion (A): Virtualisation is a key enabling technology of cloud computing.\nReason (R): It lets one physical server run many isolated virtual machines that can be created and moved on demand.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Cloud Service and Deployment Models, Virtualization and Storage",
+         "explanation": "R explains A."
+        }
+       ]
+      },
+      {
+       "name": "2 · Internet of Things – Components, Architecture and Protocols",
+       "questions": [
+        {
+         "question": "Match the following terms with their definitions in the context of Internet of things.\na) Sensor  b) Analytics  c) Connectivity  d) Actuator\ni. The process of making collected data useful by turning raw data into actionable insights  ii. A device that detects and responds to some type of input from the physical environment\niii. A device that converts energy into motion  iv. Makes sharing data and insights possible. This is 'internet' in Internet of Things",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Sensors sense, actuators act (motors, valves), connectivity links, analytics gives insight. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q62"
+        },
+        {
+         "question": "Match the IoT components to their descriptions:\na) Sensor  b) Actuator  c) IoT platform  d) Cloud Computing\ni. Converts digital signals from a sensor into physical system  ii. Aggregates, processes and analyses data from IoT devices providing insights and managing data flows\niii. Collects data from physical environment through sensors  iv. Provides scalable storage and computational resources over the internet to handle large volumes of data",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iv, b – i, c – iii, d – ii"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Sensor – collects; actuator – acts physically; platform – manages and analyses; cloud – storage and compute. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q63"
+        },
+        {
+         "question": "You are deploying a network of sensors that operate on a constrained power supply and require efficient Communication over IPv6.\nWhich among the following protocols should you consider for optimal performance?",
+         "options": {
+          "A": "BLE",
+          "B": "6LoWPAN",
+          "C": "HTTP/2",
+          "D": "XMPP"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "6LoWPAN compresses IPv6 headers to run over low-power IEEE 802.15.4 radios. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q99"
+        },
+        {
+         "question": "How does TSCH technique contribute to energy efficiency in IOT devices?",
+         "options": {
+          "A": "By keeping all devices powered at a constant level to maintain connectivity.",
+          "B": "By allowing devices to sleep and wake only during their scheduled time slots",
+          "C": "By sending data at random times to prevent disconnection",
+          "D": "By requiring all devices to perform computations synchronously."
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Time-Slotted Channel Hopping (IEEE 802.15.4e) schedules slots so radios can sleep otherwise. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q100"
+        },
+        {
+         "question": "______ is the community that is working together to establish an IoT architecture based on open source technologies and standards.",
+         "options": {
+          "A": "Eclipse IoT",
+          "B": "Red Hat",
+          "C": "Intercloud",
+          "D": "Bot&Bot"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Eclipse IoT hosts projects such as Paho (MQTT) and Mosquitto. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q109"
+        },
+        {
+         "question": "______ is the standard port number of secure MQTT?",
+         "options": {
+          "A": "1883",
+          "B": "8000",
+          "C": "8883",
+          "D": "8888"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "MQTT uses 1883; MQTT over TLS uses 8883. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q110"
+        },
+        {
+         "question": "The term 'Internet of Things' was coined in 1999 by:",
+         "options": {
+          "A": "Vint Cerf",
+          "B": "Mark Weiser",
+          "C": "Tim Berners-Lee",
+          "D": "Kevin Ashton"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mark Weiser coined 'ubiquitous computing'."
+        },
+        {
+         "question": "The Internet of Things refers to:",
+         "options": {
+          "A": "Everyday physical objects with sensors and network connectivity that collect and exchange data",
+          "B": "Only smartphones",
+          "C": "Only the WWW",
+          "D": "Cable TV"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Smart homes, wearables, smart agriculture, smart cities."
+        },
+        {
+         "question": "MQTT follows which communication model?",
+         "options": {
+          "A": "Broadcast only",
+          "B": "Request–response only",
+          "C": "Peer-to-peer file sharing",
+          "D": "Publish–subscribe through a broker"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Clients publish to topics; subscribers receive them."
+        },
+        {
+         "question": "CoAP (Constrained Application Protocol) runs over:",
+         "options": {
+          "A": "Ethernet frames directly",
+          "B": "UDP, with a REST-like request/response model for constrained devices",
+          "C": "TCP only",
+          "D": "Bluetooth only"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Port 5683; like a lightweight HTTP."
+        },
+        {
+         "question": "A passive RFID tag:",
+         "options": {
+          "A": "Uses Wi-Fi",
+          "B": "Has a large battery",
+          "C": "Uses GPS",
+          "D": "Has no battery and is powered by the reader's radio signal"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used in FASTag tolls, library books, supply chains."
+        },
+        {
+         "question": "NFC (Near Field Communication), used in contactless payments, works over a distance of about:",
+         "options": {
+          "A": "1 m to 50 m",
+          "B": "10 km",
+          "C": "100 m",
+          "D": "4–10 cm"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "13.56 MHz."
+        },
+        {
+         "question": "A common three-layer IoT architecture consists of:",
+         "options": {
+          "A": "Physical, data link and network layers",
+          "B": "Input, process and output only",
+          "C": "Perception (sensing) layer, network layer and application layer",
+          "D": "Client, server and database"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Five-layer models add processing (middleware) and business layers."
+        },
+        {
+         "question": "An IoT gateway's role is to:",
+         "options": {
+          "A": "Replace the cloud entirely",
+          "B": "Connect local sensor networks (e.g. Zigbee, BLE) to the Internet/cloud, often translating protocols and filtering data",
+          "C": "Generate electricity",
+          "D": "Act as a sensor"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Often does edge processing."
+        },
+        {
+         "question": "Which sensor would be used in an automatic irrigation system?",
+         "options": {
+          "A": "Gyroscope",
+          "B": "Soil-moisture sensor",
+          "C": "Barcode scanner",
+          "D": "Microphone"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). An actuator (valve/pump) switches the water on."
+        },
+        {
+         "question": "Which device in an IoT system turns a digital command into physical action?",
+         "options": {
+          "A": "Gateway",
+          "B": "Sensor",
+          "C": "Cloud server",
+          "D": "Actuator"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Motors, relays, solenoid valves."
+        },
+        {
+         "question": "IPv6 is important for IoT mainly because:",
+         "options": {
+          "A": "It is slower",
+          "B": "It needs no routers",
+          "C": "Its huge address space can give every device a unique address",
+          "D": "It removes security"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2^128 addresses."
+        },
+        {
+         "question": "BLE (Bluetooth Low Energy) is widely used in IoT because it:",
+         "options": {
+          "A": "Works over many kilometres",
+          "B": "Consumes very little power for short-range, low-data-rate links",
+          "C": "Gives gigabit speed",
+          "D": "Needs wired power"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Fitness bands, beacons."
+        },
+        {
+         "question": "Which of the following is a popular low-cost microcontroller board used in IoT prototyping?",
+         "options": {
+          "A": "Optical drive",
+          "B": "Mainframe",
+          "C": "Supercomputer",
+          "D": "Arduino"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Raspberry Pi is a single-board computer; ESP8266/ESP32 add Wi-Fi."
+        },
+        {
+         "question": "A 'digital twin' is:",
+         "options": {
+          "A": "A duplicate SIM",
+          "B": "A backup hard disk",
+          "C": "A virtual model of a physical object or system kept up to date with real-time data",
+          "D": "A twin processor"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Used in manufacturing and smart cities."
+        },
+        {
+         "question": "A smart meter that sends electricity readings automatically to the utility is an example of:",
+         "options": {
+          "A": "IoT (machine-to-machine communication)",
+          "B": "A mainframe",
+          "C": "Batch processing",
+          "D": "A word processor"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). M2M – devices communicate without human input."
+        },
+        {
+         "question": "A major security concern in IoT is:",
+         "options": {
+          "A": "Default passwords and unpatched devices that can be hijacked into botnets",
+          "B": "Lack of sensors",
+          "C": "Too much battery",
+          "D": "Excessive screen size"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "The Mirai botnet (2016) used insecure IoT cameras and routers."
+        },
+        {
+         "question": "Which protocol is designed for long-range, low-power IoT over licensed cellular spectrum?",
+         "options": {
+          "A": "Ethernet",
+          "B": "Bluetooth classic",
+          "C": "NB-IoT",
+          "D": "Wi-Fi 6E"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). LoRaWAN uses unlicensed spectrum."
+        },
+        {
+         "question": "FASTag, used for highway toll payment in India, is based on:",
+         "options": {
+          "A": "GPS only",
+          "B": "Infrared",
+          "C": "Bluetooth",
+          "D": "Passive RFID"
+         },
+         "answer": "D",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "A reader at the toll plaza reads the tag on the windshield."
+        },
+        {
+         "question": "Data from millions of IoT devices is huge, fast and varied. Its processing belongs to the field of:",
+         "options": {
+          "A": "Word processing",
+          "B": "Big data analytics",
+          "C": "Desktop publishing",
+          "D": "Compiler design"
+         },
+         "answer": "B",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). Volume, velocity, variety."
+        },
+        {
+         "question": "Which of the following is NOT a typical IoT application?",
+         "options": {
+          "A": "Manual typewriter",
+          "B": "Smart traffic signals",
+          "C": "Smart home lighting",
+          "D": "Wearable fitness tracker"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "No sensing or connectivity."
+        },
+        {
+         "question": "In MQTT, the 'QoS 2' level guarantees that a message is delivered:",
+         "options": {
+          "A": "At least once",
+          "B": "At most once",
+          "C": "Exactly once",
+          "D": "Never"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "PYQ pattern (KEA / KSET papers). QoS 0 – at most once; QoS 1 – at least once."
+        },
+        {
+         "question": "Consider the statements:\nI. Sensors convert physical quantities into electrical signals.\nII. Actuators collect data from the environment.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Only I. Actuators act on the environment."
+        },
+        {
+         "question": "Consider the statements:\nI. MQTT is a lightweight publish–subscribe protocol.\nII. CoAP is designed for constrained devices.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "Both."
+        },
+        {
+         "question": "Assertion (A): IoT devices often send data to the cloud.\nReason (R): Small devices have limited storage and processing, while the cloud offers scalable storage and analytics.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Internet of Things – Components, Architecture and Protocols",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Cloud computing and IoT – revision sheet",
+       "md": "## Cloud (NIST SP 800-145)\n- 5 characteristics: on-demand self-service, broad network access, resource pooling, **rapid elasticity**, measured service\n- Service models: **SaaS** (Gmail, Salesforce) · **PaaS** (App Engine, Heroku) · **IaaS** (EC2, Azure VMs); DBaaS\n- Deployment: public, private, community, hybrid; India – MeghRaj\n- Shared responsibility; multi-tenancy; pay-as-you-go; risks – lock-in, privacy, connectivity\n- Storage: object (S3), block (EBS), file; OCCI; edge/fog computing\n\n## Virtualization\n- Hypervisor/VMM; **type-1** bare metal (ESXi, Hyper-V, Xen, KVM) vs **type-2** hosted (VirtualBox)\n- Full vs paravirtualisation; programming-environment virtualisation (JVM); live migration\n- Containers (Docker, Kubernetes) share host kernel\n\n## IoT\n- Term – **Kevin Ashton 1999**; Industry 4.0 = IoT + cloud + AI/ML + big data\n- Components: sensor, actuator, connectivity, gateway, platform/analytics, cloud; layers: perception–network–application\n- Protocols: **MQTT** (pub/sub, broker, 1883 / **8883 TLS**, QoS 0/1/2), **CoAP** (UDP, REST, 5683), **6LoWPAN** (IPv6 over 802.15.4), TSCH, Zigbee, BLE, LoRaWAN, NB-IoT, RFID (passive – FASTag), NFC (~4–10 cm)\n- Boards: Arduino, Raspberry Pi, ESP32; digital twin; M2M; security – default passwords, Mirai botnet\n- Eclipse IoT – open-source IoT community\n"
       }
      ]
     }

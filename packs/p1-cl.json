@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "9 of 14 topics so far (18 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "10 of 14 topics so far (20 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -4516,6 +4516,512 @@
       {
        "title": "Internet basics – revision sheet",
        "md": "## History\n- **ARPANET 1969** (US DoD) → TCP/IP adopted 1 Jan 1983; Vint Cerf & Bob Kahn – 'fathers of the Internet'\n- **WWW** – Tim Berners-Lee, CERN, 1989–91 (HTML, HTTP, URL, first browser and server)\n- First graphical browser – Mosaic (1993)\n- India: ERNET 1986; public Internet via **VSNL, 15 Aug 1995**\n\n## Addresses\n- **URL** = protocol://domain/path/file – e.g. https://www.karnataka.gov.in/index.html\n- **IP address**: IPv4 32-bit (2^32), IPv6 128-bit (2^128); **DNS** turns names into IP addresses\n- Domains: .com, .org, .net, .edu, .gov, .mil; country codes .in, .uk; .gov.in, .ac.in, .nic.in\n- Ports: HTTP **80**, HTTPS **443**, FTP 21, SMTP 25, DNS 53\n\n## Web terms\n| Term | Meaning |\n|---|---|\n| Web page | one HTML document |\n| Website | collection of related pages; first page = home page |\n| Hyperlink | clickable link to another page/file |\n| Browser | Chrome, Firefox, Edge, Safari, Opera |\n| Search engine | Google, Bing, DuckDuckGo – uses crawlers |\n| Web server | stores and serves pages (Apache, Nginx, IIS) |\n| Cookie | small file a website stores on your device |\n| Bookmark | saved link (Ctrl + D) |\n| History | list of visited pages (Ctrl + H) |\n| Incognito | no local history/cookies kept (IP still visible) |\n| Static / dynamic site | fixed pages / pages built from a database |\n- Shortcuts: F5 refresh, Ctrl + T new tab, Ctrl + W close tab, Ctrl + F find\n\n## Networks\n| Type | Area | Example |\n|---|---|---|\n| PAN | a few metres | Bluetooth earbuds |\n| LAN | room / building | school lab, Wi-Fi in a shop |\n| MAN | city | cable TV / city network |\n| WAN | country / world | Internet, MNC offices |\n- Devices: hub (LAN, all ports), switch (MAC), router (IP, between networks), modem (digital ↔ analog)\n- Wi-Fi = **IEEE 802.11**; Ethernet 802.3; Bluetooth 802.15\n- **ISP** – BSNL, Jio, Airtel; speed in **Mbps**\n- Intranet = private; extranet = partners; Internet = public\n\n## ⚠ Traps\n- Internet ≠ WWW; browser ≠ search engine\n- 'Glue' of the Internet = **TCP/IP**\n"
+      }
+     ]
+    },
+    {
+     "name": "Unit 4 – E-mail",
+     "sets": [
+      {
+       "name": "1 · E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+       "questions": [
+        {
+         "question": "Match the following:\na. Inbox  b. Starred  c. Labels  d. Archive\ni. A folder where you store mail that is no longer needed\nii. A categorized and organized email folder\niii. Screen where incoming messages are received\niv. Option used to mark messages as important",
+         "options": {
+          "A": "a-iii, b-iv, c-ii, d-i",
+          "B": "a-ii, b-iii, c-iv, d-i",
+          "C": "a-iv, b-ii, c-i, d-iii",
+          "D": "a-ii, b-i, c-iv, d-iii"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Gmail: archived mail leaves the Inbox but stays in 'All Mail'; labels work like folders. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q79"
+        },
+        {
+         "question": "Identify the 5 basic functions supported by email systems.\na. Composition  b. Decomposition  c. Transfer  d. Reporting  e. Filing  f. Displaying  g. Disposition",
+         "options": {
+          "A": "a, b, c, d, e and g",
+          "B": "a, c, d, f and g",
+          "C": "a, c, d, e and f",
+          "D": "a, b, c, e and g"
+         },
+         "answer": "B",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Tanenbaum's five functions: composition, transfer, reporting, displaying, disposition. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q98"
+        },
+        {
+         "question": "Identify the features that are associated with \"Microsoft Outlook\" from the options given below.\na. Email management  b. Calendar and Scheduling  c. Contact and Task management\nd. Image or Video editing  e. Deep Data Analytics",
+         "options": {
+          "A": "a, b and c",
+          "B": "c, d and e",
+          "C": "d and e",
+          "D": "c and e"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Outlook is a personal information manager: mail, calendar, contacts, tasks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q93"
+        },
+        {
+         "question": "In the e-mail address ravi.kumar@gmail.com, 'gmail.com' is the:",
+         "options": {
+          "A": "Protocol",
+          "B": "Password",
+          "C": "Username",
+          "D": "Domain name of the mail server"
+         },
+         "answer": "D",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Format: username@domain; the '@' separates them."
+        },
+        {
+         "question": "Which symbol must appear in every e-mail address?",
+         "options": {
+          "A": "&",
+          "B": "#",
+          "C": "@",
+          "D": "%"
+         },
+         "answer": "C",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "No spaces are allowed in an e-mail address."
+        },
+        {
+         "question": "Who is credited with sending the first network e-mail (1971) and choosing the '@' symbol?",
+         "options": {
+          "A": "Vint Cerf",
+          "B": "Bill Gates",
+          "C": "Tim Berners-Lee",
+          "D": "Ray Tomlinson"
+         },
+         "answer": "D",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). On ARPANET."
+        },
+        {
+         "question": "When creating a new e-mail ID, which of the following is the strongest password?",
+         "options": {
+          "A": "ravi1990",
+          "B": "K@rn#2026!sun",
+          "C": "password",
+          "D": "123456"
+         },
+         "answer": "B",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Mix of upper/lower case, digits and symbols; at least 8–12 characters."
+        },
+        {
+         "question": "To send a copy of a mail to other people so that all recipients can see their addresses, you use:",
+         "options": {
+          "A": "Subject",
+          "B": "Signature",
+          "C": "Cc (carbon copy)",
+          "D": "Bcc (blind carbon copy)"
+         },
+         "answer": "C",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Bcc recipients are hidden from others."
+        },
+        {
+         "question": "Bcc is best used when:",
+         "options": {
+          "A": "Marking a mail urgent",
+          "B": "Sending one mail to many people without revealing their addresses to each other",
+          "C": "Attaching a file",
+          "D": "Replying to the sender only"
+         },
+         "answer": "B",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "It protects privacy and reduces 'reply all' storms."
+        },
+        {
+         "question": "The short line that tells the recipient what a mail is about is the:",
+         "options": {
+          "A": "Footer",
+          "B": "Signature",
+          "C": "Header bar",
+          "D": "Subject"
+         },
+         "answer": "D",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). A clear subject helps searching later."
+        },
+        {
+         "question": "A file sent along with an e-mail message is called an:",
+         "options": {
+          "A": "Label",
+          "B": "Signature",
+          "C": "Attachment",
+          "D": "Draft"
+         },
+         "answer": "C",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Usually shown with a paper-clip icon. Gmail limits attachments to 25 MB; bigger files go as Drive links."
+        },
+        {
+         "question": "An unfinished mail saved for later sending is stored in:",
+         "options": {
+          "A": "Spam",
+          "B": "Trash",
+          "C": "Drafts",
+          "D": "Sent"
+         },
+         "answer": "C",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Gmail saves drafts automatically."
+        },
+        {
+         "question": "Text automatically added at the end of every mail you send, such as name and designation, is the:",
+         "options": {
+          "A": "Label",
+          "B": "Signature",
+          "C": "Cc",
+          "D": "Subject"
+         },
+         "answer": "B",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Set it in Settings."
+        },
+        {
+         "question": "'Reply all' sends the reply to:",
+         "options": {
+          "A": "The sender and all other recipients of the original mail (To and Cc)",
+          "B": "Only the sender",
+          "C": "Only Bcc recipients",
+          "D": "Everyone in your contacts"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Bcc recipients are not included."
+        },
+        {
+         "question": "'Forward' is used to:",
+         "options": {
+          "A": "Mark a mail as spam",
+          "B": "Reply only to the sender",
+          "C": "Delete a mail",
+          "D": "Send a received mail, with its attachments, to someone else"
+         },
+         "answer": "D",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Subject line gets 'Fwd:'; a reply gets 'Re:'."
+        },
+        {
+         "question": "Which keyboard shortcut in Gmail (with shortcuts on) opens a new message to compose?",
+         "options": {
+          "A": "e",
+          "B": "c",
+          "C": "f",
+          "D": "r"
+         },
+         "answer": "B",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "r – reply; a – reply all; f – forward; e – archive."
+        },
+        {
+         "question": "If you receive an email in the name of your bank from an unknown person asking you to click a link and verify your password, then the target of security threat is known as",
+         "options": {
+          "A": "Phishing",
+          "B": "Trojan Horse",
+          "C": "Malware",
+          "D": "Social Engineering"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Phishing is a social-engineering attack through fake mails; never share passwords or OTPs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q84"
+        },
+        {
+         "question": "Unwanted bulk commercial e-mail is called:",
+         "options": {
+          "A": "Draft",
+          "B": "Thread",
+          "C": "Archive",
+          "D": "Spam"
+         },
+         "answer": "D",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Mail providers move it to the Spam/Junk folder."
+        },
+        {
+         "question": "Consider the statements:\nI. Recipients in Cc can see each other's addresses.\nII. Recipients in Bcc can see each other's addresses.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "Only I."
+        },
+        {
+         "question": "Assertion (A): Large files are often shared as cloud links instead of attachments.\nReason (R): E-mail services limit the size of attachments.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "E-mail IDs, Composing, Cc/Bcc, Attachments and Replies",
+         "explanation": "R explains A (Gmail: 25 MB)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Mail Protocols, Folders, Labels, Filters and Netiquette",
+       "questions": [
+        {
+         "question": "Identify the correct sequence of E-mail communication from sender to receiver:",
+         "options": {
+          "A": "User → SMTP → DNS → Receiver SMTP → IMAP/POP → Inbox",
+          "B": "User → DNS → SMTP → IMAP/POP → Receiver SMTP → Inbox",
+          "C": "User → IMAP/POP → SMTP → Receiver SMTP → DNS → Inbox",
+          "D": "User → DNS → Receiver SMTP → IMAP/POP → SMTP → Inbox"
+         },
+         "answer": "A",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "The sender's SMTP server looks up the receiver's mail server (MX record) in DNS, delivers by SMTP; the receiver reads with IMAP/POP. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q72"
+        },
+        {
+         "question": "Which protocol is used to SEND e-mail between mail servers?",
+         "options": {
+          "A": "IMAP",
+          "B": "SMTP",
+          "C": "HTTP",
+          "D": "POP3"
+         },
+         "answer": "B",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). SMTP port 25 (587 for submission)."
+        },
+        {
+         "question": "Which protocol downloads mail to one device and usually deletes it from the server?",
+         "options": {
+          "A": "SMTP",
+          "B": "FTP",
+          "C": "POP3",
+          "D": "IMAP"
+         },
+         "answer": "C",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "POP3 – port 110."
+        },
+        {
+         "question": "Which protocol keeps mail on the server and synchronises folders across several devices?",
+         "options": {
+          "A": "POP3",
+          "B": "SMTP",
+          "C": "SNMP",
+          "D": "IMAP"
+         },
+         "answer": "D",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). IMAP – port 143 (993 with SSL)."
+        },
+        {
+         "question": "MIME is used in e-mail to:",
+         "options": {
+          "A": "Find the mail server",
+          "B": "Send non-text content such as images, audio and attachments",
+          "C": "Block spam",
+          "D": "Encrypt passwords"
+         },
+         "answer": "B",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Multipurpose Internet Mail Extensions."
+        },
+        {
+         "question": "Reading mail in a web browser (e.g. Gmail website) without installing a program is called:",
+         "options": {
+          "A": "Telnet",
+          "B": "FTP",
+          "C": "Webmail",
+          "D": "POP mail"
+         },
+         "answer": "C",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Desktop clients: Outlook, Thunderbird."
+        },
+        {
+         "question": "Mails you have sent are stored in the:",
+         "options": {
+          "A": "Spam",
+          "B": "Drafts",
+          "C": "Inbox",
+          "D": "Sent folder"
+         },
+         "answer": "D",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Deleted mails go to Trash/Bin (Gmail empties it after 30 days)."
+        },
+        {
+         "question": "In Gmail, 'Archive' a message means:",
+         "options": {
+          "A": "Send it to Spam",
+          "B": "Delete it permanently",
+          "C": "Forward it",
+          "D": "Remove it from the Inbox but keep it in All Mail"
+         },
+         "answer": "D",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Searchable later."
+        },
+        {
+         "question": "In Gmail, labels are similar to:",
+         "options": {
+          "A": "Passwords",
+          "B": "Signatures",
+          "C": "Folders – but one mail can have several labels",
+          "D": "Attachments"
+         },
+         "answer": "C",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Filters can apply labels automatically."
+        },
+        {
+         "question": "A rule that automatically moves incoming mails from a particular sender into a folder is a:",
+         "options": {
+          "A": "Draft",
+          "B": "Filter (rule)",
+          "C": "Signature",
+          "D": "Bcc"
+         },
+         "answer": "B",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Outlook calls them Rules."
+        },
+        {
+         "question": "To download an attachment received in mail, you:",
+         "options": {
+          "A": "Click the attachment's download icon",
+          "B": "Click Reply",
+          "C": "Click Forward",
+          "D": "Mark it as spam"
+         },
+         "answer": "A",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Scan unknown attachments for viruses first."
+        },
+        {
+         "question": "Which attachment type is most likely to carry a virus and should not be opened from unknown senders?",
+         "options": {
+          "A": ".jpg photo from a known contact",
+          "B": ".txt file",
+          "C": ".exe file",
+          "D": "A plain-text message"
+         },
+         "answer": "C",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Executable files run programs."
+        },
+        {
+         "question": "A series of related mails – an original message and its replies – shown together is called a:",
+         "options": {
+          "A": "Draft",
+          "B": "Label",
+          "C": "Filter",
+          "D": "Conversation thread"
+         },
+         "answer": "D",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Gmail groups them by subject."
+        },
+        {
+         "question": "An automatic reply sent while you are on leave is set up using:",
+         "options": {
+          "A": "Bcc",
+          "B": "Vacation responder / Out-of-office reply",
+          "C": "Archive",
+          "D": "Spam filter"
+         },
+         "answer": "B",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Found in Settings."
+        },
+        {
+         "question": "The 'Contacts' (address book) feature helps to:",
+         "options": {
+          "A": "Store passwords",
+          "B": "Store e-mail addresses and details of people you write to",
+          "C": "Edit photos",
+          "D": "Create filters only"
+         },
+         "answer": "B",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Typing a name suggests the saved address."
+        },
+        {
+         "question": "Which of these is a good e-mail etiquette (netiquette)?",
+         "options": {
+          "A": "Forward chain mails",
+          "B": "Use Reply-all for every mail",
+          "C": "Send large files to everyone",
+          "D": "Write a clear subject and avoid typing everything in CAPITALS"
+         },
+         "answer": "D",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Capitals look like shouting."
+        },
+        {
+         "question": "In an e-mail, the 'From' field shows:",
+         "options": {
+          "A": "The sender's address",
+          "B": "The attachment name",
+          "C": "The subject",
+          "D": "The receiver's address"
+         },
+         "answer": "A",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "'To' – main recipients."
+        },
+        {
+         "question": "Which of the following is NOT a free web-based e-mail service?",
+         "options": {
+          "A": "Outlook.com",
+          "B": "Yahoo Mail",
+          "C": "Microsoft Excel",
+          "D": "Gmail"
+         },
+         "answer": "C",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "PYQ pattern (KEA / KPSC / TET computer literacy). Excel is a spreadsheet."
+        },
+        {
+         "question": "Consider the statements:\nI. SMTP is used to send mail.\nII. IMAP deletes mail from the server as soon as it is read.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "Only I. IMAP keeps mail on the server."
+        },
+        {
+         "question": "Assertion (A): IMAP is preferred when the same mailbox is used on a phone and a laptop.\nReason (R): IMAP keeps messages on the server and synchronises them across devices.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Mail Protocols, Folders, Labels, Filters and Netiquette",
+         "explanation": "R explains A."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "E-mail – revision sheet",
+       "md": "## Basics\n- Address = **username@domain** (ravi@gmail.com); first network e-mail – **Ray Tomlinson, 1971**, chose '@'\n- Strong password: 8–12+ characters, upper/lower case, digits, symbols; turn on 2-step verification\n- Five functions (Tanenbaum): composition, transfer, reporting, displaying, disposition\n\n## Composing\n| Field | Use |\n|---|---|\n| To | main recipients |\n| Cc | copy – everyone sees addresses |\n| Bcc | blind copy – hidden addresses |\n| Subject | topic of the mail |\n| Attachment | file (paper clip); Gmail limit 25 MB |\n| Signature | auto text at the end |\n- Reply (Re:) – sender only; Reply all – sender + To + Cc; Forward (Fwd:) – to someone else with attachments\n- Gmail shortcuts: c compose, r reply, a reply all, f forward, e archive\n\n## Folders\nInbox · Sent · Drafts · Spam/Junk · Trash/Bin (30 days) · Starred/Important · Archive (All Mail) · Labels (many per mail) · Filters/Rules · Vacation responder\n\n## Protocols\n| Protocol | Job | Port |\n|---|---|---|\n| **SMTP** | send / transfer | 25 (587) |\n| **POP3** | download to one device | 110 |\n| **IMAP** | keep on server, sync devices | 143 (993) |\n| MIME | attachments, non-text | – |\n- Path: user → SMTP → DNS (MX lookup) → receiver SMTP → IMAP/POP → inbox\n- Webmail (browser) vs mail client (Outlook – mail, calendar, contacts, tasks; Thunderbird)\n\n## Safety & netiquette\n- Phishing mails ask for passwords/OTP – never click; don't open unknown .exe attachments; spam = unwanted bulk mail\n- Clear subject, no ALL CAPS, avoid needless Reply-all and chain mails\n"
       }
      ]
     }
