@@ -1626,6 +1626,7 @@ $('#tabbar').addEventListener('click', e => {
 });
 function renderBar() {
   const left = $('#barLeft');
+  if (typeof D !== 'undefined' && D.prefs) setTodayTabLabel();
   const back = !!store && canGoBack();
   left.innerHTML = (back ? '<button class="icon-btn back-btn" id="backBtn" title="Back" aria-label="Back">←</button>' : '') + '<span class="logo">✓</span>ExamSim';
   if (back) $('#backBtn').onclick = e => { e.stopPropagation(); history.back(); };
@@ -2251,7 +2252,8 @@ const dayLabel = x => planDate(x.date).toLocaleDateString([], { weekday: 'short'
 function renderPlan() {
   const el = $('#plan');
   // Three views: the days (like a diary), the subjects (like the Library) and progress
-  const tabs = [['days', 'Days'], ['subjects', 'Subjects'], ['progress', 'Progress']];
+  // KRIES is subject-wise (no day-by-day calendar view); GPSTR keeps the Days tab
+  const tabs = subjectWise() ? [['subjects', 'Subjects'], ['progress', 'Progress']] : [['days', 'Days'], ['subjects', 'Subjects'], ['progress', 'Progress']];
   PL.tab = { today: 'days', calendar: 'days', p1: 'subjects', p2: 'subjects', tracker: 'progress' }[PL.tab] || PL.tab;
   let h = '<div class="page-head"><h1><svg class=ic><use href=#i-calendar></use></svg> Study plan</h1></div>';
   if (!D.plan) {
@@ -2260,10 +2262,10 @@ function renderPlan() {
       <button class="btn primary" data-open-bank><svg class=ic><use href=#i-download></use></svg> Open question bank</button></div><h2 style="margin:18px 0 8px">Progress</h2><div id="planBody"></div>`;
     el.innerHTML = h; renderProgress($('#planBody')); return;
   }
-  if (!tabs.some(t => t[0] === PL.tab)) PL.tab = 'days';
+  if (!tabs.some(t => t[0] === PL.tab)) PL.tab = tabs[0][0];
   const all = planStats(planRows()), cal = D.plan.calendar || [], today = dayKey(), ti = cal.findIndex(x => x.date === today);
   const left = D.plan.examDate ? Math.ceil((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
-  const where = ti >= 0 ? `Day <b>${ti + 1}</b> of ${cal.length} · Week ${Math.floor(ti / 7) + 1} · ${esc(cal[ti].phase)}`
+  const where = subjectWise() ? '' : ti >= 0 ? `Day <b>${ti + 1}</b> of ${cal.length} · Week ${Math.floor(ti / 7) + 1} · ${esc(cal[ti].phase)}`
     : cal.length && today < cal[0].date ? 'Starts ' + esc(dayLabel(cal[0])) : 'Plan finished';
   h += `<div class="kind">${esc(D.plan.title || 'Study plan')}${D.plan.examDate ? ' · exam ' + esc(planDate(D.plan.examDate).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })) : ''}</div>
     <div class="card plan-sum"><div class="row" style="gap:6px 18px"><span>${left != null ? `<b>${left}</b> days left` : ''}</span><span>${where}</span>
@@ -3507,6 +3509,7 @@ async function bankBanner() {
 document.addEventListener('click', e => { if (e.target.closest('[data-open-bank]')) { e.preventDefault(); openBank(); } });
 document.addEventListener('click', e => { if (e.target.closest('[data-go-plan]')) { e.preventDefault(); openPlan('days'); } });
 document.addEventListener('click', e => { const b = e.target.closest('[data-go-today]'); if (b) { e.preventDefault(); openToday(b.dataset.goToday); } });
+document.addEventListener('click', e => { if (e.target.closest('[data-go-subjects]')) { e.preventDefault(); openToday(); } });
 
 /* ---------- Study plan (topics that carry plan dates from a pack) ---------- */
 const planDate = d => new Date(d + 'T00:00:00');
@@ -3537,6 +3540,14 @@ function dayGroups(d) {
 }
 // Home: a short summary of today's plan; the full day (exams, subjects, notes, any date) is in the Today tab
 function planHomeCard() {
+  if (subjectWise()) {
+    const all = planRows(), done = all.filter(r => rowState(r).status === 'Completed').length;
+    const chips = ['p1', 'p2'].filter(k => planPapers().includes(k)).flatMap(k => paperSubjects(k).subs)
+      .map(({ s }) => `<button class="chip subj-chip" data-nav="subject:${s.id}" style="--sc:${subjColor(s)}">${esc(subjIcon(s))} ${esc(displayName(s))}</button>`).join('');
+    return `<div class="card"><div class="row" style="margin-bottom:6px"><h2 style="margin:0;flex:1"><svg class=ic><use href=#i-book></use></svg> Subjects · ${done}/${all.length} topics done</h2></div>
+      ${chips ? `<div class="chips">${chips}</div>` : ''}
+      <div class="row" style="margin-top:10px"><button class="btn primary" data-go-subjects>Open subjects</button></div></div>`;
+  }
   const cal = D.plan.calendar, today = dayKey();
   let i = cal.findIndex(x => x.date === today);
   const before = i < 0 && today < cal[0].date;
@@ -4642,9 +4653,55 @@ function dayGroupsHTML(d) {
     + (g.extra.length ? `<div class="ca-row small"><span class="grow">${I('news')} <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news, then practise the monthly set</span></span>${caButton()}</div>` : '') + '</div>').join('');
 }
 
+/* ---------- KRIES: subject-wise view instead of dates (owner, 12 Oct 2026); GPSTR keeps the day view ---------- */
+function subjectWise() { return !!D.plan && planKeyOf(D.plan) === 'kries'; }
+function setTodayTabLabel() { const s = $('[data-go="today"] span'); if (s) s.textContent = subjectWise() ? 'Subjects' : 'Today'; }
+// Plan topics of one paper grouped by subject, in plan order
+function paperSubjects(k) {
+  const subs = new Map(), missing = [];
+  for (const r of planRows(k)) {
+    const t = planTopic(r.id);
+    if (!t) { missing.push(r); continue; }
+    if (!subs.has(t.subjectId)) subs.set(t.subjectId, { s: byId('subjects', t.subjectId), topics: [] });
+    subs.get(t.subjectId).topics.push(t);
+  }
+  return { subs: [...subs.values()].filter(x => x.s), missing };
+}
+function renderSubjectsView(el) {
+  const today = dayKey(), exams = D.plan.exams || [];
+  const all = planRows(), done = all.filter(r => rowState(r).status === 'Completed').length, pc = all.length ? Math.round(done / all.length * 100) : 0;
+  const left = D.plan.examDate && today <= D.plan.examDate ? Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
+  let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
+      <div class="td-eyebrow">${esc(EXAMS.kries.name)}</div><h1>Subjects</h1>
+      <div class="td-sub">${exams.map(x => esc(x.paper) + ' exam ' + esc(fmtPD(x.date))).join(' · ')}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
+      <div class="ring" style="--p:${pc}" title="${done} of ${all.length} topics done"><span>${done}/${all.length}</span><small>topics</small></div></div></div>`;
+  h += onboardingHTML();
+  for (const [k, label] of [['p1', 'Paper 1 · General'], ['p2', 'Paper 2 · Computer Science']]) {
+    if (!planPapers().includes(k)) continue;
+    const { subs, missing } = paperSubjects(k);
+    if (!subs.length && !missing.length) continue;
+    h += `<div class="card"><div class="today-paper"><div class="tp-h ${k}">${esc(label)}</div>`
+      + subs.map(({ s, topics }) => {
+        const nDone = topics.filter(t => planStatus(t.plan.id) === 'Completed').length, nQ = topics.reduce((n, t) => n + topicQuestionCount(t.id), 0);
+        return `<details class="tp-subj" style="--sc:${subjColor(s)}"><summary class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b class="grow">${esc(displayName(s))}</b>
+          <span class="small muted">${nDone}/${topics.length} topics done · ${plural(nQ, 'question')}</span>
+          <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></summary>
+          ${topics.map(t => planTopicRow(t, false)).join('')}</details>`;
+      }).join('')
+      + missing.map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.topic || m.name || '')}</b>
+          <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('')
+      + (k === 'p1' ? `<div class="ca-row small"><span class="grow">${I('news')} <b>Monthly current affairs</b> <span class="muted">– January to October 2026, 75% Karnataka</span></span>${caButton()}</div>` : '')
+      + '</div></div>';
+  }
+  el.innerHTML = h;
+  wireToday();
+}
+
 /* ---------- Today ---------- */
 function renderToday() {
   const el = $('#today'), today = dayKey();
+  setTodayTabLabel();
+  if (subjectWise()) { ensureBank(); return renderSubjectsView(el); }
   if (!TD.date) TD.date = today;
   ensureBank(); // the question-bank index is needed to know which packs cover the day
   const date = TD.date, pd = planDate(date), goal = D.prefs.dailyGoal || 30;
