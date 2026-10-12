@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 647. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 687. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -7512,8 +7512,182 @@
      "name": "Unit 3 – Computer System Architecture",
      "sets": [
       {
-       "name": "1 · KSET 2023 CS&A",
+       "name": "1 · PGCET 2026 MCA",
        "questions": [
+        {
+         "question": "The sum of the binary numbers 10110.10 and 11010.01 is",
+         "options": {
+          "A": "48",
+          "B": "48.5",
+          "C": "48.75",
+          "D": "48.25"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "22.5 + 26.25 = 48.75 (110000.11₂). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q17"
+        },
+        {
+         "question": "The Boolean expressions (AB)' = A' + B' and (A + B)' = A'B' represent",
+         "options": {
+          "A": "Absorption law",
+          "B": "Distributive law",
+          "C": "De Morgan's law",
+          "D": "Idempotent law"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "De Morgan's theorems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q19"
+        },
+        {
+         "question": "Primary classification of programming languages are\n(a) Machine language\n(b) Assembly language\n(c) High level language\n(d) Pseudocode and Algorithms",
+         "options": {
+          "A": "Only (c) and (d) are correct",
+          "B": "Only (a) and (b) are correct",
+          "C": "Only (a), (b) and (c) are correct",
+          "D": "Only (a) and (d) are correct"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Pseudocode and algorithms are design aids, not programming languages. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q33"
+        },
+        {
+         "question": "Match the following with respect to connections between processor and memory.\nList – I (Registers)\n(a) IR\n(b) MAR\n(c) MDR\n(d) PC\nList – II (Usage)\n(i) Keeps track of execution of a program\n(ii) Holds the instruction that is currently being executed\n(iii) Data to be written into or read out of the addressed location\n(iv) Holds the address of the location to be accessed",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – iv, c – iii, d – i",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "IR – current instruction; MAR – address; MDR – data; PC – program sequence. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q34"
+        },
+        {
+         "question": "The control unit of a computer is designed to go through an instruction cycle that is divided into following phases.\n(a) Fetch the instruction from memory\n(b) Decode the instruction\n(c) Execute the instruction",
+         "options": {
+          "A": "Only (b) and (c) are correct",
+          "B": "Only (c) is correct",
+          "C": "Only (a) is correct",
+          "D": "(a), (b) and (c) are correct"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Fetch → decode → execute, repeated. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q42"
+        },
+        {
+         "question": "Which of the following are valid hexadecimal numbers?\n(i) 1A3F\n(ii) 29GF\n(iii) FF12\n(iv) 7BHE",
+         "options": {
+          "A": "(i), (ii) and (iv)",
+          "B": "(i), (ii) and (iii)",
+          "C": "(i) and (iii)",
+          "D": "(i), (iii) and (iv)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Hex digits are 0–9 and A–F; G and H are not allowed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q44"
+        },
+        {
+         "question": "The decimal number 25₁₀ is represented in binary as ____",
+         "options": {
+          "A": "1 1 0 0 1",
+          "B": "1 0 1 0 1",
+          "C": "1 1 1 0 0",
+          "D": "1 0 0 1 1"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "25 = 16 + 8 + 1 = 11001. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q45"
+        },
+        {
+         "question": "Arrange the following steps in correct order to binary:\n(i) Repeat division until becomes 0\n(ii) Divide the number by 2\n(iii) Write the remainder\n(iv) Write the remainder in reverse order",
+         "options": {
+          "A": "(i) → (ii) → (iii) → (iv)",
+          "B": "(ii) → (iii) → (i) → (iv)",
+          "C": "(iii) → (i) → (iv) → (ii)",
+          "D": "(iv) → (ii) → (iii) → (i)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Divide by 2, note the remainder, repeat until the quotient is 0, then read the remainders bottom-up. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q46"
+        },
+        {
+         "question": "Match the Characters in List-I with their correct ASCII Property in List-II.\n(a) 'A'\n(b) 'a'\n(c) '0' (Zero)\n(d) ' ' (Space)\n(i) ASCII 32 (Decimal)\n(ii) ASCII 48 (Decimal)\n(iii) ASCII 65 (Decimal)\n(iv) ASCII differ from (i) by 32",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – i, b – iv, c – iii, d – ii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "'A' = 65, 'a' = 97 (32 more than 'A'), '0' = 48, space = 32. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q47"
+        },
+        {
+         "question": "A floating point number typically consists of\n(i) Sign bit\n(ii) Parity bit\n(iii) Mantissa (Significand)\n(iv) Exponent",
+         "options": {
+          "A": "(i), (ii) and (iv)",
+          "B": "(i), (iii) and (iv)",
+          "C": "(ii), (iii) and (iv)",
+          "D": "(i), (ii) and (iii)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "A parity bit is an error-detection bit, not part of the number. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q48"
+        },
+        {
+         "question": "Arrange the steps to find two's complement of a binary number.\n(i) Take 1's complement\n(ii) Write the binary number\n(iii) Add 1\n(iv) Obtain final result",
+         "options": {
+          "A": "(iv) → (i) → (iii) → (ii)",
+          "B": "(ii) → (iii) → (i) → (iv)",
+          "C": "(ii) → (i) → (iii) → (iv)",
+          "D": "(i) → (ii) → (iii) → (iv)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Write the number, invert it, add 1, read the result. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q49"
+        },
+        {
+         "question": "The result of 101₂ × 10₂ is ____.",
+         "options": {
+          "A": "1010₂",
+          "B": "1000₂",
+          "C": "1110₂",
+          "D": "1100₂"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "5 × 2 = 10 = 1010₂ (multiplying by 10₂ is a left shift). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q50"
+        }
+       ]
+      },
+      {
+       "name": "2 · KSET 2023 CS&A",
+       "questions": [
+        {
+         "question": "____ translates the high-level language program into machine language.",
+         "options": {
+          "A": "Assembler",
+          "B": "Compiler",
+          "C": "Loader",
+          "D": "Linker"
+         },
+         "answer": "B",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "A compiler translates high-level source code; an assembler translates assembly language. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q21"
+        },
         {
          "question": "The idea of cache memory is based on the",
          "options": {
@@ -7647,7 +7821,142 @@
        ]
       },
       {
-       "name": "2 · KEA 2026 CS Paper-2",
+       "name": "3 · PGCET 2025 MCA",
+       "questions": [
+        {
+         "question": "In Boolean algebra, which of the following is correct?",
+         "options": {
+          "A": "x∧y = x'∨y",
+          "B": "x∨y = x'∧y",
+          "C": "x∧(x∨y) = x",
+          "D": "x∨1 = x"
+         },
+         "answer": "C",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "Absorption law; x∨1 = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q14"
+        },
+        {
+         "question": "In Boolean algebra, simplified form of (x∧y)∨x'∨y' is",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "y",
+          "D": "x"
+         },
+         "answer": "A",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "x'∨y' = (x∧y)' by De Morgan, so the expression is P∨P' = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q15"
+        },
+        {
+         "question": "Given the following statements:\nS1: NAND and NOR are universal gates\nS2: AND, OR, NOT are basic gates\nWhich of the following is the correct answer?",
+         "options": {
+          "A": "S1: true and S2: true",
+          "B": "S1: false and S2: false",
+          "C": "S1: false and S2: true",
+          "D": "S1: true and S2: false"
+         },
+         "answer": "A",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "Any Boolean function can be built from NAND alone or NOR alone. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q27"
+        },
+        {
+         "question": "Which among the following is correct about 85₁₀ equivalent 4-bit BCD code?",
+         "options": {
+          "A": "0111 0110",
+          "B": "1000 0101",
+          "C": "10000011",
+          "D": "0010 0101"
+         },
+         "answer": "B",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "Each decimal digit is coded separately: 8 = 1000, 5 = 0101. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q36"
+        },
+        {
+         "question": "With respect to Binary, Octal and Hexadecimal number systems:\nS1: Octal and Hexadecimal representation offer compact representation than binary\nS2: Binary numbers are fundamental in computing and are used at the lowest level in digital system\nWhich of the following is correct?",
+         "options": {
+          "A": "Both S1 and S2 are true",
+          "B": "Both S1 and S2 are false",
+          "C": "S1 is true and S2 is false",
+          "D": "S2 is true and S1 is false"
+         },
+         "answer": "A",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "One octal digit = 3 bits, one hex digit = 4 bits, so both are compact; hardware works in binary. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q37"
+        },
+        {
+         "question": "If negative members are stored in 2's complement form, then range of numbers that can be stored in 8 bits is ____",
+         "options": {
+          "A": "−127 to +127",
+          "B": "−127 to +128",
+          "C": "−128 to +127",
+          "D": "−128 to +128"
+         },
+         "answer": "C",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "n-bit 2's complement: −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 = −128 … +127. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q38"
+        },
+        {
+         "question": "53 in 2's complement form is ____.",
+         "options": {
+          "A": "1001011",
+          "B": "001010",
+          "C": "0110101",
+          "D": "001011"
+         },
+         "answer": "C",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "A positive number is the same in 2's complement: 53 = 110101, with a 0 sign bit → 0110101. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q39"
+        },
+        {
+         "question": "Decimal equivalent of the 763.4₍₈₎ is ____.",
+         "options": {
+          "A": "499.5",
+          "B": "499",
+          "C": "49.95",
+          "D": "459.9"
+         },
+         "answer": "A",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "7·64 + 6·8 + 3 + 4/8 = 448 + 48 + 3 + 0.5 = 499.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q40"
+        },
+        {
+         "question": "The magnitude of the binary number 10111011 in 1's complement and 2's complement representation are ____ and ____ respectively.",
+         "options": {
+          "A": "−69, −68",
+          "B": "−68, −69",
+          "C": "−59, −58",
+          "D": "−58, −59"
+         },
+         "answer": "B",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "Sign bit 1. 1's complement: invert → 01000100 = 68 → −68. 2's complement: invert + 1 → 01000101 = 69 → −69. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q41"
+        },
+        {
+         "question": "1's and 2's complement of −24₍₁₀₎ in binary are ____ and ____.",
+         "options": {
+          "A": "100111, 101000",
+          "B": "011000, 011001",
+          "C": "101000, 100111",
+          "D": "011001, 011000"
+         },
+         "answer": "A",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "24 = 011000 (6 bits); invert → 100111 (1's complement); add 1 → 101000 (2's complement). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q42"
+        }
+       ]
+      },
+      {
+       "name": "4 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "____ is caused because of a delay in the availability of instruction.",
@@ -7769,7 +8078,7 @@
        ]
       },
       {
-       "name": "3 · KSET 2025 CS&A",
+       "name": "5 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
@@ -7891,7 +8200,116 @@
        ]
       },
       {
-       "name": "4 · KSET 2024 CS&A",
+       "name": "6 · PGCET 2024 MCA",
+       "questions": [
+        {
+         "question": "Conversion of decimal number 100 to Octal and Hexadecimal is ____ and ____",
+         "options": {
+          "A": "123(8), AB(16)",
+          "B": "64(8), 144(16)",
+          "C": "144(8), 64(16)",
+          "D": "74(8), A1(16)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "100 = 1·64 + 4·8 + 4 → 144₈; 100 = 6·16 + 4 → 64₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q8"
+        },
+        {
+         "question": "Given the following Lists :\nList-I\na. 10101(2)\nb. DAD(16)\nc. One's (complement) of 1101(2)\nd. 401(8)\nList-II\ni. 6655(8)\nii. 101(16)\niii. 21(10)\niv. 0010(2)\nIdentify the correct match.",
+         "options": {
+          "A": "a-ii; b-i; c-iii; d-iv",
+          "B": "a-i; b-ii; c-iv; d-iii",
+          "C": "a-iii; b-i; c-iv; d-ii",
+          "D": "a-iv; b-i; c-ii; d-iii"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "10101₂ = 21; DAD₁₆ = 3501 = 6655₈; 1's complement of 1101 = 0010; 401₈ = 257 = 101₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q10"
+        },
+        {
+         "question": "Given the following Lists :\nList-I\na. BCD code\nb. EBCDIC\nc. ASCII\nd. Unicode\nList-II\ni. Code used for encoding characters in IBM mainframe systems\nii. Codes widely used for character encoding standard for electronic communication\niii. Universal character encoding standard that can represent virtually all written languages\niv. Code used to represent decimal digits in binary form\nIdentify the correct match.",
+         "options": {
+          "A": "a-iii; b-iv; c-i; d-ii",
+          "B": "a-iv; b-i; c-ii; d-iii",
+          "C": "a-iv; b-iii; c-ii; d-i",
+          "D": "a-i; b-ii; c-iii; d-iv"
+         },
+         "answer": "B",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "BCD – decimal digits; EBCDIC – IBM mainframes; ASCII – communication standard; Unicode – all scripts. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q11"
+        },
+        {
+         "question": "A floating-point number is said to be normalized, if the MSB (Most Significant Bit) of the mantissa is ____.",
+         "options": {
+          "A": "−1",
+          "B": "0",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Normalization shifts the mantissa until its most significant bit is 1 (no leading zeros). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q12"
+        },
+        {
+         "question": "In floating-point representation, the part that represents a signed and fixed-point number, and the position of the decimal point are called as ____ and ____",
+         "options": {
+          "A": "Mantissa, Exponent",
+          "B": "Exponent, Mantissa",
+          "C": "Float, Exponent",
+          "D": "Mantissa, Float"
+         },
+         "answer": "A",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "m × rᵉ: the mantissa holds the signed fixed-point number, the exponent gives the position of the point (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q14"
+        },
+        {
+         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
+         "options": {
+          "A": "a, b and c",
+          "B": "a only",
+          "C": "c only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q86"
+        },
+        {
+         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
+         "options": {
+          "A": "a > b",
+          "B": "a < b",
+          "C": "a = b²",
+          "D": "a = b"
+         },
+         "answer": "D",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q89"
+        },
+        {
+         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
+         "options": {
+          "A": "x∧y",
+          "B": "x'∧y",
+          "C": "x'∧y'",
+          "D": "x∧x'"
+         },
+         "answer": "B",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q90"
+        }
+       ]
+      },
+      {
+       "name": "7 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
@@ -7987,7 +8405,178 @@
        ]
       },
       {
-       "name": "5 · Other papers",
+       "name": "8 · GFGC 2021 CS",
+       "questions": [
+        {
+         "question": "Which register is used as a working area in CPU ?",
+         "options": {
+          "A": "Program counter",
+          "B": "Stalk pointer",
+          "C": "Accumulator",
+          "D": "Instruction register"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q14"
+        },
+        {
+         "question": "An instruction cycle refers to",
+         "options": {
+          "A": "Fetching an instruction",
+          "B": "Executing an instruction",
+          "C": "Fetching, decoding and Executing an instruction",
+          "D": "Reading and Executing an instruction"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q15"
+        },
+        {
+         "question": "Which of the following is not an application of logic operations ?",
+         "options": {
+          "A": "Insert new bit values into a register.",
+          "B": "Change bit values.",
+          "C": "Delete a group of bits.",
+          "D": "Shift bit values in a register."
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q17"
+        },
+        {
+         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
+         "options": {
+          "A": "1, 2, 1, 2",
+          "B": "2, 1, 2, 1",
+          "C": "2, 1, 1, 2",
+          "D": "1, 2, 2, 2"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q53"
+        }
+       ]
+      },
+      {
+       "name": "9 · GTTC 2024 Technician Gr-III CS (C1)",
+       "questions": [
+        {
+         "question": "Number of output in a half adder is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "Sum and Carry. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q71"
+        },
+        {
+         "question": "Which of the following is NOT a type of computer code?",
+         "options": {
+          "A": "ASCI",
+          "B": "EDIC",
+          "C": "EBCDIC",
+          "D": "Gray code"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "ASCII, EBCDIC and Gray code are codes; 'EDIC' is not. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q72"
+        },
+        {
+         "question": "The functional difference between SR flipflop and JK flipflop is",
+         "options": {
+          "A": "JK flipflop is faster than SR flipflop",
+          "B": "JK flipflop is slower than SR flipflop",
+          "C": "JK flipflop accepts both inputs 1",
+          "D": "JK flipflop does not require external clock"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "For J = K = 1 the JK toggles; S = R = 1 is not allowed in an SR flip-flop. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q73"
+        },
+        {
+         "question": "Conversion of decimal number (61)₁₀ to its binary number equivalent is",
+         "options": {
+          "A": "(110011)₂",
+          "B": "(11001110)₂",
+          "C": "(111101)₂",
+          "D": "(111100)₂"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Technician Gr-III CS (C1)",
+         "explanation": "61 = 32 + 16 + 8 + 4 + 1 = 111101₂. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q84"
+        }
+       ]
+      },
+      {
+       "name": "10 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "options": {
+          "A": "(a), (b), (c) and (d)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(a) and (c)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q14"
+        },
+        {
+         "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
+         "options": {
+          "A": "(a), (b), (c), (d), (e), (f), (g)",
+          "B": "(f), (c), (d), (a), (g), (e), (b)",
+          "C": "(g), (f), (e), (d), (a), (b), (c)",
+          "D": "(c), (a), (b), (g), (e), (d), (f)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Fetch: PC to MAR and PC + 4 (f), update PC (c), load IR (d); execute: operand address R₃ (a), R₁ to Y (g), add (e), result to R₁ (b). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q19"
+        },
+        {
+         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
+         "options": {
+          "A": "I0",
+          "B": "I1",
+          "C": "I2",
+          "D": "I3"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q21"
+        },
+        {
+         "question": "A computer uses 8 bit unsigned fixed-point representation with 4 bits for integer and 4 bits for fraction. What is the largest number it can represent?",
+         "options": {
+          "A": "15.9375",
+          "B": "16",
+          "C": "15.5",
+          "D": "31.875"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "1111.1111₂ = 15 + 15/16 = 15.9375. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q24"
+        }
+       ]
+      },
+      {
+       "name": "11 · Other papers",
        "questions": [
         {
          "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
@@ -8029,30 +8618,82 @@
          "source": "GTTC 2024 Lecturer CS · Q41"
         },
         {
-         "question": "Number of output in a half adder is",
+         "question": "Match the following in relation to addressing registers.\nList-1\n(a) Memory Address (MAR)\n(b) Memory Buffer (MBR)\n(c) Program Counter (PC)\n(d) Input/Output (I/O)\nList-2\ni) Holds the address of next instruction\nii) Holds the address of active memory location\niii) Communicates with I/O devices\niv) Holds the information on its own to and from memory",
          "options": {
-          "A": "1",
-          "B": "2",
-          "C": "3",
-          "D": "4"
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – ii, d – i"
          },
          "answer": "B",
          "subject": "Other papers",
-         "explanation": "Sum and Carry. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q71"
+         "explanation": "MAR – address of the memory word being accessed; MBR – data going to or coming from memory; PC – next instruction; I/O register – device. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q4"
         },
         {
-         "question": "The functional difference between SR flipflop and JK flipflop is",
+         "question": "Match the following in relation to languages and codes.\nList-1\n(a) C\n(b) Java\n(c) Pneumonic code\n(d) Binary code\nList-2\ni) Assembly language\nii) Procedure-oriented language\niii) Machine language\niv) Object-oriented language",
          "options": {
-          "A": "JK flipflop is faster than SR flipflop",
-          "B": "JK flipflop is slower than SR flipflop",
-          "C": "JK flipflop accepts both inputs 1",
-          "D": "JK flipflop does not require external clock"
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – iv, c – iii, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
          },
-         "answer": "C",
+         "answer": "D",
          "subject": "Other papers",
-         "explanation": "For J = K = 1 the JK toggles; S = R = 1 is not allowed in an SR flip-flop. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q73"
+         "explanation": "C – procedural; Java – object-oriented; mnemonic code – assembly; binary – machine language. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q44"
+        },
+        {
+         "question": "The 2's complement of 101000 is",
+         "options": {
+          "A": "011000",
+          "B": "010101",
+          "C": "010111",
+          "D": "000111"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Invert → 010111, add 1 → 011000 (shortcut: copy bits up to the first 1 from the right, invert the rest). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q85"
+        },
+        {
+         "question": "CPU Registers are used for\na) Storing data\nb) Storing instructions\nc) Storing intermediate results",
+         "options": {
+          "A": "Only a is correct",
+          "B": "Only b is correct",
+          "C": "Both a and c are correct",
+          "D": "a, b and c are correct"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "Registers hold data (DR, AC), instructions (IR) and intermediate results (AC, TR). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q91"
+        },
+        {
+         "question": "Which of the following best defines a bus in a computer system?",
+         "options": {
+          "A": "A path for transferring data and instructions between components",
+          "B": "A memory unit",
+          "C": "An input/output device",
+          "D": "A register used for arithmetic operations"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
+        },
+        {
+         "question": "Which of the following describes a CPU's clock speed?",
+         "options": {
+          "A": "The number of cores in the CPU",
+          "B": "The rate at which the CPU can execute instructions",
+          "C": "The size of the CPU cache memory",
+          "D": "The thermal design power of the CPU"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
         },
         {
          "question": "Which of the following is an optimal gate level implementation of digital circuit?",
@@ -8066,6 +8707,45 @@
          "subject": "Other papers",
          "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2023 M.Tech CS · Q18"
+        },
+        {
+         "question": "A control unit that utilizes a ROM to store binary control information is called",
+         "options": {
+          "A": "Microprogrammed control unit",
+          "B": "Hardwired control unit",
+          "C": "Arithmetic control unit",
+          "D": "Input output control unit"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "The ROM is the control memory holding microinstructions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q21"
+        },
+        {
+         "question": "Which of the following registers holds the micro instructions when the computation of the next address is done and read from memory ?",
+         "options": {
+          "A": "Micro register",
+          "B": "Pipeline register",
+          "C": "Parallel register",
+          "D": "Buffer"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "The control data register (pipeline register) holds the current microinstruction while the next address is computed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q59"
+        },
+        {
+         "question": "The one's complement of binary number 101010 is :",
+         "options": {
+          "A": "010110",
+          "B": "010101",
+          "C": "110111",
+          "D": "101011"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Invert every bit: 101010 → 010101. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 MCA · Q28"
         },
         {
          "question": "The characteristics of the combinational circuits are:\na. Output at any time is function of inputs at that time.\nb. Contains memory elements.\nc. Do not have feedback path.\nd. Clock is used to trigger the circuit to obtain the outputs.",
@@ -8105,123 +8785,6 @@
          "subject": "Other papers",
          "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2024 M.Tech CS · Q80"
-        },
-        {
-         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
-         "options": {
-          "A": "a, b and c",
-          "B": "a only",
-          "C": "c only",
-          "D": "d only"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q86"
-        },
-        {
-         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
-         "options": {
-          "A": "a > b",
-          "B": "a < b",
-          "C": "a = b²",
-          "D": "a = b"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q89"
-        },
-        {
-         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
-         "options": {
-          "A": "x∧y",
-          "B": "x'∧y",
-          "C": "x'∧y'",
-          "D": "x∧x'"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q90"
-        },
-        {
-         "question": "In Boolean algebra, which of the following is correct?",
-         "options": {
-          "A": "x∧y = x'∨y",
-          "B": "x∨y = x'∧y",
-          "C": "x∧(x∨y) = x",
-          "D": "x∨1 = x"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Absorption law; x∨1 = 1. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2025 MCA · Q14"
-        },
-        {
-         "question": "In Boolean algebra, simplified form of (x∧y)∨x'∨y' is",
-         "options": {
-          "A": "1",
-          "B": "0",
-          "C": "y",
-          "D": "x"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "x'∨y' = (x∧y)' by De Morgan, so the expression is P∨P' = 1. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2025 MCA · Q15"
-        },
-        {
-         "question": "Given the following statements:\nS1: NAND and NOR are universal gates\nS2: AND, OR, NOT are basic gates\nWhich of the following is the correct answer?",
-         "options": {
-          "A": "S1: true and S2: true",
-          "B": "S1: false and S2: false",
-          "C": "S1: false and S2: true",
-          "D": "S1: true and S2: false"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Any Boolean function can be built from NAND alone or NOR alone. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2025 MCA · Q27"
-        },
-        {
-         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
-         "options": {
-          "A": "(a), (b), (c) and (d)",
-          "B": "(a), (b) and (d)",
-          "C": "(b), (c) and (d)",
-          "D": "(a) and (c)"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q14"
-        },
-        {
-         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
-         "options": {
-          "A": "I0",
-          "B": "I1",
-          "C": "I2",
-          "D": "I3"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q21"
-        },
-        {
-         "question": "The Boolean expressions (AB)' = A' + B' and (A + B)' = A'B' represent",
-         "options": {
-          "A": "Absorption law",
-          "B": "Distributive law",
-          "C": "De Morgan's law",
-          "D": "Idempotent law"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "De Morgan's theorems. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 MCA · Q19"
         }
        ]
       }
@@ -10835,181 +11398,7 @@
        ]
       },
       {
-       "name": "6 · KSET 2023 CS&A",
-       "questions": [
-        {
-         "question": "____ translates the high-level language program into machine language.",
-         "options": {
-          "A": "Assembler",
-          "B": "Compiler",
-          "C": "Loader",
-          "D": "Linker"
-         },
-         "answer": "B",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "A compiler translates high-level source code; an assembler translates assembly language. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q21"
-        },
-        {
-         "question": "____ is invoked when there is a need to perform process scheduling, that is when a process from the ready queue is to be selected for dispatching to the CPU.",
-         "options": {
-          "A": "Long-Term Scheduler",
-          "B": "Medium-Term Scheduler",
-          "C": "Short-Term Scheduler",
-          "D": "Non-preemptive Scheduler"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "The short-term (CPU) scheduler picks the next ready process for the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q22"
-        },
-        {
-         "question": "A thread is a",
-         "options": {
-          "A": "Task",
-          "B": "Process",
-          "C": "Lightweight process",
-          "D": "Program"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "A thread shares its process's code, data and files but has its own registers and stack – a lightweight process. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q23"
-        },
-        {
-         "question": "Which one of the following is not a deadlock recovery method?",
-         "options": {
-          "A": "Resource preemption",
-          "B": "Abort the process",
-          "C": "Hold and wait",
-          "D": "Rollback"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Hold and wait is one of the four necessary conditions for deadlock, not a recovery method. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q24"
-        },
-        {
-         "question": "____ helps to control memory wastage occurring in dynamic partitioning.",
-         "options": {
-          "A": "Fragmentation",
-          "B": "Compaction",
-          "C": "Garbage collection",
-          "D": "Segmentation"
-         },
-         "answer": "B",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Compaction shuffles memory contents to merge scattered free holes (external fragmentation) into one block. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q25"
-        },
-        {
-         "question": "RAID level 4 provides:",
-         "options": {
-          "A": "Disk mirroring",
-          "B": "Memory style error-correcting code organization",
-          "C": "Block-interleaved parity organization",
-          "D": "Bit-interleaved parity organization"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "RAID 1 = mirroring, RAID 2 = memory-style ECC, RAID 3 = bit-interleaved parity, RAID 4 = block-interleaved parity. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q26"
-        },
-        {
-         "question": "____ is a general model of protection that provides a mechanism for protection without imposing a particular protection policy on the system or its users.",
-         "options": {
-          "A": "Global table",
-          "B": "Capability list",
-          "C": "Lock-key mechanism",
-          "D": "Access matrix"
-         },
-         "answer": "D",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Silberschatz: the access matrix separates mechanism from policy. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q27"
-        },
-        {
-         "question": "____ is built into the software by the original programmer in order to gain access to any system without going through the usual security access procedure.",
-         "options": {
-          "A": "Trojan Horse",
-          "B": "Logic Bomb",
-          "C": "Trap Door",
-          "D": "Worm"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "A trap door (back door) is a hidden entry point left by the programmer. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q28"
-        },
-        {
-         "question": "A ____ acts as a lightweight operating system that runs natively on the hardware and manages guest operating systems.",
-         "options": {
-          "A": "Type 0 Hypervisor",
-          "B": "Type 1 Hypervisor",
-          "C": "Type 2 Hypervisor",
-          "D": "Emulator"
-         },
-         "answer": "B",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Type 1 hypervisors are special-purpose OSs running on bare hardware; type 0 is firmware-based and type 2 runs on a host OS. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q29"
-        },
-        {
-         "question": "Which of the following derivations is used by top-down parser?",
-         "options": {
-          "A": "Leftmost derivation",
-          "B": "Leftmost derivation in reverse",
-          "C": "Rightmost derivation",
-          "D": "Rightmost derivation in reverse"
-         },
-         "answer": "A",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q56"
-        },
-        {
-         "question": "Choose the correct statement suiting syntax directed definitions from the following:",
-         "options": {
-          "A": "Syntax directed definitions + Semantic rules = CFG",
-          "B": "Syntax directed definitions + CFG = Semantic rules",
-          "C": "CFG + Semantic rules = Syntax directed definitions",
-          "D": "CFG + flow graph = syntax directed definitions"
-         },
-         "answer": "C",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "An SDD is a context-free grammar together with attributes and semantic rules. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q57"
-        },
-        {
-         "question": "Which of the following helps Assembler to deal with branching code?",
-         "options": {
-          "A": "One Pass Assembler",
-          "B": "Two Pass Assembler",
-          "C": "Debugger",
-          "D": "Interpreter"
-         },
-         "answer": "B",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "The first pass builds the symbol table, so forward branch targets are known in the second pass. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q59"
-        },
-        {
-         "question": "Which of the following optimization technique reduces the multiple jumps?",
-         "options": {
-          "A": "Latter optimization",
-          "B": "Peephole optimization",
-          "C": "Local optimization",
-          "D": "Loop optimization"
-         },
-         "answer": "B",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Peephole optimisation includes flow-of-control optimisation such as replacing jumps to jumps. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q60"
-        }
-       ]
-      },
-      {
-       "name": "7 · Legislative Council 2024 Computer Operator P2",
+       "name": "6 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "Identify the correct sequence of different states of process in operating system.",
@@ -11183,7 +11572,7 @@
        ]
       },
       {
-       "name": "8 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "7 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "What is the ready state of a process?",
@@ -11340,6 +11729,167 @@
          "subject": "GTTC 2024 Technician Gr-III CS (C1)",
          "explanation": "2GL assembly, 3GL procedural languages such as Pascal, 4GL database/query tools such as FoxPro, 5GL logic languages such as Prolog. (Official answer: KEA final key, GTTC recruitment 2024.)",
          "source": "GTTC 2024 Technician Gr-III CS (C1) · Q85"
+        }
+       ]
+      },
+      {
+       "name": "8 · KSET 2023 CS&A",
+       "questions": [
+        {
+         "question": "____ is invoked when there is a need to perform process scheduling, that is when a process from the ready queue is to be selected for dispatching to the CPU.",
+         "options": {
+          "A": "Long-Term Scheduler",
+          "B": "Medium-Term Scheduler",
+          "C": "Short-Term Scheduler",
+          "D": "Non-preemptive Scheduler"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "The short-term (CPU) scheduler picks the next ready process for the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q22"
+        },
+        {
+         "question": "A thread is a",
+         "options": {
+          "A": "Task",
+          "B": "Process",
+          "C": "Lightweight process",
+          "D": "Program"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "A thread shares its process's code, data and files but has its own registers and stack – a lightweight process. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q23"
+        },
+        {
+         "question": "Which one of the following is not a deadlock recovery method?",
+         "options": {
+          "A": "Resource preemption",
+          "B": "Abort the process",
+          "C": "Hold and wait",
+          "D": "Rollback"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Hold and wait is one of the four necessary conditions for deadlock, not a recovery method. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q24"
+        },
+        {
+         "question": "____ helps to control memory wastage occurring in dynamic partitioning.",
+         "options": {
+          "A": "Fragmentation",
+          "B": "Compaction",
+          "C": "Garbage collection",
+          "D": "Segmentation"
+         },
+         "answer": "B",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Compaction shuffles memory contents to merge scattered free holes (external fragmentation) into one block. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q25"
+        },
+        {
+         "question": "RAID level 4 provides:",
+         "options": {
+          "A": "Disk mirroring",
+          "B": "Memory style error-correcting code organization",
+          "C": "Block-interleaved parity organization",
+          "D": "Bit-interleaved parity organization"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "RAID 1 = mirroring, RAID 2 = memory-style ECC, RAID 3 = bit-interleaved parity, RAID 4 = block-interleaved parity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q26"
+        },
+        {
+         "question": "____ is a general model of protection that provides a mechanism for protection without imposing a particular protection policy on the system or its users.",
+         "options": {
+          "A": "Global table",
+          "B": "Capability list",
+          "C": "Lock-key mechanism",
+          "D": "Access matrix"
+         },
+         "answer": "D",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Silberschatz: the access matrix separates mechanism from policy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q27"
+        },
+        {
+         "question": "____ is built into the software by the original programmer in order to gain access to any system without going through the usual security access procedure.",
+         "options": {
+          "A": "Trojan Horse",
+          "B": "Logic Bomb",
+          "C": "Trap Door",
+          "D": "Worm"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "A trap door (back door) is a hidden entry point left by the programmer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q28"
+        },
+        {
+         "question": "A ____ acts as a lightweight operating system that runs natively on the hardware and manages guest operating systems.",
+         "options": {
+          "A": "Type 0 Hypervisor",
+          "B": "Type 1 Hypervisor",
+          "C": "Type 2 Hypervisor",
+          "D": "Emulator"
+         },
+         "answer": "B",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Type 1 hypervisors are special-purpose OSs running on bare hardware; type 0 is firmware-based and type 2 runs on a host OS. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q29"
+        },
+        {
+         "question": "Which of the following derivations is used by top-down parser?",
+         "options": {
+          "A": "Leftmost derivation",
+          "B": "Leftmost derivation in reverse",
+          "C": "Rightmost derivation",
+          "D": "Rightmost derivation in reverse"
+         },
+         "answer": "A",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q56"
+        },
+        {
+         "question": "Choose the correct statement suiting syntax directed definitions from the following:",
+         "options": {
+          "A": "Syntax directed definitions + Semantic rules = CFG",
+          "B": "Syntax directed definitions + CFG = Semantic rules",
+          "C": "CFG + Semantic rules = Syntax directed definitions",
+          "D": "CFG + flow graph = syntax directed definitions"
+         },
+         "answer": "C",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "An SDD is a context-free grammar together with attributes and semantic rules. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q57"
+        },
+        {
+         "question": "Which of the following helps Assembler to deal with branching code?",
+         "options": {
+          "A": "One Pass Assembler",
+          "B": "Two Pass Assembler",
+          "C": "Debugger",
+          "D": "Interpreter"
+         },
+         "answer": "B",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "The first pass builds the symbol table, so forward branch targets are known in the second pass. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q59"
+        },
+        {
+         "question": "Which of the following optimization technique reduces the multiple jumps?",
+         "options": {
+          "A": "Latter optimization",
+          "B": "Peephole optimization",
+          "C": "Local optimization",
+          "D": "Loop optimization"
+         },
+         "answer": "B",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Peephole optimisation includes flow-of-control optimisation such as replacing jumps to jumps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q60"
         }
        ]
       },
