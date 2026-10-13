@@ -5,6 +5,7 @@ Paper 2 on 27 Oct 2026. The Paper 2 syllabus for the Computer Teacher post (C Pr
 C++, DBMS, Software Engineering, System Software, Internet Technology, Java and UNIX, Computer Graphics, Computer Networks) is mapped
 onto the GPSTR topics we already have (same plan IDs, so questions, notes and progress are shared). Only two areas are not in the
 GPSTR syllabus; they become topics of the extra subject 'P2 · KRIES – Additional Topics' (P2-KR-01 Java, P2-KR-02 Computer Graphics).
+The C syllabus headings are topics of 'P2 · KRIES – C Programming' (P2-KRC-01…10, owner's request 13 Oct 2026; they reuse the GPSTR Unit 4 C questions).
 Paper 1 (owner's request, 10 Oct 2026, from the KRIES notification: 100 questions, 100 marks, 2 hours) is KEA's general paper
 (items A–O: current affairs, general science, geography, social science, Indian society, history of India and Karnataka,
 Constitution and public administration, practical knowledge and mental ability at SSLC level, Karnataka's social and cultural
@@ -240,7 +241,7 @@ def main():
         "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 (general paper) on 26 Oct and Paper 2 (Computer Teacher) on "
                        "27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus KRIES-only topics (Paper 1: Karnataka "
                        "land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC "
-                       "arithmetic and social science – in Kannada; Paper 2: Java, Computer Graphics). Importing it switches the app to KRIES "
+                       "arithmetic and social science – in Kannada; Paper 2: C Programming topic by topic as in the KRIES syllabus, Java, Computer Graphics). Importing it switches the app to KRIES "
                        "mode; switch back to GPSTR any time in Profile → Exam mode.",
         "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
         "studyPlan": {

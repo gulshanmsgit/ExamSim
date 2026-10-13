@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "8 of 10 topics so far (16 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (20 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators; C Preprocessor; Files. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -5991,6 +5991,1499 @@
       {
        "title": "Bitwise operators – revision sheet",
        "md": "## Operators\n| Op | Name | Example (12 = 1100, 10 = 1010) |\n|---|---|---|\n| `&` | AND | 12 & 10 = 8 |\n| `|` | OR | 12 | 10 = 14 |\n| `^` | XOR | 12 ^ 10 = 6 |\n| `~` | complement (unary) | ~5 = −6, ~0 = −1 |\n| `<<` | left shift (× 2ⁿ) | 5 << 2 = 20 |\n| `>>` | right shift (÷ 2ⁿ) | 100 >> 3 = 12 |\n- Integer operands only; precedence: shifts < `+ -`; `&` > `^` > `|`, all below `==` (so `a & b == c` is `a & (b == c)`)\n- `5 & 2` = 0 but `5 && 2` = 1; `7 & 3 | 8` = 11; `1 << 2 + 1` = 8; `(x << 1) + (x >> 1)` with x = 2 → 5\n\n## Bit tricks\n- Test odd: `n & 1`; bit k: `(x >> k) & 1`\n- Set `x | (1 << k)`; clear `x & ~(1 << k)`; toggle `x ^ (1 << k)`\n- Power of two: `(n & (n − 1)) == 0`; count 1 bits: `c += n & 1; n >>= 1;`\n- Mask of k ones: `(1 << k) − 1`; low nibble `x & 0x0F`; swap nibbles `((x & 0x0F) << 4) | ((x & 0xF0) >> 4)`\n- XOR swap `a ^= b; b ^= a; a ^= b;`; `x ^ x = 0`; `x ^ k ^ k = x`\n- Right shift of a negative signed value is implementation-defined (usually arithmetic); shifting by ≥ width is undefined\n"
+      }
+     ]
+    },
+    {
+     "name": "C Preprocessor",
+     "plan": {
+      "id": "P2-KRC-09"
+     },
+     "sets": [
+      {
+       "name": "1 · Types of Preprocessor Directives and File Inclusion",
+       "questions": [
+        {
+         "question": "Preprocessing happens:",
+         "options": {
+          "A": "After code generation",
+          "B": "At run time",
+          "C": "Before compilation proper, on the source text",
+          "D": "After linking"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Directives beginning with # are handled by the preprocessor."
+        },
+        {
+         "question": "The difference between  #include <file.h>  and  #include \"file.h\"  is that:",
+         "options": {
+          "A": "The quoted form includes only the first line",
+          "B": "They are identical",
+          "C": "The angle-bracket form searches only the current directory",
+          "D": "The quoted form searches the current (source) directory first, then the system directories"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Angle brackets are used for standard/system headers."
+        },
+        {
+         "question": "Include guards such as  #ifndef MY_H  #define MY_H … #endif  are used to:",
+         "options": {
+          "A": "Speed up the linker",
+          "B": "Hide the header from the compiler",
+          "C": "Prevent a header's contents from being processed twice in one translation unit",
+          "D": "Make variables global"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Double inclusion would cause redefinition errors."
+        },
+        {
+         "question": "Which of the following is a predefined macro in ANSI C?",
+         "options": {
+          "A": "__MAIN__",
+          "B": "__SIZE__",
+          "C": "__PROGRAM__",
+          "D": "__LINE__"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "__FILE__, __LINE__, __DATE__, __TIME__ and __STDC__ are predefined."
+        },
+        {
+         "question": "#undef NAME is used to:",
+         "options": {
+          "A": "Declare an undefined variable",
+          "B": "Stop compilation",
+          "C": "Delete a file",
+          "D": "Remove a previous macro definition of NAME"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "NAME can then be redefined."
+        },
+        {
+         "question": "Assertion (A): Include guards prevent a header from being included twice in a translation unit.\nReason (R): The preprocessor runs before the compiler proper.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Both true, but the guard works because of the #ifndef/#define test, not merely because preprocessing comes first."
+        },
+        {
+         "question": "The C preprocessor are specified with ____ symbol.",
+         "options": {
+          "A": "#",
+          "B": "$",
+          "C": "\" \"",
+          "D": "&"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Every directive starts with #. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q89"
+        },
+        {
+         "question": "The C-preprocessors are specified with ____ symbol.",
+         "options": {
+          "A": "#",
+          "B": "$",
+          "C": "“ ”",
+          "D": "&"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "#include, #define, #if … (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q27"
+        },
+        {
+         "question": "What is the correct sequence for the types of preprocessor directives?",
+         "options": {
+          "A": "Macro definition → Conditional compilation → File inclusion directive",
+          "B": "Macro definition → File inclusion directive → Conditional compilation",
+          "C": "File inclusion directive → Macro definition → Conditional compilation",
+          "D": "Conditional compilation → File inclusion directive → Macro definition"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "The official key lists macro definition, file inclusion, then conditional compilation (the usual textbook order). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q70"
+        },
+        {
+         "question": "The object code of the header files are linked to programs whenever required by using ____ software.",
+         "options": {
+          "A": "Loader",
+          "B": "Linker",
+          "C": "Assembler",
+          "D": "Compiler"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "The linker joins the program's object code with the library code behind the header declarations. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q27"
+        },
+        {
+         "question": "The three main kinds of preprocessor directives are",
+         "options": {
+          "A": "Macro substitution, file inclusion and conditional compilation",
+          "B": "Declaration, definition and call",
+          "C": "Loop, branch and jump",
+          "D": "Input, output and process"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "PYQ pattern (KEA / KSET papers). Others: #undef, #pragma, #error, #line."
+        },
+        {
+         "question": "A preprocessor directive",
+         "options": {
+          "A": "Ends with a semicolon",
+          "B": "Must be inside main()",
+          "C": "Begins with # and is not ended by a semicolon",
+          "D": "Is executed at run time"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "It is one line (continued with \\ if needed)."
+        },
+        {
+         "question": "#include <stdio.h> makes the preprocessor",
+         "options": {
+          "A": "Compile stdio.h separately",
+          "B": "Link the stdio library",
+          "C": "Insert the text of stdio.h at that point",
+          "D": "Call the stdio functions"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "File inclusion is textual."
+        },
+        {
+         "question": "User-defined header files are usually saved with the extension",
+         "options": {
+          "A": ".hdr",
+          "B": ".h",
+          "C": ".c",
+          "D": ".lib"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Included with #include \"myfile.h\"."
+        },
+        {
+         "question": "#pragma is used to",
+         "options": {
+          "A": "Define a macro",
+          "B": "Include a file",
+          "C": "End the program",
+          "D": "Give compiler-specific instructions (e.g. #pragma once)"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Unknown pragmas are ignored."
+        },
+        {
+         "question": "#error \"message\" makes the",
+         "options": {
+          "A": "Preprocessor stop compilation and show the message",
+          "B": "Program print the message at run time",
+          "C": "Linker skip the file",
+          "D": "Compiler ignore the next line"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Used inside #if blocks to catch bad configurations."
+        },
+        {
+         "question": "__LINE__ expands to",
+         "options": {
+          "A": "The number of lines in the file",
+          "B": "The line of the last error",
+          "C": "A newline character",
+          "D": "The current source line number"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "__FILE__, __DATE__, __TIME__ and __STDC__ are also predefined."
+        },
+        {
+         "question": "Which predefined macro gives the name of the current source file?",
+         "options": {
+          "A": "__MAIN__",
+          "B": "__NAME__",
+          "C": "__FILE__",
+          "D": "__SOURCE__"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "printf(\"%s\", __FILE__);"
+        },
+        {
+         "question": "#pragma once at the top of a header file",
+         "options": {
+          "A": "Prevents it from being included more than once",
+          "B": "Makes the header read-only",
+          "C": "Runs the header once at run time",
+          "D": "Is required in every C file"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "A common alternative to #ifndef include guards."
+        },
+        {
+         "question": "The output of the preprocessor (e.g. gcc -E) is",
+         "options": {
+          "A": "Object code",
+          "B": "Source code with macros replaced and headers inserted",
+          "C": "Assembly code",
+          "D": "An executable"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "PYQ pattern (KEA / KSET papers). Saved as a .i file."
+        },
+        {
+         "question": "Comments in C source code are removed by the",
+         "options": {
+          "A": "Linker",
+          "B": "Assembler",
+          "C": "Preprocessor",
+          "D": "Loader"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Each comment becomes a space."
+        },
+        {
+         "question": "Can a .c file be included with #include?",
+         "options": {
+          "A": "Yes – any text file can be included, though headers are normal",
+          "B": "C++ files alone",
+          "C": "System files alone",
+          "D": "No, .h files alone"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Including .c files is legal but poor style."
+        },
+        {
+         "question": "A header file normally contains",
+         "options": {
+          "A": "The main() function",
+          "B": "Comments alone",
+          "C": "Compiled object code",
+          "D": "Function prototypes, macro definitions, type declarations and extern declarations"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Definitions go in .c files."
+        },
+        {
+         "question": "Which header must be included to use sqrt()?",
+         "options": {
+          "A": "<stdio.h>",
+          "B": "<math.h>",
+          "C": "<ctype.h>",
+          "D": "<stdlib.h>"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Also pow(), sin(), ceil(), floor()."
+        },
+        {
+         "question": "The #include directive can appear",
+         "options": {
+          "A": "Inside functions alone",
+          "B": "As the first line alone",
+          "C": "Once per file at most",
+          "D": "Anywhere in the file, though usually at the top"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "The text is inserted wherever the directive is."
+        },
+        {
+         "question": "The C preprocessor works on",
+         "options": {
+          "A": "The running program",
+          "B": "Machine code",
+          "C": "The program text, before compilation, without knowing C types",
+          "D": "Object files"
+         },
+         "answer": "C",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "It does textual substitution."
+        },
+        {
+         "question": "#include <conio.h> is",
+         "options": {
+          "A": "A non-standard header used by Turbo C for getch() and clrscr()",
+          "B": "The maths library",
+          "C": "Needed for printf",
+          "D": "An ANSI standard header"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "It is not available with gcc on Linux."
+        },
+        {
+         "question": "Which header declares exit(), malloc() and atoi()?",
+         "options": {
+          "A": "<string.h>",
+          "B": "<stdlib.h>",
+          "C": "<stdio.h>",
+          "D": "<ctype.h>"
+         },
+         "answer": "B",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "stdlib = standard library utilities."
+        },
+        {
+         "question": "strlen() and strcpy() are declared in",
+         "options": {
+          "A": "<ctype.h>",
+          "B": "<stdlib.h>",
+          "C": "<stdio.h>",
+          "D": "<string.h>"
+         },
+         "answer": "D",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "Also strcat, strcmp, memcpy."
+        },
+        {
+         "question": "Which of these is NOT a preprocessor directive?",
+         "options": {
+          "A": "#start",
+          "B": "#undef",
+          "C": "#ifdef",
+          "D": "#pragma"
+         },
+         "answer": "A",
+         "subject": "Types of Preprocessor Directives and File Inclusion",
+         "explanation": "PYQ pattern (KEA / KSET papers). There is no #start."
+        }
+       ]
+      },
+      {
+       "name": "2 · Macros and Conditional Compilation",
+       "questions": [
+        {
+         "question": "With  #define SQUARE(x) x * x ,  what is the value of  SQUARE(2 + 3) ?",
+         "options": {
+          "A": "11",
+          "B": "10",
+          "C": "25",
+          "D": "13"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "It expands to 2 + 3 * 2 + 3 = 11; arguments are substituted as text."
+        },
+        {
+         "question": "If the macro is written with full parentheses as  #define SQUARE(x) ((x) * (x)) ,  then  SQUARE(2 + 3)  evaluates to:",
+         "options": {
+          "A": "13",
+          "B": "25",
+          "C": "10",
+          "D": "11"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Parentheses keep the argument together: (5) * (5)."
+        },
+        {
+         "question": "With  #define CUBE(x) (x * x * x) ,  what is the value of  CUBE(1 + 1) ?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Expands to (1 + 1 * 1 + 1 * 1 + 1) = 4."
+        },
+        {
+         "question": "With  #define STR(x) #x ,  STR(hello) expands to:",
+         "options": {
+          "A": "\"hello\"",
+          "B": "hello",
+          "C": "#hello",
+          "D": "'hello'"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "# is the stringizing operator."
+        },
+        {
+         "question": "With  #define JOIN(a, b) a##b ,  JOIN(x, 1) expands to:",
+         "options": {
+          "A": "\"x1\"",
+          "B": "x##1",
+          "C": "x 1",
+          "D": "x1"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "## is the token-pasting operator."
+        },
+        {
+         "question": "With  #define MAX(a, b) ((a) > (b) ? (a) : (b)) ,  int i = 5, j = 3;  and  m = MAX(i++, j); , the final value of i is:",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "i++ appears twice in the expansion and is evaluated twice because i > j – a classic macro side-effect trap."
+        },
+        {
+         "question": "Assertion (A): Macros can be faster than functions for very small operations.\nReason (R): Macro arguments are type-checked by the compiler just like function arguments.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "A is true (no call overhead). R is false: macros are plain text substitution with no type checking."
+        },
+        {
+         "question": "In the process of macro expansion given:\nS₁: lexical substitution implies replacement of a character string by another string during program generation\nS₂: lexical substitution is employed to replace occurrences of formal parameters by some random values\nWhich of the following holds good?",
+         "options": {
+          "A": "Both S₁ and S₂ are true",
+          "B": "Both S₁ and S₂ are false",
+          "C": "S₁ is false and S₂ is true",
+          "D": "S₁ is true and S₂ is false"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Formal parameters are replaced by the actual parameters of the call, not by random values (Dhamdhere). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q41"
+        },
+        {
+         "question": "In  #define PI 3.14,  PI is a",
+         "options": {
+          "A": "Function",
+          "B": "Keyword",
+          "C": "Symbolic constant (object-like macro)",
+          "D": "Variable"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Every PI is replaced by 3.14 before compilation."
+        },
+        {
+         "question": "#define N 10;\nint a[N];",
+         "options": {
+          "A": "A compile-time error – the ; becomes part of the replacement",
+          "B": "A warning only",
+          "C": "An array of 10 ints",
+          "D": "An array of 11 ints"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "PYQ pattern (KEA / KSET papers). a[N] becomes a[10;]."
+        },
+        {
+         "question": "#define SQR(x) ((x)*(x))\nint i = 3;\nprintf(\"%d\", SQR(i++));",
+         "options": {
+          "A": "12",
+          "B": "16",
+          "C": "9",
+          "D": "Undefined behaviour – i++ appears twice in one expression"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Avoid side effects in macro arguments."
+        },
+        {
+         "question": "What is printed?\n#define DOUBLE(x) x + x\nprintf(\"%d\", 3 * DOUBLE(2));",
+         "options": {
+          "A": "10",
+          "B": "8",
+          "C": "12",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3 * 2 + 2 = 8 – the body needs parentheses."
+        },
+        {
+         "question": "Compared with a function, a macro",
+         "options": {
+          "A": "Has no call overhead and no type checking, but makes the code larger",
+          "B": "Is type-checked",
+          "C": "Is always slower",
+          "D": "Can call itself recursively"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Each use is expanded in place."
+        },
+        {
+         "question": "A long macro definition is continued on the next line with",
+         "options": {
+          "A": "A comma",
+          "B": "A semicolon",
+          "C": "A backslash (\\) at the end of the line",
+          "D": "#continue"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "The newline after \\ is removed."
+        },
+        {
+         "question": "#ifdef DEBUG … #endif  compiles the enclosed code only if",
+         "options": {
+          "A": "A variable DEBUG equals 1",
+          "B": "DEBUG is a function",
+          "C": "The program runs in debug mode",
+          "D": "DEBUG has been defined as a macro"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "#ifndef does the opposite."
+        },
+        {
+         "question": "#if needs an expression that is",
+         "options": {
+          "A": "A floating-point value",
+          "B": "An integer constant expression the preprocessor can evaluate",
+          "C": "Any C expression, variables included",
+          "D": "A string"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Variables do not exist yet at preprocessing time."
+        },
+        {
+         "question": "Which directive is NOT used for conditional compilation?",
+         "options": {
+          "A": "#elif",
+          "B": "#else",
+          "C": "#include",
+          "D": "#endif"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "#if, #ifdef, #ifndef, #elif, #else, #endif."
+        },
+        {
+         "question": "Inside #if, defined(NAME) is",
+         "options": {
+          "A": "1 if NAME is a defined macro, otherwise 0",
+          "B": "A function call",
+          "C": "An error",
+          "D": "The value of NAME"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "#if defined(A) || defined(B)."
+        },
+        {
+         "question": "What is printed?\n#define X 5\n#if X > 3\n  printf(\"big\");\n#else\n  printf(\"small\");\n#endif",
+         "options": {
+          "A": "bigsmall",
+          "B": "big",
+          "C": "small",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "Only the #if branch is compiled."
+        },
+        {
+         "question": "#define A 10\n#undef A\nprintf(\"%d\", A);",
+         "options": {
+          "A": "0",
+          "B": "10",
+          "C": "Garbage",
+          "D": "A compile-time error – A is no longer defined"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "#undef removes the macro."
+        },
+        {
+         "question": "What is printed?\n#define NAME KEA\nprintf(\"NAME\");",
+         "options": {
+          "A": "NAME",
+          "B": "Nothing",
+          "C": "KEA",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Macros are not replaced inside string literals."
+        },
+        {
+         "question": "What is printed?\n#define A 2\n#define B A * 3\nprintf(\"%d\", B + 1);",
+         "options": {
+          "A": "8",
+          "B": "7",
+          "C": "9",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "B + 1 → 2 * 3 + 1."
+        },
+        {
+         "question": "With  #define SWAP(a, b) { int t = a; a = b; b = t; },  after  x = 1, y = 2;  SWAP(x, y);",
+         "options": {
+          "A": "x = 2, y = 2",
+          "B": "A compile-time error",
+          "C": "x = 2, y = 1",
+          "D": "x = 1, y = 2"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "The block is expanded in place and works directly on x and y."
+        },
+        {
+         "question": "What is printed?\n#define MIN(a, b) ((a) < (b) ? (a) : (b))\nprintf(\"%d\", MIN(4, 2 + 1));",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "((4) < (2 + 1) ? … ) → 3."
+        },
+        {
+         "question": "Conditional compilation is mainly used to",
+         "options": {
+          "A": "Allocate memory",
+          "B": "Speed up loops",
+          "C": "Handle run-time errors",
+          "D": "Build different versions (debug, platform-specific) from one source"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "E.g. #ifdef _WIN32."
+        },
+        {
+         "question": "Compiling with  gcc -DDEBUG prog.c",
+         "options": {
+          "A": "Defines the macro DEBUG, as if #define DEBUG were at the top",
+          "B": "Deletes DEBUG",
+          "C": "Turns off warnings",
+          "D": "Runs the debugger"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "-D defines a macro from the command line."
+        },
+        {
+         "question": "By convention, macro names are written in",
+         "options": {
+          "A": "camelCase",
+          "B": "With a leading #",
+          "C": "Upper case",
+          "D": "Lower case"
+         },
+         "answer": "C",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "So they stand out from variables."
+        },
+        {
+         "question": "What is printed?\n#define AREA(r) 3.14 * r * r\nprintf(\"%.2f\", AREA(1 + 1));",
+         "options": {
+          "A": "4.14",
+          "B": "5.14",
+          "C": "6.28",
+          "D": "12.56"
+         },
+         "answer": "B",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3.14 * 1 + 1 * 1 + 1 = 5.14; write ((r) * (r))."
+        },
+        {
+         "question": "C99's alternative to function-like macros that keeps type checking is",
+         "options": {
+          "A": "typedef",
+          "B": "enum",
+          "C": "register",
+          "D": "inline functions"
+         },
+         "answer": "D",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "static inline int sq(int x)."
+        },
+        {
+         "question": "Macro expansion happens",
+         "options": {
+          "A": "Before compilation, by textual substitution",
+          "B": "When the function is called",
+          "C": "During linking",
+          "D": "At run time"
+         },
+         "answer": "A",
+         "subject": "Macros and Conditional Compilation",
+         "explanation": "The compiler never sees the macro names."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "C preprocessor – revision sheet",
+       "md": "## Directives (start with #, no semicolon, processed before compilation)\n| Type | Directives |\n|---|---|\n| Macro substitution | `#define`, `#undef` |\n| File inclusion | `#include <file.h>` (system dirs), `#include \"file.h\"` (current dir first) |\n| Conditional compilation | `#if`, `#ifdef`, `#ifndef`, `#elif`, `#else`, `#endif`, `defined()` |\n| Others | `#pragma`, `#error`, `#line` |\n- Predefined: `__LINE__`, `__FILE__`, `__DATE__`, `__TIME__`, `__STDC__`\n- Output of the preprocessor: .i file (gcc -E); comments removed; include guards `#ifndef X_H #define X_H … #endif` or `#pragma once`\n- Headers: stdio.h (printf, FILE), stdlib.h (malloc, exit, atoi), string.h, math.h (sqrt, pow), ctype.h, conio.h (Turbo C only)\n\n## Macros\n- Object-like `#define PI 3.14`; function-like `#define SQ(x) ((x) * (x))`\n- Pitfalls: `#define SQUARE(x) x * x` → SQUARE(2 + 3) = 11; `3 * DOUBLE(2)` with `x + x` = 8; `AREA(1 + 1)` with `3.14 * r * r` = 5.14\n- `#define N 10;` puts the ; into the code; side effects (`SQR(i++)`) are evaluated twice\n- `#x` stringizes, `a##b` pastes tokens; not replaced inside \"strings\"; continue lines with `\\`\n- Macro vs function: no call overhead, no type checking, bigger code; C99 `inline` functions are the safe alternative\n- `gcc -DDEBUG` defines DEBUG on the command line\n"
+      }
+     ]
+    },
+    {
+     "name": "Files",
+     "plan": {
+      "id": "P2-KRC-10"
+     },
+     "sets": [
+      {
+       "name": "1 · File Operating Modes, Text and Binary Files",
+       "questions": [
+        {
+         "question": "Opening a file with fopen(name, \"w\") when the file already exists:",
+         "options": {
+          "A": "Fails with NULL",
+          "B": "Truncates it to zero length and writes from the beginning",
+          "C": "Opens it read-only",
+          "D": "Appends to the end"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Use \"a\" to append or \"r+\" to update without truncating."
+        },
+        {
+         "question": "fopen() returns ______ if the file cannot be opened.",
+         "options": {
+          "A": "NULL",
+          "B": "0 bytes",
+          "C": "-1",
+          "D": "EOF"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Always test the returned FILE pointer before using it."
+        },
+        {
+         "question": "The FILE type and functions such as fopen and fprintf are declared in:",
+         "options": {
+          "A": "<stdlib.h>",
+          "B": "<string.h>",
+          "C": "<stdio.h>",
+          "D": "<file.h>"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "stdio = standard input/output."
+        },
+        {
+         "question": "To write one structure variable rec to a binary file fp, the correct call is:",
+         "options": {
+          "A": "fprintf(fp, rec);",
+          "B": "fwrite(&rec, sizeof(rec), 1, fp);",
+          "C": "fputs(&rec, fp);",
+          "D": "fwrite(rec, 1, fp);"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "fwrite(pointer, size of each item, number of items, stream)."
+        },
+        {
+         "question": "The three standard streams opened automatically for a C program are:",
+         "options": {
+          "A": "stdin, stdout and stderr",
+          "B": "input, output and log",
+          "C": "stdin, stdout and stdfile",
+          "D": "keyboard, screen and printer"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "stderr is unbuffered, so error messages appear immediately."
+        },
+        {
+         "question": "Match the fopen mode with its meaning:\na. \"r\"\nb. \"w\"\nc. \"a\"\nd. \"r+\"\n\n1. Read an existing file\n2. Read and update an existing file\n3. Create or truncate for writing\n4. Write at the end, creating the file if needed",
+         "options": {
+          "A": "a-1, b-3, c-2, d-4",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Adding b (e.g. \"rb\") opens the file in binary mode."
+        },
+        {
+         "question": "Assertion (A): Opening an existing file in \"w\" mode appends new data to its end.\nReason (R): The \"a\" mode opens a file for appending.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "\"w\" truncates; appending is what \"a\" does, which shows A is false."
+        },
+        {
+         "question": "Consider the statements:\nI. In text mode, newline characters may be translated on some systems (for example to CR-LF on Windows).\nII. In binary mode, bytes are read and written without any translation.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "This is why binary data must be written to files opened with \"wb\"."
+        },
+        {
+         "question": "A file pointer is declared as",
+         "options": {
+          "A": "FILE fp[];",
+          "B": "file *fp;",
+          "C": "pointer FILE fp;",
+          "D": "FILE *fp;"
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "FILE (upper case) is a structure type from <stdio.h>."
+        },
+        {
+         "question": "The correct call to open data.txt for reading is",
+         "options": {
+          "A": "fp = fopen(\"r\", \"data.txt\");",
+          "B": "fp = fopen(\"data.txt\", \"r\");",
+          "C": "fp = open(\"data.txt\");",
+          "D": "fopen(fp, \"data.txt\", \"r\");"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "File name first, then mode."
+        },
+        {
+         "question": "Opening a file that does not exist in \"r\" mode",
+         "options": {
+          "A": "Deletes the directory",
+          "B": "Creates an empty file",
+          "C": "Returns NULL",
+          "D": "Creates the file and writes to it"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "\"w\" and \"a\" create the file."
+        },
+        {
+         "question": "The mode \"a\" opens a file for",
+         "options": {
+          "A": "Writing at its end, creating it if needed",
+          "B": "Reading from the start",
+          "C": "Writing after erasing it",
+          "D": "Reading and writing from the start"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Existing contents are kept."
+        },
+        {
+         "question": "The mode \"w+\" opens a file for",
+         "options": {
+          "A": "Reading and writing, after truncating it (or creating it)",
+          "B": "Appending",
+          "C": "Writing without truncating",
+          "D": "Reading"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "\"r+\" reads and writes without truncating."
+        },
+        {
+         "question": "The mode \"a+\" opens a file for",
+         "options": {
+          "A": "Reading only from the end",
+          "B": "Reading and appending",
+          "C": "Appending without reading",
+          "D": "Writing after erasing it"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Writes always go to the end."
+        },
+        {
+         "question": "A binary file is opened by adding which letter to the mode?",
+         "options": {
+          "A": "t",
+          "B": "bin",
+          "C": "x",
+          "D": "b, e.g. \"rb\" or \"wb\""
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Without b the file is opened in text mode."
+        },
+        {
+         "question": "The int 12345 written with fprintf (text) takes ___ bytes; written with fwrite (binary, 4-byte int) it takes ___",
+         "options": {
+          "A": "4 and 5",
+          "B": "5 and 5",
+          "C": "5 and 4",
+          "D": "2 and 4"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "PYQ pattern (KEA / KSET papers). Text stores each digit as a character; binary stores the raw bytes."
+        },
+        {
+         "question": "EOF is a macro whose value is usually",
+         "options": {
+          "A": "'\\0'",
+          "B": "26",
+          "C": "−1",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "That is why getc's result is stored in an int."
+        },
+        {
+         "question": "Which pair reads and writes one character at a time?",
+         "options": {
+          "A": "fread() / fwrite()",
+          "B": "fgets() / fputs()",
+          "C": "fscanf() / fprintf()",
+          "D": "fgetc() / fputc()"
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "getc/putc are the macro versions."
+        },
+        {
+         "question": "fgets(buf, 80, fp) reads",
+         "options": {
+          "A": "One word",
+          "B": "At most 79 characters, stopping after a newline, and adds '\\0'",
+          "C": "Exactly 80 characters",
+          "D": "The whole file"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "It returns NULL at end of file."
+        },
+        {
+         "question": "fprintf(fp, \"%d %s\\n\", roll, name);",
+         "options": {
+          "A": "Writes formatted text to the file fp",
+          "B": "Reads from the file",
+          "C": "Writes binary data",
+          "D": "Prints on the screen"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "fscanf reads formatted text."
+        },
+        {
+         "question": "fwrite(&s, sizeof(s), 1, fp) writes",
+         "options": {
+          "A": "One structure s as raw bytes",
+          "B": "sizeof(s) structures",
+          "C": "One character",
+          "D": "The address of s"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "fread(&s, sizeof(s), 1, fp) reads it back."
+        },
+        {
+         "question": "fwrite() returns",
+         "options": {
+          "A": "0 on success",
+          "B": "The file pointer",
+          "C": "The number of items (not bytes) written",
+          "D": "The number of bytes written"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Less than requested means an error."
+        },
+        {
+         "question": "The loop  while ((ch = fgetc(src)) != EOF) fputc(ch, dst);",
+         "options": {
+          "A": "Reads one line",
+          "B": "Deletes src",
+          "C": "Counts lines",
+          "D": "Copies src to dst character by character"
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "ch must be an int."
+        },
+        {
+         "question": "To count the lines of a text file read with fgetc, a program counts",
+         "options": {
+          "A": "The '\\0' characters",
+          "B": "The '\\n' characters",
+          "C": "The EOF markers",
+          "D": "The spaces"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Add one if the last line has no newline."
+        },
+        {
+         "question": "The standard C function that deletes a file is",
+         "options": {
+          "A": "erase()",
+          "B": "remove()",
+          "C": "destroy()",
+          "D": "delete()"
+         },
+         "answer": "B",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "rename(old, new) renames a file."
+        },
+        {
+         "question": "fopen(name, \"r+\") returns NULL when",
+         "options": {
+          "A": "The file does not exist",
+          "B": "The file is small",
+          "C": "The file is empty",
+          "D": "The file contains text"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "\"r+\" never creates a file."
+        },
+        {
+         "question": "Why do programs check  if (fp == NULL)  after fopen?",
+         "options": {
+          "A": "To rewind it",
+          "B": "To flush it",
+          "C": "To close it",
+          "D": "The file may not have opened – missing file, no permission, etc."
+         },
+         "answer": "D",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "PYQ pattern (KEA / KSET papers). Using a NULL FILE pointer crashes the program."
+        },
+        {
+         "question": "A binary file written with fwrite is",
+         "options": {
+          "A": "Readable by fscanf alone",
+          "B": "Always smaller than 1 KB",
+          "C": "Not human-readable in a text editor, but compact and exact",
+          "D": "Plain text"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "Floats keep their exact bits."
+        },
+        {
+         "question": "Which function writes formatted output to a file?",
+         "options": {
+          "A": "fprintf()",
+          "B": "fputc()",
+          "C": "printf()",
+          "D": "sprintf()"
+         },
+         "answer": "A",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "sprintf writes to a string."
+        },
+        {
+         "question": "fflush(fp) on an output stream",
+         "options": {
+          "A": "Erases the file",
+          "B": "Moves to the start",
+          "C": "Writes any buffered data to the file immediately",
+          "D": "Closes the file"
+         },
+         "answer": "C",
+         "subject": "File Operating Modes, Text and Binary Files",
+         "explanation": "fclose also flushes."
+        }
+       ]
+      },
+      {
+       "name": "2 · High-level and Low-level File Operations and Command Line Arguments",
+       "questions": [
+        {
+         "question": "After  fseek(fp, 0, SEEK_END);  the call  ftell(fp)  returns:",
+         "options": {
+          "A": "The number of lines",
+          "B": "The size of the file in bytes",
+          "C": "0",
+          "D": "EOF"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "The position at the end equals the file length (for binary streams)."
+        },
+        {
+         "question": "rewind(fp) is equivalent to:",
+         "options": {
+          "A": "fseek(fp, 0, SEEK_END)",
+          "B": "fclose(fp)",
+          "C": "fseek(fp, 0, SEEK_SET) (and clearing the error indicator)",
+          "D": "fflush(fp)"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "It moves the position back to the start."
+        },
+        {
+         "question": "fclose(fp) is important because it:",
+         "options": {
+          "A": "Opens the file again",
+          "B": "Moves to the end of the file",
+          "C": "Deletes the file",
+          "D": "Flushes buffered output to the file and releases the stream"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "Unflushed data may be lost if a program ends abnormally without closing."
+        },
+        {
+         "question": "A program is run as  ./prog one two .  In main(int argc, char *argv[]), argc and argv[2] are:",
+         "options": {
+          "A": "2 and \"two\"",
+          "B": "3 and \"one\"",
+          "C": "2 and \"one\"",
+          "D": "3 and \"two\""
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "argv[0] is the program name, so there are 3 arguments."
+        },
+        {
+         "question": "In main(int argc, char *argv[]), the element argv[argc] is:",
+         "options": {
+          "A": "The last argument",
+          "B": "A null pointer",
+          "C": "Undefined",
+          "D": "The program name"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "The standard guarantees argv[argc] == NULL."
+        },
+        {
+         "question": "To convert the command-line argument \"25\" in argv[1] to an int, a program can use:",
+         "options": {
+          "A": "(int) argv[1]",
+          "B": "argv[1] - '0'",
+          "C": "atoi(argv[1])",
+          "D": "int(argv[1])"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "Casting the pointer gives an address, not the number; strtol is a safer alternative."
+        },
+        {
+         "question": "Match the function with its action:\na. fseek\nb. ftell\nc. rewind\nd. feof\n\n1. Moves the position to a chosen place\n2. Returns non-zero after an attempt to read past the end\n3. Moves the position to the beginning\n4. Returns the current file position",
+         "options": {
+          "A": "a-1, b-4, c-2, d-3",
+          "B": "a-1, b-3, c-4, d-2",
+          "C": "a-1, b-4, c-3, d-2",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "All take a FILE * argument."
+        },
+        {
+         "question": "Assertion (A): The value returned by fgetc() should be stored in an int, not a char.\nReason (R): fgetc() returns EOF, a value distinct from every valid character.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "A char cannot reliably hold both all 256 byte values and EOF (−1)."
+        },
+        {
+         "question": "Consider the statements:\nI. argv[0] normally holds the name used to run the program.\nII. argc counts only the arguments after the program name.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "argc includes the program name, so argc ≥ 1."
+        },
+        {
+         "question": "Low-level file I/O in C (UNIX) uses",
+         "options": {
+          "A": "open(), read(), write() and close() with integer file descriptors",
+          "B": "printf() and scanf()",
+          "C": "fopen() and fclose() with FILE pointers",
+          "D": "Buffered streams"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). These are system calls (<fcntl.h>, <unistd.h>)."
+        },
+        {
+         "question": "In low-level I/O, file descriptors 0, 1 and 2 are",
+         "options": {
+          "A": "Reserved for the printer",
+          "B": "Three files opened by the program",
+          "C": "Invalid descriptors",
+          "D": "Standard input, standard output and standard error"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "open() returns the lowest free descriptor (3, 4, …)."
+        },
+        {
+         "question": "Compared with low-level I/O, high-level (stream) I/O",
+         "options": {
+          "A": "Uses file descriptors",
+          "B": "Is buffered and portable, using FILE pointers",
+          "C": "Works on UNIX alone",
+          "D": "Is unbuffered"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "fopen, fread, fprintf … are standard C."
+        },
+        {
+         "question": "In  open(\"a.txt\", O_WRONLY | O_CREAT, 0644),  O_CREAT means",
+         "options": {
+          "A": "Append",
+          "B": "Create the file if it does not exist",
+          "C": "Close the file",
+          "D": "Open for reading"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "0644 sets the permissions of a new file."
+        },
+        {
+         "question": "read(fd, buf, 100) returns 0 when",
+         "options": {
+          "A": "The end of file has been reached",
+          "B": "An error occurred",
+          "C": "100 bytes were read",
+          "D": "The file was created"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "It returns −1 on error, otherwise the number of bytes read."
+        },
+        {
+         "question": "The low-level counterpart of fseek() is",
+         "options": {
+          "A": "seek()",
+          "B": "rewind()",
+          "C": "ftell()",
+          "D": "lseek()"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "lseek(fd, offset, SEEK_SET)."
+        },
+        {
+         "question": "fseek(fp, 10, SEEK_CUR) moves the file position",
+         "options": {
+          "A": "To byte 10 from the start",
+          "B": "10 bytes before the end",
+          "C": "10 bytes forward from the current position",
+          "D": "To the end"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "SEEK_SET = start, SEEK_END = end."
+        },
+        {
+         "question": "fseek(fp, -5, SEEK_END) moves to",
+         "options": {
+          "A": "Byte 5",
+          "B": "5 bytes before the end of the file",
+          "C": "The start",
+          "D": "5 bytes after the current position"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "Negative offsets move backwards."
+        },
+        {
+         "question": "To read the 4th record (each of size sizeof(rec)) of a binary file, seek to",
+         "options": {
+          "A": "4 from SEEK_CUR",
+          "B": "4 * sizeof(rec) from SEEK_SET",
+          "C": "3 * sizeof(rec) from SEEK_SET",
+          "D": "sizeof(rec) from SEEK_END"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). Records are numbered from 0 in byte offsets: record k starts at (k − 1) × size."
+        },
+        {
+         "question": "ferror(fp) returns non-zero when",
+         "options": {
+          "A": "An error has occurred on the stream",
+          "B": "End of file is reached",
+          "C": "The file is empty",
+          "D": "The file is closed"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "feof(fp) reports end of file."
+        },
+        {
+         "question": "The standard way for main to receive command line arguments is",
+         "options": {
+          "A": "int main(char argv, int argc)",
+          "B": "void main(string args[])",
+          "C": "int main(int argc, int argv[])",
+          "D": "int main(int argc, char *argv[])"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "char **argv is equivalent."
+        },
+        {
+         "question": "For the command  copy a.txt b.txt,  argc and argv[1] are",
+         "options": {
+          "A": "3 and \"copy\"",
+          "B": "2 and \"b.txt\"",
+          "C": "3 and \"a.txt\"",
+          "D": "2 and \"a.txt\""
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). argv[0] is the program name."
+        },
+        {
+         "question": "Run as  ./p red green,  the loop  for (i = 1; i < argc; i++) printf(\"%s \", argv[i]);  prints",
+         "options": {
+          "A": "red",
+          "B": "red green",
+          "C": "3",
+          "D": "./p red green"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "i starts at 1 to skip the program name."
+        },
+        {
+         "question": "A program tests  if (argc != 3)  to make sure that",
+         "options": {
+          "A": "main returns 3",
+          "B": "Three files are open",
+          "C": "The file has 3 lines",
+          "D": "The user gave exactly two arguments after the program name"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "Then it prints a usage message and exits."
+        },
+        {
+         "question": "If the first argument is \"hello\", then *argv[1] is",
+         "options": {
+          "A": "'h'",
+          "B": "1",
+          "C": "The program name",
+          "D": "\"hello\""
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "argv[1] points to the string; * gives its first character."
+        },
+        {
+         "question": "Command line arguments are supplied",
+         "options": {
+          "A": "While the program runs, through scanf",
+          "B": "By the compiler",
+          "C": "By #define",
+          "D": "When the program is started, by the user through the shell or IDE"
+         },
+         "answer": "D",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "They are always strings."
+        },
+        {
+         "question": "argv[argc − 1] is",
+         "options": {
+          "A": "NULL",
+          "B": "The last argument",
+          "C": "The first argument",
+          "D": "The program name"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "argv[argc] is NULL."
+        },
+        {
+         "question": "Running  ./p \"New Delhi\" 5  gives argc =",
+         "options": {
+          "A": "3",
+          "B": "5",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "Quotes keep New Delhi as one argument."
+        },
+        {
+         "question": "Which sequence gives the size of a file in bytes?",
+         "options": {
+          "A": "fclose(fp); then ftell(fp)",
+          "B": "rewind(fp); then feof(fp)",
+          "C": "fseek(fp, 0, SEEK_END); then ftell(fp)",
+          "D": "fgetc(fp) once"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "ftell returns the current byte offset."
+        },
+        {
+         "question": "The low-level (UNIX) call that closes a file descriptor is",
+         "options": {
+          "A": "free(fd)",
+          "B": "close(fd)",
+          "C": "fclose(fd)",
+          "D": "end(fd)"
+         },
+         "answer": "B",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "fclose takes a FILE *."
+        },
+        {
+         "question": "fopen, fread, fwrite, fprintf and fclose are called ___ file functions",
+         "options": {
+          "A": "Assembly",
+          "B": "Kernel",
+          "C": "High-level (stream, buffered)",
+          "D": "Low-level (system call)"
+         },
+         "answer": "C",
+         "subject": "High-level and Low-level File Operations and Command Line Arguments",
+         "explanation": "They are built on top of the low-level calls."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Files – revision sheet",
+       "md": "## Opening and modes\n- `FILE *fp = fopen(\"data.txt\", \"r\");` – check `fp == NULL`; `fclose(fp)` flushes and frees\n| Mode | Meaning |\n|---|---|\n| \"r\" | read; NULL if missing |\n| \"w\" | write; erase or create |\n| \"a\" | append; create if missing |\n| \"r+\" | read + write; must exist |\n| \"w+\" | read + write; erase or create |\n| \"a+\" | read + append |\n- Add **b** for binary (\"rb\", \"wb\"); text mode may translate newlines (\\n ↔ \\r\\n on Windows)\n- Text vs binary: 12345 → 5 characters vs 4 raw bytes\n- Standard streams: stdin, stdout, stderr\n\n## High-level (stream) functions – <stdio.h>\n- Character: fgetc/getc, fputc/putc (store in int; EOF = −1); strings: fgets(buf, n, fp), fputs\n- Formatted: fprintf, fscanf; blocks: fread/fwrite(&rec, sizeof rec, 1, fp) (return the item count)\n- Position: fseek(fp, offset, SEEK_SET/SEEK_CUR/SEEK_END), ftell, rewind (= fseek(fp, 0, SEEK_SET)); feof, ferror, fflush, remove, rename\n- Record k (1-based) starts at (k − 1) × sizeof(rec); file size: fseek to end, then ftell\n\n## Low-level (UNIX system calls)\n- open(name, O_RDONLY / O_WRONLY / O_RDWR | O_CREAT | O_APPEND, 0644) → int fd; read(fd, buf, n) (0 at EOF, −1 error); write; lseek; close\n- fd 0, 1, 2 = stdin, stdout, stderr; unbuffered\n\n## Command line arguments\n- `int main(int argc, char *argv[])`; argv[0] = program name; argv[argc] = NULL\n- `./prog one two` → argc = 3; quoted text is one argument; convert numbers with atoi/atof\n"
       }
      ]
     }
