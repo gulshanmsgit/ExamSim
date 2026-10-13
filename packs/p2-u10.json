@@ -1,0 +1,2260 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · Unit 10 — Artificial Intelligence",
+ "description": "3 of 5 topics so far (6 sets × 30 questions): Approaches to AI; Knowledge Representation; Problem Solving by Searching. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · Unit 10 – Artificial Intelligence",
+   "icon": "🤖",
+   "topics": [
+    {
+     "name": "Approaches to AI",
+     "sets": [
+      {
+       "name": "1 · Turing Test, Rational Agents and State Space Representation",
+       "questions": [
+        {
+         "question": "Artificial Intelligence is a ____ approach which can make decisions based on logical reasoning and problem solving strategies.",
+         "options": {
+          "A": "Heuristic search approach",
+          "B": "Greedy search approach",
+          "C": "State space approach",
+          "D": "Rational agent approach"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Russell & Norvig: AI as building rational agents that act to achieve the best expected outcome. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q71"
+        },
+        {
+         "question": "What is the Turing Test designed to assess?",
+         "options": {
+          "A": "Computing Power",
+          "B": "Machine's behaviour similar to human's",
+          "C": "Accuracy of results",
+          "D": "None of the above"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Turing's imitation game tests whether a machine's conversational behaviour is indistinguishable from a human's. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q91"
+        },
+        {
+         "question": "Determine which machine (M) passes the 'Turing Test', if it is subjected to 'imitation game'; conducted in 'Controlled Environment'.",
+         "options": {
+          "A": "M performs calculations quickly",
+          "B": "M generates random responses",
+          "C": "M identifies emotional intelligence",
+          "D": "M engages in conversation without identified as non-human"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "A machine passes if the interrogator cannot tell it from a human in conversation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q91"
+        },
+        {
+         "question": "Suppose you are constructing AI for an intergalactic travel planner. What representation handles multiple planets?",
+         "options": {
+          "A": "Stacking planets in a priority queue based on their beauty",
+          "B": "A graph connecting planets with worm hole edges for quick travel",
+          "C": "A hash table mapping planets to their languages",
+          "D": "An array of codes to encode planet coordinates"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Route planning needs locations as vertices and connections as edges – a graph. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q92"
+        },
+        {
+         "question": "Which of the following is a proposed means of testing the intelligence of a machine?",
+         "options": {
+          "A": "Turing Test",
+          "B": "Turning Test",
+          "C": "Tuning Test",
+          "D": "Timing Test"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Turing's 'imitation game' (1950). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q113"
+        },
+        {
+         "question": "An agent is composed of",
+         "options": {
+          "A": "Architecture",
+          "B": "Agent function",
+          "C": "Perception sequence",
+          "D": "Architecture and program"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Agent = architecture + program (Russell & Norvig). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q116"
+        },
+        {
+         "question": "The process of removing details from a given state representation is called",
+         "options": {
+          "A": "Extraction",
+          "B": "Abstraction",
+          "C": "Information Retrieval",
+          "D": "Mining of data"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Abstraction keeps only what matters for the problem. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q117"
+        },
+        {
+         "question": "The field that investigates the mechanics of human intelligence is",
+         "options": {
+          "A": "Psychology",
+          "B": "Cognitive Science",
+          "C": "Sociology",
+          "D": "Learning"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Cognitive science combines AI models with psychology. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q118"
+        },
+        {
+         "question": "Russell and Norvig group definitions of AI into four approaches:",
+         "options": {
+          "A": "Search, logic, learning and vision",
+          "B": "Symbolic, connectionist, evolutionary and fuzzy",
+          "C": "Thinking humanly, acting humanly, thinking rationally and acting rationally",
+          "D": "Weak, strong, narrow and general AI"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Acting humanly = Turing test; thinking rationally = laws of thought; acting rationally = rational agents."
+        },
+        {
+         "question": "The Turing test was proposed by",
+         "options": {
+          "A": "Marvin Minsky, in 1969",
+          "B": "John McCarthy, in 1956",
+          "C": "Alan Turing, in 1950",
+          "D": "Herbert Simon, in 1957"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Paper: 'Computing Machinery and Intelligence'."
+        },
+        {
+         "question": "The term 'Artificial Intelligence' was coined at the 1956 Dartmouth conference by",
+         "options": {
+          "A": "John McCarthy",
+          "B": "Alan Turing",
+          "C": "Allen Newell",
+          "D": "Marvin Minsky"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "McCarthy also created LISP."
+        },
+        {
+         "question": "The 'total Turing test' adds tests of",
+         "options": {
+          "A": "Arithmetic",
+          "B": "Memory size",
+          "C": "Perception (computer vision) and object manipulation (robotics)",
+          "D": "Speed"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "The interrogator can also pass objects to the machine."
+        },
+        {
+         "question": "To pass the Turing test, a computer needs",
+         "options": {
+          "A": "Natural language processing, knowledge representation, automated reasoning and machine learning",
+          "B": "A large disk",
+          "C": "A fast processor alone",
+          "D": "A camera"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Russell & Norvig, ch. 1."
+        },
+        {
+         "question": "Which argument claims that passing the Turing test would not prove real understanding?",
+         "options": {
+          "A": "Gödel's incompleteness theorem",
+          "B": "The frame problem",
+          "C": "Turing's imitation game",
+          "D": "John Searle's Chinese room argument"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Symbol manipulation without understanding."
+        },
+        {
+         "question": "A rational agent is one that",
+         "options": {
+          "A": "Always succeeds",
+          "B": "Thinks exactly like a human",
+          "C": "Acts to maximise its expected performance measure, given its percept sequence and knowledge",
+          "D": "Never makes mistakes"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Rational ≠ omniscient."
+        },
+        {
+         "question": "The PEAS description of a task environment stands for",
+         "options": {
+          "A": "Performance measure, Environment, Actuators, Sensors",
+          "B": "Percept, Environment, Action, State",
+          "C": "Program, Engine, Agent, System",
+          "D": "Plan, Execute, Act, Sense"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "E.g. a taxi: safety, roads, steering, cameras."
+        },
+        {
+         "question": "A simple reflex agent chooses actions on the basis of",
+         "options": {
+          "A": "The full percept history",
+          "B": "The current percept alone, using condition–action rules",
+          "C": "Future goals",
+          "D": "A utility function"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "A model-based agent also keeps internal state."
+        },
+        {
+         "question": "An agent that chooses among goal-achieving actions using a measure of how desirable each outcome is, is a",
+         "options": {
+          "A": "Simple reflex agent",
+          "B": "Model-based reflex agent",
+          "C": "Table-driven agent",
+          "D": "Utility-based agent"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Goal-based agents only distinguish goal / not goal."
+        },
+        {
+         "question": "Chess played with a clock is, as a task environment,",
+         "options": {
+          "A": "Episodic and single-agent",
+          "B": "Stochastic and continuous",
+          "C": "Fully observable, strategic, sequential, semi-dynamic, discrete and multi-agent",
+          "D": "Partially observable and continuous"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Russell & Norvig's environment table."
+        },
+        {
+         "question": "Automated taxi driving is, as a task environment,",
+         "options": {
+          "A": "Partially observable, stochastic, dynamic and continuous",
+          "B": "Static and discrete",
+          "C": "Fully observable and deterministic",
+          "D": "Episodic and single-agent"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "PYQ pattern (KEA / KSET papers). The hardest combination."
+        },
+        {
+         "question": "A state space representation of a problem consists of",
+         "options": {
+          "A": "A neural network",
+          "B": "States, an initial state, operators (actions), a goal test and a path cost",
+          "C": "A database",
+          "D": "A goal state alone"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Problem solving = searching this space."
+        },
+        {
+         "question": "In the water-jug problem with a 4-litre and a 3-litre jug, a state is written as",
+         "options": {
+          "A": "A string of moves",
+          "B": "x alone",
+          "C": "(x, y) – the litres in the 4-litre and the 3-litre jug",
+          "D": "A single integer"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Start (0, 0); goal (2, n). Rich & Knight."
+        },
+        {
+         "question": "How many states of the 8-puzzle are reachable from a given start state?",
+         "options": {
+          "A": "9!/2 = 181,440",
+          "B": "2⁹ = 512",
+          "C": "9! = 362,880",
+          "D": "8! = 40,320"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Half of all arrangements are unreachable (parity)."
+        },
+        {
+         "question": "The missionaries-and-cannibals problem is an example of",
+         "options": {
+          "A": "A machine-learning data set",
+          "B": "A sorting problem",
+          "C": "A database query",
+          "D": "A toy problem solved by state space search"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "States record who is on each bank and where the boat is."
+        },
+        {
+         "question": "A production system consists of",
+         "options": {
+          "A": "A neural network",
+          "B": "A set of rules alone",
+          "C": "A compiler",
+          "D": "A set of rules, a database (working memory) and a control strategy"
+         },
+         "answer": "D",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Plus a rule applier (Rich & Knight)."
+        },
+        {
+         "question": "A good control strategy for search must",
+         "options": {
+          "A": "Cause motion and be systematic",
+          "B": "Avoid the goal",
+          "C": "Repeat states",
+          "D": "Be random"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Rich & Knight, ch. 2."
+        },
+        {
+         "question": "In chess, the steps of a solution are",
+         "options": {
+          "A": "Decomposable",
+          "B": "Ignorable",
+          "C": "Irrecoverable – a move cannot be undone",
+          "D": "Recoverable"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Theorem proving: ignorable; 8-puzzle: recoverable."
+        },
+        {
+         "question": "Strong AI claims that",
+         "options": {
+          "A": "Machines can simulate intelligence but not have it",
+          "B": "Suitably programmed machines can really have minds and understanding",
+          "C": "AI is impossible",
+          "D": "Robots alone can be intelligent"
+         },
+         "answer": "B",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "Weak AI claims only that machines can act intelligently."
+        },
+        {
+         "question": "ELIZA (1966), an early program that imitated a psychotherapist, was written by",
+         "options": {
+          "A": "Joseph Weizenbaum",
+          "B": "Alan Turing",
+          "C": "Edward Feigenbaum",
+          "D": "John McCarthy"
+         },
+         "answer": "A",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "It used simple pattern matching."
+        },
+        {
+         "question": "Which languages are traditionally associated with AI?",
+         "options": {
+          "A": "COBOL and FORTRAN",
+          "B": "SQL and PL/SQL",
+          "C": "LISP and PROLOG",
+          "D": "HTML and CSS"
+         },
+         "answer": "C",
+         "subject": "Turing Test, Rational Agents and State Space Representation",
+         "explanation": "LISP (McCarthy, 1958); PROLOG (Colmerauer, 1972). Python dominates today."
+        }
+       ]
+      },
+      {
+       "name": "2 · Heuristic Search Techniques and Game Playing",
+       "questions": [
+        {
+         "question": "Which algorithm considers all moves from current state and selects the best move as the next state?",
+         "options": {
+          "A": "Steepest ascent hill climbing",
+          "B": "Branch and bound",
+          "C": "Means end analysis",
+          "D": "Constraint satisfaction"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Steepest-ascent hill climbing examines all neighbours and moves to the best one; simple hill climbing takes the first better one. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q77"
+        },
+        {
+         "question": "Match the following 'Heuristic Search' with respect to \"Hill climbing\" Algorithm:\na. Steepest Ascent Hill Climbing\nb. Hill Climbing Algorithm\nc. Plateau\nd. Ridge\n(i) Variant of \"Generate and Test algorithm\"\n(ii) Gradient search\n(iii) Area higher than surrounding\n(iv) Flat area of the search space",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – i, b – iv, c – iii, d – ii",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Rich & Knight: hill climbing is a variant of generate-and-test; steepest ascent is gradient search; a plateau is flat; a ridge is higher than its surroundings. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q92"
+        },
+        {
+         "question": "Adversarial search problems use",
+         "options": {
+          "A": "Competitive Environment",
+          "B": "Cooperative Environment",
+          "C": "Neither competitive nor cooperative Environment",
+          "D": "Both Competitive and cooperative Environment"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Games: the agents' goals conflict. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q119"
+        },
+        {
+         "question": "General algorithm applied on game tree for making decision of Win/Lose is",
+         "options": {
+          "A": "DFS/BFS Search Algorithms",
+          "B": "Heuristic Search Algorithms",
+          "C": "Greedy Search Algorithms",
+          "D": "Min/Max Algorithms"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Minimax. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q125"
+        },
+        {
+         "question": "A heuristic function h(n) gives",
+         "options": {
+          "A": "The depth of n",
+          "B": "An estimate of the cost of the cheapest path from node n to a goal",
+          "C": "The exact cost from the start",
+          "D": "The number of children of n"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Heuristics use domain knowledge."
+        },
+        {
+         "question": "The simplest heuristic method, which proposes a solution and then checks it, is",
+         "options": {
+          "A": "A*",
+          "B": "Minimax",
+          "C": "Generate-and-test",
+          "D": "Hill climbing"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Hill climbing adds feedback from the test."
+        },
+        {
+         "question": "Hill climbing can get stuck at",
+         "options": {
+          "A": "Leaf nodes of a game tree",
+          "B": "The start state",
+          "C": "Local maxima, plateaus and ridges",
+          "D": "The goal"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "It looks only at immediate neighbours."
+        },
+        {
+         "question": "A useful remedy for a plateau in hill climbing is",
+         "options": {
+          "A": "Using a smaller step",
+          "B": "Making a big jump to a new region of the search space",
+          "C": "Stopping at once",
+          "D": "Backtracking one step"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Backtracking helps with local maxima; trying several directions helps with ridges."
+        },
+        {
+         "question": "Simulated annealing",
+         "options": {
+          "A": "Never accepts a worse move",
+          "B": "Uses a game tree",
+          "C": "Always accepts worse moves",
+          "D": "Sometimes accepts worse moves, with a probability that falls as the 'temperature' is lowered"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "PYQ pattern (KEA / KSET papers). Probability e^(−ΔE/T) helps escape local maxima."
+        },
+        {
+         "question": "Best-first search keeps the nodes generated but not yet expanded in the",
+         "options": {
+          "A": "Goal set",
+          "B": "OPEN list (a priority queue)",
+          "C": "Stack",
+          "D": "CLOSED list"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "CLOSED holds the nodes already expanded."
+        },
+        {
+         "question": "Means–ends analysis, used in GPS (Newell and Simon), works by",
+         "options": {
+          "A": "Making random moves",
+          "B": "Learning weights",
+          "C": "Reducing the difference between the current state and the goal",
+          "D": "Exhaustive search"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "It picks operators that reduce the difference."
+        },
+        {
+         "question": "Cryptarithmetic puzzles such as SEND + MORE = MONEY are solved as",
+         "options": {
+          "A": "Game-playing problems",
+          "B": "Clustering problems",
+          "C": "Parsing problems",
+          "D": "Constraint satisfaction problems"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Map colouring is another CSP."
+        },
+        {
+         "question": "AND–OR graphs (problem reduction) are searched with the",
+         "options": {
+          "A": "Minimax algorithm",
+          "B": "Kruskal's algorithm",
+          "C": "AO* algorithm",
+          "D": "Bubble sort"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "AND arcs mean all sub-problems must be solved."
+        },
+        {
+         "question": "A MAX root has two MIN children whose leaves are (3, 5) and (2, 9). The minimax value of the root is",
+         "options": {
+          "A": "9",
+          "B": "5",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "PYQ pattern (KEA / KSET papers). MIN gives 3 and 2; MAX picks 3."
+        },
+        {
+         "question": "In the same tree, alpha–beta pruning (left to right) does not need to examine the leaf",
+         "options": {
+          "A": "3",
+          "B": "9",
+          "C": "5",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "After the right MIN node sees 2 ≤ α = 3, its other child is pruned."
+        },
+        {
+         "question": "With perfect move ordering, alpha–beta search examines about",
+         "options": {
+          "A": "O(d) nodes",
+          "B": "O(b²) nodes",
+          "C": "O(b^(d/2)) nodes, against O(bᵈ) for plain minimax",
+          "D": "O(bd) nodes"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "It can search about twice as deep in the same time."
+        },
+        {
+         "question": "In alpha–beta pruning, α is",
+         "options": {
+          "A": "The best value for MIN",
+          "B": "The best (highest) value found so far for MAX along the path",
+          "C": "The depth limit",
+          "D": "The branching factor"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "β is the best (lowest) value for MIN; prune when α ≥ β."
+        },
+        {
+         "question": "One move by one player in a game tree is called a",
+         "options": {
+          "A": "Epoch",
+          "B": "Node",
+          "C": "Branching factor",
+          "D": "Ply"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "A full move is two plies."
+        },
+        {
+         "question": "In depth-limited game search, positions at the depth limit are scored with",
+         "options": {
+          "A": "A static evaluation function",
+          "B": "The path cost",
+          "C": "The goal test",
+          "D": "Random numbers"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "E.g. material balance in chess."
+        },
+        {
+         "question": "The horizon effect in game search is",
+         "options": {
+          "A": "A drawn game",
+          "B": "An unavoidable bad event pushed just beyond the search depth, so the program cannot see it",
+          "C": "Pruning the best move",
+          "D": "Running out of memory"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Quiescence search reduces it."
+        },
+        {
+         "question": "IBM's Deep Blue defeated world chess champion Garry Kasparov in",
+         "options": {
+          "A": "2016",
+          "B": "1985",
+          "C": "2005",
+          "D": "1997"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "PYQ pattern (KEA / KSET papers). AlphaGo beat Lee Sedol at Go in 2016."
+        },
+        {
+         "question": "Chess is a two-player zero-sum game, which means",
+         "options": {
+          "A": "One player's gain equals the other player's loss",
+          "B": "Both players can win",
+          "C": "Scores are always zero",
+          "D": "No one can win"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Minimax assumes an optimal opponent."
+        },
+        {
+         "question": "Games with dice, such as backgammon, are searched with",
+         "options": {
+          "A": "Expectiminimax, which has chance nodes",
+          "B": "Breadth-first search",
+          "C": "Hill climbing",
+          "D": "Plain minimax"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Chance nodes take the expected value."
+        },
+        {
+         "question": "An upper bound on the number of tic-tac-toe board configurations is",
+         "options": {
+          "A": "9! = 362,880",
+          "B": "9² = 81",
+          "C": "3⁹ = 19,683",
+          "D": "2⁹ = 512"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Each square is X, O or empty."
+        },
+        {
+         "question": "Simple hill climbing moves to",
+         "options": {
+          "A": "The first successor that is better than the current state",
+          "B": "The best of all successors",
+          "C": "The worst successor",
+          "D": "A random successor"
+         },
+         "answer": "A",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Steepest-ascent hill climbing examines all successors."
+        },
+        {
+         "question": "Local beam search keeps",
+         "options": {
+          "A": "One state",
+          "B": "The k best states at each step",
+          "C": "All generated states",
+          "D": "No states"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "It shares information among the k searches."
+        },
+        {
+         "question": "For the 8-puzzle, the Manhattan-distance heuristic h₂ and the misplaced-tiles heuristic h₁ satisfy",
+         "options": {
+          "A": "They are always equal",
+          "B": "h₁ ≥ h₂",
+          "C": "h₂ ≥ h₁, so h₂ is the better admissible heuristic",
+          "D": "h₂ is not admissible"
+         },
+         "answer": "C",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "PYQ pattern (KEA / KSET papers). h₂ dominates h₁."
+        },
+        {
+         "question": "AlphaGo combined deep neural networks with",
+         "options": {
+          "A": "Plain minimax without evaluation",
+          "B": "Breadth-first search",
+          "C": "Bubble sort",
+          "D": "Monte Carlo tree search"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Random play-outs estimate position values."
+        },
+        {
+         "question": "A constraint satisfaction problem is defined by",
+         "options": {
+          "A": "A game tree",
+          "B": "A set of training examples",
+          "C": "A start state and a goal state alone",
+          "D": "Variables, their domains and constraints on the values they may take together"
+         },
+         "answer": "D",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "Solved with backtracking plus heuristics such as minimum remaining values."
+        },
+        {
+         "question": "Heuristic search differs from blind (uninformed) search because it",
+         "options": {
+          "A": "Uses no memory",
+          "B": "Uses problem-specific knowledge to guide the search",
+          "C": "Explores every node",
+          "D": "Never finds a solution"
+         },
+         "answer": "B",
+         "subject": "Heuristic Search Techniques and Game Playing",
+         "explanation": "The heuristic ranks the frontier nodes."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Approaches to AI – revision sheet",
+       "md": "## Definitions (Russell & Norvig)\n| | Human-like | Rational |\n|---|---|---|\n| Thinking | cognitive modelling (cognitive science) | laws of thought (logic) |\n| Acting | Turing test | rational agent |\n- Turing (1950, imitation game); total Turing test adds vision and robotics; Searle's Chinese room; strong vs weak AI\n- AI named by McCarthy (Dartmouth, 1956); LISP, PROLOG; ELIZA (Weizenbaum)\n\n## Agents\n- Agent = architecture + program; PEAS (Performance, Environment, Actuators, Sensors)\n- Types: simple reflex (condition–action), model-based, goal-based, utility-based, learning\n- Environments: fully/partially observable, deterministic/stochastic, episodic/sequential, static/dynamic, discrete/continuous, single/multi-agent\n- Rational agent maximises expected performance (not omniscient)\n\n## State space representation\n- States, initial state, operators, goal test, path cost; water jug (x, y); 8-puzzle 9!/2 states; missionaries and cannibals\n- Production system = rules + working memory + control strategy (must cause motion and be systematic)\n- Problem characteristics: decomposable, ignorable (theorem proving) / recoverable (8-puzzle) / irrecoverable (chess)\n\n## Heuristic search and games\n- Generate-and-test; hill climbing (simple vs steepest ascent; local maxima, plateau, ridge); simulated annealing; beam search; best-first (OPEN/CLOSED); means–ends analysis (GPS); CSPs; AND–OR graphs (AO*)\n- Minimax (MAX/MIN, ply, static evaluation); alpha–beta: α = best for MAX, β = best for MIN, prune when α ≥ β, best case O(b^(d/2))\n- Horizon effect; expectiminimax for chance games; Deep Blue 1997, AlphaGo 2016 (MCTS)\n"
+      }
+     ]
+    },
+    {
+     "name": "Knowledge Representation",
+     "sets": [
+      {
+       "name": "1 · Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+       "questions": [
+        {
+         "question": "Which type of knowledge representation does not exhibit any learning capabilities?",
+         "options": {
+          "A": "Semantic Network",
+          "B": "Logical Representation",
+          "C": "Production Rules",
+          "D": "Frame Representation"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "This is the answer in KEA's revised key. (Official answer: KEA revised key, 28 Mar 2024.)",
+         "source": "KSET 2023 CS&A · Q74"
+        },
+        {
+         "question": "Relate the AI methodologies of knowledge representation in right match.\na. NLP\nb. Representation in structured network\nc. Classes in ontology\nd. Expert system\n(i) Inference engine\n(ii) Abstract categories of related topics/concepts\n(iii) Semantic network\n(iv) Semantic analysis",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iv, b – ii, c – iii, d – i",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "NLP uses semantic analysis; a structured network is a semantic network; ontology classes are abstract categories; expert systems have inference engines. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q93"
+        },
+        {
+         "question": "Which one of the following is used to query RDF in semantic web?",
+         "options": {
+          "A": "SQL",
+          "B": "XML",
+          "C": "Relation Data Query",
+          "D": "SPARQL"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "SPARQL is the W3C query language for RDF data. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q94"
+        },
+        {
+         "question": "If f(x) = x is my friend, and P(x) = x is perfect, then the correct logical translation of the statement \"Some of my friends are not perfect\" is ____.",
+         "options": {
+          "A": "∀x (f(x) ∧ ¬P(x))",
+          "B": "∃x (f(x) ∧ ¬P(x))",
+          "C": "¬(f(x) ∧ ¬P(x))",
+          "D": "∃x (¬f(x) ∧ ¬P(x))"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "'Some' is ∃ with ∧: there is someone who is my friend and not perfect. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q94"
+        },
+        {
+         "question": "Identify the atomic proposition in the following statements:",
+         "options": {
+          "A": "Close the door",
+          "B": "Y > 20",
+          "C": "What a Large Camel!",
+          "D": "It is raining outside"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "A proposition is a declarative sentence that is true or false; commands, exclamations and open statements with variables are not. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q72"
+        },
+        {
+         "question": "Which is not a property of representational of knowledge?",
+         "options": {
+          "A": "Representational verification",
+          "B": "Representational adequacy",
+          "C": "Inferential adequacy",
+          "D": "Inferential efficiency"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "The four properties are representational adequacy, inferential adequacy, inferential efficiency and acquisitional efficiency. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q114"
+        },
+        {
+         "question": "A semantic network represents knowledge as",
+         "options": {
+          "A": "A neural network",
+          "B": "A table of numbers",
+          "C": "A graph of nodes (concepts) joined by labelled arcs (relations such as IS-A)",
+          "D": "A list of IF–THEN rules"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "PYQ pattern (KEA / KSET papers). Quillian (1968)."
+        },
+        {
+         "question": "In a semantic network, the IS-A link supports",
+         "options": {
+          "A": "Backtracking",
+          "B": "Inheritance of properties from a class to its members",
+          "C": "Parsing",
+          "D": "Arithmetic"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Canary IS-A Bird, Bird HAS Wings → canaries have wings."
+        },
+        {
+         "question": "Frames, proposed by Marvin Minsky, represent knowledge as",
+         "options": {
+          "A": "Logic sentences",
+          "B": "Neural weights",
+          "C": "Structures of slots and fillers (attribute–value pairs) with default values",
+          "D": "Production rules"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Frames can inherit from parent frames."
+        },
+        {
+         "question": "A script, such as the 'restaurant' script, represents",
+         "options": {
+          "A": "A stereotyped sequence of events in a familiar situation",
+          "B": "A logical proof",
+          "C": "A probability table",
+          "D": "A single fact"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "PYQ pattern (KEA / KSET papers). Schank and Abelson."
+        },
+        {
+         "question": "Which is NOT a component of a script?",
+         "options": {
+          "A": "Entry conditions",
+          "B": "Scenes",
+          "C": "Activation function",
+          "D": "Roles and props"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Scripts have entry conditions, results, props, roles, track and scenes."
+        },
+        {
+         "question": "In conceptual dependency, PTRANS means",
+         "options": {
+          "A": "Transfer of possession",
+          "B": "Transfer of the physical location of an object",
+          "C": "Transfer of mental information",
+          "D": "Application of force"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "ATRANS = possession, MTRANS = information, PROPEL = force."
+        },
+        {
+         "question": "'John gave Mary a book' is represented in conceptual dependency mainly with",
+         "options": {
+          "A": "ATRANS",
+          "B": "PTRANS",
+          "C": "INGEST",
+          "D": "MTRANS"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "The abstract relationship (possession) is transferred."
+        },
+        {
+         "question": "An ontology is",
+         "options": {
+          "A": "A database index",
+          "B": "An explicit, formal specification of the concepts of a domain and their relationships",
+          "C": "A programming language",
+          "D": "A neural network"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Gruber's definition."
+        },
+        {
+         "question": "The W3C language for writing ontologies on the semantic web is",
+         "options": {
+          "A": "CSS",
+          "B": "HTML",
+          "C": "OWL",
+          "D": "SQL"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Built on RDF; queried with SPARQL."
+        },
+        {
+         "question": "Knowledge written in the form IF condition THEN action is called",
+         "options": {
+          "A": "Frames",
+          "B": "Scripts",
+          "C": "Semantic nets",
+          "D": "Production rules"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Used in rule-based expert systems."
+        },
+        {
+         "question": "First-order (predicate) logic is more expressive than propositional logic because it has",
+         "options": {
+          "A": "More connectives",
+          "B": "Variables, predicates and quantifiers (∀, ∃)",
+          "C": "Truth tables",
+          "D": "No variables"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "It can talk about objects and relations."
+        },
+        {
+         "question": "'All students like AI' in predicate logic is",
+         "options": {
+          "A": "∀x (Student(x) → Likes(x, AI))",
+          "B": "∃x (Student(x) → Likes(x, AI))",
+          "C": "Student(AI) → Likes(x)",
+          "D": "∀x (Student(x) ∧ Likes(x, AI))"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "PYQ pattern (KEA / KSET papers). ∀ goes with →; ∃ goes with ∧."
+        },
+        {
+         "question": "The resolution method of inference needs the sentences in",
+         "options": {
+          "A": "English",
+          "B": "Disjunctive normal form",
+          "C": "Conjunctive normal form (clauses)",
+          "D": "Truth-table form"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Proof by refutation: add the negated goal and derive the empty clause."
+        },
+        {
+         "question": "Unifying Knows(John, x) and Knows(y, Mary) gives the substitution",
+         "options": {
+          "A": "{x/y}",
+          "B": "No unifier exists",
+          "C": "{x/John, y/Mary}",
+          "D": "{y/John, x/Mary}"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Each variable is replaced so that both become Knows(John, Mary)."
+        },
+        {
+         "question": "From P and P → Q, inferring Q is called",
+         "options": {
+          "A": "Modus ponens",
+          "B": "Resolution by refutation",
+          "C": "Abduction",
+          "D": "Modus tollens"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Modus tollens: ¬Q and P → Q give ¬P."
+        },
+        {
+         "question": "PROLOG programs are made of",
+         "options": {
+          "A": "Neural layers",
+          "B": "Scripts",
+          "C": "Horn clauses (facts and rules)",
+          "D": "Frames"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "A Horn clause has at most one positive literal."
+        },
+        {
+         "question": "Which is NOT one of the four properties of a good knowledge representation system?",
+         "options": {
+          "A": "Inferential efficiency",
+          "B": "Representational adequacy",
+          "C": "Acquisitional efficiency",
+          "D": "Compilation speed"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Rich & Knight."
+        },
+        {
+         "question": "Knowing how to ride a bicycle is an example of",
+         "options": {
+          "A": "Meta-knowledge",
+          "B": "Procedural knowledge",
+          "C": "Heuristic knowledge",
+          "D": "Declarative knowledge"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Declarative knowledge is 'knowing that'."
+        },
+        {
+         "question": "The 'frame problem' in AI is the difficulty of",
+         "options": {
+          "A": "Finding a frame rate",
+          "B": "Storing images",
+          "C": "Drawing frames",
+          "D": "Stating what does NOT change when an action is performed"
+         },
+         "answer": "D",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "McCarthy and Hayes (1969)."
+        },
+        {
+         "question": "Skolemization is used to",
+         "options": {
+          "A": "Convert sentences to DNF",
+          "B": "Remove existential quantifiers by introducing Skolem constants or functions",
+          "C": "Add negations",
+          "D": "Remove universal quantifiers"
+         },
+         "answer": "B",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "A step in converting to clause form."
+        },
+        {
+         "question": "Inheritable knowledge is best represented with",
+         "options": {
+          "A": "Semantic networks or frames with IS-A hierarchies",
+          "B": "Truth tables",
+          "C": "Stacks",
+          "D": "Arrays"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Rich & Knight's four kinds of knowledge."
+        },
+        {
+         "question": "Classical logic is monotonic, which means",
+         "options": {
+          "A": "It handles default rules",
+          "B": "Conclusions can be withdrawn",
+          "C": "Adding new facts never invalidates earlier conclusions",
+          "D": "It is probabilistic"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Default reasoning is non-monotonic."
+        },
+        {
+         "question": "In the frame for 'Elephant', the slot colour = grey is a",
+         "options": {
+          "A": "Script scene",
+          "B": "Rule",
+          "C": "Default value that a particular elephant's frame may override",
+          "D": "Quantifier"
+         },
+         "answer": "C",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "Frames store typical values; exceptions are written in the instance frame."
+        },
+        {
+         "question": "Conceptual graphs (John Sowa) are closely related to",
+         "options": {
+          "A": "Semantic networks",
+          "B": "Hash tables",
+          "C": "Neural networks",
+          "D": "Decision trees"
+         },
+         "answer": "A",
+         "subject": "Logic, Semantic Networks, Frames, Rules, Scripts, Conceptual Dependency and Ontologies",
+         "explanation": "They map to first-order logic."
+        }
+       ]
+      },
+      {
+       "name": "2 · Expert Systems and Reasoning under Uncertainty",
+       "questions": [
+        {
+         "question": "Match the following List-I with List-II:\na. Fuzzy system\nb. Expert system\nc. Genetic algorithm operator\nd. Supervised technique\n(i) Decision tree\n(ii) Inversion\n(iii) Inference engine\n(iv) Dendral",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Dendral is a classic expert system, inversion is a GA operator, decision trees are supervised; fuzzy systems use a (fuzzy) inference engine. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q95"
+        },
+        {
+         "question": "Fuzzy equivalence relation is a type of fuzzy relation that satisfies",
+         "options": {
+          "A": "Equivalence, linearity and transitivity",
+          "B": "Asymmetry, commutativity and transitivity",
+          "C": "Irreflexivity, asymmetry and associativity",
+          "D": "Reflexivity, symmetry and transitivity"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Like a crisp equivalence relation, a fuzzy equivalence (similarity) relation is reflexive, symmetric and (max–min) transitive. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q97"
+        },
+        {
+         "question": "What is another type of default reasoning ?",
+         "options": {
+          "A": "Monotonic reasoning",
+          "B": "Analogical reasoning",
+          "C": "Bitonic reasoning",
+          "D": "Non-Monotonic reasoning"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Default conclusions may be withdrawn later. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q115"
+        },
+        {
+         "question": "How the Bayesian network can be used to answer any query?",
+         "options": {
+          "A": "Full distribution",
+          "B": "Joint distribution",
+          "C": "Partial distribution",
+          "D": "No distribution"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "The network encodes the full joint distribution, from which any query can be answered. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q121"
+        },
+        {
+         "question": "The truth value of traditional set theory is ____ and that of fuzzy set is ____",
+         "options": {
+          "A": "Either 0 or 1, between 0 and 1",
+          "B": "Between 0 & 1, either 0 or 1",
+          "C": "Between 0 & 1, between 0 and 1",
+          "D": "Either 0 or 1, either 0 or 1"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Crisp membership is 0 or 1; fuzzy membership is any value in [0, 1]. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q120"
+        },
+        {
+         "question": "The main components of an expert system are",
+         "options": {
+          "A": "Knowledge base, inference engine and user interface",
+          "B": "Compiler, linker and loader",
+          "C": "CPU, memory and I/O",
+          "D": "Sensors, actuators and environment"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "PYQ pattern (KEA / KSET papers). Plus an explanation facility and a knowledge-acquisition module."
+        },
+        {
+         "question": "The inference engine of an expert system",
+         "options": {
+          "A": "Acquires knowledge",
+          "B": "Talks to the user",
+          "C": "Applies the rules of the knowledge base to the facts to reach conclusions",
+          "D": "Stores the facts"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "It uses forward or backward chaining."
+        },
+        {
+         "question": "The person who extracts knowledge from human experts and builds the knowledge base is the",
+         "options": {
+          "A": "System analyst",
+          "B": "Knowledge engineer",
+          "C": "End user",
+          "D": "Domain expert"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "The domain expert supplies the knowledge."
+        },
+        {
+         "question": "MYCIN was an expert system for",
+         "options": {
+          "A": "Diagnosing bacterial blood infections and recommending antibiotics",
+          "B": "Configuring VAX computers",
+          "C": "Playing chess",
+          "D": "Analysing mass spectra"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stanford, 1970s; backward chaining with certainty factors."
+        },
+        {
+         "question": "DENDRAL inferred",
+         "options": {
+          "A": "Mineral deposits",
+          "B": "Molecular structures from mass-spectrometry data",
+          "C": "Computer configurations",
+          "D": "Diseases"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "One of the first expert systems."
+        },
+        {
+         "question": "PROSPECTOR was used for",
+         "options": {
+          "A": "Chess",
+          "B": "Medical diagnosis",
+          "C": "Mineral exploration – locating ore deposits",
+          "D": "Chemistry"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "XCON (R1) configured VAX computers at DEC."
+        },
+        {
+         "question": "Forward chaining is",
+         "options": {
+          "A": "Goal-driven",
+          "B": "Used in games alone",
+          "C": "Random",
+          "D": "Data-driven – it starts from known facts and applies rules to reach conclusions"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Used in XCON and OPS5."
+        },
+        {
+         "question": "Backward chaining is",
+         "options": {
+          "A": "Used for planning alone",
+          "B": "Random",
+          "C": "Goal-driven – it starts from a hypothesis and looks for facts that support it",
+          "D": "Data-driven"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Used in MYCIN and PROLOG."
+        },
+        {
+         "question": "An expert system shell such as EMYCIN or CLIPS is",
+         "options": {
+          "A": "A hardware unit",
+          "B": "An expert system with an empty knowledge base, ready for knowledge of a new domain",
+          "C": "A database",
+          "D": "A command interpreter"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "It keeps the inference engine and interface."
+        },
+        {
+         "question": "The explanation facility of an expert system answers questions such as",
+         "options": {
+          "A": "'What is the time?'",
+          "B": "'Where is the file?'",
+          "C": "'Who is the user?'",
+          "D": "'Why do you ask that?' and 'How did you reach this conclusion?'"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "It shows the chain of rules used."
+        },
+        {
+         "question": "In MYCIN, certainty factors range from",
+         "options": {
+          "A": "−1 to +1",
+          "B": "−100 to 0",
+          "C": "0 to 1",
+          "D": "0 to 100"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "+1 = definitely true, −1 = definitely false."
+        },
+        {
+         "question": "If P(H) = 0.01, P(E | H) = 0.9 and P(E) = 0.1, then by Bayes' theorem P(H | E) is",
+         "options": {
+          "A": "0.01",
+          "B": "0.009",
+          "C": "0.09",
+          "D": "0.9"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "PYQ pattern (KEA / KSET papers). 0.9 × 0.01 / 0.1."
+        },
+        {
+         "question": "A Bayesian network is",
+         "options": {
+          "A": "A directed acyclic graph of random variables, each with a conditional probability table",
+          "B": "A decision tree",
+          "C": "A semantic network",
+          "D": "An undirected graph of neurons"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Arcs show direct influence."
+        },
+        {
+         "question": "Dempster–Shafer theory represents uncertainty using",
+         "options": {
+          "A": "Neural weights",
+          "B": "Belief and plausibility intervals",
+          "C": "Truth tables",
+          "D": "Crisp sets"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "It can express ignorance explicitly."
+        },
+        {
+         "question": "Default reasoning such as 'birds fly unless known otherwise' is",
+         "options": {
+          "A": "Monotonic",
+          "B": "Deductive certainty",
+          "C": "Purely probabilistic",
+          "D": "Non-monotonic – the conclusion can be withdrawn when new facts arrive"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Penguins are the classic exception."
+        },
+        {
+         "question": "A truth maintenance system (TMS) is used to",
+         "options": {
+          "A": "Parse sentences",
+          "B": "Record beliefs with their justifications and revise them when assumptions change",
+          "C": "Store neural weights",
+          "D": "Schedule processes"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Doyle's JTMS, de Kleer's ATMS."
+        },
+        {
+         "question": "In fuzzy sets, μ(A ∩ B)(x) is",
+         "options": {
+          "A": "min(μA(x), μB(x))",
+          "B": "1 − μA(x)",
+          "C": "max(μA(x), μB(x))",
+          "D": "μA(x) × μB(x) always"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Union uses max; complement 1 − μ."
+        },
+        {
+         "question": "If μA(x) = 0.3, the membership of x in the complement of A is",
+         "options": {
+          "A": "1.3",
+          "B": "0",
+          "C": "0.7",
+          "D": "0.3"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "1 − 0.3."
+        },
+        {
+         "question": "Converting a fuzzy output into a single crisp value is called",
+         "options": {
+          "A": "Fuzzification",
+          "B": "Normalization",
+          "C": "Inference",
+          "D": "Defuzzification"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "E.g. the centroid method."
+        },
+        {
+         "question": "Fuzzy set theory was introduced by",
+         "options": {
+          "A": "Edward Feigenbaum, in 1977",
+          "B": "Lotfi Zadeh, in 1965",
+          "C": "Judea Pearl, in 1988",
+          "D": "John McCarthy, in 1956"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Pearl developed Bayesian networks."
+        },
+        {
+         "question": "A major limitation of rule-based expert systems is that they",
+         "options": {
+          "A": "Forget their rules",
+          "B": "Cannot explain",
+          "C": "Are always slow",
+          "D": "Lack common sense and fail outside their narrow domain"
+         },
+         "answer": "D",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Knowledge acquisition is also a bottleneck."
+        },
+        {
+         "question": "When several rules match at once, a production system picks one using",
+         "options": {
+          "A": "Conflict resolution, e.g. specificity or recency",
+          "B": "Random deletion",
+          "C": "Hashing",
+          "D": "Backpropagation"
+         },
+         "answer": "A",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Refractoriness stops a rule firing twice on the same data."
+        },
+        {
+         "question": "The Rete algorithm is used in rule engines such as OPS5 and CLIPS to",
+         "options": {
+          "A": "Parse sentences",
+          "B": "Sort data",
+          "C": "Match many rules against many facts efficiently",
+          "D": "Train neural networks"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "It caches partial matches."
+        },
+        {
+         "question": "With the rules A → B and B → C and the fact A, forward chaining derives",
+         "options": {
+          "A": "B alone",
+          "B": "B and then C",
+          "C": "Nothing",
+          "D": "C without B"
+         },
+         "answer": "B",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Each new fact may trigger more rules."
+        },
+        {
+         "question": "Reasoning from an observed effect to its most likely cause, as in diagnosis, is",
+         "options": {
+          "A": "Deduction",
+          "B": "Resolution",
+          "C": "Abduction",
+          "D": "Induction"
+         },
+         "answer": "C",
+         "subject": "Expert Systems and Reasoning under Uncertainty",
+         "explanation": "Induction generalises from examples."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Knowledge representation – revision sheet",
+       "md": "## Schemes\n- Logic: propositional; first-order (∀ with →, ∃ with ∧); resolution (CNF, refutation), unification, Skolemization, modus ponens, Horn clauses (PROLOG)\n- Semantic network (nodes + labelled arcs, IS-A inheritance; Quillian); conceptual graphs (Sowa)\n- Frames (Minsky): slots, fillers, defaults, inheritance\n- Production rules: IF condition THEN action\n- Scripts (Schank & Abelson): entry conditions, roles, props, scenes, results, track – e.g. restaurant\n- Conceptual dependency (Schank): ATRANS (possession), PTRANS (location), MTRANS (information), PROPEL, INGEST…\n- Ontologies: formal specification of concepts and relations; OWL/RDF, queried with SPARQL\n- Good KR: representational adequacy, inferential adequacy, inferential efficiency, acquisitional efficiency\n- Frame problem; monotonic vs non-monotonic (default) reasoning; procedural vs declarative knowledge\n\n## Expert systems\n- Knowledge base + inference engine + user interface (+ explanation facility, knowledge acquisition); knowledge engineer\n- Forward chaining (data-driven, XCON/OPS5, Rete) vs backward chaining (goal-driven, MYCIN, PROLOG)\n- MYCIN (blood infections, certainty factors −1…+1), DENDRAL (mass spectra), PROSPECTOR (minerals), XCON/R1 (VAX); shells EMYCIN, CLIPS\n- Conflict resolution: specificity, recency, refractoriness\n\n## Uncertainty\n- Bayes: P(H|E) = P(E|H) P(H) / P(E); Bayesian network = DAG + CPTs (encodes the joint distribution)\n- Dempster–Shafer (belief, plausibility); TMS; abduction (effect → cause)\n- Fuzzy (Zadeh 1965): membership in [0, 1]; ∪ = max, ∩ = min, complement 1 − μ; defuzzification; fuzzy equivalence = reflexive, symmetric, transitive\n"
+      }
+     ]
+    },
+    {
+     "name": "Problem Solving by Searching",
+     "sets": [
+      {
+       "name": "1 · Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+       "questions": [
+        {
+         "question": "____ search is performed by exploring all nodes at a given depth before proceeding to the next level.",
+         "options": {
+          "A": "Depth first search",
+          "B": "Depth first deepening search",
+          "C": "Breadth first search",
+          "D": "Best first search"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Breadth-first search expands level by level. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q73"
+        },
+        {
+         "question": "A search problem is formally defined by",
+         "options": {
+          "A": "A neural network",
+          "B": "A heuristic alone",
+          "C": "A database schema",
+          "D": "An initial state, actions, a transition model, a goal test and a path cost"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "PYQ pattern (KEA / KSET papers). Russell & Norvig, ch. 3."
+        },
+        {
+         "question": "Uninformed (blind) search strategies use",
+         "options": {
+          "A": "The distance to the goal",
+          "B": "No information beyond the problem definition",
+          "C": "A heuristic",
+          "D": "Learned weights"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "BFS, DFS, UCS, depth-limited, iterative deepening, bidirectional."
+        },
+        {
+         "question": "Breadth-first search keeps its frontier in a",
+         "options": {
+          "A": "FIFO queue",
+          "B": "LIFO stack",
+          "C": "Priority queue ordered by h(n)",
+          "D": "Hash table"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Shallowest nodes are expanded first."
+        },
+        {
+         "question": "Depth-first search keeps its frontier in a",
+         "options": {
+          "A": "FIFO queue",
+          "B": "LIFO stack (or uses recursion)",
+          "C": "Priority queue",
+          "D": "Circular buffer"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "The deepest node is expanded first."
+        },
+        {
+         "question": "Breadth-first search is optimal when",
+         "options": {
+          "A": "The tree is infinite",
+          "B": "Step costs are random",
+          "C": "All step costs are equal",
+          "D": "It uses a stack"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Otherwise use uniform-cost search."
+        },
+        {
+         "question": "Breadth-first search needs memory of the order of",
+         "options": {
+          "A": "O(bᵈ) – it keeps every frontier node",
+          "B": "O(bd)",
+          "C": "O(1)",
+          "D": "O(d)"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Memory is its main weakness."
+        },
+        {
+         "question": "Depth-first search needs memory of the order of",
+         "options": {
+          "A": "O(b²)",
+          "B": "O(m!)",
+          "C": "O(bᵈ)",
+          "D": "O(bm) – one path plus the unexpanded siblings"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "m = maximum depth."
+        },
+        {
+         "question": "Depth-first search may fail to find a solution when",
+         "options": {
+          "A": "The goal is shallow",
+          "B": "The search space has infinite paths",
+          "C": "There are no cycles",
+          "D": "b = 1"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "It is not complete in infinite spaces."
+        },
+        {
+         "question": "Depth-limited search",
+         "options": {
+          "A": "Has no limit",
+          "B": "Uses a heuristic",
+          "C": "Searches from both ends",
+          "D": "Runs DFS with a fixed depth limit l"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Incomplete if l < d."
+        },
+        {
+         "question": "Iterative deepening search",
+         "options": {
+          "A": "Repeats depth-limited search with limits 0, 1, 2, … – complete, optimal for unit costs and O(bd) in memory",
+          "B": "Searches from the goal backwards",
+          "C": "Is never complete",
+          "D": "Uses a priority queue"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "PYQ pattern (KEA / KSET papers). The preferred uninformed method for large spaces."
+        },
+        {
+         "question": "Uniform-cost search always expands the node with the",
+         "options": {
+          "A": "Greatest depth",
+          "B": "Lowest heuristic h(n)",
+          "C": "Lowest path cost g(n)",
+          "D": "Highest path cost"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "It is Dijkstra's algorithm on a search tree."
+        },
+        {
+         "question": "Bidirectional search reduces the time to about",
+         "options": {
+          "A": "O(b^(2d))",
+          "B": "O(d)",
+          "C": "O(bᵈ)",
+          "D": "O(b^(d/2))"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Two searches of depth d/2 meet in the middle."
+        },
+        {
+         "question": "Bidirectional search needs",
+         "options": {
+          "A": "Random restarts",
+          "B": "No goal state",
+          "C": "An explicit goal state and a way to compute predecessors",
+          "D": "A heuristic"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "The backward search starts from the goal."
+        },
+        {
+         "question": "In the tree A → (B, C), B → (D, E), C → (F), breadth-first search visits",
+         "options": {
+          "A": "A B C D E F",
+          "B": "A C F B E D",
+          "C": "D E B F C A",
+          "D": "A B D E C F"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "PYQ pattern (KEA / KSET papers). Level by level."
+        },
+        {
+         "question": "In the same tree, depth-first search (left child first) visits",
+         "options": {
+          "A": "A C F B D E",
+          "B": "A B D E C F",
+          "C": "D E F B C A",
+          "D": "A B C D E F"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "As deep as possible first."
+        },
+        {
+         "question": "A complete binary tree of depth 3 (root at depth 0) has how many nodes?",
+         "options": {
+          "A": "15",
+          "B": "16",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "1 + 2 + 4 + 8."
+        },
+        {
+         "question": "Iterative deepening re-expands the shallow levels, yet its time is still O(bᵈ) because",
+         "options": {
+          "A": "It stores every node",
+          "B": "Most nodes are at the deepest level",
+          "C": "It prunes the tree",
+          "D": "It uses a heuristic"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "The overhead is small."
+        },
+        {
+         "question": "To avoid expanding repeated states, graph search keeps",
+         "options": {
+          "A": "A larger queue",
+          "B": "A heuristic",
+          "C": "An explored (closed) set",
+          "D": "A random seed"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Tree search does not."
+        },
+        {
+         "question": "A problem-solving agent is a kind of",
+         "options": {
+          "A": "Simple reflex agent",
+          "B": "Table-driven agent",
+          "C": "Pure learning agent",
+          "D": "Goal-based agent"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "It searches for a sequence of actions."
+        },
+        {
+         "question": "A node in a search tree contains",
+         "options": {
+          "A": "The state alone",
+          "B": "A state, its parent, the action, the path cost and the depth",
+          "C": "Nothing",
+          "D": "A heuristic alone"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "The parent links give the solution path."
+        },
+        {
+         "question": "The branching factor b is",
+         "options": {
+          "A": "The number of goals",
+          "B": "The depth of the goal",
+          "C": "The maximum number of successors of a node",
+          "D": "The path cost"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "d is the depth of the shallowest goal."
+        },
+        {
+         "question": "Search strategies are compared on",
+         "options": {
+          "A": "Colour and size",
+          "B": "Speed alone",
+          "C": "Programming language",
+          "D": "Completeness, optimality, time complexity and space complexity"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Russell & Norvig's four criteria."
+        },
+        {
+         "question": "Edges S→A cost 1, S→B cost 5, A→G cost 10, B→G cost 2. Uniform-cost search from S returns",
+         "options": {
+          "A": "S → B → G with cost 7",
+          "B": "No path",
+          "C": "S → G",
+          "D": "S → A → G with cost 11"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "PYQ pattern (KEA / KSET papers). It expands by g(n): A (1), B (5), then G via B (7) before G via A (11)."
+        },
+        {
+         "question": "On the same graph, breadth-first search (children in the order A, B) returns",
+         "options": {
+          "A": "No path",
+          "B": "S → A → G with cost 11 – not the cheapest",
+          "C": "S → G",
+          "D": "S → B → G"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "BFS ignores costs; both paths have depth 2 and A is generated first."
+        },
+        {
+         "question": "Route finding between cities is an example of",
+         "options": {
+          "A": "A game",
+          "B": "A learning problem",
+          "C": "A real-world search problem",
+          "D": "A toy problem"
+         },
+         "answer": "C",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "The 8-puzzle is a toy problem."
+        },
+        {
+         "question": "In the incremental formulation of the 8-queens problem, an action",
+         "options": {
+          "A": "Adds a queen to the leftmost empty column in a safe square",
+          "B": "Removes all queens",
+          "C": "Swaps two queens",
+          "D": "Moves a queen at random"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "This shrinks the state space greatly."
+        },
+        {
+         "question": "When the search space is large and the solution depth is unknown, the usual uninformed choice is",
+         "options": {
+          "A": "Depth-limited search with a small limit",
+          "B": "Depth-first search",
+          "C": "Breadth-first search",
+          "D": "Iterative deepening search"
+         },
+         "answer": "D",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "It combines BFS's completeness with DFS's memory use."
+        },
+        {
+         "question": "Depth-first search with backtracking (generating one successor at a time) needs memory of only",
+         "options": {
+          "A": "O(m)",
+          "B": "O(b^m)",
+          "C": "O(bᵈ)",
+          "D": "O(1) always"
+         },
+         "answer": "A",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "Each node remembers which successor to generate next."
+        },
+        {
+         "question": "In breadth-first search, the goal test is best applied",
+         "options": {
+          "A": "At the root alone",
+          "B": "When a node is generated (early goal test)",
+          "C": "After every node has been expanded",
+          "D": "Never"
+         },
+         "answer": "B",
+         "subject": "Problem-solving Agents and Uninformed Search – BFS, DFS and Bidirectional",
+         "explanation": "This saves one whole level."
+        }
+       ]
+      },
+      {
+       "name": "2 · Informed Search – Greedy Best-first, A* and Heuristic Functions",
+       "questions": [
+        {
+         "question": "Greedy best-first search expands the node with the lowest",
+         "options": {
+          "A": "g(n), the path cost so far",
+          "B": "h(n), the estimated cost to the goal",
+          "C": "Depth",
+          "D": "g(n) + h(n)"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is fast but neither optimal nor complete (tree version)."
+        },
+        {
+         "question": "A* search expands the node with the lowest",
+         "options": {
+          "A": "h(n)",
+          "B": "g(n)",
+          "C": "f(n) = g(n) + h(n)",
+          "D": "g(n) − h(n)"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). g = cost so far, h = estimated cost to go."
+        },
+        {
+         "question": "A heuristic is admissible if it",
+         "options": {
+          "A": "Always overestimates",
+          "B": "Is always zero",
+          "C": "Is greater than g(n)",
+          "D": "Never overestimates the true cost to reach the goal"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Straight-line distance is admissible for road maps."
+        },
+        {
+         "question": "A* is guaranteed to find an optimal solution when",
+         "options": {
+          "A": "h is admissible (tree search) or consistent (graph search)",
+          "B": "h is random",
+          "C": "The graph has no goal",
+          "D": "h overestimates"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Hart, Nilsson and Raphael (1968)."
+        },
+        {
+         "question": "A heuristic h is consistent (monotone) if, for every node n and successor n',",
+         "options": {
+          "A": "h(n) ≥ c(n, n') + h(n')",
+          "B": "h(n) ≤ c(n, n') + h(n')",
+          "C": "h(n') > h(n)",
+          "D": "h(n) = 0"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Every consistent heuristic is admissible."
+        },
+        {
+         "question": "Greedy best-first search",
+         "options": {
+          "A": "Uses g(n) only",
+          "B": "Is always optimal",
+          "C": "Needs no heuristic",
+          "D": "Is not optimal and, as tree search, not complete"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "It can go down a misleading path."
+        },
+        {
+         "question": "Graph: S→A cost 2, S→B cost 1, A→G cost 4, B→G cost 6; h(S) = 5, h(A) = 3, h(B) = 6, h(G) = 0. A* returns",
+         "options": {
+          "A": "S → G",
+          "B": "No path",
+          "C": "S → A → G with cost 6",
+          "D": "S → B → G with cost 7"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). f(A) = 5, f(B) = 7; expanding A gives G with f = 6, which is chosen before B."
+        },
+        {
+         "question": "With h(n) = 0 for every node, A* behaves like",
+         "options": {
+          "A": "Uniform-cost search",
+          "B": "Greedy best-first search",
+          "C": "Hill climbing",
+          "D": "Depth-first search"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "f(n) = g(n)."
+        },
+        {
+         "question": "If h(n) equals the true remaining cost h*(n) everywhere, A*",
+         "options": {
+          "A": "Becomes DFS",
+          "B": "Expands every node",
+          "C": "Expands only nodes on an optimal path",
+          "D": "Never terminates"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "A perfect heuristic leaves nothing to search."
+        },
+        {
+         "question": "To reduce A*'s memory use, one can use",
+         "options": {
+          "A": "IDA* or SMA*",
+          "B": "Breadth-first search",
+          "C": "Greedy search",
+          "D": "Depth-first search without a limit"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "IDA* = iterative deepening on f; SMA* = memory-bounded A*."
+        },
+        {
+         "question": "A better heuristic gives an effective branching factor b* that is",
+         "options": {
+          "A": "Larger",
+          "B": "Exactly b",
+          "C": "Zero",
+          "D": "Closer to 1"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Fewer nodes are generated."
+        },
+        {
+         "question": "Heuristics such as Manhattan distance for the 8-puzzle can be obtained by",
+         "options": {
+          "A": "Random guessing",
+          "B": "Solving a relaxed version of the problem",
+          "C": "Running BFS",
+          "D": "Counting moves backwards"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Relax 'a tile can move only into the blank'."
+        },
+        {
+         "question": "For the textbook 8-puzzle start state (7 2 4 / 5 _ 6 / 8 3 1) and goal (_ 1 2 / 3 4 5 / 6 7 8), h₁ (misplaced tiles) and h₂ (Manhattan distance) are",
+         "options": {
+          "A": "7 and 18",
+          "B": "8 and 26",
+          "C": "6 and 14",
+          "D": "8 and 18"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "All 8 tiles are misplaced; distances 3 + 1 + 2 + 2 + 2 + 3 + 3 + 2 = 18 (Russell & Norvig)."
+        },
+        {
+         "question": "If h₁ and h₂ are both admissible, then max(h₁, h₂) is",
+         "options": {
+          "A": "Always zero",
+          "B": "Inconsistent",
+          "C": "Admissible and at least as good as either",
+          "D": "Not admissible"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "It dominates both."
+        },
+        {
+         "question": "On the Romania map, greedy best-first search from Arad finds a path to Bucharest of cost 450, while A* finds",
+         "options": {
+          "A": "450 as well",
+          "B": "418 – the optimal path",
+          "C": "366",
+          "D": "500"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Via Sibiu, Rimnicu Vilcea and Pitesti (Russell & Norvig)."
+        },
+        {
+         "question": "Straight-line distance is an admissible heuristic for road travel because",
+         "options": {
+          "A": "No road between two points can be shorter than the straight line",
+          "B": "It is exact",
+          "C": "Roads are straight",
+          "D": "It overestimates"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Triangle inequality."
+        },
+        {
+         "question": "Hill climbing is like greedy search except that it",
+         "options": {
+          "A": "Uses A*",
+          "B": "Keeps no frontier – it moves to the best neighbour and forgets the rest",
+          "C": "Uses a queue",
+          "D": "Is optimal"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "That is why it gets stuck."
+        },
+        {
+         "question": "Branch and bound in search",
+         "options": {
+          "A": "Discards paths whose cost already exceeds the best solution found",
+          "B": "Expands every node",
+          "C": "Uses random restarts",
+          "D": "Ignores costs"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "A* adds an estimate of the remaining cost."
+        },
+        {
+         "question": "Recursive best-first search (RBFS)",
+         "options": {
+          "A": "Is a local search",
+          "B": "Uses exponential memory",
+          "C": "Mimics best-first search using only linear space",
+          "D": "Ignores the heuristic"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "It remembers the best alternative f-value."
+        },
+        {
+         "question": "In the worst case, A* takes time",
+         "options": {
+          "A": "Logarithmic",
+          "B": "Linear",
+          "C": "Constant",
+          "D": "Exponential in the solution depth"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "A good heuristic reduces it in practice."
+        },
+        {
+         "question": "In A*, g(n) is",
+         "options": {
+          "A": "The number of children of n",
+          "B": "The depth of n",
+          "C": "The estimated cost from n to the goal",
+          "D": "The cost of the path from the start to n"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "h(n) is the estimate to the goal."
+        },
+        {
+         "question": "h₂ dominates h₁ when",
+         "options": {
+          "A": "h₂(n) ≥ h₁(n) for every node n (both admissible)",
+          "B": "h₁ = 0",
+          "C": "h₂(n) ≤ h₁(n)",
+          "D": "h₂ is inconsistent"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "The dominating heuristic expands fewer nodes."
+        },
+        {
+         "question": "Which statement about an admissible heuristic is true?",
+         "options": {
+          "A": "h(n) ≥ the true cost",
+          "B": "h(goal) > 0",
+          "C": "h(goal) = 0 and h(n) ≤ the true cost to the goal",
+          "D": "h(n) is random"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "It is optimistic."
+        },
+        {
+         "question": "A* is optimally efficient, which means",
+         "options": {
+          "A": "It never backtracks",
+          "B": "No other optimal algorithm using the same heuristic expands fewer nodes (ignoring ties)",
+          "C": "It uses the least memory",
+          "D": "It needs no heuristic"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Its weakness is memory."
+        },
+        {
+         "question": "Uniform-cost search is the special case of A* with",
+         "options": {
+          "A": "g(n) = 0",
+          "B": "f(n) = h(n)",
+          "C": "h(n) = 0",
+          "D": "h(n) = ∞"
+         },
+         "answer": "C",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Greedy best-first ignores g instead."
+        },
+        {
+         "question": "If h overestimates the true cost, A*",
+         "options": {
+          "A": "Becomes breadth-first search",
+          "B": "May return a non-optimal path",
+          "C": "Is unaffected",
+          "D": "Never terminates"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Admissibility is what guarantees optimality."
+        },
+        {
+         "question": "A node has g = 4 and h = 7. Its A* value f is",
+         "options": {
+          "A": "11",
+          "B": "28",
+          "C": "7",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "f = g + h."
+        },
+        {
+         "question": "A commonly used admissible heuristic for road route finding is",
+         "options": {
+          "A": "The number of cities visited",
+          "B": "The distance already travelled",
+          "C": "Zero except at the goal",
+          "D": "The straight-line distance to the goal"
+         },
+         "answer": "D",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "h_SLD in Russell & Norvig."
+        },
+        {
+         "question": "Heuristic functions trade",
+         "options": {
+          "A": "Some accuracy for a large saving in search effort",
+          "B": "Correctness for speed in every case",
+          "C": "Memory for nothing",
+          "D": "Nothing at all"
+         },
+         "answer": "A",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Good heuristics are cheap to compute and close to the true cost."
+        },
+        {
+         "question": "Informed search differs from uninformed search in that it",
+         "options": {
+          "A": "Cannot find solutions",
+          "B": "Uses an evaluation function with problem-specific knowledge",
+          "C": "Searches blindly",
+          "D": "Uses a FIFO queue alone"
+         },
+         "answer": "B",
+         "subject": "Informed Search – Greedy Best-first, A* and Heuristic Functions",
+         "explanation": "Best-first, greedy, A*."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Search – revision sheet",
+       "md": "## Problem formulation\nInitial state, actions, transition model, goal test, path cost; node = state + parent + action + g + depth; b = branching factor, d = goal depth, m = max depth\n\n## Uninformed search\n| Strategy | Frontier | Complete | Optimal | Time | Space |\n|---|---|---|---|---|---|\n| BFS | FIFO | yes | unit costs | O(bᵈ) | O(bᵈ) |\n| Uniform-cost | priority g | yes | yes | ≈O(b^(1+C*/ε)) | same |\n| DFS | LIFO | no (infinite) | no | O(bᵐ) | O(bm) |\n| Depth-limited | LIFO | if l ≥ d | no | O(bˡ) | O(bl) |\n| Iterative deepening | LIFO | yes | unit costs | O(bᵈ) | O(bd) |\n| Bidirectional | two | yes | unit costs | O(b^(d/2)) | O(b^(d/2)) |\n- Graph search keeps an explored set; BFS: goal test on generation\n\n## Informed search\n- Greedy best-first: f = h (fast, not optimal); A*: f = g + h; UCS = A* with h = 0\n- Admissible: h ≤ true cost (h(goal) = 0); consistent: h(n) ≤ c(n, n') + h(n') → A* optimal\n- Dominance: h₂ ≥ h₁ → fewer expansions; max of admissible heuristics is admissible; relaxed problems give heuristics\n- 8-puzzle: h₁ misplaced tiles, h₂ Manhattan (textbook start: 8 and 18)\n- Romania: greedy 450, A* 418; memory-bounded: IDA*, RBFS, SMA*\n"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

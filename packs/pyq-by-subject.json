@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 719. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 729. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -16041,7 +16041,142 @@
      "name": "Unit 10 – Artificial Intelligence",
      "sets": [
       {
-       "name": "1 · KSET 2025 CS&A",
+       "name": "1 · GFGC 2021 CS",
+       "questions": [
+        {
+         "question": "Which of the following is a proposed means of testing the intelligence of a machine?",
+         "options": {
+          "A": "Turing Test",
+          "B": "Turning Test",
+          "C": "Tuning Test",
+          "D": "Timing Test"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Turing's 'imitation game' (1950). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q113"
+        },
+        {
+         "question": "Which is not a property of representational of knowledge?",
+         "options": {
+          "A": "Representational verification",
+          "B": "Representational adequacy",
+          "C": "Inferential adequacy",
+          "D": "Inferential efficiency"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "The four properties are representational adequacy, inferential adequacy, inferential efficiency and acquisitional efficiency. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q114"
+        },
+        {
+         "question": "What is another type of default reasoning ?",
+         "options": {
+          "A": "Monotonic reasoning",
+          "B": "Analogical reasoning",
+          "C": "Bitonic reasoning",
+          "D": "Non-Monotonic reasoning"
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Default conclusions may be withdrawn later. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q115"
+        },
+        {
+         "question": "An agent is composed of",
+         "options": {
+          "A": "Architecture",
+          "B": "Agent function",
+          "C": "Perception sequence",
+          "D": "Architecture and program"
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Agent = architecture + program (Russell & Norvig). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q116"
+        },
+        {
+         "question": "The process of removing details from a given state representation is called",
+         "options": {
+          "A": "Extraction",
+          "B": "Abstraction",
+          "C": "Information Retrieval",
+          "D": "Mining of data"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Abstraction keeps only what matters for the problem. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q117"
+        },
+        {
+         "question": "The field that investigates the mechanics of human intelligence is",
+         "options": {
+          "A": "Psychology",
+          "B": "Cognitive Science",
+          "C": "Sociology",
+          "D": "Learning"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Cognitive science combines AI models with psychology. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q118"
+        },
+        {
+         "question": "Adversarial search problems use",
+         "options": {
+          "A": "Competitive Environment",
+          "B": "Cooperative Environment",
+          "C": "Neither competitive nor cooperative Environment",
+          "D": "Both Competitive and cooperative Environment"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Games: the agents' goals conflict. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q119"
+        },
+        {
+         "question": "The truth value of traditional set theory is ____ and that of fuzzy set is ____",
+         "options": {
+          "A": "Either 0 or 1, between 0 and 1",
+          "B": "Between 0 & 1, either 0 or 1",
+          "C": "Between 0 & 1, between 0 and 1",
+          "D": "Either 0 or 1, either 0 or 1"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Crisp membership is 0 or 1; fuzzy membership is any value in [0, 1]. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q120"
+        },
+        {
+         "question": "How the Bayesian network can be used to answer any query?",
+         "options": {
+          "A": "Full distribution",
+          "B": "Joint distribution",
+          "C": "Partial distribution",
+          "D": "No distribution"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "The network encodes the full joint distribution, from which any query can be answered. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q121"
+        },
+        {
+         "question": "General algorithm applied on game tree for making decision of Win/Lose is",
+         "options": {
+          "A": "DFS/BFS Search Algorithms",
+          "B": "Heuristic Search Algorithms",
+          "C": "Greedy Search Algorithms",
+          "D": "Min/Max Algorithms"
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Minimax. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q125"
+        }
+       ]
+      },
+      {
+       "name": "2 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "Determine which machine (M) passes the 'Turing Test', if it is subjected to 'imitation game'; conducted in 'Controlled Environment'.",
@@ -16163,7 +16298,7 @@
        ]
       },
       {
-       "name": "2 · KSET 2023 CS&A",
+       "name": "3 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "Artificial Intelligence is a ____ approach which can make decisions based on logical reasoning and problem solving strategies.",
@@ -16272,7 +16407,7 @@
        ]
       },
       {
-       "name": "3 · KSET 2024 CS&A",
+       "name": "4 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "What is the Turing Test designed to assess?",
