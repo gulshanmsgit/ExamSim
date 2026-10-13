@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — Data Structures",
- "description": "4 of 9 topics so far (12 sets × 30 questions): Introduction to Data Structures; Primitive Data Structures; Arrays in Data Structures; Linked Lists. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "6 of 9 topics so far (18 sets × 30 questions): Introduction to Data Structures; Primitive Data Structures; Arrays in Data Structures; Linked Lists; Stacks; Queues. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – Data Structures",
@@ -4471,6 +4471,2243 @@
       {
        "title": "Linked lists – revision sheet",
        "md": "## Basics\n- Node = data + pointer(s): `struct node { int data; struct node *next; };` (self-referential)\n- Create: `t = (struct node *) malloc(sizeof(struct node));` (NULL → overflow); release: `free(t)`; AVAIL list (Lipschutz)\n- Empty: head == NULL; deleting from empty = underflow; forgetting free = memory leak; using freed node = dangling pointer\n\n## Operations (singly, head pointer only)\n| Operation | Code | Time |\n|---|---|---|\n| insert at front | t->next = head; head = t | O(1) |\n| insert after p | t->next = p->next; p->next = t | O(1) |\n| insert at end | traverse (O(1) with tail) | O(n) |\n| delete first | tmp = head; head = head->next; free(tmp) | O(1) |\n| delete last | find second-last | O(n) |\n| search / k-th element | traverse | O(n) |\n- Reverse iteratively O(n); middle by slow/fast pointers; cycle by Floyd's method; merge sorted lists O(m + n)\n\n## Variants\n- Circular: last → first, no NULL; traverse with do … while (p != head); round-robin, Josephus; front insert O(1) with a last pointer\n- Doubly (two-way): prev + data + next (3 fields, 2n pointers); delete p: p->prev->next = p->next; p->next->prev = p->prev\n- Header lists: grounded (last → NULL) or circular (last → header)\n- Uses: polynomials (coefficient, exponent nodes), stacks and queues, hash chaining, sparse matrices\n- Prefer lists for frequent insert/delete and unknown size; arrays for random access\n"
+      }
+     ]
+    },
+    {
+     "name": "Stacks",
+     "plan": {
+      "id": "P2-KRD-05"
+     },
+     "sets": [
+      {
+       "name": "1 · Concepts, Operations and Sequential/Linked Implementation",
+       "questions": [
+        {
+         "question": "A stack follows the principle:",
+         "options": {
+          "A": "Random access",
+          "B": "First In, First Out (FIFO)",
+          "C": "Highest priority first",
+          "D": "Last In, First Out (LIFO)"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Insertion (push) and deletion (pop) happen at the same end, the top."
+        },
+        {
+         "question": "Starting with an empty stack, the operations push 1, push 2, push 3, pop, push 4, pop, pop remove the elements in the order:",
+         "options": {
+          "A": "1, 2, 3",
+          "B": "3, 4, 2",
+          "C": "3, 2, 4",
+          "D": "4, 3, 2"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "After popping 3, 4 is pushed on top of 2, so 4 and then 2 come out."
+        },
+        {
+         "question": "Elements 1, 2, 3, 4 are pushed in this order, with pops allowed at any time. Which output sequence is IMPOSSIBLE?",
+         "options": {
+          "A": "2, 1, 4, 3",
+          "B": "1, 2, 3, 4",
+          "C": "3, 2, 4, 1",
+          "D": "4, 1, 3, 2"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Popping 4 first leaves 3 on top, so 1 cannot come next."
+        },
+        {
+         "question": "How many different output sequences can be produced by passing 1, 2, 3 through a stack?",
+         "options": {
+          "A": "6",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The count is the Catalan number C₃ = 5; only 3, 1, 2 is impossible."
+        },
+        {
+         "question": "With n = 4 elements pushed in order through a stack, the number of possible output permutations is:",
+         "options": {
+          "A": "24",
+          "B": "14",
+          "C": "16",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Catalan number C₄ = 14."
+        },
+        {
+         "question": "The postfix form of  A + B * C − D  is:",
+         "options": {
+          "A": "A B C D * + −",
+          "B": "A B C * + D −",
+          "C": "A B + C * D −",
+          "D": "+ A * B C − D"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "B * C is formed first, then added to A, then D is subtracted."
+        },
+        {
+         "question": "The postfix form of  (A + B) * (C − D)  is:",
+         "options": {
+          "A": "* + A B − C D",
+          "B": "A B C D + − *",
+          "C": "A B + C D − *",
+          "D": "A + B C − D *"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The prefix form would be * + A B − C D."
+        },
+        {
+         "question": "The value of the postfix expression  6 2 3 + − 3 8 2 / + *  is:",
+         "options": {
+          "A": "5",
+          "B": "1",
+          "C": "49",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "2 + 3 = 5; 6 − 5 = 1; 8 / 2 = 4; 3 + 4 = 7; 1 × 7 = 7."
+        },
+        {
+         "question": "The value of the prefix expression  − * 2 3 4  is:",
+         "options": {
+          "A": "−2",
+          "B": "2",
+          "C": "14",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "(2 × 3) − 4 = 2."
+        },
+        {
+         "question": "The prefix form of  A * B + C  is:",
+         "options": {
+          "A": "+ A * B C",
+          "B": "* A + B C",
+          "C": "+ * A B C",
+          "D": "A B * C +"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The last operator applied, +, comes first."
+        },
+        {
+         "question": "While evaluating the postfix expression  2 3 4 * +  with a stack, the maximum number of elements on the stack at one time is:",
+         "options": {
+          "A": "5",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "2, 3 and 4 are all on the stack before * is applied."
+        },
+        {
+         "question": "Which string of brackets is balanced?",
+         "options": {
+          "A": "{[()]}",
+          "B": "{[}]",
+          "C": "((]",
+          "D": "([)]"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Each closing bracket must match the most recent unmatched opening bracket – checked with a stack."
+        },
+        {
+         "question": "In an array implementation of a stack of size MAX (0-based), with top = −1 meaning empty, the stack is full when:",
+         "options": {
+          "A": "top == MAX − 1",
+          "B": "top == MAX",
+          "C": "top == −1",
+          "D": "top == 0"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Pushing when full causes overflow; popping when empty causes underflow."
+        },
+        {
+         "question": "Two stacks share one array of size n by growing from opposite ends. Overflow occurs only when:",
+         "options": {
+          "A": "The total number of elements in both stacks reaches n",
+          "B": "Either stack holds n/2 elements",
+          "C": "One stack becomes empty",
+          "D": "Both stacks hold the same number of elements"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "This uses the space more flexibly than a fixed half each."
+        },
+        {
+         "question": "Pushing onto a stack implemented as a singly linked list, with the top at the head, takes:",
+         "options": {
+          "A": "O(n²) time",
+          "B": "O(n) time",
+          "C": "O(log n) time",
+          "D": "O(1) time"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The new node simply becomes the new head."
+        },
+        {
+         "question": "The Tower of Hanoi with 5 discs needs a minimum of how many moves?",
+         "options": {
+          "A": "32",
+          "B": "31",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "2ⁿ − 1 = 31; the recursive solution uses the call stack."
+        },
+        {
+         "question": "Which of the following does NOT typically use a stack?",
+         "options": {
+          "A": "Function calls and recursion",
+          "B": "Undo in a text editor",
+          "C": "Breadth-first search of a graph",
+          "D": "Evaluating postfix expressions"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "BFS uses a queue; depth-first search uses a stack."
+        },
+        {
+         "question": "Match the application with the data structure it mainly uses:\na. Function-call management\nb. Printer job scheduling\nc. Depth-first search\nd. Browser Back button history\n\n1. Stack (explicit or recursion)\n2. Call stack\n3. Queue\n4. Stack of visited pages",
+         "options": {
+          "A": "a-2, b-3, c-1, d-4",
+          "B": "a-2, b-3, c-4, d-1",
+          "C": "a-2, b-1, c-3, d-4",
+          "D": "a-3, b-2, c-1, d-4"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "LIFO suits anything that must be undone in reverse order."
+        },
+        {
+         "question": "During infix-to-postfix conversion, an operator on the stack is popped to the output when the incoming operator has:",
+         "options": {
+          "A": "The same symbol only",
+          "B": "Higher precedence",
+          "C": "No precedence",
+          "D": "Lower or equal precedence (for left-associative operators)"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Right-associative ^ is handled differently."
+        },
+        {
+         "question": "A stack can be simulated using:",
+         "options": {
+          "A": "Two queues",
+          "B": "Only one variable",
+          "C": "A hash table only",
+          "D": "A binary search tree only"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Similarly, a queue can be built from two stacks."
+        },
+        {
+         "question": "What does the stack contain (bottom → top) after: push 5, push 7, pop, push 2, push 9, pop?",
+         "options": {
+          "A": "5, 7, 2",
+          "B": "5, 2",
+          "C": "5, 9",
+          "D": "2, 9"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "7 and 9 are removed."
+        },
+        {
+         "question": "Consider the statements:\nI. Recursion is implemented with a stack of activation records.\nII. Every recursive program can be converted into an iterative one using an explicit stack.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Both are standard results."
+        },
+        {
+         "question": "Consider the statements:\nI. Popping from an empty stack causes underflow.\nII. Pushing onto an empty stack causes overflow.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Overflow happens when pushing onto a full stack."
+        },
+        {
+         "question": "Assertion (A): A stack is used to check balanced parentheses.\nReason (R): The most recently opened bracket must be the first one to be closed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "That LIFO property matches the stack exactly."
+        },
+        {
+         "question": "Assertion (A): Postfix expressions need parentheses to show the order of operations.\nReason (R): In postfix notation the order of operators alone fixes the order of evaluation.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Because the order is already fixed, postfix needs no parentheses; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Push and pop on an array-based stack take O(1) time.\nReason (R): Elements of a stack are always kept in sorted order.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "A is true; R is false – stacks keep insertion order, not sorted order."
+        },
+        {
+         "question": "Assertion (A): Depth-first search can be implemented with a stack.\nReason (R): A stack can be implemented with a linked list.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Both true, but the implementation detail does not explain why DFS uses a stack."
+        },
+        {
+         "question": "The infix form of the postfix expression  a b c * + d −  is:",
+         "options": {
+          "A": "a * b + c − d",
+          "B": "a + b * (c − d)",
+          "C": "a + b * c − d",
+          "D": "(a + b) * c − d"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "b c * becomes b * c, then a + (b * c), then − d."
+        },
+        {
+         "question": "The value of the postfix expression  5 1 2 + 4 * + 3 −  is:",
+         "options": {
+          "A": "20",
+          "B": "12",
+          "C": "18",
+          "D": "14"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "1 + 2 = 3; 3 × 4 = 12; 5 + 12 = 17; 17 − 3 = 14."
+        },
+        {
+         "question": "The peek (top) operation on a stack:",
+         "options": {
+          "A": "Removes the top element",
+          "B": "Removes the bottom element",
+          "C": "Returns the top element without removing it",
+          "D": "Returns the number of elements"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "pop both returns and removes it."
+        }
+       ]
+      },
+      {
+       "name": "2 · Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+       "questions": [
+        {
+         "question": "A single array A [1..MAXSIZE] is used to implement two stacks. The two stacks grow from opposite ends of the array. Variables top1 and top2 (top1 < top2) point to the location of the topmost element in each of the stacks. If the space is to be used efficiently, then the condition for \"stack full\" is ____",
+         "options": {
+          "A": "(top1 = MAXSIZE/2) and (top2 = MAXSIZE/2 + 1)",
+          "B": "top1 + top2 = MAXSIZE",
+          "C": "(top1 = MAXSIZE/2) or (top2 = MAXSIZE/2)",
+          "D": "top1 = top2 − 1"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Full only when the two tops meet. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q60"
+        },
+        {
+         "question": "Which data structure is used for implementing recursion?",
+         "options": {
+          "A": "Stack",
+          "B": "Queue",
+          "C": "List",
+          "D": "Array"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Activation records are pushed and popped. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q3"
+        },
+        {
+         "question": "The Prefix form of A − B / (C * D ^ E) is",
+         "options": {
+          "A": "−A/B*C^DE",
+          "B": "−A/BC*^DE",
+          "C": "−ABCD*^DE",
+          "D": "−/*^ACBDE"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "A − (B / (C * (D ^ E))) → − A / B * C ^ D E. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q4"
+        },
+        {
+         "question": "The optimal data structure used to solve Tower of Hanoi is",
+         "options": {
+          "A": "Tree",
+          "B": "Heap",
+          "C": "Queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Recursion (or an explicit stack) holds the sub-problems. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q94"
+        },
+        {
+         "question": "Consider the following operations performed on stack of size 5.\npush(11);\npop();\npush(21);\npush(33);\npop();\npush(44);\npop();\npop();\npush(55);\nAfter the completion of all operations, the number of elements present in stack is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "The stack ends holding only 55. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q76"
+        },
+        {
+         "question": "A parenthesis checker program would be best implemented using",
+         "options": {
+          "A": "Array",
+          "B": "List",
+          "C": "Queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "The last opened bracket must close first. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q87"
+        },
+        {
+         "question": "Let A = 2, B = 3, C = 4 and D = 5. What is the final value of the prefix expression :\n+ * A B − C D ?",
+         "options": {
+          "A": "5",
+          "B": "−5",
+          "C": "10",
+          "D": "−10"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "(2 × 3) + (4 − 5) = 6 − 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q99"
+        },
+        {
+         "question": "Which of the following data structures find its use in recursion?",
+         "options": {
+          "A": "Arrays",
+          "B": "Stacks",
+          "C": "Queues",
+          "D": "Linked list"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "The call stack. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q17"
+        },
+        {
+         "question": "Data structure used for finding whether a string is a palindrome or not is ____.",
+         "options": {
+          "A": "Heap",
+          "B": "Tree",
+          "C": "Priority queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Push the characters and pop them to get the reverse; compare with the original. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q1"
+        },
+        {
+         "question": "Which of the following is NOT a real world example of a stack?\n(a) Undo feature in text editors\n(b) Browser back button history\n(c) Breadth first search in programming\n(d) Queue at a ticket counter",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(a) and (b)",
+          "C": "(c) and (d)",
+          "D": "(d) and (a)"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "BFS and a ticket-counter queue are FIFO (queues); undo and back-button history are LIFO (stacks). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q2"
+        },
+        {
+         "question": "Find the output of the given POSTFIX expression 5 3 1 * + 4 2 / −",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "3 × 1 = 3; 5 + 3 = 8; 4 / 2 = 2; 8 − 2 = 6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q8"
+        },
+        {
+         "question": "Assume the following priorities in evaluating an expression (1) parenthesis (2) exponentiation (3) division and multiplication (4) addition and subtraction (5) assignment. What is the equivalent post-fix expression of the infix expression a = b/c ^ d * (e + f) − g/h.",
+         "options": {
+          "A": "a b c d ↑ e f / + g h − * / =",
+          "B": "a b c d ↑ / e f + * g h / − =",
+          "C": "a b c d ↑ e f / * + g h / − =",
+          "D": "a b c d ↑ e f / + * g h − / ="
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "c ^ d first, then b/(c^d), times (e + f), minus g/h, then assign: a b c d ↑ / e f + * g h / − =. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q61"
+        },
+        {
+         "question": "The postfix form of  (A + B) * C − D / E  is",
+         "options": {
+          "A": "A B C + * D E / −",
+          "B": "A B + C D E / * −",
+          "C": "A B + C * D E / −",
+          "D": "+ A B * C − / D E"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Convert each sub-expression, keeping operands in order."
+        },
+        {
+         "question": "The postfix form of  A * (B + C) / D  is",
+         "options": {
+          "A": "A B * C + D /",
+          "B": "* A + B C / D",
+          "C": "A B C + * D /",
+          "D": "A B C + D / *"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Parentheses first, then left to right."
+        },
+        {
+         "question": "The postfix form of  A + B * C ^ D  is",
+         "options": {
+          "A": "A B C * D ^ +",
+          "B": "A B C D ^ * +",
+          "C": "A B C D + * ^",
+          "D": "A B + C D ^ *"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "^ binds tightest."
+        },
+        {
+         "question": "Since ^ is right-associative, the postfix form of  A ^ B ^ C  is",
+         "options": {
+          "A": "A B ^ C ^",
+          "B": "^ ^ A B C",
+          "C": "A B C ^ ^",
+          "D": "A ^ B C ^"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "A ^ (B ^ C)."
+        },
+        {
+         "question": "The prefix form of  (A + B) * C  is",
+         "options": {
+          "A": "+ A * B C",
+          "B": "* A + B C",
+          "C": "A B + C *",
+          "D": "* + A B C"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Each operator comes before its operands."
+        },
+        {
+         "question": "The value of the postfix expression  8 2 / 3 * 4 +  is",
+         "options": {
+          "A": "16",
+          "B": "7",
+          "C": "10",
+          "D": "28"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "8 / 2 = 4; 4 × 3 = 12; 12 + 4."
+        },
+        {
+         "question": "The value of the postfix expression  2 3 ^ 1 −  is",
+         "options": {
+          "A": "1",
+          "B": "8",
+          "C": "7",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "2³ − 1."
+        },
+        {
+         "question": "While converting  A + B * C  to postfix, the largest number of operators on the stack at one time is",
+         "options": {
+          "A": "0",
+          "B": "2",
+          "C": "3",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "PYQ pattern (KEA / KSET papers). + is still on the stack when * is pushed."
+        },
+        {
+         "question": "With  fact(n) = n == 0 ? 1 : n * fact(n − 1),  computing fact(4) puts at most how many activation records of fact on the stack?",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "24",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "fact(4), fact(3), fact(2), fact(1), fact(0)."
+        },
+        {
+         "question": "The Tower of Hanoi with 6 discs needs a minimum of how many moves?",
+         "options": {
+          "A": "32",
+          "B": "36",
+          "C": "63",
+          "D": "64"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "2ⁿ − 1."
+        },
+        {
+         "question": "In the 3-disc Tower of Hanoi (move all discs from A to C using B), the first move of the optimal solution is",
+         "options": {
+          "A": "Largest disc from A to C",
+          "B": "Smallest disc from A to B",
+          "C": "Middle disc from A to B",
+          "D": "Smallest disc from A to C"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "For an odd number of discs the smallest disc goes first to the target peg."
+        },
+        {
+         "question": "The recursive Tower of Hanoi solution moves n discs from A to C by",
+         "options": {
+          "A": "Moving n − 1 discs to B, the largest disc to C, then the n − 1 discs from B to C",
+          "B": "Sorting the discs",
+          "C": "Moving the largest disc first",
+          "D": "Moving one disc at a time from A to C"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "T(n) = 2T(n − 1) + 1."
+        },
+        {
+         "question": "Postfix (Reverse Polish) expressions are convenient because",
+         "options": {
+          "A": "They are easier for people to read",
+          "B": "They are shorter than infix in every case",
+          "C": "They need no stack",
+          "D": "They need no parentheses and can be evaluated in one left-to-right scan with a stack"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Compilers convert infix to postfix."
+        },
+        {
+         "question": "In postfix evaluation, when an operator is read",
+         "options": {
+          "A": "The operator is pushed",
+          "B": "The top two operands are popped, the operation applied (the second one popped is the left operand) and the result pushed",
+          "C": "The stack is cleared",
+          "D": "One operand is popped"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "For '8 2 /' the result is 8 / 2."
+        },
+        {
+         "question": "During infix-to-postfix conversion of left-associative operators, an incoming operator first pops from the stack every operator of",
+         "options": {
+          "A": "Higher or equal precedence",
+          "B": "Lower precedence",
+          "C": "No operator",
+          "D": "Any precedence"
+         },
+         "answer": "A",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "'(' stays until its ')' arrives."
+        },
+        {
+         "question": "Undo and redo in an editor are commonly implemented with",
+         "options": {
+          "A": "One queue",
+          "B": "A hash table",
+          "C": "Two stacks",
+          "D": "A binary tree"
+         },
+         "answer": "C",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Undo pops from one and pushes to the other."
+        },
+        {
+         "question": "When a function is called, its return address and local variables are kept on the",
+         "options": {
+          "A": "Queue",
+          "B": "System (call) stack",
+          "C": "Disk",
+          "D": "Heap"
+         },
+         "answer": "B",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "Popped when it returns."
+        },
+        {
+         "question": "Pushing the letters of \"KEA\" onto a stack and popping them all gives",
+         "options": {
+          "A": "EAK",
+          "B": "AKE",
+          "C": "KEA",
+          "D": "AEK"
+         },
+         "answer": "D",
+         "subject": "Applications – Recursion, Tower of Hanoi, Infix to Postfix and Postfix Evaluation",
+         "explanation": "A stack reverses order."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Traces",
+       "questions": [
+        {
+         "question": "After  push(5), push(3), pop(), push(7),  the top of the stack is",
+         "options": {
+          "A": "7",
+          "B": "5",
+          "C": "Empty",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "3 was popped."
+        },
+        {
+         "question": "An array stack starts with top = −1. After 4 pushes and 1 pop, top is",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "−1 + 4 − 1."
+        },
+        {
+         "question": "An array stack of size MAX (0-based, top = −1 when empty) is full when",
+         "options": {
+          "A": "top == 0",
+          "B": "top == MAX − 1",
+          "C": "top == −1",
+          "D": "top == MAX"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The last index is MAX − 1."
+        },
+        {
+         "question": "Pushing node t onto a stack kept as a linked list (top = head) is",
+         "options": {
+          "A": "top = t->next;",
+          "B": "top->next = t;",
+          "C": "t->next = top; top = t;",
+          "D": "t = top;"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "O(1)."
+        },
+        {
+         "question": "Popping from a linked stack is",
+         "options": {
+          "A": "free(top); top = top->next;",
+          "B": "temp = top; top = top->next; x = temp->data; free(temp);",
+          "C": "top->next = NULL;",
+          "D": "top = NULL;"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Check top != NULL first (underflow)."
+        },
+        {
+         "question": "The value of the postfix expression  9 3 − 2 *  is",
+         "options": {
+          "A": "6",
+          "B": "15",
+          "C": "12",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(9 − 3) × 2."
+        },
+        {
+         "question": "The value of the prefix expression  + * 2 3 4  is",
+         "options": {
+          "A": "10",
+          "B": "20",
+          "C": "14",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(2 × 3) + 4."
+        },
+        {
+         "question": "The infix form of the postfix expression  A B C − *  is",
+         "options": {
+          "A": "A − B * C",
+          "B": "A * B − C",
+          "C": "(A − B) * C",
+          "D": "A * (B − C)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "− applies to B and C first."
+        },
+        {
+         "question": "Which bracket string is NOT balanced?",
+         "options": {
+          "A": "{ [ ( ) ] }",
+          "B": "( ( ) )",
+          "C": "( [ ) ]",
+          "D": "( ) [ ] { }"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "] arrives while ( is on top."
+        },
+        {
+         "question": "Reversing a 5-letter word with a stack needs how many pushes and pops?",
+         "options": {
+          "A": "5 pushes and 5 pops",
+          "B": "10 pushes",
+          "C": "1 push and 5 pops",
+          "D": "5 pushes and 1 pop"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "One each per letter."
+        },
+        {
+         "question": "Pushing 1, 2, 3 in this order (pops allowed at any time), which output sequence is impossible?",
+         "options": {
+          "A": "3 2 1",
+          "B": "3 1 2",
+          "C": "2 3 1",
+          "D": "1 2 3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). After 3 is popped, 2 is above 1, so 1 cannot come next."
+        },
+        {
+         "question": "Converting 13 to binary by pushing remainders of division by 2 and then popping them gives",
+         "options": {
+          "A": "1011",
+          "B": "1110",
+          "C": "0111",
+          "D": "1101"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Remainders 1, 0, 1, 1 come out reversed."
+        },
+        {
+         "question": "What does f(2) print?\nvoid f(int n) { if (n == 0) return; printf(\"%d\", n); f(n - 1); printf(\"%d\", n); }",
+         "options": {
+          "A": "1221",
+          "B": "2112",
+          "C": "21",
+          "D": "2121"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Before the call on the way down, after it on the way back."
+        },
+        {
+         "question": "Which of these needs a stack?",
+         "options": {
+          "A": "Reversing a string",
+          "B": "Printer spooling",
+          "C": "Round-robin scheduling",
+          "D": "Breadth-first search"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The others use queues."
+        },
+        {
+         "question": "The value of the postfix expression  5 6 2 + * 12 4 / −  is",
+         "options": {
+          "A": "29",
+          "B": "40",
+          "C": "37",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 × (6 + 2) − 12 / 4 = 40 − 3."
+        },
+        {
+         "question": "The infix form of the postfix expression  a b + c d − *  is",
+         "options": {
+          "A": "a + (b * c) − d",
+          "B": "a + b * c − d",
+          "C": "(a + b * c) − d",
+          "D": "(a + b) * (c − d)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Two sub-expressions, then *."
+        },
+        {
+         "question": "The postfix form of  a + b − c  is",
+         "options": {
+          "A": "a b c + −",
+          "B": "+ a − b c",
+          "C": "a b + c −",
+          "D": "a b c − +"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Left-associative: (a + b) − c."
+        },
+        {
+         "question": "The postfix form of  (a + b) * (c + d) * e  is",
+         "options": {
+          "A": "a b c d + + * e *",
+          "B": "a b + c d + * e *",
+          "C": "a b + * c d + e *",
+          "D": "a b + c d + e * *"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Left-associative *."
+        },
+        {
+         "question": "A stack of size 3 receives push 1, push 2, push 3, push 4. What happens at push 4?",
+         "options": {
+          "A": "Overflow",
+          "B": "Underflow",
+          "C": "4 replaces 3",
+          "D": "1 is removed"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The stack is already full."
+        },
+        {
+         "question": "Popping from an empty stack (top = −1) causes",
+         "options": {
+          "A": "A memory leak",
+          "B": "Overflow",
+          "C": "Nothing",
+          "D": "Underflow"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Check isEmpty() first."
+        },
+        {
+         "question": "The peek (top) operation",
+         "options": {
+          "A": "Adds an element",
+          "B": "Empties the stack",
+          "C": "Removes the top element",
+          "D": "Returns the top element without removing it"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "O(1)."
+        },
+        {
+         "question": "Two stacks share an array of 10 cells, growing towards each other. A push fails when",
+         "options": {
+          "A": "top1 + 1 == top2",
+          "B": "top1 == top2 + 5",
+          "C": "top2 == 5",
+          "D": "top1 == 5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Every cell is then in use."
+        },
+        {
+         "question": "If top = 4 in a 0-based array stack, the stack holds how many elements?",
+         "options": {
+          "A": "6",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "top + 1."
+        },
+        {
+         "question": "Infinite recursion in C usually ends with",
+         "options": {
+          "A": "A queue overflow",
+          "B": "A stack overflow (the program crashes)",
+          "C": "A compile-time error",
+          "D": "The correct answer"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Each call takes stack space."
+        },
+        {
+         "question": "The value of the prefix expression  − + 7 3 * 2 2  is",
+         "options": {
+          "A": "14",
+          "B": "6",
+          "C": "−6",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(7 + 3) − (2 × 2)."
+        },
+        {
+         "question": "The postfix form of  A − (B + C) * D  is",
+         "options": {
+          "A": "A B C + D * −",
+          "B": "A B − C + D *",
+          "C": "A B C + − D *",
+          "D": "A B C D + * −"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(B + C) * D first."
+        },
+        {
+         "question": "push a, push b, pop, push c, push d, pop, pop. How many elements remain?",
+         "options": {
+          "A": "0",
+          "B": "2",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Only a."
+        },
+        {
+         "question": "Checking that HTML tags such as <b> … </b> are properly nested is done with a",
+         "options": {
+          "A": "Heap",
+          "B": "Queue",
+          "C": "Graph",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Like bracket matching."
+        },
+        {
+         "question": "With a = 2, b = 3 and c = 4, the postfix expression  a b c * +  equals",
+         "options": {
+          "A": "24",
+          "B": "20",
+          "C": "14",
+          "D": "9"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "2 + 3 × 4."
+        },
+        {
+         "question": "A stack is called a LIFO structure because",
+         "options": {
+          "A": "Elements are popped at random",
+          "B": "Elements are sorted",
+          "C": "The first element is popped first",
+          "D": "The last element pushed is the first one popped"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Push and pop happen at the same end (the top)."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Stacks – revision sheet",
+       "md": "## Concept and implementation\n- LIFO; push, pop, peek/top, isEmpty, isFull – all O(1)\n- Array: top = −1 empty, top == MAX − 1 full; push: a[++top] = x; pop: x = a[top--]; overflow / underflow\n- Linked (top = head): push t->next = top; top = t; pop temp = top; top = top->next; free(temp)\n- Two stacks in one array grow from opposite ends: full when top1 = top2 − 1\n- Stack permutations of 1, 2, 3: 5 possible (3 1 2 impossible); of n: Catalan number\n\n## Applications\n- Recursion / function calls (activation records); stack overflow on infinite recursion\n- Tower of Hanoi: n − 1 to spare, largest to target, n − 1 to target; 2ⁿ − 1 moves (6 discs = 63); odd n → first move smallest disc to target\n- Bracket matching, HTML tags, reversing strings, decimal → binary, undo/redo (two stacks), DFS, browser back\n- Infix → postfix: operands to output; '(' push; ')' pop to '('; operator: pop ops of ≥ precedence (not for right-associative ^), then push\n  - (A + B) * C − D / E → A B + C * D E / −; A + B * C ^ D → A B C D ^ * +; A − B / (C * D ^ E) prefix → − A / B * C ^ D E\n- Postfix evaluation: push operands; on operator pop right then left, push result\n  - 5 6 2 + * 12 4 / − = 37; 8 2 / 3 * 4 + = 16; prefix + * A B − C D (2, 3, 4, 5) = 5\n"
+      }
+     ]
+    },
+    {
+     "name": "Queues",
+     "plan": {
+      "id": "P2-KRD-06"
+     },
+     "sets": [
+      {
+       "name": "1 · Concepts, Operations and Sequential/Linked Implementation",
+       "questions": [
+        {
+         "question": "A queue follows the principle:",
+         "options": {
+          "A": "Highest priority first",
+          "B": "First In, First Out (FIFO)",
+          "C": "Random removal",
+          "D": "Last In, First Out (LIFO)"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Elements are added at the rear and removed from the front."
+        },
+        {
+         "question": "Enqueue 1, enqueue 2, enqueue 3, dequeue, enqueue 4, dequeue. Which element is now at the front?",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "1 and 2 have been removed; 3 then 4 remain."
+        },
+        {
+         "question": "The main drawback of a simple (linear) array queue is that:",
+         "options": {
+          "A": "Dequeue takes O(n) always",
+          "B": "It cannot store integers",
+          "C": "It must be sorted",
+          "D": "Space freed at the front cannot be reused once rear reaches the end"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "A circular queue wraps the indices around to reuse the space."
+        },
+        {
+         "question": "In a circular queue of size n that keeps one slot empty, the queue is full when:",
+         "options": {
+          "A": "rear == front",
+          "B": "rear == n − 1",
+          "C": "(rear + 1) % n == front",
+          "D": "front == 0"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "So such a queue can hold at most n − 1 elements; rear == front means empty."
+        },
+        {
+         "question": "A circular queue has 5 slots (indices 0–4). front points to the first element and rear points to the slot after the last element. If front = 3 and rear = 1, how many elements are in the queue?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "(rear − front + n) % n = (1 − 3 + 5) % 5 = 3 (slots 3, 4 and 0)."
+        },
+        {
+         "question": "A double-ended queue (deque) allows:",
+         "options": {
+          "A": "Insertion and deletion at both ends",
+          "B": "Insertion only at the front",
+          "C": "Deletion only in the middle",
+          "D": "Only priority-based removal"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "An input-restricted deque allows insertion at one end only; an output-restricted deque allows deletion at one end only."
+        },
+        {
+         "question": "In a priority queue, the element removed first is:",
+         "options": {
+          "A": "The one inserted first",
+          "B": "The one with the highest priority",
+          "C": "The one inserted last",
+          "D": "A random one"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Equal priorities are often served in arrival order."
+        },
+        {
+         "question": "With a binary heap, the priority-queue operations insert and delete-max take:",
+         "options": {
+          "A": "O(n log n) each",
+          "B": "O(1) each",
+          "C": "O(n) each",
+          "D": "O(log n) each, while find-max takes O(1)"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The heap's height is ⌊log₂ n⌋."
+        },
+        {
+         "question": "A priority queue kept as an UNSORTED array has insert and delete-max costs of:",
+         "options": {
+          "A": "O(1) and O(1)",
+          "B": "O(n) and O(1)",
+          "C": "O(1) and O(n)",
+          "D": "O(log n) and O(log n)"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "A sorted array reverses this: O(n) insert and O(1) delete."
+        },
+        {
+         "question": "In an array-based binary heap with 0-based indices, the children of the node at index i are at:",
+         "options": {
+          "A": "2i + 1 and 2i + 2",
+          "B": "i/2 and i/2 + 1",
+          "C": "i + 1 and i + 2",
+          "D": "2i and 2i + 1"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The parent of i is at ⌊(i − 1)/2⌋."
+        },
+        {
+         "question": "45 is inserted into the max-heap stored as [50, 30, 40, 10, 20]. The resulting array is:",
+         "options": {
+          "A": "[45, 50, 40, 10, 20, 30]",
+          "B": "[50, 30, 45, 10, 20, 40]",
+          "C": "[50, 45, 40, 10, 20, 30]",
+          "D": "[50, 30, 40, 10, 20, 45]"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "45 is placed at index 5; its parent (index 2) is 40, so they swap; its new parent 50 is larger, so it stops."
+        },
+        {
+         "question": "The maximum is deleted from the max-heap [50, 30, 45, 10, 20, 40]. The resulting array is:",
+         "options": {
+          "A": "[45, 40, 30, 10, 20]",
+          "B": "[40, 30, 45, 10, 20]",
+          "C": "[45, 30, 40, 10, 20]",
+          "D": "[30, 45, 40, 10, 20]"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "The last element 40 moves to the root and sifts down past its larger child 45."
+        },
+        {
+         "question": "Building a binary heap from n unsorted elements with the bottom-up (heapify) method takes:",
+         "options": {
+          "A": "O(n) time",
+          "B": "O(log n) time",
+          "C": "O(n log n) time always",
+          "D": "O(n²) time"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Most nodes are near the bottom and need little work."
+        },
+        {
+         "question": "Round-robin CPU scheduling is naturally implemented with a:",
+         "options": {
+          "A": "Hash table",
+          "B": "Binary search tree",
+          "C": "Stack",
+          "D": "Circular queue"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Each process gets a time slice and then goes to the back of the queue."
+        },
+        {
+         "question": "Which algorithm uses a priority queue?",
+         "options": {
+          "A": "Bubble sort",
+          "B": "Depth-first search",
+          "C": "Linear search",
+          "D": "Dijkstra's shortest-path algorithm"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Huffman coding and Prim's algorithm also use priority queues."
+        },
+        {
+         "question": "Breadth-first search of a graph uses a:",
+         "options": {
+          "A": "Stack",
+          "B": "Priority queue only",
+          "C": "Queue",
+          "D": "Deque only"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Vertices are visited level by level."
+        },
+        {
+         "question": "A queue implemented as a linked list with front and rear pointers supports enqueue and dequeue in:",
+         "options": {
+          "A": "O(1) enqueue and O(n) dequeue always",
+          "B": "O(1) time each",
+          "C": "O(n) time each",
+          "D": "O(log n) time each"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "New nodes are added after rear; nodes are removed at front."
+        },
+        {
+         "question": "A queue can be implemented with two stacks so that each operation takes:",
+         "options": {
+          "A": "O(1) amortised time",
+          "B": "O(n²) time",
+          "C": "O(n) time for every operation",
+          "D": "O(log n) time"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Elements are moved from the input stack to the output stack only when the output stack is empty."
+        },
+        {
+         "question": "Match the structure with its typical use:\na. Queue\nb. Priority queue\nc. Deque\nd. Circular queue\n\n1. Buffer that reuses space in a fixed-size array\n2. Event simulation by earliest time\n3. Sliding-window algorithms needing both ends\n4. Printer spooling in arrival order",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-2, c-1, d-3",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-4, b-3, c-2, d-1"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "All are variations of the queue idea."
+        },
+        {
+         "question": "A circular queue has 8 slots, front = 6 and rear = 2 (rear points after the last element). How many free slots remain if one slot is always kept empty?",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Elements = (2 − 6 + 8) % 8 = 4; usable capacity 7; free = 7 − 4 = 3."
+        },
+        {
+         "question": "Consider the statements:\nI. In a circular queue, front == rear usually indicates an empty queue.\nII. A circular queue avoids the wasted space of a simple array queue.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Both are correct under the one-empty-slot convention."
+        },
+        {
+         "question": "Consider the statements:\nI. A max-heap stores the largest element at the root.\nII. In a max-heap every level is sorted from left to right.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Only the parent–child order is guaranteed, not the order among siblings."
+        },
+        {
+         "question": "Assertion (A): A priority queue is usually implemented with a binary heap.\nReason (R): A heap supports insert and delete-max in O(log n) time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "That balance of costs is why heaps are used."
+        },
+        {
+         "question": "Assertion (A): A queue removes the most recently inserted element first.\nReason (R): A queue follows the FIFO principle.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "FIFO removes the oldest element, so A is false; R explains why."
+        },
+        {
+         "question": "Assertion (A): Breadth-first search visits vertices level by level.\nReason (R): Breadth-first search uses a stack.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "A is true; R is false – BFS uses a queue."
+        },
+        {
+         "question": "Assertion (A): A deque can be used as either a stack or a queue.\nReason (R): Circular queues are used in round-robin scheduling.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "Both true but unrelated."
+        },
+        {
+         "question": "In an array-based max-heap (0-based), the parent of the element at index 9 is at index:",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "⌊(9 − 1)/2⌋ = 4."
+        },
+        {
+         "question": "The maximum number of nodes in a binary heap of height 3 (a single root has height 0) is:",
+         "options": {
+          "A": "16",
+          "B": "15",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "2^(h + 1) − 1 = 15."
+        },
+        {
+         "question": "Heap sort sorts n elements in:",
+         "options": {
+          "A": "O(n) always",
+          "B": "O(log n)",
+          "C": "O(n log n) time in every case",
+          "D": "O(n²) in the worst case"
+         },
+         "answer": "C",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "It builds a heap and repeatedly removes the maximum."
+        },
+        {
+         "question": "An output-restricted deque allows:",
+         "options": {
+          "A": "Insertion only in the middle",
+          "B": "Insertion at both ends but deletion at one end only",
+          "C": "Deletion at both ends but insertion at one end only",
+          "D": "No deletions"
+         },
+         "answer": "B",
+         "subject": "Concepts, Operations and Sequential/Linked Implementation",
+         "explanation": "An input-restricted deque is the reverse."
+        }
+       ]
+      },
+      {
+       "name": "2 · Circular Queues, Priority Queues, Deques and Applications",
+       "questions": [
+        {
+         "question": "The MAX_SIZE is the size of the array used in the implementation of circular queue. How is rear manipulated while inserting an element in the queue?",
+         "options": {
+          "A": "rear = (rear%1) + MAX_SIZE",
+          "B": "rear = rear%(MAX_SIZE + 1)",
+          "C": "rear = (rear + 1)% MAX_SIZE",
+          "D": "rear = rear + (1% MAX_SIZE)"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "It wraps round to 0. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q61"
+        },
+        {
+         "question": "The seven elements A, B, C, D, E, F and G are pushed onto a stack in reverse order i.e. starting from G. The stack is popped 5 times and each element is inserted into a queue. Two elements are deleted from the queue and pushed back onto the stack. Now, one element is popped from the stack. The popped item is",
+         "options": {
+          "A": "A",
+          "B": "B",
+          "C": "F",
+          "D": "G"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "A, B, C, D, E go to the queue; A and B come out and are pushed (B on top); B is popped. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q53"
+        },
+        {
+         "question": "Which of the following property/properties hold true for a heap data structure?\na) It is a complete binary tree\nb) The root node always contains the maximum or minimum value\nc) It allows efficient O(1) time access to the largest (or smallest) element",
+         "options": {
+          "A": "(a) and (b) are correct",
+          "B": "(b) and (c) are correct",
+          "C": "Only (c) is correct",
+          "D": "(a), (b) and (c) are correct"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "A heap is how priority queues are usually built. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q65"
+        },
+        {
+         "question": "Identify the data structure which allow deletions at both ends of the list but insertion at only one end.",
+         "options": {
+          "A": "Input restricted dequeue",
+          "B": "Output restricted dequeue",
+          "C": "Priority queues",
+          "D": "Stack"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Input is restricted to one end. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q77"
+        },
+        {
+         "question": "Which one among the following are true about circular queue with queue capacity being n (numbered from 0 to n − 1), 'f' and 'r' being front and rear pointers to the first, and the last elements?\na. The Queue is full if (r + 1) mod n == f.\nb. The maximum number of elements that can be stored in a Queue is n − 1\nc. This is an efficient algorithm compared to linear Queue\nd. This is a non-linear data structure.",
+         "options": {
+          "A": "a, b and d",
+          "B": "b, c and d",
+          "C": "a, b and c",
+          "D": "a and b"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "With one slot left empty to tell full from empty, (r + 1) mod n == f means full and n − 1 elements fit; a queue is a linear structure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q62"
+        },
+        {
+         "question": "Which of the following is the most commonly used data structure for implementing Dijkstra's Algorithm ?",
+         "options": {
+          "A": "Max priority queue",
+          "B": "Stack",
+          "C": "Circular queue",
+          "D": "Min priority queue"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "The vertex with the smallest distance is taken next. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q9"
+        },
+        {
+         "question": "How many stacks are needed to implement a queue? Consider the situation where no other data structure like arrays, linked list is available to you.",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "One for enqueue, one for dequeue. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q69"
+        },
+        {
+         "question": "In a queue, insertion (enqueue) and deletion (dequeue) take place",
+         "options": {
+          "A": "At the rear and at the front respectively",
+          "B": "Both at the front",
+          "C": "Both at the rear",
+          "D": "At the front and at the rear respectively"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "PYQ pattern (KEA / KSET papers). First in, first out."
+        },
+        {
+         "question": "In a linear array queue with front = rear = −1 at the start, the queue is full when",
+         "options": {
+          "A": "front == MAX − 1",
+          "B": "front == 0",
+          "C": "rear == front",
+          "D": "rear == MAX − 1"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Even if deletions have freed cells at the front – the weakness of a linear queue."
+        },
+        {
+         "question": "In a circular queue of size N, front is advanced on deletion by",
+         "options": {
+          "A": "front = N",
+          "B": "front = front − 1",
+          "C": "front = (front + 1) % N",
+          "D": "front = 0"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Like rear."
+        },
+        {
+         "question": "In a circular queue of size N where rear points just after the last element, the number of elements is",
+         "options": {
+          "A": "N − rear",
+          "B": "(rear − front + N) % N",
+          "C": "front + rear",
+          "D": "rear − front"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "The % handles wrap-around."
+        },
+        {
+         "question": "In a circular queue that keeps one slot empty, the queue is empty when",
+         "options": {
+          "A": "front == rear",
+          "B": "rear == N − 1",
+          "C": "(rear + 1) % N == front",
+          "D": "front == 0"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "(rear + 1) % N == front means full."
+        },
+        {
+         "question": "Keeping a separate count of elements lets a circular queue of size n hold",
+         "options": {
+          "A": "n/2 elements",
+          "B": "n − 1 elements",
+          "C": "n + 1 elements",
+          "D": "n elements"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Then empty and full are told apart by the count."
+        },
+        {
+         "question": "In an ascending priority queue",
+         "options": {
+          "A": "The largest key is removed first",
+          "B": "The last element inserted leaves first",
+          "C": "The element with the smallest key is removed first",
+          "D": "Elements leave in arrival order"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "A descending priority queue removes the largest first."
+        },
+        {
+         "question": "A priority queue with a few fixed priority levels can be built as",
+         "options": {
+          "A": "A binary search tree alone",
+          "B": "One ordinary queue per priority level",
+          "C": "A single stack",
+          "D": "A circular list of stacks"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Serve the highest non-empty level first."
+        },
+        {
+         "question": "Elements with the same priority in a priority queue are usually served",
+         "options": {
+          "A": "Alphabetically",
+          "B": "Last arrived first",
+          "C": "In random order",
+          "D": "In the order they arrived"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "FIFO within a priority."
+        },
+        {
+         "question": "An output-restricted deque allows",
+         "options": {
+          "A": "Insertion and deletion at one end only",
+          "B": "Insertion at both ends but deletion at one end only",
+          "C": "No deletion",
+          "D": "Deletion at both ends but insertion at one end only"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Input-restricted is the reverse."
+        },
+        {
+         "question": "A deque supports",
+         "options": {
+          "A": "Deletion at the front only",
+          "B": "Insertion at the rear only",
+          "C": "Insertion and deletion at both the front and the rear",
+          "D": "Access in the middle"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Four basic operations."
+        },
+        {
+         "question": "Which is an application of queues?",
+         "options": {
+          "A": "CPU scheduling and printer spooling",
+          "B": "Evaluating postfix expressions",
+          "C": "Undo in an editor",
+          "D": "Checking brackets"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Also BFS, buffers, call centres."
+        },
+        {
+         "question": "A bank simulation with customers waiting for a teller is modelled with a",
+         "options": {
+          "A": "Graph",
+          "B": "Tree",
+          "C": "Stack",
+          "D": "Queue"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "First come, first served."
+        },
+        {
+         "question": "In a queue built as a linked list",
+         "options": {
+          "A": "Insertion is at the tail (rear) and deletion at the head (front) – both O(1)",
+          "B": "Both are at the head",
+          "C": "Deletion is at the tail",
+          "D": "Both need O(n)"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Keep front and rear pointers."
+        },
+        {
+         "question": "Dequeue from a linked queue is",
+         "options": {
+          "A": "front = NULL;",
+          "B": "t = front; front = front->next; if (front == NULL) rear = NULL; free(t);",
+          "C": "rear = rear->next;",
+          "D": "free(rear);"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "rear must be reset when the queue becomes empty."
+        },
+        {
+         "question": "A linked queue overflows only when",
+         "options": {
+          "A": "front == rear",
+          "B": "rear == MAX − 1",
+          "C": "Memory for a new node cannot be allocated",
+          "D": "It has 100 nodes"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "There is no fixed size."
+        },
+        {
+         "question": "Huffman coding repeatedly removes the two smallest weights using a",
+         "options": {
+          "A": "Min priority queue",
+          "B": "Deque",
+          "C": "Circular queue",
+          "D": "Stack"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "A min-heap."
+        },
+        {
+         "question": "A priority queue kept as a sorted linked list has",
+         "options": {
+          "A": "O(log n) for both",
+          "B": "O(n) for both",
+          "C": "O(n) insertion and O(1) removal of the top element",
+          "D": "O(1) insertion and O(1) removal"
+         },
+         "answer": "C",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "A heap gives O(log n) for both."
+        },
+        {
+         "question": "A circular queue of size 5 (one slot kept empty) starts with front = rear = 0. After enqueue A, B, C, D, then dequeue twice, then enqueue E and F, rear is",
+         "options": {
+          "A": "4",
+          "B": "1",
+          "C": "0",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "rear goes 4 after D; E is stored at 4 (rear → 0) and F at 0 (rear → 1)."
+        },
+        {
+         "question": "To reverse the order of the elements of a queue, one uses a",
+         "options": {
+          "A": "Stack",
+          "B": "Heap",
+          "C": "Hash table",
+          "D": "Second queue"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Dequeue all into a stack, then pop all back."
+        },
+        {
+         "question": "Inserting and removing only at the front of a deque makes it behave like a",
+         "options": {
+          "A": "Queue",
+          "B": "Heap",
+          "C": "Priority queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "One end only = LIFO."
+        },
+        {
+         "question": "The basic queue ADT operations are",
+         "options": {
+          "A": "push and pop",
+          "B": "insert and search",
+          "C": "union and find",
+          "D": "enqueue, dequeue, front (peek), isEmpty and isFull"
+         },
+         "answer": "D",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Push and pop are stack operations."
+        },
+        {
+         "question": "A keyboard buffer that stores typed keys until the program reads them is usually a",
+         "options": {
+          "A": "Circular queue",
+          "B": "Graph",
+          "C": "Stack",
+          "D": "Binary tree"
+         },
+         "answer": "A",
+         "subject": "Circular Queues, Priority Queues, Deques and Applications",
+         "explanation": "Keys are read in typing order."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Traces",
+       "questions": [
+        {
+         "question": "After  enqueue 4, enqueue 7, enqueue 9, dequeue,  the front element is",
+         "options": {
+          "A": "4",
+          "B": "7",
+          "C": "9",
+          "D": "Empty"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "4 left first."
+        },
+        {
+         "question": "A linear array queue of size 5 is filled (front = 0, rear = 4), then two elements are dequeued. Can a new element be inserted at the rear?",
+         "options": {
+          "A": "No – rear is at MAX − 1, although two cells at the front are free",
+          "B": "Yes, at index 5",
+          "C": "Yes, at index 0",
+          "D": "Only after sorting"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). This waste is why circular queues are used."
+        },
+        {
+         "question": "A circular queue of size 6 has front = 4 and rear = 1 (rear points after the last element). It holds",
+         "options": {
+          "A": "2 elements",
+          "B": "4 elements",
+          "C": "5 elements",
+          "D": "3 elements"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(1 − 4 + 6) % 6."
+        },
+        {
+         "question": "In a circular queue of size 6, after rear = 5, the next rear is",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(5 + 1) % 6."
+        },
+        {
+         "question": "A deque receives insertRear(1), insertFront(2), insertRear(3), deleteFront(). The deque now holds (front to rear)",
+         "options": {
+          "A": "2 3",
+          "B": "2 1",
+          "C": "1 3",
+          "D": "1 2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "It was 2 1 3; 2 is removed."
+        },
+        {
+         "question": "A min priority queue receives 5, 1, 4. deleteMin() returns",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "Error",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The smallest key."
+        },
+        {
+         "question": "A max priority queue receives 3, 9, 6. The first two deletions return",
+         "options": {
+          "A": "9, then 3",
+          "B": "9, then 6",
+          "C": "3, then 9",
+          "D": "6, then 3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Largest first."
+        },
+        {
+         "question": "A queue built from two stacks receives enqueue 1, 2, 3, then one dequeue. The value returned is",
+         "options": {
+          "A": "Error",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The order is reversed twice."
+        },
+        {
+         "question": "In an empty linked queue (front = rear = NULL), after one enqueue",
+         "options": {
+          "A": "front and rear both point to the new node",
+          "B": "front is NULL",
+          "C": "front points to NULL and rear to the node",
+          "D": "rear is NULL"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The only node is both first and last."
+        },
+        {
+         "question": "In round-robin scheduling, P1, P2 and P3 wait in the ready queue. P1 uses its time slice but is not finished. The queue is now",
+         "options": {
+          "A": "P3 P2 P1",
+          "B": "P2 P3 P1",
+          "C": "P2 P1 P3",
+          "D": "P1 P2 P3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "An unfinished process goes to the rear."
+        },
+        {
+         "question": "Josephus problem with 5 people in a circle (1 to 5), every 2nd person removed starting from 1. Who survives?",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). Removed in order 2, 4, 1, 5."
+        },
+        {
+         "question": "After 5 enqueues, 2 dequeues and 1 more enqueue, a queue holds",
+         "options": {
+          "A": "6 elements",
+          "B": "5 elements",
+          "C": "4 elements",
+          "D": "3 elements"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "5 − 2 + 1."
+        },
+        {
+         "question": "A circular queue with a count (size 4) receives enqueue a, b, c, d, dequeue, enqueue e. The front element is",
+         "options": {
+          "A": "e",
+          "B": "b",
+          "C": "c",
+          "D": "a"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "b c d e."
+        },
+        {
+         "question": "Inserting 1, 2, 3 into a queue and then removing all of them gives",
+         "options": {
+          "A": "2 1 3",
+          "B": "3 2 1",
+          "C": "1 3 2",
+          "D": "1 2 3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "First in, first out."
+        },
+        {
+         "question": "Inserting 1, 2, 3 into a stack and then popping all of them gives",
+         "options": {
+          "A": "3 2 1",
+          "B": "2 3 1",
+          "C": "3 1 2",
+          "D": "1 2 3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Last in, first out."
+        },
+        {
+         "question": "A circular queue of size 8 (one slot kept empty) has rear = 3 and front = 4. The queue is",
+         "options": {
+          "A": "Holding one element",
+          "B": "Empty",
+          "C": "Full",
+          "D": "Holding 4 elements"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(rear + 1) % 8 == front."
+        },
+        {
+         "question": "A circular queue has front = rear = 2. It is",
+         "options": {
+          "A": "Holding 2 elements",
+          "B": "Holding one element",
+          "C": "Full",
+          "D": "Empty"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "With the one-empty-slot convention."
+        },
+        {
+         "question": "A circular queue of size 10 has front = 2 and rear = 6 (rear after the last element). It holds",
+         "options": {
+          "A": "6 elements",
+          "B": "8 elements",
+          "C": "4 elements",
+          "D": "5 elements"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "6 − 2."
+        },
+        {
+         "question": "Inserting 1 into the min-heap [2, 5, 8] gives a root of",
+         "options": {
+          "A": "2",
+          "B": "1",
+          "C": "8",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 bubbles up past 2."
+        },
+        {
+         "question": "A deque is convenient for checking palindromes because",
+         "options": {
+          "A": "Characters can be removed from both ends and compared",
+          "B": "It sorts the characters",
+          "C": "It reverses in O(1)",
+          "D": "It stores only vowels"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Compare front and rear until they meet."
+        },
+        {
+         "question": "A printer queue holds J1 (3 pages), J2 (1 page) and J3 (2 pages) in this order, one page per minute. J2 finishes after",
+         "options": {
+          "A": "1 minute",
+          "B": "3 minutes",
+          "C": "4 minutes",
+          "D": "6 minutes"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "J1 takes 3, then J2 takes 1."
+        },
+        {
+         "question": "The queue 1 2 3 (front first) is emptied into a stack, and the stack is then popped completely. The output is",
+         "options": {
+          "A": "1 2 3",
+          "B": "2 1 3",
+          "C": "3 1 2",
+          "D": "3 2 1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Queue order goes in; the stack reverses it."
+        },
+        {
+         "question": "BFS of the tree with root 1, children 2 and 3, and node 4 as the child of 2, using a queue, visits",
+         "options": {
+          "A": "1 2 4 3",
+          "B": "1 2 3 4",
+          "C": "4 2 3 1",
+          "D": "1 3 2 4"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Level by level."
+        },
+        {
+         "question": "A full 4-slot circular keyboard buffer receives a fifth key before any key is read. The fifth key is",
+         "options": {
+          "A": "Rejected (or an old key overwritten), because the buffer is full",
+          "B": "Stored in slot 5",
+          "C": "Placed on a stack",
+          "D": "Sorted into place"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Usually the computer beeps."
+        },
+        {
+         "question": "In a linear array queue, each dequeue",
+         "options": {
+          "A": "Moves rear back",
+          "B": "Moves every element left",
+          "C": "Advances front by one",
+          "D": "Resets front to 0"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "front++."
+        },
+        {
+         "question": "Enqueue and dequeue in a circular array queue take",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n)",
+          "C": "O(log n)",
+          "D": "O(n²)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Only index arithmetic."
+        },
+        {
+         "question": "If a linear array queue shifts all elements left on every dequeue, dequeue takes",
+         "options": {
+          "A": "O(1)",
+          "B": "O(log n)",
+          "C": "O(n²)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Front indexing avoids the shift."
+        },
+        {
+         "question": "A priority queue receives A (priority 2), B (priority 1), C (priority 2), where 1 is the highest priority. The service order is",
+         "options": {
+          "A": "A B C",
+          "B": "B A C",
+          "C": "A C B",
+          "D": "B C A"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "B first; A and C in arrival order."
+        },
+        {
+         "question": "A deque receives insertRear 1, 2, 3. deleteRear() returns",
+         "options": {
+          "A": "3",
+          "B": "Error",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The rear end behaves like a stack top."
+        },
+        {
+         "question": "People join a line at the back and are served at the front. This is a",
+         "options": {
+          "A": "Stack (LIFO)",
+          "B": "Tree",
+          "C": "Graph",
+          "D": "Queue (FIFO)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The real-world model of a queue."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Queues – revision sheet",
+       "md": "## Concept and implementation\n- FIFO; enqueue at rear, dequeue at front; also front/peek, isEmpty, isFull\n- Linear array: full when rear == MAX − 1 even if front cells are free (wasted space)\n- Circular array: rear = (rear + 1) % N, front = (front + 1) % N; one empty slot → empty: front == rear, full: (rear + 1) % N == front, capacity N − 1 (or keep a count to use all N); count = (rear − front + N) % N\n- Linked queue: front = head, rear = tail, both O(1); reset rear to NULL when empty\n- Queue from two stacks (amortised O(1)); stack from two queues\n\n## Variants\n- Priority queue: ascending (min first) / descending (max first); same priority → FIFO; heap → O(log n) insert and delete (sorted list: O(n) insert, O(1) delete); one queue per level\n- Deque: insert/delete at both ends; input-restricted (insert at one end, delete at both); output-restricted (insert at both, delete at one)\n\n## Applications\nCPU round-robin scheduling, printer spooling, keyboard buffers (circular), BFS, simulations (bank queue), Josephus problem, Dijkstra / Prim / Huffman (min priority queue), palindromes with a deque\n"
       }
      ]
     }
