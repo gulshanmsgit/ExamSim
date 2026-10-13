@@ -38,6 +38,8 @@ PACKS = {
     "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026", "p1_ca_2026_b", "p1_ca_2026_c", "p1_ca_2026_d", "p1_ca_2026_e"]},
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
+    # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
+    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
 }
 
@@ -58,6 +60,10 @@ EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PL
                   "P2 · KRIES – Additional Topics": {"icon": "🖥", "topics": ["Basic Java Programming", "Computer Graphics"],
                                                      "plan": {"Basic Java Programming": "P2-KR-01", "Computer Graphics": "P2-KR-02"}, "sizes": {}, "size": 30,
                                                      "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"},
+                  # KRIES 'Computer Fundamentals and C Programming' syllabus headings (P2-KRC-01…10, tools/make_kries_plan.py); reuses GPSTR Unit 4 C questions
+                  "P2 · KRIES – C Programming": {"icon": "©", "topics": ["Introduction to C Programming", "C Instructions", "Control Structures", "Arrays", "Functions", "Pointers", "Structures and Unions", "Bitwise Operators", "C Preprocessor", "Files"],
+                                                 "plan": {"Introduction to C Programming": "P2-KRC-01", "C Instructions": "P2-KRC-02", "Control Structures": "P2-KRC-03", "Arrays": "P2-KRC-04", "Functions": "P2-KRC-05", "Pointers": "P2-KRC-06", "Structures and Unions": "P2-KRC-07", "Bitwise Operators": "P2-KRC-08", "C Preprocessor": "P2-KRC-09", "Files": "P2-KRC-10"}, "sizes": {}, "size": 30,
+                                                 "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"},
                   # KRIES Paper 1 topics that are not in the GPSTR syllabus (P1-KR-01…09, tools/make_kries_plan.py); sets of 20, in Kannada
                   "P1 · KRIES – Karnataka & General Studies": {"icon": "🏛", "topics": [
                       "Land Reforms and Social Change in Karnataka", "Karnataka Economy – Strengths, Weaknesses and Current Status",

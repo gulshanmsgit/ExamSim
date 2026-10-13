@@ -1,0 +1,1506 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · KRIES — C Programming",
+ "description": "2 of 10 topics so far (4 sets × 30 questions): Introduction to C Programming; C Instructions. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · KRIES – C Programming",
+   "icon": "©",
+   "topics": [
+    {
+     "name": "Introduction to C Programming",
+     "plan": {
+      "id": "P2-KRC-01"
+     },
+     "sets": [
+      {
+       "name": "1 · History, Structure of a C Program and the Character Set",
+       "questions": [
+        {
+         "question": "Which of the following is NOT a C token?",
+         "options": {
+          "A": "An operator",
+          "B": "A keyword",
+          "C": "A comment",
+          "D": "A string literal"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Comments are removed before tokenisation (replaced by a space); tokens are keywords, identifiers, constants, string literals, operators and punctuators."
+        },
+        {
+         "question": "What is  strlen(\"a\\tb\")?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "\\t is a single escape character: a, TAB, b."
+        },
+        {
+         "question": "In C,  Sum  and  sum  are:",
+         "options": {
+          "A": "Two different identifiers",
+          "B": "The same identifier",
+          "C": "Both keywords",
+          "D": "Invalid identifiers"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "C is case-sensitive."
+        },
+        {
+         "question": "How many tokens are there in  int a = 10, b;",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "int, a, =, 10, ',', b, ; → 7."
+        },
+        {
+         "question": "Assertion (A): Identifiers in C are case-sensitive.\nReason (R): C treats upper-case and lower-case letters as distinct characters.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Because 'S' and 's' are different characters, Sum and sum are different names."
+        },
+        {
+         "question": "C was developed by",
+         "options": {
+          "A": "Bjarne Stroustrup at Bell Labs",
+          "B": "James Gosling at Sun Microsystems",
+          "C": "Ken Thompson at MIT",
+          "D": "Dennis Ritchie at AT&T Bell Laboratories (1972)"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "PYQ pattern (KEA / KSET papers). Stroustrup created C++, Gosling created Java."
+        },
+        {
+         "question": "C was developed from which earlier language?",
+         "options": {
+          "A": "COBOL",
+          "B": "Pascal",
+          "C": "B (itself derived from BCPL)",
+          "D": "FORTRAN"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "BCPL (Martin Richards) → B (Ken Thompson) → C (Dennis Ritchie)."
+        },
+        {
+         "question": "C was originally developed to write",
+         "options": {
+          "A": "The Java virtual machine",
+          "B": "The UNIX operating system",
+          "C": "MS-DOS",
+          "D": "Windows"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "UNIX was rewritten in C in 1973."
+        },
+        {
+         "question": "C is often called a middle-level language because it",
+         "options": {
+          "A": "Runs only on medium-sized computers",
+          "B": "Lies halfway between assembly and machine code",
+          "C": "Has no data types",
+          "D": "Combines high-level constructs with low-level features such as pointers and bit operations"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "PYQ pattern (KEA / KSET papers). It is used for both system and application programs."
+        },
+        {
+         "question": "The first ANSI standard for C (C89) was approved in",
+         "options": {
+          "A": "1978",
+          "B": "1989",
+          "C": "1972",
+          "D": "1999"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "C89/C90; later C99, C11, C17."
+        },
+        {
+         "question": "The book 'The C Programming Language' (1978), which defined K&R C, was written by",
+         "options": {
+          "A": "Brian Kernighan and Dennis Ritchie",
+          "B": "Kernighan and Pike",
+          "C": "Ritchie and Stroustrup",
+          "D": "Ken Thompson and Dennis Ritchie"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Hence 'K&R C'."
+        },
+        {
+         "question": "Execution of every C program begins with",
+         "options": {
+          "A": "The last function in the file",
+          "B": "The #include line",
+          "C": "The main() function",
+          "D": "The first function written in the file"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "PYQ pattern (KEA / KSET papers). A program has exactly one main()."
+        },
+        {
+         "question": "Every C statement is terminated by a",
+         "options": {
+          "A": "Colon (:)",
+          "B": "Full stop (.)",
+          "C": "Comma (,)",
+          "D": "Semicolon (;)"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "A block { } needs no semicolon after it."
+        },
+        {
+         "question": "A multi-line comment in C is written as",
+         "options": {
+          "A": "// comment //",
+          "B": "# comment",
+          "C": "/* comment */",
+          "D": "<!-- comment -->"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "// single-line comments came with C99 (and C++)."
+        },
+        {
+         "question": "In the usual structure of a C program, which section comes first?",
+         "options": {
+          "A": "Documentation (comment) section",
+          "B": "User-defined functions",
+          "C": "main() function",
+          "D": "Global declarations"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Documentation → link (#include) → definition (#define) → global declarations → main() → subprograms."
+        },
+        {
+         "question": "The #include <stdio.h> lines of a C program form the",
+         "options": {
+          "A": "Definition section",
+          "B": "Link section",
+          "C": "Global declaration section",
+          "D": "Subprogram section"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "#define lines form the definition section."
+        },
+        {
+         "question": "The correct order of steps in building a C program is",
+         "options": {
+          "A": "Assembling → compiling → linking → preprocessing",
+          "B": "Linking → compiling → preprocessing → assembling",
+          "C": "Preprocessing → compiling → assembling → linking",
+          "D": "Compiling → preprocessing → linking → assembling"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "PYQ pattern (KEA / KSET papers). .c → .i → .s → .o/.obj → executable."
+        },
+        {
+         "question": "On Windows, a compiled and linked C program is saved as a file with extension",
+         "options": {
+          "A": ".exe",
+          "B": ".c",
+          "C": ".h",
+          "D": ".i"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": ".c = source, .h = header, .obj = object file."
+        },
+        {
+         "question": "The C character set consists of",
+         "options": {
+          "A": "ASCII control codes alone",
+          "B": "Letters, digits, special characters and white spaces",
+          "C": "Keywords and identifiers",
+          "D": "Letters and digits alone"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Tokens are built from these characters."
+        },
+        {
+         "question": "Which character is NOT part of the basic C source character set?",
+         "options": {
+          "A": "#",
+          "B": "_",
+          "C": "~",
+          "D": "@"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "PYQ pattern (KEA / KSET papers). $, @ and ` are outside the basic source character set."
+        },
+        {
+         "question": "Which escape sequence moves the cursor to the beginning of the next line?",
+         "options": {
+          "A": "\\n",
+          "B": "\\t",
+          "C": "\\b",
+          "D": "\\r"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "\\t = tab, \\b = backspace, \\r = carriage return."
+        },
+        {
+         "question": "The escape sequence \\0 represents",
+         "options": {
+          "A": "End of file",
+          "B": "A tab",
+          "C": "The null character (ASCII 0)",
+          "D": "The digit zero"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "It ends every C string; '0' is ASCII 48."
+        },
+        {
+         "question": "The smallest individual units of a C program are called",
+         "options": {
+          "A": "Statements",
+          "B": "Tokens",
+          "C": "Functions",
+          "D": "Blocks"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Keywords, identifiers, constants, strings, operators and special symbols."
+        },
+        {
+         "question": "Extra spaces, tabs and newlines between tokens in C source code are",
+         "options": {
+          "A": "Errors",
+          "B": "Treated as zero",
+          "C": "Comments that must be closed",
+          "D": "Ignored by the compiler (except inside strings and character constants)"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "C is free-form."
+        },
+        {
+         "question": "Why does  Printf(\"Hi\");  fail to build in C?",
+         "options": {
+          "A": "Strings must use single quotes",
+          "B": "Printf needs two arguments",
+          "C": "A semicolon is missing",
+          "D": "C is case-sensitive, so Printf is not the library function printf"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "The linker finds no function named Printf."
+        },
+        {
+         "question": "In  int main() { … return 0; }  the value 0 returned to the operating system indicates",
+         "options": {
+          "A": "An error",
+          "B": "Nothing at all",
+          "C": "Successful termination",
+          "D": "That the program restarts"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "A non-zero value usually signals an error."
+        },
+        {
+         "question": "printf() and scanf() are declared in the header file",
+         "options": {
+          "A": "<math.h>",
+          "B": "<stdio.h>",
+          "C": "<conio.h>",
+          "D": "<string.h>"
+         },
+         "answer": "B",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "stdio = standard input-output."
+        },
+        {
+         "question": "C programs are normally",
+         "options": {
+          "A": "Compiled into machine code before they run",
+          "B": "Interpreted line by line",
+          "C": "Run on a virtual machine like Java",
+          "D": "Run only as scripts"
+         },
+         "answer": "A",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Hence C programs run fast."
+        },
+        {
+         "question": "The linker in C",
+         "options": {
+          "A": "Removes comments",
+          "B": "Checks syntax",
+          "C": "Combines object code with library code to produce an executable",
+          "D": "Expands macros"
+         },
+         "answer": "C",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "The preprocessor removes comments and expands macros."
+        },
+        {
+         "question": "C programs are called portable because",
+         "options": {
+          "A": "They need no operating system",
+          "B": "They are small",
+          "C": "They need no compilation",
+          "D": "The same source can be compiled and run on different machines with little or no change"
+         },
+         "answer": "D",
+         "subject": "History, Structure of a C Program and the Character Set",
+         "explanation": "Machine-dependent parts are kept in libraries."
+        }
+       ]
+      },
+      {
+       "name": "2 · Constants, Variables, Keywords and Data Types",
+       "questions": [
+        {
+         "question": "Which of the following is a valid C identifier?",
+         "options": {
+          "A": "2total",
+          "B": "_total1",
+          "C": "total-sum",
+          "D": "int"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Identifiers start with a letter or underscore, contain only letters, digits and underscores, and cannot be keywords."
+        },
+        {
+         "question": "How many keywords does ANSI C (C89) define?",
+         "options": {
+          "A": "24",
+          "B": "32",
+          "C": "44",
+          "D": "37"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "C89 has 32 keywords; C99 added 5 more (inline, restrict, _Bool, _Complex, _Imaginary)."
+        },
+        {
+         "question": "What does  printf(\"%d\", 010);  print?",
+         "options": {
+          "A": "2",
+          "B": "010",
+          "C": "10",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "A leading 0 makes an integer constant octal: 010₈ = 8."
+        },
+        {
+         "question": "What does  printf(\"%d\", 0x1F);  print?",
+         "options": {
+          "A": "31",
+          "B": "1F",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "0x1F = 1×16 + 15 = 31."
+        },
+        {
+         "question": "In C (not C++),  sizeof('A')  on a system with 4-byte int is:",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "8",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "In C a character constant has type int; in C++ it has type char."
+        },
+        {
+         "question": "sizeof(char) in C is:",
+         "options": {
+          "A": "Always 1",
+          "B": "Always 2",
+          "C": "Equal to sizeof(int)",
+          "D": "Implementation-defined, usually 4"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "The standard defines sizeof(char) as 1 byte."
+        },
+        {
+         "question": "The range of a signed char (8-bit, two's complement) is:",
+         "options": {
+          "A": "0 to 255",
+          "B": "−127 to 127",
+          "C": "−128 to 127",
+          "D": "−256 to 255"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "8 bits give 256 values: −2⁷ to 2⁷ − 1."
+        },
+        {
+         "question": "In C, the constant 3.14 has type:",
+         "options": {
+          "A": "int",
+          "B": "double",
+          "C": "float",
+          "D": "long double"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Floating constants are double unless suffixed: 3.14f is float, 3.14L is long double."
+        },
+        {
+         "question": "What does  char c = 65;  printf(\"%c %d\", c, c);  print?",
+         "options": {
+          "A": "65 65",
+          "B": "A A",
+          "C": "65 A",
+          "D": "A 65"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "The same value printed as a character and as an integer."
+        },
+        {
+         "question": "What does  printf(\"%x\", 255);  print?",
+         "options": {
+          "A": "ff",
+          "B": "FF00",
+          "C": "255",
+          "D": "377"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "255 = 0xFF; %x prints lower-case hexadecimal (%o would give 377)."
+        },
+        {
+         "question": "On a typical system,  sizeof(3.0)  is:",
+         "options": {
+          "A": "4",
+          "B": "10",
+          "C": "8",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "3.0 is a double constant."
+        },
+        {
+         "question": "Which of the following is NOT a data-type modifier in C?",
+         "options": {
+          "A": "long",
+          "B": "large",
+          "C": "short",
+          "D": "unsigned"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "The modifiers are short, long, signed and unsigned."
+        },
+        {
+         "question": "Consider the statements:\nI. Whether plain char is signed or unsigned is implementation-defined.\nII. sizeof(int) is always 2 bytes in C.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "int size depends on the implementation (commonly 4 bytes today); the standard only fixes minimum ranges."
+        },
+        {
+         "question": "Assertion (A): 'A' and \"A\" are the same in C.\nReason (R): \"A\" is a string literal made of the character 'A' followed by '\\0'.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "'A' is an int constant (65); \"A\" is a 2-byte char array. R is true and shows why A is false."
+        },
+        {
+         "question": "Which declaration is INVALID in C?",
+         "options": {
+          "A": "float _y;",
+          "B": "int 2x;",
+          "C": "double total_marks;",
+          "D": "char c1;"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "An identifier cannot begin with a digit."
+        },
+        {
+         "question": "The value of the constant 1e3 in C is:",
+         "options": {
+          "A": "13",
+          "B": "1000 (an int)",
+          "C": "1000.0 (a double)",
+          "D": "e³"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Exponent notation always produces a floating (double) constant."
+        },
+        {
+         "question": "Which of the following is true for variable names in 'C'-programming?",
+         "options": {
+          "A": "They can contain alphanumeric characters as well as special character",
+          "B": "It is not an error to declare a variable to be one of the keywords",
+          "C": "Variable names cannot start with a digit",
+          "D": "Variable can be of any length"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Only letters, digits and _ are allowed, a keyword cannot be a name, and only the first 31 characters are significant. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q16"
+        },
+        {
+         "question": "What is the purpose of a string data type in C programming?",
+         "options": {
+          "A": "To store numerical values",
+          "B": "To store True/False values",
+          "C": "To store Text and characters",
+          "D": "To perform mathematical operations"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "A C string is a char array ending in '\\0'. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q88"
+        },
+        {
+         "question": "Integer, real and character constants are called",
+         "options": {
+          "A": "Derived constants",
+          "B": "Secondary constants",
+          "C": "Enumeration constants",
+          "D": "Primary constants"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Secondary constants: arrays, pointers, structures, unions, enums (Kanetkar)."
+        },
+        {
+         "question": "Which is a valid integer constant in C?",
+         "options": {
+          "A": "-275",
+          "B": "27 500",
+          "C": "2.75E2",
+          "D": "27,500"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "No commas or spaces; 2.75E2 is a real constant."
+        },
+        {
+         "question": "In the real constant 3.2e-5, the part after 'e' is the",
+         "options": {
+          "A": "Base",
+          "B": "Exponent",
+          "C": "Suffix",
+          "D": "Mantissa"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "3.2 × 10⁻⁵: 3.2 is the mantissa."
+        },
+        {
+         "question": "Which is a valid character constant?",
+         "options": {
+          "A": "'A'",
+          "B": "'AB'",
+          "C": "A",
+          "D": "\"A\""
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "\"A\" is a string literal (two bytes: 'A' and '\\0')."
+        },
+        {
+         "question": "Which of these is NOT a keyword in C?",
+         "options": {
+          "A": "goto",
+          "B": "auto",
+          "C": "main",
+          "D": "volatile"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "PYQ pattern (KEA / KSET papers). main is a function name, not a keyword."
+        },
+        {
+         "question": "Variable names in C may contain",
+         "options": {
+          "A": "Letters alone",
+          "B": "Letters and hyphens",
+          "C": "Any characters including spaces",
+          "D": "Letters, digits and underscores, but must not begin with a digit"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "total_marks is valid; 2nd, total-marks and total marks are not."
+        },
+        {
+         "question": "On a 16-bit compiler such as Turbo C, the range of int is",
+         "options": {
+          "A": "−32768 to +32767",
+          "B": "−2147483648 to +2147483647",
+          "C": "0 to 65535",
+          "D": "−32767 to +32768"
+         },
+         "answer": "A",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2 bytes: −2¹⁵ … 2¹⁵ − 1; unsigned int: 0 … 65535."
+        },
+        {
+         "question": "Typical sizes of float and double are",
+         "options": {
+          "A": "4 and 4 bytes",
+          "B": "2 and 4 bytes",
+          "C": "4 and 8 bytes",
+          "D": "8 and 16 bytes"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "long double is usually 10, 12 or 16 bytes."
+        },
+        {
+         "question": "The printf/scanf format specifier for a long int is",
+         "options": {
+          "A": "%lf",
+          "B": "%u",
+          "C": "%Lf",
+          "D": "%ld"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "%lf = double (scanf), %Lf = long double, %u = unsigned int."
+        },
+        {
+         "question": "A named value that cannot be changed while the program runs can be created with",
+         "options": {
+          "A": "auto",
+          "B": "const or #define",
+          "C": "static",
+          "D": "volatile"
+         },
+         "answer": "B",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "const int MAX = 10;  or  #define MAX 10 (symbolic constant)."
+        },
+        {
+         "question": "int a, b = 5;  declares",
+         "options": {
+          "A": "a as 5 and b uninitialised",
+          "B": "An error",
+          "C": "Two int variables, of which only b is initialised to 5",
+          "D": "Two variables both set to 5"
+         },
+         "answer": "C",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "Each initialiser applies to one variable."
+        },
+        {
+         "question": "The data type void means",
+         "options": {
+          "A": "An empty string",
+          "B": "Zero",
+          "C": "Any integer",
+          "D": "No value – e.g. a function that returns nothing"
+         },
+         "answer": "D",
+         "subject": "Constants, Variables, Keywords and Data Types",
+         "explanation": "void * is a generic pointer."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Introduction to C – revision sheet",
+       "md": "## History\n- BCPL (Martin Richards, 1967) → B (Ken Thompson, 1970) → **C (Dennis Ritchie, AT&T Bell Labs, 1972)**, written for UNIX\n- K&R C (Kernighan & Ritchie book, 1978); ANSI C89 / ISO C90; C99 (// comments, long long, bool); C11; C17\n- Middle-level language: high-level constructs + pointers, bit operations; portable; compiled; case-sensitive\n\n## Structure of a C program\n1. Documentation (comments `/* … */`)  2. Link section (`#include <stdio.h>`)  3. Definition (`#define PI 3.14`)\n4. Global declarations  5. `main()` – execution starts here (exactly one)  6. User-defined functions\n- Every statement ends with `;`; `return 0;` = success\n- Build: preprocess (.i) → compile (.s) → assemble (.o/.obj) → link (.exe/a.out)\n\n## Character set and tokens\n- Letters, digits, special characters, white space (not in basic set: `$ @ \\``)\n- Escape sequences: `\\n` newline, `\\t` tab, `\\b` backspace, `\\r` carriage return, `\\0` null, `\\\\` backslash, `\\'`, `\\\"`\n- Tokens: keywords (32 in C89), identifiers, constants, strings, operators, special symbols\n\n## Constants, variables, data types\n- Primary constants: integer (`-275`, `010` octal = 8, `0x1F` = 31), real (`3.2e-5`, type double), character (`'A'` = 65)\n- Secondary: arrays, pointers, structures, unions, enums\n- Identifiers: letters, digits, `_`; not starting with a digit; not a keyword; case-sensitive\n- Sizes (typical 32-bit): char 1, short 2, int 4 (Turbo C: 2 → −32768…32767), long 4/8, float 4, double 8\n- signed char −128…127; unsigned char 0…255; `sizeof('A')` = sizeof(int) in C\n- Format specifiers: %d %i int, %u unsigned, %ld long, %f float/double (printf), %lf double (scanf), %c char, %s string, %o octal, %x hex, %e, %p pointer\n- Constants: `const int N = 10;` or `#define N 10`; `void` = no value\n"
+      }
+     ]
+    },
+    {
+     "name": "C Instructions",
+     "plan": {
+      "id": "P2-KRC-02"
+     },
+     "sets": [
+      {
+       "name": "1 · Type Declaration, Arithmetic Instructions and Type Conversion",
+       "questions": [
+        {
+         "question": "With 32-bit int, what does  unsigned int x = -1;  printf(\"%u\", x);  print?",
+         "options": {
+          "A": "65535",
+          "B": "-1",
+          "C": "0",
+          "D": "4294967295"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "−1 converted to unsigned wraps to 2³² − 1."
+        },
+        {
+         "question": "Consider the statements:\nI. In C, overflow of an unsigned integer wraps around modulo 2ⁿ.\nII. In C, overflow of a signed int is guaranteed to wrap around the same way.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Unsigned arithmetic is modular by definition; signed overflow is undefined behaviour."
+        },
+        {
+         "question": "After  int x = 3.9;  the value of x is:",
+         "options": {
+          "A": "Compile error",
+          "B": "3",
+          "C": "3.9",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Conversion from floating to integer truncates toward zero."
+        },
+        {
+         "question": "Assertion (A): In C, the value of 5 % 3 is 2.\nReason (R): The % operator in C also accepts floating-point operands.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "A is true. R is false: % needs integer operands; fmod() is used for floating-point values."
+        },
+        {
+         "question": "What is the value of  5 + 3 * 2  in C?",
+         "options": {
+          "A": "13",
+          "B": "11",
+          "C": "10",
+          "D": "16"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "* has higher precedence than +: 5 + 6."
+        },
+        {
+         "question": "What is the value of  10 / 3 * 3  in C (int operands)?",
+         "options": {
+          "A": "1",
+          "B": "10",
+          "C": "9",
+          "D": "11"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Left to right: 10 / 3 = 3 (integer division), 3 * 3 = 9."
+        },
+        {
+         "question": "What is the value of  10 % 3 * 2 ?",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "% and * have equal precedence, left to right: 1 * 2 = 2."
+        },
+        {
+         "question": "In C99, the values of  -7 / 2  and  -7 % 2  are:",
+         "options": {
+          "A": "-3 and 1",
+          "B": "-4 and 1",
+          "C": "-4 and -1",
+          "D": "-3 and -1"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Division truncates toward zero, and (a/b)*b + a%b == a: (−3)(2) + (−1) = −7."
+        },
+        {
+         "question": "In C, instructions are of three types:",
+         "options": {
+          "A": "Input, output and process",
+          "B": "Type declaration, arithmetic and control instructions",
+          "C": "Compile, link and run",
+          "D": "Load, store and branch"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "PYQ pattern (KEA / KSET papers). Kanetkar, Let Us C."
+        },
+        {
+         "question": "Which arithmetic instruction is INVALID in C?",
+         "options": {
+          "A": "a + b = c;",
+          "B": "c = (a + b) / 2;",
+          "C": "c = a + b;",
+          "D": "c = a * b + 3;"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "The left side of = must be a variable (an lvalue)."
+        },
+        {
+         "question": "What is the value of 5 / 2 in C?",
+         "options": {
+          "A": "2.0",
+          "B": "3",
+          "C": "2",
+          "D": "2.5"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "int / int gives an int; the fraction is dropped."
+        },
+        {
+         "question": "What is the value of 5.0 / 2 in C?",
+         "options": {
+          "A": "0",
+          "B": "2",
+          "C": "3",
+          "D": "2.5"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "One real operand makes it real division."
+        },
+        {
+         "question": "After  float a = 5 / 2;  a holds",
+         "options": {
+          "A": "0.000000",
+          "B": "2.000000",
+          "C": "2.500000",
+          "D": "3.000000"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 / 2 is evaluated as int (2) first, then converted to float."
+        },
+        {
+         "question": "After  int k = 7.9 / 2;  k holds",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "3.95",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "7.9 / 2 = 3.95; assigning to int truncates it."
+        },
+        {
+         "question": "In  i + f  (int i, float f), the type of the result is",
+         "options": {
+          "A": "char",
+          "B": "int",
+          "C": "float, because the int is converted",
+          "D": "always double"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Usual arithmetic conversions: the 'lower' type is promoted."
+        },
+        {
+         "question": "With  int a = 7, b = 2;  the value of  (float) a / b  is",
+         "options": {
+          "A": "4",
+          "B": "3.0",
+          "C": "3",
+          "D": "3.5"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "The cast applies to a only, so the division is real."
+        },
+        {
+         "question": "With  int a = 7, b = 2;  the value of  (float) (a / b)  is",
+         "options": {
+          "A": "3.5",
+          "B": "0.0",
+          "C": "4.0",
+          "D": "3.0"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "a / b = 3 (int) is computed first, then cast."
+        },
+        {
+         "question": "After  char ch = 321;  (8-bit char) ch holds",
+         "options": {
+          "A": "321",
+          "B": "0",
+          "C": "65, i.e. 'A' (321 − 256)",
+          "D": "A compile-time error"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Only the low 8 bits are kept when an int is assigned to a char."
+        },
+        {
+         "question": "Which use of the % operator is INVALID in C?",
+         "options": {
+          "A": "7 % -2",
+          "B": "7.5 % 2",
+          "C": "-7 % 2",
+          "D": "7 % 2"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "% needs integer operands; use fmod() for reals."
+        },
+        {
+         "question": "To compute a raised to the power b in C, one uses",
+         "options": {
+          "A": "pow(a, b) from <math.h>",
+          "B": "exp(a, b)",
+          "C": "a ^ b",
+          "D": "a ** b"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "PYQ pattern (KEA / KSET papers). ^ is bitwise XOR in C; C has no exponent operator."
+        },
+        {
+         "question": "The value of  'a' + 1  (ASCII) is",
+         "options": {
+          "A": "65",
+          "B": "98",
+          "C": "An error",
+          "D": "97"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "A char takes part in arithmetic as its code ('a' = 97)."
+        },
+        {
+         "question": "On a 16-bit compiler, after  int x = 32767; x = x + 1;  x is",
+         "options": {
+          "A": "−32768 (it wraps around)",
+          "B": "An error",
+          "C": "0",
+          "D": "32768"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "Signed overflow is formally undefined, but such compilers wrap around."
+        },
+        {
+         "question": "If a = 4, then after  a *= 2 + 3;  a is",
+         "options": {
+          "A": "11",
+          "B": "14",
+          "C": "24",
+          "D": "20"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "a = a * (2 + 3): the right side is evaluated first."
+        },
+        {
+         "question": "The value of  3 / 2 * 2.0  is",
+         "options": {
+          "A": "2.5",
+          "B": "3.0",
+          "C": "2.0",
+          "D": "1.5"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "3 / 2 = 1 (int), then 1 * 2.0 = 2.0."
+        },
+        {
+         "question": "The value of  2 * 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8  (int arithmetic) is",
+         "options": {
+          "A": "8.625",
+          "B": "9",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "PYQ pattern (KEA / KSET papers). 6 / 4 = 1; 4 / 4 = 1; 5 / 8 = 0 → 1 + 1 + 8 − 2 + 0 = 8."
+        },
+        {
+         "question": "Which declaration is INVALID in C (all inside one function)?",
+         "options": {
+          "A": "float x = 1.5;",
+          "B": "int a = 5, b = a;",
+          "C": "int a = b = 5;  (b not declared before)",
+          "D": "char c = 'z';"
+         },
+         "answer": "C",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "A variable must be declared before it is used."
+        },
+        {
+         "question": "In  k = 3 + 2 % 5 - 1;  k is",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "5",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "2 % 5 = 2 → 3 + 2 − 1 = 4."
+        },
+        {
+         "question": "In an expression with an int and a double operand, the int is converted to",
+         "options": {
+          "A": "char",
+          "B": "double",
+          "C": "float",
+          "D": "long"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "char < int < long < float < double."
+        },
+        {
+         "question": "With 32-bit int, the expression  -1 < 1u  evaluates to",
+         "options": {
+          "A": "0 (false) – −1 is converted to a large unsigned value",
+          "B": "A random value",
+          "C": "A compile-time error",
+          "D": "1 (true)"
+         },
+         "answer": "A",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "PYQ pattern (KEA / KSET papers). -1 becomes 4294967295 when compared with an unsigned int."
+        },
+        {
+         "question": "The correct way to cast x to int in C is",
+         "options": {
+          "A": "int: x",
+          "B": "(int) x",
+          "C": "<int> x",
+          "D": "x as int"
+         },
+         "answer": "B",
+         "subject": "Type Declaration, Arithmetic Instructions and Type Conversion",
+         "explanation": "(type) expression."
+        }
+       ]
+      },
+      {
+       "name": "2 · Operators, Hierarchy of Operators and Input-Output Statements",
+       "questions": [
+        {
+         "question": "To read a double with scanf, the correct format specifier is:",
+         "options": {
+          "A": "%ld",
+          "B": "%f",
+          "C": "%d",
+          "D": "%lf"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "In scanf, %f expects float* and %lf expects double*; in printf both %f and %lf print a double."
+        },
+        {
+         "question": "What happens with  const int x = 10;  x = 20; ?",
+         "options": {
+          "A": "x becomes 30",
+          "B": "x becomes 20",
+          "C": "Run-time error only",
+          "D": "Compile-time error: assignment to a read-only variable"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "A const-qualified object is not a modifiable l-value."
+        },
+        {
+         "question": "What does  printf(\"%d\", 'a' - 'A');  print (ASCII)?",
+         "options": {
+          "A": "32",
+          "B": "-32",
+          "C": "0",
+          "D": "26"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "97 − 65 = 32."
+        },
+        {
+         "question": "Match the type with its printf format specifier:\na. int\nb. float/double\nc. char\nd. string (char *)\n\n1. %s\n2. %f\n3. %d\n4. %c",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-4, b-2, c-3, d-1",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-2, b-3, c-4, d-1"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "%d, %f, %c and %s."
+        },
+        {
+         "question": "Assertion (A): In C, sizeof is an operator, not a library function.\nReason (R): sizeof(int) can be evaluated by the compiler at compile time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "Both true; sizeof is an operator by definition of the language, and compile-time evaluation is a consequence, not the reason."
+        },
+        {
+         "question": "After  int i = 5, j;  j = i++ + 2;  the values of i and j are:",
+         "options": {
+          "A": "i = 7, j = 8",
+          "B": "i = 6, j = 8",
+          "C": "i = 6, j = 7",
+          "D": "i = 5, j = 7"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "i++ yields the old value 5 and then increments i."
+        },
+        {
+         "question": "After  int a = 0, b = 5;  if (a && (b = 10)) ;  the value of b is:",
+         "options": {
+          "A": "0",
+          "B": "10",
+          "C": "Undefined",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "a is 0, so && short-circuits and the assignment b = 10 is never evaluated."
+        },
+        {
+         "question": "After  int a = 1, b = 5;  if (a || b++) ;  the value of b is:",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "0",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "a is non-zero, so || short-circuits and b++ is not evaluated."
+        },
+        {
+         "question": "What is the value of x after  x = (1, 2, 3);",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "6",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "The comma operator evaluates left to right and yields its last operand."
+        },
+        {
+         "question": "What is the value of the expression  5 > 3 > 1  in C?",
+         "options": {
+          "A": "1",
+          "B": "Compile error",
+          "C": "0",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "(5 > 3) is 1, then 1 > 1 is 0."
+        },
+        {
+         "question": "What is the value of  3 == 3 == 3  in C?",
+         "options": {
+          "A": "3",
+          "B": "0",
+          "C": "1",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "(3 == 3) is 1, then 1 == 3 is 0."
+        },
+        {
+         "question": "How does C parse the expression  a & b == c ?",
+         "options": {
+          "A": "It is a syntax error",
+          "B": "(a & b) == c",
+          "C": "a & (b == c)",
+          "D": "(a & b) & c"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "== has higher precedence than bitwise &, a classic source of bugs."
+        },
+        {
+         "question": "In  a = b = c = 5;  the assignments are performed:",
+         "options": {
+          "A": "Right to left, so all three become 5",
+          "B": "Left to right, so only a becomes 5",
+          "C": "It is a compile error",
+          "D": "In an unspecified order"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "Assignment is right-associative: a = (b = (c = 5))."
+        },
+        {
+         "question": "Match the operator with its category:\na. ?:\nb. sizeof\nc. ,\nd. ->\n\n1. Conditional (ternary)\n2. Sequencing (comma)\n3. Member access through a pointer\n4. Unary, compile-time size",
+         "options": {
+          "A": "a-1, b-2, c-4, d-3",
+          "B": "a-1, b-4, c-3, d-2",
+          "C": "a-4, b-1, c-2, d-3",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "?: is the only ternary operator in C."
+        },
+        {
+         "question": "Consider the statements:\nI. In C, the order of evaluation of the two operands of + is unspecified.\nII. The && operator guarantees left-to-right evaluation.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "&&, ||, ?: and the comma operator have sequence points; + does not."
+        },
+        {
+         "question": "Assertion (A): In C,  if (x = 0) { … }  never executes its body.\nReason (R): The value of an assignment expression is the value that is assigned.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "x = 0 has value 0 (false) whatever x was, so the body never runs."
+        },
+        {
+         "question": "Assertion (A): The && operator evaluates its right operand only when necessary.\nReason (R): && has higher precedence than ||.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "Both true, but short-circuit evaluation has nothing to do with precedence."
+        },
+        {
+         "question": "Read the code and predict the value of x.\n#include <stdio.h>\nint main()\n{\n  int x;\n  x = 5 > 8 ? 10 : 1 != 2 < 5 ? 20 : 30;\n  printf(\"%d\", x);\n  return 0;\n}",
+         "options": {
+          "A": "20",
+          "B": "30",
+          "C": "8",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "5 > 8 is false, so the second conditional is evaluated. < binds tighter than !=, so 2 < 5 = 1 and 1 != 1 = 0 (false) → x = 30. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q2"
+        },
+        {
+         "question": "What will be the output of the following program?\nint main()\n{\n  int x = 5, y = 7, z;\n  z = x + y;\n  printf(\"%d\", x);\n  printf(\"%d\", y);\n  printf(\"%d\", z);\n}",
+         "options": {
+          "A": "5 12 0",
+          "B": "0 7 12",
+          "C": "5 7 12",
+          "D": "12 12 12"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "It prints x = 5, y = 7 and z = 12 (with no spaces in the actual output: 5712). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q81"
+        },
+        {
+         "question": "What will be the output of the following program ?\n#include<stdio.h>\nvoid main( )\n{\n  int a = printf (\"happy\");\n  printf (\"%d\", a);\n}",
+         "options": {
+          "A": "happy",
+          "B": "happy5",
+          "C": "happy1",
+          "D": "error"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "printf returns the number of characters printed (5). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q91"
+        },
+        {
+         "question": "Which of these are unformatted console input-output functions?",
+         "options": {
+          "A": "printf() and scanf()",
+          "B": "sprintf() and sscanf()",
+          "C": "fprintf() and fscanf()",
+          "D": "getchar(), putchar(), gets(), puts()"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). printf/scanf are formatted I/O (they use format strings)."
+        },
+        {
+         "question": "In  scanf(\"%d\", &n);  the & is needed because",
+         "options": {
+          "A": "scanf must receive the address of n to store the value there",
+          "B": "n is already a pointer",
+          "C": "& means 'and'",
+          "D": "It converts n to int"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "For a char array (string) the name itself is an address."
+        },
+        {
+         "question": "printf(\"%5.2f\", 3.14159) prints",
+         "options": {
+          "A": "'03.14'",
+          "B": "'3.14159'",
+          "C": "' 3.14' (width 5, two decimals)",
+          "D": "'3.1'"
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "The number is right-justified in 5 columns."
+        },
+        {
+         "question": "printf(\"%-5d|\", 42) prints",
+         "options": {
+          "A": "'42|'",
+          "B": "'42   |' (left-justified in width 5)",
+          "C": "'   42|'",
+          "D": "'00042|'"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "'-' left-justifies; '0' pads with zeros."
+        },
+        {
+         "question": "scanf(\"%s\", s) reads",
+         "options": {
+          "A": "Exactly one character",
+          "B": "Characters up to the first white space",
+          "C": "Digits alone",
+          "D": "A whole line including spaces"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "Use fgets() (or gets(), now removed) to read a line with spaces."
+        },
+        {
+         "question": "scanf() returns",
+         "options": {
+          "A": "The number of input items successfully read",
+          "B": "Always 0",
+          "C": "The number of characters typed",
+          "D": "The value read"
+         },
+         "answer": "A",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "EOF at end of input."
+        },
+        {
+         "question": "Which operator has the highest precedence?",
+         "options": {
+          "A": "&&",
+          "B": "+",
+          "C": "*",
+          "D": "="
+         },
+         "answer": "C",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "Arithmetic > relational > logical > assignment."
+        },
+        {
+         "question": "The value of  !5 + 3  is",
+         "options": {
+          "A": "8",
+          "B": "4",
+          "C": "0",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "!5 = 0 (any non-zero value is true), and ! binds tighter than +."
+        },
+        {
+         "question": "The value of  10 + 20 * 3 / 4 % 5  is",
+         "options": {
+          "A": "13",
+          "B": "10",
+          "C": "12",
+          "D": "25"
+         },
+         "answer": "B",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "PYQ pattern (KEA / KSET papers). * / % left to right: 60 / 4 = 15, 15 % 5 = 0 → 10."
+        },
+        {
+         "question": "To print a % sign with printf, the format string uses",
+         "options": {
+          "A": "/%",
+          "B": "\\%",
+          "C": "%c",
+          "D": "%%"
+         },
+         "answer": "D",
+         "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
+         "explanation": "printf(\"50%%\") prints 50%."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "C instructions and operators – revision sheet",
+       "md": "## Instructions (Kanetkar)\n- Type declaration, arithmetic, control instructions\n- Arithmetic: variable on the left (`a + b = c` is invalid); `%` only for integers; no power operator – `pow()`\n- int / int → int (5 / 2 = 2); one real operand → real (5.0 / 2 = 2.5); `float a = 5 / 2` → 2.0\n- Assignment converts: `int k = 7.9 / 2` → 3; `char ch = 321` → 65\n- Casts: `(float) a / b` = 3.5 but `(float)(a / b)` = 3.0 (a = 7, b = 2)\n- C99: −7 / 2 = −3, −7 % 2 = −1 (sign of the dividend)\n\n## Hierarchy of operators (high → low)\n| Level | Operators | Assoc. |\n|---|---|---|\n| Postfix | `() [] -> .` `x++` | L→R |\n| Unary | `! ~ ++ -- + - * & sizeof (type)` | R→L |\n| Multiplicative | `* / %` | L→R |\n| Additive | `+ -` | L→R |\n| Shift | `<< >>` | L→R |\n| Relational | `< <= > >=` | L→R |\n| Equality | `== !=` | L→R |\n| Bitwise | `&` then `^` then `|` | L→R |\n| Logical | `&&` then `||` | L→R |\n| Conditional | `?:` | R→L |\n| Assignment | `= += -= …` | R→L |\n| Comma | `,` | L→R |\n- `&&` / `||` short-circuit; `5 > 3 > 1` = 0; `a & b == c` = `a & (b == c)`; `x = (1, 2, 3)` = 3\n- Worked: `2*3/4 + 4/4 + 8 - 2 + 5/8` = 8; `10 + 20*3/4%5` = 10\n\n## Input-output\n- Formatted: `printf`, `scanf` (needs `&var`; returns the count read; `%s` stops at white space)\n- Unformatted: `getchar putchar gets puts` (`getch getche` in conio.h)\n- printf returns the number of characters printed (`printf(\"happy\")` → 5); `%5.2f`, `%-5d`, `%%`\n"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

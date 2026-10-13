@@ -109,6 +109,122 @@
    ]
   },
   {
+   "name": "P2 · KRIES – C Programming",
+   "icon": "©",
+   "topics": [
+    {
+     "name": "Introduction to C Programming",
+     "plan": {
+      "id": "P2-KRC-01",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "History of C, structure of a C programme, the C character set, constants, variables and keywords, types of constants and variables"
+     }
+    },
+    {
+     "name": "C Instructions",
+     "plan": {
+      "id": "P2-KRC-02",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "Type declaration and arithmetic instructions, integer and float conversions, type conversion in assignment, operators in C, hierarchy of operators, control instructions, formatted and unformatted input-output statements"
+     }
+    },
+    {
+     "name": "Control Structures",
+     "plan": {
+      "id": "P2-KRC-03",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "Decision control structures, logical, conditional and relational operators; loops – while, do-while, for; break, continue, switch-case, goto"
+     }
+    },
+    {
+     "name": "Arrays",
+     "plan": {
+      "id": "P2-KRC-04",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "One- and multi-dimensional arrays – declaration, initialisation, manipulation; bubble sort; strings – basic concepts and library functions"
+     }
+    },
+    {
+     "name": "Functions",
+     "plan": {
+      "id": "P2-KRC-05",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "priority": "High",
+      "tip": "",
+      "coverage": "Definition, function definition and prototyping, types of functions and arguments, recursion, passing arrays to functions; storage classes – automatic, register, external, static"
+     }
+    },
+    {
+     "name": "Pointers",
+     "plan": {
+      "id": "P2-KRC-06",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "Definition, notation, pointers and arrays, arrays of pointers, pointers and functions – call by value and call by reference, pointers to pointers"
+     }
+    },
+    {
+     "name": "Structures and Unions",
+     "plan": {
+      "id": "P2-KRC-07",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "Structures – definition, declaration, accessing elements, arrays of structures, structure in a structure, pointers and structures; unions – definition, declaration, accessing elements; typedef, enum, bit fields"
+     }
+    },
+    {
+     "name": "Bitwise Operators",
+     "plan": {
+      "id": "P2-KRC-08",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "Bitwise AND, OR, exclusive OR, complement, right shift and left shift operators"
+     }
+    },
+    {
+     "name": "C Preprocessor",
+     "plan": {
+      "id": "P2-KRC-09",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "Types of C preprocessor directives, macros, file inclusion"
+     }
+    },
+    {
+     "name": "Files",
+     "plan": {
+      "id": "P2-KRC-10",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "File operating modes, text and binary files, high-level and low-level operations on files, command line arguments"
+     }
+    }
+   ]
+  },
+  {
    "name": "P2 · KRIES – Additional Topics",
    "icon": "🖥",
    "topics": [
@@ -696,17 +812,17 @@
      {
       "name": "C Programming",
       "meta": [
-       "KRIES core area · Unit 4 topics",
-       "2 topics"
+       "KRIES core area · Computer Fundamentals and C Programming – one topic per syllabus heading",
+       "10 topics"
       ],
       "rows": [
        {
-        "id": "P2-U4-03",
+        "id": "P2-KRC-01",
         "subject": "C Programming",
-        "topic": "Programming in C – Part 1",
-        "coverage": "History and structure of a C program, character set, constants, variables, keywords; type declaration, arithmetic instructions, integer/float conversion, operators and their hierarchy; formatted and unformatted I/O; if/else, logical, relational and conditional operators; while, do-while, for, break, continue, switch, goto; 1-D and 2-D arrays, bubble sort; strings and library functions; structures, unions, typedef, enum, bit fields",
+        "topic": "Introduction to C Programming",
+        "coverage": "History of C, structure of a C programme, the C character set, constants, variables and keywords, types of constants and variables",
         "priority": "High",
-        "hours": 3.0,
+        "hours": 0.75,
         "start": "2026-10-10",
         "target": "2026-10-10",
         "day": "Sat",
@@ -718,12 +834,148 @@
         "notes": ""
        },
        {
-        "id": "P2-U4-04",
+        "id": "P2-KRC-02",
         "subject": "C Programming",
-        "topic": "Programming in C – Part 2",
-        "coverage": "Functions – definition, prototypes, types, arguments, recursion, passing arrays; storage classes (auto, register, extern, static); pointers – notation, pointers and arrays, arrays of pointers, call by value / reference, pointer to pointer; bitwise operators (AND, OR, XOR, complement, shifts); preprocessor – macros, file inclusion; files – modes, text and binary files, high- and low-level I/O, command-line arguments",
+        "topic": "C Instructions",
+        "coverage": "Type declaration and arithmetic instructions, integer and float conversions, type conversion in assignment, operators in C, hierarchy of operators, control instructions, formatted and unformatted input-output statements",
         "priority": "High",
-        "hours": 3.0,
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-03",
+        "subject": "C Programming",
+        "topic": "Control Structures",
+        "coverage": "Decision control structures, logical, conditional and relational operators; loops – while, do-while, for; break, continue, switch-case, goto",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-04",
+        "subject": "C Programming",
+        "topic": "Arrays",
+        "coverage": "One- and multi-dimensional arrays – declaration, initialisation, manipulation; bubble sort; strings – basic concepts and library functions",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-05",
+        "subject": "C Programming",
+        "topic": "Functions",
+        "coverage": "Definition, function definition and prototyping, types of functions and arguments, recursion, passing arrays to functions; storage classes – automatic, register, external, static",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-06",
+        "subject": "C Programming",
+        "topic": "Pointers",
+        "coverage": "Definition, notation, pointers and arrays, arrays of pointers, pointers and functions – call by value and call by reference, pointers to pointers",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-07",
+        "subject": "C Programming",
+        "topic": "Structures and Unions",
+        "coverage": "Structures – definition, declaration, accessing elements, arrays of structures, structure in a structure, pointers and structures; unions – definition, declaration, accessing elements; typedef, enum, bit fields",
+        "priority": "High",
+        "hours": 0.75,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-08",
+        "subject": "C Programming",
+        "topic": "Bitwise Operators",
+        "coverage": "Bitwise AND, OR, exclusive OR, complement, right shift and left shift operators",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-09",
+        "subject": "C Programming",
+        "topic": "C Preprocessor",
+        "coverage": "Types of C preprocessor directives, macros, file inclusion",
+        "priority": "Medium",
+        "hours": 0.5,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P2-KRC-10",
+        "subject": "C Programming",
+        "topic": "Files",
+        "coverage": "File operating modes, text and binary files, high-level and low-level operations on files, command line arguments",
+        "priority": "Medium",
+        "hours": 0.75,
         "start": "2026-10-11",
         "target": "2026-10-11",
         "day": "Sun",
@@ -1547,7 +1799,11 @@
     "phase": "Learning",
     "hours": 8.0,
     "p2": [
-     "P2-U4-03 Programming in C – Part 1"
+     "P2-KRC-01 Introduction to C Programming",
+     "P2-KRC-02 C Instructions",
+     "P2-KRC-03 Control Structures",
+     "P2-KRC-04 Arrays",
+     "P2-KRC-05 Functions"
     ],
     "p1": [
      "P1-GK-05 Karnataka History, Culture and Art",
@@ -1562,7 +1818,11 @@
     "phase": "Learning",
     "hours": 8.0,
     "p2": [
-     "P2-U4-04 Programming in C – Part 2",
+     "P2-KRC-06 Pointers",
+     "P2-KRC-07 Structures and Unions",
+     "P2-KRC-08 Bitwise Operators",
+     "P2-KRC-09 C Preprocessor",
+     "P2-KRC-10 Files",
      "P2-U8-06 Performance Analysis & Recurrences"
     ],
     "p1": [

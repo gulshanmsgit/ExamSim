@@ -16,7 +16,8 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).parent.parent
 PACKS = ROOT / "packs"
-LEGACY = {"gpstr-cst-2026-01-days01-02.json"}  # older 10-per-topic sample, exempt from set-size and map rules
+LEGACY = {"gpstr-cst-2026-01-days01-02.json"}
+REUSE = {"p2-kries-c.json"}  # packs whose questions may repeat questions of other packs (KRIES C topics pull GPSTR Unit 4 questions)  # older 10-per-topic sample, exempt from set-size and map rules
 MOCK_TOPICS = {"Mock tests", "ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು (Mock tests)"}
 KANNADA = re.compile(r"[ಀ-೿]")
 
@@ -116,7 +117,9 @@ for f in sorted(listed):
                     if "Assertion (A)" in q["question"]:
                         ar[q.get("answer")] += 1
                     k = app_key(q["question"], vals)
-                    if k in seen:
+                    if k in seen and (f in REUSE or seen[k].split(":", 1)[0] in REUSE):  # KRIES C topics reuse GPSTR Unit 4 questions by design
+                        pass
+                    elif k in seen:
                         err(f"{where} Q{i}: duplicate of {seen[k]}")
                     else:
                         seen[k] = f"{where} Q{i}"

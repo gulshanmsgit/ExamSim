@@ -24,19 +24,30 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "packs" / "kries-2026-plan.json"
 START = dt.date(2026, 10, 10)
 EXTRA_SUBJECT = "P2 · KRIES – Additional Topics"
+C_SUBJECT = "P2 · KRIES – C Programming"
 P1_SUBJECT = "P1 · KRIES – Karnataka & General Studies"
 
 # (group, [(plan id, topic, KRIES syllabus coverage, priority, hours)])
 P2_GROUPS = [
-    ("C Programming", "KRIES core area · Unit 4 topics", [
-        ("P2-U4-03", "Programming in C – Part 1", "History and structure of a C program, character set, constants, variables, keywords; type declaration, arithmetic "
-         "instructions, integer/float conversion, operators and their hierarchy; formatted and unformatted I/O; if/else, logical, relational and conditional "
-         "operators; while, do-while, for, break, continue, switch, goto; 1-D and 2-D arrays, bubble sort; strings and library functions; structures, unions, "
-         "typedef, enum, bit fields", "High", 3.0),
-        ("P2-U4-04", "Programming in C – Part 2", "Functions – definition, prototypes, types, arguments, recursion, passing arrays; storage classes (auto, register, "
-         "extern, static); pointers – notation, pointers and arrays, arrays of pointers, call by value / reference, pointer to pointer; bitwise operators "
-         "(AND, OR, XOR, complement, shifts); preprocessor – macros, file inclusion; files – modes, text and binary files, high- and low-level I/O, "
-         "command-line arguments", "High", 3.0),
+    ("C Programming", "KRIES core area · Computer Fundamentals and C Programming – one topic per syllabus heading", [
+        ("P2-KRC-01", "Introduction to C Programming", "History of C, structure of a C programme, the C character set, constants, variables and keywords, "
+         "types of constants and variables", "High", 0.75),
+        ("P2-KRC-02", "C Instructions", "Type declaration and arithmetic instructions, integer and float conversions, type conversion in assignment, "
+         "operators in C, hierarchy of operators, control instructions, formatted and unformatted input-output statements", "High", 1.0),
+        ("P2-KRC-03", "Control Structures", "Decision control structures, logical, conditional and relational operators; loops – while, do-while, for; "
+         "break, continue, switch-case, goto", "High", 1.0),
+        ("P2-KRC-04", "Arrays", "One- and multi-dimensional arrays – declaration, initialisation, manipulation; bubble sort; strings – basic concepts "
+         "and library functions", "High", 1.0),
+        ("P2-KRC-05", "Functions", "Definition, function definition and prototyping, types of functions and arguments, recursion, passing arrays to "
+         "functions; storage classes – automatic, register, external, static", "High", 1.0),
+        ("P2-KRC-06", "Pointers", "Definition, notation, pointers and arrays, arrays of pointers, pointers and functions – call by value and call by "
+         "reference, pointers to pointers", "High", 1.0),
+        ("P2-KRC-07", "Structures and Unions", "Structures – definition, declaration, accessing elements, arrays of structures, structure in a structure, "
+         "pointers and structures; unions – definition, declaration, accessing elements; typedef, enum, bit fields", "High", 0.75),
+        ("P2-KRC-08", "Bitwise Operators", "Bitwise AND, OR, exclusive OR, complement, right shift and left shift operators", "Medium", 0.5),
+        ("P2-KRC-09", "C Preprocessor", "Types of C preprocessor directives, macros, file inclusion", "Medium", 0.5),
+        ("P2-KRC-10", "Files", "File operating modes, text and binary files, high-level and low-level operations on files, command line arguments",
+         "Medium", 0.75),
     ]),
     ("Data Structures", "KRIES core area · Unit 8 topics", [
         ("P2-U8-06", "Performance Analysis & Recurrences", "Introduction to time and space complexity", "Medium", 0.75),
@@ -160,8 +171,8 @@ P1_GROUPS = [
 
 # Calendar: (Paper 2 plan IDs, extra Paper 2 text, Paper 1 plan IDs, extra Paper 1 text, phase)
 DAYS = [
-    (["P2-U4-03"], "", ["P1-GK-05", "P1-KR-01"], "", "Learning"),                                           # Sat 10
-    (["P2-U4-04", "P2-U8-06"], "", ["P1-GK-06", "P1-GK-07", "P1-KR-09"], "", "Learning"),                   # Sun 11
+    (["P2-KRC-01", "P2-KRC-02", "P2-KRC-03", "P2-KRC-04", "P2-KRC-05"], "", ["P1-GK-05", "P1-KR-01"], "", "Learning"),                                           # Sat 10
+    (["P2-KRC-06", "P2-KRC-07", "P2-KRC-08", "P2-KRC-09", "P2-KRC-10", "P2-U8-06"], "", ["P1-GK-06", "P1-GK-07", "P1-KR-09"], "", "Learning"),                   # Sun 11
     (["P2-U8-01"], "", ["P1-GK-08"], "", "Learning"),                                                       # Mon 12
     (["P2-U8-02", "P2-U8-03", "P2-U8-04"], "", ["P1-GK-15"], "", "Learning"),                               # Tue 13
     (["P2-U6-02", "P2-U6-03", "P2-U6-06"], "", ["P1-CA-13"], "Constitution revision – public administration", "Learning"),  # Wed 14
@@ -222,7 +233,7 @@ def main():
     groups2, groups1 = sheet_groups(P2_GROUPS, when), sheet_groups(p1_groups, when)
     new_topics = lambda pre: [{"name": topic, "plan": {"id": pid, "start": when[pid][0], "end": when[pid][-1], "priority": pri, "tip": "", "coverage": cov}}
                               for _, _, rs in P2_GROUPS + p1_groups for pid, topic, cov, pri, _ in rs if pid.startswith(pre)]
-    extra_topics, p1_topics = new_topics("P2-KR-"), sorted(new_topics("P1-KR-"), key=lambda t: t["plan"]["id"])
+    extra_topics, c_topics, p1_topics = new_topics("P2-KR-"), new_topics("P2-KRC-"), sorted(new_topics("P1-KR-"), key=lambda t: t["plan"]["id"])
     pack = {
         "examsimPack": 1,
         "name": "Study plan · KRIES Computer Teacher 2026",
@@ -231,7 +242,7 @@ def main():
                        "land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC "
                        "arithmetic and social science – in Kannada; Paper 2: Java, Computer Graphics). Importing it switches the app to KRIES "
                        "mode; switch back to GPSTR any time in Profile → Exam mode.",
-        "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
+        "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
         "studyPlan": {
             "key": "kries", "title": "KRIES Computer Teacher 2026 study plan", "examDate": "2026-10-26",
             "exams": [{"paper": "Paper 1", "date": "2026-10-26"}, {"paper": "Paper 2", "date": "2026-10-27"}], "papers": ["p1", "p2"],
