@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 698. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 719. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -7541,6 +7541,19 @@
          "source": "PGCET 2026 MCA · Q19"
         },
         {
+         "question": "Select the correct statement(s) from below given statements.\n(i) Cache memory is an extremely fast and small memory between CPU and main memory.\n(ii) Main memory is an extremely fast and larger memory between CPU and cache memory.",
+         "options": {
+          "A": "Only (ii) is correct",
+          "B": "Only (i) is correct",
+          "C": "Both (i) and (ii) are correct",
+          "D": "Both (i) and (ii) are wrong"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Main memory is behind the cache, not between. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q31"
+        },
+        {
          "question": "Primary classification of programming languages are\n(a) Machine language\n(b) Assembly language\n(c) High level language\n(d) Pseudocode and Algorithms",
          "options": {
           "A": "Only (c) and (d) are correct",
@@ -7565,6 +7578,32 @@
          "subject": "PGCET 2026 MCA",
          "explanation": "IR – current instruction; MAR – address; MDR – data; PC – program sequence. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2026 MCA · Q34"
+        },
+        {
+         "question": "What is the meaning of 16 x 8 organizations with respect to memory chip?",
+         "options": {
+          "A": "8 words of 16 bits each",
+          "B": "16 bits × 8 bits",
+          "C": "16 words of 8 bits each",
+          "D": "16 words of 8 bytes each"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Words × bits per word. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q37"
+        },
+        {
+         "question": "Arrange the given list of memories as per the size.\n(a) Cache memory\n(b) Registers\n(c) Secondary memory\n(d) Primary memory",
+         "options": {
+          "A": "(b), (a), (d), (c)",
+          "B": "(b), (a), (c), (d)",
+          "C": "(a), (b), (c), (d)",
+          "D": "(d), (b), (a), (c)"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 MCA",
+         "explanation": "Smallest to largest: registers, cache, primary, secondary. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q41"
         },
         {
          "question": "The control unit of a computer is designed to go through an instruction cycle that is divided into following phases.\n(a) Fetch the instruction from memory\n(b) Decode the instruction\n(c) Execute the instruction",
@@ -7863,6 +7902,19 @@
          "source": "PGCET 2025 MCA · Q27"
         },
         {
+         "question": "The (a) memory is used to (b) the performance mismatch between the (c) memory and the (d).\nThe correct order of words in the above statement is",
+         "options": {
+          "A": "(a) Main, (b) Increase, (c) Cache, (d) CPU Registers",
+          "B": "(a) Secondary, (b) Increase, (c) CPU Registers, (d) Main memory",
+          "C": "(a) Cache, (b) Decrease, (c) Main, (d) CPU Register",
+          "D": "(a) Cache, (b) Decrease, (c) Main, (d) Secondary memory"
+         },
+         "answer": "C",
+         "subject": "PGCET 2025 MCA",
+         "explanation": "Cache reduces the gap between main memory and the CPU registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q30"
+        },
+        {
          "question": "Which among the following is correct about 85₁₀ equivalent 4-bit BCD code?",
          "options": {
           "A": "0111 0110",
@@ -7956,7 +8008,277 @@
        ]
       },
       {
-       "name": "4 · KEA 2026 CS Paper-2",
+       "name": "4 · GFGC 2021 CS",
+       "questions": [
+        {
+         "question": "Which register is used as a working area in CPU ?",
+         "options": {
+          "A": "Program counter",
+          "B": "Stalk pointer",
+          "C": "Accumulator",
+          "D": "Instruction register"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q14"
+        },
+        {
+         "question": "An instruction cycle refers to",
+         "options": {
+          "A": "Fetching an instruction",
+          "B": "Executing an instruction",
+          "C": "Fetching, decoding and Executing an instruction",
+          "D": "Reading and Executing an instruction"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q15"
+        },
+        {
+         "question": "Let Tp be the clock cycle time. The time taken to execute 5 instructions in a pipelined processor, if the first instruction takes 4 clock cycles.",
+         "options": {
+          "A": "8 Tp",
+          "B": "16 Tp",
+          "C": "20 Tp",
+          "D": "14 Tp"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "A 4-stage pipeline: (k + n − 1) cycles = 4 + 4 = 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q16"
+        },
+        {
+         "question": "Which of the following is not an application of logic operations ?",
+         "options": {
+          "A": "Insert new bit values into a register.",
+          "B": "Change bit values.",
+          "C": "Delete a group of bits.",
+          "D": "Shift bit values in a register."
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q17"
+        },
+        {
+         "question": "Match the following :\nL1  MOV AL, DATA\nL2  MOV BH, 'A'\nL3  MOV AX, [BX + 4]\nL4  MOV [BX + D1], CL\ni. Immediate address mode\nii. Direct data-addressing mode\niii. Register relative addressing mode\niv. Base-plus-indirect addressing mode\nCode :  L1 L2 L3 L4",
+         "options": {
+          "A": "ii i iv iii",
+          "B": "iv i iii ii",
+          "C": "ii iv iii i",
+          "D": "ii i iii iv"
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "DATA is a memory address (direct); 'A' is a constant (immediate); [BX + 4] is register relative; [BX + DI] is base-plus-index. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q18"
+        },
+        {
+         "question": "Which memory has the lowest access time ?",
+         "options": {
+          "A": "Cache memory",
+          "B": "Main memory",
+          "C": "Registers",
+          "D": "Optical disk"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Registers are inside the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q19"
+        },
+        {
+         "question": "Consider a four-stage pipeline processor in which each instruction on an average has 2 clock cycle stalls, then the speed up of this pipelined processor compared to an un-pipelined processor is ____",
+         "options": {
+          "A": "1.33",
+          "B": "2",
+          "C": "8",
+          "D": "0.5"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Speed-up = depth / (1 + stalls per instruction) = 4 / 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q22"
+        },
+        {
+         "question": "Which of the following property allows the processor to execute a number of clustered locations ?",
+         "options": {
+          "A": "Coherence",
+          "B": "Spatial",
+          "C": "Temporal",
+          "D": "Inclusion"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Spatial locality: nearby addresses are used together. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q23"
+        },
+        {
+         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
+         "options": {
+          "A": "1, 2, 1, 2",
+          "B": "2, 1, 2, 1",
+          "C": "2, 1, 1, 2",
+          "D": "1, 2, 2, 2"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q53"
+        },
+        {
+         "question": "Match the 8085 hardware interrupt with its vector address\nInterrupt: L1. RST 7.5  L2. RST 6.5  L3. RST 5.5  L4. TRAP\nVector Address: i. 003CH  ii. 0034H  iii. 002CH  iv. 0024H\nCode: L1 L2 L3 L4",
+         "options": {
+          "A": "i ii iii iv",
+          "B": "ii iii i iv",
+          "C": "iii ii i iv",
+          "D": "iv ii iii i"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Vector = n × 8 for RST n: 7.5 → 3CH, 6.5 → 34H, 5.5 → 2CH, TRAP (4.5) → 24H. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q54"
+        }
+       ]
+      },
+      {
+       "name": "5 · PGCET 2024 MCA",
+       "questions": [
+        {
+         "question": "The fastest memory in a computer system is",
+         "options": {
+          "A": "ROM",
+          "B": "RAM",
+          "C": "Cache memory",
+          "D": "Pen drive"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Of the options given (registers are faster still). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q3"
+        },
+        {
+         "question": "Pick the correct sequence which is in the decreasing order of storage capacity.",
+         "options": {
+          "A": "Primary Memory, Magnetic Disk, CPU Registers, Cache",
+          "B": "CPU Registers, Cache, Primary Memory, Magnetic Disk",
+          "C": "Magnetic Disk, Primary Memory, Cache, CPU Registers",
+          "D": "CPU Registers, Primary Memory, Cache, Magnetic Disk"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Largest first: disk, main memory, cache, registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q4"
+        },
+        {
+         "question": "Conversion of decimal number 100 to Octal and Hexadecimal is ____ and ____",
+         "options": {
+          "A": "123(8), AB(16)",
+          "B": "64(8), 144(16)",
+          "C": "144(8), 64(16)",
+          "D": "74(8), A1(16)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "100 = 1·64 + 4·8 + 4 → 144₈; 100 = 6·16 + 4 → 64₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q8"
+        },
+        {
+         "question": "Given the following Lists :\nList-I\na. 10101(2)\nb. DAD(16)\nc. One's (complement) of 1101(2)\nd. 401(8)\nList-II\ni. 6655(8)\nii. 101(16)\niii. 21(10)\niv. 0010(2)\nIdentify the correct match.",
+         "options": {
+          "A": "a-ii; b-i; c-iii; d-iv",
+          "B": "a-i; b-ii; c-iv; d-iii",
+          "C": "a-iii; b-i; c-iv; d-ii",
+          "D": "a-iv; b-i; c-ii; d-iii"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "10101₂ = 21; DAD₁₆ = 3501 = 6655₈; 1's complement of 1101 = 0010; 401₈ = 257 = 101₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q10"
+        },
+        {
+         "question": "Given the following Lists :\nList-I\na. BCD code\nb. EBCDIC\nc. ASCII\nd. Unicode\nList-II\ni. Code used for encoding characters in IBM mainframe systems\nii. Codes widely used for character encoding standard for electronic communication\niii. Universal character encoding standard that can represent virtually all written languages\niv. Code used to represent decimal digits in binary form\nIdentify the correct match.",
+         "options": {
+          "A": "a-iii; b-iv; c-i; d-ii",
+          "B": "a-iv; b-i; c-ii; d-iii",
+          "C": "a-iv; b-iii; c-ii; d-i",
+          "D": "a-i; b-ii; c-iii; d-iv"
+         },
+         "answer": "B",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "BCD – decimal digits; EBCDIC – IBM mainframes; ASCII – communication standard; Unicode – all scripts. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q11"
+        },
+        {
+         "question": "A floating-point number is said to be normalized, if the MSB (Most Significant Bit) of the mantissa is ____.",
+         "options": {
+          "A": "−1",
+          "B": "0",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Normalization shifts the mantissa until its most significant bit is 1 (no leading zeros). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q12"
+        },
+        {
+         "question": "In floating-point representation, the part that represents a signed and fixed-point number, and the position of the decimal point are called as ____ and ____",
+         "options": {
+          "A": "Mantissa, Exponent",
+          "B": "Exponent, Mantissa",
+          "C": "Float, Exponent",
+          "D": "Mantissa, Float"
+         },
+         "answer": "A",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "m × rᵉ: the mantissa holds the signed fixed-point number, the exponent gives the position of the point (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q14"
+        },
+        {
+         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
+         "options": {
+          "A": "a, b and c",
+          "B": "a only",
+          "C": "c only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q86"
+        },
+        {
+         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
+         "options": {
+          "A": "a > b",
+          "B": "a < b",
+          "C": "a = b²",
+          "D": "a = b"
+         },
+         "answer": "D",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q89"
+        },
+        {
+         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
+         "options": {
+          "A": "x∧y",
+          "B": "x'∧y",
+          "C": "x'∧y'",
+          "D": "x∧x'"
+         },
+         "answer": "B",
+         "subject": "PGCET 2024 MCA",
+         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q90"
+        }
+       ]
+      },
+      {
+       "name": "6 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "____ is caused because of a delay in the availability of instruction.",
@@ -8078,7 +8400,7 @@
        ]
       },
       {
-       "name": "5 · KSET 2025 CS&A",
+       "name": "7 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
@@ -8200,225 +8522,238 @@
        ]
       },
       {
-       "name": "6 · GFGC 2021 CS",
+       "name": "8 · Legislative Council 2024 Junior Console Operator P2",
        "questions": [
         {
-         "question": "Which register is used as a working area in CPU ?",
+         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
          "options": {
-          "A": "Program counter",
-          "B": "Stalk pointer",
-          "C": "Accumulator",
-          "D": "Instruction register"
-         },
-         "answer": "C",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q14"
-        },
-        {
-         "question": "An instruction cycle refers to",
-         "options": {
-          "A": "Fetching an instruction",
-          "B": "Executing an instruction",
-          "C": "Fetching, decoding and Executing an instruction",
-          "D": "Reading and Executing an instruction"
-         },
-         "answer": "C",
-         "subject": "GFGC 2021 CS",
-         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q15"
-        },
-        {
-         "question": "Let Tp be the clock cycle time. The time taken to execute 5 instructions in a pipelined processor, if the first instruction takes 4 clock cycles.",
-         "options": {
-          "A": "8 Tp",
-          "B": "16 Tp",
-          "C": "20 Tp",
-          "D": "14 Tp"
-         },
-         "answer": "A",
-         "subject": "GFGC 2021 CS",
-         "explanation": "A 4-stage pipeline: (k + n − 1) cycles = 4 + 4 = 8. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q16"
-        },
-        {
-         "question": "Which of the following is not an application of logic operations ?",
-         "options": {
-          "A": "Insert new bit values into a register.",
-          "B": "Change bit values.",
-          "C": "Delete a group of bits.",
-          "D": "Shift bit values in a register."
-         },
-         "answer": "D",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q17"
-        },
-        {
-         "question": "Match the following :\nL1  MOV AL, DATA\nL2  MOV BH, 'A'\nL3  MOV AX, [BX + 4]\nL4  MOV [BX + D1], CL\ni. Immediate address mode\nii. Direct data-addressing mode\niii. Register relative addressing mode\niv. Base-plus-indirect addressing mode\nCode :  L1 L2 L3 L4",
-         "options": {
-          "A": "ii i iv iii",
-          "B": "iv i iii ii",
-          "C": "ii iv iii i",
-          "D": "ii i iii iv"
-         },
-         "answer": "D",
-         "subject": "GFGC 2021 CS",
-         "explanation": "DATA is a memory address (direct); 'A' is a constant (immediate); [BX + 4] is register relative; [BX + DI] is base-plus-index. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q18"
-        },
-        {
-         "question": "Consider a four-stage pipeline processor in which each instruction on an average has 2 clock cycle stalls, then the speed up of this pipelined processor compared to an un-pipelined processor is ____",
-         "options": {
-          "A": "1.33",
-          "B": "2",
-          "C": "8",
-          "D": "0.5"
-         },
-         "answer": "A",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Speed-up = depth / (1 + stalls per instruction) = 4 / 3. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q22"
-        },
-        {
-         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
-         "options": {
-          "A": "1, 2, 1, 2",
-          "B": "2, 1, 2, 1",
-          "C": "2, 1, 1, 2",
-          "D": "1, 2, 2, 2"
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "a, b, c and d"
          },
          "answer": "B",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q53"
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
         },
         {
-         "question": "Match the 8085 hardware interrupt with its vector address\nInterrupt: L1. RST 7.5  L2. RST 6.5  L3. RST 5.5  L4. TRAP\nVector Address: i. 003CH  ii. 0034H  iii. 002CH  iv. 0024H\nCode: L1 L2 L3 L4",
+         "question": "Given\nL1 Cache: Hit time = 2 cycles, Miss rate = 10%, Miss penalty = 50 cycles\nL2 Cache: Hit time = 10 cycles, Miss rate = 5%, Miss Penalty = 100 cycles\nWhat is the average memory access time for the system?",
          "options": {
-          "A": "i ii iii iv",
-          "B": "ii iii i iv",
-          "C": "iii ii i iv",
-          "D": "iv ii iii i"
+          "A": "3.5 cycles",
+          "B": "2.5 cycles",
+          "C": "4.5 cycles",
+          "D": "1.5 cycles"
          },
          "answer": "A",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Vector = n × 8 for RST n: 7.5 → 3CH, 6.5 → 34H, 5.5 → 2CH, TRAP (4.5) → 24H. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q54"
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "AMAT = 2 + 0.10 × (10 + 0.05 × 100) = 2 + 1.5 = 3.5 cycles. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q23"
+        },
+        {
+         "question": "Which of the following techniques are used to improve cache hit rates?\na) Increasing cache size\nb) Reducing associativity\nc) Implementing cache prefetching\nd) Using a victim cache\ne) Increasing the block size",
+         "options": {
+          "A": "a, b, c and d",
+          "B": "a, c, d and e",
+          "C": "a, b and d",
+          "D": "a, b, d and e"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Reducing associativity raises conflict misses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q26"
+        },
+        {
+         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
+         "options": {
+          "A": "2.4 cycles",
+          "B": "3.6 cycles",
+          "C": "5.0 cycles",
+          "D": "6.0 cycles"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
+        },
+        {
+         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, d and e",
+          "C": "b, d and e",
+          "D": "a, b, c, d and e"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
+        },
+        {
+         "question": "Which of the following is an example of a pipeline hazard?",
+         "options": {
+          "A": "Branch Misprediction",
+          "B": "Cache miss",
+          "C": "Data dependency between instructions",
+          "D": "Instruction fetch stall"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
+        },
+        {
+         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
+         "options": {
+          "A": "RISC",
+          "B": "CISC",
+          "C": "VLIW",
+          "D": "EPIC"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
+        },
+        {
+         "question": "Which of the following best defines a bus in a computer system?",
+         "options": {
+          "A": "A path for transferring data and instructions between components",
+          "B": "A memory unit",
+          "C": "An input/output device",
+          "D": "A register used for arithmetic operations"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
+        },
+        {
+         "question": "Which of the following describes a CPU's clock speed?",
+         "options": {
+          "A": "The number of cores in the CPU",
+          "B": "The rate at which the CPU can execute instructions",
+          "C": "The size of the CPU cache memory",
+          "D": "The thermal design power of the CPU"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
         }
        ]
       },
       {
-       "name": "7 · PGCET 2024 MCA",
+       "name": "9 · PGCET 2023 M.Tech CS",
        "questions": [
         {
-         "question": "Conversion of decimal number 100 to Octal and Hexadecimal is ____ and ____",
+         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
          "options": {
-          "A": "123(8), AB(16)",
-          "B": "64(8), 144(16)",
-          "C": "144(8), 64(16)",
-          "D": "74(8), A1(16)"
-         },
-         "answer": "C",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "100 = 1·64 + 4·8 + 4 → 144₈; 100 = 6·16 + 4 → 64₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q8"
-        },
-        {
-         "question": "Given the following Lists :\nList-I\na. 10101(2)\nb. DAD(16)\nc. One's (complement) of 1101(2)\nd. 401(8)\nList-II\ni. 6655(8)\nii. 101(16)\niii. 21(10)\niv. 0010(2)\nIdentify the correct match.",
-         "options": {
-          "A": "a-ii; b-i; c-iii; d-iv",
-          "B": "a-i; b-ii; c-iv; d-iii",
-          "C": "a-iii; b-i; c-iv; d-ii",
-          "D": "a-iv; b-i; c-ii; d-iii"
-         },
-         "answer": "C",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "10101₂ = 21; DAD₁₆ = 3501 = 6655₈; 1's complement of 1101 = 0010; 401₈ = 257 = 101₁₆. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q10"
-        },
-        {
-         "question": "Given the following Lists :\nList-I\na. BCD code\nb. EBCDIC\nc. ASCII\nd. Unicode\nList-II\ni. Code used for encoding characters in IBM mainframe systems\nii. Codes widely used for character encoding standard for electronic communication\niii. Universal character encoding standard that can represent virtually all written languages\niv. Code used to represent decimal digits in binary form\nIdentify the correct match.",
-         "options": {
-          "A": "a-iii; b-iv; c-i; d-ii",
-          "B": "a-iv; b-i; c-ii; d-iii",
-          "C": "a-iv; b-iii; c-ii; d-i",
-          "D": "a-i; b-ii; c-iii; d-iv"
-         },
-         "answer": "B",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "BCD – decimal digits; EBCDIC – IBM mainframes; ASCII – communication standard; Unicode – all scripts. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q11"
-        },
-        {
-         "question": "A floating-point number is said to be normalized, if the MSB (Most Significant Bit) of the mantissa is ____.",
-         "options": {
-          "A": "−1",
-          "B": "0",
-          "C": "1",
-          "D": "2"
-         },
-         "answer": "C",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "Normalization shifts the mantissa until its most significant bit is 1 (no leading zeros). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q12"
-        },
-        {
-         "question": "In floating-point representation, the part that represents a signed and fixed-point number, and the position of the decimal point are called as ____ and ____",
-         "options": {
-          "A": "Mantissa, Exponent",
-          "B": "Exponent, Mantissa",
-          "C": "Float, Exponent",
-          "D": "Mantissa, Float"
+          "A": "Gate-level minimization",
+          "B": "Door-level minimization",
+          "C": "Gate-level maximization",
+          "D": "Circuit-level maximization"
          },
          "answer": "A",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "m × rᵉ: the mantissa holds the signed fixed-point number, the exponent gives the position of the point (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q14"
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q18"
         },
         {
-         "question": "If x and y are Boolean variables, then which of the following statement is/are incorrect?\na. x∨0 = x, x∧1 = x   b. x∨x' = 1, x∧x' = 0   c. x∧(x∨y) = x   d. x∧(x∧y) = x∨y",
+         "question": "In which addressing mode is the effective address equal to the address part of the instruction?",
          "options": {
-          "A": "a, b and c",
-          "B": "a only",
-          "C": "c only",
-          "D": "d only"
-         },
-         "answer": "D",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "x∧(x∧y) = x∧y, not x∨y; a – identity, b – complement, c – absorption laws are correct. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q86"
-        },
-        {
-         "question": "In Boolean algebra, if a∧x = b∧x and a∧x' = b∧x', then which of the following statements is correct?",
-         "options": {
-          "A": "a > b",
-          "B": "a < b",
-          "C": "a = b²",
-          "D": "a = b"
-         },
-         "answer": "D",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "a = a∧(x∨x') = (a∧x)∨(a∧x') = (b∧x)∨(b∧x') = b. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q89"
-        },
-        {
-         "question": "In Boolean algebra [B, ∧, ∨, ', 0, 1] the value of x'∧(x∨y) is",
-         "options": {
-          "A": "x∧y",
-          "B": "x'∧y",
-          "C": "x'∧y'",
-          "D": "x∧x'"
+          "A": "Indirect register",
+          "B": "Direct",
+          "C": "Register direct",
+          "D": "Relative"
          },
          "answer": "B",
-         "subject": "PGCET 2024 MCA",
-         "explanation": "Distribute: (x'∧x)∨(x'∧y) = 0∨(x'∧y) = x'∧y. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 MCA · Q90"
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Direct (absolute) addressing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q20"
+        },
+        {
+         "question": "A control unit that utilizes a ROM to store binary control information is called",
+         "options": {
+          "A": "Microprogrammed control unit",
+          "B": "Hardwired control unit",
+          "C": "Arithmetic control unit",
+          "D": "Input output control unit"
+         },
+         "answer": "A",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "The ROM is the control memory holding microinstructions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q21"
+        },
+        {
+         "question": "The concept of ____ is that the combined size of the program, data, and stack may exceed the amount of physical memory available for it.",
+         "options": {
+          "A": "Primary memory",
+          "B": "Virtual memory",
+          "C": "Cache memory",
+          "D": "Logical memory"
+         },
+         "answer": "B",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Only the parts in use are kept in main memory. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q29"
+        },
+        {
+         "question": "Which of the following registers holds the micro instructions when the computation of the next address is done and read from memory ?",
+         "options": {
+          "A": "Micro register",
+          "B": "Pipeline register",
+          "C": "Parallel register",
+          "D": "Buffer"
+         },
+         "answer": "B",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "The control data register (pipeline register) holds the current microinstruction while the next address is computed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q59"
+        },
+        {
+         "question": "Which memory is employed to compensate for the speed differential between main memory access time and processor logic in computer systems ?",
+         "options": {
+          "A": "Secondary",
+          "B": "Primary",
+          "C": "Cache",
+          "D": "Auxiliary"
+         },
+         "answer": "C",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Cache sits between the CPU and main memory. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q60"
+        },
+        {
+         "question": "A computer with cache access time of 100 ns, a main memory access time of 1000 ns, and a hit ratio of ____ produces an average access time of 200 ns.",
+         "options": {
+          "A": "0·9",
+          "B": "0·7",
+          "C": "0·5",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "200 = 100h + 1100(1 − h) (a miss costs cache + memory) → h = 0.9. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q61"
+        },
+        {
+         "question": "Consider a computer system with a byte addressable memory of size 2³² bytes. Assume the computer system has a direct mapped cache of size 32 KB (1 KB = 2¹⁰ bytes) and each cache block is of size 64 bytes. The size of the tag field is ____ bits.",
+         "options": {
+          "A": "17",
+          "B": "13",
+          "C": "21",
+          "D": "45"
+         },
+         "answer": "A",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Offset 6 bits (64 B), index 9 bits (512 lines), tag 32 − 15 = 17. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q67"
         }
        ]
       },
       {
-       "name": "8 · KSET 2024 CS&A",
+       "name": "10 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
@@ -8514,103 +8849,7 @@
        ]
       },
       {
-       "name": "9 · Legislative Council 2024 Junior Console Operator P2",
-       "questions": [
-        {
-         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
-         "options": {
-          "A": "a and b only",
-          "B": "a, b and c only",
-          "C": "a, b and d only",
-          "D": "a, b, c and d"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
-        },
-        {
-         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
-         "options": {
-          "A": "2.4 cycles",
-          "B": "3.6 cycles",
-          "C": "5.0 cycles",
-          "D": "6.0 cycles"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
-        },
-        {
-         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
-         "options": {
-          "A": "a, b and d",
-          "B": "a, b, d and e",
-          "C": "b, d and e",
-          "D": "a, b, c, d and e"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
-        },
-        {
-         "question": "Which of the following is an example of a pipeline hazard?",
-         "options": {
-          "A": "Branch Misprediction",
-          "B": "Cache miss",
-          "C": "Data dependency between instructions",
-          "D": "Instruction fetch stall"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
-        },
-        {
-         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
-         "options": {
-          "A": "RISC",
-          "B": "CISC",
-          "C": "VLIW",
-          "D": "EPIC"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
-        },
-        {
-         "question": "Which of the following best defines a bus in a computer system?",
-         "options": {
-          "A": "A path for transferring data and instructions between components",
-          "B": "A memory unit",
-          "C": "An input/output device",
-          "D": "A register used for arithmetic operations"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
-        },
-        {
-         "question": "Which of the following describes a CPU's clock speed?",
-         "options": {
-          "A": "The number of cores in the CPU",
-          "B": "The rate at which the CPU can execute instructions",
-          "C": "The size of the CPU cache memory",
-          "D": "The thermal design power of the CPU"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
-        }
-       ]
-      },
-      {
-       "name": "10 · PGCET 2026 CS",
+       "name": "11 · PGCET 2026 CS",
        "questions": [
         {
          "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
@@ -8637,6 +8876,19 @@
          "subject": "PGCET 2026 CS",
          "explanation": "Immediate – operand in the instruction; direct – its address; register – in a register; register indirect – address in a register. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2026 CS · Q16"
+        },
+        {
+         "question": "Consider the following memory access times\nL1 cache hit is equal to 1 cycle.\nL2 cache hit = 5 cycles\nMain memory access = 050 cycles\nDisk access = 10,000 cycles\nA program has the following probabilities\nL1 hit = 80%, L2 hit = 15% (if L1 missed)\nMain memory hit = 4.85% (if L2 missed)\nDisk access = 0.15 % (if main memory missed)\nOrder the following events from fastest to slowest access time.\ndisk, L1 cache, main memory, L2 cache",
+         "options": {
+          "A": "L1 cache, disk, main memory, L2 cache",
+          "B": "L2 cache, disk, main memory, L1 cache",
+          "C": "disk, L2 cache, L1 cache, main memory",
+          "D": "L1 cache, L2 cache, main memory, disk"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "1 < 5 < 50 < 10,000 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q17"
         },
         {
          "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
@@ -8680,7 +8932,134 @@
        ]
       },
       {
-       "name": "11 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "12 · Legislative Council 2024 Computer Operator P2",
+       "questions": [
+        {
+         "question": "Match the following in relation to Memory\nList-1\n(a) ROM\n(b) Cache memory\n(c) Virtual memory\n(d) Flash memory\nList-2\ni) Retains data even when power is turned off\nii) Reads only memory\niii) Small, fast memory\niv) Provides an illusion of more memory than physically available",
+         "options": {
+          "A": "a – i, b – iv, c – iii, d – ii",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "ROM – read only; cache – small and fast; virtual memory – illusion of a larger memory; flash – non-volatile. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q3"
+        },
+        {
+         "question": "Match the following in relation to addressing registers.\nList-1\n(a) Memory Address (MAR)\n(b) Memory Buffer (MBR)\n(c) Program Counter (PC)\n(d) Input/Output (I/O)\nList-2\ni) Holds the address of next instruction\nii) Holds the address of active memory location\niii) Communicates with I/O devices\niv) Holds the information on its own to and from memory",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "MAR – address of the memory word being accessed; MBR – data going to or coming from memory; PC – next instruction; I/O register – device. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q4"
+        },
+        {
+         "question": "What is the correct sequence of storage hierarchy with respect to faster access time?",
+         "options": {
+          "A": "Main Memory → Secondary Memory → Cache Memory",
+          "B": "Cache Memory → Secondary Memory → Main Memory",
+          "C": "Cache Memory → Main Memory → Secondary Memory",
+          "D": "Main Memory → Cache Memory → Secondary Memory"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Fastest first: cache, then main memory, then secondary storage. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q12"
+        },
+        {
+         "question": "The effectiveness of cache memory is based on the property of",
+         "options": {
+          "A": "Locality of reference",
+          "B": "Memory localisation",
+          "C": "Memory size",
+          "D": "None of the mentioned"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "Temporal and spatial locality. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q15"
+        },
+        {
+         "question": "Match the following in relation to languages and codes.\nList-1\n(a) C\n(b) Java\n(c) Pneumonic code\n(d) Binary code\nList-2\ni) Assembly language\nii) Procedure-oriented language\niii) Machine language\niv) Object-oriented language",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – iv, c – iii, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Computer Operator P2",
+         "explanation": "C – procedural; Java – object-oriented; mnemonic code – assembly; binary – machine language. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q44"
+        }
+       ]
+      },
+      {
+       "name": "13 · GTTC 2024 Lecturer CS",
+       "questions": [
+        {
+         "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
+         "options": {
+          "A": "Half the frequency of clock input",
+          "B": "Equal to the frequency of clock input",
+          "C": "Twice the frequency of clock input",
+          "D": "Independent of the frequency of clock input"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "With J = K = 1 the output toggles on every active clock edge, so its period is two clock periods. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q39"
+        },
+        {
+         "question": "Decoder is a logic circuit with n inputs and how many outputs?",
+         "options": {
+          "A": "n²",
+          "B": "2ⁿ",
+          "C": "1",
+          "D": "n² + 1"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "An n-to-2ⁿ line decoder activates one output for each input combination. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q40"
+        },
+        {
+         "question": "Along with synchronous control inputs what to use to transfer a change in the flip-flop?",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "clock",
+          "D": "present output"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Synchronous inputs (J, K, D, T) act only at the clock edge. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q41"
+        },
+        {
+         "question": "If memory access takes 20 ns with cache and 110 ns without it, then the ratio that the cache uses as 10 ns memory is",
+         "options": {
+          "A": "0.93",
+          "B": "0.9",
+          "C": "0.88",
+          "D": "0.87"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Lecturer CS",
+         "explanation": "Hit ratio h: 20 = 10h + 110(1 − h) → h = 0.9. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q42"
+        }
+       ]
+      },
+      {
+       "name": "14 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "Number of output in a half adder is",
@@ -8737,130 +9116,65 @@
        ]
       },
       {
-       "name": "12 · PGCET 2023 M.Tech CS",
+       "name": "15 · PGCET 2024 M.Tech CS",
        "questions": [
         {
-         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
+         "question": "The characteristics of the combinational circuits are:\na. Output at any time is function of inputs at that time.\nb. Contains memory elements.\nc. Do not have feedback path.\nd. Clock is used to trigger the circuit to obtain the outputs.",
          "options": {
-          "A": "Gate-level minimization",
-          "B": "Door-level minimization",
-          "C": "Gate-level maximization",
-          "D": "Circuit-level maximization"
-         },
-         "answer": "A",
-         "subject": "PGCET 2023 M.Tech CS",
-         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q18"
-        },
-        {
-         "question": "In which addressing mode is the effective address equal to the address part of the instruction?",
-         "options": {
-          "A": "Indirect register",
-          "B": "Direct",
-          "C": "Register direct",
-          "D": "Relative"
+          "A": "Only a and b",
+          "B": "Only a and c",
+          "C": "Only b and c",
+          "D": "Only b and d"
          },
          "answer": "B",
-         "subject": "PGCET 2023 M.Tech CS",
-         "explanation": "Direct (absolute) addressing. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q20"
+         "subject": "PGCET 2024 M.Tech CS",
+         "explanation": "Memory, feedback and clocks belong to sequential circuits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q24"
         },
         {
-         "question": "A control unit that utilizes a ROM to store binary control information is called",
+         "question": "The minimum number of 2-input NAND gates required to implement a 2-input XOR gate is",
          "options": {
-          "A": "Microprogrammed control unit",
-          "B": "Hardwired control unit",
-          "C": "Arithmetic control unit",
-          "D": "Input output control unit"
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "7"
          },
          "answer": "A",
-         "subject": "PGCET 2023 M.Tech CS",
-         "explanation": "The ROM is the control memory holding microinstructions. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q21"
+         "subject": "PGCET 2024 M.Tech CS",
+         "explanation": "Classic 4-NAND XOR: X = (AB)', then output = ((A·X)' · (B·X)')'. With NOR gates it needs 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q37"
         },
         {
-         "question": "Which of the following registers holds the micro instructions when the computation of the next address is done and read from memory ?",
+         "question": "Which is the most expensive memory?",
          "options": {
-          "A": "Micro register",
-          "B": "Pipeline register",
-          "C": "Parallel register",
-          "D": "Buffer"
+          "A": "Pen drive",
+          "B": "DVD",
+          "C": "Cache",
+          "D": "Hard disk"
          },
-         "answer": "B",
-         "subject": "PGCET 2023 M.Tech CS",
-         "explanation": "The control data register (pipeline register) holds the current microinstruction while the next address is computed. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q59"
+         "answer": "C",
+         "subject": "PGCET 2024 M.Tech CS",
+         "explanation": "Cost per bit is highest near the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q46"
+        },
+        {
+         "question": "Race around condition is an undesirable phenomenon in Flip-Flops. The remedy for the same is",
+         "options": {
+          "A": "S-R",
+          "B": "D-Flip flop",
+          "C": "J-K Flip flop",
+          "D": "Master slave JK Flipflop"
+         },
+         "answer": "D",
+         "subject": "PGCET 2024 M.Tech CS",
+         "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q80"
         }
        ]
       },
       {
-       "name": "13 · Other papers",
+       "name": "16 · Other papers",
        "questions": [
-        {
-         "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
-         "options": {
-          "A": "Half the frequency of clock input",
-          "B": "Equal to the frequency of clock input",
-          "C": "Twice the frequency of clock input",
-          "D": "Independent of the frequency of clock input"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "With J = K = 1 the output toggles on every active clock edge, so its period is two clock periods. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q39"
-        },
-        {
-         "question": "Decoder is a logic circuit with n inputs and how many outputs?",
-         "options": {
-          "A": "n²",
-          "B": "2ⁿ",
-          "C": "1",
-          "D": "n² + 1"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "An n-to-2ⁿ line decoder activates one output for each input combination. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q40"
-        },
-        {
-         "question": "Along with synchronous control inputs what to use to transfer a change in the flip-flop?",
-         "options": {
-          "A": "0",
-          "B": "1",
-          "C": "clock",
-          "D": "present output"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Synchronous inputs (J, K, D, T) act only at the clock edge. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Lecturer CS · Q41"
-        },
-        {
-         "question": "Match the following in relation to addressing registers.\nList-1\n(a) Memory Address (MAR)\n(b) Memory Buffer (MBR)\n(c) Program Counter (PC)\n(d) Input/Output (I/O)\nList-2\ni) Holds the address of next instruction\nii) Holds the address of active memory location\niii) Communicates with I/O devices\niv) Holds the information on its own to and from memory",
-         "options": {
-          "A": "a – iv, b – i, c – iii, d – ii",
-          "B": "a – ii, b – iv, c – i, d – iii",
-          "C": "a – ii, b – i, c – iii, d – iv",
-          "D": "a – iv, b – iii, c – ii, d – i"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "MAR – address of the memory word being accessed; MBR – data going to or coming from memory; PC – next instruction; I/O register – device. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q4"
-        },
-        {
-         "question": "Match the following in relation to languages and codes.\nList-1\n(a) C\n(b) Java\n(c) Pneumonic code\n(d) Binary code\nList-2\ni) Assembly language\nii) Procedure-oriented language\niii) Machine language\niv) Object-oriented language",
-         "options": {
-          "A": "a – iv, b – i, c – iii, d – ii",
-          "B": "a – ii, b – iv, c – iii, d – i",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – ii, b – iv, c – i, d – iii"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "C – procedural; Java – object-oriented; mnemonic code – assembly; binary – machine language. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q44"
-        },
         {
          "question": "The 2's complement of 101000 is",
          "options": {
@@ -8888,6 +9202,19 @@
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q91"
         },
         {
+         "question": "In a single cache block, the multiple words are put for",
+         "options": {
+          "A": "Exploring references temporal locality in a program",
+          "B": "Reducing the miss penalty",
+          "C": "Exploiting the reference's spatial locality in a program",
+          "D": "None of the above"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Neighbouring words are likely to be used soon. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q19"
+        },
+        {
          "question": "The one's complement of binary number 101010 is :",
          "options": {
           "A": "010110",
@@ -8899,45 +9226,6 @@
          "subject": "Other papers",
          "explanation": "Invert every bit: 101010 → 010101. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2023 MCA · Q28"
-        },
-        {
-         "question": "The characteristics of the combinational circuits are:\na. Output at any time is function of inputs at that time.\nb. Contains memory elements.\nc. Do not have feedback path.\nd. Clock is used to trigger the circuit to obtain the outputs.",
-         "options": {
-          "A": "Only a and b",
-          "B": "Only a and c",
-          "C": "Only b and c",
-          "D": "Only b and d"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Memory, feedback and clocks belong to sequential circuits. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 M.Tech CS · Q24"
-        },
-        {
-         "question": "The minimum number of 2-input NAND gates required to implement a 2-input XOR gate is",
-         "options": {
-          "A": "4",
-          "B": "5",
-          "C": "6",
-          "D": "7"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Classic 4-NAND XOR: X = (AB)', then output = ((A·X)' · (B·X)')'. With NOR gates it needs 5. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 M.Tech CS · Q37"
-        },
-        {
-         "question": "Race around condition is an undesirable phenomenon in Flip-Flops. The remedy for the same is",
-         "options": {
-          "A": "S-R",
-          "B": "D-Flip flop",
-          "C": "J-K Flip flop",
-          "D": "Master slave JK Flipflop"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2024 M.Tech CS · Q80"
         }
        ]
       }
