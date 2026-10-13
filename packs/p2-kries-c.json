@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "All topics so far (20 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators; C Preprocessor; Files. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (25 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators; C Preprocessor; Files. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -742,6 +742,371 @@
          "answer": "D",
          "subject": "Constants, Variables, Keywords and Data Types",
          "explanation": "void * is a generic pointer."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nprintf(\"%d\", 'A');",
+         "options": {
+          "A": "65",
+          "B": "97",
+          "C": "1",
+          "D": "A"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). %d prints the character's code."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%c\", 66);",
+         "options": {
+          "A": "A",
+          "B": "b",
+          "C": "B",
+          "D": "66"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%c prints the character with code 66."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 017);",
+         "options": {
+          "A": "23",
+          "B": "7",
+          "C": "17",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). A leading 0 makes an octal constant: 1·8 + 7."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%o\", 8);",
+         "options": {
+          "A": "8",
+          "B": "10",
+          "C": "08",
+          "D": "1000"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%o prints in octal."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%X\", 255);",
+         "options": {
+          "A": "FF",
+          "B": "ff",
+          "C": "255",
+          "D": "0xFF"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%X uses upper-case hex digits (%x lower-case)."
+        },
+        {
+         "question": "With 1-byte char and 2-byte short, the value of  sizeof(char) + sizeof(short)  is",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1 + 2."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%f\", 5 / 2);",
+         "options": {
+          "A": "2.500000",
+          "B": "Undefined/garbage – an int is passed where %f expects a double",
+          "C": "2.000000",
+          "D": "A compile-time error"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 / 2 is the int 2; the format and argument types must match."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%.1f\", 5.0 / 2);",
+         "options": {
+          "A": "2.0",
+          "B": "2.50",
+          "C": "2.5",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": ".1 = one digit after the point."
+        },
+        {
+         "question": "On a terminal, printf(\"ab\\bc\"); shows",
+         "options": {
+          "A": "ab c",
+          "B": "ac",
+          "C": "abc",
+          "D": "bc"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\\b moves the cursor back one place, so c overwrites b."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", printf(\"Hi\"));",
+         "options": {
+          "A": "Hi",
+          "B": "2Hi",
+          "C": "2",
+          "D": "Hi2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The inner printf prints Hi and returns 2."
+        },
+        {
+         "question": "Nested comments such as  /* a /* b */ c */  in C",
+         "options": {
+          "A": "Are treated as one comment",
+          "B": "Are allowed",
+          "C": "Are not allowed – the first */ ends the comment, so 'c */' is an error",
+          "D": "Are ignored"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C comments do not nest."
+        },
+        {
+         "question": "How many keywords does C99 have?",
+         "options": {
+          "A": "37",
+          "B": "48",
+          "C": "32",
+          "D": "44"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C89's 32 plus inline, restrict, _Bool, _Complex, _Imaginary."
+        },
+        {
+         "question": "In C89, at least how many initial characters of an internal identifier are significant?",
+         "options": {
+          "A": "31",
+          "B": "63",
+          "C": "8",
+          "D": "255"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C99 raised it to 63."
+        },
+        {
+         "question": "Which is a valid identifier?",
+         "options": {
+          "A": "2x",
+          "B": "a-b",
+          "C": "int",
+          "D": "_total1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It may start with an underscore; keywords and hyphens are not allowed."
+        },
+        {
+         "question": "Which is a valid real constant?",
+         "options": {
+          "A": "325,34",
+          "B": "+325.34",
+          "C": "e5",
+          "D": "3.2e"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "No commas; an exponent needs digits on both sides of e."
+        },
+        {
+         "question": "The ASCII value of '\\n' is",
+         "options": {
+          "A": "92",
+          "B": "0",
+          "C": "10",
+          "D": "13"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "13 is '\\r'; 92 is the backslash itself."
+        },
+        {
+         "question": "In C99, long long int is at least",
+         "options": {
+          "A": "64 bits",
+          "B": "128 bits",
+          "C": "16 bits",
+          "D": "32 bits"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Format %lld."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (unsigned char)300);",
+         "options": {
+          "A": "0",
+          "B": "255",
+          "C": "44",
+          "D": "300"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 300 − 256 = 44 (only 8 bits are kept)."
+        },
+        {
+         "question": "A float typically gives about how many significant decimal digits?",
+         "options": {
+          "A": "20",
+          "B": "15–16",
+          "C": "3",
+          "D": "6–7"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "double gives about 15–16."
+        },
+        {
+         "question": "The constant 100UL is",
+         "options": {
+          "A": "A string",
+          "B": "An unsigned long",
+          "C": "An error",
+          "D": "A float"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Suffixes U, L, UL, LL; F for float constants."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%c\", '\\x41');",
+         "options": {
+          "A": "A",
+          "B": "65",
+          "C": "41",
+          "D": "x41"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\\x41 is hexadecimal 41 = 65 = 'A'."
+        },
+        {
+         "question": "Which is a correct minimal C program?",
+         "options": {
+          "A": "int main() return 0;",
+          "B": "void main; { }",
+          "C": "int main(void) { return 0; }",
+          "D": "main[] { }"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A function body needs braces."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%5d|\", 42);",
+         "options": {
+          "A": "'00042|'",
+          "B": "'   42|'",
+          "C": "'42   |'",
+          "D": "'42|'"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Right-justified in a field of 5."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%05d\", 42);",
+         "options": {
+          "A": "42000",
+          "B": "42",
+          "C": "   42",
+          "D": "00042"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The 0 flag pads with zeros."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%.3s\", \"Karnataka\");",
+         "options": {
+          "A": "Karnataka",
+          "B": "Karn",
+          "C": "aka",
+          "D": "Kar"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). A precision on %s limits the number of characters printed."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%e\", 1234.5);",
+         "options": {
+          "A": "1.2345e3",
+          "B": "1.234500e+03",
+          "C": "1234.500000",
+          "D": "0.12345e+04"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%e uses one digit before the point and six after."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%c%c\", 72, 105);",
+         "options": {
+          "A": "Hi",
+          "B": "hi",
+          "C": "HI",
+          "D": "72105"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "72 = 'H', 105 = 'i'."
+        },
+        {
+         "question": "In C89, variable declarations inside a block must come",
+         "options": {
+          "A": "After all statements",
+          "B": "Anywhere",
+          "C": "Before the executable statements of that block",
+          "D": "At file level"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C99 allows mixing declarations and statements."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d %d\", -10 / 3, -10 % 3);",
+         "options": {
+          "A": "−3 1",
+          "B": "−4 2",
+          "C": "−4 −1",
+          "D": "−3 −1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C99 truncates towards zero; the remainder takes the dividend's sign."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", '9' - '0');",
+         "options": {
+          "A": "57",
+          "B": "48",
+          "C": "9",
+          "D": "'9'"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Digit characters have consecutive codes, so this converts a digit character to its value."
         }
        ]
       }
@@ -1489,6 +1854,371 @@
          "answer": "D",
          "subject": "Operators, Hierarchy of Operators and Input-Output Statements",
          "explanation": "printf(\"50%%\") prints 50%."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "int i = 5;  i = i++ + ++i;  — the value of i is",
+         "options": {
+          "A": "13",
+          "B": "12",
+          "C": "Undefined – i is modified twice without a sequence point",
+          "D": "11"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Such expressions have no defined result in C."
+        },
+        {
+         "question": "What is printed?\nfloat f = 7 / 2 * 2.0;\nprintf(\"%.1f\", f);",
+         "options": {
+          "A": "7.0",
+          "B": "8.0",
+          "C": "3.5",
+          "D": "6.0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "7 / 2 = 3 (int), then 3 × 2.0."
+        },
+        {
+         "question": "If a = 10, then after  a -= 3 - 1;  a is",
+         "options": {
+          "A": "8",
+          "B": "7",
+          "C": "6",
+          "D": "12"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a = a − (3 − 1)."
+        },
+        {
+         "question": "What is printed?\nint x = 7;\nprintf(\"%d \", x++ * 2);\nprintf(\"%d\", x);",
+         "options": {
+          "A": "16 8",
+          "B": "14 8",
+          "C": "16 7",
+          "D": "14 7"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Postfix: the old value 7 is used, then x becomes 8."
+        },
+        {
+         "question": "What is printed?\nint x = 7;\nprintf(\"%d\", ++x * 2);",
+         "options": {
+          "A": "14",
+          "B": "15",
+          "C": "8",
+          "D": "16"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Prefix: x becomes 8 first."
+        },
+        {
+         "question": "What is printed?\nint a = 3, b = 4;\nprintf(\"%d\", a > b ? a : b * 2);",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "8",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a > b is false, so b * 2."
+        },
+        {
+         "question": "What is printed?\nint i = 1;\nint s = sizeof(i++);\nprintf(\"%d\", i);",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). sizeof does not evaluate its operand (except for VLAs)."
+        },
+        {
+         "question": "What is printed?\nint a = (5, 6) + 1;\nprintf(\"%d\", a);",
+         "options": {
+          "A": "12",
+          "B": "7",
+          "C": "Compile error",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The comma operator gives its right operand."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 10 > 5 > 2);",
+         "options": {
+          "A": "0",
+          "B": "10",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(10 > 5) = 1, then 1 > 2 = 0."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 0 || 3 && 0);",
+         "options": {
+          "A": "1",
+          "B": "Compile error",
+          "C": "3",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "&& first: 3 && 0 = 0; 0 || 0 = 0."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 2 + 3 * 4 - 6 / 2);",
+         "options": {
+          "A": "17",
+          "B": "11",
+          "C": "4",
+          "D": "7"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2 + 12 − 3."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (2 + 3) * (4 - 6) / 2);",
+         "options": {
+          "A": "5",
+          "B": "−10",
+          "C": "−5",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "5 × (−2) / 2."
+        },
+        {
+         "question": "int a = 1;  printf(\"%d %d\", a, a++);  prints",
+         "options": {
+          "A": "1 1",
+          "B": "2 1",
+          "C": "1 2",
+          "D": "Unspecified – the order in which arguments are evaluated is not defined"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Avoid modifying a variable that is also used elsewhere in the same call."
+        },
+        {
+         "question": "What is printed?\nint i = 10;\nfloat f = i / 4;\nprintf(\"%.2f\", f);",
+         "options": {
+          "A": "2.00",
+          "B": "2.50",
+          "C": "2.25",
+          "D": "3.00"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Integer division happens before the conversion."
+        },
+        {
+         "question": "What is printed?\ndouble d = 1 / 3;\nprintf(\"%.2f\", d);",
+         "options": {
+          "A": "1.00",
+          "B": "0.30",
+          "C": "0.00",
+          "D": "0.33"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1 / 3 = 0 in int arithmetic; write 1.0 / 3."
+        },
+        {
+         "question": "What is printed?\nchar c = 'A' + 2;\nprintf(\"%c\", c);",
+         "options": {
+          "A": "67",
+          "B": "C",
+          "C": "B",
+          "D": "A2"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "65 + 2 = 67 = 'C'."
+        },
+        {
+         "question": "What is printed?\nunsigned int u = 3;\nint s = -5;\nprintf(\"%d\", u + s > 0);",
+         "options": {
+          "A": "0",
+          "B": "A compile-time error",
+          "C": "−2",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "s is converted to unsigned, so u + s is a huge positive value."
+        },
+        {
+         "question": "Why is getchar()'s result stored in an int and not a char?",
+         "options": {
+          "A": "To save memory",
+          "B": "So that EOF (−1) can be told apart from every valid character",
+          "C": "Because chars are 4 bytes",
+          "D": "Because it returns a pointer"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A char cannot hold all 256 values plus EOF."
+        },
+        {
+         "question": "puts(\"Hi\") prints",
+         "options": {
+          "A": "Hi followed by a newline",
+          "B": "Nothing",
+          "C": "\"Hi\" with the quotes",
+          "D": "Hi without a newline"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "fputs does not add a newline."
+        },
+        {
+         "question": "With the input  12 34,  scanf(\"%d%d\", &a, &b);  stores",
+         "options": {
+          "A": "a = 12 and leaves b unchanged",
+          "B": "a = 1234",
+          "C": "a = 12, b = 34",
+          "D": "Nothing (error)"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%d skips leading white space."
+        },
+        {
+         "question": "After  scanf(\"%d\", &n);  a following  scanf(\"%c\", &ch);  often reads",
+         "options": {
+          "A": "The next letter typed",
+          "B": "The newline left over from the previous input",
+          "C": "Nothing",
+          "D": "EOF"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Use \" %c\" (with a space) to skip white space."
+        },
+        {
+         "question": "In printf, the conversion %i prints",
+         "options": {
+          "A": "An imaginary number",
+          "B": "An unsigned int",
+          "C": "A signed decimal integer, like %d",
+          "D": "An integer in octal"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "In scanf, %i also accepts octal and hex input."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (int)3.99);",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "0",
+          "D": "3.99"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A cast to int truncates."
+        },
+        {
+         "question": "The value of  2 * 3 % 4  is",
+         "options": {
+          "A": "6",
+          "B": "0",
+          "C": "8",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Left to right: 6 % 4."
+        },
+        {
+         "question": "What is printed?\nint a = 9, b = 2;\nprintf(\"%d\", a / b * b + a % b);",
+         "options": {
+          "A": "9",
+          "B": "1",
+          "C": "10",
+          "D": "8"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(a / b) × b + a % b always gives back a."
+        },
+        {
+         "question": "What is printed?\nint a;\nprintf(\"%d\", a = 5);",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "5",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "An assignment expression has the assigned value."
+        },
+        {
+         "question": "What is printed?\nint x = 3, y = 3;\nprintf(\"%d\", x == y ? x-- : y++);",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "x-- gives 3, then x becomes 2."
+        },
+        {
+         "question": "int i = (int) 3.7 + 0.5;  gives i =",
+         "options": {
+          "A": "4",
+          "B": "3.2",
+          "C": "3.5",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(int) 3.7 = 3; 3 + 0.5 = 3.5; stored in an int → 3."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", -3 % 2 * 4);",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "−4",
+          "D": "−12"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "−3 % 2 = −1 (C99), then × 4."
+        },
+        {
+         "question": "What is printed?\nint a = 5, b = 2;\nprintf(\"%.1f\", (float)(a + b) / b);",
+         "options": {
+          "A": "3",
+          "B": "3.0",
+          "C": "7.0",
+          "D": "3.5"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "7.0 / 2."
         }
        ]
       }
@@ -2239,6 +2969,371 @@
          "answer": "D",
          "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
          "explanation": "PYQ pattern (KEA / KSET papers). The test runs 6 times (i = 0…5); the last test fails but still increments i to 6."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nint i;\nfor (i = 0; i < 3; i++) printf(\"%d\", i * i);",
+         "options": {
+          "A": "012",
+          "B": "014",
+          "C": "0149",
+          "D": "149"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "0, 1, 4."
+        },
+        {
+         "question": "What is printed?\nint i = 0;\nwhile (i < 10) i += 3;\nprintf(\"%d\", i);",
+         "options": {
+          "A": "10",
+          "B": "9",
+          "C": "12",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "0 → 3 → 6 → 9 → 12."
+        },
+        {
+         "question": "What is printed?\nint n = 1234, r = 0;\nwhile (n) { r = r * 10 + n % 10; n /= 10; }\nprintf(\"%d\", r);",
+         "options": {
+          "A": "10",
+          "B": "1234",
+          "C": "0",
+          "D": "4321"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The classic digit-reversal loop."
+        },
+        {
+         "question": "What is printed?\nint i, s = 0;\nfor (i = 1; i <= 10; i++) { if (i % 2) continue; s += i; }\nprintf(\"%d\", s);",
+         "options": {
+          "A": "30",
+          "B": "55",
+          "C": "25",
+          "D": "20"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2 + 4 + 6 + 8 + 10."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 5; i; i--) printf(\"%d\", i);",
+         "options": {
+          "A": "54321",
+          "B": "12345",
+          "C": "Nothing",
+          "D": "543210"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The loop stops when i becomes 0."
+        },
+        {
+         "question": "What is printed?\nint i = 1;\ndo { printf(\"%d\", i); i *= 3; } while (i < 30);",
+         "options": {
+          "A": "1392781",
+          "B": "139",
+          "C": "1",
+          "D": "13927"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1, 3, 9, 27; then 81 fails the test."
+        },
+        {
+         "question": "What is printed?\nswitch (3) { case 1: case 3: printf(\"odd\"); break; case 2: printf(\"even\"); }",
+         "options": {
+          "A": "oddeven",
+          "B": "odd",
+          "C": "Nothing",
+          "D": "even"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "case 1 and case 3 share the same statements."
+        },
+        {
+         "question": "What is printed?\nint x = 2;\nswitch (x) { case 1: x++; case 2: x++; case 3: x++; default: x++; }\nprintf(\"%d\", x);",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). From case 2 it falls through three increments."
+        },
+        {
+         "question": "What is printed?\nswitch ('b') { case 'a': printf(\"A\"); case 'b': printf(\"B\"); case 'c': printf(\"C\"); }",
+         "options": {
+          "A": "BC",
+          "B": "B",
+          "C": "ABC",
+          "D": "C"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "No break, so it falls through to case 'c'."
+        },
+        {
+         "question": "What is the value of c?\nint i, j, c = 0;\nfor (i = 0; i < 3; i++)\n  for (j = 0; j < 3; j++) { if (j == 1) break; c++; }",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "9",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "break leaves only the inner loop, after one count per outer pass."
+        },
+        {
+         "question": "What is printed?\nint i = 0;\nagain: i++;\nif (i < 4) goto again;\nprintf(\"%d\", i);",
+         "options": {
+          "A": "5",
+          "B": "3",
+          "C": "4",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "goto makes a loop that stops when i reaches 4."
+        },
+        {
+         "question": "What is printed?\nint f = 1, i;\nfor (i = 1; i <= 5; i++) f *= i;\nprintf(\"%d\", f);",
+         "options": {
+          "A": "24",
+          "B": "120",
+          "C": "15",
+          "D": "720"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "5!."
+        },
+        {
+         "question": "What is printed?\nint a = 0, b = 1, t, i;\nfor (i = 0; i < 6; i++) { printf(\"%d\", a); t = a + b; a = b; b = t; }",
+         "options": {
+          "A": "01123",
+          "B": "112358",
+          "C": "0112358",
+          "D": "011235"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The first six Fibonacci numbers."
+        },
+        {
+         "question": "What is printed?\nint n = 15, i, f = 0;\nfor (i = 2; i < n; i++) if (n % i == 0) { f = 1; break; }\nprintf(\"%d %d\", f, i);",
+         "options": {
+          "A": "0 15",
+          "B": "1 3",
+          "C": "1 15",
+          "D": "1 5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "3 is the first divisor of 15, so the loop breaks with i = 3."
+        },
+        {
+         "question": "What is printed?\nint i = 3;\nwhile (i--) printf(\"%d\", i);",
+         "options": {
+          "A": "210",
+          "B": "21",
+          "C": "3210",
+          "D": "321"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The test uses 3, 2, 1 (true) and prints the decremented value."
+        },
+        {
+         "question": "What is printed?\nint i, j;\nfor (i = 0, j = 10; i < j; i += 2, j -= 2);\nprintf(\"%d %d\", i, j);",
+         "options": {
+          "A": "10 0",
+          "B": "5 5",
+          "C": "6 4",
+          "D": "4 6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(0,10) (2,8) (4,6) (6,4) – the test fails at 6 < 4."
+        },
+        {
+         "question": "for (unsigned i = 5; i >= 0; i--) printf(\"x\");",
+         "options": {
+          "A": "Does not compile",
+          "B": "Prints x 5 times",
+          "C": "Runs forever – an unsigned value is never negative",
+          "D": "Prints x 6 times"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). After 0, i-- wraps around to the largest unsigned value."
+        },
+        {
+         "question": "for (float f = 0; f != 1.0; f += 0.1) { … }",
+         "options": {
+          "A": "Runs exactly 10 times",
+          "B": "May never end, because 0.1 is not exact in binary",
+          "C": "Does not compile",
+          "D": "Runs 11 times"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Use an int counter or f < 1.0."
+        },
+        {
+         "question": "What is printed?\nint n = 0, c = 0;\ndo { c++; n /= 10; } while (n);\nprintf(\"%d\", c);",
+         "options": {
+          "A": "1",
+          "B": "An infinite loop",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A do-while counts 0 as a one-digit number."
+        },
+        {
+         "question": "What is printed?\nint i, j;\nfor (i = 1; i <= 3; i++) for (j = 1; j <= i; j++) printf(\"%d\", j);",
+         "options": {
+          "A": "123123",
+          "B": "111222333",
+          "C": "122333",
+          "D": "112123"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Rows 1, 12, 123."
+        },
+        {
+         "question": "What is printed?\nint i, c = 0;\nfor (i = 1; i <= 15; i++) if (i % 3 == 0 || i % 5 == 0) c++;\nprintf(\"%d\", c);",
+         "options": {
+          "A": "7",
+          "B": "8",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "3, 5, 6, 9, 10, 12, 15."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 0; i < 3; i++) { switch (i) { case 1: break; default: printf(\"%d\", i); } }",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "02",
+          "D": "012"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "break inside a switch leaves only the switch."
+        },
+        {
+         "question": "What is printed?\nint i = 0;\ndo { i++; if (i == 2) continue; printf(\"%d\", i); } while (i < 4);",
+         "options": {
+          "A": "1234",
+          "B": "34",
+          "C": "13",
+          "D": "134"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "continue in a do-while jumps to the condition test."
+        },
+        {
+         "question": "What is printed?\nint s = 0, i = 10;\nwhile (i > 0) { s += i; i -= 4; }\nprintf(\"%d\", s);",
+         "options": {
+          "A": "16",
+          "B": "18",
+          "C": "20",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "10 + 6 + 2."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 1; i <= 4; i++) printf(\"%c\", i % 2 ? 'O' : 'E');",
+         "options": {
+          "A": "EOEO",
+          "B": "OEOE",
+          "C": "OEO",
+          "D": "OOEE"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Odd i gives 'O'."
+        },
+        {
+         "question": "What is printed?\nint p = 1, i;\nfor (i = 0; i < 10; i++) p *= 2;\nprintf(\"%d\", p);",
+         "options": {
+          "A": "512",
+          "B": "20",
+          "C": "1024",
+          "D": "2048"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2¹⁰."
+        },
+        {
+         "question": "What is printed?\nint i = 0;\nwhile (++i < 5);\nprintf(\"%d\", i);",
+         "options": {
+          "A": "0",
+          "B": "4",
+          "C": "6",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The loop has an empty body; it stops when ++i gives 5."
+        },
+        {
+         "question": "What is printed?\nint x = 5;\nif (x > 2)\n  if (x > 8) printf(\"A\");\n  else printf(\"B\");",
+         "options": {
+          "A": "B",
+          "B": "AB",
+          "C": "A",
+          "D": "Nothing"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The else belongs to the inner if."
+        },
+        {
+         "question": "What is printed?\nint m = 55;\nprintf(\"%s\", m >= 60 ? \"First\" : m >= 50 ? \"Second\" : \"Third\");",
+         "options": {
+          "A": "Second",
+          "B": "Third",
+          "C": "First",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Nested conditional operators."
+        },
+        {
+         "question": "How many times does the body run?\nfor (i = 100; i > 1; i /= 2) count++;",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "50"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "100, 50, 25, 12, 6, 3."
         }
        ]
       }
@@ -2996,6 +4091,371 @@
          "explanation": "One byte of each row is needed for '\\0'."
         }
        ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nint a[5] = {1, 2, 3, 4, 5}, i, s = 0;\nfor (i = 0; i < 5; i += 2) s += a[i];\nprintf(\"%d\", s);",
+         "options": {
+          "A": "8",
+          "B": "15",
+          "C": "6",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a[0] + a[2] + a[4] = 1 + 3 + 5."
+        },
+        {
+         "question": "What is printed?\nint a[5] = {1, 2, 3, 4, 5}, i;\nfor (i = 4; i >= 0; i--) printf(\"%d\", a[i]);",
+         "options": {
+          "A": "5432",
+          "B": "12345",
+          "C": "54321",
+          "D": "4321"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Printing in reverse order."
+        },
+        {
+         "question": "What is printed?\nint a[] = {3, 8, 1, 9, 4}, i, m = 0;\nfor (i = 1; i < 5; i++) if (a[i] < a[m]) m = i;\nprintf(\"%d\", m);",
+         "options": {
+          "A": "3",
+          "B": "2",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "m is the index of the smallest element (1, at index 2)."
+        },
+        {
+         "question": "What is printed?\nint a[] = {7, 3, 9, 5}, i;\nfor (i = 0; i < 4; i++) if (a[i] == 9) break;\nprintf(\"%d\", i);",
+         "options": {
+          "A": "3",
+          "B": "9",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Linear search stops at index 2."
+        },
+        {
+         "question": "What is printed?\nint a[4], i;\nfor (i = 0; i < 4; i++) a[i] = i * i;\nprintf(\"%d\", a[3]);",
+         "options": {
+          "A": "16",
+          "B": "6",
+          "C": "3",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a = {0, 1, 4, 9}."
+        },
+        {
+         "question": "What is printed?\nint a[2][2] = {{1, 2}, {3, 4}}, i, j, s = 0;\nfor (i = 0; i < 2; i++) for (j = 0; j < 2; j++) s += a[i][j];\nprintf(\"%d\", s);",
+         "options": {
+          "A": "10",
+          "B": "7",
+          "C": "4",
+          "D": "24"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1 + 2 + 3 + 4."
+        },
+        {
+         "question": "For a = {{1, 2}, {3, 4}} and b = {{5, 6}, {7, 8}}, element c[0][0] of the matrix product c = a × b is",
+         "options": {
+          "A": "5",
+          "B": "19",
+          "C": "26",
+          "D": "12"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Row 0 of a · column 0 of b = 1·5 + 2·7."
+        },
+        {
+         "question": "For  int a[][3] = {1, 2, 3, 4, 5};  the values of a[1][1] and a[1][2] are",
+         "options": {
+          "A": "5 and garbage",
+          "B": "An error",
+          "C": "2 and 3",
+          "D": "5 and 0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Rows are filled in order; the missing element is 0."
+        },
+        {
+         "question": "For  int a[3][4];  the value of  sizeof(a) / sizeof(a[0])  is",
+         "options": {
+          "A": "3 (the number of rows)",
+          "B": "48",
+          "C": "12",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). a[0] is one row of 4 ints."
+        },
+        {
+         "question": "To copy array a into array b (both int[5]) you must",
+         "options": {
+          "A": "Write &b = &a;",
+          "B": "Copy element by element (or use memcpy)",
+          "C": "Write b[] = a[];",
+          "D": "Write b = a;"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Arrays cannot be assigned."
+        },
+        {
+         "question": "In bubble sort, the step  if (a[j] > a[j + 1]) swap(a[j], a[j + 1]);  sorts the array in",
+         "options": {
+          "A": "Reverse input order",
+          "B": "Descending order",
+          "C": "Ascending order",
+          "D": "Random order"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Use < for descending order."
+        },
+        {
+         "question": "In pass i (counting from 0) of bubble sort on n elements, the inner loop index j runs from 0 to",
+         "options": {
+          "A": "i",
+          "B": "n − 1",
+          "C": "n",
+          "D": "n − 2 − i"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The last i elements are already in place."
+        },
+        {
+         "question": "One descending bubble-sort pass (swap when a[j] < a[j + 1]) on {2, 9, 4} gives",
+         "options": {
+          "A": "4 9 2",
+          "B": "9 4 2",
+          "C": "2 9 4",
+          "D": "9 2 4"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(2, 9) swap → 9 2 4; (2, 4) swap → 9 4 2."
+        },
+        {
+         "question": "How many swaps does bubble sort make to sort {3, 2, 1} in ascending order?",
+         "options": {
+          "A": "3",
+          "B": "2",
+          "C": "1",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The number of inverted pairs: (3,2), (3,1), (2,1)."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"abc\";\ns[1] = 'X';\nputs(s);",
+         "options": {
+          "A": "abX",
+          "B": "abc",
+          "C": "aXc",
+          "D": "Xbc"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A char array can be modified."
+        },
+        {
+         "question": "What is printed?\nchar s[20] = \"Hi\";\nprintf(\"%d\", (int)(strlen(s) + sizeof(s)));",
+         "options": {
+          "A": "40",
+          "B": "22",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2 + 20."
+        },
+        {
+         "question": "strcmp(\"apple\", \"apricot\") returns",
+         "options": {
+          "A": "A negative value",
+          "B": "3",
+          "C": "A positive value",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The third letters differ: 'p' < 'r'."
+        },
+        {
+         "question": "What is printed?\nchar s[20] = \"Kar\";\nstrcat(s, \"nataka\");\nprintf(\"%d\", (int)strlen(s));",
+         "options": {
+          "A": "6",
+          "B": "20",
+          "C": "3",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\"Karnataka\"."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"education\";\nint i, c = 0;\nfor (i = 0; s[i]; i++)\n  if (strchr(\"aeiou\", s[i])) c++;\nprintf(\"%d\", c);",
+         "options": {
+          "A": "9",
+          "B": "6",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). e, u, a, i, o."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"kea\";\nint i;\nfor (i = 0; s[i]; i++) s[i] = toupper(s[i]);\nprintf(\"%s\", s);",
+         "options": {
+          "A": "kea",
+          "B": "Kea",
+          "C": "KEA",
+          "D": "kEA"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "toupper is in <ctype.h>."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"hello\";\nprintf(\"%c\", s[strlen(s) - 1]);",
+         "options": {
+          "A": "o",
+          "B": "\\0",
+          "C": "l",
+          "D": "h"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The last character before '\\0'."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"abcd\", t;\nint i, n = 4;\nfor (i = 0; i < n / 2; i++) { t = s[i]; s[i] = s[n - 1 - i]; s[n - 1 - i] = t; }\nprintf(\"%s\", s);",
+         "options": {
+          "A": "cdab",
+          "B": "badc",
+          "C": "abcd",
+          "D": "dcba"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "In-place reversal."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"I love C\";\nint i, w = 1;\nfor (i = 0; s[i]; i++) if (s[i] == ' ') w++;\nprintf(\"%d\", w);",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "8",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Words = spaces + 1 (for single spaces)."
+        },
+        {
+         "question": "What is printed?\nchar a[10], b[] = \"dog\";\nstrcpy(a, b);\na[0] = 'f';\nprintf(\"%s %s\", a, b);",
+         "options": {
+          "A": "fog dog",
+          "B": "fog fog",
+          "C": "dog dog",
+          "D": "dog fog"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a is a separate copy."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"C\\0Lang\";\nprintf(\"%s %d\", s, (int)sizeof(s));",
+         "options": {
+          "A": "CLang 7",
+          "B": "C 6",
+          "C": "C 7",
+          "D": "C 2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "printf stops at the embedded '\\0'; the array has 6 characters plus the final '\\0'."
+        },
+        {
+         "question": "For  int a[10];  the statement  a[10] = 5;  is",
+         "options": {
+          "A": "Allowed – the array grows",
+          "B": "Ignored",
+          "C": "A compile-time error",
+          "D": "Undefined behaviour – it may overwrite other data"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C does not check array bounds."
+        },
+        {
+         "question": "A function that takes a 2-D int array with 4 columns is declared as  void f(int a[][4]);  because",
+         "options": {
+          "A": "All dimensions except the first must be given",
+          "B": "Both dimensions must be given",
+          "C": "No sizes are needed",
+          "D": "The rows must be given"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The compiler needs the row length to compute a[i][j]."
+        },
+        {
+         "question": "char s[3] = \"abc\";  in C",
+         "options": {
+          "A": "Allocates 4 bytes",
+          "B": "Is allowed, but s has no '\\0', so it is not a proper string",
+          "C": "Stores \"ab\" and '\\0'",
+          "D": "Is a compile-time error"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "(C++ rejects it.)"
+        },
+        {
+         "question": "What is printed?\nint a[] = {1, 2, 1, 3, 1}, i, c = 0;\nfor (i = 0; i < 5; i++) if (a[i] == 1) c++;\nprintf(\"%d\", c);",
+         "options": {
+          "A": "2",
+          "B": "1",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A frequency count."
+        },
+        {
+         "question": "The largest and second-largest distinct values of {4, 9, 7, 9, 2} are",
+         "options": {
+          "A": "9 and 4",
+          "B": "9 and 7",
+          "C": "7 and 4",
+          "D": "9 and 9"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Duplicates of the largest are skipped."
+        }
+       ]
       }
      ],
      "notes": [
@@ -3743,6 +5203,371 @@
          "answer": "B",
          "subject": "Recursion, Passing Arrays and Storage Classes",
          "explanation": "The local x hides the global x."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nint f(int x) { return x * 2; }\n…\nprintf(\"%d\", f(f(3)));",
+         "options": {
+          "A": "12",
+          "B": "36",
+          "C": "6",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "f(3) = 6, f(6) = 12."
+        },
+        {
+         "question": "What does s(4) return?\nint s(int n) { return n ? n + s(n - 1) : 0; }",
+         "options": {
+          "A": "24",
+          "B": "10",
+          "C": "4",
+          "D": "9"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "4 + 3 + 2 + 1 + 0."
+        },
+        {
+         "question": "What does f(4) return?\nint f(int n) { if (n <= 1) return 1; return f(n - 1) + f(n - 2); }",
+         "options": {
+          "A": "3",
+          "B": "8",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "f(2) = 2, f(3) = 3, f(4) = 5."
+        },
+        {
+         "question": "What is printed?\nint f() { static int c = 0; return ++c; }\n…\nf(); f();\nprintf(\"%d\", f());",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The static counter survives between calls."
+        },
+        {
+         "question": "What is printed when f() is called three times?\nvoid f() { int c = 0; c++; printf(\"%d\", c); }",
+         "options": {
+          "A": "111",
+          "B": "123",
+          "C": "333",
+          "D": "000"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "An auto variable starts again each call."
+        },
+        {
+         "question": "What is printed?\nint g = 1;\nvoid f() { g *= 2; }\nint main() { f(); f(); printf(\"%d\", g); }",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Both calls change the global variable."
+        },
+        {
+         "question": "What is printed by r(123)?\nvoid r(int n) { if (n) { printf(\"%d\", n % 10); r(n / 10); } }",
+         "options": {
+          "A": "3210",
+          "B": "321",
+          "C": "123",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Print the last digit first, then recurse."
+        },
+        {
+         "question": "What is printed by b(6)?\nvoid b(int n) { if (n > 1) b(n / 2); printf(\"%d\", n % 2); }",
+         "options": {
+          "A": "6",
+          "B": "011",
+          "C": "101",
+          "D": "110"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Prints the binary form of 6."
+        },
+        {
+         "question": "What does f(9876) return?\nint f(int n) { return n < 10 ? n : f(n / 10); }",
+         "options": {
+          "A": "9876",
+          "B": "6",
+          "C": "30",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It strips digits until one is left: the first digit."
+        },
+        {
+         "question": "What is printed?\nint sum(int a[], int n) { int i, s = 0; for (i = 0; i < n; i++) s += a[i]; return s; }\n…\nint x[] = {1, 2, 3};\nprintf(\"%d\", sum(x, 3));",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "123",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The array is passed as a pointer with its length."
+        },
+        {
+         "question": "What is printed?\nvoid z(int a[]) { a[1] = 0; }\n…\nint x[] = {5, 6, 7};\nz(x);\nprintf(\"%d\", x[0] + x[1] + x[2]);",
+         "options": {
+          "A": "12",
+          "B": "18",
+          "C": "5",
+          "D": "13"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "z changes x[1] to 0."
+        },
+        {
+         "question": "int *f() { static int x = 5; return &x; }  — returning &x here is",
+         "options": {
+          "A": "A compile-time error",
+          "B": "Undefined because x is local",
+          "C": "Safe, because a static variable lives for the whole run",
+          "D": "A dangling pointer"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Returning the address of an auto variable would be wrong."
+        },
+        {
+         "question": "extern int n;  written in file2.c refers to",
+         "options": {
+          "A": "The variable n defined in another file",
+          "B": "A constant",
+          "C": "A new local variable",
+          "D": "A function"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "extern declares without defining."
+        },
+        {
+         "question": "A global variable declared outside all functions has",
+         "options": {
+          "A": "Block scope",
+          "B": "Static storage duration and file (program) scope",
+          "C": "Automatic storage",
+          "D": "Register storage"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It starts at 0 and lives for the whole run."
+        },
+        {
+         "question": "int f(int x) { if (x) return 1; }  — the value of f(0) used in an expression is",
+         "options": {
+          "A": "0",
+          "B": "Always a compile-time error",
+          "C": "1",
+          "D": "Undefined (garbage), because no value is returned"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Compilers usually only warn."
+        },
+        {
+         "question": "How many calls of f are made for f(100)?\nvoid f(int n) { if (n) f(n - 1); }",
+         "options": {
+          "A": "1",
+          "B": "99",
+          "C": "101",
+          "D": "100"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "f(100), f(99), …, f(0)."
+        },
+        {
+         "question": "What does even(5) return?\nint odd(int n);\nint even(int n) { return n == 0 ? 1 : odd(n - 1); }\nint odd(int n) { return n == 0 ? 0 : even(n - 1); }",
+         "options": {
+          "A": "−1",
+          "B": "0",
+          "C": "1",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Mutual recursion: 5 is odd."
+        },
+        {
+         "question": "If a function returning double is called before its definition and with no prototype, C89 assumes it returns",
+         "options": {
+          "A": "float",
+          "B": "void",
+          "C": "int – which gives wrong results",
+          "D": "double"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Always declare prototypes."
+        },
+        {
+         "question": "What is printed?\nvoid f(int x) { x = x * 10; printf(\"%d \", x); }\n…\nint a = 2;\nf(a);\nprintf(\"%d\", a);",
+         "options": {
+          "A": "20 2",
+          "B": "2 2",
+          "C": "2 20",
+          "D": "20 20"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Call by value."
+        },
+        {
+         "question": "What does m(3, 4) return?\nint m(int a, int b) { return b == 0 ? 0 : a + m(a, b - 1); }",
+         "options": {
+          "A": "64",
+          "B": "7",
+          "C": "81",
+          "D": "12"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Multiplication by repeated addition."
+        },
+        {
+         "question": "The recursive Tower of Hanoi solution for 4 discs makes how many moves?",
+         "options": {
+          "A": "15",
+          "B": "8",
+          "C": "7",
+          "D": "16"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2ⁿ − 1."
+        },
+        {
+         "question": "static int count;  written at file level means",
+         "options": {
+          "A": "count is a constant",
+          "B": "count is local to main",
+          "C": "count is shared with all files",
+          "D": "count is private to this source file and starts at 0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "static gives internal linkage."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", abs(-7) + (int)sqrt(16));",
+         "options": {
+          "A": "23",
+          "B": "3",
+          "C": "11",
+          "D": "−3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "7 + 4 (abs in <stdlib.h>, sqrt in <math.h>)."
+        },
+        {
+         "question": "When a float argument is passed to printf, it is",
+         "options": {
+          "A": "Passed as a float",
+          "B": "Promoted to double",
+          "C": "Converted to int",
+          "D": "Truncated"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "That is why %f works for both."
+        },
+        {
+         "question": "Can main() call itself in C?",
+         "options": {
+          "A": "In C++ alone",
+          "B": "No, it is a compile-time error",
+          "C": "Once at most",
+          "D": "Yes – main can be called recursively"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "C++ forbids it; C allows it."
+        },
+        {
+         "question": "The only storage class specifier allowed for a function parameter is",
+         "options": {
+          "A": "static",
+          "B": "register",
+          "C": "extern",
+          "D": "typedef"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Parameters are automatic otherwise."
+        },
+        {
+         "question": "for (int i = 0; i < 3; i++) { }  (C99) — after the loop, i is",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "Not in scope",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Its scope is the for statement."
+        },
+        {
+         "question": "What does lcm(4, 6) return?\nint gcd(int a, int b) { return b ? gcd(b, a % b) : a; }\nint lcm(int a, int b) { return a / gcd(a, b) * b; }",
+         "options": {
+          "A": "12",
+          "B": "6",
+          "C": "2",
+          "D": "24"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "gcd = 2; 4 / 2 × 6."
+        },
+        {
+         "question": "int *f() { int x = 5; return &x; }",
+         "options": {
+          "A": "Is safe",
+          "B": "Returns 5",
+          "C": "Is a compile-time error everywhere",
+          "D": "Returns a dangling pointer – x no longer exists after f returns"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Compilers usually warn."
+        },
+        {
+         "question": "With  int fib(int n) { return n <= 1 ? n : fib(n-1) + fib(n-2); },  how many calls in total (including the first) does fib(4) make?",
+         "options": {
+          "A": "9",
+          "B": "4",
+          "C": "15",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Calls: C(n) = 1 + C(n − 1) + C(n − 2), C(0) = C(1) = 1 → 3, 5, 9."
         }
        ]
       }

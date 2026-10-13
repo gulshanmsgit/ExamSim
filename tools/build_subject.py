@@ -39,7 +39,7 @@ PACKS = {
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
-    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e"]},
+    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
 }
 
