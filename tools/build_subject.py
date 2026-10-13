@@ -40,6 +40,7 @@ PACKS = {
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
+    "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a"]},
     "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
 }
@@ -65,6 +66,10 @@ EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PL
                   "P2 · KRIES – C Programming": {"icon": "©", "topics": ["Introduction to C Programming", "C Instructions", "Control Structures", "Arrays", "Functions", "Pointers", "Structures and Unions", "Bitwise Operators", "C Preprocessor", "Files"],
                                                  "plan": {"Introduction to C Programming": "P2-KRC-01", "C Instructions": "P2-KRC-02", "Control Structures": "P2-KRC-03", "Arrays": "P2-KRC-04", "Functions": "P2-KRC-05", "Pointers": "P2-KRC-06", "Structures and Unions": "P2-KRC-07", "Bitwise Operators": "P2-KRC-08", "C Preprocessor": "P2-KRC-09", "Files": "P2-KRC-10"}, "sizes": {}, "size": 30,
                                                  "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"},
+                  # KRIES 'Data Structures' syllabus headings (P2-KRD-01…09, tools/make_kries_plan.py); reuses GPSTR Unit 8 questions
+                  "P2 · KRIES – Data Structures": {"icon": "🌳", "topics": ["Introduction to Data Structures", "Primitive Data Structures", "Arrays in Data Structures", "Linked Lists", "Stacks", "Queues", "Trees – Binary Trees", "Graphs", "Searching and Sorting"],
+                                                   "plan": {"Introduction to Data Structures": "P2-KRD-01", "Primitive Data Structures": "P2-KRD-02", "Arrays in Data Structures": "P2-KRD-03", "Linked Lists": "P2-KRD-04", "Stacks": "P2-KRD-05", "Queues": "P2-KRD-06", "Trees – Binary Trees": "P2-KRD-07", "Graphs": "P2-KRD-08", "Searching and Sorting": "P2-KRD-09"}, "sizes": {}, "size": 30,
+                                                   "group": "② Paper 2 · Computer Science (30 questions per sub-topic)"},
                   # KRIES Paper 1 topics that are not in the GPSTR syllabus (P1-KR-01…09, tools/make_kries_plan.py); sets of 20, in Kannada
                   "P1 · KRIES – Karnataka & General Studies": {"icon": "🏛", "topics": [
                       "Land Reforms and Social Change in Karnataka", "Karnataka Economy – Strengths, Weaknesses and Current Status",

@@ -6,6 +6,7 @@ C++, DBMS, Software Engineering, System Software, Internet Technology, Java and 
 onto the GPSTR topics we already have (same plan IDs, so questions, notes and progress are shared). Only two areas are not in the
 GPSTR syllabus; they become topics of the extra subject 'P2 · KRIES – Additional Topics' (P2-KR-01 Java, P2-KR-02 Computer Graphics).
 The C syllabus headings are topics of 'P2 · KRIES – C Programming' (P2-KRC-01…10, owner's request 13 Oct 2026; they reuse the GPSTR Unit 4 C questions).
+The Data Structures headings are topics of 'P2 · KRIES – Data Structures' (P2-KRD-01…09, owner's request 14 Oct 2026; they reuse GPSTR Unit 8 questions).
 Paper 1 (owner's request, 10 Oct 2026, from the KRIES notification: 100 questions, 100 marks, 2 hours) is KEA's general paper
 (items A–O: current affairs, general science, geography, social science, Indian society, history of India and Karnataka,
 Constitution and public administration, practical knowledge and mental ability at SSLC level, Karnataka's social and cultural
@@ -26,6 +27,7 @@ OUT = ROOT / "packs" / "kries-2026-plan.json"
 START = dt.date(2026, 10, 10)
 EXTRA_SUBJECT = "P2 · KRIES – Additional Topics"
 C_SUBJECT = "P2 · KRIES – C Programming"
+DS_SUBJECT = "P2 · KRIES – Data Structures"
 P1_SUBJECT = "P1 · KRIES – Karnataka & General Studies"
 
 # (group, [(plan id, topic, KRIES syllabus coverage, priority, hours)])
@@ -50,14 +52,16 @@ P2_GROUPS = [
         ("P2-KRC-10", "Files", "File operating modes, text and binary files, high-level and low-level operations on files, command line arguments",
          "Medium", 0.75),
     ]),
-    ("Data Structures", "KRIES core area · Unit 8 topics", [
-        ("P2-U8-06", "Performance Analysis & Recurrences", "Introduction to time and space complexity", "Medium", 0.75),
-        ("P2-U8-01", "Linear Data Structures", "Definition, classification and operations; primitive data structures and strings using pointers; 1-D and 2-D array "
-         "storage, insertion and deletion; linked lists (singly, circular, doubly) with dynamic memory allocation; stacks – sequential and linked, Tower of "
-         "Hanoi, infix to postfix, postfix evaluation; queues – circular, priority, deque", "High", 2.0),
-        ("P2-U8-02", "Trees", "Binary trees, sequential and linked representation, insertion and deletion, traversals", "High", 1.0),
-        ("P2-U8-03", "Sets & Graph Representation", "Graph concepts, sequential and linked representation, BFS and DFS", "Medium", 1.0),
-        ("P2-U8-04", "Sorting and Searching", "Linear and binary search; selection, insertion, quick and merge sort (bubble sort with C arrays)", "High", 1.25),
+    ("Data Structures", "KRIES core area · Data Structures – one topic per syllabus heading", [
+        ("P2-KRD-01", "Introduction to Data Structures", "Definition, classification of data structures, operations on data structures, introduction to time and space complexity", "High", 0.75),
+        ("P2-KRD-02", "Primitive Data Structures", "Integer, character, float, strings – memory representation and primitive operations; string manipulation using pointers", "Medium", 0.75),
+        ("P2-KRD-03", "Arrays in Data Structures", "Storage representation of 1-D and 2-D arrays, insertion and deletion on 1-D arrays, advantages and disadvantages of arrays", "High", 0.75),
+        ("P2-KRD-04", "Linked Lists", "Pointers, dynamic memory allocation, singly linked lists and their operations, insertion and deletion of a node; circular and doubly linked lists", "High", 1.0),
+        ("P2-KRD-05", "Stacks", "Concepts, operations, sequential and linked implementation; applications – recursion, Tower of Hanoi, infix to postfix, evaluation of postfix", "High", 1.0),
+        ("P2-KRD-06", "Queues", "Concepts, operations, sequential and linked implementation; circular queues, priority queues and deques; applications of queues", "High", 0.75),
+        ("P2-KRD-07", "Trees – Binary Trees", "Binary trees, sequential and linked representation, insertion and deletion on binary trees, binary tree traversal", "High", 1.0),
+        ("P2-KRD-08", "Graphs", "Concepts, sequential and linked representation of graphs, BFS and DFS traversal", "Medium", 0.75),
+        ("P2-KRD-09", "Searching and Sorting", "Linear and binary search; selection, insertion, quick and merge sort", "High", 1.0),
     ]),
     ("Operating System", "KRIES core area · Unit 6 topics", [
         ("P2-U6-02", "OS Basics", "History; batch, multiprogrammed, time-sharing, personal, distributed and real-time systems; OS structures – command interpreter, "
@@ -173,9 +177,9 @@ P1_GROUPS = [
 # Calendar: (Paper 2 plan IDs, extra Paper 2 text, Paper 1 plan IDs, extra Paper 1 text, phase)
 DAYS = [
     (["P2-KRC-01", "P2-KRC-02", "P2-KRC-03", "P2-KRC-04", "P2-KRC-05"], "", ["P1-GK-05", "P1-KR-01"], "", "Learning"),                                           # Sat 10
-    (["P2-KRC-06", "P2-KRC-07", "P2-KRC-08", "P2-KRC-09", "P2-KRC-10", "P2-U8-06"], "", ["P1-GK-06", "P1-GK-07", "P1-KR-09"], "", "Learning"),                   # Sun 11
-    (["P2-U8-01"], "", ["P1-GK-08"], "", "Learning"),                                                       # Mon 12
-    (["P2-U8-02", "P2-U8-03", "P2-U8-04"], "", ["P1-GK-15"], "", "Learning"),                               # Tue 13
+    (["P2-KRC-06", "P2-KRC-07", "P2-KRC-08", "P2-KRC-09", "P2-KRC-10", "P2-KRD-01", "P2-KRD-02"], "", ["P1-GK-06", "P1-GK-07", "P1-KR-09"], "", "Learning"),                   # Sun 11
+    (["P2-KRD-03", "P2-KRD-04", "P2-KRD-05", "P2-KRD-06"], "", ["P1-GK-08"], "", "Learning"),                                                       # Mon 12
+    (["P2-KRD-07", "P2-KRD-08", "P2-KRD-09"], "", ["P1-GK-15"], "", "Learning"),                               # Tue 13
     (["P2-U6-02", "P2-U6-03", "P2-U6-06"], "", ["P1-CA-13"], "Constitution revision – public administration", "Learning"),  # Wed 14
     (["P2-U6-08", "P2-U6-09"], "", ["P1-KR-03"], "", "Learning"),                                           # Thu 15
     (["P2-U6-11", "P2-U6-10", "P2-U6-12"], "", ["P1-KR-02", "P1-GK-13"], "", "Learning"),                   # Fri 16
@@ -234,16 +238,16 @@ def main():
     groups2, groups1 = sheet_groups(P2_GROUPS, when), sheet_groups(p1_groups, when)
     new_topics = lambda pre: [{"name": topic, "plan": {"id": pid, "start": when[pid][0], "end": when[pid][-1], "priority": pri, "tip": "", "coverage": cov}}
                               for _, _, rs in P2_GROUPS + p1_groups for pid, topic, cov, pri, _ in rs if pid.startswith(pre)]
-    extra_topics, c_topics, p1_topics = new_topics("P2-KR-"), new_topics("P2-KRC-"), sorted(new_topics("P1-KR-"), key=lambda t: t["plan"]["id"])
+    extra_topics, c_topics, ds_topics, p1_topics = new_topics("P2-KR-"), new_topics("P2-KRC-"), new_topics("P2-KRD-"), sorted(new_topics("P1-KR-"), key=lambda t: t["plan"]["id"])
     pack = {
         "examsimPack": 1,
         "name": "Study plan · KRIES Computer Teacher 2026",
         "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 (general paper) on 26 Oct and Paper 2 (Computer Teacher) on "
                        "27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus KRIES-only topics (Paper 1: Karnataka "
                        "land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC "
-                       "arithmetic and social science – in Kannada; Paper 2: C Programming topic by topic as in the KRIES syllabus, Java, Computer Graphics). Importing it switches the app to KRIES "
+                       "arithmetic and social science – in Kannada; Paper 2: C Programming and Data Structures topic by topic as in the KRIES syllabus, Java, Computer Graphics). Importing it switches the app to KRIES "
                        "mode; switch back to GPSTR any time in Profile → Exam mode.",
-        "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
+        "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": DS_SUBJECT, "icon": "🌳", "topics": ds_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
         "studyPlan": {
             "key": "kries", "title": "KRIES Computer Teacher 2026 study plan", "examDate": "2026-10-26",
             "exams": [{"paper": "Paper 1", "date": "2026-10-26"}, {"paper": "Paper 2", "date": "2026-10-27"}], "papers": ["p1", "p2"],

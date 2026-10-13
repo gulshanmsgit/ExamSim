@@ -1,0 +1,2247 @@
+{
+ "examsimPack": 1,
+ "name": "P2 · KRIES — Data Structures",
+ "description": "2 of 9 topics so far (6 sets × 30 questions): Introduction to Data Structures; Primitive Data Structures. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "subjects": [
+  {
+   "name": "P2 · KRIES – Data Structures",
+   "icon": "🌳",
+   "topics": [
+    {
+     "name": "Introduction to Data Structures",
+     "plan": {
+      "id": "P2-KRD-01"
+     },
+     "sets": [
+      {
+       "name": "1 · Definition, Classification and Operations on Data Structures",
+       "questions": [
+        {
+         "question": "Which of the following is a linear data structure?",
+         "options": {
+          "A": "Tree",
+          "B": "Graph",
+          "C": "Stack",
+          "D": "Hash table"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Stack elements form a sequence. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q72"
+        },
+        {
+         "question": "To represent hierarchical relationship between elements, which data structure is suitable?",
+         "options": {
+          "A": "Dequeue",
+          "B": "Priority",
+          "C": "Tree",
+          "D": "Graph"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "A tree models parent–child hierarchy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q8"
+        },
+        {
+         "question": "Match the following data structures in List-I with its concepts in List-II:\n(a) Binary search tree\n(b) Graph\n(c) Dynamic array\n(d) Max heap\n(i) Elements stored in contiguous memory location that can grow dynamically\n(ii) Tree where each node has at most two children\n(iii) Complete Binary tree where parent ≥ children\n(iv) Data structure consisting of nodes connected by edges can be cyclic.",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "A BST is a binary tree, a graph may contain cycles, a dynamic array is contiguous and growable, and a max heap is a complete tree with parent ≥ children. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q3"
+        },
+        {
+         "question": "Arrange the following data structures in increasing order of access time for retrieving the iᵗʰ-element (average case).\n(a) Array\n(b) Singly linked list\n(c) Binary search tree\n(d) Dynamic Array",
+         "options": {
+          "A": "(a), (d), (c), (b)",
+          "B": "(d), (a), (c), (b)",
+          "C": "(a), (d), (b), (c)",
+          "D": "(c), (b), (a), (d)"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Arrays and dynamic arrays give O(1) indexed access (the plain array listed first), a BST O(log n), a linked list O(n). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q4"
+        },
+        {
+         "question": "Match the following given concepts in List-I with the description in List-II.\n(a) AVL tree\n(b) B tree\n(c) Heap\n(d) Hashing\n(i) Direct access using hash function\n(ii) Complete binary tree used in priority queue\n(iii) Self balancing binary search tree\n(iv) Used in database indexing",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – ii, b – i, c – iii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "AVL = self-balancing BST; B-tree = database indexes; heap = priority queue; hashing = direct access. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q12"
+        },
+        {
+         "question": "____ is a method used to encode information into a format that can be used and understood by computer system.",
+         "options": {
+          "A": "Data structure",
+          "B": "Data definition",
+          "C": "Data representation",
+          "D": "Data crunching"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Data representation = how information is coded (binary, ASCII, floating point …). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q34"
+        },
+        {
+         "question": "Consider a linked list, visiting each element of the linked list is known as",
+         "options": {
+          "A": "Sorting",
+          "B": "Merging",
+          "C": "Traversal",
+          "D": "Inserting"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Traversal = visiting every element once. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q2"
+        },
+        {
+         "question": "What is the time complexity of accessing an element in an array by its index?",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n)",
+          "C": "O(log n)",
+          "D": "O(n^2)"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "The address is computed directly from the index. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q19"
+        },
+        {
+         "question": "A data structure is",
+         "options": {
+          "A": "A type of computer",
+          "B": "A way of organising and storing data so that it can be used efficiently",
+          "C": "A file format",
+          "D": "A programming language"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "PYQ pattern (KEA / KSET papers). Choice of data structure decides the efficiency of the algorithm."
+        },
+        {
+         "question": "'Algorithms + Data Structures = Programs' is the title of a book by",
+         "options": {
+          "A": "Alan Turing",
+          "B": "Donald Knuth",
+          "C": "Dennis Ritchie",
+          "D": "Niklaus Wirth"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Wirth also designed Pascal."
+        },
+        {
+         "question": "Which of these is a primitive data structure?",
+         "options": {
+          "A": "Queue",
+          "B": "int",
+          "C": "Stack",
+          "D": "Tree"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Primitive types are operated on directly by machine instructions."
+        },
+        {
+         "question": "Which is a non-linear data structure?",
+         "options": {
+          "A": "Queue",
+          "B": "Tree",
+          "C": "Array",
+          "D": "Stack"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "PYQ pattern (KEA / KSET papers). Trees and graphs are non-linear."
+        },
+        {
+         "question": "In a linear data structure",
+         "options": {
+          "A": "Elements have no order",
+          "B": "Every element is joined to every other",
+          "C": "Elements form a hierarchy",
+          "D": "Elements form a sequence – each, except the ends, has one predecessor and one successor"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Arrays, stacks, queues, linked lists."
+        },
+        {
+         "question": "Which data structure is dynamic – its size can change while the program runs?",
+         "options": {
+          "A": "Linked list",
+          "B": "int",
+          "C": "char",
+          "D": "Static array"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Nodes are allocated as needed."
+        },
+        {
+         "question": "An array holds elements of one type, while a structure (record) can hold elements of different types. Arrays are therefore",
+         "options": {
+          "A": "Dynamic",
+          "B": "Non-linear",
+          "C": "Heterogeneous",
+          "D": "Homogeneous"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Structures are heterogeneous."
+        },
+        {
+         "question": "Which is NOT a basic operation on data structures?",
+         "options": {
+          "A": "Merging",
+          "B": "Compiling",
+          "C": "Searching",
+          "D": "Traversing"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Also inserting, deleting and sorting."
+        },
+        {
+         "question": "Combining two sorted lists into one sorted list is called",
+         "options": {
+          "A": "Traversing",
+          "B": "Searching",
+          "C": "Hashing",
+          "D": "Merging"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Used in merge sort."
+        },
+        {
+         "question": "An abstract data type (ADT) specifies",
+         "options": {
+          "A": "The data and the operations on it, without saying how they are implemented",
+          "B": "A file format",
+          "C": "Machine code",
+          "D": "The exact memory layout"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "PYQ pattern (KEA / KSET papers). E.g. a stack ADT: push, pop, peek, isEmpty."
+        },
+        {
+         "question": "To store a family tree, the most suitable data structure is a",
+         "options": {
+          "A": "Array of integers",
+          "B": "Tree",
+          "C": "Queue",
+          "D": "Stack"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Parent–child relations."
+        },
+        {
+         "question": "A road map of cities and roads is best stored as a",
+         "options": {
+          "A": "Stack",
+          "B": "Queue",
+          "C": "Graph",
+          "D": "Binary tree"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Cities = vertices, roads = edges."
+        },
+        {
+         "question": "Jobs sent to a shared printer are handled in the order they arrive. The suitable data structure is a",
+         "options": {
+          "A": "Graph",
+          "B": "Queue",
+          "C": "Tree",
+          "D": "Stack"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "First in, first out."
+        },
+        {
+         "question": "The time complexity of an algorithm is",
+         "options": {
+          "A": "The number of steps it takes, as a function of the input size",
+          "B": "The compile time",
+          "C": "The time taken to write it",
+          "D": "The processor's clock speed"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Expressed with O, Ω and Θ."
+        },
+        {
+         "question": "Space complexity measures",
+         "options": {
+          "A": "The disk size",
+          "B": "The number of variable names",
+          "C": "The memory an algorithm needs, as a function of the input size",
+          "D": "The program length in lines"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Fixed part + variable part (stack, dynamic data)."
+        },
+        {
+         "question": "For linear search, the best case occurs when",
+         "options": {
+          "A": "The array is sorted",
+          "B": "The key is absent",
+          "C": "The key is the last element",
+          "D": "The key is the first element"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "One comparison: O(1)."
+        },
+        {
+         "question": "Using extra memory, such as a lookup table, to make a program faster is called",
+         "options": {
+          "A": "Fragmentation",
+          "B": "A time–space trade-off",
+          "C": "Recursion",
+          "D": "A hash collision"
+         },
+         "answer": "B",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Less time, more space (or the reverse)."
+        },
+        {
+         "question": "Which is NOT one of the properties of an algorithm (Knuth)?",
+         "options": {
+          "A": "Definiteness",
+          "B": "Effectiveness",
+          "C": "It must be written in C",
+          "D": "Finiteness"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Also input and output."
+        },
+        {
+         "question": "Processed, meaningful data is called",
+         "options": {
+          "A": "Raw data",
+          "B": "A record",
+          "C": "A field",
+          "D": "Information"
+         },
+         "answer": "D",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Data → processing → information."
+        },
+        {
+         "question": "A collection of related fields (e.g. roll number, name, marks of one student) is a",
+         "options": {
+          "A": "Record",
+          "B": "File",
+          "C": "Database",
+          "D": "Byte"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "Field → record → file → database."
+        },
+        {
+         "question": "Which data structure best represents many-to-many relationships, such as friendships in a social network?",
+         "options": {
+          "A": "Stack",
+          "B": "Queue",
+          "C": "Graph",
+          "D": "Tree"
+         },
+         "answer": "C",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "A tree allows only one parent per node."
+        },
+        {
+         "question": "The 'undo' feature of a text editor is naturally implemented with a",
+         "options": {
+          "A": "Stack",
+          "B": "Heap",
+          "C": "Graph",
+          "D": "Queue"
+         },
+         "answer": "A",
+         "subject": "Definition, Classification and Operations on Data Structures",
+         "explanation": "The last change is undone first."
+        }
+       ]
+      },
+      {
+       "name": "2 · Introduction to Time and Space Complexity – Asymptotic Notation",
+       "questions": [
+        {
+         "question": "f(n) = O(g(n)) means that g(n) is:",
+         "options": {
+          "A": "An asymptotic lower bound of f(n)",
+          "B": "An asymptotic upper bound of f(n)",
+          "C": "An exact (tight) bound only",
+          "D": "Unrelated to f(n)"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). f(n) ≤ c·g(n) for all n ≥ n₀, for some constants c > 0 and n₀."
+        },
+        {
+         "question": "f(n) = Θ(g(n)) means that:",
+         "options": {
+          "A": "g(n) is only a lower bound",
+          "B": "g(n) is both an upper and a lower bound of f(n) (a tight bound)",
+          "C": "g(n) is only an upper bound",
+          "D": "f(n) grows faster than g(n)"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "c₁g(n) ≤ f(n) ≤ c₂g(n) for large n."
+        },
+        {
+         "question": "f(n) = Ω(g(n)) means that g(n) is:",
+         "options": {
+          "A": "Always equal to f(n)",
+          "B": "An asymptotic lower bound of f(n)",
+          "C": "An asymptotic upper bound of f(n)",
+          "D": "Smaller only for small n"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "f(n) ≥ c·g(n) for large n."
+        },
+        {
+         "question": "f(n) = 3n² + 5n + 2 is:",
+         "options": {
+          "A": "Θ(n³)",
+          "B": "Θ(n)",
+          "C": "Θ(n log n)",
+          "D": "Θ(n²)"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "The highest-order term dominates; constants are ignored."
+        },
+        {
+         "question": "Which is the correct increasing order of growth?",
+         "options": {
+          "A": "n, log n, √n, n², n log n, 2ⁿ, n!",
+          "B": "√n, log n, n, n², n log n, n!, 2ⁿ",
+          "C": "log n, √n, n, n log n, n², 2ⁿ, n!",
+          "D": "log n, n, √n, n log n, 2ⁿ, n², n!"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). A standard ordering to memorise."
+        },
+        {
+         "question": "Which function grows fastest for large n?",
+         "options": {
+          "A": "n^(log n)",
+          "B": "n¹⁰",
+          "C": "2ⁿ",
+          "D": "n!"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "n¹⁰ < n^(log n) < 2ⁿ < n! for large n."
+        },
+        {
+         "question": "What is the time complexity of this loop?\ni = 1;\nwhile (i < n) i = i * 2;",
+         "options": {
+          "A": "O(√n)",
+          "B": "O(log n)",
+          "C": "O(n log n)",
+          "D": "O(n)"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). i doubles each time, so the loop runs about log₂ n times."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i <= n; i++)\n  for (j = 1; j <= i; j++)\n    count++;",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n log n)",
+          "C": "O(n²)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "1 + 2 + … + n = n(n + 1)/2."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i <= n; i++)\n  for (j = 1; j < n; j = j * 2)\n    count++;",
+         "options": {
+          "A": "O(log² n)",
+          "B": "O(n²)",
+          "C": "O(n log n)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "The outer loop runs n times and the inner about log₂ n times."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = n; i > 0; i = i / 2)\n  for (j = 0; j < i; j++)\n    count++;",
+         "options": {
+          "A": "O(n log n)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). n + n/2 + n/4 + … < 2n."
+        },
+        {
+         "question": "An algorithm with running time n² takes 1 second for n = 1000. For n = 2000 it will take about:",
+         "options": {
+          "A": "4 seconds",
+          "B": "8 seconds",
+          "C": "2 seconds",
+          "D": "1 second"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "Doubling n multiplies n² by 4."
+        },
+        {
+         "question": "Which is TRUE?",
+         "options": {
+          "A": "n² = O(n)",
+          "B": "2ⁿ⁺¹ = O(2ⁿ)",
+          "C": "n! = O(2ⁿ)",
+          "D": "2²ⁿ = O(2ⁿ)"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "PYQ pattern (UGC-NET / GATE / KEA). 2ⁿ⁺¹ = 2·2ⁿ, but 2²ⁿ = 4ⁿ grows faster than any constant times 2ⁿ."
+        },
+        {
+         "question": "log(n!) is:",
+         "options": {
+          "A": "Θ(n log n)",
+          "B": "Θ(n)",
+          "C": "Θ(n²)",
+          "D": "Θ(log n)"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "By Stirling's approximation; this gives the sorting lower bound."
+        },
+        {
+         "question": "log₂ n and log₁₀ n are:",
+         "options": {
+          "A": "Of the same order Θ(log n), since they differ by a constant factor",
+          "B": "Of different orders",
+          "C": "Both Θ(n)",
+          "D": "Unrelated"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "log₂ n = log₁₀ n / log₁₀ 2."
+        },
+        {
+         "question": "The harmonic sum 1 + 1/2 + 1/3 + … + 1/n is:",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(log n)",
+          "C": "Θ(1)",
+          "D": "Θ(n²)"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "It is approximately ln n."
+        },
+        {
+         "question": "The space complexity of a program consists of:",
+         "options": {
+          "A": "A fixed part (code, constants, simple variables) and a variable part (depending on the instance, e.g. recursion stack)",
+          "B": "Only the size of the input",
+          "C": "Only the code size",
+          "D": "Only the output size"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "This is the Horowitz–Sahni definition."
+        },
+        {
+         "question": "The recursive function fact(n) = n × fact(n − 1) uses stack space:",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(1)",
+          "C": "O(n)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "n calls are active at the deepest point."
+        },
+        {
+         "question": "Appending n items to a dynamic array that doubles its capacity when full costs:",
+         "options": {
+          "A": "O(n²) per append",
+          "B": "O(log n) per append",
+          "C": "O(n) per append always",
+          "D": "O(1) amortised per append"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "The occasional O(n) copy is spread over many cheap appends."
+        },
+        {
+         "question": "Which statement about little-o is correct?",
+         "options": {
+          "A": "n = o(n²), since n grows strictly slower than n²",
+          "B": "o means the same as Θ",
+          "C": "n² = o(n)",
+          "D": "n² = o(n²)"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "f = o(g) means f/g → 0."
+        },
+        {
+         "question": "If f(n) = O(g(n)) and g(n) = O(h(n)), then f(n) = O(h(n)). This property is:",
+         "options": {
+          "A": "Transpose symmetry",
+          "B": "Symmetry",
+          "C": "Transitivity",
+          "D": "Reflexivity only"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "Θ is also symmetric; O is not."
+        },
+        {
+         "question": "Problems solvable by polynomial-time algorithms are generally called:",
+         "options": {
+          "A": "Intractable",
+          "B": "Tractable",
+          "C": "Undecidable",
+          "D": "Exponential"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "Exponential-time problems quickly become impractical."
+        },
+        {
+         "question": "Consider the statements:\nI. n log n = O(n^1.5).\nII. n^1.5 = O(n log n).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "log n grows slower than n^0.5."
+        },
+        {
+         "question": "Consider the statements:\nI. Big-O gives an upper bound.\nII. The worst-case running time of an algorithm can be written with Big-O.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Consider the statements:\nI. 100n² is Θ(n³).\nII. n³ is O(n²).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "100n² is Θ(n²); n³ is not O(n²)."
+        },
+        {
+         "question": "Assertion (A): Constant factors are ignored in asymptotic analysis.\nReason (R): For large n, the growth rate matters more than constant multipliers.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "That is why 5n and 100n are both Θ(n)."
+        },
+        {
+         "question": "Assertion (A): An O(n²) algorithm is always slower than an O(n log n) algorithm.\nReason (R): Asymptotic notation hides constant factors and lower-order terms.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "For small n or large constants the O(n²) algorithm can be faster; A is false."
+        },
+        {
+         "question": "Assertion (A): Linear search has Θ(1) best-case time.\nReason (R): Linear search has Θ(log n) worst-case time.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "A is true; R is false – the worst case is Θ(n)."
+        },
+        {
+         "question": "Match the code pattern with its complexity:\na. Single loop i = 1 … n\nb. Two nested loops 1 … n\nc. i = i * 2 up to n\nd. Accessing A[i]\n\n1. O(1)\n2. O(log n)\n3. O(n)\n4. O(n²)",
+         "options": {
+          "A": "a-3, b-2, c-4, d-1",
+          "B": "a-3, b-4, c-1, d-2",
+          "C": "a-4, b-3, c-2, d-1",
+          "D": "a-3, b-4, c-2, d-1"
+         },
+         "answer": "D",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "These are the basic patterns of loop analysis."
+        },
+        {
+         "question": "Match the notation with its meaning:\na. O\nb. Ω\nc. Θ\nd. o\n\n1. Upper bound\n2. Tight bound\n3. Lower bound\n4. Strictly smaller order",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-1, b-2, c-3, d-4",
+          "D": "a-3, b-1, c-2, d-4"
+         },
+         "answer": "B",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "ω (little-omega) is the strict lower bound."
+        },
+        {
+         "question": "The sum 1 + 2 + 3 + … + n is:",
+         "options": {
+          "A": "Θ(2ⁿ)",
+          "B": "Θ(n log n)",
+          "C": "Θ(n²)",
+          "D": "Θ(n)"
+         },
+         "answer": "C",
+         "subject": "Introduction to Time and Space Complexity – Asymptotic Notation",
+         "explanation": "n(n + 1)/2."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Complexity",
+       "questions": [
+        {
+         "question": "Find the time complexity for the given algorithm.\n1. Repeat for I = 1 to N:\n2.   Repeat for J = 1 to N:\n3.     Repeat for K = 1 to N:\n4.       Module A.\n        [End of step 3 loop.]\n      [End of step 2 loop.]\n    [End of step 1 loop.]\n5. Exit",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(n³)",
+          "C": "O(n)",
+          "D": "O(1)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Three nested loops of N iterations each: N³ executions of Module A. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q6"
+        },
+        {
+         "question": "The complexity of brute force algorithm to find all the substrings in a given string of 'm' characters and a substring of length 'n' (where m >> n) is",
+         "options": {
+          "A": "O(mn)",
+          "B": "O(m)",
+          "C": "O(n)",
+          "D": "O(mn²)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Try each of about m starting positions and compare up to n characters: O(mn). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q67"
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 0; i < n; i++) sum += a[i];",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(1)",
+          "C": "O(n)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "PYQ pattern (KEA / KSET papers). One loop of n steps."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 0; i < n; i++)\n  for (j = 0; j < n; j++)\n    c[i][j] = 0;",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n log n)",
+          "C": "O(2n)",
+          "D": "O(n²)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "n × n steps."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 0; i < n; i++)\n  for (j = 0; j < 10; j++)\n    s++;",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(log n)",
+          "C": "O(10ⁿ)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "The inner loop is a constant 10."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i <= n; i = i * 3) s++;",
+         "options": {
+          "A": "O(3ⁿ)",
+          "B": "O(n/3)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "i takes the values 1, 3, 9, … – about log₃ n steps."
+        },
+        {
+         "question": "What is the time complexity of three nested loops, each running n times?",
+         "options": {
+          "A": "O(3n)",
+          "B": "O(n³)",
+          "C": "O(n²)",
+          "D": "O(n log n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "n · n · n."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 1; i * i <= n; i++) s++;",
+         "options": {
+          "A": "O(√n)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "PYQ pattern (KEA / KSET papers). The loop stops when i exceeds √n."
+        },
+        {
+         "question": "What is the time complexity?\nfor (i = 0; i < n; i++) s++;\nfor (j = 0; j < n; j++) s++;",
+         "options": {
+          "A": "O(log n)",
+          "B": "O(2ⁿ)",
+          "C": "O(n²)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Two loops one after the other: n + n = 2n."
+        },
+        {
+         "question": "The naive recursive Fibonacci function fib(n) = fib(n − 1) + fib(n − 2) runs in",
+         "options": {
+          "A": "O(n²)",
+          "B": "Exponential time, O(2ⁿ)",
+          "C": "O(n)",
+          "D": "O(log n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "The same values are recomputed again and again."
+        },
+        {
+         "question": "The recursive factorial function fact(n) = n × fact(n − 1) takes",
+         "options": {
+          "A": "O(1) time",
+          "B": "O(log n) space",
+          "C": "O(n) time and O(n) stack space",
+          "D": "O(n²) time"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "n calls are active at the deepest point."
+        },
+        {
+         "question": "Assigning a value to a[5] takes",
+         "options": {
+          "A": "O(1)",
+          "B": "O(log n)",
+          "C": "O(5)",
+          "D": "O(n)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Constant time, whatever the array size."
+        },
+        {
+         "question": "Multiplying two n × n matrices with the usual triple loop takes",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(n³)",
+          "C": "O(2ⁿ)",
+          "D": "O(n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "n² entries, each a sum of n products."
+        },
+        {
+         "question": "For n = 4, how many times does count++ run?\nfor (i = 0; i < n; i++)\n  for (j = i; j < n; j++)\n    count++;",
+         "options": {
+          "A": "6",
+          "B": "16",
+          "C": "4",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "PYQ pattern (KEA / KSET papers). 4 + 3 + 2 + 1 = n(n + 1)/2."
+        },
+        {
+         "question": "How many times does the body run?\nfor (i = 1; i <= 64; i = i * 2) s++;",
+         "options": {
+          "A": "64",
+          "B": "32",
+          "C": "7",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "1, 2, 4, 8, 16, 32, 64."
+        },
+        {
+         "question": "Summing an array with a loop and one variable needs extra space of",
+         "options": {
+          "A": "O(1)",
+          "B": "O(log n)",
+          "C": "O(n²)",
+          "D": "O(n)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Only the sum and the index."
+        },
+        {
+         "question": "Making a copy of an array of n elements needs extra space of",
+         "options": {
+          "A": "O(n)",
+          "B": "O(log n)",
+          "C": "O(1)",
+          "D": "O(n²)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "One new element per element."
+        },
+        {
+         "question": "For large n, which function grows fastest?",
+         "options": {
+          "A": "n²",
+          "B": "n¹⁰",
+          "C": "2ⁿ",
+          "D": "n log n"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "An exponential eventually beats any polynomial."
+        },
+        {
+         "question": "Which complexity is the best (fastest) for large n?",
+         "options": {
+          "A": "O(n)",
+          "B": "O(log n)",
+          "C": "O(√n)",
+          "D": "O(n log n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "log n < √n < n < n log n."
+        },
+        {
+         "question": "An O(n) algorithm takes 2 seconds for n = 1,000. For n = 4,000 it takes about",
+         "options": {
+          "A": "2 seconds",
+          "B": "32 seconds",
+          "C": "16 seconds",
+          "D": "8 seconds"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Four times the input, four times the time."
+        },
+        {
+         "question": "An O(n³) algorithm takes 1 second for n = 100. For n = 200 it takes about",
+         "options": {
+          "A": "3 seconds",
+          "B": "4 seconds",
+          "C": "8 seconds",
+          "D": "2 seconds"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "2³ = 8."
+        },
+        {
+         "question": "Binary search on a sorted array of 128 elements needs at most how many comparisons?",
+         "options": {
+          "A": "64",
+          "B": "128",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "⌊log₂ 128⌋ + 1."
+        },
+        {
+         "question": "Inserting at the end of an array that still has free space takes",
+         "options": {
+          "A": "O(log n)",
+          "B": "O(1)",
+          "C": "O(n²)",
+          "D": "O(n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "No shifting is needed."
+        },
+        {
+         "question": "Finding the maximum of an unsorted array of n elements takes",
+         "options": {
+          "A": "Θ(n)",
+          "B": "Θ(log n)",
+          "C": "Θ(1)",
+          "D": "Θ(n²)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Every element must be looked at."
+        },
+        {
+         "question": "Finding the maximum of an array sorted in ascending order takes",
+         "options": {
+          "A": "O(n log n)",
+          "B": "O(n)",
+          "C": "O(1)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "It is the last element."
+        },
+        {
+         "question": "The recurrence T(n) = T(n − 1) + 1 solves to",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "One unit of work per level, n levels."
+        },
+        {
+         "question": "The recurrence T(n) = 2T(n/2) + 1 solves to",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n log n)",
+          "C": "O(log n)",
+          "D": "O(n²)"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "The number of nodes in the recursion tree is about 2n."
+        },
+        {
+         "question": "The recurrence T(n) = T(n/2) + 1 solves to",
+         "options": {
+          "A": "O(n)",
+          "B": "O(log n)",
+          "C": "O(1)",
+          "D": "O(n log n)"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "That is binary search."
+        },
+        {
+         "question": "Recursive binary search on n elements uses stack space of",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(1)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "The depth of recursion is log n (iterative: O(1))."
+        },
+        {
+         "question": "Which statement about asymptotic notation is correct?",
+         "options": {
+          "A": "Big-O depends on the processor",
+          "B": "Big-O gives an upper bound on the growth rate",
+          "C": "Big-O includes constant factors",
+          "D": "Big-O gives the exact running time"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Complexity",
+         "explanation": "Ω is a lower bound, Θ a tight bound."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Introduction to data structures – revision sheet",
+       "md": "## Definition and classification\n- Data structure = organised way of storing data for efficient access and change; ADT = data + operations, implementation hidden\n- **Primitive**: int, char, float, double, pointer (machine-level)\n- **Non-primitive** → **linear** (array, stack, queue, linked list) | **non-linear** (tree, graph)\n- Static (array, fixed size) vs dynamic (linked list); homogeneous (array) vs heterogeneous (structure)\n- Choosing: hierarchy → tree; network → graph; undo/recursion → stack; printer jobs/BFS → queue\n- Data → information; field → record → file\n\n## Operations\nTraversing, searching, inserting, deleting, sorting, merging\n\n## Complexity\n- Time / space as a function of input size n; best, average, worst case; time–space trade-off\n- O (upper), Ω (lower), Θ (tight), o (strictly smaller); constants and lower terms dropped\n- Growth: 1 < log n < √n < n < n log n < n² < n³ < 2ⁿ < n!\n| Code pattern | Time |\n|---|---|\n| single loop to n | O(n) |\n| i = i × 2 (or × 3) | O(log n) |\n| i × i ≤ n | O(√n) |\n| two nested loops to n | O(n²) |\n| j from i to n (n = 4 → 10 steps) | O(n²) |\n| three nested loops | O(n³) |\n| naive Fibonacci | O(2ⁿ) |\n- Recurrences: T(n−1) + 1 → n; T(n/2) + 1 → log n; 2T(n/2) + 1 → n; 2T(n/2) + n → n log n\n- Algorithm properties (Knuth): finiteness, definiteness, input, output, effectiveness\n"
+      }
+     ]
+    },
+    {
+     "name": "Primitive Data Structures",
+     "plan": {
+      "id": "P2-KRD-02"
+     },
+     "sets": [
+      {
+       "name": "1 · Integer, Character and Float – Memory Representation and Primitive Operations",
+       "questions": [
+        {
+         "question": "A 16 × 16 array having only black and white pixels could be represented by ____",
+         "options": {
+          "A": "32 bytes",
+          "B": "64 bytes",
+          "C": "96 bytes",
+          "D": "128 bytes"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "256 pixels × 1 bit = 256 bits = 32 bytes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q27"
+        },
+        {
+         "question": "If negative members are stored in 2's complement form, then range of numbers that can be stored in 8 bits is ____",
+         "options": {
+          "A": "−127 to +127",
+          "B": "−127 to +128",
+          "C": "−128 to +127",
+          "D": "−128 to +128"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "−2⁷ … 2⁷ − 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q38"
+        },
+        {
+         "question": "A floating-point number is said to be normalized, if the MSB (Most Significant Bit) of the mantissa is ____.",
+         "options": {
+          "A": "−1",
+          "B": "0",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "No leading zeros in the mantissa. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 MCA · Q12"
+        },
+        {
+         "question": "Primitive data structures are those that",
+         "options": {
+          "A": "Have no fixed size",
+          "B": "Are operated on directly by machine instructions – int, char, float, pointers",
+          "C": "Are built from other structures",
+          "D": "Are always linked"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "PYQ pattern (KEA / KSET papers). Non-primitive: arrays, lists, stacks, queues, trees, graphs."
+        },
+        {
+         "question": "Negative integers are stored in most computers in",
+         "options": {
+          "A": "Sign-magnitude form",
+          "B": "ASCII",
+          "C": "BCD",
+          "D": "2's complement form"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "It has a single zero and simple addition."
+        },
+        {
+         "question": "A 32-bit signed int can hold values from",
+         "options": {
+          "A": "0 to 4,294,967,295",
+          "B": "−2,147,483,648 to +2,147,483,647",
+          "C": "−32,768 to +32,767",
+          "D": "−2³² to +2³²"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "−2³¹ … 2³¹ − 1."
+        },
+        {
+         "question": "−5 in 8-bit 2's complement is",
+         "options": {
+          "A": "11111011",
+          "B": "10000101",
+          "C": "00000101",
+          "D": "11111010"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "5 = 00000101; invert → 11111010; add 1."
+        },
+        {
+         "question": "The character 'A' is stored in one byte as",
+         "options": {
+          "A": "01100001",
+          "B": "00001010",
+          "C": "11000001",
+          "D": "01000001 (ASCII 65)"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "01100001 is 'a' (97)."
+        },
+        {
+         "question": "Kannada letters are stored in computers using",
+         "options": {
+          "A": "Unicode, e.g. UTF-8 with several bytes per letter",
+          "B": "EBCDIC",
+          "C": "BCD",
+          "D": "7-bit ASCII"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "ASCII has only 128 characters."
+        },
+        {
+         "question": "An IEEE 754 single-precision float has",
+         "options": {
+          "A": "1, 11 and 52 bits",
+          "B": "16 integer and 16 fraction bits",
+          "C": "1 sign bit, 8 exponent bits and 23 fraction bits",
+          "D": "8 bits only"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Double: 1, 11, 52."
+        },
+        {
+         "question": "The value 0.1 cannot be stored exactly in a float because",
+         "options": {
+          "A": "Floats are integers",
+          "B": "0.1 is negative",
+          "C": "Floats have no exponent",
+          "D": "0.1 has no finite binary fraction"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Like 1/3 in decimal."
+        },
+        {
+         "question": "On a little-endian machine, the 32-bit value 0x12345678 stored at address 100 has which byte at address 100?",
+         "options": {
+          "A": "0x34",
+          "B": "0x78",
+          "C": "0x12",
+          "D": "0x56"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "The least significant byte comes first (x86)."
+        },
+        {
+         "question": "Which is NOT a primitive operation on integers?",
+         "options": {
+          "A": "Addition",
+          "B": "Comparison",
+          "C": "Sorting",
+          "D": "Bitwise AND"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Sorting works on a collection."
+        },
+        {
+         "question": "C has no separate Boolean type before C99; a condition is",
+         "options": {
+          "A": "A char 'T' or 'F'",
+          "B": "An int: 0 means false, any non-zero value means true",
+          "C": "A float",
+          "D": "A string"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "C99 added _Bool."
+        },
+        {
+         "question": "An 8-bit unsigned value 255 plus 1 gives",
+         "options": {
+          "A": "−1",
+          "B": "An error",
+          "C": "256",
+          "D": "0 (it wraps around)"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Unsigned arithmetic is modulo 2⁸."
+        },
+        {
+         "question": "The values of 17 / 5 and 17 % 5 (integers) are",
+         "options": {
+          "A": "3 and 2",
+          "B": "4 and 3",
+          "C": "3 and 0.4",
+          "D": "3.4 and 2"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Quotient and remainder."
+        },
+        {
+         "question": "The value of 'a' + 2, printed with %c, is",
+         "options": {
+          "A": "99",
+          "B": "b",
+          "C": "c",
+          "D": "a2"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "97 + 2 = 99 = 'c'."
+        },
+        {
+         "question": "To turn a digit character c ('0'–'9') into its value, compute",
+         "options": {
+          "A": "c − '0'",
+          "B": "c / 10",
+          "C": "c − 'a'",
+          "D": "c + '0'"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "'7' − '0' = 7."
+        },
+        {
+         "question": "Typical sizes of char, int, float and double are",
+         "options": {
+          "A": "2, 4, 8 and 16 bytes",
+          "B": "1, 2, 2 and 4 bytes",
+          "C": "1, 8, 4 and 8 bytes",
+          "D": "1, 4, 4 and 8 bytes"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Turbo C uses a 2-byte int."
+        },
+        {
+         "question": "Which is often listed with int, char and float as a primitive data structure?",
+         "options": {
+          "A": "Tree",
+          "B": "Pointer",
+          "C": "Queue",
+          "D": "Linked list"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "It holds an address."
+        },
+        {
+         "question": "A 16-bit unsigned integer can hold values from",
+         "options": {
+          "A": "0 to 65,536",
+          "B": "−32,768 to 32,767",
+          "C": "0 to 32,767",
+          "D": "0 to 65,535"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "2¹⁶ − 1."
+        },
+        {
+         "question": "double gives about how many significant decimal digits?",
+         "options": {
+          "A": "15–16",
+          "B": "3",
+          "C": "30",
+          "D": "6–7"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "float gives about 6–7."
+        },
+        {
+         "question": "How many bits are needed to store any one of 100 different values?",
+         "options": {
+          "A": "6",
+          "B": "100",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "2⁶ = 64 < 100 ≤ 128 = 2⁷."
+        },
+        {
+         "question": "Storing money as a whole number of paise instead of a float number of rupees avoids",
+         "options": {
+          "A": "Endianness problems",
+          "B": "Rounding errors of binary fractions",
+          "C": "Overflow in every case",
+          "D": "Sign problems"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Integers are exact."
+        },
+        {
+         "question": "The value of  '7' − '0' + 1  is",
+         "options": {
+          "A": "7",
+          "B": "'8'",
+          "C": "56",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "7 + 1."
+        },
+        {
+         "question": "One byte can hold how many different values?",
+         "options": {
+          "A": "128",
+          "B": "255",
+          "C": "256",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "2⁸."
+        },
+        {
+         "question": "A char variable holding 'B' contains the bit pattern",
+         "options": {
+          "A": "01000010",
+          "B": "01100010",
+          "C": "00000010",
+          "D": "01000001"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "'B' = 66."
+        },
+        {
+         "question": "A pointer variable on a 64-bit system occupies",
+         "options": {
+          "A": "1 byte",
+          "B": "8 bytes, whatever type it points to",
+          "C": "2 bytes",
+          "D": "The size of the pointed-to type"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "It stores a memory address."
+        },
+        {
+         "question": "The smallest addressable unit of memory in most computers is the",
+         "options": {
+          "A": "Byte",
+          "B": "Bit",
+          "C": "Nibble",
+          "D": "Word"
+         },
+         "answer": "A",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "Each byte has its own address."
+        },
+        {
+         "question": "The data type of a variable decides",
+         "options": {
+          "A": "Its address",
+          "B": "The memory it occupies, the values it can hold and the operations allowed on it",
+          "C": "Its name alone",
+          "D": "The file it is saved in"
+         },
+         "answer": "B",
+         "subject": "Integer, Character and Float – Memory Representation and Primitive Operations",
+         "explanation": "That is what makes a type an abstract data type."
+        }
+       ]
+      },
+      {
+       "name": "2 · Strings – Memory Representation and String Manipulation Using Pointers",
+       "questions": [
+        {
+         "question": "What is the purpose of a string data type in C programming?",
+         "options": {
+          "A": "To store numerical values",
+          "B": "To store True/False values",
+          "C": "To store Text and characters",
+          "D": "To perform mathematical operations"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "A char array ending in '\\0'. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q88"
+        },
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\n#include<string.h>\nvoid main()\n{\n  printf(\"%d%d\", sizeof (\"bengaluru\"),\n    strlen(\"bengaluru\"));\n}",
+         "options": {
+          "A": "9 9",
+          "B": "10 9",
+          "C": "10 10",
+          "D": "9 10"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "sizeof counts the '\\0'. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q86"
+        },
+        {
+         "question": "Match the following functions in List-I with their purpose in List-II.\n(a) strcat(S1, S2)\n(b) strncmp(S1, S2, n)\n(c) strchr(S1, ch)\n(d) strstr(S1, S2)\n(i) Returns pointer to first occurrence ch in S1\n(ii) Returns pointer to first occurrence S2 in S1\n(iii) Concatenates S2 to S1\n(iv) Compares two strings based on n and returns a value",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – i, b – iii, c – iv, d – ii"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "strcat appends, strncmp compares up to n characters, strchr finds a character, strstr finds a substring. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q83"
+        },
+        {
+         "question": "In C, the string \"KEA\" occupies",
+         "options": {
+          "A": "3 bytes",
+          "B": "6 bytes",
+          "C": "1 byte",
+          "D": "4 bytes"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Three characters and the terminating '\\0'."
+        },
+        {
+         "question": "Besides fixed-length and variable-length records, strings can be stored as",
+         "options": {
+          "A": "Binary trees always",
+          "B": "Hash tables of digits",
+          "C": "Graphs",
+          "D": "Linked lists of characters (or blocks of characters)"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Lipschutz, ch. 3."
+        },
+        {
+         "question": "Storing a string's length in its first byte instead of ending it with a terminator (as Pascal does) allows",
+         "options": {
+          "A": "Finding the length in O(1)",
+          "B": "Using no memory",
+          "C": "Faster comparison in every case",
+          "D": "Unlimited length"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "C must scan to the '\\0' (O(n))."
+        },
+        {
+         "question": "What does len(\"data\") return?\nint len(char *s) { char *p = s; while (*p) p++; return p - s; }",
+         "options": {
+          "A": "5",
+          "B": "3",
+          "C": "4",
+          "D": "An address"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pointer subtraction gives the number of characters."
+        },
+        {
+         "question": "The loop  while ((*d++ = *s++));",
+         "options": {
+          "A": "Copies the string s to d, including the terminating '\\0'",
+          "B": "Reverses s",
+          "C": "Counts the characters",
+          "D": "Compares s and d"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "The classic K&R strcpy."
+        },
+        {
+         "question": "Reversing a string of n characters in place with two pointers needs",
+         "options": {
+          "A": "2n swaps",
+          "B": "⌊n/2⌋ swaps",
+          "C": "n − 1 swaps",
+          "D": "n swaps"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Swap the ends and move inwards."
+        },
+        {
+         "question": "strcat(s1, s2) takes time proportional to",
+         "options": {
+          "A": "len(s1) × len(s2)",
+          "B": "len(s2) alone",
+          "C": "A constant",
+          "D": "len(s1) + len(s2)"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "It must first find the end of s1."
+        },
+        {
+         "question": "Naive pattern matching of a pattern of length m in a text of length n checks at most how many starting positions?",
+         "options": {
+          "A": "m",
+          "B": "n × m",
+          "C": "n − m + 1",
+          "D": "n"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Each check costs up to m comparisons."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"KARNATAKA\";\np += 3;\nprintf(\"%s\", p);",
+         "options": {
+          "A": "ATAKA",
+          "B": "NATAKA",
+          "C": "RNATAKA",
+          "D": "KAR"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "p now points to the fourth character."
+        },
+        {
+         "question": "For  char *s = \"MYSURU\";  the value of  *(s + 2)  is",
+         "options": {
+          "A": "'U'",
+          "B": "'M'",
+          "C": "'Y'",
+          "D": "'S'"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "M(0) Y(1) S(2)."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"bengaluru\";\nint c = 0;\nwhile (*p) { if (strchr(\"aeiou\", *p)) c++; p++; }\nprintf(\"%d\", c);",
+         "options": {
+          "A": "4",
+          "B": "9",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). e, a, u, u."
+        },
+        {
+         "question": "Checking whether \"madam\" is a palindrome with two pointers p (start) and q (end) means",
+         "options": {
+          "A": "Counting the vowels",
+          "B": "Sorting the letters",
+          "C": "Comparing *p and *q while moving them towards each other",
+          "D": "Comparing *p with *(p + 1)"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Stop when the pointers meet or a pair differs."
+        },
+        {
+         "question": "Inside a loop over a string,  if (*p >= 'a' && *p <= 'z') *p -= 32;",
+         "options": {
+          "A": "Removes the letters",
+          "B": "Converts lowercase letters to uppercase",
+          "C": "Converts uppercase to lowercase",
+          "D": "Counts the letters"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "'a' − 32 = 'A'."
+        },
+        {
+         "question": "Storing names of different lengths as an array of char pointers (instead of a 2-D char array)",
+         "options": {
+          "A": "Uses more memory",
+          "B": "Sorts the names automatically",
+          "C": "Is not allowed in C",
+          "D": "Saves memory, since each string uses only the space it needs"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "A 2-D array reserves the longest length for every row."
+        },
+        {
+         "question": "When sorting an array of char pointers (strings), it is efficient to swap",
+         "options": {
+          "A": "The pointers, not the characters",
+          "B": "The addresses of the array",
+          "C": "Every character",
+          "D": "The lengths"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Only addresses move."
+        },
+        {
+         "question": "strcmp(\"Zebra\", \"apple\") returns a value that is",
+         "options": {
+          "A": "Positive",
+          "B": "Undefined",
+          "C": "Negative, because 'Z' (90) < 'a' (97)",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Comparison uses character codes."
+        },
+        {
+         "question": "On a 64-bit system, with  char s[] = \"Hi\";  and  char *p = \"Hi\";  the values of sizeof(s) and sizeof(p) are",
+         "options": {
+          "A": "2 and 8",
+          "B": "8 and 8",
+          "C": "3 and 8",
+          "D": "3 and 3"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "An array versus a pointer."
+        },
+        {
+         "question": "For the empty string \"\", strlen and sizeof give",
+         "options": {
+          "A": "0 and 0",
+          "B": "1 and 1",
+          "C": "1 and 0",
+          "D": "0 and 1"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "It still has the '\\0'."
+        },
+        {
+         "question": "Inserting a character in the middle of a string stored in an array requires",
+         "options": {
+          "A": "Rewriting the program",
+          "B": "Shifting all the following characters one place to the right",
+          "C": "Nothing",
+          "D": "Changing the length byte only"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "O(n) work."
+        },
+        {
+         "question": "Deleting a character from the middle of a string stored in an array requires",
+         "options": {
+          "A": "Shifting all the following characters one place to the left",
+          "B": "Reallocating memory",
+          "C": "Nothing",
+          "D": "Setting it to a space"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "Including the '\\0'."
+        },
+        {
+         "question": "For  char s[20], *p = s + 7, *q = s + 2;  the value of  p − q  is",
+         "options": {
+          "A": "7",
+          "B": "2",
+          "C": "9",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "The number of characters between them."
+        },
+        {
+         "question": "strtok() is used to",
+         "options": {
+          "A": "Join strings",
+          "B": "Compare strings",
+          "C": "Split a string into tokens separated by delimiter characters",
+          "D": "Reverse a string"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "strtok(s, \" \") gives the words one by one."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"472\";\nint n = 0;\nwhile (*p) n = n * 10 + (*p++ - '0');\nprintf(\"%d\", n);",
+         "options": {
+          "A": "472",
+          "B": "274",
+          "C": "13",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "How atoi works."
+        },
+        {
+         "question": "To count how often each character occurs in a string, a common method uses",
+         "options": {
+          "A": "A stack",
+          "B": "An array of 256 counters indexed by the character code",
+          "C": "A queue",
+          "D": "A binary tree"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "count[(unsigned char)*p]++."
+        },
+        {
+         "question": "For  char *s = \"hello\";  the value of  strchr(s, 'l') − s  is",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "The first 'l' is at index 2."
+        },
+        {
+         "question": "char *p = \"abc\";  then  p[1]  and  *(p + 1)  are",
+         "options": {
+          "A": "Both 'b'",
+          "B": "'a' and 'b'",
+          "C": "'b' and an address",
+          "D": "Both addresses"
+         },
+         "answer": "A",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "p[i] is *(p + i)."
+        },
+        {
+         "question": "For  char *s = \"data structure\";  the value of  strstr(s, \"struct\") − s  is",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "4",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Strings – Memory Representation and String Manipulation Using Pointers",
+         "explanation": "\"data \" takes positions 0–4."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nprintf(\"%c\", 'A' + 5);",
+         "options": {
+          "A": "70",
+          "B": "F",
+          "C": "E",
+          "D": "A5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "65 + 5 = 70 = 'F'."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 'z' - 'a');",
+         "options": {
+          "A": "122",
+          "B": "26",
+          "C": "25",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "122 − 97."
+        },
+        {
+         "question": "On a compiler with signed 8-bit char, what is printed?\nprintf(\"%d\", (char)200);",
+         "options": {
+          "A": "56",
+          "B": "200",
+          "C": "−200",
+          "D": "−56"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 200 − 256."
+        },
+        {
+         "question": "What is printed?\nunsigned char c = 250;\nc += 10;\nprintf(\"%d\", c);",
+         "options": {
+          "A": "4",
+          "B": "255",
+          "C": "0",
+          "D": "260"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "260 − 256."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%.2f\", 10 / 4.0);",
+         "options": {
+          "A": "2",
+          "B": "2.00",
+          "C": "2.5",
+          "D": "2.50"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "One real operand gives real division."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 7 / 2 * 2);",
+         "options": {
+          "A": "3",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "7 / 2 = 3, then × 2."
+        },
+        {
+         "question": "What is printed?\nint x = 0x2A;\nprintf(\"%d\", x);",
+         "options": {
+          "A": "42",
+          "B": "2",
+          "C": "32",
+          "D": "210"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2 × 16 + 10."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%o\", 64);",
+         "options": {
+          "A": "64",
+          "B": "40",
+          "C": "100",
+          "D": "1000000"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "64 = 1 × 8²."
+        },
+        {
+         "question": "What is printed?\nfloat f = 1e-3;\nprintf(\"%f\", f);",
+         "options": {
+          "A": "1e-3",
+          "B": "0.000100",
+          "C": "0.010000",
+          "D": "0.001000"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%f prints six decimals."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", '0' + 5);",
+         "options": {
+          "A": "5",
+          "B": "48",
+          "C": "53",
+          "D": "'5'"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "48 + 5."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"DATA\";\nprintf(\"%c\", *s + 1);",
+         "options": {
+          "A": "A",
+          "B": "E",
+          "C": "D1",
+          "D": "68"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "*s = 'D' (68); 68 + 1 = 'E'."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"STACK\";\nprintf(\"%c%c\", *p, *(p + 4));",
+         "options": {
+          "A": "SK",
+          "B": "SC",
+          "C": "ST",
+          "D": "KS"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "First and last characters."
+        },
+        {
+         "question": "What is printed?\nchar s[10] = \"ab\";\nstrcat(s, \"cd\");\nprintf(\"%d\", (int)strlen(s));",
+         "options": {
+          "A": "10",
+          "B": "4",
+          "C": "2",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\"abcd\"."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"queue\";\nprintf(\"%d\", (int)(sizeof(s) - strlen(s)));",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "6",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The '\\0' byte."
+        },
+        {
+         "question": "What is printed?\nchar *s = \"tree\";\nwhile (*s) putchar(*s++ - 32);",
+         "options": {
+          "A": "Tree",
+          "B": "An infinite loop",
+          "C": "tree",
+          "D": "TREE"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Each lowercase letter minus 32."
+        },
+        {
+         "question": "What is printed?\nint count = 0;\nchar *p = \"a b c\";\nwhile (*p) if (*p++ == ' ') count++;\nprintf(\"%d\", count);",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Two spaces."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%s\", \"graph\" + 2);",
+         "options": {
+          "A": "ph",
+          "B": "gr",
+          "C": "aph",
+          "D": "graph"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A string literal is an address; + 2 skips two characters."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"LIST\";\ns[2] = '\\0';\nprintf(\"%s\", s);",
+         "options": {
+          "A": "LI",
+          "B": "L",
+          "C": "LIT",
+          "D": "LIST"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The string now ends at index 2."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", strcmp(\"abc\", \"abc\") == 0);",
+         "options": {
+          "A": "abc",
+          "B": "1",
+          "C": "−1",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Equal strings give 0, so the comparison is true."
+        },
+        {
+         "question": "What is printed?\nint n = 0;\nchar *p = \"2026\";\nwhile (*p) n = n * 10 + (*p++ - '0');\nprintf(\"%d\", n + 1);",
+         "options": {
+          "A": "20261",
+          "B": "2026",
+          "C": "3",
+          "D": "2027"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The string becomes the number 2026."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (int)sizeof(\"\"));",
+         "options": {
+          "A": "8",
+          "B": "1",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Just the '\\0'."
+        },
+        {
+         "question": "What is printed?\nchar a[] = \"abc\", b[] = \"abc\";\nprintf(\"%d\", a == b);",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "abc",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Two different arrays have different addresses; use strcmp."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%5.1f|\", 3.14159);",
+         "options": {
+          "A": "'3.14159|'",
+          "B": "'00003.1|'",
+          "C": "'3.1|'",
+          "D": "'  3.1|'"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Width 5, one decimal, right-justified."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%x\", 255 + 1);",
+         "options": {
+          "A": "fg",
+          "B": "ff",
+          "C": "100",
+          "D": "256"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "256 = 0x100."
+        },
+        {
+         "question": "What is printed?\ndouble d = 5 / 2;\nprintf(\"%.1f\", d);",
+         "options": {
+          "A": "2.0",
+          "B": "0.0",
+          "C": "3.0",
+          "D": "2.5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Integer division first."
+        },
+        {
+         "question": "What is printed?\nfloat f = 0.5;\nprintf(\"%d\", f == 0.5);",
+         "options": {
+          "A": "Undefined",
+          "B": "Compile error",
+          "C": "0",
+          "D": "1 – 0.5 is exact in binary"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 0.5 = 2⁻¹ is exact; 0.1 is not."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 1 + '1');",
+         "options": {
+          "A": "'2'",
+          "B": "11",
+          "C": "50",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "'1' is 49."
+        },
+        {
+         "question": "The value of  strlen(\"C\\tDS\")  is",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\\t is one character."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"abcde\", *p = s + 1, *q = s + 3;\nprintf(\"%d\", (int)(q - p));",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Index 3 − index 1."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%c\", \"KEA\"[1]);",
+         "options": {
+          "A": "E",
+          "B": "Compile error",
+          "C": "A",
+          "D": "K"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A string literal can be indexed like an array."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Primitive data structures – revision sheet",
+       "md": "## Integers\n- 2's complement: n bits → −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 (8-bit −128…127; 32-bit ±2.1 × 10⁹); −5 = 11111011\n- Unsigned 16-bit 0…65,535; unsigned arithmetic wraps (255 + 1 = 0 in 8 bits; 250 + 10 = 4)\n- Operations: + − × / % (17 / 5 = 3, 17 % 5 = 2), comparison, bitwise\n- Little-endian stores the least significant byte first (0x12345678 → 78 56 34 12)\n\n## Characters\n- ASCII 7-bit ('A' 65 = 01000001, 'a' 97, '0' 48, space 32); Unicode/UTF-8 for Kannada etc.\n- Arithmetic on codes: 'a' + 2 = 'c'; c − '0' gives a digit's value; lowercase − 32 = uppercase\n\n## Floating point\n- IEEE 754: float 1 + 8 + 23 (≈ 7 digits), double 1 + 11 + 52 (≈ 15–16 digits); normalized mantissa starts with 1\n- 0.1 is not exact (0.5 is) – never compare floats with ==; store money as integer paise\n\n## Strings\n- C: char array ending in '\\0' (\"KEA\" = 4 bytes; sizeof(\"\") = 1); Pascal: length byte\n- Representations: fixed-length, variable-length (terminator or length), linked\n- Pointer idioms: length `while (*p) p++; return p − s;`; copy `while ((*d++ = *s++));`; reverse with two pointers (⌊n/2⌋ swaps); atoi `n = n*10 + (*p − '0')`\n- Library: strlen, strcpy, strncpy, strcat (O(len1 + len2)), strcmp (code order: 'Z' < 'a'), strchr, strstr, strtok\n- Array of char pointers saves space for ragged strings; sort by swapping pointers; compare with strcmp, not ==\n"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

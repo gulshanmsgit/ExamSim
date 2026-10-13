@@ -17,7 +17,7 @@ if hasattr(sys.stdout, "reconfigure"):
 ROOT = Path(__file__).parent.parent
 PACKS = ROOT / "packs"
 LEGACY = {"gpstr-cst-2026-01-days01-02.json"}
-REUSE = {"p2-kries-c.json"}  # packs whose questions may repeat questions of other packs (KRIES C topics pull GPSTR Unit 4 questions)  # older 10-per-topic sample, exempt from set-size and map rules
+REUSE = {"p2-kries-c.json", "p2-kries-ds.json"}  # packs whose questions may repeat questions of other packs (KRIES C topics pull GPSTR Unit 4 questions)  # older 10-per-topic sample, exempt from set-size and map rules
 MOCK_TOPICS = {"Mock tests", "ಮಾದರಿ ಪರೀಕ್ಷೆಗಳು (Mock tests)"}
 KANNADA = re.compile(r"[ಀ-೿]")
 
