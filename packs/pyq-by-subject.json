@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 729. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 737. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -10063,142 +10063,7 @@
        ]
       },
       {
-       "name": "3 · KSET 2025 CS&A",
-       "questions": [
-        {
-         "question": "Identify the correctness of the following statements?\ni. Logical data independence is the ability to modify the logical schema without transforming the application programs\nii. Logical data independence modifies the logical schema as well as the application programs\niii. Logical data independence is complicated to achieve than the physical data independence",
-         "options": {
-          "A": "(i) and (ii) are correct and (iii) is incorrect",
-          "B": "(i) and (iii) are incorrect and (ii) is correct",
-          "C": "(i) and (iii) are correct and (ii) is incorrect",
-          "D": "(i) and (ii) are incorrect and (iii) is correct"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "Logical independence means applications need not change; it is harder to achieve than physical independence. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q31"
-        },
-        {
-         "question": "Identify the correctness of the following statements:\ni. The project operation is a unary operation which extracts attributes from a relation\nii. The project operation allows us to locate tuples that are in one relation but not in another relation\niii. The project operation connects the data across the relations",
-         "options": {
-          "A": "(i) and (ii) are incorrect and (iii) is correct",
-          "B": "(i) and (ii) are correct and (iii) is incorrect",
-          "C": "(i) is correct and (ii) and (iii) are incorrect",
-          "D": "(i) is incorrect and (ii) and (iii) are correct"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "(ii) describes set difference and (iii) describes join. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q32"
-        },
-        {
-         "question": "Consider the following statements:\ni. Stored procedures can be used to process multiple databases\nii. Extended stored procedures are compiled as dynamic link library files\niii. Local stored procedures are stored on user-built databases\nChoose the correct statement from the options given below:",
-         "options": {
-          "A": "(i), (ii) and (iii) are incorrect",
-          "B": "(i) is correct, (ii) and (iii) are incorrect",
-          "C": "(i) is incorrect, (ii) and (iii) are correct",
-          "D": "(i), (ii) and (iii) are correct"
-         },
-         "answer": "D",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "All three hold, e.g. in SQL Server: procedures can reference several databases, extended procedures are DLLs, and local procedures live in user databases. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q33"
-        },
-        {
-         "question": "____ eliminates relations between candidate keys.",
-         "options": {
-          "A": "First Normal Form",
-          "B": "Second Normal Form",
-          "C": "Third Normal Form",
-          "D": "Boyce-Codd Normal Form"
-         },
-         "answer": "D",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "BCNF removes the anomalies 3NF allows when candidate keys overlap: every determinant must be a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q34"
-        },
-        {
-         "question": "In ____, whenever a new update is made, multiple versions of the data items are produced.",
-         "options": {
-          "A": "Normalization",
-          "B": "Write Ahead Logging",
-          "C": "Shadow Paging",
-          "D": "Serializability"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "Shadow paging writes updates to new page copies while the shadow (old) version is kept until commit. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q35"
-        },
-        {
-         "question": "Match the following:\na. BCNF iff\nb. 5 NF iff\nc. 1 NF iff\nd. 4 NF iff\n(i) every JD is implied by the candidate keys\n(ii) every MVD is implied by the candidate keys\n(iii) all underlying domains contain scalar values only\n(iv) every FD is implied by the candidate keys",
-         "options": {
-          "A": "a – iii, b – ii, c – i, d – iv",
-          "B": "a – iv, b – i, c – ii, d – iii",
-          "C": "a – iv, b – i, c – iii, d – ii",
-          "D": "a – iv, b – iii, c – ii, d – i"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "BCNF: FDs; 4NF: MVDs; 5NF: JDs; 1NF: atomic domains. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q36"
-        },
-        {
-         "question": "Match the following:\na. Data warehouse\nb. Data mining\nc. OLAP\nd. Aggregation\n(i) which allows users to analyse data from multiple database systems at once\n(ii) is the summarization of fact related data\n(iii) central repository of information that can be analyzed to make more informed decisions\n(iv) is a process used to discover patterns and relationships in datasets",
-         "options": {
-          "A": "a – ii, b – iii, c – iv, d – i",
-          "B": "a – iii, b – iv, c – i, d – ii",
-          "C": "a – iii, b – iv, c – ii, d – i",
-          "D": "a – iii, b – ii, c – iv, d – i"
-         },
-         "answer": "B",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "Warehouse = central repository; mining = pattern discovery; OLAP = multi-dimensional analysis; aggregation = summarisation. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q37"
-        },
-        {
-         "question": "Which of the following refers to the problem of finding abstracted patterns (structures) in the unlabelled data?",
-         "options": {
-          "A": "Supervised learning",
-          "B": "Unsupervised learning",
-          "C": "Hybrid learning",
-          "D": "Reinforcement learning"
-         },
-         "answer": "B",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "Unsupervised learning finds structure in data without labels. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q38"
-        },
-        {
-         "question": "Match the following relation R and S:\na. Theta Join\nb. Equi Join\nc. Left outer Join\nd. Right outer Join\n(i) If no matching tuples found in S, then the attributes of S are filled with NULL\n(ii) If no matching tuples found in R, then the attributes of R are filled with NULL\n(iii) Combinations of tuples of R and S that satisfies join condition\n(iv) Combinations of tuples of R and S that satisfies equality comparisons",
-         "options": {
-          "A": "a – iv, b – iii, c – i, d – ii",
-          "B": "a – iv, b – iii, c – ii, d – i",
-          "C": "a – iii, b – iv, c – i, d – ii",
-          "D": "a – iii, b – iv, c – ii, d – i"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "Theta join: any condition; equi join: equality only; R ⟕ S pads S's attributes; R ⟖ S pads R's. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q39"
-        },
-        {
-         "question": "Given the following entries of a table State_tb:\nState_id | Region | Population\nUP | N | 28\nMP | N | 08\nKAR | S | 06\nTN | S | 07\nthe SQL statement\nSELECT Sum(Population)\nFROM State_tb\nGROUP BY Region;",
-         "options": {
-          "A": "is syntactically wrong",
-          "B": "gives total sum of population of all the regions",
-          "C": "gives sum of population of S and N separately",
-          "D": "gives population of each state"
-         },
-         "answer": "C",
-         "subject": "KSET 2025 CS&A",
-         "explanation": "GROUP BY Region returns one sum per region: N = 36, S = 13. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2025 CS&A · Q40"
-        }
-       ]
-      },
-      {
-       "name": "4 · Legislative Council 2024 Computer Operator P2",
+       "name": "3 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "In a relational database, what does a 'foreign key' do?",
@@ -10329,6 +10194,128 @@
          "subject": "Legislative Council 2024 Computer Operator P2",
          "explanation": "KEA's key takes this as the 3NF idea 'every non-key attribute depends on the key, the whole key and nothing but the key'. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Computer Operator P2 · Q34"
+        }
+       ]
+      },
+      {
+       "name": "4 · KSET 2025 CS&A",
+       "questions": [
+        {
+         "question": "Identify the correctness of the following statements?\ni. Logical data independence is the ability to modify the logical schema without transforming the application programs\nii. Logical data independence modifies the logical schema as well as the application programs\niii. Logical data independence is complicated to achieve than the physical data independence",
+         "options": {
+          "A": "(i) and (ii) are correct and (iii) is incorrect",
+          "B": "(i) and (iii) are incorrect and (ii) is correct",
+          "C": "(i) and (iii) are correct and (ii) is incorrect",
+          "D": "(i) and (ii) are incorrect and (iii) is correct"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "Logical independence means applications need not change; it is harder to achieve than physical independence. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q31"
+        },
+        {
+         "question": "Identify the correctness of the following statements:\ni. The project operation is a unary operation which extracts attributes from a relation\nii. The project operation allows us to locate tuples that are in one relation but not in another relation\niii. The project operation connects the data across the relations",
+         "options": {
+          "A": "(i) and (ii) are incorrect and (iii) is correct",
+          "B": "(i) and (ii) are correct and (iii) is incorrect",
+          "C": "(i) is correct and (ii) and (iii) are incorrect",
+          "D": "(i) is incorrect and (ii) and (iii) are correct"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "(ii) describes set difference and (iii) describes join. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q32"
+        },
+        {
+         "question": "Consider the following statements:\ni. Stored procedures can be used to process multiple databases\nii. Extended stored procedures are compiled as dynamic link library files\niii. Local stored procedures are stored on user-built databases\nChoose the correct statement from the options given below:",
+         "options": {
+          "A": "(i), (ii) and (iii) are incorrect",
+          "B": "(i) is correct, (ii) and (iii) are incorrect",
+          "C": "(i) is incorrect, (ii) and (iii) are correct",
+          "D": "(i), (ii) and (iii) are correct"
+         },
+         "answer": "D",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "All three hold, e.g. in SQL Server: procedures can reference several databases, extended procedures are DLLs, and local procedures live in user databases. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q33"
+        },
+        {
+         "question": "____ eliminates relations between candidate keys.",
+         "options": {
+          "A": "First Normal Form",
+          "B": "Second Normal Form",
+          "C": "Third Normal Form",
+          "D": "Boyce-Codd Normal Form"
+         },
+         "answer": "D",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "BCNF removes the anomalies 3NF allows when candidate keys overlap: every determinant must be a candidate key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q34"
+        },
+        {
+         "question": "In ____, whenever a new update is made, multiple versions of the data items are produced.",
+         "options": {
+          "A": "Normalization",
+          "B": "Write Ahead Logging",
+          "C": "Shadow Paging",
+          "D": "Serializability"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "Shadow paging writes updates to new page copies while the shadow (old) version is kept until commit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q35"
+        },
+        {
+         "question": "Match the following:\na. BCNF iff\nb. 5 NF iff\nc. 1 NF iff\nd. 4 NF iff\n(i) every JD is implied by the candidate keys\n(ii) every MVD is implied by the candidate keys\n(iii) all underlying domains contain scalar values only\n(iv) every FD is implied by the candidate keys",
+         "options": {
+          "A": "a – iii, b – ii, c – i, d – iv",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – iv, b – i, c – iii, d – ii",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "BCNF: FDs; 4NF: MVDs; 5NF: JDs; 1NF: atomic domains. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q36"
+        },
+        {
+         "question": "Match the following:\na. Data warehouse\nb. Data mining\nc. OLAP\nd. Aggregation\n(i) which allows users to analyse data from multiple database systems at once\n(ii) is the summarization of fact related data\n(iii) central repository of information that can be analyzed to make more informed decisions\n(iv) is a process used to discover patterns and relationships in datasets",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iii, b – ii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "Warehouse = central repository; mining = pattern discovery; OLAP = multi-dimensional analysis; aggregation = summarisation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q37"
+        },
+        {
+         "question": "Match the following relation R and S:\na. Theta Join\nb. Equi Join\nc. Left outer Join\nd. Right outer Join\n(i) If no matching tuples found in S, then the attributes of S are filled with NULL\n(ii) If no matching tuples found in R, then the attributes of R are filled with NULL\n(iii) Combinations of tuples of R and S that satisfies join condition\n(iv) Combinations of tuples of R and S that satisfies equality comparisons",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "Theta join: any condition; equi join: equality only; R ⟕ S pads S's attributes; R ⟖ S pads R's. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q39"
+        },
+        {
+         "question": "Given the following entries of a table State_tb:\nState_id | Region | Population\nUP | N | 28\nMP | N | 08\nKAR | S | 06\nTN | S | 07\nthe SQL statement\nSELECT Sum(Population)\nFROM State_tb\nGROUP BY Region;",
+         "options": {
+          "A": "is syntactically wrong",
+          "B": "gives total sum of population of all the regions",
+          "C": "gives sum of population of S and N separately",
+          "D": "gives population of each state"
+         },
+         "answer": "C",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "GROUP BY Region returns one sum per region: N = 36, S = 13. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q40"
         }
        ]
       },
@@ -11520,19 +11507,6 @@
          "source": "KEA 2026 CS Paper-2 · Q40"
         },
         {
-         "question": "A grammar contains direct left recursion\nE → E + T | T\nWhich parser type cannot handle this grammar directly?",
-         "options": {
-          "A": "LL (1) Parser",
-          "B": "LR (0) Parser",
-          "C": "SLR (1) Parser",
-          "D": "LALR (1) Parser"
-         },
-         "answer": "A",
-         "subject": "KEA 2026 CS Paper-2",
-         "explanation": "Top-down LL parsers loop forever on left recursion; LR parsers handle it. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 CS Paper-2 · Q42"
-        },
-        {
          "question": "Consider the following set of processes that arrive at time 0 with length of the CPU burst time given in milliseconds: P1 = 26, P2 = 4, P3 = 5. What is the average waiting time for the processes that arrive in the orders P1, P2, P3 and P2, P1, P3 under FCFS policy?",
          "options": {
           "A": "18.65 and 11.32",
@@ -11809,19 +11783,6 @@
          "subject": "KSET 2024 CS&A",
          "explanation": "The access (static) link points to the activation record of the enclosing scope, for access to non-local names. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 CS&A · Q78"
-        },
-        {
-         "question": "The primary data structure used by an LR parser to keep track of the parsing process is ____",
-         "options": {
-          "A": "Stack",
-          "B": "Queue",
-          "C": "Linked List",
-          "D": "Binary Tree"
-         },
-         "answer": "A",
-         "subject": "KSET 2024 CS&A",
-         "explanation": "An LR parser shifts states and symbols onto a stack and pops them on reductions. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q79"
         },
         {
          "question": "Which of these are TRUE for public-private key encryption algorithm?\n(i) Private key of the receiver is used by the sender to encrypt the message\n(ii) Public key is used by the receiver to decrypt the message",
@@ -12279,19 +12240,6 @@
          "subject": "KSET 2023 CS&A",
          "explanation": "Type 1 hypervisors are special-purpose OSs running on bare hardware; type 0 is firmware-based and type 2 runs on a host OS. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2023 CS&A · Q29"
-        },
-        {
-         "question": "Which of the following derivations is used by top-down parser?",
-         "options": {
-          "A": "Leftmost derivation",
-          "B": "Leftmost derivation in reverse",
-          "C": "Rightmost derivation",
-          "D": "Rightmost derivation in reverse"
-         },
-         "answer": "A",
-         "subject": "KSET 2023 CS&A",
-         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q56"
         },
         {
          "question": "Choose the correct statement suiting syntax directed definitions from the following:",
@@ -16161,6 +16109,32 @@
          "source": "GFGC 2021 CS · Q121"
         },
         {
+         "question": "What is Adaline in neural networks ?",
+         "options": {
+          "A": "Adaptive Linear Element",
+          "B": "Automatic Linear Element",
+          "C": "Adaptive Line Element",
+          "D": "Adaptive Nonlinear element"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Widrow and Hoff (1960), trained with the LMS (delta) rule. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q122"
+        },
+        {
+         "question": "Dendrites are",
+         "options": {
+          "A": "Fibers of nerves",
+          "B": "Nuclear projections",
+          "C": "Other name for nucleus",
+          "D": "Twisted network"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Dendrites are the input fibres of a biological neuron; the axon carries the output. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q123"
+        },
+        {
          "question": "General algorithm applied on game tree for making decision of Win/Lose is",
          "options": {
           "A": "DFS/BFS Search Algorithms",
@@ -16178,6 +16152,19 @@
       {
        "name": "2 · KSET 2025 CS&A",
        "questions": [
+        {
+         "question": "Which of the following refers to the problem of finding abstracted patterns (structures) in the unlabelled data?",
+         "options": {
+          "A": "Supervised learning",
+          "B": "Unsupervised learning",
+          "C": "Hybrid learning",
+          "D": "Reinforcement learning"
+         },
+         "answer": "B",
+         "subject": "KSET 2025 CS&A",
+         "explanation": "Unsupervised learning finds structure in data without labels. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q38"
+        },
         {
          "question": "Determine which machine (M) passes the 'Turing Test', if it is subjected to 'imitation game'; conducted in 'Controlled Environment'.",
          "options": {
@@ -16301,6 +16288,19 @@
        "name": "3 · KSET 2023 CS&A",
        "questions": [
         {
+         "question": "Which of the following derivations is used by top-down parser?",
+         "options": {
+          "A": "Leftmost derivation",
+          "B": "Leftmost derivation in reverse",
+          "C": "Rightmost derivation",
+          "D": "Rightmost derivation in reverse"
+         },
+         "answer": "A",
+         "subject": "KSET 2023 CS&A",
+         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q56"
+        },
+        {
          "question": "Artificial Intelligence is a ____ approach which can make decisions based on logical reasoning and problem solving strategies.",
          "options": {
           "A": "Heuristic search approach",
@@ -16410,6 +16410,19 @@
        "name": "4 · KSET 2024 CS&A",
        "questions": [
         {
+         "question": "The primary data structure used by an LR parser to keep track of the parsing process is ____",
+         "options": {
+          "A": "Stack",
+          "B": "Queue",
+          "C": "Linked List",
+          "D": "Binary Tree"
+         },
+         "answer": "A",
+         "subject": "KSET 2024 CS&A",
+         "explanation": "An LR parser shifts states and symbols onto a stack and pops them on reductions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q79"
+        },
+        {
          "question": "What is the Turing Test designed to assess?",
          "options": {
           "A": "Computing Power",
@@ -16512,6 +16525,102 @@
          "subject": "KSET 2024 CS&A",
          "explanation": "Decision trees are supervised classifiers; K-means is unsupervised clustering. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 CS&A · Q100"
+        }
+       ]
+      },
+      {
+       "name": "5 · Other papers",
+       "questions": [
+        {
+         "question": "What is the correct sequence for a reinforcement learning agent interacting with its environment?",
+         "options": {
+          "A": "Explore → Receive reward → Select Action → Update policy",
+          "B": "Select Action → Explore → Receive Reward → Update policy",
+          "C": "Select Action → Receive Reward → Explore → Update policy",
+          "D": "Explore → Select Action → Receive Reward → Update policy"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "The agent explores, chooses an action, gets a reward and updates its policy. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q91"
+        },
+        {
+         "question": "Match the following and choose the correct option:\nList-I (Terms)\na. Reinforcement learning (RL)\nb. Gradient Descent\nc. Generative Adversarial Networks (GAN)\nd. Support Vector Machine (SVM)\nList-II (Description)\ni. A supervised learning algorithm that finds a hyperplane to separate different classes in a high-dimensional space\nii. A learning paradigm in which an agent learns to take actions in an environment to maximize cumulative rewards.\niii. An iterative optimization algorithm used to minimize the cost function in machine learning models.\niv. A machine learning framework where two neural networks contest into each other to generate new data samples.",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – i, b – iii, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "RL – rewards; gradient descent – minimise cost; GAN – two competing networks; SVM – separating hyperplane. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q92"
+        },
+        {
+         "question": "A dataset contains a feature that takes value ranging from 1 to 100. If you decide to use Min-Max normalization, what will be the normalized value of a data point with a value of 50?",
+         "options": {
+          "A": "0",
+          "B": "0.25",
+          "C": "0.5",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "(50 − 1) / (100 − 1) ≈ 0.495, i.e. about 0.5. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q98"
+        },
+        {
+         "question": "What is the purpose of a neural network in artificial intelligence?",
+         "options": {
+          "A": "To create a database for storing large amounts of data",
+          "B": "To design user interfaces for better human-computer interaction",
+          "C": "To mimic the structure of the human brain and incorporate natural language processing and deep learning",
+          "D": "To develop hardware that can run software applications"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Brain-inspired learning models. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q65"
+        },
+        {
+         "question": "____ is the purpose of a confusion matrix in machine learning.",
+         "options": {
+          "A": "To evaluate regression performance",
+          "B": "To visualize the relationship between features",
+          "C": "To summarize the performance of a classification model",
+          "D": "To reduce the dimensionality of the dataset"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "It counts TP, FP, FN and TN. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q66"
+        },
+        {
+         "question": "Match the following terms with their correct descriptions:\nTerms\na) Supervised learning\nb) Unsupervised learning\nc) Neural network\nd) Reinforcement learning\nDefinition\ni. A type of learning where model learns from labelled data\nii. Computational model inspired by human brain used for pattern recognition\niii. A type of learning where an agent learns by interacting with its environment and receives rewards and penalties\niv. A type of learning model finds patterns in unlabelled data",
+         "options": {
+          "A": "a – i, b – iv, c – ii, d – iii",
+          "B": "a – i, b – iii, c – iv, d – ii",
+          "C": "a – iv, b – ii, c – i, d – iii",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Labelled → supervised; unlabelled → unsupervised; rewards → RL. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q67"
+        },
+        {
+         "question": "A grammar contains direct left recursion\nE → E + T | T\nWhich parser type cannot handle this grammar directly?",
+         "options": {
+          "A": "LL (1) Parser",
+          "B": "LR (0) Parser",
+          "C": "SLR (1) Parser",
+          "D": "LALR (1) Parser"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Top-down LL parsers loop forever on left recursion; LR parsers handle it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q42"
         }
        ]
       }

@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 10 — Artificial Intelligence",
- "description": "3 of 5 topics so far (6 sets × 30 questions): Approaches to AI; Knowledge Representation; Problem Solving by Searching. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (10 sets × 30 questions): Approaches to AI; Knowledge Representation; Problem Solving by Searching; Natural Language Processing; Artificial Neural Networks & Applications. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 10 – Artificial Intelligence",
@@ -2251,6 +2251,1511 @@
       {
        "title": "Search – revision sheet",
        "md": "## Problem formulation\nInitial state, actions, transition model, goal test, path cost; node = state + parent + action + g + depth; b = branching factor, d = goal depth, m = max depth\n\n## Uninformed search\n| Strategy | Frontier | Complete | Optimal | Time | Space |\n|---|---|---|---|---|---|\n| BFS | FIFO | yes | unit costs | O(bᵈ) | O(bᵈ) |\n| Uniform-cost | priority g | yes | yes | ≈O(b^(1+C*/ε)) | same |\n| DFS | LIFO | no (infinite) | no | O(bᵐ) | O(bm) |\n| Depth-limited | LIFO | if l ≥ d | no | O(bˡ) | O(bl) |\n| Iterative deepening | LIFO | yes | unit costs | O(bᵈ) | O(bd) |\n| Bidirectional | two | yes | unit costs | O(b^(d/2)) | O(b^(d/2)) |\n- Graph search keeps an explored set; BFS: goal test on generation\n\n## Informed search\n- Greedy best-first: f = h (fast, not optimal); A*: f = g + h; UCS = A* with h = 0\n- Admissible: h ≤ true cost (h(goal) = 0); consistent: h(n) ≤ c(n, n') + h(n') → A* optimal\n- Dominance: h₂ ≥ h₁ → fewer expansions; max of admissible heuristics is admissible; relaxed problems give heuristics\n- 8-puzzle: h₁ misplaced tiles, h₂ Manhattan (textbook start: 8 and 18)\n- Romania: greedy 450, A* 418; memory-bounded: IDA*, RBFS, SMA*\n"
+      }
+     ]
+    },
+    {
+     "name": "Natural Language Processing",
+     "sets": [
+      {
+       "name": "1 · Grammar and Language, and Parsing Techniques",
+       "questions": [
+        {
+         "question": "Which of the following derivations is used by top-down parser?",
+         "options": {
+          "A": "Leftmost derivation",
+          "B": "Leftmost derivation in reverse",
+          "C": "Rightmost derivation",
+          "D": "Rightmost derivation in reverse"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Top-down parsers build a leftmost derivation; bottom-up (LR) parsers build a rightmost derivation in reverse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q56"
+        },
+        {
+         "question": "The primary data structure used by an LR parser to keep track of the parsing process is ____",
+         "options": {
+          "A": "Stack",
+          "B": "Queue",
+          "C": "Linked List",
+          "D": "Binary Tree"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "An LR parser shifts states and symbols onto a stack and pops them on reductions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q79"
+        },
+        {
+         "question": "A grammar contains direct left recursion\nE → E + T | T\nWhich parser type cannot handle this grammar directly?",
+         "options": {
+          "A": "LL (1) Parser",
+          "B": "LR (0) Parser",
+          "C": "SLR (1) Parser",
+          "D": "LALR (1) Parser"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Top-down LL parsers loop forever on left recursion; LR parsers handle it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q42"
+        },
+        {
+         "question": "The usual order of the stages of natural language analysis is",
+         "options": {
+          "A": "Syntactic → morphological → semantic",
+          "B": "Semantic → syntactic → morphological",
+          "C": "Morphological → syntactic → semantic → discourse and pragmatic analysis",
+          "D": "Pragmatic → morphological → syntactic"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Rich & Knight list these five steps."
+        },
+        {
+         "question": "Splitting 'unhappiness' into un + happy + ness is",
+         "options": {
+          "A": "Pragmatic analysis",
+          "B": "Morphological analysis",
+          "C": "Syntactic analysis",
+          "D": "Semantic analysis"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Morphemes are the smallest meaningful units."
+        },
+        {
+         "question": "Natural-language syntax is usually modelled (approximately) with",
+         "options": {
+          "A": "Turing machines",
+          "B": "Lookup tables",
+          "C": "Regular grammars alone",
+          "D": "Context-free grammars"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Some features need more (agreement, cross-serial dependencies)."
+        },
+        {
+         "question": "A context-free grammar is a 4-tuple made of",
+         "options": {
+          "A": "States, inputs, outputs and transitions",
+          "B": "Nouns, verbs, adjectives and adverbs",
+          "C": "Tokens, rules, trees and parsers",
+          "D": "Non-terminals, terminals, productions and a start symbol"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "G = (V, T, P, S)."
+        },
+        {
+         "question": "A parse tree shows",
+         "options": {
+          "A": "How often each word occurs",
+          "B": "The meaning of the sentence",
+          "C": "How a sentence is derived from the start symbol by the grammar rules",
+          "D": "The pronunciation"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Leaves are the words."
+        },
+        {
+         "question": "'I saw the man with a telescope' is an example of",
+         "options": {
+          "A": "Lexical ambiguity",
+          "B": "Structural (syntactic) ambiguity – two parse trees",
+          "C": "A spelling error",
+          "D": "A pragmatic error"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Who has the telescope? (prepositional-phrase attachment)"
+        },
+        {
+         "question": "The word 'bank' (river bank or money bank) shows",
+         "options": {
+          "A": "Syntactic ambiguity",
+          "B": "Pragmatic ambiguity",
+          "C": "No ambiguity",
+          "D": "Lexical ambiguity"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "One word, several meanings."
+        },
+        {
+         "question": "Top-down parsing",
+         "options": {
+          "A": "Uses no grammar",
+          "B": "Starts from the start symbol and expands rules to match the words",
+          "C": "Is the same as tokenisation",
+          "D": "Starts from the words and builds up to S"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Bottom-up parsing works the other way."
+        },
+        {
+         "question": "Shift-reduce parsing is a kind of",
+         "options": {
+          "A": "Morphological analysis",
+          "B": "Semantic analysis",
+          "C": "Bottom-up parsing",
+          "D": "Top-down parsing"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "It shifts words onto a stack and reduces by rules."
+        },
+        {
+         "question": "The CYK parsing algorithm needs the grammar in",
+         "options": {
+          "A": "Greibach normal form, in O(n) time",
+          "B": "Any form, in O(n²) time",
+          "C": "Chomsky normal form, and runs in O(n³) time",
+          "D": "Regular form, in O(1) time"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). A dynamic-programming parser."
+        },
+        {
+         "question": "Chart parsers such as Earley's algorithm avoid repeated work by",
+         "options": {
+          "A": "Storing partial parses (edges) in a chart – dynamic programming",
+          "B": "Random guessing",
+          "C": "Backtracking alone",
+          "D": "Ignoring the grammar"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Earley's algorithm handles any CFG in O(n³)."
+        },
+        {
+         "question": "Augmented transition networks (ATNs), used in early NLP systems, are",
+         "options": {
+          "A": "Neural networks",
+          "B": "Recursive transition networks with registers and tests",
+          "C": "Bayesian networks",
+          "D": "Semantic networks"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Woods (1970)."
+        },
+        {
+         "question": "A recursive-descent parser loops for ever on a rule such as",
+         "options": {
+          "A": "S → NP VP",
+          "B": "VP → V NP",
+          "C": "NP → Det N",
+          "D": "NP → NP PP (left recursion)"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Left recursion must be removed for top-down parsing."
+        },
+        {
+         "question": "With S → NP VP, NP → Det N and VP → V NP, how many NP nodes does the parse tree of 'the dog chased a cat' have?",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "2",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "'the dog' and 'a cat'."
+        },
+        {
+         "question": "Splitting text into words, numbers and punctuation marks is",
+         "options": {
+          "A": "Parsing",
+          "B": "Tokenisation",
+          "C": "Tagging",
+          "D": "Stemming"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Usually the first step of NLP."
+        },
+        {
+         "question": "Stemming differs from lemmatisation because stemming",
+         "options": {
+          "A": "Chops off suffixes by rules (studies → studi), while lemmatisation finds the dictionary form (study)",
+          "B": "Translates words",
+          "C": "Uses a dictionary",
+          "D": "Tags parts of speech"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). The Porter stemmer is a classic example."
+        },
+        {
+         "question": "Words such as 'the', 'is' and 'of', often removed in text processing, are called",
+         "options": {
+          "A": "Named entities",
+          "B": "Stems",
+          "C": "Lemmas",
+          "D": "Stop words"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "They carry little topic information."
+        },
+        {
+         "question": "Labelling each word as noun, verb, adjective and so on is",
+         "options": {
+          "A": "Translation",
+          "B": "Parsing",
+          "C": "Stemming",
+          "D": "Part-of-speech (POS) tagging"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "A step before parsing."
+        },
+        {
+         "question": "A classic statistical model for part-of-speech tagging is the",
+         "options": {
+          "A": "Semantic network",
+          "B": "Decision table",
+          "C": "Hidden Markov model",
+          "D": "Script"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Decoded with the Viterbi algorithm."
+        },
+        {
+         "question": "A bigram language model estimates",
+         "options": {
+          "A": "P(wᵢ | wᵢ₋₁) – the probability of a word given the previous word",
+          "B": "The part of speech",
+          "C": "The meaning of a sentence",
+          "D": "The grammar rules"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "N-gram models use the previous n − 1 words."
+        },
+        {
+         "question": "Finite-state transducers are widely used in NLP for",
+         "options": {
+          "A": "Discourse analysis",
+          "B": "Morphological analysis",
+          "C": "Speech synthesis alone",
+          "D": "Pragmatics"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Morphology is mostly regular."
+        },
+        {
+         "question": "Definite clause grammars (DCGs) are written in",
+         "options": {
+          "A": "LISP",
+          "B": "SQL",
+          "C": "C",
+          "D": "PROLOG"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Grammar rules become Horn clauses."
+        },
+        {
+         "question": "A dependency parse links",
+         "options": {
+          "A": "Sentences into paragraphs",
+          "B": "Each word to its head word with a labelled relation",
+          "C": "Words into nested phrases with no heads",
+          "D": "Words in alphabetical order"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Constituency parsing builds nested phrases."
+        },
+        {
+         "question": "Chomsky's sentence 'Colorless green ideas sleep furiously' is",
+         "options": {
+          "A": "Ungrammatical and meaningless",
+          "B": "A pragmatic error",
+          "C": "Grammatically correct but meaningless",
+          "D": "Grammatical and meaningful"
+         },
+         "answer": "C",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "PYQ pattern (KEA / KSET papers). Syntax and semantics are separate levels."
+        },
+        {
+         "question": "Subject–verb agreement ('he runs' but 'they run') is handled in grammars by",
+         "options": {
+          "A": "Feature structures and unification",
+          "B": "Bigrams alone",
+          "C": "Stop-word removal",
+          "D": "Stemming"
+         },
+         "answer": "A",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Features such as number and person must unify."
+        },
+        {
+         "question": "A probabilistic CFG resolves ambiguity by",
+         "options": {
+          "A": "Choosing the shortest parse",
+          "B": "Choosing at random",
+          "C": "Rejecting the sentence",
+          "D": "Choosing the parse with the highest probability"
+         },
+         "answer": "D",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Rule probabilities come from a treebank."
+        },
+        {
+         "question": "A treebank, such as the Penn Treebank, is",
+         "options": {
+          "A": "A dictionary of stems",
+          "B": "A corpus of sentences annotated with parse trees",
+          "C": "A database of word meanings",
+          "D": "A neural network"
+         },
+         "answer": "B",
+         "subject": "Grammar and Language, and Parsing Techniques",
+         "explanation": "Used to train and test parsers."
+        }
+       ]
+      },
+      {
+       "name": "2 · Semantic Analysis, Pragmatics and NLP Applications",
+       "questions": [
+        {
+         "question": "What is the role of pragmatics in Natural Language Processing?",
+         "options": {
+          "A": "To analyze semantics of sentences",
+          "B": "To find contextual meaning and implied communication",
+          "C": "To identify syntax errors in the text",
+          "D": "To find morphological analysis of words"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Pragmatics interprets meaning in context (intent, implicature). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q76"
+        },
+        {
+         "question": "Semantic analysis",
+         "options": {
+          "A": "Checks spelling",
+          "B": "Splits words into morphemes",
+          "C": "Finds the speaker's intention",
+          "D": "Maps the syntactic structure of a sentence to a representation of its meaning"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "PYQ pattern (KEA / KSET papers). E.g. into first-order logic."
+        },
+        {
+         "question": "Compositional semantics says that",
+         "options": {
+          "A": "The meaning of a sentence is built from the meanings of its parts and the way they are combined",
+          "B": "Words have no meaning",
+          "C": "Only context matters",
+          "D": "Meaning comes from pronunciation"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Frege's principle."
+        },
+        {
+         "question": "Choosing the correct sense of 'bass' (fish or music) from the context is",
+         "options": {
+          "A": "Tokenisation",
+          "B": "Parsing",
+          "C": "Word sense disambiguation",
+          "D": "Stemming"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "WordNet lists the senses."
+        },
+        {
+         "question": "WordNet is",
+         "options": {
+          "A": "A parser",
+          "B": "A lexical database that groups English words into sets of synonyms (synsets)",
+          "C": "A search engine",
+          "D": "A neural network"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "It also links hypernyms (IS-A)."
+        },
+        {
+         "question": "In 'John cut the bread with a knife', the knife fills the case role",
+         "options": {
+          "A": "Object",
+          "B": "Agent",
+          "C": "Instrument",
+          "D": "Location"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "PYQ pattern (KEA / KSET papers). Fillmore's case grammar: John = agent, bread = object."
+        },
+        {
+         "question": "'Can you pass the salt?' is understood as a request, not a yes/no question. This is",
+         "options": {
+          "A": "Pragmatics (an indirect speech act)",
+          "B": "Syntax",
+          "C": "Morphology",
+          "D": "Phonology"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Speech-act theory (Austin, Searle)."
+        },
+        {
+         "question": "Working out that 'It' refers to 'the laptop' in 'I bought a laptop. It is fast.' is",
+         "options": {
+          "A": "POS tagging",
+          "B": "Stemming",
+          "C": "Spelling correction",
+          "D": "Anaphora (coreference) resolution"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Part of discourse analysis."
+        },
+        {
+         "question": "Pragmatic analysis uses",
+         "options": {
+          "A": "Word endings",
+          "B": "Character codes",
+          "C": "Grammar alone",
+          "D": "Context, the speaker's intention and world knowledge"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Meaning beyond the literal words."
+        },
+        {
+         "question": "Modern machine-translation systems such as Google Translate mainly use",
+         "options": {
+          "A": "Dictionaries alone",
+          "B": "Hand-written grammar rules alone",
+          "C": "Neural networks (sequence-to-sequence / transformer models)",
+          "D": "Regular expressions"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Earlier systems were rule-based, then statistical."
+        },
+        {
+         "question": "TF–IDF gives a high weight to a word that is",
+         "options": {
+          "A": "Rare in the document",
+          "B": "Frequent in the document but rare across the collection",
+          "C": "Common in every document",
+          "D": "A stop word"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Used in information retrieval."
+        },
+        {
+         "question": "Finding whether a product review is positive or negative is",
+         "options": {
+          "A": "Sentiment analysis",
+          "B": "Machine translation",
+          "C": "Named-entity recognition",
+          "D": "Parsing"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Also called opinion mining."
+        },
+        {
+         "question": "Finding the names of persons, places and organisations in text is",
+         "options": {
+          "A": "Sentiment analysis",
+          "B": "Named-entity recognition",
+          "C": "Stemming",
+          "D": "Summarisation"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "A kind of information extraction."
+        },
+        {
+         "question": "IBM Watson, which won the quiz show Jeopardy! in 2011, is an example of",
+         "options": {
+          "A": "An image classifier",
+          "B": "A database",
+          "C": "A chess program",
+          "D": "A question-answering system"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "It combined NLP, retrieval and machine learning."
+        },
+        {
+         "question": "Converting spoken words into text is",
+         "options": {
+          "A": "Speech recognition",
+          "B": "Speech synthesis",
+          "C": "Machine translation",
+          "D": "Parsing"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Text-to-speech is speech synthesis."
+        },
+        {
+         "question": "A semantic grammar uses categories such as",
+         "options": {
+          "A": "Numbers",
+          "B": "Characters",
+          "C": "Domain concepts (e.g. FLIGHT, CITY) instead of purely syntactic ones",
+          "D": "Noun and verb alone"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Useful in narrow-domain interfaces."
+        },
+        {
+         "question": "Large language models such as GPT are based on the",
+         "options": {
+          "A": "Decision tree",
+          "B": "Semantic network",
+          "C": "Transformer architecture with self-attention",
+          "D": "Hidden Markov model"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Vaswani et al., 'Attention is all you need' (2017)."
+        },
+        {
+         "question": "Word embeddings such as word2vec represent words as",
+         "options": {
+          "A": "Single integers",
+          "B": "Dense vectors in which words with similar meanings lie close together",
+          "C": "Parse trees",
+          "D": "Bit strings of their spelling"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "king − man + woman ≈ queen."
+        },
+        {
+         "question": "Saying 'It's cold in here' to ask someone to close the window is",
+         "options": {
+          "A": "An indirect speech act understood through pragmatics",
+          "B": "Lexical ambiguity",
+          "C": "A morphological rule",
+          "D": "A syntax error"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "The literal meaning is a statement."
+        },
+        {
+         "question": "'Every dog barks' in first-order logic is",
+         "options": {
+          "A": "∀x (Dog(x) ∧ Barks(x))",
+          "B": "∃x (Dog(x) ∧ Barks(x))",
+          "C": "Dog(Barks)",
+          "D": "∀x (Dog(x) → Barks(x))"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Semantic analysis often targets logic."
+        },
+        {
+         "question": "Spelling correction usually uses the",
+         "options": {
+          "A": "Alpha–beta pruning",
+          "B": "Branching factor",
+          "C": "Gini index",
+          "D": "Minimum edit (Levenshtein) distance"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Insertions, deletions and substitutions."
+        },
+        {
+         "question": "The minimum edit distance between 'cat' and 'cut' is",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "One substitution."
+        },
+        {
+         "question": "Extractive summarisation",
+         "options": {
+          "A": "Selects the most important sentences from the text",
+          "B": "Translates the text",
+          "C": "Writes new sentences",
+          "D": "Removes stop words alone"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Abstractive summarisation writes new text."
+        },
+        {
+         "question": "Early chatbots such as ELIZA worked mainly by",
+         "options": {
+          "A": "Neural translation",
+          "B": "Database queries",
+          "C": "Pattern matching and canned responses",
+          "D": "Deep understanding"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "No real understanding."
+        },
+        {
+         "question": "Schank's SAM program understood simple stories using",
+         "options": {
+          "A": "Bigrams",
+          "B": "Neural networks",
+          "C": "Scripts",
+          "D": "Regular expressions"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "SAM = Script Applier Mechanism."
+        },
+        {
+         "question": "Pragmatics deals with",
+         "options": {
+          "A": "Spelling",
+          "B": "How context and intention affect the meaning of an utterance",
+          "C": "Sentence structure",
+          "D": "Word structure"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Morphology = words; syntax = structure; semantics = literal meaning."
+        },
+        {
+         "question": "The study of speech sounds is",
+         "options": {
+          "A": "Syntax",
+          "B": "Morphology",
+          "C": "Pragmatics",
+          "D": "Phonology"
+         },
+         "answer": "D",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Phonetics studies the physical sounds."
+        },
+        {
+         "question": "Filling a table of (company, CEO) pairs from news articles is",
+         "options": {
+          "A": "Information extraction",
+          "B": "Speech recognition",
+          "C": "Stemming",
+          "D": "Machine translation"
+         },
+         "answer": "A",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "Uses NER and relation extraction."
+        },
+        {
+         "question": "The BLEU score is used to evaluate",
+         "options": {
+          "A": "Parsing speed",
+          "B": "Spelling",
+          "C": "Machine-translation output",
+          "D": "Speech loudness"
+         },
+         "answer": "C",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "It compares n-grams with reference translations."
+        },
+        {
+         "question": "India's National Language Translation Mission platform, which offers AI-based translation between Indian languages, is",
+         "options": {
+          "A": "Aadhaar",
+          "B": "Bhashini",
+          "C": "DigiLocker",
+          "D": "UMANG"
+         },
+         "answer": "B",
+         "subject": "Semantic Analysis, Pragmatics and NLP Applications",
+         "explanation": "PYQ pattern (KEA / KSET papers). Launched by MeitY in 2022."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "NLP – revision sheet",
+       "md": "## Levels of analysis\nPhonology → morphology (morphemes, stemming vs lemmatisation) → syntax (parsing) → semantics (meaning) → discourse (anaphora) → pragmatics (context, intention, speech acts)\n\n## Grammar and parsing\n- CFG = (V, T, P, S); Chomsky hierarchy: type 0 unrestricted, 1 context-sensitive, 2 context-free, 3 regular\n- Ambiguity: lexical ('bank'), structural ('saw the man with a telescope'), pragmatic\n- Top-down (recursive descent, LL; fails on left recursion, uses leftmost derivation) vs bottom-up (shift-reduce, LR – uses a stack, rightmost derivation in reverse)\n- CYK (CNF, O(n³)); Earley / chart parsing (dynamic programming); ATNs (Woods); DCGs in PROLOG; probabilistic CFGs; treebanks\n- Dependency vs constituency parsing; feature structures + unification for agreement\n- Text processing: tokenisation, stop words, stemming (Porter), POS tagging (HMM, Viterbi), n-gram models\n\n## Semantics, pragmatics, applications\n- Compositional semantics; logic forms (∀x Dog(x) → Barks(x)); case grammar (agent, object, instrument); WordNet synsets; word sense disambiguation\n- Pragmatics: indirect speech acts; discourse: anaphora/coreference\n- Scripts for story understanding (SAM); ELIZA (pattern matching)\n- Applications: MT (rule → statistical → neural/transformer; BLEU), IR (TF–IDF), sentiment analysis, NER, information extraction, QA (IBM Watson 2011), speech recognition/synthesis, summarisation, chatbots/LLMs (GPT); India's Bhashini\n- Edit distance for spelling correction (cat → cut = 1); word embeddings (word2vec)\n"
+      }
+     ]
+    },
+    {
+     "name": "Artificial Neural Networks & Applications",
+     "sets": [
+      {
+       "name": "1 · Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+       "questions": [
+        {
+         "question": "Backpropagation Neural Network is a technique used for:",
+         "options": {
+          "A": "Transmission of error back through the network to adjust the inputs",
+          "B": "Updating weights based on error propagation",
+          "C": "Updating the number of hidden layers",
+          "D": "Adjusting hyper parameter values"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Backpropagation propagates the error gradient backwards to update the weights (not the inputs). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q78"
+        },
+        {
+         "question": "Which of the following introduces non-linearity into neural network?",
+         "options": {
+          "A": "Binary step function",
+          "B": "ReLU function",
+          "C": "Convolution function",
+          "D": "Identity function"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "ReLU is the standard non-linear activation used in trainable networks; convolution and identity are linear, and the step function has no useful gradient. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q79"
+        },
+        {
+         "question": "In a multilayer perceptron, the back propagation algorithm is used",
+         "options": {
+          "A": "As it initializes the weights of networks",
+          "B": "To optimize search algorithms",
+          "C": "To speed up learning",
+          "D": "To propagate errors back through network to update the weights"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Backpropagation computes error gradients layer by layer, backwards, for weight updates. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q98"
+        },
+        {
+         "question": "Given a \"feed forward\" ANN with 'n' inputs, 'h' hidden units and 'm' outputs. Compute how many trainable parameters (weights) are present in ANN, assuming there are no biases.",
+         "options": {
+          "A": "n + m × h",
+          "B": "n + h + m",
+          "C": "(n × h) + (h × m)",
+          "D": "n × h × m"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Input→hidden has n × h weights and hidden→output h × m. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q98"
+        },
+        {
+         "question": "The back propagation algorithm calculates the gradient of the 'Loss function' with respect to each weight in the network by which of the following mathematical techniques?",
+         "options": {
+          "A": "Lagrange multiplier",
+          "B": "Gradient descent",
+          "C": "K means algorithm",
+          "D": "Chain rule of calculus"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Backpropagation applies the chain rule layer by layer; gradient descent then uses those gradients. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q100"
+        },
+        {
+         "question": "Which of the following refers to the problem of finding abstracted patterns (structures) in the unlabelled data?",
+         "options": {
+          "A": "Supervised learning",
+          "B": "Unsupervised learning",
+          "C": "Hybrid learning",
+          "D": "Reinforcement learning"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Unsupervised learning finds structure in data without labels. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q38"
+        },
+        {
+         "question": "Which technique considers the problem of extracting a reward function from observed optimal behaviour of an expert acting in an environment?",
+         "options": {
+          "A": "Inverse reinforcement learning",
+          "B": "Reinforcement learning",
+          "C": "Supervised learning",
+          "D": "Unsupervised learning"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Inverse RL infers the reward from demonstrations; ordinary RL learns behaviour from a given reward. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q95"
+        },
+        {
+         "question": "What is the correct sequence for a reinforcement learning agent interacting with its environment?",
+         "options": {
+          "A": "Explore → Receive reward → Select Action → Update policy",
+          "B": "Select Action → Explore → Receive Reward → Update policy",
+          "C": "Select Action → Receive Reward → Explore → Update policy",
+          "D": "Explore → Select Action → Receive Reward → Update policy"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "The agent explores, chooses an action, gets a reward and updates its policy. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q91"
+        },
+        {
+         "question": "Match the following and choose the correct option:\nList-I (Terms)\na. Reinforcement learning (RL)\nb. Gradient Descent\nc. Generative Adversarial Networks (GAN)\nd. Support Vector Machine (SVM)\nList-II (Description)\ni. A supervised learning algorithm that finds a hyperplane to separate different classes in a high-dimensional space\nii. A learning paradigm in which an agent learns to take actions in an environment to maximize cumulative rewards.\niii. An iterative optimization algorithm used to minimize the cost function in machine learning models.\niv. A machine learning framework where two neural networks contest into each other to generate new data samples.",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – i, b – iii, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "RL – rewards; gradient descent – minimise cost; GAN – two competing networks; SVM – separating hyperplane. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q92"
+        },
+        {
+         "question": "What is the purpose of a neural network in artificial intelligence?",
+         "options": {
+          "A": "To create a database for storing large amounts of data",
+          "B": "To design user interfaces for better human-computer interaction",
+          "C": "To mimic the structure of the human brain and incorporate natural language processing and deep learning",
+          "D": "To develop hardware that can run software applications"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Brain-inspired learning models. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q65"
+        },
+        {
+         "question": "Match the following terms with their correct descriptions:\nTerms\na) Supervised learning\nb) Unsupervised learning\nc) Neural network\nd) Reinforcement learning\nDefinition\ni. A type of learning where model learns from labelled data\nii. Computational model inspired by human brain used for pattern recognition\niii. A type of learning where an agent learns by interacting with its environment and receives rewards and penalties\niv. A type of learning model finds patterns in unlabelled data",
+         "options": {
+          "A": "a – i, b – iv, c – ii, d – iii",
+          "B": "a – i, b – iii, c – iv, d – ii",
+          "C": "a – iv, b – ii, c – i, d – iii",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Labelled → supervised; unlabelled → unsupervised; rewards → RL. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q67"
+        },
+        {
+         "question": "What is Adaline in neural networks ?",
+         "options": {
+          "A": "Adaptive Linear Element",
+          "B": "Automatic Linear Element",
+          "C": "Adaptive Line Element",
+          "D": "Adaptive Nonlinear element"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Widrow and Hoff (1960), trained with the LMS (delta) rule. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q122"
+        },
+        {
+         "question": "Dendrites are",
+         "options": {
+          "A": "Fibers of nerves",
+          "B": "Nuclear projections",
+          "C": "Other name for nucleus",
+          "D": "Twisted network"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Dendrites are the input fibres of a biological neuron; the axon carries the output. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q123"
+        },
+        {
+         "question": "The first mathematical model of a neuron (1943) was proposed by",
+         "options": {
+          "A": "Rosenblatt",
+          "B": "Hinton",
+          "C": "Minsky and Papert",
+          "D": "McCulloch and Pitts"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "A threshold logic unit."
+        },
+        {
+         "question": "A single-layer perceptron cannot learn the XOR function because",
+         "options": {
+          "A": "XOR needs negative weights",
+          "B": "XOR is not linearly separable",
+          "C": "The learning rate is too small",
+          "D": "XOR has too many inputs"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Shown by Minsky and Papert (1969); a hidden layer solves it."
+        },
+        {
+         "question": "A perceptron with weights (1, 1), bias −1.5 and a step activation (output 1 if the sum ≥ 0) computes",
+         "options": {
+          "A": "OR",
+          "B": "XOR",
+          "C": "AND",
+          "D": "NOT"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Only 1 + 1 − 1.5 ≥ 0."
+        },
+        {
+         "question": "The same perceptron with bias −0.5 computes",
+         "options": {
+          "A": "AND",
+          "B": "XOR",
+          "C": "OR",
+          "D": "NAND"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Any input of 1 gives ≥ 0."
+        },
+        {
+         "question": "The perceptron learning rule updates each weight as",
+         "options": {
+          "A": "w ← η w",
+          "B": "w ← w − x",
+          "C": "w ← t × y",
+          "D": "w ← w + η (t − y) x"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "t = target, y = output, η = learning rate."
+        },
+        {
+         "question": "The sigmoid, tanh and ReLU activation functions have output ranges",
+         "options": {
+          "A": "(0, ∞), (−∞, 0) and (0, 1)",
+          "B": "(0, 1), (−1, 1) and [0, ∞)",
+          "C": "[0, 1], [0, 1] and [0, 1]",
+          "D": "(−1, 1), (0, 1) and (0, 1)"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "ReLU(x) = max(0, x)."
+        },
+        {
+         "question": "Deep networks with sigmoid activations often suffer from",
+         "options": {
+          "A": "Vanishing gradients",
+          "B": "Too few weights",
+          "C": "Exploding memory",
+          "D": "No learning rate"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "The sigmoid's slope is at most 0.25; ReLU helps."
+        },
+        {
+         "question": "Hebbian learning is summed up as",
+         "options": {
+          "A": "Minimise the squared error",
+          "B": "Maximise the margin",
+          "C": "'Neurons that fire together wire together'",
+          "D": "Follow the reward"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Donald Hebb (1949)."
+        },
+        {
+         "question": "One epoch of training means",
+         "options": {
+          "A": "One weight update",
+          "B": "One neuron",
+          "C": "One layer",
+          "D": "One pass of the whole training set through the network"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Mini-batches give several updates per epoch."
+        },
+        {
+         "question": "If the learning rate is too high, gradient descent",
+         "options": {
+          "A": "May overshoot and oscillate or diverge",
+          "B": "Always converges faster",
+          "C": "Stops at once",
+          "D": "Has no effect"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Too low makes training slow."
+        },
+        {
+         "question": "Dropout during training helps to",
+         "options": {
+          "A": "Increase overfitting",
+          "B": "Reduce overfitting by randomly switching off neurons",
+          "C": "Speed up inference",
+          "D": "Add layers"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "A regularisation technique."
+        },
+        {
+         "question": "The softmax function at the output layer",
+         "options": {
+          "A": "Initialises the weights",
+          "B": "Removes negative weights",
+          "C": "Is used only in regression",
+          "D": "Turns scores into probabilities that add up to 1 (multi-class classification)"
+         },
+         "answer": "D",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Used with cross-entropy loss."
+        },
+        {
+         "question": "Convolutional neural networks are best known for",
+         "options": {
+          "A": "Compiling code",
+          "B": "Sorting",
+          "C": "Image recognition",
+          "D": "Database indexing"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "RNNs and LSTMs suit sequences such as text."
+        },
+        {
+         "question": "A Kohonen self-organising map learns",
+         "options": {
+          "A": "From rewards",
+          "B": "Without labels (unsupervised), forming a topology-preserving map",
+          "C": "With backpropagation",
+          "D": "From labelled data"
+         },
+         "answer": "B",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Competitive learning."
+        },
+        {
+         "question": "Backpropagation computes the gradient of the loss with respect to each weight and then",
+         "options": {
+          "A": "Updates the weights by gradient descent, layer by layer from the output back",
+          "B": "Adds more layers",
+          "C": "Removes neurons",
+          "D": "Labels the data"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "Rumelhart, Hinton and Williams (1986)."
+        },
+        {
+         "question": "A feed-forward network with 4 inputs, 3 hidden units and 2 outputs (no biases) has how many weights?",
+         "options": {
+          "A": "9",
+          "B": "14",
+          "C": "18",
+          "D": "24"
+         },
+         "answer": "C",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "4 × 3 + 3 × 2 (n·h + h·m)."
+        },
+        {
+         "question": "A neuron with inputs (1, 0, 1), weights (0.5, 0.3, 0.2) and bias 0 has a net input of",
+         "options": {
+          "A": "0.7",
+          "B": "0.5",
+          "C": "0.3",
+          "D": "1.0"
+         },
+         "answer": "A",
+         "subject": "Artificial Neural Networks – Neurons, Perceptron, Activation and Backpropagation",
+         "explanation": "0.5 + 0 + 0.2."
+        }
+       ]
+      },
+      {
+       "name": "2 · Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+       "questions": [
+        {
+         "question": "Which one of the following algorithm is commonly used for classification tasks in AI?",
+         "options": {
+          "A": "K-means clustering",
+          "B": "Decision Trees",
+          "C": "Prim's Algorithm",
+          "D": "Depth-first Search"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Decision trees are supervised classifiers; K-means is unsupervised clustering. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q100"
+        },
+        {
+         "question": "Given two Fuzzy sets A and B with membership function μA(x) = {0.6, 0.5, 0.1, 0.7, 0.8}, μB(x) = {0.9, 0.2, 0.6, 0.8, 0.5}. Now calculate the value of μ(A ∪ B)′(x).",
+         "options": {
+          "A": "{0.1, 0.5, 0.4, 0.2, 0.3}",
+          "B": "{0.1, 0.5, 0.4, 0.2, 0.2}",
+          "C": "{0.1, 0.5, 0.4, 0.3, 0.2}",
+          "D": "{0.1, 0.5, 0.4, 0.3, 0.3}"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Union = max = {0.9, 0.5, 0.6, 0.8, 0.8}; complement = 1 − μ = {0.1, 0.5, 0.4, 0.2, 0.2}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q96"
+        },
+        {
+         "question": "Let the population of chromosomes in Genetic Algorithm is represented in terms of binary number. The strength of fitness of a chromosome in decimal form, x, is given by Sf(x) = f(x) / Σf(x) where f(x) = x².\nThe population is P = {(01101), (11000), (01000), (10011)}.\nCalculate the strength of fitness of chromosome (11000).",
+         "options": {
+          "A": "49.2%",
+          "B": "576.8%",
+          "C": "15.10%",
+          "D": "14.4%"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "x = 13, 24, 8, 19 → f = 169, 576, 64, 361, total 1170; 576 / 1170 ≈ 49.2%. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q97"
+        },
+        {
+         "question": "Which one of the following is not a specified method that is used for the selection of parents?",
+         "options": {
+          "A": "Steady state selection",
+          "B": "Tournament selection",
+          "C": "Boltzmann selection",
+          "D": "Elitism"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Elitism copies the best individuals unchanged into the next generation; it is not a parent-selection scheme. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q99"
+        },
+        {
+         "question": "____ is the purpose of a confusion matrix in machine learning.",
+         "options": {
+          "A": "To evaluate regression performance",
+          "B": "To visualize the relationship between features",
+          "C": "To summarize the performance of a classification model",
+          "D": "To reduce the dimensionality of the dataset"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "It counts TP, FP, FN and TN. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q66"
+        },
+        {
+         "question": "A dataset contains a feature that takes value ranging from 1 to 100. If you decide to use Min-Max normalization, what will be the normalized value of a data point with a value of 50?",
+         "options": {
+          "A": "0",
+          "B": "0.25",
+          "C": "0.5",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "(50 − 1) / (100 − 1) ≈ 0.495, i.e. about 0.5. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q98"
+        },
+        {
+         "question": "Predicting the price of a house is a",
+         "options": {
+          "A": "Regression problem",
+          "B": "Classification problem",
+          "C": "Clustering problem",
+          "D": "Reinforcement-learning problem"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "The output is a continuous number."
+        },
+        {
+         "question": "The ID3 decision-tree algorithm chooses the attribute to split on by",
+         "options": {
+          "A": "Random choice",
+          "B": "Lowest information gain",
+          "C": "Alphabetical order",
+          "D": "Highest information gain (largest drop in entropy)"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "C4.5 uses the gain ratio; CART uses the Gini index."
+        },
+        {
+         "question": "The entropy of a set with 50% positive and 50% negative examples is",
+         "options": {
+          "A": "0",
+          "B": "2 bits",
+          "C": "0.5 bit",
+          "D": "1 bit"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "PYQ pattern (KEA / KSET papers). −0.5 log₂ 0.5 − 0.5 log₂ 0.5 = 1."
+        },
+        {
+         "question": "k-nearest neighbours is called a lazy learner because it",
+         "options": {
+          "A": "Stores the training data and does the work only when classifying",
+          "B": "Trains for a very long time",
+          "C": "Never classifies",
+          "D": "Needs no data"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "The class is decided by the k closest examples."
+        },
+        {
+         "question": "The naive Bayes classifier assumes that",
+         "options": {
+          "A": "The data is unlabelled",
+          "B": "All features are equal",
+          "C": "The features are conditionally independent given the class",
+          "D": "There is one class"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Simple and effective for text."
+        },
+        {
+         "question": "A support vector machine chooses the separating hyperplane that",
+         "options": {
+          "A": "Is always vertical",
+          "B": "Maximises the margin to the nearest training points",
+          "C": "Minimises the margin",
+          "D": "Passes through the most points"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Kernels handle non-linear data."
+        },
+        {
+         "question": "A model that scores 99% on the training data but only 60% on the test data is",
+         "options": {
+          "A": "Perfect",
+          "B": "Unsupervised",
+          "C": "Underfitting",
+          "D": "Overfitting"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "It has memorised the training data."
+        },
+        {
+         "question": "With TP = 40, FP = 10 and FN = 20, the precision is",
+         "options": {
+          "A": "0.8",
+          "B": "0.4",
+          "C": "0.67",
+          "D": "0.5"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "PYQ pattern (KEA / KSET papers). TP / (TP + FP) = 40 / 50. Recall = 40 / 60 ≈ 0.67."
+        },
+        {
+         "question": "With TP = 50, TN = 30, FP = 10 and FN = 10, the accuracy is",
+         "options": {
+          "A": "90%",
+          "B": "70%",
+          "C": "80%",
+          "D": "50%"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "(50 + 30) / 100."
+        },
+        {
+         "question": "k-fold cross-validation",
+         "options": {
+          "A": "Uses k different models on the same split",
+          "B": "Trains and tests k times, each time holding out a different fold for testing",
+          "C": "Uses one fixed test set",
+          "D": "Trains without data"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Gives a more reliable estimate."
+        },
+        {
+         "question": "Q-learning learns",
+         "options": {
+          "A": "A decision tree",
+          "B": "Cluster centres",
+          "C": "A parse tree",
+          "D": "The value of each action in each state, without needing a model of the environment"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Q(s, a) ← Q(s, a) + α [r + γ max Q(s', a') − Q(s, a)]."
+        },
+        {
+         "question": "The exploration–exploitation trade-off in reinforcement learning is often handled with",
+         "options": {
+          "A": "Bubble sort",
+          "B": "Backpropagation alone",
+          "C": "An ε-greedy policy",
+          "D": "A parse chart"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Explore with probability ε, otherwise take the best known action."
+        },
+        {
+         "question": "In reinforcement learning, the discount factor γ (0 ≤ γ < 1)",
+         "options": {
+          "A": "Counts the states",
+          "B": "Makes future rewards count less than immediate ones",
+          "C": "Is the reward itself",
+          "D": "Sets the learning rate"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Return = r₀ + γ r₁ + γ² r₂ + …"
+        },
+        {
+         "question": "Agglomerative hierarchical clustering",
+         "options": {
+          "A": "Starts with each point as its own cluster and repeatedly merges the closest pair",
+          "B": "Starts with one cluster and splits it",
+          "C": "Uses rewards",
+          "D": "Needs labels"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "The result is a dendrogram."
+        },
+        {
+         "question": "Principal component analysis (PCA) is used to",
+         "options": {
+          "A": "Train perceptrons",
+          "B": "Reduce the number of dimensions while keeping most of the variance",
+          "C": "Cluster text",
+          "D": "Classify images"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "An unsupervised technique."
+        },
+        {
+         "question": "The three main operators of a genetic algorithm are",
+         "options": {
+          "A": "Push, pop and peek",
+          "B": "Map, filter and reduce",
+          "C": "Selection, crossover and mutation",
+          "D": "Shift, reduce and accept"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "PYQ pattern (KEA / KSET papers). Inspired by natural evolution."
+        },
+        {
+         "question": "Single-point crossover of the parents 11000 and 00111 after the second bit gives the children",
+         "options": {
+          "A": "11011 and 00100",
+          "B": "10101 and 01010",
+          "C": "11000 and 00111",
+          "D": "11111 and 00000"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "11|000 + 00|111 → 11111 and 00|000 → 00000."
+        },
+        {
+         "question": "Mutation in a genetic algorithm",
+         "options": {
+          "A": "Randomly flips (changes) some genes to keep diversity",
+          "B": "Stops the algorithm",
+          "C": "Selects the fittest",
+          "D": "Combines two parents"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "It helps avoid premature convergence."
+        },
+        {
+         "question": "Which is NOT usually called an application of AI?",
+         "options": {
+          "A": "Self-driving cars",
+          "B": "Sorting a list with bubble sort",
+          "C": "Speech recognition",
+          "D": "Medical diagnosis"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "A fixed algorithm with no learning or reasoning."
+        },
+        {
+         "question": "Recognising faces in photos is a task of",
+         "options": {
+          "A": "Natural language processing",
+          "B": "Speech synthesis",
+          "C": "Computer vision",
+          "D": "Expert systems"
+         },
+         "answer": "C",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Usually done with CNNs."
+        },
+        {
+         "question": "A robot building a map of an unknown place while tracking its own position is solving",
+         "options": {
+          "A": "CYK parsing",
+          "B": "NER",
+          "C": "OCR",
+          "D": "SLAM (simultaneous localisation and mapping)"
+         },
+         "answer": "D",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Used in self-driving cars and vacuum robots."
+        },
+        {
+         "question": "Recommendation systems on shopping sites mainly use",
+         "options": {
+          "A": "Machine learning on user behaviour, e.g. collaborative filtering",
+          "B": "Compilers",
+          "C": "Bubble sort",
+          "D": "Spreadsheets"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Users who liked X also liked Y."
+        },
+        {
+         "question": "Generative AI chatbots such as ChatGPT are examples of",
+         "options": {
+          "A": "Search-engine indexes",
+          "B": "Large language models that generate text",
+          "C": "Expert system shells",
+          "D": "Compilers"
+         },
+         "answer": "B",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "Trained on large text corpora, then fine-tuned."
+        },
+        {
+         "question": "Bias in AI systems most often comes from",
+         "options": {
+          "A": "Unrepresentative or biased training data",
+          "B": "Fast processors",
+          "C": "The programming language",
+          "D": "Too much RAM"
+         },
+         "answer": "A",
+         "subject": "Supervised, Unsupervised and Reinforcement Learning, and Applications of AI",
+         "explanation": "A key concern of responsible AI."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Neural networks and learning – revision sheet",
+       "md": "## Neural networks\n- Biological: dendrites (inputs), soma, axon (output), synapses (weights)\n- McCulloch–Pitts (1943); Hebb (1949); perceptron (Rosenblatt 1958): y = step(w·x + b), w ← w + η(t − y)x\n- Perceptron (1, 1): bias −1.5 → AND, −0.5 → OR; cannot learn XOR (not linearly separable – Minsky & Papert 1969)\n- Adaline (Widrow–Hoff, LMS); multilayer perceptron + backpropagation (chain rule, gradient descent on the loss)\n- Activations: step, sigmoid (0, 1), tanh (−1, 1), ReLU max(0, x) – non-linearity; softmax for classes\n- Parameters of n–h–m net (no biases) = nh + hm; epoch, learning rate, vanishing gradient, dropout, overfitting\n- CNN (images), RNN/LSTM (sequences), transformer (LLMs), GAN (generator vs discriminator), Kohonen SOM (unsupervised), Hopfield (associative memory)\n\n## Learning paradigms\n- Supervised (labelled; classification, regression): decision trees (ID3 information gain, entropy 50/50 = 1 bit), kNN (lazy), naive Bayes, SVM (max margin)\n- Unsupervised (unlabelled): k-means, hierarchical clustering, PCA\n- Reinforcement (rewards): agent, state, action, reward, policy; Q-learning, ε-greedy, discount γ; inverse RL learns the reward from an expert\n- Evaluation: confusion matrix; precision TP/(TP+FP), recall TP/(TP+FN), accuracy; k-fold cross-validation; min–max normalisation (x − min)/(max − min)\n\n## Genetic algorithms and fuzzy logic\n- Selection (roulette wheel, tournament, rank, Boltzmann, steady state; elitism keeps the best), crossover, mutation\n- Fitness share f(x)/Σf(x): population 13, 24, 8, 19 with f = x² → 576/1170 = 49.2%\n- Fuzzy: ∪ max, ∩ min, complement 1 − μ\n\n## Applications of AI\nExpert systems, NLP, speech, computer vision, robotics (SLAM), games, recommendation systems, self-driving cars, medical diagnosis; concerns: bias, explainability\n"
       }
      ]
     }
