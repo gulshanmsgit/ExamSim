@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "All topics so far (25 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators; C Preprocessor; Files. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (30 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators; C Preprocessor; Files. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -6317,6 +6317,371 @@
          "explanation": "p points to a[3]; p[−1] = a[2]."
         }
        ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nint a[] = {10, 20, 30}, *p = a;\nprintf(\"%d\", *(p + 1) + *p);",
+         "options": {
+          "A": "30",
+          "B": "An address",
+          "C": "40",
+          "D": "20"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a[1] + a[0]."
+        },
+        {
+         "question": "What is printed?\nint a[] = {1, 2, 3}, *p = a;\n*p++ = 5;\nprintf(\"%d %d\", a[0], *p);",
+         "options": {
+          "A": "1 2",
+          "B": "2 5",
+          "C": "5 5",
+          "D": "5 2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). *p++ = 5 stores 5 in a[0], then p moves to a[1]."
+        },
+        {
+         "question": "What is printed?\nint x = 10, *p = &x, *q = p;\n*q = 20;\nprintf(\"%d\", x);",
+         "options": {
+          "A": "30",
+          "B": "20",
+          "C": "An address",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "p and q both point to x."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"KEA\", *p = s + 1;\nprintf(\"%s\", p);",
+         "options": {
+          "A": "E",
+          "B": "A",
+          "C": "EA",
+          "D": "KEA"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "p points to the second character."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"Bengaluru\";\nprintf(\"%c\", p[3]);",
+         "options": {
+          "A": "g",
+          "B": "n",
+          "C": "a",
+          "D": "e"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "B(0) e(1) n(2) g(3)."
+        },
+        {
+         "question": "What is printed?\nint a[3] = {5, 10, 15}, *p = &a[2];\nprintf(\"%d\", *p - *(p - 2));",
+         "options": {
+          "A": "15",
+          "B": "10",
+          "C": "2",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "15 − 5."
+        },
+        {
+         "question": "What is printed?\nint a[] = {2, 4, 6}, *p = a;\np++;\nprintf(\"%d\", ++*p);",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "++*p increments a[1] from 4 to 5."
+        },
+        {
+         "question": "What is printed?\nint a[] = {2, 4, 6}, *p = a;\nprintf(\"%d\", *++p);",
+         "options": {
+          "A": "2",
+          "B": "6",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "*++p moves p first, then dereferences."
+        },
+        {
+         "question": "What is printed?\nint a[10], *p = &a[7], *q = &a[2];\nprintf(\"%d\", (int)(p - q));",
+         "options": {
+          "A": "2",
+          "B": "5",
+          "C": "7",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). The difference counts elements, not bytes."
+        },
+        {
+         "question": "For  int a[10], *p = &a[7], *q = &a[2];  the value of  p > q  is",
+         "options": {
+          "A": "5",
+          "B": "0",
+          "C": "1",
+          "D": "Undefined"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Pointers into the same array can be compared."
+        },
+        {
+         "question": "What is printed?\nint x = 1, *p = &x, **pp = &p;\nprintf(\"%d\", **pp + 1);",
+         "options": {
+          "A": "An address",
+          "B": "1",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "**pp is x."
+        },
+        {
+         "question": "What is printed?\nint a = 1, b = 2, c = 3;\nint *arr[] = {&a, &b, &c};\nprintf(\"%d\", *arr[0] + *arr[2]);",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "An array of pointers to int."
+        },
+        {
+         "question": "What is printed?\nvoid f(int **p) { **p = 9; }\n…\nint x = 1, *q = &x;\nf(&q);\nprintf(\"%d\", x);",
+         "options": {
+          "A": "9",
+          "B": "An address",
+          "C": "1",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "**p reaches x through q."
+        },
+        {
+         "question": "On a 64-bit system, for  int *p;  sizeof(p) and sizeof(*p) are",
+         "options": {
+          "A": "8 and 8",
+          "B": "8 and 4",
+          "C": "4 and 8",
+          "D": "4 and 4"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A pointer versus the int it points to."
+        },
+        {
+         "question": "What is printed?\nchar *s = \"hello\";\nprintf(\"%d\", (int)strlen(s + 2));",
+         "options": {
+          "A": "5",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "s + 2 points to \"llo\"."
+        },
+        {
+         "question": "int *p = NULL;  printf(\"%d\", *p);",
+         "options": {
+          "A": "0",
+          "B": "NULL",
+          "C": "Undefined behaviour – usually a crash (segmentation fault)",
+          "D": "A compile-time error"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Never dereference a NULL pointer."
+        },
+        {
+         "question": "int *p = malloc(sizeof(int));  *p = 7;  free(p);  printf(\"%d\", *p);",
+         "options": {
+          "A": "Undefined behaviour – p is dangling after free()",
+          "B": "A compile-time error",
+          "C": "0",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Set p = NULL after free()."
+        },
+        {
+         "question": "What is printed?\nint a[] = {1, 3, 5, 7}, *p;\nfor (p = a + 3; p >= a; p--) printf(\"%d\", *p);",
+         "options": {
+          "A": "753",
+          "B": "1357",
+          "C": "7531",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Walking backwards with a pointer."
+        },
+        {
+         "question": "If  int *p  holds 1000 (4-byte int), then p + 5 holds",
+         "options": {
+          "A": "1005",
+          "B": "1040",
+          "C": "1010",
+          "D": "1020"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1000 + 5 × 4."
+        },
+        {
+         "question": "What is printed?\nvoid sp(int a, int b, int *s, int *p) { *s = a + b; *p = a * b; }\n…\nint x, y;\nsp(3, 4, &x, &y);\nprintf(\"%d %d\", x, y);",
+         "options": {
+          "A": "Garbage",
+          "B": "7 12",
+          "C": "0 0",
+          "D": "12 7"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Two results through two pointer parameters."
+        },
+        {
+         "question": "What is printed?\nint a[2][3] = {{1, 2, 3}, {4, 5, 6}};\nprintf(\"%d\", *(a[1] + 1));",
+         "options": {
+          "A": "2",
+          "B": "5",
+          "C": "6",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a[1] is the second row; + 1 moves one element."
+        },
+        {
+         "question": "What is printed?\nint a[2][3] = {{1, 2, 3}, {4, 5, 6}};\nprintf(\"%d\", **a);",
+         "options": {
+          "A": "1",
+          "B": "An address",
+          "C": "6",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "*a is row 0; ** gives its first element."
+        },
+        {
+         "question": "What is printed?\nchar *m[] = {\"Jan\", \"Feb\", \"Mar\"};\nprintf(\"%s\", m[2] + 1);",
+         "options": {
+          "A": "Mar",
+          "B": "Feb",
+          "C": "a",
+          "D": "ar"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "m[2] + 1 skips the 'M'."
+        },
+        {
+         "question": "What is printed?\nchar *m[] = {\"Jan\", \"Feb\", \"Mar\"};\nprintf(\"%c\", *(*(m + 1) + 2));",
+         "options": {
+          "A": "a",
+          "B": "e",
+          "C": "b",
+          "D": "F"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "m[1][2] = 'b'."
+        },
+        {
+         "question": "const int *p = &x;  *p = 5;",
+         "options": {
+          "A": "A compile-time error – the value pointed to is read-only through p",
+          "B": "A run-time error",
+          "C": "Changes p",
+          "D": "Sets x to 5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). p itself may still be changed."
+        },
+        {
+         "question": "int * const p = &x;  p++;",
+         "options": {
+          "A": "Changes x",
+          "B": "Moves p to the next int",
+          "C": "A compile-time error – p itself is constant",
+          "D": "Allowed with a warning"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "*p = 5 would be allowed."
+        },
+        {
+         "question": "In standard C, arithmetic on a void pointer (v++) is",
+         "options": {
+          "A": "Moves by one int",
+          "B": "Not allowed (GCC allows it as an extension, adding 1)",
+          "C": "Moves by 8 bytes",
+          "D": "Always allowed"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The size of void is unknown."
+        },
+        {
+         "question": "What is printed?\nvoid f(int **pp) { static int y = 3; *pp = &y; }\n…\nint x = 1, *p = &x;\nf(&p);\nprintf(\"%d\", *p);",
+         "options": {
+          "A": "An address",
+          "B": "1",
+          "C": "Garbage",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "f changes the caller's pointer itself."
+        },
+        {
+         "question": "What is printed?\nchar *p = \"abc\";\nint n = 0;\nwhile (*p++) n++;\nprintf(\"%d\", n);",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The loop stops at '\\0'."
+        },
+        {
+         "question": "What is printed?\nint a[] = {10, 20, 30, 40}, *p = a;\nprintf(\"%d\", p[2] + 2[p]);",
+         "options": {
+          "A": "30",
+          "B": "50",
+          "C": "60",
+          "D": "Compile error"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2[p] = *(2 + p) = p[2]."
+        }
+       ]
       }
      ],
      "notes": [
@@ -7061,6 +7426,371 @@
          "answer": "A",
          "subject": "Unions, typedef, enum and Bit Fields",
          "explanation": "No memory is allocated by a typedef."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nstruct pt { int x, y; } a = {1, 2}, b;\nb = a;\nb.x = 9;\nprintf(\"%d %d\", a.x, b.x);",
+         "options": {
+          "A": "9 9",
+          "B": "9 1",
+          "C": "1 9",
+          "D": "1 1"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Assignment copies; b is separate."
+        },
+        {
+         "question": "What is printed?\nstruct pt { int x, y; } a = {1, 2};\nstruct pt *q = &a;\nq->y = 7;\nprintf(\"%d\", a.y);",
+         "options": {
+          "A": "7",
+          "B": "2",
+          "C": "1",
+          "D": "An address"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "q points to a."
+        },
+        {
+         "question": "What is printed?\nstruct st { char n; int m; } s[2] = {{'A', 50}, {'B', 70}};\nprintf(\"%c%d\", s[1].n, s[0].m);",
+         "options": {
+          "A": "A70",
+          "B": "A50",
+          "C": "B70",
+          "D": "B50"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "An array of structures."
+        },
+        {
+         "question": "What is printed?\nstruct d { int dd, mm; };\nstruct e { struct d j; } x = {{5, 8}};\nprintf(\"%d\", x.j.mm);",
+         "options": {
+          "A": "0",
+          "B": "8",
+          "C": "5",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A nested structure."
+        },
+        {
+         "question": "What is printed?\nstruct st { char n; int m; } s[2] = {{'A', 50}, {'B', 70}};\nstruct st *p = s;\np++;\nprintf(\"%c\", p->n);",
+         "options": {
+          "A": "B",
+          "B": "A",
+          "C": "An address",
+          "D": "Garbage"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "p + 1 moves to the next structure."
+        },
+        {
+         "question": "With 8-byte aligned double, sizeof(struct { char a; double b; }) is",
+         "options": {
+          "A": "8",
+          "B": "12",
+          "C": "16",
+          "D": "9"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 7 padding bytes after a."
+        },
+        {
+         "question": "With 2-byte short, sizeof(struct { char a; char b; short c; }) is",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "8",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "No padding is needed."
+        },
+        {
+         "question": "sizeof(struct { int a[3]; char c; }) with 4-byte int is",
+         "options": {
+          "A": "12",
+          "B": "15",
+          "C": "13",
+          "D": "16"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "12 + 1, padded to a multiple of 4."
+        },
+        {
+         "question": "What is printed?\nstruct pt { int x, y; };\nvoid f(struct pt t) { t.x = 0; }\n…\nstruct pt a = {1, 2};\nf(a);\nprintf(\"%d\", a.x);",
+         "options": {
+          "A": "2",
+          "B": "Garbage",
+          "C": "1",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "f works on a copy."
+        },
+        {
+         "question": "What is printed?\nstruct pt { int x, y; };\nvoid g(struct pt *t) { t->x = 0; }\n…\nstruct pt a = {1, 2};\ng(&a);\nprintf(\"%d\", a.x);",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "1",
+          "D": "Garbage"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "g works through a pointer."
+        },
+        {
+         "question": "union { int i; float f; } u;  u.f = 1.0f;  printf(\"%d\", u.i);  prints",
+         "options": {
+          "A": "1065353216 – the bit pattern of 1.0f read as an int",
+          "B": "1.000000",
+          "C": "1",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1.0f is 0x3F800000."
+        },
+        {
+         "question": "sizeof(union { char c[7]; int i; }) with 4-byte int is",
+         "options": {
+          "A": "4",
+          "B": "7",
+          "C": "11",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "7 rounded up to a multiple of 4."
+        },
+        {
+         "question": "After  typedef struct node *NodePtr;  the declaration  NodePtr p;  declares p as",
+         "options": {
+          "A": "A struct node",
+          "B": "An error",
+          "C": "A pointer to struct node",
+          "D": "An int"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Common in linked-list code."
+        },
+        {
+         "question": "What is printed?\nenum { A, B, C } x = B;\nprintf(\"%d\", x + C);",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "BC",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "B = 1, C = 2."
+        },
+        {
+         "question": "enum { X = -2, Y, Z };  — the value of Z is",
+         "options": {
+          "A": "−1",
+          "B": "1",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "−2, −1, 0."
+        },
+        {
+         "question": "struct { unsigned a : 4, b : 4; } s;  typically has sizeof(s) equal to",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Both fields fit in one unsigned int (implementation-defined)."
+        },
+        {
+         "question": "signed int x : 3;  (a bit field) can hold",
+         "options": {
+          "A": "0 to 7",
+          "B": "−3 to 3",
+          "C": "−8 to 7",
+          "D": "−4 to 3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3-bit two's complement."
+        },
+        {
+         "question": "To check whether two struct point variables are equal, you",
+         "options": {
+          "A": "Use ==",
+          "B": "Compare them member by member",
+          "C": "Use memcmp, which is always safe",
+          "D": "Use strcmp"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "memcmp may also compare padding bytes."
+        },
+        {
+         "question": "What is printed?\nstruct s { char *name; } a = {\"Ram\"};\nprintf(\"%c\", a.name[1]);",
+         "options": {
+          "A": "a",
+          "B": "Ram",
+          "C": "m",
+          "D": "R"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "name points to \"Ram\"."
+        },
+        {
+         "question": "What is printed?\nstruct t { int v[2]; } x = {{1, 2}}, y;\ny = x;\ny.v[0] = 9;\nprintf(\"%d\", x.v[0]);",
+         "options": {
+          "A": "Garbage",
+          "B": "9",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Structure assignment copies the array member too."
+        },
+        {
+         "question": "What is printed?\nstruct n { int d; struct n *nx; } c = {3, NULL}, b = {2, &c}, a = {1, &b};\nstruct n *p;\nint s = 0;\nfor (p = &a; p; p = p->nx) s += p->d;\nprintf(\"%d\", s);",
+         "options": {
+          "A": "1",
+          "B": "An infinite loop",
+          "C": "6",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Traversing a three-node linked list."
+        },
+        {
+         "question": "With the nodes a → b → c above (a.d = 1, b.d = 2, c.d = 3), the value of  a.nx->nx->d  is",
+         "options": {
+          "A": "Garbage",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a.nx is &b; b.nx is &c."
+        },
+        {
+         "question": "For the same list, with  p = &a,  the value of  p->nx->d  is",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "1",
+          "D": "An address"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "-> can be chained."
+        },
+        {
+         "question": "What is printed?\ntypedef enum { OFF, ON } State;\nState s = ON;\nprintf(\"%d\", s);",
+         "options": {
+          "A": "ON",
+          "B": "0",
+          "C": "Compile error",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "OFF = 0, ON = 1."
+        },
+        {
+         "question": "struct x { int x; } x;",
+         "options": {
+          "A": "Is a compile-time error",
+          "B": "Declares two types",
+          "C": "Needs typedef",
+          "D": "Is legal – tags, members and variables live in different name spaces"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Legal, though confusing."
+        },
+        {
+         "question": "On a little-endian machine,  union { int i; char c[4]; } u = {1};  printf(\"%d\", u.c[0]);  prints",
+         "options": {
+          "A": "256",
+          "B": "0",
+          "C": "1",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The least significant byte is stored first – a classic endianness test."
+        },
+        {
+         "question": "struct pt { int x, y; } q = {.y = 3};  — q.x is",
+         "options": {
+          "A": "0",
+          "B": "3",
+          "C": "An error",
+          "D": "Garbage"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Unnamed members are zero-initialised."
+        },
+        {
+         "question": "Swapping elements s[i] and s[j] of an array of structures can be done with",
+         "options": {
+          "A": "s[i] <-> s[j];",
+          "B": "struct st t = s[i]; s[i] = s[j]; s[j] = t;",
+          "C": "strcpy(s[i], s[j]);",
+          "D": "swap(s[i].*, s[j].*);"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Whole structures can be assigned."
+        },
+        {
+         "question": "sizeof(union { char c; int i[2]; }) with 4-byte int is",
+         "options": {
+          "A": "8",
+          "B": "9",
+          "C": "4",
+          "D": "12"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The largest member is the 8-byte array."
+        },
+        {
+         "question": "What is printed?\nenum color { RED, GREEN };\nenum color c = GREEN;\nswitch (c) { case RED: printf(\"R\"); break; case GREEN: printf(\"G\"); }",
+         "options": {
+          "A": "1",
+          "B": "R",
+          "C": "G",
+          "D": "RG"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Enumerators work as case labels."
         }
        ]
       }
@@ -7808,6 +8538,371 @@
          "answer": "D",
          "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
          "explanation": "Left to right: 3 >> 1 = 1, 1 << 1 = 2 (the lowest bit is lost)."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\nprintf(\"%d\", 6 & 3);",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "2",
+          "D": "7"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "110 & 011 = 010."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 6 | 3);",
+         "options": {
+          "A": "2",
+          "B": "9",
+          "C": "5",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "110 | 011 = 111."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 6 ^ 3);",
+         "options": {
+          "A": "2",
+          "B": "5",
+          "C": "3",
+          "D": "7"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "110 ^ 011 = 101."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", ~6);",
+         "options": {
+          "A": "−7",
+          "B": "−6",
+          "C": "1",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "~x = −(x + 1)."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 6 << 2);",
+         "options": {
+          "A": "8",
+          "B": "24",
+          "C": "12",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "6 × 4."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 6 >> 1);",
+         "options": {
+          "A": "2",
+          "B": "1",
+          "C": "3",
+          "D": "12"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "6 / 2."
+        },
+        {
+         "question": "What is printed?\nint x = 0xA5;\nprintf(\"%X\", x & 0x0F);",
+         "options": {
+          "A": "A",
+          "B": "F",
+          "C": "A5",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The low nibble."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 0xA5 >> 4);",
+         "options": {
+          "A": "10",
+          "B": "5",
+          "C": "4",
+          "D": "165"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The high nibble 0xA."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (5 & 3) | (5 ^ 3));",
+         "options": {
+          "A": "6",
+          "B": "1",
+          "C": "7",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1 | 6."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", ~(~5));",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "−6",
+          "D": "−5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Complementing twice gives the original."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d %d\", !5, ~5);",
+         "options": {
+          "A": "0 −5",
+          "B": "1 −6",
+          "C": "−6 0",
+          "D": "0 −6"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). ! is logical NOT; ~ is bitwise NOT."
+        },
+        {
+         "question": "What is printed?\nunsigned char c = ~0;\nprintf(\"%d\", c);",
+         "options": {
+          "A": "255",
+          "B": "0",
+          "C": "−1",
+          "D": "65535"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "All 8 bits set."
+        },
+        {
+         "question": "What is printed?\nint n = 255, c = 0;\nwhile (n) { c += n & 1; n >>= 1; }\nprintf(\"%d\", c);",
+         "options": {
+          "A": "1",
+          "B": "7",
+          "C": "255",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "255 = 11111111."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%u\", 1u << 31);",
+         "options": {
+          "A": "31",
+          "B": "0",
+          "C": "2147483648",
+          "D": "−2147483648"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "With unsigned, shifting into bit 31 is well defined."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", (13 >> 2) & 1);",
+         "options": {
+          "A": "1",
+          "B": "13",
+          "C": "3",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "13 = 1101; bit 2 is 1."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 13 & ~4);",
+         "options": {
+          "A": "4",
+          "B": "9",
+          "C": "8",
+          "D": "13"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Clears bit 2: 1101 → 1001."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 13 ^ 0xF);",
+         "options": {
+          "A": "15",
+          "B": "0",
+          "C": "2",
+          "D": "13"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1101 ^ 1111 = 0010."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 12 & -12);",
+         "options": {
+          "A": "4",
+          "B": "12",
+          "C": "0",
+          "D": "8"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). x & −x isolates the lowest set bit (12 = 1100)."
+        },
+        {
+         "question": "What is printed?\nif (8 & 4) printf(\"Y\"); else printf(\"N\");",
+         "options": {
+          "A": "Nothing",
+          "B": "Y",
+          "C": "YN",
+          "D": "N"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1000 & 0100 = 0."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d %d\", 8 & 4, 8 && 4);",
+         "options": {
+          "A": "0 0",
+          "B": "0 1",
+          "C": "12 1",
+          "D": "1 1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Bitwise AND versus logical AND."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 1 << 2 > 3);",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "<< before >: (1 << 2) > 3 → 4 > 3."
+        },
+        {
+         "question": "If x = 5, then after  x ^= 5;  x is",
+         "options": {
+          "A": "10",
+          "B": "0",
+          "C": "1",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Any value XOR itself is 0."
+        },
+        {
+         "question": "With a = 3 and b = 5, the value of  a & b | a ^ b  is",
+         "options": {
+          "A": "1",
+          "B": "4",
+          "C": "7",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "& first (1), then ^ (6), then | → 7."
+        },
+        {
+         "question": "What is printed?\nint n = 7, p = 0;\nwhile (n) { p ^= n & 1; n >>= 1; }\nprintf(\"%d\", p);",
+         "options": {
+          "A": "3",
+          "B": "0",
+          "C": "7",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Parity: 7 has three 1 bits (odd)."
+        },
+        {
+         "question": "(x << 4) − x equals",
+         "options": {
+          "A": "16x",
+          "B": "4x",
+          "C": "x⁴",
+          "D": "15x"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "16x − x."
+        },
+        {
+         "question": "The condition  n & 1 == 0  is",
+         "options": {
+          "A": "Always 0 – == binds tighter than &, giving n & 0",
+          "B": "True for even n",
+          "C": "True for odd n",
+          "D": "A compile-time error"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Write (n & 1) == 0."
+        },
+        {
+         "question": "The value of  0xFF00 & 0x1234  is",
+         "options": {
+          "A": "0x1234",
+          "B": "0xFF34",
+          "C": "0x1200",
+          "D": "0x0034"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Only the high byte survives the mask."
+        },
+        {
+         "question": "The value of  (0x12 << 8) | 0x34  is",
+         "options": {
+          "A": "0x0034",
+          "B": "0x1234 (4660)",
+          "C": "0x3412",
+          "D": "0x46"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Combining two bytes into a 16-bit value."
+        },
+        {
+         "question": "The value of  10 & 9  is",
+         "options": {
+          "A": "8",
+          "B": "1",
+          "C": "9",
+          "D": "11"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "1010 & 1001 = 1000 (n & (n − 1) clears the lowest set bit)."
+        },
+        {
+         "question": "The value of  0x3C ^ 0xFF  is",
+         "options": {
+          "A": "0xFF",
+          "B": "0x00",
+          "C": "0xC3",
+          "D": "0x3C"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "XOR with all ones flips every bit of the byte."
         }
        ]
       }
@@ -8559,6 +9654,371 @@
          "explanation": "The compiler never sees the macro names."
         }
        ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "What is printed?\n#define SUM(a, b) a + b\nprintf(\"%d\", 2 * SUM(3, 4));",
+         "options": {
+          "A": "10",
+          "B": "14",
+          "C": "24",
+          "D": "11"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2 * 3 + 4 – no parentheses around the body."
+        },
+        {
+         "question": "What is printed?\n#define P(x) printf(\"%d \", x)\nP(5 + 1);",
+         "options": {
+          "A": "51",
+          "B": "5 + 1",
+          "C": "Compile error",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The argument expression is evaluated at run time."
+        },
+        {
+         "question": "What is printed?\n#define MUL(a, b) a * b\nprintf(\"%d\", MUL(2 + 1, 3 + 1));",
+         "options": {
+          "A": "8",
+          "B": "6",
+          "C": "12",
+          "D": "7"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "2 + 1 * 3 + 1."
+        },
+        {
+         "question": "With  #define MAX 10  and  int a[MAX * 2];  the number of elements of a is",
+         "options": {
+          "A": "12",
+          "B": "2",
+          "C": "20",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "MAX * 2 → 10 * 2."
+        },
+        {
+         "question": "Code between  #if 0  and  #endif  is",
+         "options": {
+          "A": "Compiled but not run",
+          "B": "Removed by the preprocessor – a common way to disable code",
+          "C": "An error",
+          "D": "Executed once"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Unlike comments, #if 0 blocks can contain comments."
+        },
+        {
+         "question": "What is printed?\n#define MAX 50\n#ifndef MAX\n#define MAX 100\n#endif\nprintf(\"%d\", MAX);",
+         "options": {
+          "A": "100",
+          "B": "Compile error",
+          "C": "50",
+          "D": "150"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "MAX is already defined, so the block is skipped."
+        },
+        {
+         "question": "What is printed?\n#define STR(x) #x\nprintf(STR(KEA 2026));",
+         "options": {
+          "A": "KEA 2026",
+          "B": "STR(KEA 2026)",
+          "C": "\"KEA 2026\"",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "# turns the argument into a string literal."
+        },
+        {
+         "question": "What is printed?\n#define CAT(a, b) a##b\nint xy = 7;\nprintf(\"%d\", CAT(x, y));",
+         "options": {
+          "A": "Compile error",
+          "B": "xy",
+          "C": "0",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "## pastes x and y into the identifier xy."
+        },
+        {
+         "question": "On a conforming compiler,  printf(\"%d\", __STDC__);  prints",
+         "options": {
+          "A": "__STDC__",
+          "B": "1",
+          "C": "The C version year",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "__STDC_VERSION__ gives the version (e.g. 201112L)."
+        },
+        {
+         "question": "What is printed?\n#define SQ(x) ((x) * (x))\n#define CUBE(x) (SQ(x) * (x))\nprintf(\"%d\", CUBE(2));",
+         "options": {
+          "A": "4",
+          "B": "16",
+          "C": "8",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Macros can use other macros."
+        },
+        {
+         "question": "What is printed?\n#define DEBUG\n#ifdef DEBUG\nprintf(\"D\");\n#endif\nprintf(\"X\");",
+         "options": {
+          "A": "DX",
+          "B": "Nothing",
+          "C": "D",
+          "D": "X"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "DEBUG is defined (with an empty value)."
+        },
+        {
+         "question": "What is printed?\n#define DEBUG\n#undef DEBUG\n#ifdef DEBUG\nprintf(\"D\");\n#endif\nprintf(\"X\");",
+         "options": {
+          "A": "Compile error",
+          "B": "D",
+          "C": "DX",
+          "D": "X"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "#undef removed DEBUG."
+        },
+        {
+         "question": "What is printed?\n#define V 2\n#if V == 1\nprintf(\"A\");\n#elif V == 2\nprintf(\"B\");\n#else\nprintf(\"C\");\n#endif",
+         "options": {
+          "A": "ABC",
+          "B": "B",
+          "C": "A",
+          "D": "C"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "#elif chains like else if."
+        },
+        {
+         "question": "What is printed?\n#define INC(x) ((x) + 1)\nint i = 5;\nprintf(\"%d %d\", INC(i), i);",
+         "options": {
+          "A": "5 5",
+          "B": "5 6",
+          "C": "6 6",
+          "D": "6 5"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "INC does not change i."
+        },
+        {
+         "question": "What is printed?\n#define ABS(x) ((x) < 0 ? -(x) : (x))\nprintf(\"%d\", ABS(-3 - 2));",
+         "options": {
+          "A": "−5",
+          "B": "−1",
+          "C": "5",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Fully parenthesised, so it works."
+        },
+        {
+         "question": "What is printed?\n#define f(x) x * x\nprintf(\"%d\", f(3) / f(3));",
+         "options": {
+          "A": "9",
+          "B": "1",
+          "C": "27",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3 * 3 / 3 * 3 = 9, evaluated left to right."
+        },
+        {
+         "question": "Defining the same macro twice with exactly the same replacement text",
+         "options": {
+          "A": "Needs #undef in between",
+          "B": "Is allowed",
+          "C": "Changes its value",
+          "D": "Is always an error"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "A different body needs #undef first."
+        },
+        {
+         "question": "Including a header that defines a structure twice, without include guards, causes",
+         "options": {
+          "A": "A redefinition error",
+          "B": "A run-time error",
+          "C": "A linker warning only",
+          "D": "Nothing"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Guards make the second inclusion empty."
+        },
+        {
+         "question": "__DATE__ expands to a string such as",
+         "options": {
+          "A": "The file name",
+          "B": "The current time",
+          "C": "\"Oct 14 2026\"",
+          "D": "14/10/2026 as an int"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It is the date of compilation."
+        },
+        {
+         "question": "After  #define WINDOWS  (no value), is WINDOWS defined?",
+         "options": {
+          "A": "It is an error",
+          "B": "No",
+          "C": "It is defined as 1",
+          "D": "Yes – it is defined with an empty replacement"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "#ifdef WINDOWS is true."
+        },
+        {
+         "question": "In  #if FOO > 0,  an undefined identifier FOO is treated as",
+         "options": {
+          "A": "1",
+          "B": "Garbage",
+          "C": "An error",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Undefined identifiers become 0 in #if."
+        },
+        {
+         "question": "Multi-statement macros are often wrapped in  do { … } while (0)  so that they",
+         "options": {
+          "A": "Become functions",
+          "B": "Run in a loop",
+          "C": "Behave like a single statement, e.g. after an if without braces",
+          "D": "Run twice"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It also needs the caller's semicolon."
+        },
+        {
+         "question": "What is printed?\n#define PI 3.14\nprintf(\"%f\", PI * 2);",
+         "options": {
+          "A": "6.280000",
+          "B": "Compile error",
+          "C": "6.28",
+          "D": "3.142"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%f prints six decimals."
+        },
+        {
+         "question": "What is printed?\n#define LIMIT 3 + 2\nprintf(\"%d\", LIMIT * 2);",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "12",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3 + 2 * 2; write #define LIMIT (3 + 2)."
+        },
+        {
+         "question": "With  #define MAX 5,  the lines\n#if MAX < 10\n#error MAX too small\n#endif",
+         "options": {
+          "A": "Stop compilation with the message 'MAX too small'",
+          "B": "Set MAX to 10",
+          "C": "Are ignored",
+          "D": "Print the message at run time"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "#error is checked at preprocessing time."
+        },
+        {
+         "question": "What is printed?\n#define A 1\nint AB = 2;\nprintf(\"%d\", AB);",
+         "options": {
+          "A": "12",
+          "B": "Compile error",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Macros replace whole tokens only; AB is a different token."
+        },
+        {
+         "question": "What is printed?\n#define TRUE 1\n#define FALSE !TRUE\nprintf(\"%d\", FALSE);",
+         "options": {
+          "A": "1",
+          "B": "−1",
+          "C": "0",
+          "D": "Compile error"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "!1 = 0."
+        },
+        {
+         "question": "What is printed?\n#define SHOW(x) printf(#x \" = %d\", x)\nint a = 4;\nSHOW(a * 2);",
+         "options": {
+          "A": "a * 2 = a * 2",
+          "B": "a * 2 = 8",
+          "C": "8 = 8",
+          "D": "x = 8"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). #x gives \"a * 2\", which joins the next string literal."
+        },
+        {
+         "question": "#line 100  makes the compiler",
+         "options": {
+          "A": "Number the next source line as 100 in its messages",
+          "B": "Loop 100 times",
+          "C": "Skip 100 lines",
+          "D": "Start the program at line 100"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Used by code generators."
+        },
+        {
+         "question": "Can  #if sizeof(int) == 4  be used?",
+         "options": {
+          "A": "For char alone",
+          "B": "No – the preprocessor does not know types, so it is an error",
+          "C": "Yes",
+          "D": "In C99 alone"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Use limits.h macros such as INT_MAX instead."
+        }
+       ]
       }
      ],
      "notes": [
@@ -9301,6 +10761,371 @@
          "answer": "C",
          "subject": "High-level and Low-level File Operations and Command Line Arguments",
          "explanation": "They are built on top of the low-level calls."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Output",
+       "questions": [
+        {
+         "question": "To read and update records of an existing binary file, open it with",
+         "options": {
+          "A": "\"rb+\" (or \"r+b\")",
+          "B": "\"wb\"",
+          "C": "\"ab\"",
+          "D": "\"rb\""
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "\"wb+\" would erase the file."
+        },
+        {
+         "question": "fprintf(stdout, \"Hi\");  is equivalent to",
+         "options": {
+          "A": "fputs(stdin, \"Hi\");",
+          "B": "puts(\"Hi\");",
+          "C": "Writing to a file named stdout",
+          "D": "printf(\"Hi\");"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "stdout is a FILE *."
+        },
+        {
+         "question": "fputc('A', stdout);",
+         "options": {
+          "A": "Reads a character",
+          "B": "Writes to a file named stdout",
+          "C": "Prints A on the screen",
+          "D": "Is an error"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Same as putchar('A')."
+        },
+        {
+         "question": "fscanf() returns EOF when",
+         "options": {
+          "A": "A number is read",
+          "B": "The input ends before the first conversion",
+          "C": "The buffer is full",
+          "D": "The file is opened"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Otherwise it returns the number of items assigned."
+        },
+        {
+         "question": "On Linux, a text file containing  abc  followed by a newline – how many characters does  while (fgetc(fp) != EOF) n++;  count?",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "a, b, c and '\\n'."
+        },
+        {
+         "question": "After reading 10 bytes from the start of a file, ftell(fp) returns",
+         "options": {
+          "A": "10",
+          "B": "0",
+          "C": "9",
+          "D": "11"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The position of the next byte."
+        },
+        {
+         "question": "After rewind(fp), ftell(fp) returns",
+         "options": {
+          "A": "−1",
+          "B": "1",
+          "C": "0",
+          "D": "The file size"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "rewind goes back to the start."
+        },
+        {
+         "question": "fwrite(a, sizeof(int), 3, fp) with 4-byte int writes",
+         "options": {
+          "A": "3 bytes",
+          "B": "12 bytes",
+          "C": "24 bytes",
+          "D": "4 bytes"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). 3 items × 4 bytes."
+        },
+        {
+         "question": "The loop  while (fread(&r, sizeof r, 1, fp) == 1) { … }  stops when",
+         "options": {
+          "A": "r becomes zero",
+          "B": "The file is opened",
+          "C": "fread can no longer read a whole record – end of file or an error",
+          "D": "After one record"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "The correct way to read all records."
+        },
+        {
+         "question": "while (!feof(fp)) { fgets(line, 80, fp); fputs(line, stdout); }",
+         "options": {
+          "A": "May print the last line twice, because feof becomes true only after a read fails",
+          "B": "Prints nothing",
+          "C": "Skips every line",
+          "D": "Loses the first line"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). Test the read itself: while (fgets(line, 80, fp) != NULL)."
+        },
+        {
+         "question": "fprintf on a file opened in \"r\" mode",
+         "options": {
+          "A": "Overwrites the file",
+          "B": "Fails – the stream is read-only",
+          "C": "Creates a new file",
+          "D": "Appends data"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Use \"r+\" to read and write."
+        },
+        {
+         "question": "fprintf(stderr, \"…\") is used to",
+         "options": {
+          "A": "Read errors",
+          "B": "Clear errors",
+          "C": "Write to a file named stderr",
+          "D": "Print error messages, which still appear when stdout is redirected"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "stderr is usually unbuffered."
+        },
+        {
+         "question": "getc(fp) differs from fgetc(fp) in that",
+         "options": {
+          "A": "getc writes",
+          "B": "getc may be a macro, fgetc is always a function",
+          "C": "getc works only on stdin",
+          "D": "getc reads a line"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Both read one character."
+        },
+        {
+         "question": "ungetc(ch, fp)",
+         "options": {
+          "A": "Pushes the character back so the next read returns it again",
+          "B": "Deletes the character",
+          "C": "Writes it at the end",
+          "D": "Closes the file"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "At least one character of push-back is guaranteed."
+        },
+        {
+         "question": "tmpfile() creates",
+         "options": {
+          "A": "A directory",
+          "B": "A copy of stdin",
+          "C": "A permanent text file",
+          "D": "A temporary binary file that is removed when it is closed"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Opened in \"wb+\" mode."
+        },
+        {
+         "question": "A text file holds \"a\\nb\\nc\\n\". Counting '\\n' characters with fgetc gives",
+         "options": {
+          "A": "6",
+          "B": "1",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "One newline per line."
+        },
+        {
+         "question": "In \"a\" mode, fseek(fp, 0, SEEK_SET) followed by fputs(\"x\", fp) writes x",
+         "options": {
+          "A": "At the end of the file anyway",
+          "B": "In the middle",
+          "C": "At the start",
+          "D": "Nowhere – fseek fails"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Append mode forces every write to the end."
+        },
+        {
+         "question": "In C11, the mode \"wx\"",
+         "options": {
+          "A": "Appends to the file",
+          "B": "Erases the file",
+          "C": "Fails if the file already exists",
+          "D": "Opens for reading"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Exclusive creation."
+        },
+        {
+         "question": "For  ./sum 3 4,  the expression  atoi(argv[1]) + atoi(argv[2])  gives",
+         "options": {
+          "A": "2",
+          "B": "7",
+          "C": "\"34\"",
+          "D": "34"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Arguments are strings and must be converted."
+        },
+        {
+         "question": "For  ./a.out x,  printf(\"%d %s\", argc, argv[1]);  prints",
+         "options": {
+          "A": "2 ./a.out",
+          "B": "1 x",
+          "C": "1 ./a.out",
+          "D": "2 x"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "argv[0] is the program name."
+        },
+        {
+         "question": "A program run with no arguments has argc equal to",
+         "options": {
+          "A": "−1",
+          "B": "2",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "argv[0] is always there."
+        },
+        {
+         "question": "For  ./p -v,  argv[1][0] is",
+         "options": {
+          "A": "\"-v\"",
+          "B": "'p'",
+          "C": "'-'",
+          "D": "'v'"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "argv[1] is \"-v\"."
+        },
+        {
+         "question": "write(1, \"Hi\\n\", 3);",
+         "options": {
+          "A": "Writes to a file named 1",
+          "B": "Writes Hi and a newline to standard output",
+          "C": "Reads 3 bytes",
+          "D": "Is a compile-time error"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Descriptor 1 is standard output."
+        },
+        {
+         "question": "The low-level call open() returns, when it fails,",
+         "options": {
+          "A": "−1",
+          "B": "0",
+          "C": "NULL",
+          "D": "EOF"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "fopen returns NULL."
+        },
+        {
+         "question": "fileno(fp) returns",
+         "options": {
+          "A": "The current position",
+          "B": "The integer file descriptor underneath the FILE stream",
+          "C": "The file name",
+          "D": "The file size"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "It links stream I/O to low-level I/O (POSIX)."
+        },
+        {
+         "question": "Binary files written on one machine may not be read correctly on another because",
+         "options": {
+          "A": "Binary files are text",
+          "B": "fread works only once",
+          "C": "The file name changes",
+          "D": "Byte order, type sizes and padding can differ"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "Text files are more portable."
+        },
+        {
+         "question": "To read a whole line containing spaces from a file, use",
+         "options": {
+          "A": "fgets()",
+          "B": "fscanf(fp, \"%s\", s)",
+          "C": "fread(s, 1, 1, fp)",
+          "D": "fgetc() once"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "%s stops at the first space."
+        },
+        {
+         "question": "A binary file of 120 bytes holds records of 24 bytes each. The number of records is",
+         "options": {
+          "A": "24",
+          "B": "120",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "120 / 24 (file size from fseek + ftell)."
+        },
+        {
+         "question": "What is printed?\nint a, b;\nsscanf(\"25 30\", \"%d %d\", &a, &b);\nprintf(\"%d\", a + b);",
+         "options": {
+          "A": "2530",
+          "B": "25",
+          "C": "55",
+          "D": "Compile error"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "PYQ pattern (KEA / KSET papers). sscanf reads from a string as fscanf reads from a file."
+        },
+        {
+         "question": "What does this program print when run as  ./count one two three ?\nint main(int argc, char *argv[]) { printf(\"%d\", argc - 1); return 0; }",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Output",
+         "explanation": "argc is 4 (including the program name)."
         }
        ]
       }
