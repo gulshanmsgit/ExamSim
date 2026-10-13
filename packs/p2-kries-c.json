@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "4 of 10 topics so far (8 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "6 of 10 topics so far (12 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -3002,6 +3002,1502 @@
       {
        "title": "Arrays and strings – revision sheet",
        "md": "## Arrays\n- `int a[5];` indices 0–4; no bounds checking (a[5] or a[-1] → garbage / undefined)\n- `int a[5] = {1, 2};` → rest 0; `int a[] = {…}` size from initialisers; count = `sizeof(a) / sizeof(a[0])`\n- 2-D row-major: address of a[i][j] = base + (i × cols + j) × size; `char a[100][100]` → a[40][50] at 4050\n- `int a[3][2] = {1,2,3,4,5,6}` → a[2][1] = 6; `int a[2][3][4]` = 24 elements\n- Array name = `&a[0]` (cannot be assigned: `a = b` is an error); `2[a]` = `a[2]`\n- Bubble sort: n − 1 passes, n(n − 1)/2 comparisons, O(n²) (O(n) best with a swap flag); largest element moves to the end after each pass\n  - [4,3,2,1,8,7,6,5] → pass 1: 3 2 1 4 7 6 5 8 → pass 2: 2 1 3 4 6 5 7 8\n\n## Strings\n- char array ending in `'\\0'`; `\"hi\"` takes 3 bytes; `sizeof(\"bengaluru\")` = 10, `strlen` = 9\n- `char s[10]; s = \"hi\";` is an error – use `strcpy(s, \"hi\")`\n- `<string.h>`: strlen, strcpy(dest, src), strncpy, strcat(dest, src), strncmp, strcmp (0 when equal), strchr (char), strstr (substring), strrev (Turbo C)\n- `<ctype.h>`: toupper, tolower, isdigit, isalpha; `<stdlib.h>`: atoi, atof\n- `scanf(\"%s\")` stops at a space; `gets` removed (use `fgets`); compare contents with strcmp, not ==\n- `'a' − 32 = 'A'`; palindrome: s[i] vs s[n − 1 − i]\n"
+      }
+     ]
+    },
+    {
+     "name": "Functions",
+     "plan": {
+      "id": "P2-KRC-05"
+     },
+     "sets": [
+      {
+       "name": "1 · Function Definition, Prototypes, Types of Functions and Arguments",
+       "questions": [
+        {
+         "question": "What is printed?\nvoid f(int x) { x = 10; }\nint main() { int a = 5; f(a); printf(\"%d\", a); }",
+         "options": {
+          "A": "5",
+          "B": "Garbage",
+          "C": "0",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "C passes by value: f changes only its own copy."
+        },
+        {
+         "question": "What is printed?\nvoid f(int *x) { *x = 10; }\nint main() { int a = 5; f(&a); printf(\"%d\", a); }",
+         "options": {
+          "A": "5",
+          "B": "Address of a",
+          "C": "Compile error",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "The pointer lets f store into the caller's variable (call by reference simulated)."
+        },
+        {
+         "question": "The main purpose of a function prototype in C is to:",
+         "options": {
+          "A": "Let the compiler check the number and types of arguments in calls",
+          "B": "Make the function run faster",
+          "C": "Allocate memory for the function",
+          "D": "Make the function recursive"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Prototypes allow argument checking and conversions at compile time."
+        },
+        {
+         "question": "Assertion (A): Standard C does not allow a function to be defined inside another function.\nReason (R): C supports recursion.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Both true but unrelated; lack of nesting is why C needs no static links."
+        },
+        {
+         "question": "Two functions A and B where A calls B and B calls A are said to be:",
+         "options": {
+          "A": "Tail recursive",
+          "B": "Inline",
+          "C": "Reentrant only",
+          "D": "Mutually (indirectly) recursive"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Recursion through another function is indirect or mutual recursion."
+        },
+        {
+         "question": "Consider the statements:\nI. In C89, a function declared without a return type is assumed to return int.\nII. A C function can return a whole structure by value.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Implicit int was allowed in C89 (removed in C99), and structures can be returned by value."
+        },
+        {
+         "question": "Identify the structure/structures used in the syntax of function in C.\n(a) Function declaration\n(b) Function definition\n(c) Function call",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c",
+          "C": "b only",
+          "D": "a and c only"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "A function is declared (prototype), defined and called. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Computer Operator P2 · Q10"
+        },
+        {
+         "question": "Given a factorial function in C\nint fact(int n) {\n  int fact = 1;\n  for (int i = 1; i <= n; i++) fact *= i;\n  return fact;\n}\nWhich is the correct C function from the given options which finds the binomial coefficient ⁿCᵣ?",
+         "options": {
+          "A": "int ⁿCᵣ (int r, int n) {\n  return fact(n)/(fact (n − r) * fact(r));}",
+          "B": "int ⁿCᵣ (int n, int r) {\n  return fact(n)/(fact (r) * fact(n − r));}",
+          "C": "int ⁿCᵣ (int r, int n) {\n  return fact(n)/(fact (r) * fact(n − r));}",
+          "D": "int ⁿCᵣ (int n, int r) {\n  return fact(n)/(fact (r − n) * fact(r));}"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "ⁿCᵣ = n! / (r! (n − r)!). Options 1–3 all use this formula; option 2 also takes the arguments in the usual order (n, r), so it is the intended answer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q94"
+        },
+        {
+         "question": "A function definition in C consists of",
+         "options": {
+          "A": "A name and a body alone",
+          "B": "A prototype and a call",
+          "C": "A return type, a name, a parameter list and a body",
+          "D": "A header file"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "int add(int a, int b) { return a + b; }"
+        },
+        {
+         "question": "Which is a correct prototype of a function that takes two ints and returns a float?",
+         "options": {
+          "A": "float avg(int a; int b);",
+          "B": "avg(int a, int b) float;",
+          "C": "float avg[int, int];",
+          "D": "float avg(int, int);"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). Parameter names are optional in a prototype."
+        },
+        {
+         "question": "Based on arguments and return values, user-defined functions are classified into",
+         "options": {
+          "A": "Four categories: no arguments/no return, arguments/no return, no arguments/return, arguments/return",
+          "B": "Library and user-defined",
+          "C": "Two categories",
+          "D": "Recursive and iterative"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Balagurusamy, ch. 9."
+        },
+        {
+         "question": "printf() and sqrt() are examples of",
+         "options": {
+          "A": "User-defined functions",
+          "B": "Macros",
+          "C": "Library (built-in) functions",
+          "D": "Recursive functions"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "sqrt needs <math.h> (and -lm on Linux)."
+        },
+        {
+         "question": "In the call  sum(a, b)  made from main, a and b are",
+         "options": {
+          "A": "Global variables",
+          "B": "Local variables of sum",
+          "C": "Formal parameters",
+          "D": "Actual arguments"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "The variables in sum's definition are the formal parameters."
+        },
+        {
+         "question": "Through its return statement, a C function can send back",
+         "options": {
+          "A": "Exactly two values",
+          "B": "Any number of values",
+          "C": "At most one value",
+          "D": "Integers alone"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Use pointers or a structure to return several values."
+        },
+        {
+         "question": "A function declared as  void show(void)",
+         "options": {
+          "A": "Takes no arguments and returns no value",
+          "B": "Returns 0",
+          "C": "Takes any number of arguments",
+          "D": "Returns a void pointer"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "In C, an empty list () means 'unspecified arguments'; (void) means none."
+        },
+        {
+         "question": "What is printed?\nint sq(int x) { return x * x; }\n…\nprintf(\"%d\", sq(3) + sq(2));",
+         "options": {
+          "A": "36",
+          "B": "13",
+          "C": "25",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "9 + 4."
+        },
+        {
+         "question": "What is printed?\nvoid swap(int a, int b) { int t = a; a = b; b = t; }\nint main() { int x = 1, y = 2; swap(x, y); printf(\"%d %d\", x, y); }",
+         "options": {
+          "A": "2 2",
+          "B": "2 1",
+          "C": "1 2",
+          "D": "1 1"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). Call by value: swap works on copies."
+        },
+        {
+         "question": "What is printed?\nint f(int x) { return x + 1; }\nint g(int x) { return 2 * x; }\n…\nprintf(\"%d\", f(g(3)));",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "8",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "g(3) = 6, f(6) = 7."
+        },
+        {
+         "question": "With  int f(int n) { if (n > 0) return 1; return -1; },  f(0) returns",
+         "options": {
+          "A": "0",
+          "B": "−1",
+          "C": "1",
+          "D": "Nothing"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "The first return is skipped because 0 > 0 is false."
+        },
+        {
+         "question": "If a prototype says  int f(int);  the call  f(1, 2)  gives",
+         "options": {
+          "A": "A compile-time error",
+          "B": "2",
+          "C": "1",
+          "D": "A runtime error"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "The prototype lets the compiler check calls."
+        },
+        {
+         "question": "C passes arguments to functions",
+         "options": {
+          "A": "By value-result",
+          "B": "By reference always",
+          "C": "By value – passing a pointer lets the function change the caller's variable",
+          "D": "By name"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "PYQ pattern (KEA / KSET papers). Arrays decay to pointers, so array elements can be changed."
+        },
+        {
+         "question": "A variable declared inside a function is visible",
+         "options": {
+          "A": "In all functions",
+          "B": "Inside that function (block) alone",
+          "C": "In main as well",
+          "D": "In the whole file after it"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Its scope is local."
+        },
+        {
+         "question": "Which is NOT an advantage of using functions?",
+         "options": {
+          "A": "Modularity",
+          "B": "Easier debugging",
+          "C": "Code reuse",
+          "D": "Programs always run faster"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "Calls add a little overhead."
+        },
+        {
+         "question": "A function's return value",
+         "options": {
+          "A": "May be ignored by the caller",
+          "B": "Must be a pointer",
+          "C": "Must be printed",
+          "D": "Must always be stored"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "printf's return value is usually ignored."
+        },
+        {
+         "question": "What is printed?\nint f(int a, int b) { return a - b; }\n…\nprintf(\"%d\", f(10, f(4, 1)));",
+         "options": {
+          "A": "3",
+          "B": "7",
+          "C": "5",
+          "D": "−7"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "f(4, 1) = 3; f(10, 3) = 7."
+        },
+        {
+         "question": "The keyword that sends a value back from a function to its caller is",
+         "options": {
+          "A": "return",
+          "B": "exit",
+          "C": "back",
+          "D": "break"
+         },
+         "answer": "A",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "exit ends the whole program."
+        },
+        {
+         "question": "C does not allow two functions with the same name in one program because",
+         "options": {
+          "A": "Names are case-insensitive",
+          "B": "main must be unique",
+          "C": "C has no function overloading",
+          "D": "Prototypes are optional"
+         },
+         "answer": "C",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "C++ allows overloading."
+        },
+        {
+         "question": "What is printed?\nint max(int a, int b) { return a > b ? a : b; }\n…\nprintf(\"%d\", max(max(3, 9), 5));",
+         "options": {
+          "A": "17",
+          "B": "3",
+          "C": "5",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "max(3, 9) = 9; max(9, 5) = 9."
+        },
+        {
+         "question": "A function declared static at file level",
+         "options": {
+          "A": "Runs once",
+          "B": "Is visible in its own source file alone",
+          "C": "Cannot return a value",
+          "D": "Keeps its local variables between calls"
+         },
+         "answer": "B",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "static limits linkage to the file."
+        },
+        {
+         "question": "A function prototype is also called a",
+         "options": {
+          "A": "Function definition",
+          "B": "Function call",
+          "C": "Function body",
+          "D": "Function declaration"
+         },
+         "answer": "D",
+         "subject": "Function Definition, Prototypes, Types of Functions and Arguments",
+         "explanation": "It ends with a semicolon and has no body."
+        }
+       ]
+      },
+      {
+       "name": "2 · Recursion, Passing Arrays and Storage Classes",
+       "questions": [
+        {
+         "question": "How many calls of fact() are made to compute fact(5) with  int fact(int n) { return n == 0 ? 1 : n * fact(n - 1); } ?",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "4",
+          "D": "120"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "fact(5), fact(4), …, fact(0): six calls."
+        },
+        {
+         "question": "With  int fib(int n) { return n <= 1 ? n : fib(n-1) + fib(n-2); },  how many calls in total are made to compute fib(5)?",
+         "options": {
+          "A": "8",
+          "B": "9",
+          "C": "5",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "C(n) = 1 + C(n−1) + C(n−2) with C(0) = C(1) = 1: C(2)=3, C(3)=5, C(4)=9, C(5)=15."
+        },
+        {
+         "question": "What does f(7) return?\nint f(int n) { if (n <= 0) return 0; return n + f(n - 2); }",
+         "options": {
+          "A": "16",
+          "B": "12",
+          "C": "28",
+          "D": "15"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "7 + 5 + 3 + 1 + 0 = 16."
+        },
+        {
+         "question": "What does f(5) return?\nint f(int n) { if (n == 1) return 1; return 2 * f(n - 1); }",
+         "options": {
+          "A": "32",
+          "B": "10",
+          "C": "25",
+          "D": "16"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "f(n) = 2ⁿ⁻¹, so f(5) = 16."
+        },
+        {
+         "question": "What does g(1234) return?\nint g(int x) { return x > 9 ? x % 10 + g(x / 10) : x; }",
+         "options": {
+          "A": "10",
+          "B": "4",
+          "C": "1234",
+          "D": "24"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "It adds the digits: 4 + 3 + 2 + 1."
+        },
+        {
+         "question": "What is printed when f() is called three times?\nvoid f() { static int c = 0; c++; printf(\"%d \", c); }",
+         "options": {
+          "A": "1 1 1",
+          "B": "1 2 3",
+          "C": "0 1 2",
+          "D": "3 3 3"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "A static local is initialised once and keeps its value between calls."
+        },
+        {
+         "question": "The storage class specifier extern in a declaration means:",
+         "options": {
+          "A": "The variable is local to the block",
+          "B": "The variable is stored in a register",
+          "C": "The variable is constant",
+          "D": "The variable is defined elsewhere (possibly in another file)"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "extern declares without defining, so the linker resolves it."
+        },
+        {
+         "question": "Which operation is NOT allowed on a variable declared with the register storage class?",
+         "options": {
+          "A": "Taking its address with &",
+          "B": "Assigning to it",
+          "C": "Using it as a loop counter",
+          "D": "Using it in arithmetic"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "A register variable may not have an address in memory."
+        },
+        {
+         "question": "A function is tail-recursive when:",
+         "options": {
+          "A": "It uses a static variable",
+          "B": "It calls itself twice",
+          "C": "The recursive call is the last action performed by the function",
+          "D": "It has no parameters"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "A compiler can turn tail recursion into a loop, reusing the same frame."
+        },
+        {
+         "question": "With  void f(int n) { if (n > 0) f(n - 1); }  called as f(5), the maximum number of activation records of f on the stack at one time is:",
+         "options": {
+          "A": "1",
+          "B": "6",
+          "C": "5",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "f(5) down to f(0) are all active together."
+        },
+        {
+         "question": "Assertion (A): Recursive subprograms need a separate activation record for each active call.\nReason (R): Each activation needs its own copy of parameters and local variables.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Without separate records, a new call would overwrite the values of the pending ones."
+        },
+        {
+         "question": "Assertion (A): In C, an array argument is copied element by element into the called function.\nReason (R): When an array is passed, only the address of its first element is passed.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Only a pointer is passed, which is why the function can change the caller's array. R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): A static local variable in C retains its value between calls.\nReason (R): Static local variables are stored on the run-time stack.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "A is true. R is false: static variables live in the static data area for the whole run."
+        },
+        {
+         "question": "Which statement about recursion is TRUE?",
+         "options": {
+          "A": "Recursion does not use the stack",
+          "B": "Recursion always runs faster than iteration",
+          "C": "Every recursive function can be rewritten iteratively, possibly using an explicit stack",
+          "D": "Recursive functions cannot have parameters"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "The run-time stack can always be simulated by an explicit stack."
+        },
+        {
+         "question": "Predict the output of the following program\n#include<stdio.h>\nint fun(int n)\n{\n  if (n == 4)\n    return n;\n  else\n    return 2*fun(n+1);\n}\nint main ()\n{\n  printf (\"%d\", fun(2));\n  return(0);\n}",
+         "options": {
+          "A": "4",
+          "B": "8",
+          "C": "16",
+          "D": "runtime error"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "fun(2) = 2·fun(3) = 2·2·fun(4) = 4·4 = 16. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q54"
+        },
+        {
+         "question": "What is the output of the following code?\n#include <stdio.h>\nvoid main ()\n{\n  static int x = 3;\n  x++;\n  if (x <= 6)\n  {\n    printf (\"World\");\n    main ();\n  }\n}",
+         "options": {
+          "A": "World",
+          "B": "World World World",
+          "C": "Infinite loop",
+          "D": "World World"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "x is static, so it keeps counting: 4, 5, 6 print World, 7 stops the recursion. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q90"
+        },
+        {
+         "question": "Static variable means ____",
+         "options": {
+          "A": "It is same as an automatic variable but is placed at the head of a program.",
+          "B": "It cannot be initialized.",
+          "C": "It retains its value throughout the file of the program.",
+          "D": "It is initialized once at the commencement of execution and cannot be changed at run time."
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "A static variable lives for the whole run and keeps its value between calls (it can be changed). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q29"
+        },
+        {
+         "question": "A recursive function must have",
+         "options": {
+          "A": "A base (terminating) condition",
+          "B": "A loop",
+          "C": "A global variable",
+          "D": "A pointer argument"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Without it the recursion never stops."
+        },
+        {
+         "question": "A recursive function without a base case usually ends with",
+         "options": {
+          "A": "The correct answer",
+          "B": "A stack overflow at run time",
+          "C": "A compile-time error",
+          "D": "An infinite loop with no memory use"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Each call pushes a new activation record."
+        },
+        {
+         "question": "What does p(2, 5) return?\nint p(int b, int e) { return e == 0 ? 1 : b * p(b, e - 1); }",
+         "options": {
+          "A": "16",
+          "B": "10",
+          "C": "25",
+          "D": "32"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "2⁵."
+        },
+        {
+         "question": "What is printed by f(3)?\nvoid f(int n) { if (n == 0) return; f(n - 1); printf(\"%d\", n); }",
+         "options": {
+          "A": "3",
+          "B": "0123",
+          "C": "321",
+          "D": "123"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "PYQ pattern (KEA / KSET papers). The printf runs while the calls return, so the smallest value prints first."
+        },
+        {
+         "question": "What is printed by f(3)?\nvoid f(int n) { if (n == 0) return; printf(\"%d\", n); f(n - 1); }",
+         "options": {
+          "A": "123",
+          "B": "3210",
+          "C": "321",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Here printf runs before the recursive call."
+        },
+        {
+         "question": "What does gcd(48, 18) return?\nint gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }",
+         "options": {
+          "A": "6",
+          "B": "18",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "(48, 18) → (18, 12) → (12, 6) → (6, 0)."
+        },
+        {
+         "question": "What is printed?\nvoid f(int a[]) { a[0] = 99; }\nint main() { int x[3] = {1, 2, 3}; f(x); printf(\"%d\", x[0]); }",
+         "options": {
+          "A": "1",
+          "B": "99",
+          "C": "Garbage",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "PYQ pattern (KEA / KSET papers). The array's address is passed, so the function changes the caller's array."
+        },
+        {
+         "question": "Inside  void f(int a[10]),  sizeof(a) gives",
+         "options": {
+          "A": "0",
+          "B": "40",
+          "C": "The size of a pointer",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "The parameter is really int *a; pass the length separately."
+        },
+        {
+         "question": "The four storage classes in C are",
+         "options": {
+          "A": "int, float, char and double",
+          "B": "const, volatile, signed and unsigned",
+          "C": "local, global, public and private",
+          "D": "auto, register, static and extern"
+         },
+         "answer": "D",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "They decide storage place, default value, scope and lifetime."
+        },
+        {
+         "question": "The default initial value of a static or global (extern) variable is",
+         "options": {
+          "A": "0",
+          "B": "Garbage",
+          "C": "1",
+          "D": "−1"
+         },
+         "answer": "A",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "PYQ pattern (KEA / KSET papers). auto and register variables start with garbage."
+        },
+        {
+         "question": "A local variable declared without any storage class specifier is",
+         "options": {
+          "A": "extern",
+          "B": "auto",
+          "C": "static",
+          "D": "register"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "Stored on the stack."
+        },
+        {
+         "question": "The lifetime of an auto variable is",
+         "options": {
+          "A": "Until free() is called",
+          "B": "The whole program run",
+          "C": "Until control leaves the block in which it is defined",
+          "D": "Until the program is recompiled"
+         },
+         "answer": "C",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "static variables live for the whole run."
+        },
+        {
+         "question": "What is printed?\nint x = 10;\nint main() { int x = 20; printf(\"%d\", x); }",
+         "options": {
+          "A": "10",
+          "B": "20",
+          "C": "30",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Recursion, Passing Arrays and Storage Classes",
+         "explanation": "The local x hides the global x."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Functions – revision sheet",
+       "md": "## Definition and prototypes\n- Declaration (prototype) `float avg(int, int);` → definition `float avg(int a, int b) { … }` → call `avg(x, y)`\n- Actual arguments (in the call) vs formal parameters (in the definition)\n- One return value at most; `void f(void)` = no arguments, no value; C89 default return type int\n- Categories: no args/no return, args/no return, no args/return, args/return; library vs user-defined\n- C passes **by value**; pass an address (`&x`) to let a function change the caller's variable (call by reference)\n- No overloading; no nested function definitions; a file-level `static` function is private to its file\n\n## Recursion\n- Needs a base case, else stack overflow; one activation record per active call\n- fact(5) → 6 calls; fib(n) is exponential; `fun(2)` with `n == 4 ? n : 2*fun(n+1)` = 16\n- Print before the call → 3 2 1; print after the call → 1 2 3\n- gcd(a, b) = b == 0 ? a : gcd(b, a % b)\n\n## Passing arrays\n- `f(int a[])` = `f(int *a)` – the address is passed; changes affect the caller; `sizeof(a)` inside = pointer size\n\n## Storage classes\n| Class | Storage | Default | Scope | Lifetime |\n|---|---|---|---|---|\n| auto | stack | garbage | block | block |\n| register | CPU register | garbage | block | block (no `&`) |\n| static | data segment | 0 | block / file | whole run (keeps value) |\n| extern | data segment | 0 | global (other files) | whole run |\n- `static int x = 3; x++; if (x <= 6) { printf(\"World\"); main(); }` → World ×3\n"
+      }
+     ]
+    },
+    {
+     "name": "Pointers",
+     "plan": {
+      "id": "P2-KRC-06"
+     },
+     "sets": [
+      {
+       "name": "1 · Pointer Basics, Notation and Pointer Arithmetic",
+       "questions": [
+        {
+         "question": "After  int x = 10, *p = &x;  *p = 20;  the value of x is:",
+         "options": {
+          "A": "10",
+          "B": "30",
+          "C": "20",
+          "D": "Address of x"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "*p is another name for x."
+        },
+        {
+         "question": "An int pointer p holds the address 1000. With 4-byte int, after p++ it holds:",
+         "options": {
+          "A": "1002",
+          "B": "1008",
+          "C": "1004",
+          "D": "1001"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Pointer arithmetic is scaled by the size of the pointed-to type."
+        },
+        {
+         "question": "For an int array a, the value of  &a[5] - &a[1]  is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "16",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Pointer difference counts elements, not bytes."
+        },
+        {
+         "question": "What does this print?\nchar *s = \"hello\"; printf(\"%c\", *(s + 4));",
+         "options": {
+          "A": "h",
+          "B": "l",
+          "C": "o",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Indices 0–4 are h, e, l, l, o."
+        },
+        {
+         "question": "A pointer that has been declared but not initialised is called a:",
+         "options": {
+          "A": "Null pointer",
+          "B": "Wild pointer",
+          "C": "Smart pointer",
+          "D": "Void pointer"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "It holds an indeterminate address; dereferencing it is undefined behaviour."
+        },
+        {
+         "question": "Memory allocated with malloc() that is never freed and can no longer be reached causes a:",
+         "options": {
+          "A": "Dangling pointer",
+          "B": "Stack overflow",
+          "C": "Memory leak",
+          "D": "Segmentation of code"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "The memory stays allocated until the program ends."
+        },
+        {
+         "question": "Which statement about calloc() and malloc() is correct?",
+         "options": {
+          "A": "calloc(n, size) allocates n × size bytes and sets them to zero; malloc(size) does not initialise",
+          "B": "malloc initialises memory to zero; calloc does not",
+          "C": "Both always initialise to zero",
+          "D": "calloc allocates on the stack"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Both return NULL if allocation fails."
+        },
+        {
+         "question": "In  const int *p;  and  int * const q;  which statements are true?",
+         "options": {
+          "A": "*p cannot be changed through p, but p can point elsewhere; q cannot point elsewhere, but *q can be changed",
+          "B": "Both are the same",
+          "C": "p is a constant pointer; q points to a constant",
+          "D": "Neither can be changed at all"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Read declarations right to left: q is a const pointer to int; p is a pointer to const int."
+        },
+        {
+         "question": "On a typical 64-bit system, sizeof(int *) and sizeof(char *) are:",
+         "options": {
+          "A": "8 and 1",
+          "B": "4 and 4",
+          "C": "4 and 1",
+          "D": "8 and 8"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "All data pointers are usually the size of an address."
+        },
+        {
+         "question": "Which pointer operation is NOT allowed in C?",
+         "options": {
+          "A": "Subtracting two pointers into the same array",
+          "B": "Adding two pointers",
+          "C": "Comparing two pointers into the same array",
+          "D": "Adding an integer to a pointer"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "The sum of two addresses has no meaning."
+        },
+        {
+         "question": "Assertion (A): Incrementing an int pointer advances it by sizeof(int) bytes.\nReason (R): The compiler scales pointer arithmetic by the size of the pointed-to type.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "That scaling is why p + 1 always points to the next element."
+        },
+        {
+         "question": "Assertion (A): A void pointer can be dereferenced directly without a cast.\nReason (R): A void pointer carries no information about the type of the object it points to.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Because the type is unknown, the compiler cannot dereference it; R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): calloc() initialises the allocated memory to zero.\nReason (R): malloc() takes a single argument, the number of bytes.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Both true, but malloc's signature does not explain calloc's zero-initialisation."
+        },
+        {
+         "question": "The standard library function used to change the size of a block previously allocated by malloc is:",
+         "options": {
+          "A": "realloc()",
+          "B": "calloc()",
+          "C": "resize()",
+          "D": "free()"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "realloc may move the block and returns its new address."
+        },
+        {
+         "question": "Consider the statements:\nI. malloc() returns NULL if the requested memory cannot be allocated.\nII. Calling free() twice on the same pointer is safe.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "A double free is undefined behaviour and can corrupt the heap."
+        },
+        {
+         "question": "From the following code in 'C', what will be the output?\n#include <stdio.h>\nint main()\n{ int *ptr, a = 10;\n  ptr = &a;\n  *ptr += 1;\n  printf(\"%d, %d\", *ptr, a);\n}",
+         "options": {
+          "A": "10, 10",
+          "B": "10, 11",
+          "C": "11, 10",
+          "D": "11, 11"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "ptr points to a, so *ptr += 1 makes a = 11; both expressions print 11. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q23"
+        },
+        {
+         "question": "The dynamic memory allocation functions in C language are defined in ____",
+         "options": {
+          "A": "<stdio.h>",
+          "B": "<stdlib.h>",
+          "C": "<string.h>",
+          "D": "<conio.h>"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "malloc, calloc, realloc and free. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q91"
+        },
+        {
+         "question": "With pointers, the operators & and * are the",
+         "options": {
+          "A": "Assignment operators",
+          "B": "Address-of and indirection (dereference) operators",
+          "C": "Logical operators",
+          "D": "Bitwise AND and multiplication operators"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "&x gives x's address; *p gives the value at p."
+        },
+        {
+         "question": "int *p;  declares p as",
+         "options": {
+          "A": "An array",
+          "B": "An int",
+          "C": "A pointer to an int",
+          "D": "A pointer to a pointer"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "The * belongs to p: int *p, q; makes q a plain int."
+        },
+        {
+         "question": "Which printf format specifier prints a pointer value (address)?",
+         "options": {
+          "A": "%s",
+          "B": "%d",
+          "C": "%a",
+          "D": "%p"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Cast to (void *) for portability."
+        },
+        {
+         "question": "A NULL pointer",
+         "options": {
+          "A": "Points to itself",
+          "B": "Points to no valid object",
+          "C": "Is an uninitialised pointer",
+          "D": "Points to address 1"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Dereferencing it is an error (usually a crash)."
+        },
+        {
+         "question": "If  double *d  holds 2000 (8-byte double), then d + 3 is",
+         "options": {
+          "A": "2012",
+          "B": "2003",
+          "C": "2024",
+          "D": "2006"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "PYQ pattern (KEA / KSET papers). Pointer arithmetic scales by the size of the type."
+        },
+        {
+         "question": "Which pointer operation is allowed in C?",
+         "options": {
+          "A": "Subtracting two pointers into the same array",
+          "B": "Adding two pointers",
+          "C": "Multiplying a pointer by 2",
+          "D": "Dividing two pointers"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "The difference is the number of elements between them."
+        },
+        {
+         "question": "What is printed?\nint x = 7, *p = &x;\nprintf(\"%d %d\", *p, *&x);",
+         "options": {
+          "A": "7 and an address",
+          "B": "Two addresses",
+          "C": "Compile error",
+          "D": "7 7"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "*&x is x."
+        },
+        {
+         "question": "What is printed?\nint a = 5;\nint *p = &a;\n*p = *p * 2;\nprintf(\"%d\", a);",
+         "options": {
+          "A": "5",
+          "B": "10",
+          "C": "An address",
+          "D": "25"
+         },
+         "answer": "B",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "a is changed through p."
+        },
+        {
+         "question": "What is printed?\nvoid *vp;\nint i = 3;\nvp = &i;\nprintf(\"%d\", *(int *)vp);",
+         "options": {
+          "A": "3",
+          "B": "0",
+          "C": "Compile error",
+          "D": "Garbage"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "A void pointer must be cast before it is dereferenced."
+        },
+        {
+         "question": "A pointer that still holds the address of memory that has been freed is a",
+         "options": {
+          "A": "Near pointer",
+          "B": "NULL pointer",
+          "C": "Void pointer",
+          "D": "Dangling pointer"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Set it to NULL after free()."
+        },
+        {
+         "question": "int *p = (int *) malloc(5 * sizeof(int));  allocates",
+         "options": {
+          "A": "5 bytes",
+          "B": "Space on the stack",
+          "C": "Space for 5 ints on the heap",
+          "D": "One int with the value 5"
+         },
+         "answer": "C",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "PYQ pattern (KEA / KSET papers). Check for NULL and free() it later."
+        },
+        {
+         "question": "What is printed?\nint x = 4, *p = &x;\nprintf(\"%d\", *p * *p);",
+         "options": {
+          "A": "An address",
+          "B": "8",
+          "C": "Compile error",
+          "D": "16"
+         },
+         "answer": "D",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "* in front of p dereferences; the middle * multiplies: 4 × 4."
+        },
+        {
+         "question": "Which statement stores the address of x in the pointer p?",
+         "options": {
+          "A": "p = &x;",
+          "B": "&p = x;",
+          "C": "p = *x;",
+          "D": "*p = &x;"
+         },
+         "answer": "A",
+         "subject": "Pointer Basics, Notation and Pointer Arithmetic",
+         "explanation": "Then *p refers to x."
+        }
+       ]
+      },
+      {
+       "name": "2 · Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+       "questions": [
+        {
+         "question": "For  int a[] = {5, 6, 7, 8};  what is  2[a] ?",
+         "options": {
+          "A": "8",
+          "B": "7",
+          "C": "6",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "a[i] ≡ *(a + i) ≡ *(i + a) ≡ i[a]."
+        },
+        {
+         "question": "What does this print?\nint a[] = {10, 20, 30}; int *p = a;\nprintf(\"%d \", *p++); printf(\"%d\", *p);",
+         "options": {
+          "A": "11 20",
+          "B": "20 30",
+          "C": "10 10",
+          "D": "10 20"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "*p++ yields *p (10) and then advances p to the next element."
+        },
+        {
+         "question": "What does this print?\nint a[] = {10, 20, 30}; int *p = a;\n(*p)++; printf(\"%d %d\", a[0], *p);",
+         "options": {
+          "A": "11 11",
+          "B": "10 20",
+          "C": "10 11",
+          "D": "11 20"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "(*p)++ increments the value pointed to; p itself does not move."
+        },
+        {
+         "question": "For  int a[] = {1, 2, 3, 4, 5}; int *p = a + 1;  the value of  *(p + 2)  is:",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "p points to a[1]; p + 2 points to a[3]."
+        },
+        {
+         "question": "After  int x = 5; int *p = &x; int **q = &p; **q = 7;  the value of x is:",
+         "options": {
+          "A": "Compile error",
+          "B": "7",
+          "C": "5",
+          "D": "Address of p"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "**q → *p → x."
+        },
+        {
+         "question": "For  int a[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};  the value of  *(*(a + 1) + 2)  is:",
+         "options": {
+          "A": "8",
+          "B": "5",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "*(a + 1) is row 1 {4, 5, 6}; element 2 of it is 6."
+        },
+        {
+         "question": "Which declares fp as a pointer to a function taking two ints and returning int?",
+         "options": {
+          "A": "(int *)fp(int, int);",
+          "B": "int fp*(int, int);",
+          "C": "int (*fp)(int, int);",
+          "D": "int *fp(int, int);"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Without the parentheses, int *fp(int, int) declares a function returning int *."
+        },
+        {
+         "question": "int *a[10];  and  int (*b)[10];  declare respectively:",
+         "options": {
+          "A": "An array of 10 pointers to int; a pointer to an array of 10 ints",
+          "B": "Two pointers to int",
+          "C": "A pointer to an array; an array of pointers",
+          "D": "Two arrays of 10 ints"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "[] binds tighter than *, unless parentheses change it."
+        },
+        {
+         "question": "What does this print?\nint a[5] = {1, 2, 3, 4, 5}, *p, s = 0;\nfor (p = a; p < a + 5; p++) s += *p;\nprintf(\"%d\", s);",
+         "options": {
+          "A": "Address of a",
+          "B": "5",
+          "C": "10",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "The pointer walks over all five elements: 1 + 2 + 3 + 4 + 5."
+        },
+        {
+         "question": "What does this print?\nvoid swap(int *x, int *y) { int t = *x; *x = *y; *y = t; }\nint main() { int a = 1, b = 2; swap(&a, &b); printf(\"%d %d\", a, b); }",
+         "options": {
+          "A": "2 1",
+          "B": "1 1",
+          "C": "1 2",
+          "D": "2 2"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Passing addresses lets swap change the caller's variables."
+        },
+        {
+         "question": "Match the declaration with its meaning:\na. int *p\nb. int **p\nc. int (*p)[5]\nd. int (*p)(void)\n\n1. Pointer to pointer to int\n2. Pointer to an array of 5 ints\n3. Pointer to int\n4. Pointer to a function returning int",
+         "options": {
+          "A": "a-3, b-2, c-1, d-4",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-1, b-3, c-2, d-4",
+          "D": "a-3, b-1, c-4, d-2"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Parentheses bind * to p before [] or ()."
+        },
+        {
+         "question": "Assertion (A): A C function can change the caller's variable if it receives the variable's address.\nReason (R): C passes all arguments by reference.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "A is true. R is false: C always passes by value; passing an address simulates reference."
+        },
+        {
+         "question": "Consider the statements:\nI. Returning the address of a local (automatic) variable from a function creates a dangling pointer.\nII. Memory from malloc() is freed automatically when the calling function returns.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Heap memory lives until free() is called; locals die when the function returns."
+        },
+        {
+         "question": "Consider the statements:\nI. The name of an array is a constant pointer and cannot be incremented (a++ is illegal).\nII. A pointer variable set to the array can be incremented (p++ is legal).\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "a is not a modifiable l-value, but p is an ordinary variable."
+        },
+        {
+         "question": "What does this print?\nint x = 10; int *p = &x; int **q = &p;\nprintf(\"%d\", **q + *p);",
+         "options": {
+          "A": "Compile error",
+          "B": "10",
+          "C": "20",
+          "D": "Address"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Both **q and *p are x: 10 + 10."
+        },
+        {
+         "question": "What will be the output of the following C code?\nint main() {\n  int a[] = {1, 2, 3, 4, 5}, *P;\n  P = a;\n  ++*P;\n  printf(\" %d \", *P);\n  P += 2;\n  printf(\" %d \", *P);\n}",
+         "options": {
+          "A": "2 4",
+          "B": "3 4",
+          "C": "2 2",
+          "D": "2 3"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "++*P increments a[0] to 2 and prints 2; P += 2 points to a[2], which is 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q22"
+        },
+        {
+         "question": "For an array a, a[i] is equivalent to",
+         "options": {
+          "A": "&a + i",
+          "B": "*(a + i)",
+          "C": "*a + i",
+          "D": "a + *i"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "That is why i[a] also works."
+        },
+        {
+         "question": "What is printed?\nchar *names[] = {\"Ram\", \"Sita\", \"Gita\"};\nprintf(\"%s %c\", names[1], *names[2]);",
+         "options": {
+          "A": "Gita S",
+          "B": "Ram S",
+          "C": "Sita Gita",
+          "D": "Sita G"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). names is an array of pointers to strings; *names[2] is the first character of \"Gita\"."
+        },
+        {
+         "question": "int **pp;  declares pp as",
+         "options": {
+          "A": "A pointer to a pointer to int",
+          "B": "A pointer to an int",
+          "C": "A 2-D array",
+          "D": "An int"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "It can hold the address of an int * variable."
+        },
+        {
+         "question": "What is printed?\nvoid inc(int *p) { (*p)++; }\nint main() { int n = 5; inc(&n); inc(&n); printf(\"%d\", n); }",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "7",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "Call by reference through a pointer."
+        },
+        {
+         "question": "A C function can give several results back to its caller by",
+         "options": {
+          "A": "Several return statements",
+          "B": "Taking pointer parameters and storing the results through them",
+          "C": "Using goto",
+          "D": "Returning an array by value"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "E.g. void divmod(int a, int b, int *q, int *r)."
+        },
+        {
+         "question": "What is printed?\nint a[] = {2, 4, 6, 8}, *p = a + 3;\nprintf(\"%d\", *p - *(p - 2));",
+         "options": {
+          "A": "6",
+          "B": "2",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "*p = 8, *(p − 2) = a[1] = 4."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"ABC\", *p = s;\nwhile (*p) putchar(*p++);",
+         "options": {
+          "A": "BC",
+          "B": "An infinite loop",
+          "C": "A",
+          "D": "ABC"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "*p++ uses the character, then moves p; the loop stops at '\\0'."
+        },
+        {
+         "question": "What is printed?\nint x = 3, *p = &x, **q = &p;\n**q = **q + *p;\nprintf(\"%d\", x);",
+         "options": {
+          "A": "6",
+          "B": "9",
+          "C": "An address",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). **q and *p are both x: x = 3 + 3."
+        },
+        {
+         "question": "In  int main(int argc, char *argv[]),  argv is",
+         "options": {
+          "A": "An array of pointers to char (the argument strings)",
+          "B": "A pointer to int",
+          "C": "A single string",
+          "D": "A 2-D int array"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "argv[0] is the program name."
+        },
+        {
+         "question": "What is printed?\nint add(int a, int b) { return a + b; }\n…\nint (*fp)(int, int) = add;\nprintf(\"%d\", fp(2, 3));",
+         "options": {
+          "A": "23",
+          "B": "5",
+          "C": "Address of add",
+          "D": "Compile error"
+         },
+         "answer": "B",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "A function pointer can be called like the function."
+        },
+        {
+         "question": "For a 2-D array a, a[i][j] is equivalent to",
+         "options": {
+          "A": "*(a[i] + i)",
+          "B": "**a + i + j",
+          "C": "*(a + i + j)",
+          "D": "*(*(a + i) + j)"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "a + i points to row i."
+        },
+        {
+         "question": "char *p = \"hello\";  p[0] = 'H';",
+         "options": {
+          "A": "Prints H",
+          "B": "Changes the string to Hello",
+          "C": "Undefined behaviour – string literals must not be modified",
+          "D": "Always a compile-time error"
+         },
+         "answer": "C",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). Use char p[] = \"hello\"; for a modifiable copy."
+        },
+        {
+         "question": "What is printed?\nint a = 10, b = 20, *p = &a, *q = &b;\n*p = *q;\nprintf(\"%d %d\", a, b);",
+         "options": {
+          "A": "20 20",
+          "B": "10 20",
+          "C": "20 10",
+          "D": "10 10"
+         },
+         "answer": "A",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "a gets the value of b."
+        },
+        {
+         "question": "What is printed?\nint a[5] = {1, 2, 3, 4, 5}, *p = a;\np += 3;\nprintf(\"%d\", p[-1]);",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "Garbage",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Pointers and Arrays, Arrays of Pointers, Call by Reference and Pointers to Pointers",
+         "explanation": "p points to a[3]; p[−1] = a[2]."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Pointers – revision sheet",
+       "md": "## Basics\n- `int *p = &x;` → `*p` is x; `&` address-of, `*` indirection; `%p` prints addresses\n- NULL pointer (points nowhere), wild pointer (uninitialised), dangling pointer (memory freed), void pointer (generic – cast before `*`)\n- Pointer size does not depend on the type (8 bytes on 64-bit)\n- Arithmetic scales by the type size: int* + 1 → +4; double* + 3 → +24; difference of two pointers = number of elements\n- Not allowed: adding, multiplying or dividing pointers\n- `const int *p` – value read-only; `int * const q` – pointer fixed\n- `<stdlib.h>`: malloc(bytes) (garbage), calloc(n, size) (zeroed), realloc, free; memory leak = never freed\n\n## Pointers and arrays\n- `a[i]` = `*(a + i)` = `i[a]`; `a[i][j]` = `*(*(a + i) + j)`; array name is a constant pointer (`a++` illegal)\n- `*p++` – use then move; `(*p)++` – increment the value; `++*p` – increment the value first\n- `int *a[10]` – array of 10 pointers; `int (*b)[10]` – pointer to an array of 10 ints; `int (*fp)(int, int)` – function pointer\n- `char *names[] = {\"Ram\", \"Sita\"}` – array of pointers to strings; `argv` is `char *argv[]`\n- String literals are read-only (`char *p = \"hello\"; p[0] = 'H';` is undefined)\n\n## Call by reference and pointers to pointers\n- `void swap(int *x, int *y)`; call `swap(&a, &b)`\n- `int **q = &p;` → `**q` is the int; `**q + *p` = 2x\n- Never return the address of a local variable\n"
       }
      ]
     }
