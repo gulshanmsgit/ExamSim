@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — Data Structures",
- "description": "2 of 9 topics so far (6 sets × 30 questions): Introduction to Data Structures; Primitive Data Structures. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "4 of 9 topics so far (12 sets × 30 questions): Introduction to Data Structures; Primitive Data Structures; Arrays in Data Structures; Linked Lists. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – Data Structures",
@@ -2238,6 +2238,2239 @@
       {
        "title": "Primitive data structures – revision sheet",
        "md": "## Integers\n- 2's complement: n bits → −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 (8-bit −128…127; 32-bit ±2.1 × 10⁹); −5 = 11111011\n- Unsigned 16-bit 0…65,535; unsigned arithmetic wraps (255 + 1 = 0 in 8 bits; 250 + 10 = 4)\n- Operations: + − × / % (17 / 5 = 3, 17 % 5 = 2), comparison, bitwise\n- Little-endian stores the least significant byte first (0x12345678 → 78 56 34 12)\n\n## Characters\n- ASCII 7-bit ('A' 65 = 01000001, 'a' 97, '0' 48, space 32); Unicode/UTF-8 for Kannada etc.\n- Arithmetic on codes: 'a' + 2 = 'c'; c − '0' gives a digit's value; lowercase − 32 = uppercase\n\n## Floating point\n- IEEE 754: float 1 + 8 + 23 (≈ 7 digits), double 1 + 11 + 52 (≈ 15–16 digits); normalized mantissa starts with 1\n- 0.1 is not exact (0.5 is) – never compare floats with ==; store money as integer paise\n\n## Strings\n- C: char array ending in '\\0' (\"KEA\" = 4 bytes; sizeof(\"\") = 1); Pascal: length byte\n- Representations: fixed-length, variable-length (terminator or length), linked\n- Pointer idioms: length `while (*p) p++; return p − s;`; copy `while ((*d++ = *s++));`; reverse with two pointers (⌊n/2⌋ swaps); atoi `n = n*10 + (*p − '0')`\n- Library: strlen, strcpy, strncpy, strcat (O(len1 + len2)), strcmp (code order: 'Z' < 'a'), strchr, strstr, strtok\n- Array of char pointers saves space for ragged strings; sort by swapping pointers; compare with strcmp, not ==\n"
+      }
+     ]
+    },
+    {
+     "name": "Arrays in Data Structures",
+     "plan": {
+      "id": "P2-KRD-03"
+     },
+     "sets": [
+      {
+       "name": "1 · Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+       "questions": [
+        {
+         "question": "Accessing the i-th element of an array takes constant time because:",
+         "options": {
+          "A": "The array is searched from the start",
+          "B": "Arrays are always sorted",
+          "C": "Arrays are stored as linked lists",
+          "D": "Elements are stored contiguously, so the address is computed directly from the index"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Address = base + i × element size."
+        },
+        {
+         "question": "An array A[5..50] of 4-byte elements starts at address 1000. The address of A[20] is:",
+         "options": {
+          "A": "1080",
+          "B": "1060",
+          "C": "1076",
+          "D": "1020"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "1000 + 4 × (20 − 5) = 1060."
+        },
+        {
+         "question": "How many elements does the array A[−5..20] have?",
+         "options": {
+          "A": "15",
+          "B": "20",
+          "C": "26",
+          "D": "25"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "20 − (−5) + 1 = 26."
+        },
+        {
+         "question": "A[1..10][1..15] is stored in row-major order from address 500 with 2 bytes per element. The address of A[4][6] is:",
+         "options": {
+          "A": "598",
+          "B": "600",
+          "C": "560",
+          "D": "606"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "500 + 2 × ((4 − 1) × 15 + (6 − 1)) = 500 + 2 × 50."
+        },
+        {
+         "question": "The same array A[1..10][1..15] (base 500, 2 bytes per element) stored in column-major order puts A[4][6] at address:",
+         "options": {
+          "A": "600",
+          "B": "596",
+          "C": "610",
+          "D": "606"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "500 + 2 × ((6 − 1) × 10 + (4 − 1)) = 500 + 2 × 53."
+        },
+        {
+         "question": "How many elements does the 3-D array int A[2][3][4] have?",
+         "options": {
+          "A": "12",
+          "B": "24",
+          "C": "9",
+          "D": "10"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "2 × 3 × 4."
+        },
+        {
+         "question": "Inserting a new element at the beginning of an array holding n elements requires, in the worst case:",
+         "options": {
+          "A": "Shifting all n elements – O(n)",
+          "B": "O(log n) time",
+          "C": "O(n²) time",
+          "D": "O(1) time"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Every element moves one place to the right."
+        },
+        {
+         "question": "Binary search on an array requires that the array be:",
+         "options": {
+          "A": "Unsorted",
+          "B": "Of even length",
+          "C": "Sorted, and it then takes O(log n) comparisons",
+          "D": "Stored as a linked list"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Linear search works on any array but takes O(n)."
+        },
+        {
+         "question": "A sparse matrix is a matrix in which:",
+         "options": {
+          "A": "No element is zero",
+          "B": "The number of rows equals the number of columns",
+          "C": "All elements are equal",
+          "D": "Most of the elements are zero"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Storing only the non-zero elements saves memory."
+        },
+        {
+         "question": "A 100 × 100 sparse matrix has 50 non-zero elements. In the triplet (row, column, value) form with one header row, how many values are stored?",
+         "options": {
+          "A": "300",
+          "B": "153",
+          "C": "10,000",
+          "D": "150"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "(50 + 1) rows × 3 columns = 153, instead of 10,000."
+        },
+        {
+         "question": "The 'fast transpose' algorithm for a sparse matrix in triplet form runs in time proportional to:",
+         "options": {
+          "A": "terms²",
+          "B": "columns × number of terms",
+          "C": "rows × columns",
+          "D": "columns + number of non-zero terms"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "It first counts the terms in each column and computes their starting positions."
+        },
+        {
+         "question": "A lower triangular n × n matrix has how many elements on or below the main diagonal?",
+         "options": {
+          "A": "n²",
+          "B": "n(n − 1)/2",
+          "C": "n(n + 1)/2",
+          "D": "2n − 1"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "For n = 10 this is 55."
+        },
+        {
+         "question": "A 10 × 10 lower triangular matrix is stored row by row, keeping only elements on or below the diagonal (1-based indices). How many elements come before A[5][3]?",
+         "options": {
+          "A": "12",
+          "B": "13",
+          "C": "22",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Rows 1–4 contribute 1 + 2 + 3 + 4 = 10, plus 2 elements before A[5][3] in row 5."
+        },
+        {
+         "question": "A tridiagonal n × n matrix has at most how many non-zero elements?",
+         "options": {
+          "A": "n²/3",
+          "B": "2n − 1",
+          "C": "3n − 2",
+          "D": "3n"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "The main diagonal (n) plus the diagonals above and below it (n − 1 each); for n = 10, 28."
+        },
+        {
+         "question": "The polynomial 3x⁵ + 2x² + 7 is stored in an array indexed by exponent. The array needs at least:",
+         "options": {
+          "A": "3 elements",
+          "B": "5 elements",
+          "C": "7 elements",
+          "D": "6 elements (exponents 0 to 5)"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "This form wastes space for sparse polynomials, where a list of (coefficient, exponent) pairs is better."
+        },
+        {
+         "question": "A dynamic array that doubles its capacity when it is full gives an append operation that costs:",
+         "options": {
+          "A": "O(1) amortised",
+          "B": "O(n) every time",
+          "C": "O(log n) every time",
+          "D": "O(n²) amortised"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Occasional O(n) copies are spread over many cheap appends."
+        },
+        {
+         "question": "Match the array operation with its time complexity (n elements):\na. Access by index\nb. Linear search\nc. Binary search on sorted data\nd. Insert at the front\n\n1. O(n) because of shifting\n2. O(1)\n3. O(log n)\n4. O(n)",
+         "options": {
+          "A": "a-4, b-2, c-3, d-1",
+          "B": "a-2, b-4, c-3, d-1",
+          "C": "a-2, b-3, c-4, d-1",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Arrays trade fast access for slow insertion and deletion."
+        },
+        {
+         "question": "Which of the following is a typical application of arrays?",
+         "options": {
+          "A": "Implementing recursion only",
+          "B": "Representing matrices, polynomials and lookup tables",
+          "C": "Undo operations only",
+          "D": "Storing hierarchical data only"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Arrays also implement stacks, queues and heaps."
+        },
+        {
+         "question": "Deleting the element at index k from an array of n elements (keeping the order) needs how many shifts?",
+         "options": {
+          "A": "n − k − 1",
+          "B": "k",
+          "C": "1",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Every element after position k moves one place left."
+        },
+        {
+         "question": "Consider the statements:\nI. Arrays allow random access to elements.\nII. The size of a static array can grow automatically at run time.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "A static array's size is fixed when it is created."
+        },
+        {
+         "question": "Consider the statements:\nI. Row-major order stores all elements of a row together.\nII. C stores two-dimensional arrays in column-major order.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "C uses row-major order; FORTRAN uses column-major order."
+        },
+        {
+         "question": "Consider the statements:\nI. The triplet representation saves space only when the matrix is sparse.\nII. Matrix addition in triplet form can be done by merging the two triplet lists.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Merging by (row, column) order adds matching terms."
+        },
+        {
+         "question": "Assertion (A): Access to any array element takes O(1) time.\nReason (R): The address of an element is computed directly from the base address and the index.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "No searching is needed."
+        },
+        {
+         "question": "Assertion (A): Inserting into the middle of an array is as fast as appending at the end.\nReason (R): Inserting in the middle requires shifting the later elements.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Shifting makes middle insertion O(n) while appending is O(1); R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Storing a sparse matrix in triplet form saves memory.\nReason (R): The triplet form stores every zero element as well.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "A is true; R is false – only non-zero elements are stored."
+        },
+        {
+         "question": "Assertion (A): Binary search needs a sorted array.\nReason (R): Arrays are stored in contiguous memory.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Both true; binary search needs sorting to discard half the range, which contiguity does not explain."
+        },
+        {
+         "question": "For  int A[3][4]  in C (row-major, 4-byte int) starting at address 2000, the address of A[2][1] is:",
+         "options": {
+          "A": "2044",
+          "B": "2024",
+          "C": "2036",
+          "D": "2028"
+         },
+         "answer": "C",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "2000 + 4 × (2 × 4 + 1) = 2036."
+        },
+        {
+         "question": "An upper triangular 5 × 5 matrix stored compactly needs how many memory locations?",
+         "options": {
+          "A": "10",
+          "B": "20",
+          "C": "25",
+          "D": "15"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "5 × 6 / 2 = 15."
+        },
+        {
+         "question": "A symmetric n × n matrix can be stored using how many elements?",
+         "options": {
+          "A": "n(n + 1)/2, storing only one triangle",
+          "B": "2n",
+          "C": "n",
+          "D": "n²"
+         },
+         "answer": "A",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "A[i][j] = A[j][i], so one triangle is enough."
+        },
+        {
+         "question": "In C, the name of a 1-D array used in an expression represents:",
+         "options": {
+          "A": "The number of elements",
+          "B": "The sum of its elements",
+          "C": "The last element",
+          "D": "The address of its first element"
+         },
+         "answer": "D",
+         "subject": "Storage Representation of 1-D and 2-D Arrays, Sparse and Special Matrices",
+         "explanation": "Hence A[i] ≡ *(A + i)."
+        }
+       ]
+      },
+      {
+       "name": "2 · Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+       "questions": [
+        {
+         "question": "Arrange the following steps in the order for inserting data elements into an array-based list\n(a) Repeat till all elements are inserted\n(b) insert data\n(c) update counter\n(d) check capacity\n(e) initialise the list, and counter too",
+         "options": {
+          "A": "(a), (b), (d), (c), (e)",
+          "B": "(a), (b), (c), (d), (e)",
+          "C": "(e), (d), (b), (c), (a)",
+          "D": "(b), (a), (c), (e), (d)"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Initialise; for each element check capacity, insert, update the count; repeat. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q3"
+        },
+        {
+         "question": "Which one of the following statements is true in the context of sparse array?",
+         "options": {
+          "A": "The matrices having regular non-zero elements are called unstructured non-zero region matrices.",
+          "B": "Addition of two sparse matrices is possible even if the order of the two matrices are unequal.",
+          "C": "Diagonal matrix and tridiagonal matrix are examples of structured non-zero region matrices.",
+          "D": "Non-zero entries that can occur only on the diagonal or on elements immediately above or below the diagonal is called triangular matrix."
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Diagonal and tridiagonal matrices have a fixed pattern of non-zero positions; option 4 describes a tridiagonal matrix, and matrices of unequal order cannot be added. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q41"
+        },
+        {
+         "question": "If an array is declared as int arr [50], then how many elements can it hold?",
+         "options": {
+          "A": "49",
+          "B": "51",
+          "C": "0",
+          "D": "50"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Indices 0 … 49. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q56"
+        },
+        {
+         "question": "In a array, all elements are stored in ____ memory locations.",
+         "options": {
+          "A": "Random",
+          "B": "Sequential",
+          "C": "Shared",
+          "D": "None of the above"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Contiguous storage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q82"
+        },
+        {
+         "question": "To insert a new element at index 2 of an array holding 6 elements (indices 0–5), how many elements must be shifted?",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "3",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "PYQ pattern (KEA / KSET papers). Elements at indices 2, 3, 4 and 5 move one place right."
+        },
+        {
+         "question": "When inserting into an array, the elements are shifted",
+         "options": {
+          "A": "In random order",
+          "B": "From the last element backwards, so that none is overwritten",
+          "C": "From the insertion point forwards",
+          "D": "Not at all"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "for (i = n; i > pos; i--) a[i] = a[i − 1];"
+        },
+        {
+         "question": "Before inserting into an array, a program must check",
+         "options": {
+          "A": "That it is empty",
+          "B": "The element's address",
+          "C": "That it is sorted",
+          "D": "That the array is not already full (overflow)"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "A static array cannot grow."
+        },
+        {
+         "question": "Inserting 25 at index 1 of the array [10, 30, 40] gives",
+         "options": {
+          "A": "[10, 25, 30, 40]",
+          "B": "[25, 10, 30, 40]",
+          "C": "[10, 25, 40]",
+          "D": "[10, 30, 25, 40]"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "30 and 40 move right."
+        },
+        {
+         "question": "Deleting the element at index 0 of [5, 8, 9, 12] (keeping the order) gives",
+         "options": {
+          "A": "[8, 9, 12]",
+          "B": "[0, 8, 9, 12]",
+          "C": "[5, 9, 12]",
+          "D": "[12, 8, 9]"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "The rest move left."
+        },
+        {
+         "question": "Deleting the first element of an array of n elements (keeping the order) needs how many moves?",
+         "options": {
+          "A": "n",
+          "B": "n − 1",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Every other element moves left."
+        },
+        {
+         "question": "Deleting the last element of an array takes",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(n)",
+          "C": "O(1)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Only the count changes."
+        },
+        {
+         "question": "The worst-case time to insert an element into an array of n elements (keeping the order) is",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Inserting at the front."
+        },
+        {
+         "question": "Inserting 35 into the sorted array [10, 20, 30, 40, 50] (keeping it sorted) puts 35 at index",
+         "options": {
+          "A": "4",
+          "B": "5",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "After 30, before 40."
+        },
+        {
+         "question": "If the order of elements does not matter, an element can be deleted from an array in O(1) by",
+         "options": {
+          "A": "Copying the last element into its place and reducing the count",
+          "B": "Shifting all the elements",
+          "C": "Setting it to zero",
+          "D": "Sorting the array"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "No shifting is needed."
+        },
+        {
+         "question": "Which is an advantage of arrays?",
+         "options": {
+          "A": "No wasted memory in any case",
+          "B": "Constant-time access to any element by its index",
+          "C": "Automatic growth in size",
+          "D": "Easy insertion in the middle"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Address = base + index × size."
+        },
+        {
+         "question": "Which is a disadvantage of a static array?",
+         "options": {
+          "A": "Contiguous storage helps the cache",
+          "B": "Random access",
+          "C": "Its size is fixed when it is declared",
+          "D": "Simple indexing"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Too small overflows; too large wastes memory."
+        },
+        {
+         "question": "A very large array may fail to be allocated even when enough memory is free in total, because",
+         "options": {
+          "A": "Arrays need a linked list",
+          "B": "Arrays need a cache",
+          "C": "It needs one contiguous block",
+          "D": "Arrays cannot be large"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Linked lists can use scattered memory."
+        },
+        {
+         "question": "Declaring an array much larger than needed",
+         "options": {
+          "A": "Wastes the unused memory",
+          "B": "Causes overflow",
+          "C": "Is not allowed",
+          "D": "Makes access slower"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "A dynamic structure avoids this."
+        },
+        {
+         "question": "Merging two sorted arrays of sizes m and n into a new sorted array takes",
+         "options": {
+          "A": "O(log(m + n))",
+          "B": "O(m + n)",
+          "C": "O(m × n)",
+          "D": "O(1)"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Each step moves one element."
+        },
+        {
+         "question": "Reversing an array of n elements in place needs how many swaps?",
+         "options": {
+          "A": "2n",
+          "B": "n − 1",
+          "C": "n",
+          "D": "⌊n/2⌋"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Swap a[i] and a[n − 1 − i]."
+        },
+        {
+         "question": "For the array [2, 7, 4, 9, 6], a loop that counts the even elements gives",
+         "options": {
+          "A": "5",
+          "B": "3",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "2, 4 and 6."
+        },
+        {
+         "question": "Searching an unsorted array of n elements for a key takes, in the worst case,",
+         "options": {
+          "A": "O(n)",
+          "B": "O(1)",
+          "C": "O(n²)",
+          "D": "O(log n)"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Binary search needs a sorted array."
+        },
+        {
+         "question": "In an array-based list, the number of elements in use is kept in a separate variable because",
+         "options": {
+          "A": "C requires it",
+          "B": "Arrays store their own length",
+          "C": "It speeds up sorting",
+          "D": "The array may have more slots than elements in use"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Insertion and deletion update it."
+        },
+        {
+         "question": "Inserting at the beginning of an array of n elements shifts",
+         "options": {
+          "A": "No elements",
+          "B": "One element",
+          "C": "All n elements",
+          "D": "n/2 elements"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "The worst case of insertion."
+        },
+        {
+         "question": "Deleting the element at index 3 of an array of 10 elements (keeping the order) moves how many elements?",
+         "options": {
+          "A": "6",
+          "B": "9",
+          "C": "3",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Indices 4 … 9."
+        },
+        {
+         "question": "When a dynamic array is full, it is usually grown by",
+         "options": {
+          "A": "Sorting it",
+          "B": "Linking a new node",
+          "C": "Adding one slot in place",
+          "D": "Allocating a bigger block (often double the size) and copying the elements"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "realloc in C; amortised O(1) appends."
+        },
+        {
+         "question": "Keeping roll numbers in one array and marks in another, matched by index, is called using",
+         "options": {
+          "A": "Sparse arrays",
+          "B": "Parallel arrays",
+          "C": "Jagged arrays",
+          "D": "Linked arrays"
+         },
+         "answer": "B",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "An array of structures is the alternative."
+        },
+        {
+         "question": "Compared with a linked list, an array uses less memory per element because",
+         "options": {
+          "A": "It uses registers",
+          "B": "It stores fewer elements",
+          "C": "It needs no pointer fields",
+          "D": "It compresses data"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Each list node carries at least one pointer."
+        },
+        {
+         "question": "for (i = n; i > pos; i--) a[i] = a[i - 1];  a[pos] = x;  n++;",
+         "options": {
+          "A": "Searches for x",
+          "B": "Deletes the element at pos",
+          "C": "Inserts x at index pos",
+          "D": "Reverses the array"
+         },
+         "answer": "C",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Shift right, then place x."
+        },
+        {
+         "question": "for (i = pos; i < n - 1; i++) a[i] = a[i + 1];  n--;",
+         "options": {
+          "A": "Copies the array",
+          "B": "Sorts the array",
+          "C": "Inserts at pos",
+          "D": "Deletes the element at index pos"
+         },
+         "answer": "D",
+         "subject": "Insertion and Deletion on 1-D Arrays, Advantages and Disadvantages",
+         "explanation": "Shift left over the deleted element."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Traces",
+       "questions": [
+        {
+         "question": "Given\nint a[3] = {1, 2, 3};\nprintf(\"%d\", a[3]);\nChoose the correct answer.",
+         "options": {
+          "A": "3",
+          "B": "garbage",
+          "C": "error",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "a[3] is past the end of the array: undefined behaviour, typically a garbage value; C does no bounds checking. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q82"
+        },
+        {
+         "question": "An array has been declared as int a[] = {1, 2, 3, 4, 5, ….}; How can you find the number of elements of the array without manually counting them?",
+         "options": {
+          "A": "printf(\"%d\", sizeof(n));",
+          "B": "printf(\"%d\", sizeof(a)/sizeof(a[0]));",
+          "C": "printf(\"%d\", sizeof(int[a]));",
+          "D": "printf(\"%d\", sizeof(a[0]));"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Total bytes of the array divided by the bytes of one element. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q84"
+        },
+        {
+         "question": "What is the output of the following C code?\nint main()\n{\n  int ary[] = {1, 3, 5};\n  printf(\"%d %d\", ary[-1], ary[4]);\n  return 0;\n}",
+         "options": {
+          "A": "1 5",
+          "B": "0 0",
+          "C": "Compile error",
+          "D": "Garbage value"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "C does no bounds checking: ary[-1] and ary[4] read memory outside the array (undefined behaviour), so unpredictable 'garbage' values are printed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q3"
+        },
+        {
+         "question": "Consider the following declaration of a 2D array in C:\nChar a [100] [100];\nAssuming that the main memory is byte addressable and that the array is stored starting from memory address 0, the address of a [40] [50] is",
+         "options": {
+          "A": "4040",
+          "B": "4050",
+          "C": "5040",
+          "D": "5050"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Row-major: 40 × 100 + 50. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q9"
+        },
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\nvoid main( )\n{\n  int a[3][2] = {1, 2, 3, 4, 5, 6};\n  printf(\"%d, %d\", a[0][0], a[2][1]);\n}",
+         "options": {
+          "A": "1, 5",
+          "B": "1, 6",
+          "C": "2, 5",
+          "D": "2, 6"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Row-major filling. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q94"
+        },
+        {
+         "question": "An array A[10..30] has 2-byte elements and starts at address 2000. The address of A[15] is",
+         "options": {
+          "A": "2015",
+          "B": "2030",
+          "C": "2010",
+          "D": "2005"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). Base + (i − lower bound) × size = 2000 + 5 × 2."
+        },
+        {
+         "question": "A[5][4] (4-byte elements, 0-based) is stored row-major from address 100. The address of A[3][2] is",
+         "options": {
+          "A": "156",
+          "B": "152",
+          "C": "128",
+          "D": "140"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "100 + (3 × 4 + 2) × 4."
+        },
+        {
+         "question": "The same A[5][4] stored column-major from address 100 has A[3][2] at",
+         "options": {
+          "A": "156",
+          "B": "112",
+          "C": "160",
+          "D": "152"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "100 + (2 × 5 + 3) × 4."
+        },
+        {
+         "question": "How many elements does the array A[2..8][3..7] have?",
+         "options": {
+          "A": "35",
+          "B": "30",
+          "C": "24",
+          "D": "42"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "(8 − 2 + 1) × (7 − 3 + 1) = 7 × 5."
+        },
+        {
+         "question": "What is printed?\nint a[2][3] = {1, 2, 3, 4, 5, 6}, i, s = 0;\nfor (i = 0; i < 2; i++) s += a[i][2];\nprintf(\"%d\", s);",
+         "options": {
+          "A": "21",
+          "B": "5",
+          "C": "9",
+          "D": "7"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The last column: 3 + 6."
+        },
+        {
+         "question": "With a = {{1, 2, 3}, {4, 5, 6}} and b[j][i] = a[i][j] for all i, j, the value of b[2][0] is",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "b is the transpose: b[2][0] = a[0][2]."
+        },
+        {
+         "question": "int a[6] = {1, 2, 4, 5}; n = 4. After inserting 3 at index 2 (shifting right), a[3] is",
+         "options": {
+          "A": "4",
+          "B": "2",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The array becomes 1 2 3 4 5."
+        },
+        {
+         "question": "int a[] = {9, 8, 7, 6}. After deleting the element at index 1 (shifting left), a[1] is",
+         "options": {
+          "A": "6",
+          "B": "8",
+          "C": "7",
+          "D": "9"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The array becomes 9 7 6."
+        },
+        {
+         "question": "For the array [2, 4, 6, 8], how many elements are greater than the average?",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The average is 5."
+        },
+        {
+         "question": "After reversing [1, 2, 3, 4, 5] in place, a[1] is",
+         "options": {
+          "A": "3",
+          "B": "5",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "5 4 3 2 1."
+        },
+        {
+         "question": "After rotating [1, 2, 3, 4] left by one place, a[3] is",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "2 3 4 1."
+        },
+        {
+         "question": "What is printed?\nint a[] = {1, 2, 3, 4}, i;\nfor (i = 1; i < 4; i++) a[i] += a[i - 1];\nprintf(\"%d\", a[3]);",
+         "options": {
+          "A": "9",
+          "B": "7",
+          "C": "10",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Running (prefix) sums: 1 3 6 10."
+        },
+        {
+         "question": "For  int a[5];  the last valid index is",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "0",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Indices start at 0."
+        },
+        {
+         "question": "With 4-byte int,  int a[10][20];  occupies",
+         "options": {
+          "A": "80 bytes",
+          "B": "120 bytes",
+          "C": "200 bytes",
+          "D": "800 bytes"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "10 × 20 × 4."
+        },
+        {
+         "question": "char name[5][10];  occupies",
+         "options": {
+          "A": "10 bytes",
+          "B": "50 bytes",
+          "C": "5 bytes",
+          "D": "15 bytes"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "5 strings of 10 bytes."
+        },
+        {
+         "question": "For an int array a, the value of  &a[4] − &a[1]  is",
+         "options": {
+          "A": "12",
+          "B": "4",
+          "C": "3",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Pointer difference counts elements."
+        },
+        {
+         "question": "A 6 × 6 sparse matrix has 8 non-zero values. Its triplet form, with a header row, needs how many rows?",
+         "options": {
+          "A": "6",
+          "B": "9",
+          "C": "36",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "One header (rows, columns, count) + one row per non-zero value."
+        },
+        {
+         "question": "A lower triangular matrix is stored row by row (0-based, i ≥ j). Element a[3][1] is at position",
+         "options": {
+          "A": "10",
+          "B": "6",
+          "C": "4",
+          "D": "7"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). i(i + 1)/2 + j = 6 + 1."
+        },
+        {
+         "question": "An n × n diagonal matrix can be stored using how many locations?",
+         "options": {
+          "A": "n",
+          "B": "n(n + 1)/2",
+          "C": "2n",
+          "D": "n²"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Only the diagonal is non-zero."
+        },
+        {
+         "question": "The integer average of [10, 20, 30, 40] computed as sum / 4 is",
+         "options": {
+          "A": "100",
+          "B": "30",
+          "C": "25",
+          "D": "20"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "100 / 4."
+        },
+        {
+         "question": "char A[2][3][4] (1 byte each) starts at address 0, row-major. The address of A[1][2][3] is",
+         "options": {
+          "A": "24",
+          "B": "17",
+          "C": "11",
+          "D": "23"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 × 12 + 2 × 4 + 3."
+        },
+        {
+         "question": "A linear search for 7 in [4, 7, 7, 2] that stops at the first match returns index",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "2",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The first 7."
+        },
+        {
+         "question": "A linear search finds the key at index 5. How many comparisons were made?",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "4",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Indices 0 to 5."
+        },
+        {
+         "question": "for (i = 0; i < n / 2; i++) swap(a[i], a[n - 1 - i]);",
+         "options": {
+          "A": "Does nothing",
+          "B": "Sorts it",
+          "C": "Reverses the array",
+          "D": "Rotates it by one"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Ends move towards the middle."
+        },
+        {
+         "question": "Merging [1, 4, 7] and [2, 3, 8] into one sorted array, the third element is",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "7",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 2 3 4 7 8."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Arrays – revision sheet",
+       "md": "## Storage representation\n- 1-D: Loc(A[i]) = Base + w × (i − LB); number of elements = UB − LB + 1\n- 2-D (m × n): row-major Loc = Base + w × (n × (i − LB₁) + (j − LB₂)); column-major Base + w × (m × (j − LB₂) + (i − LB₁))\n  - char a[100][100] at 0 → a[40][50] = 4050; A[5][4], w = 4, base 100 → A[3][2] = 156 (row) / 152 (column)\n- 3-D: A[1][2][3] of A[2][3][4] = 1·12 + 2·4 + 3 = 23 elements from the base\n- Special matrices: lower triangular n(n + 1)/2 (index i(i+1)/2 + j), tridiagonal 3n − 2, diagonal n; sparse → triplets (header + one row per non-zero)\n\n## Insertion and deletion (n elements)\n- Insert at pos: check overflow; shift a[n−1]…a[pos] right (from the end); place; n++ → O(n) (front worst, end O(1))\n- Delete at pos: shift a[pos+1]…a[n−1] left; n−− → n − pos − 1 moves; unordered delete: copy last element in, O(1)\n- Insert into a sorted array: find the position, then shift\n\n## Advantages / disadvantages\n| Advantages | Disadvantages |\n|---|---|\n| O(1) random access | fixed size (overflow or waste) |\n| no pointer overhead | O(n) insert/delete in the middle |\n| simple, cache-friendly | needs one contiguous block |\n- Dynamic arrays grow by doubling (amortised O(1) append); parallel arrays\n"
+      }
+     ]
+    },
+    {
+     "name": "Linked Lists",
+     "plan": {
+      "id": "P2-KRD-04"
+     },
+     "sets": [
+      {
+       "name": "1 · Singly, Circular and Doubly Linked Lists – Operations",
+       "questions": [
+        {
+         "question": "Each node of a singly linked list contains:",
+         "options": {
+          "A": "Data and a pointer to the next node",
+          "B": "Only data",
+          "C": "Pointers to the previous and next nodes",
+          "D": "An index into an array"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The last node's next pointer is NULL."
+        },
+        {
+         "question": "Accessing the k-th element of a singly linked list takes:",
+         "options": {
+          "A": "O(log k) time",
+          "B": "O(k²) time",
+          "C": "O(1) time",
+          "D": "O(k) time, because the list must be traversed from the head"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Linked lists have no random access."
+        },
+        {
+         "question": "Inserting a node at the END of a singly linked list with only a head pointer takes ______; with a tail pointer it takes ______.",
+         "options": {
+          "A": "O(n); O(n)",
+          "B": "O(log n); O(1)",
+          "C": "O(1); O(n)",
+          "D": "O(n); O(1)"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The tail pointer avoids walking the whole list."
+        },
+        {
+         "question": "Given only a pointer to a node (not the last one) of a singly linked list, that node can be deleted in O(1) by:",
+         "options": {
+          "A": "Setting the pointer to NULL",
+          "B": "Copying the next node's data into it and deleting the next node",
+          "C": "It cannot be done",
+          "D": "Walking from the head to find its predecessor"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "This trick fails for the last node."
+        },
+        {
+         "question": "The main advantage of a doubly linked list over a singly linked list is that:",
+         "options": {
+          "A": "It uses less memory",
+          "B": "It allows random access",
+          "C": "It can be traversed in both directions, and a given node can be deleted in O(1)",
+          "D": "It never needs pointers"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The cost is one extra pointer per node."
+        },
+        {
+         "question": "Inserting a new node between two existing nodes of a doubly linked list requires setting how many pointer fields?",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "6",
+          "D": "4"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The new node's prev and next, the left neighbour's next and the right neighbour's prev."
+        },
+        {
+         "question": "In a circular singly linked list:",
+         "options": {
+          "A": "There is no last node",
+          "B": "The last node points back to the first node",
+          "C": "The first node points to NULL",
+          "D": "Every node points to itself"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Keeping a pointer to the last node gives O(1) access to both ends."
+        },
+        {
+         "question": "Reversing a singly linked list of n nodes iteratively takes:",
+         "options": {
+          "A": "O(n) time and O(1) extra space",
+          "B": "O(n²) time",
+          "C": "O(log n) time",
+          "D": "O(n) extra space always"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Three pointers (previous, current, next) are enough."
+        },
+        {
+         "question": "Floyd's 'tortoise and hare' method is used to:",
+         "options": {
+          "A": "Search a sorted array",
+          "B": "Sort a linked list",
+          "C": "Detect a cycle in a linked list",
+          "D": "Reverse a linked list"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "A slow and a fast pointer meet if and only if there is a cycle."
+        },
+        {
+         "question": "The middle node of a singly linked list can be found in one pass by:",
+         "options": {
+          "A": "Moving one pointer one step and another two steps at a time",
+          "B": "Sorting the list",
+          "C": "Counting nodes twice",
+          "D": "Using binary search"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "When the fast pointer reaches the end, the slow pointer is in the middle."
+        },
+        {
+         "question": "For the list 1 → 2 → 3 → 4 → 5, a loop that prints the current node and then skips the next one (p = p->next->next, checking for NULL) prints:",
+         "options": {
+          "A": "2 4",
+          "B": "5 3 1",
+          "C": "1 3 5",
+          "D": "1 2 3 4 5"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "It visits every alternate node from the head."
+        },
+        {
+         "question": "What does this print for the list 1 → 2 → 3?\nvoid f(struct node *p) { if (p == NULL) return; f(p->next); printf(\"%d \", p->data); }",
+         "options": {
+          "A": "3",
+          "B": "3 2 1",
+          "C": "1 3",
+          "D": "1 2 3"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The recursive call comes before printf, so the list is printed in reverse."
+        },
+        {
+         "question": "Merging two sorted linked lists of lengths m and n into one sorted list takes:",
+         "options": {
+          "A": "O(log(m + n)) time",
+          "B": "O((m + n)²) time",
+          "C": "O(m × n) time",
+          "D": "O(m + n) time"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Nodes are relinked; no new nodes are needed."
+        },
+        {
+         "question": "Compared with arrays, linked lists:",
+         "options": {
+          "A": "Need their size fixed in advance",
+          "B": "Allow easy insertion and deletion but use extra memory for pointers and have poor cache locality",
+          "C": "Always use less memory",
+          "D": "Allow O(1) random access"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Arrays are better for indexed access."
+        },
+        {
+         "question": "After  p = head; while (p->next != NULL) p = p->next;  on a non-empty list, p points to:",
+         "options": {
+          "A": "The last node",
+          "B": "NULL",
+          "C": "The first node",
+          "D": "The second-last node"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The loop stops when p has no successor."
+        },
+        {
+         "question": "A header (sentinel) node in a linked list is used to:",
+         "options": {
+          "A": "Store the largest element",
+          "B": "Speed up searching to O(1)",
+          "C": "Simplify insertion and deletion by removing special cases for an empty list or the first node",
+          "D": "Make the list circular"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "It holds no real data (sometimes a count)."
+        },
+        {
+         "question": "Polynomials such as 5x⁸ + 3x² + 1 are well represented by a linked list because:",
+         "options": {
+          "A": "Only non-zero terms are stored, each as a (coefficient, exponent) node",
+          "B": "Linked lists are faster than arrays for everything",
+          "C": "Polynomials must be sorted by coefficient",
+          "D": "Arrays cannot store integers"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Addition walks both lists in exponent order."
+        },
+        {
+         "question": "Given a pointer to the LAST node of a circular singly linked list, deleting the first node takes:",
+         "options": {
+          "A": "O(log n) time",
+          "B": "O(n²) time",
+          "C": "O(n) time",
+          "D": "O(1) time"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The first node is last->next, so it can be unlinked directly."
+        },
+        {
+         "question": "A structure such as  struct node { int data; struct node *next; };  is called:",
+         "options": {
+          "A": "An array of structures",
+          "B": "A self-referential structure",
+          "C": "A union",
+          "D": "A bit field"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "It contains a pointer to its own type."
+        },
+        {
+         "question": "Match the list operation with its cost (singly linked list, head pointer only, n nodes):\na. Insert at the head\nb. Search for a value\nc. Delete the last node\nd. Read the head's data\n\n1. O(1) – a new node becomes the head\n2. O(1)\n3. O(n)\n4. O(n) – the predecessor must be found",
+         "options": {
+          "A": "a-1, b-3, c-4, d-2",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-4, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Only operations near the head are constant time."
+        },
+        {
+         "question": "Consider the statements:\nI. Binary search is efficient on a singly linked list.\nII. Linked lists allocate memory dynamically as nodes are added.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Binary search needs random access, which linked lists lack."
+        },
+        {
+         "question": "Consider the statements:\nI. In a doubly linked list, a node can be deleted in O(1) if a pointer to it is given.\nII. A circular list can be traversed starting from any node.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Both statements are correct."
+        },
+        {
+         "question": "Assertion (A): Inserting at the head of a linked list takes O(1) time.\nReason (R): Only the new node's next pointer and the head pointer change.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "No other node is touched."
+        },
+        {
+         "question": "Assertion (A): Linked lists allow random access to any element in O(1).\nReason (R): Nodes of a linked list are reached by following pointers from the head.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Following pointers makes access O(n); R shows why A is false."
+        },
+        {
+         "question": "Assertion (A): Doubly linked lists use more memory per node than singly linked lists.\nReason (R): Doubly linked lists cannot be traversed backwards.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "A is true (an extra prev pointer); R is false."
+        },
+        {
+         "question": "Assertion (A): Circular linked lists are useful for round-robin scheduling.\nReason (R): A singly linked list node contains data and a next pointer.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Both true, but R does not explain A; the circular link does."
+        },
+        {
+         "question": "The number of NULL pointers in a doubly linked list of n ≥ 1 nodes (not circular) is:",
+         "options": {
+          "A": "n + 1",
+          "B": "n",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The first node's prev and the last node's next."
+        },
+        {
+         "question": "To delete the node after node p in a singly linked list, one writes:",
+         "options": {
+          "A": "p->next = NULL;",
+          "B": "free(p->next); p->next = p;",
+          "C": "q = p->next; p->next = q->next; free(q);",
+          "D": "p = p->next; free(p);"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "The node is unlinked before it is freed."
+        },
+        {
+         "question": "An orthogonal (cross) linked list is commonly used to represent:",
+         "options": {
+          "A": "A sparse matrix, linking the non-zero elements by row and by column",
+          "B": "A stack",
+          "C": "A queue of print jobs",
+          "D": "A string"
+         },
+         "answer": "A",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Each node belongs to one row list and one column list."
+        },
+        {
+         "question": "The time to concatenate two circular singly linked lists, given pointers to their last nodes, is:",
+         "options": {
+          "A": "O(m + n)",
+          "B": "O(log n)",
+          "C": "O(1)",
+          "D": "O(n)"
+         },
+         "answer": "C",
+         "subject": "Singly, Circular and Doubly Linked Lists – Operations",
+         "explanation": "Only a few pointers need to be exchanged."
+        }
+       ]
+      },
+      {
+       "name": "2 · Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+       "questions": [
+        {
+         "question": "A variant of the linked list in which none of the node contains NULL pointer is",
+         "options": {
+          "A": "Singly-linked list",
+          "B": "Doubly-linked list",
+          "C": "Circular linked list",
+          "D": "None"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "The last node points back to the first. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q57"
+        },
+        {
+         "question": "The minimum number of fields in each node of a doubly-linked list is ____",
+         "options": {
+          "A": "3",
+          "B": "2",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "prev, data, next. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q59"
+        },
+        {
+         "question": "Which of the following is optimal to find an element at the K-th position in the linked list?",
+         "options": {
+          "A": "Single linked list",
+          "B": "Doubly linked list",
+          "C": "Circular linked list",
+          "D": "Array Implementation of linked list"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Arrays allow direct indexing. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q21"
+        },
+        {
+         "question": "Which of the following applications uses circular linked list?",
+         "options": {
+          "A": "Recursive function call",
+          "B": "Undo operation in a text editor",
+          "C": "Implementation of hash table",
+          "D": "Allocating CPU to other resources"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Round-robin CPU allocation cycles through the list. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q4"
+        },
+        {
+         "question": "In simple chaining, what data structure is appropriate ?",
+         "options": {
+          "A": "Singly linked list",
+          "B": "Doubly linked list",
+          "C": "Circular linked list",
+          "D": "Binary trees"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Each hash bucket keeps a singly linked chain. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q12"
+        },
+        {
+         "question": "The dynamic memory allocation functions in C language are defined in ____",
+         "options": {
+          "A": "<stdio.h>",
+          "B": "<stdlib.h>",
+          "C": "<string.h>",
+          "D": "<conio.h>"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "malloc, calloc, realloc, free. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q91"
+        },
+        {
+         "question": "A new node is created in C with",
+         "options": {
+          "A": "alloc(struct node);",
+          "B": "malloc(node);",
+          "C": "(struct node *) malloc(sizeof(struct node))",
+          "D": "new node;"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "PYQ pattern (KEA / KSET papers). The cast is optional in C."
+        },
+        {
+         "question": "If malloc() returns NULL while creating a node, it means",
+         "options": {
+          "A": "The list is sorted",
+          "B": "No memory is available (overflow)",
+          "C": "The list is empty",
+          "D": "The node was freed"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Always check before using the node."
+        },
+        {
+         "question": "After a node is removed from a list, its memory should be released with",
+         "options": {
+          "A": "remove(p)",
+          "B": "free(p)",
+          "C": "delete p",
+          "D": "p = 0 alone"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Otherwise memory leaks."
+        },
+        {
+         "question": "To insert node t at the beginning of a singly linked list, the correct order is",
+         "options": {
+          "A": "t = head;",
+          "B": "head = t; t->next = head;",
+          "C": "head->next = t;",
+          "D": "t->next = head; head = t;"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "The other order makes t point to itself."
+        },
+        {
+         "question": "To insert node t after node p, the statements are",
+         "options": {
+          "A": "t->next = p->next; p->next = t;",
+          "B": "p->next = t; t->next = p->next;",
+          "C": "t->next = p; p->next = t;",
+          "D": "p = t;"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Link t to the rest first."
+        },
+        {
+         "question": "Deleting the first node of a singly linked list is done by",
+         "options": {
+          "A": "head = NULL;",
+          "B": "head->next = NULL;",
+          "C": "temp = head; head = head->next; free(temp);",
+          "D": "free(head); head = head->next;"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Using head after free is an error."
+        },
+        {
+         "question": "Deleting the last node of a singly linked list with only a head pointer takes",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n²)",
+          "C": "O(n) – the second-last node must be found",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "A tail pointer does not help for deletion."
+        },
+        {
+         "question": "Inserting at the end of a singly linked list that keeps a tail pointer takes",
+         "options": {
+          "A": "O(1)",
+          "B": "O(n²)",
+          "C": "O(log n)",
+          "D": "O(n)"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "tail->next = t; tail = t;"
+        },
+        {
+         "question": "A singly linked list is empty when",
+         "options": {
+          "A": "head->next == NULL",
+          "B": "head->data == 0",
+          "C": "head == head->next",
+          "D": "head == NULL"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "head->next == NULL means one node."
+        },
+        {
+         "question": "Trying to delete from an empty linked list is called",
+         "options": {
+          "A": "A memory leak",
+          "B": "Underflow",
+          "C": "Overflow",
+          "D": "A collision"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Overflow = no memory for a new node."
+        },
+        {
+         "question": "In Lipschutz's notation, the list of free nodes from which new nodes are taken is the",
+         "options": {
+          "A": "AVAIL (free-storage) list",
+          "B": "Stack list",
+          "C": "Header list",
+          "D": "Garbage list"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Garbage collection returns unused nodes to it."
+        },
+        {
+         "question": "Deleting node p from the middle of a doubly linked list needs",
+         "options": {
+          "A": "head = p;",
+          "B": "p->prev->next = p->next; p->next->prev = p->prev;",
+          "C": "p = p->prev;",
+          "D": "p->next = NULL;"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Then free(p)."
+        },
+        {
+         "question": "A circular singly linked list is traversed once, starting at head, with",
+         "options": {
+          "A": "while (p->next != NULL)",
+          "B": "for (;;) with no test",
+          "C": "do { … p = p->next; } while (p != head);",
+          "D": "while (p != NULL)"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "There is no NULL to stop at."
+        },
+        {
+         "question": "A header list whose last node points back to the header node is a",
+         "options": {
+          "A": "Doubly linked list",
+          "B": "Grounded header list",
+          "C": "Two-way list",
+          "D": "Circular header list"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "In a grounded header list the last node holds NULL."
+        },
+        {
+         "question": "In Lipschutz's book, a 'two-way list' is",
+         "options": {
+          "A": "A circular list",
+          "B": "A doubly linked list",
+          "C": "Two singly linked lists",
+          "D": "A stack and a queue"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Traversal in both directions."
+        },
+        {
+         "question": "In  struct node { int data; struct node *next; };  the member next holds",
+         "options": {
+          "A": "The address of the next node",
+          "B": "The next data value",
+          "C": "An index",
+          "D": "The size of the node"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "A self-referential structure."
+        },
+        {
+         "question": "A function that inserts at the head of a list is declared  void push(struct node **head, int x)  because",
+         "options": {
+          "A": "C requires two stars",
+          "B": "It is faster",
+          "C": "It must change the caller's head pointer",
+          "D": "It saves memory"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Or it can return the new head."
+        },
+        {
+         "question": "Linked lists are preferred over arrays when",
+         "options": {
+          "A": "Memory per element must be minimal",
+          "B": "Random access is needed",
+          "C": "Binary search is needed",
+          "D": "Insertions and deletions are frequent and the size is not known in advance"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "No shifting, no fixed size."
+        },
+        {
+         "question": "Inserting at the front of a circular singly linked list, given a pointer to its LAST node, takes",
+         "options": {
+          "A": "O(n)",
+          "B": "O(n²)",
+          "C": "O(1)",
+          "D": "O(log n)"
+         },
+         "answer": "C",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "last->next is the first node."
+        },
+        {
+         "question": "Searching a linked list of n nodes for a key takes",
+         "options": {
+          "A": "O(n²)",
+          "B": "O(log n) if sorted",
+          "C": "O(1)",
+          "D": "O(n), even if the list is sorted"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "No random access, so no binary search."
+        },
+        {
+         "question": "Inserting into a sorted linked list (keeping it sorted) takes",
+         "options": {
+          "A": "O(log n)",
+          "B": "O(n) to find the position, then O(1) to link",
+          "C": "O(1)",
+          "D": "O(n²)"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "No shifting is needed."
+        },
+        {
+         "question": "Using a pointer after the node it points to has been freed is a",
+         "options": {
+          "A": "Dangling-pointer error",
+          "B": "Underflow",
+          "C": "Memory leak",
+          "D": "Collision"
+         },
+         "answer": "A",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Set it to NULL after free."
+        },
+        {
+         "question": "A loop that counts the nodes of a list is",
+         "options": {
+          "A": "c = sizeof(head);",
+          "B": "c = head->data;",
+          "C": "for (c = 0; head; c++);",
+          "D": "for (c = 0, p = head; p != NULL; p = p->next) c++;"
+         },
+         "answer": "D",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "O(n)."
+        },
+        {
+         "question": "Not freeing nodes that are no longer reachable causes",
+         "options": {
+          "A": "A segmentation fault always",
+          "B": "A memory leak",
+          "C": "A stack overflow",
+          "D": "Underflow"
+         },
+         "answer": "B",
+         "subject": "Pointers, Dynamic Memory Allocation, Insertion and Deletion of a Node",
+         "explanation": "Memory is lost until the program ends."
+        }
+       ]
+      },
+      {
+       "name": "3 · Previous-Year Pattern Practice – Programs and Traces",
+       "questions": [
+        {
+         "question": "For the list 10 → 20 → 30, a traversal that adds the data gives",
+         "options": {
+          "A": "10",
+          "B": "30",
+          "C": "60",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "10 + 20 + 30."
+        },
+        {
+         "question": "A loop that counts the nodes of 5 → 3 → 8 → 1 gives",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "17",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Four nodes."
+        },
+        {
+         "question": "Inserting 15 after the first node of 10 → 20 → 30 gives",
+         "options": {
+          "A": "10 → 15 → 20 → 30",
+          "B": "15 → 10 → 20 → 30",
+          "C": "10 → 20 → 30 → 15",
+          "D": "10 → 20 → 15 → 30"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "t->next = p->next; p->next = t."
+        },
+        {
+         "question": "Deleting the first node of 10 → 20 → 30 leaves",
+         "options": {
+          "A": "10 → 20",
+          "B": "30",
+          "C": "10 → 30",
+          "D": "20 → 30"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "head moves to the second node."
+        },
+        {
+         "question": "After reversing 1 → 2 → 3 → 4, head->data is",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The old last node becomes the head."
+        },
+        {
+         "question": "A loop that finds the largest value in 7 → 19 → 3 gives",
+         "options": {
+          "A": "7",
+          "B": "3",
+          "C": "19",
+          "D": "29"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Compare as you traverse."
+        },
+        {
+         "question": "Searching for 8 in 5 → 8 → 2 returns position (1-based)",
+         "options": {
+          "A": "3",
+          "B": "8",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Second node."
+        },
+        {
+         "question": "For the list 1 → 2 → 3 → 4, after  p = head->next->next;  p->data is",
+         "options": {
+          "A": "3",
+          "B": "1",
+          "C": "4",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Two steps from the head."
+        },
+        {
+         "question": "For the list A → B → C, head->next->next->data is",
+         "options": {
+          "A": "C",
+          "B": "B",
+          "C": "A",
+          "D": "NULL"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The third node."
+        },
+        {
+         "question": "What does cnt(head) return for a list of 6 nodes?\nint cnt(struct node *p) { return p ? 1 + cnt(p->next) : 0; }",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "6",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). Recursive counting."
+        },
+        {
+         "question": "Deleting the last node of 4 → 5 → 6 leaves",
+         "options": {
+          "A": "4 → 6",
+          "B": "4",
+          "C": "5 → 6",
+          "D": "4 → 5"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The second-last node's next becomes NULL."
+        },
+        {
+         "question": "In the circular list 1 → 2 → 3 → (back to 1), printing 4 nodes starting at node 2 gives",
+         "options": {
+          "A": "2 3 1",
+          "B": "2 3 1 2",
+          "C": "1 2 3 1",
+          "D": "2 3 4 1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "It wraps around."
+        },
+        {
+         "question": "Traversing the doubly linked list 1 ⇄ 2 ⇄ 3 backwards from the tail prints",
+         "options": {
+          "A": "2 1 3",
+          "B": "3 2 1",
+          "C": "3 1 2",
+          "D": "1 2 3"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Follow the prev pointers."
+        },
+        {
+         "question": "In the doubly linked list 1 ⇄ 2 ⇄ 3, with p pointing to node 2, the value of  p->prev->data + p->next->data  is",
+         "options": {
+          "A": "5",
+          "B": "6",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 + 3."
+        },
+        {
+         "question": "After inserting 3 at the end of 1 → 2, the number of nodes and the last value are",
+         "options": {
+          "A": "3 and 1",
+          "B": "3 and 2",
+          "C": "2 and 3",
+          "D": "3 and 3"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 → 2 → 3."
+        },
+        {
+         "question": "Removing all even values from 1 → 2 → 3 → 4 leaves",
+         "options": {
+          "A": "1 → 3",
+          "B": "2 → 4",
+          "C": "1 → 2",
+          "D": "3 → 4"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Unlink each even node."
+        },
+        {
+         "question": "Adding the 1st, 3rd and 5th nodes of 1 → 2 → 3 → 4 → 5 gives",
+         "options": {
+          "A": "15",
+          "B": "6",
+          "C": "8",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 + 3 + 5."
+        },
+        {
+         "question": "Using slow and fast pointers on 1 → 2 → 3 → 4 → 5, the slow pointer ends at",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "PYQ pattern (KEA / KSET papers). The fast pointer moves two steps per step of the slow one."
+        },
+        {
+         "question": "The number of NULL pointers in a (non-circular) singly linked list of n nodes is",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "n",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Only the last node's next."
+        },
+        {
+         "question": "With 4-byte data and an 8-byte pointer (nodes padded to 16 bytes), 100 nodes take about",
+         "options": {
+          "A": "400 bytes",
+          "B": "800 bytes",
+          "C": "1,600 bytes",
+          "D": "1,200 bytes"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "An int array of 100 takes 400 bytes."
+        },
+        {
+         "question": "Merging the sorted lists 1 → 4 and 2 → 3, the third node of the result holds",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "1 → 2 → 3 → 4."
+        },
+        {
+         "question": "Writing  head = head->next;  without freeing the old first node causes",
+         "options": {
+          "A": "Underflow",
+          "B": "A dangling pointer",
+          "C": "Nothing harmful",
+          "D": "A memory leak"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "The old node can no longer be reached."
+        },
+        {
+         "question": "The polynomial 4x³ + 2x + 5, stored as a list of (coefficient, exponent) nodes, needs",
+         "options": {
+          "A": "6 nodes",
+          "B": "1 node",
+          "C": "3 nodes",
+          "D": "4 nodes"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Zero terms are not stored."
+        },
+        {
+         "question": "Adding the polynomials 3x² + 2x and 5x² + 1 as linked lists gives",
+         "options": {
+          "A": "8x² + 2x + 1",
+          "B": "8x² + 3x",
+          "C": "8x⁴ + 2x + 1",
+          "D": "15x⁴ + 2x + 1"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Add coefficients of equal exponents."
+        },
+        {
+         "question": "A stack built as a linked list (push at the head): push 1, 2, 3, then pop. The popped value is",
+         "options": {
+          "A": "NULL",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "B",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Last in, first out."
+        },
+        {
+         "question": "A queue built as a linked list (insert at the tail, delete at the head): insert 1, 2, 3, then delete. The deleted value is",
+         "options": {
+          "A": "2",
+          "B": "3",
+          "C": "NULL",
+          "D": "1"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "First in, first out."
+        },
+        {
+         "question": "In a circular singly linked list with only one node, that node's next points to",
+         "options": {
+          "A": "NULL",
+          "B": "The header",
+          "C": "Itself",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "It is both first and last."
+        },
+        {
+         "question": "A doubly linked list of n nodes contains how many pointer fields in all?",
+         "options": {
+          "A": "2n",
+          "B": "n + 1",
+          "C": "2n + 2",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "prev and next in every node."
+        },
+        {
+         "question": "The Josephus problem (people in a circle, every k-th person removed) is naturally solved with a",
+         "options": {
+          "A": "Stack",
+          "B": "Hash table",
+          "C": "Circular linked list",
+          "D": "Binary tree"
+         },
+         "answer": "C",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Keep moving round the circle and unlink."
+        },
+        {
+         "question": "If head is NULL, the loop  for (p = head; p->next != NULL; p = p->next);",
+         "options": {
+          "A": "Returns the last node",
+          "B": "Runs forever",
+          "C": "Runs zero times safely",
+          "D": "Crashes – p->next dereferences a NULL pointer"
+         },
+         "answer": "D",
+         "subject": "Previous-Year Pattern Practice – Programs and Traces",
+         "explanation": "Check head != NULL first."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Linked lists – revision sheet",
+       "md": "## Basics\n- Node = data + pointer(s): `struct node { int data; struct node *next; };` (self-referential)\n- Create: `t = (struct node *) malloc(sizeof(struct node));` (NULL → overflow); release: `free(t)`; AVAIL list (Lipschutz)\n- Empty: head == NULL; deleting from empty = underflow; forgetting free = memory leak; using freed node = dangling pointer\n\n## Operations (singly, head pointer only)\n| Operation | Code | Time |\n|---|---|---|\n| insert at front | t->next = head; head = t | O(1) |\n| insert after p | t->next = p->next; p->next = t | O(1) |\n| insert at end | traverse (O(1) with tail) | O(n) |\n| delete first | tmp = head; head = head->next; free(tmp) | O(1) |\n| delete last | find second-last | O(n) |\n| search / k-th element | traverse | O(n) |\n- Reverse iteratively O(n); middle by slow/fast pointers; cycle by Floyd's method; merge sorted lists O(m + n)\n\n## Variants\n- Circular: last → first, no NULL; traverse with do … while (p != head); round-robin, Josephus; front insert O(1) with a last pointer\n- Doubly (two-way): prev + data + next (3 fields, 2n pointers); delete p: p->prev->next = p->next; p->next->prev = p->prev\n- Header lists: grounded (last → NULL) or circular (last → header)\n- Uses: polynomials (coefficient, exponent nodes), stacks and queues, hash chaining, sparse matrices\n- Prefer lists for frequent insert/delete and unknown size; arrays for random access\n"
       }
      ]
     }
