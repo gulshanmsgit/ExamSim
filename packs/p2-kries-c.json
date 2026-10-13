@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "6 of 10 topics so far (12 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "8 of 10 topics so far (16 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays; Functions; Pointers; Structures and Unions; Bitwise Operators. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -4498,6 +4498,1499 @@
       {
        "title": "Pointers – revision sheet",
        "md": "## Basics\n- `int *p = &x;` → `*p` is x; `&` address-of, `*` indirection; `%p` prints addresses\n- NULL pointer (points nowhere), wild pointer (uninitialised), dangling pointer (memory freed), void pointer (generic – cast before `*`)\n- Pointer size does not depend on the type (8 bytes on 64-bit)\n- Arithmetic scales by the type size: int* + 1 → +4; double* + 3 → +24; difference of two pointers = number of elements\n- Not allowed: adding, multiplying or dividing pointers\n- `const int *p` – value read-only; `int * const q` – pointer fixed\n- `<stdlib.h>`: malloc(bytes) (garbage), calloc(n, size) (zeroed), realloc, free; memory leak = never freed\n\n## Pointers and arrays\n- `a[i]` = `*(a + i)` = `i[a]`; `a[i][j]` = `*(*(a + i) + j)`; array name is a constant pointer (`a++` illegal)\n- `*p++` – use then move; `(*p)++` – increment the value; `++*p` – increment the value first\n- `int *a[10]` – array of 10 pointers; `int (*b)[10]` – pointer to an array of 10 ints; `int (*fp)(int, int)` – function pointer\n- `char *names[] = {\"Ram\", \"Sita\"}` – array of pointers to strings; `argv` is `char *argv[]`\n- String literals are read-only (`char *p = \"hello\"; p[0] = 'H';` is undefined)\n\n## Call by reference and pointers to pointers\n- `void swap(int *x, int *y)`; call `swap(&a, &b)`\n- `int **q = &p;` → `**q` is the int; `**q + *p` = 2x\n- Never return the address of a local variable\n"
+      }
+     ]
+    },
+    {
+     "name": "Structures and Unions",
+     "plan": {
+      "id": "P2-KRC-07"
+     },
+     "sets": [
+      {
+       "name": "1 · Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+       "questions": [
+        {
+         "question": "On a typical system with 4-byte int aligned on 4-byte boundaries, sizeof(struct { char c; int i; }) is:",
+         "options": {
+          "A": "6",
+          "B": "4",
+          "C": "5",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "3 bytes of padding follow c so that i is aligned."
+        },
+        {
+         "question": "With 4-byte aligned int, which structure is larger?\nS1: { char a; char b; int c; }   S2: { char a; int c; char b; }",
+         "options": {
+          "A": "S2 (12 bytes) is larger than S1 (8 bytes)",
+          "B": "S1 is larger than S2",
+          "C": "Both are 6 bytes",
+          "D": "Both are 8 bytes"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "In S2, padding is needed after a and again after b at the end; member order affects size."
+        },
+        {
+         "question": "For a structure pointer p,  p->x  is equivalent to:",
+         "options": {
+          "A": "*p.x",
+          "B": "p.x",
+          "C": "&p.x",
+          "D": "(*p).x"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "*p.x would mean *(p.x) because . binds tighter than *."
+        },
+        {
+         "question": "Consider the statements about C:\nI. Two structures of the same type can be compared with ==.\nII. A structure can be passed to and returned from a function by value.\nWhich is/are correct?",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "== is not defined for structures; compare member by member instead."
+        },
+        {
+         "question": "A self-referential structure such as  struct node { int data; struct node *next; };  is mainly used to build:",
+         "options": {
+          "A": "Linked lists and trees",
+          "B": "Files",
+          "C": "Macros",
+          "D": "Fixed-size arrays"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "The pointer member links one node to the next."
+        },
+        {
+         "question": "Given  struct date { int d, m, y; };  struct emp { char name[20]; struct date doj; } e;  the year of joining is accessed as:",
+         "options": {
+          "A": "e.y",
+          "B": "e->doj->y",
+          "C": "doj.e.y",
+          "D": "e.doj.y"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Nested members are accessed with successive dots."
+        },
+        {
+         "question": "Assertion (A): Two structure variables of the same type can be assigned using =.\nReason (R): Structures can contain members of different data types.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Both true; whole-structure assignment is a language rule unrelated to mixed member types."
+        },
+        {
+         "question": "Assertion (A): sizeof a structure may be greater than the sum of the sizes of its members.\nReason (R): C compilers never insert padding between structure members.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "A is true because compilers insert padding for alignment; R is false."
+        },
+        {
+         "question": "To store the marks of 50 students, each with a name, roll number and marks, the most suitable declaration is:",
+         "options": {
+          "A": "A union of 50 members",
+          "B": "An array of 50 structures",
+          "C": "A 2-D char array only",
+          "D": "50 separate int variables"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Each element holds one student's mixed data."
+        },
+        {
+         "question": "What is the output of the following program?\n#include <stdio.h>\nint main()\n{\n  struct emp\n  {\n    char name[20];\n    int age;\n    float sal;\n  };\n  struct emp e = {\"computer\", 0, 0};\n  printf(\"%d \\t %f \", e.age, e.sal);\n  return 0;\n}",
+         "options": {
+          "A": "Compiler error",
+          "B": "Computer, 0, 0.000000",
+          "C": "0 0.000000",
+          "D": "1 0.000000 computer"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Only age (0) and sal (0.000000) are printed, separated by a tab. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q25"
+        },
+        {
+         "question": "A structure in C is declared with the keyword",
+         "options": {
+          "A": "class",
+          "B": "record",
+          "C": "struct",
+          "D": "structure"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "class is C++."
+        },
+        {
+         "question": "A structure is a collection of",
+         "options": {
+          "A": "Pointers to the same type",
+          "B": "Functions",
+          "C": "Variables of one type alone",
+          "D": "Variables of possibly different types under one name"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "An array holds elements of one type."
+        },
+        {
+         "question": "Members of a structure variable s are accessed with",
+         "options": {
+          "A": "s::roll",
+          "B": "The dot operator, e.g. s.roll",
+          "C": "s[roll]",
+          "D": "The arrow operator, s->roll"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "-> is used with a pointer to a structure."
+        },
+        {
+         "question": "struct student { int roll; char name[20]; };  on its own",
+         "options": {
+          "A": "Creates a variable named student",
+          "B": "Allocates 24 bytes",
+          "C": "Defines a type – no memory is allocated until a variable is declared",
+          "D": "Is an error without typedef"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). struct student s1; then allocates memory."
+        },
+        {
+         "question": "What is printed?\nstruct point { int x, y; } p = {3, 4};\nprintf(\"%d\", p.x + p.y);",
+         "options": {
+          "A": "7",
+          "B": "34",
+          "C": "3",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Members are initialised in order."
+        },
+        {
+         "question": "For  struct emp e[10];  the salary of the third employee is",
+         "options": {
+          "A": "e->salary[3]",
+          "B": "e.salary[2]",
+          "C": "e[3].salary",
+          "D": "e[2].salary"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). An array of structures: index first, then the member."
+        },
+        {
+         "question": "For  struct a { int x; struct b { int y; } in; } v;  the member y is accessed as",
+         "options": {
+          "A": "v.in.y",
+          "B": "v->in->y",
+          "C": "v.y",
+          "D": "v.b.y"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Nested structure: outer.inner.member."
+        },
+        {
+         "question": "For  struct point *p = &pt;  which expression accesses the member x?",
+         "options": {
+          "A": "*p.x",
+          "B": "p->x or (*p).x",
+          "C": "&p->x",
+          "D": "p.x"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "p->x is shorthand for (*p).x."
+        },
+        {
+         "question": "The expression  *p.x  is parsed as",
+         "options": {
+          "A": "(*p).x",
+          "B": "An error in every case",
+          "C": "*(p.x)",
+          "D": "p->x"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). . binds tighter than *, so write (*p).x or p->x."
+        },
+        {
+         "question": "When a structure variable is passed to a function by value",
+         "options": {
+          "A": "It is not allowed in C",
+          "B": "A copy of the whole structure is made",
+          "C": "Its first member alone is passed",
+          "D": "Its address alone is passed"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Pass a pointer to avoid copying large structures."
+        },
+        {
+         "question": "struct { int a; float b; } s;  with 4-byte int and float – sizeof(s) is",
+         "options": {
+          "A": "8",
+          "B": "5",
+          "C": "4",
+          "D": "16"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "4 + 4 with no padding needed."
+        },
+        {
+         "question": "What is printed?\nstruct s { int a; int b; } x = {1};\nprintf(\"%d %d\", x.a, x.b);",
+         "options": {
+          "A": "Compile error",
+          "B": "0 1",
+          "C": "1 0",
+          "D": "1 garbage"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Members without initialisers become 0."
+        },
+        {
+         "question": "struct { int x; } a, b;  declares",
+         "options": {
+          "A": "One variable",
+          "B": "An error",
+          "C": "A type named a",
+          "D": "Two variables of an unnamed structure type"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "The tag may be left out."
+        },
+        {
+         "question": "struct point p = {.y = 5, .x = 2};  (C99) gives",
+         "options": {
+          "A": "x = 0, y = 5",
+          "B": "A compile-time error",
+          "C": "x = 2, y = 5",
+          "D": "x = 5, y = 2"
+         },
+         "answer": "C",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Designated initialisers name the members."
+        },
+        {
+         "question": "For  struct st { char name[20]; } s;  which statement stores \"Ravi\" in name?",
+         "options": {
+          "A": "s->name = \"Ravi\";",
+          "B": "strcpy(s.name, \"Ravi\");",
+          "C": "*s.name = \"Ravi\";",
+          "D": "s.name = \"Ravi\";"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "PYQ pattern (KEA / KSET papers). An array cannot be assigned with =."
+        },
+        {
+         "question": "Can a C function return a structure?",
+         "options": {
+          "A": "No, only a pointer to it",
+          "B": "No, structures cannot leave a function",
+          "C": "Yes, if it has one member",
+          "D": "Yes – the whole structure is returned by value"
+         },
+         "answer": "D",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "E.g. struct point mid(struct point a, struct point b)."
+        },
+        {
+         "question": "What is printed?\nstruct item { int qty; } it[3] = {{2}, {5}, {3}};\nint i, t = 0;\nfor (i = 0; i < 3; i++) t += it[i].qty;\nprintf(\"%d\", t);",
+         "options": {
+          "A": "10",
+          "B": "253",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "2 + 5 + 3."
+        },
+        {
+         "question": "If p points to e[0] of an array of structures, p + 1 points to",
+         "options": {
+          "A": "e[2]",
+          "B": "e[1] – advanced by the size of one structure",
+          "C": "e[0] plus one byte",
+          "D": "The next member of e[0]"
+         },
+         "answer": "B",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Pointer arithmetic scales by sizeof(struct)."
+        },
+        {
+         "question": "p->a++  increments",
+         "options": {
+          "A": "The member a (postfix – after its value is used)",
+          "B": "The pointer p",
+          "C": "Both p and a",
+          "D": "Nothing"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "-> binds tighter than ++."
+        },
+        {
+         "question": "The main difference between an array and a structure is that",
+         "options": {
+          "A": "An array holds elements of one type; a structure can hold members of different types",
+          "B": "A structure is always faster",
+          "C": "Structures cannot contain arrays",
+          "D": "An array cannot be passed to a function"
+         },
+         "answer": "A",
+         "subject": "Structures – Declaration, Accessing Elements, Arrays of Structures, Nested Structures and Pointers",
+         "explanation": "Array elements are accessed by index, structure members by name."
+        }
+       ]
+      },
+      {
+       "name": "2 · Unions, typedef, enum and Bit Fields",
+       "questions": [
+        {
+         "question": "The size of  union { int i; char c[4]; }  with 4-byte int is:",
+         "options": {
+          "A": "1",
+          "B": "5",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Members overlap; the largest member is 4 bytes."
+        },
+        {
+         "question": "The range of values of the bit-field  unsigned a : 3;  is:",
+         "options": {
+          "A": "0 to 3",
+          "B": "−4 to 3",
+          "C": "0 to 8",
+          "D": "0 to 7"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "3 bits give 2³ = 8 values."
+        },
+        {
+         "question": "What is the output of the following code?\n#include <stdio.h>\nunion u1\n{\n  int x;\n  char y;\n};\nunion u2\n{\n  int a[10];\n  char y1;\n};\nint main(){\n  printf(\"size of u1 = %ld/t\", sizeof(union u1));\n  printf(\"size of u2 = %ld\", sizeof(union u2));\n  return 0;\n}",
+         "options": {
+          "A": "2, 20",
+          "B": "4, 40",
+          "C": "2, 40",
+          "D": "4, 20"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "A union is as large as its largest member: int (4 bytes) and int[10] (40 bytes), with 4-byte ints. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q26"
+        },
+        {
+         "question": "The size of a union is",
+         "options": {
+          "A": "The size of its first member",
+          "B": "The sum of the sizes of its members",
+          "C": "The size of its largest member (plus any padding)",
+          "D": "Always 4 bytes"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). All members share the same memory."
+        },
+        {
+         "question": "In a union, all members",
+         "options": {
+          "A": "Are initialised to 0",
+          "B": "Share the same memory location",
+          "C": "Have separate memory",
+          "D": "Must be of the same type"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Writing one member overwrites the others."
+        },
+        {
+         "question": "What is printed?\nunion u { int i; char c; } x;\nx.i = 65;\nprintf(\"%c\", x.c);",
+         "options": {
+          "A": "Garbage on every machine",
+          "B": "65",
+          "C": "Compile error",
+          "D": "A (on a little-endian machine)"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). c overlaps the lowest-addressed byte of i, which holds 65 on little-endian x86."
+        },
+        {
+         "question": "At any time, a union variable meaningfully holds",
+         "options": {
+          "A": "The value of one member",
+          "B": "The values of all members",
+          "C": "Two members",
+          "D": "None of its members"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "The member written last."
+        },
+        {
+         "question": "union u { int i; float f; } x = {10};  initialises",
+         "options": {
+          "A": "The first member i",
+          "B": "The member f",
+          "C": "Both members",
+          "D": "Nothing"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "A brace initialiser applies to the first member (C99 also allows {.f = 1.5})."
+        },
+        {
+         "question": "With 8-byte double aligned on 8 bytes, sizeof(union { char a[10]; int b; double c; }) is",
+         "options": {
+          "A": "22",
+          "B": "16",
+          "C": "10",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). Largest member 10 bytes, rounded up to a multiple of 8."
+        },
+        {
+         "question": "Union members are accessed with",
+         "options": {
+          "A": "Library functions",
+          "B": "Index numbers",
+          "C": "The . and -> operators, as for structures",
+          "D": "The :: operator"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Same syntax as structures."
+        },
+        {
+         "question": "typedef is used to",
+         "options": {
+          "A": "Define a macro",
+          "B": "Declare a variable",
+          "C": "Create a new type with new storage",
+          "D": "Give a new name (alias) to an existing type"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "typedef unsigned long ulong;"
+        },
+        {
+         "question": "After  typedef struct { int x, y; } Point;  a variable is declared as",
+         "options": {
+          "A": "Point.p;",
+          "B": "struct Point p;",
+          "C": "typedef Point p;",
+          "D": "Point p;"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "The structure has no tag, only the typedef name."
+        },
+        {
+         "question": "typedef char *String;  String a, b;  — a and b are",
+         "options": {
+          "A": "Both char pointers",
+          "B": "a a char pointer, b a char",
+          "C": "Both chars",
+          "D": "An error"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). typedef makes a true type name; compare with #define."
+        },
+        {
+         "question": "#define String char *  then  String a, b;  — b is",
+         "options": {
+          "A": "A string",
+          "B": "A char",
+          "C": "A char pointer",
+          "D": "An error"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Text substitution gives char *a, b;."
+        },
+        {
+         "question": "enum color { RED, GREEN, BLUE };  — BLUE has the value",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Enumerators start at 0 by default."
+        },
+        {
+         "question": "enum { A = 5, B, C = 10, D };  — the values of B and D are",
+         "options": {
+          "A": "6 and 11",
+          "B": "5 and 10",
+          "C": "1 and 3",
+          "D": "6 and 10"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each enumerator is one more than the previous."
+        },
+        {
+         "question": "The enumeration constants of an enum are of type",
+         "options": {
+          "A": "float",
+          "B": "int",
+          "C": "char",
+          "D": "string"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "They can be used wherever an int constant can."
+        },
+        {
+         "question": "In an enum, two enumeration constants",
+         "options": {
+          "A": "May have the same value",
+          "B": "Cannot be negative",
+          "C": "Must be consecutive",
+          "D": "Must have different values"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "enum { X = 1, Y = 1 }; is legal."
+        },
+        {
+         "question": "What is printed?\nenum days { MON = 1, TUE, WED };\nprintf(\"%d\", WED);",
+         "options": {
+          "A": "WED",
+          "B": "2",
+          "C": "0",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "MON = 1, TUE = 2, WED = 3."
+        },
+        {
+         "question": "The bit field  unsigned int a : 4;  can hold the values",
+         "options": {
+          "A": "0 to 16",
+          "B": "−8 to 7",
+          "C": "0 to 15",
+          "D": "0 to 4"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "4 bits: 2⁴ − 1 = 15."
+        },
+        {
+         "question": "Which is NOT allowed with a bit-field member?",
+         "options": {
+          "A": "Printing it",
+          "B": "Using it in an expression",
+          "C": "Assigning it a value",
+          "D": "Taking its address with &"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). A bit field may not start on a byte boundary, so it has no address; arrays of bit fields are not allowed either."
+        },
+        {
+         "question": "Bit fields are declared with the type",
+         "options": {
+          "A": "unsigned int, signed int or int (and _Bool in C99)",
+          "B": "float",
+          "C": "char arrays",
+          "D": "double"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Compilers may allow other integer types."
+        },
+        {
+         "question": "Bit fields are mainly used to",
+         "options": {
+          "A": "Build linked lists",
+          "B": "Pack several small values or flags into one word to save memory",
+          "C": "Store strings",
+          "D": "Speed up floating-point maths"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Also to match hardware register layouts."
+        },
+        {
+         "question": "struct { unsigned a : 1; unsigned b : 2; unsigned c : 3; } s;  typically has sizeof(s) equal to",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4 (one unsigned int)",
+          "D": "6"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "The 6 bits fit in one unsigned int storage unit (implementation-defined)."
+        },
+        {
+         "question": "What is printed?\nstruct { unsigned v : 2; } s;\ns.v = 5;\nprintf(\"%u\", s.v);",
+         "options": {
+          "A": "2",
+          "B": "0",
+          "C": "1",
+          "D": "5"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "Only the low 2 bits of 101 are kept → 01."
+        },
+        {
+         "question": "With 4-byte int and padding, the sizes of  struct { int a; char b; }  and  union { int a; char b; }  are typically",
+         "options": {
+          "A": "5 and 4",
+          "B": "8 and 4",
+          "C": "8 and 5",
+          "D": "4 and 4"
+         },
+         "answer": "B",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "PYQ pattern (KEA / KSET papers). The structure is padded to a multiple of 4; the union needs only its largest member."
+        },
+        {
+         "question": "A union inside a structure is often used to",
+         "options": {
+          "A": "Copy arrays",
+          "B": "Build header files",
+          "C": "Define functions",
+          "D": "Store one of several kinds of data, with a tag member telling which"
+         },
+         "answer": "D",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "A 'variant record' or tagged union."
+        },
+        {
+         "question": "typedef int Arr[5];  Arr x;  — x is",
+         "options": {
+          "A": "An array of 5 ints",
+          "B": "An int",
+          "C": "A pointer to int",
+          "D": "An error"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "typedef can name array types too."
+        },
+        {
+         "question": "enum constants are useful in a switch because",
+         "options": {
+          "A": "They are faster than int",
+          "B": "They remove the need for break",
+          "C": "Named constants make the case labels readable",
+          "D": "They allow float cases"
+         },
+         "answer": "C",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "case RED: … case GREEN: …"
+        },
+        {
+         "question": "Which statement about typedef is NOT true?",
+         "options": {
+          "A": "It allocates memory for a new type",
+          "B": "It creates an alias for an existing type",
+          "C": "It is handled by the compiler, not the preprocessor",
+          "D": "It can simplify complex declarations"
+         },
+         "answer": "A",
+         "subject": "Unions, typedef, enum and Bit Fields",
+         "explanation": "No memory is allocated by a typedef."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Structures and unions – revision sheet",
+       "md": "## Structures\n- `struct student { int roll; char name[20]; };` defines a type (no memory) → `struct student s1, s[50];`\n- Access: `s1.roll`; pointer `p->roll` = `(*p).roll` (`*p.x` means `*(p.x)`); arrays of structures `e[2].salary`; nested `v.in.y`\n- Initialise `{3, 4}` (missing members 0); C99 designated `{.y = 5, .x = 2}`\n- Assignment `s1 = s2` copies all members; `==` between structures is not allowed; strings: `strcpy(s.name, \"Ravi\")`\n- Passed/returned by value (a copy) – pass a pointer for large structures\n- sizeof may exceed the sum of members (padding): `{char c; int i;}` = 8; `{char a; char b; int c;}` = 8 vs `{char a; int c; char b;}` = 12\n- Self-referential structure `struct node { int data; struct node *next; };` → linked lists\n\n## Unions\n- All members share one memory location; size = largest member (rounded up for alignment); one member valid at a time\n- `union { int i; char c[4]; }` = 4; `union { int a[10]; char y; }` = 40; `{char a[10]; int b; double c;}` = 16\n- Initialiser sets the first member; tagged union = struct { tag; union {...}; }\n\n## typedef, enum, bit fields\n- `typedef unsigned long ulong;` alias (no memory); `typedef char *String; String a, b;` → two pointers (but `#define String char *` → b is a char)\n- `enum color { RED, GREEN, BLUE };` → 0, 1, 2; `enum { A = 5, B, C = 10, D }` → B = 6, D = 11; enumerators are int, may repeat values\n- Bit fields: `unsigned int a : 3;` → 0…7; no `&`, no arrays of bit fields; values wrap (5 in 2 bits → 1); used for flags and hardware registers\n"
+      }
+     ]
+    },
+    {
+     "name": "Bitwise Operators",
+     "plan": {
+      "id": "P2-KRC-08"
+     },
+     "sets": [
+      {
+       "name": "1 · Bitwise AND, OR, Exclusive OR and Complement",
+       "questions": [
+        {
+         "question": "What are the values of  5 & 3,  5 | 3  and  5 ^ 3 ?",
+         "options": {
+          "A": "1, 7, 2",
+          "B": "7, 1, 6",
+          "C": "1, 6, 7",
+          "D": "1, 7, 6"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "101 & 011 = 001; 101 | 011 = 111; 101 ^ 011 = 110."
+        },
+        {
+         "question": "Identify the output of the following C++ code\n#include <iostream>\nusing namespace std;\nint main() {\n  int a = 4, b = 0x5;\n  cout << (a & b) << endl;\n  return 0;\n}",
+         "options": {
+          "A": "Compiler error",
+          "B": "5",
+          "C": "4",
+          "D": "20"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "The paper prints the literal as '0 × 5', which reads as the hex literal 0x5. 4 & 5 = 0100 & 0101 = 0100 = 4. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q25"
+        },
+        {
+         "question": "Match the following operators in C to their purpose.\nList-I\n(a) ^\n(b) >>\n(c) <<\n(d) |\nList-II\n(i) Performs bitwise OR operations\n(ii) Multiplies by power of 2\n(iii) Divides by power of 2\n(iv) Performs bitwise EX-OR operations",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "^ is XOR, >> divides and << multiplies by powers of 2, | is OR. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q93"
+        },
+        {
+         "question": "The value of  12 & 10  is",
+         "options": {
+          "A": "6",
+          "B": "2",
+          "C": "14",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "1100 & 1010 = 1000."
+        },
+        {
+         "question": "The value of  12 | 10  is",
+         "options": {
+          "A": "6",
+          "B": "22",
+          "C": "14",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "1100 | 1010 = 1110."
+        },
+        {
+         "question": "The value of  12 ^ 10  is",
+         "options": {
+          "A": "14",
+          "B": "6",
+          "C": "8",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "1100 ^ 1010 = 0110."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", ~0);",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "−1",
+          "D": "65535 on every system"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "PYQ pattern (KEA / KSET papers). All bits 1 is −1 in 2's complement."
+        },
+        {
+         "question": "The value of  ~5  (int) is",
+         "options": {
+          "A": "4",
+          "B": "−6",
+          "C": "10",
+          "D": "−5"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "~x = −(x + 1)."
+        },
+        {
+         "question": "Which expression is non-zero exactly when n is odd?",
+         "options": {
+          "A": "n & 1",
+          "B": "n | 1",
+          "C": "n ^ 1",
+          "D": "~n"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "The lowest bit of an odd number is 1."
+        },
+        {
+         "question": "To set bit k of x (make it 1), use",
+         "options": {
+          "A": "x & ~(1 << k)",
+          "B": "x & (1 << k)",
+          "C": "x ^ ~k",
+          "D": "x | (1 << k)"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "OR with a mask that has a 1 at position k."
+        },
+        {
+         "question": "To clear bit k of x (make it 0), use",
+         "options": {
+          "A": "x ^ (1 << k)",
+          "B": "x & ~(1 << k)",
+          "C": "x & (1 << k)",
+          "D": "x | (1 << k)"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "AND with a mask that has a 0 at position k."
+        },
+        {
+         "question": "To toggle (flip) bit k of x, use",
+         "options": {
+          "A": "x | (1 << k)",
+          "B": "~x << k",
+          "C": "x ^ (1 << k)",
+          "D": "x & ~(1 << k)"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "XOR with 1 flips a bit."
+        },
+        {
+         "question": "After  a = 5, b = 9;  a ^= b; b ^= a; a ^= b;  the values are",
+         "options": {
+          "A": "a = 9, b = 5",
+          "B": "a = 5, b = 9",
+          "C": "a = 0, b = 0",
+          "D": "a = 12, b = 9"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "PYQ pattern (KEA / KSET papers). The XOR swap needs no temporary variable."
+        },
+        {
+         "question": "For any int x, the value of  x ^ x  is",
+         "options": {
+          "A": "−1",
+          "B": "2x",
+          "C": "x",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Equal bits XOR to 0."
+        },
+        {
+         "question": "Bitwise operators can be applied to",
+         "options": {
+          "A": "Whole arrays",
+          "B": "Strings",
+          "C": "float and double",
+          "D": "Integer types such as char, int and long"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Using them on float is a compile-time error."
+        },
+        {
+         "question": "The values of  5 & 2  and  5 && 2  are",
+         "options": {
+          "A": "0 and 0",
+          "B": "7 and 1",
+          "C": "0 and 1",
+          "D": "1 and 1"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "PYQ pattern (KEA / KSET papers). 101 & 010 = 0, but both 5 and 2 are true for &&."
+        },
+        {
+         "question": "Among &, ^ and |, the order of precedence (highest first) is",
+         "options": {
+          "A": "& then ^ then |",
+          "B": "^ then & then |",
+          "C": "All three are equal",
+          "D": "| then ^ then &"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "All are below == and above &&."
+        },
+        {
+         "question": "x & 0x0F gives",
+         "options": {
+          "A": "x × 15",
+          "B": "The lowest 4 bits of x",
+          "C": "The highest 4 bits of x",
+          "D": "x with its low 4 bits cleared"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "0x0F is a mask of four 1s."
+        },
+        {
+         "question": "The value of  0xF0 | 0x0F  is",
+         "options": {
+          "A": "240",
+          "B": "15",
+          "C": "0",
+          "D": "255"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "0xFF."
+        },
+        {
+         "question": "For  unsigned char c = 0x0F;  the value of  (unsigned char) ~c  is",
+         "options": {
+          "A": "0xFF",
+          "B": "0xF0 (240)",
+          "C": "0",
+          "D": "0x0F"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Every bit is inverted."
+        },
+        {
+         "question": "What is printed?\nint n = 13, c = 0;\nwhile (n) { c += n & 1; n >>= 1; }\nprintf(\"%d\", c);",
+         "options": {
+          "A": "1",
+          "B": "13",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "13 = 1101 has three 1 bits."
+        },
+        {
+         "question": "For n > 0, the test  (n & (n − 1)) == 0  checks whether n is",
+         "options": {
+          "A": "A power of 2",
+          "B": "Prime",
+          "C": "Even",
+          "D": "Odd"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "PYQ pattern (KEA / KSET papers). n & (n − 1) clears the lowest 1 bit; only powers of 2 have a single 1 bit."
+        },
+        {
+         "question": "Which bitwise operator is unary?",
+         "options": {
+          "A": "&",
+          "B": "~",
+          "C": "^",
+          "D": "|"
+         },
+         "answer": "B",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "~ (one's complement) takes one operand."
+        },
+        {
+         "question": "If x = 13, then after  x &= 6;  x is",
+         "options": {
+          "A": "4",
+          "B": "6",
+          "C": "15",
+          "D": "13"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "1101 & 0110 = 0100."
+        },
+        {
+         "question": "In a ^ b, a result bit is 1 when",
+         "options": {
+          "A": "The two bits differ",
+          "B": "Both bits are 1",
+          "C": "Both bits are 0",
+          "D": "Either bit is 1"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Exclusive OR."
+        },
+        {
+         "question": "The value of  0x55 & 0xAA  is",
+         "options": {
+          "A": "0xFF",
+          "B": "0x55",
+          "C": "0xAA",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "01010101 & 10101010 share no 1 bits."
+        },
+        {
+         "question": "In bitwise OR, a result bit is 0 only when",
+         "options": {
+          "A": "Both bits are 0",
+          "B": "Both bits are 1",
+          "C": "The bits differ",
+          "D": "Either bit is 0"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Otherwise it is 1."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 7 & 3 | 8);",
+         "options": {
+          "A": "15",
+          "B": "3",
+          "C": "11",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "& before |: (7 & 3) = 3, then 3 | 8 = 11."
+        },
+        {
+         "question": "With 32-bit int, the value of  (-1) & 0xFF  is",
+         "options": {
+          "A": "−255",
+          "B": "0",
+          "C": "255",
+          "D": "−1"
+         },
+         "answer": "C",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "−1 has all bits set; the mask keeps the low 8."
+        },
+        {
+         "question": "XOR is used in simple encryption because",
+         "options": {
+          "A": "Applying the same key twice gives back the original (x ^ k ^ k = x)",
+          "B": "It never changes the data",
+          "C": "It cannot be reversed",
+          "D": "It doubles the value"
+         },
+         "answer": "A",
+         "subject": "Bitwise AND, OR, Exclusive OR and Complement",
+         "explanation": "Decryption is the same operation."
+        }
+       ]
+      },
+      {
+       "name": "2 · Right Shift and Left Shift Operators and Bit Manipulation",
+       "questions": [
+        {
+         "question": "What are the values of  1 << 4  and  20 >> 2 ?",
+         "options": {
+          "A": "16 and 80",
+          "B": "16 and 5",
+          "C": "8 and 10",
+          "D": "4 and 5"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Left shift by k multiplies by 2ᵏ; right shift of a non-negative value divides by 2ᵏ."
+        },
+        {
+         "question": "What will be the output of the following code snippet?\n#include <stdio.h>\nvoid solve()\n{\n  int x = 2;\n  printf(\"%d \", (x << 1) + (x >> 1));\n}\nint main()\n{\n  solve();\n  return 0;\n}",
+         "options": {
+          "A": "5",
+          "B": "4",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "2 << 1 = 4 and 2 >> 1 = 1; 4 + 1 = 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q24"
+        },
+        {
+         "question": "The value of  1 << 3  is",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "16",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "1 shifted left 3 places = 2³."
+        },
+        {
+         "question": "The value of  64 >> 2  is",
+         "options": {
+          "A": "8",
+          "B": "256",
+          "C": "16",
+          "D": "32"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "64 / 4."
+        },
+        {
+         "question": "Without overflow, x << n is equivalent to",
+         "options": {
+          "A": "x ^ n",
+          "B": "x × 2ⁿ",
+          "C": "x + n",
+          "D": "x / 2ⁿ"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Each left shift doubles the value."
+        },
+        {
+         "question": "For unsigned x, x >> n is equivalent to",
+         "options": {
+          "A": "x − n",
+          "B": "x % n",
+          "C": "x × 2ⁿ",
+          "D": "x / 2ⁿ (integer division)"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Each right shift halves it."
+        },
+        {
+         "question": "For a negative signed int x, the result of x >> 1 is",
+         "options": {
+          "A": "Implementation-defined – most compilers copy the sign bit (arithmetic shift)",
+          "B": "A logical shift filling 0 on every compiler",
+          "C": "Undefined for every value",
+          "D": "A compile-time error"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Use unsigned types when a logical shift is needed."
+        },
+        {
+         "question": "With 32-bit int, the expression  1 << 32  is",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "Undefined behaviour",
+          "D": "2³²"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "The shift count must be less than the width."
+        },
+        {
+         "question": "The value of  5 << 2  is",
+         "options": {
+          "A": "20",
+          "B": "1",
+          "C": "7",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "5 × 4."
+        },
+        {
+         "question": "The value of  100 >> 3  is",
+         "options": {
+          "A": "13",
+          "B": "12",
+          "C": "12.5",
+          "D": "300"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "100 / 8 = 12 (integer)."
+        },
+        {
+         "question": "After  unsigned char c = 0x81;  c = c << 1;  c is",
+         "options": {
+          "A": "0x102",
+          "B": "0x81",
+          "C": "0x40",
+          "D": "0x02"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "10000001 → 1 00000010; the 9th bit is lost when stored in 8 bits."
+        },
+        {
+         "question": "Which expression gives bit k (0 or 1) of x?",
+         "options": {
+          "A": "x >> (k & 1)",
+          "B": "(x & k) >> 1",
+          "C": "(x >> k) & 1",
+          "D": "x << k"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "PYQ pattern (KEA / KSET papers). Move bit k to position 0, then mask it."
+        },
+        {
+         "question": "C has no rotate operator. An 8-bit left rotate by 1 of unsigned char x is written",
+         "options": {
+          "A": "(x >> 1) | x",
+          "B": "(x << 1) | (x >> 7)",
+          "C": "x ^ (x << 1)",
+          "D": "x << 1"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "The top bit comes back in at the bottom."
+        },
+        {
+         "question": "The value of  1 << 2 + 1  is",
+         "options": {
+          "A": "6",
+          "B": "3",
+          "C": "5",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "PYQ pattern (KEA / KSET papers). + binds tighter than <<: 1 << 3."
+        },
+        {
+         "question": "Shifts are sometimes used instead of * and / because",
+         "options": {
+          "A": "They work on floats",
+          "B": "They are more readable",
+          "C": "Shifting is usually faster for powers of two",
+          "D": "They never overflow"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Modern compilers do this automatically."
+        },
+        {
+         "question": "For n = 5,  for (i = 7; i >= 0; i--) printf(\"%d\", (n >> i) & 1);  prints",
+         "options": {
+          "A": "00000101",
+          "B": "10100000",
+          "C": "101",
+          "D": "5"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "The 8 bits of 5, most significant first."
+        },
+        {
+         "question": "The value of  (1 << 4) − 1  is",
+         "options": {
+          "A": "8",
+          "B": "15 (binary 1111)",
+          "C": "3",
+          "D": "16"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "A mask of the lowest k bits is (1 << k) − 1."
+        },
+        {
+         "question": "((x & 0x0F) << 4) | ((x & 0xF0) >> 4)  for x = 0x5A gives",
+         "options": {
+          "A": "0xFF",
+          "B": "0x00",
+          "C": "0xA5",
+          "D": "0x5A"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "It swaps the two nibbles of a byte."
+        },
+        {
+         "question": "If x = 3, then after  x <<= 2;  x is",
+         "options": {
+          "A": "12",
+          "B": "5",
+          "C": "6",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "3 × 4."
+        },
+        {
+         "question": "Dividing a non-negative int x by 8 can be written as",
+         "options": {
+          "A": "x << 3",
+          "B": "x >> 8",
+          "C": "x & 8",
+          "D": "x >> 3"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "8 = 2³."
+        },
+        {
+         "question": "The right operand of << or >> must be",
+         "options": {
+          "A": "A character",
+          "B": "A non-negative integer smaller than the width of the left operand",
+          "C": "Any float",
+          "D": "Negative for a right shift"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Otherwise the behaviour is undefined."
+        },
+        {
+         "question": "(x << 3) + (x << 1) equals",
+         "options": {
+          "A": "11x",
+          "B": "6x",
+          "C": "24x",
+          "D": "10x"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "8x + 2x."
+        },
+        {
+         "question": "The value of  0xFF >> 4  is",
+         "options": {
+          "A": "15",
+          "B": "240",
+          "C": "4",
+          "D": "16"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "11111111 → 00001111."
+        },
+        {
+         "question": "On a compiler with arithmetic right shift, −8 >> 1 gives",
+         "options": {
+          "A": "2147483644",
+          "B": "−16",
+          "C": "−4",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "The sign bit is copied."
+        },
+        {
+         "question": "For a 32-bit int x, the value of  (x >> 31) & 1  is",
+         "options": {
+          "A": "Always 0",
+          "B": "x / 31",
+          "C": "1 if x is negative, 0 otherwise",
+          "D": "The lowest bit of x"
+         },
+         "answer": "C",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Bit 31 is the sign bit."
+        },
+        {
+         "question": "After  x = 1; x <<= 3; x |= 1;  x is",
+         "options": {
+          "A": "8",
+          "B": "16",
+          "C": "4",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "1 → 8 → 1001."
+        },
+        {
+         "question": "For  unsigned char c = 200;  the value of  (unsigned char)(c << 1)  is",
+         "options": {
+          "A": "144",
+          "B": "400",
+          "C": "100",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "400 − 256 = 144 (the top bit is lost)."
+        },
+        {
+         "question": "What is printed?\nint n = 40, k = 0;\nwhile (n) { n >>= 1; k++; }\nprintf(\"%d\", k);",
+         "options": {
+          "A": "40",
+          "B": "6",
+          "C": "5",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "40 = 101000 has 6 significant bits."
+        },
+        {
+         "question": "With  #define READ 1,  #define WRITE 2,  #define EXEC 4  and  perm = READ | EXEC;  the value of  perm & WRITE  is",
+         "options": {
+          "A": "0 – no write permission",
+          "B": "5",
+          "C": "1",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "PYQ pattern (KEA / KSET papers). perm = 101; WRITE = 010."
+        },
+        {
+         "question": "The value of  3 >> 1 << 1  is",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "D",
+         "subject": "Right Shift and Left Shift Operators and Bit Manipulation",
+         "explanation": "Left to right: 3 >> 1 = 1, 1 << 1 = 2 (the lowest bit is lost)."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Bitwise operators – revision sheet",
+       "md": "## Operators\n| Op | Name | Example (12 = 1100, 10 = 1010) |\n|---|---|---|\n| `&` | AND | 12 & 10 = 8 |\n| `|` | OR | 12 | 10 = 14 |\n| `^` | XOR | 12 ^ 10 = 6 |\n| `~` | complement (unary) | ~5 = −6, ~0 = −1 |\n| `<<` | left shift (× 2ⁿ) | 5 << 2 = 20 |\n| `>>` | right shift (÷ 2ⁿ) | 100 >> 3 = 12 |\n- Integer operands only; precedence: shifts < `+ -`; `&` > `^` > `|`, all below `==` (so `a & b == c` is `a & (b == c)`)\n- `5 & 2` = 0 but `5 && 2` = 1; `7 & 3 | 8` = 11; `1 << 2 + 1` = 8; `(x << 1) + (x >> 1)` with x = 2 → 5\n\n## Bit tricks\n- Test odd: `n & 1`; bit k: `(x >> k) & 1`\n- Set `x | (1 << k)`; clear `x & ~(1 << k)`; toggle `x ^ (1 << k)`\n- Power of two: `(n & (n − 1)) == 0`; count 1 bits: `c += n & 1; n >>= 1;`\n- Mask of k ones: `(1 << k) − 1`; low nibble `x & 0x0F`; swap nibbles `((x & 0x0F) << 4) | ((x & 0xF0) >> 4)`\n- XOR swap `a ^= b; b ^= a; a ^= b;`; `x ^ x = 0`; `x ^ k ^ k = x`\n- Right shift of a negative signed value is implementation-defined (usually arithmetic); shifting by ≥ width is undefined\n"
       }
      ]
     }
