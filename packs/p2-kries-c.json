@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · KRIES — C Programming",
- "description": "2 of 10 topics so far (4 sets × 30 questions): Introduction to C Programming; C Instructions. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "4 of 10 topics so far (8 sets × 30 questions): Introduction to C Programming; C Instructions; Control Structures; Arrays. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · KRIES – C Programming",
@@ -1497,6 +1497,1511 @@
       {
        "title": "C instructions and operators – revision sheet",
        "md": "## Instructions (Kanetkar)\n- Type declaration, arithmetic, control instructions\n- Arithmetic: variable on the left (`a + b = c` is invalid); `%` only for integers; no power operator – `pow()`\n- int / int → int (5 / 2 = 2); one real operand → real (5.0 / 2 = 2.5); `float a = 5 / 2` → 2.0\n- Assignment converts: `int k = 7.9 / 2` → 3; `char ch = 321` → 65\n- Casts: `(float) a / b` = 3.5 but `(float)(a / b)` = 3.0 (a = 7, b = 2)\n- C99: −7 / 2 = −3, −7 % 2 = −1 (sign of the dividend)\n\n## Hierarchy of operators (high → low)\n| Level | Operators | Assoc. |\n|---|---|---|\n| Postfix | `() [] -> .` `x++` | L→R |\n| Unary | `! ~ ++ -- + - * & sizeof (type)` | R→L |\n| Multiplicative | `* / %` | L→R |\n| Additive | `+ -` | L→R |\n| Shift | `<< >>` | L→R |\n| Relational | `< <= > >=` | L→R |\n| Equality | `== !=` | L→R |\n| Bitwise | `&` then `^` then `|` | L→R |\n| Logical | `&&` then `||` | L→R |\n| Conditional | `?:` | R→L |\n| Assignment | `= += -= …` | R→L |\n| Comma | `,` | L→R |\n- `&&` / `||` short-circuit; `5 > 3 > 1` = 0; `a & b == c` = `a & (b == c)`; `x = (1, 2, 3)` = 3\n- Worked: `2*3/4 + 4/4 + 8 - 2 + 5/8` = 8; `10 + 20*3/4%5` = 10\n\n## Input-output\n- Formatted: `printf`, `scanf` (needs `&var`; returns the count read; `%s` stops at white space)\n- Unformatted: `getchar putchar gets puts` (`getch getche` in conio.h)\n- printf returns the number of characters printed (`printf(\"happy\")` → 5); `%5.2f`, `%-5d`, `%%`\n"
+      }
+     ]
+    },
+    {
+     "name": "Control Structures",
+     "plan": {
+      "id": "P2-KRC-03"
+     },
+     "sets": [
+      {
+       "name": "1 · Decision Control – if, else, Logical, Relational and Conditional Operators",
+       "questions": [
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\nvoid main( )\n{\n  int x = 1;\n  if (x > 0)\n    printf(\"inside if\\t\");\n  else if (x > 0)\n    printf(\"inside else if\\t\");\n}",
+         "options": {
+          "A": "inside if",
+          "B": "inside else if",
+          "C": "inside if inside else if",
+          "D": "error"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "Only the first true branch of an if-else-if chain runs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q90"
+        },
+        {
+         "question": "What is printed?\nint x = 0;\nif (x = 5) printf(\"yes\"); else printf(\"no\");",
+         "options": {
+          "A": "Compile error",
+          "B": "yes",
+          "C": "Nothing",
+          "D": "no"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). x = 5 assigns 5; the condition's value is 5, which is true."
+        },
+        {
+         "question": "What is printed?\nint a = 0, b = 1;\nif (a)\n  if (b) printf(\"X\");\n  else printf(\"Y\");",
+         "options": {
+          "A": "X",
+          "B": "Y",
+          "C": "Nothing",
+          "D": "XY"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). Dangling else: else pairs with the nearest if (if (b)), which is never reached because a is 0."
+        },
+        {
+         "question": "What is printed?\nint a = 1, b = 5;\nif (a > b);\n  printf(\"Hello\");",
+         "options": {
+          "A": "Nothing",
+          "B": "Compile error",
+          "C": "Hello twice",
+          "D": "Hello – the ; ends the if, so printf always runs"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "if (a > b); has an empty statement as its body."
+        },
+        {
+         "question": "The value of  (5 > 3) + (2 == 2)  is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "true",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "Each relational expression gives 1 (true) or 0 (false)."
+        },
+        {
+         "question": "The value of  !(4 < 3) && (2 != 2)  is",
+         "options": {
+          "A": "1",
+          "B": "−1",
+          "C": "2",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "!(0) = 1; (2 != 2) = 0; 1 && 0 = 0."
+        },
+        {
+         "question": "abs = n < 0 ? -n : n;  with n = −8 gives abs =",
+         "options": {
+          "A": "8",
+          "B": "−8",
+          "C": "1",
+          "D": "0"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "The conditional operator picks −n when n is negative."
+        },
+        {
+         "question": "What is printed?\nint n = 0;\nprintf(\"%s\", n > 0 ? \"pos\" : n < 0 ? \"neg\" : \"zero\");",
+         "options": {
+          "A": "pos",
+          "B": "Compile error",
+          "C": "zero",
+          "D": "neg"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "?: is right-associative: n > 0 ? \"pos\" : (n < 0 ? \"neg\" : \"zero\")."
+        },
+        {
+         "question": "What is printed?\nfloat f = 0.1;\nif (f == 0.1) printf(\"Equal\"); else printf(\"Not equal\");",
+         "options": {
+          "A": "Not equal",
+          "B": "Equal",
+          "C": "Nothing",
+          "D": "Compile error"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). 0.1 is a double constant; the float copy is less precise, so they differ. Compare reals with a tolerance."
+        },
+        {
+         "question": "What is printed?\nint m = 72;\nif (m >= 80) printf(\"A\");\nelse if (m >= 60) printf(\"B\");\nelse if (m >= 40) printf(\"C\");\nelse printf(\"F\");",
+         "options": {
+          "A": "C",
+          "B": "BC",
+          "C": "B",
+          "D": "A"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "The first true condition (m >= 60) is taken and the rest are skipped."
+        },
+        {
+         "question": "Which expression checks that x lies between 10 and 20 (both inclusive)?",
+         "options": {
+          "A": "10 <= x <= 20",
+          "B": "x >= 10 && x <= 20",
+          "C": "x > 10 & x < 20",
+          "D": "x >= 10 || x <= 20"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "10 <= x <= 20 is (10 <= x) <= 20, which is always true."
+        },
+        {
+         "question": "What is printed?\nint i = 0, j = 0;\nif (i++ || j++) ;\nprintf(\"%d %d\", i, j);",
+         "options": {
+          "A": "1 0",
+          "B": "0 0",
+          "C": "0 1",
+          "D": "1 1"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "i++ gives 0 (false), so || must evaluate j++ too; both become 1."
+        },
+        {
+         "question": "What is printed?\nint i = 1, j = 0;\nif (i++ && j++) ;\nprintf(\"%d %d\", i, j);",
+         "options": {
+          "A": "2 1",
+          "B": "2 0",
+          "C": "1 0",
+          "D": "1 1"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "i++ gives 1 (true), so && evaluates j++ as well."
+        },
+        {
+         "question": "What is printed?\nif (-1) printf(\"T\"); else printf(\"F\");",
+         "options": {
+          "A": "Compile error",
+          "B": "F",
+          "C": "T",
+          "D": "Nothing"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "Any non-zero value, even negative, is true."
+        },
+        {
+         "question": "The conditional operator ?: takes how many operands?",
+         "options": {
+          "A": "Four",
+          "B": "One",
+          "C": "Two",
+          "D": "Three"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "It is C's only ternary operator."
+        },
+        {
+         "question": "Which operator tests two values for equality in C?",
+         "options": {
+          "A": "=",
+          "B": "==",
+          "C": "eq",
+          "D": "==="
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "= is assignment."
+        },
+        {
+         "question": "What is printed?\nint x = 5;\nif (x > 10)\n  printf(\"A\");\n  printf(\"B\");",
+         "options": {
+          "A": "Nothing",
+          "B": "AB",
+          "C": "B",
+          "D": "A"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). Without braces, only the first statement belongs to the if."
+        },
+        {
+         "question": "The expression  !a == b  is evaluated as",
+         "options": {
+          "A": "a != b",
+          "B": "!(a == b)",
+          "C": "A compile-time error",
+          "D": "(!a) == b"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "Unary ! has higher precedence than ==."
+        },
+        {
+         "question": "!(a > 5 && b < 3) is equivalent to",
+         "options": {
+          "A": "a <= 5 || b >= 3",
+          "B": "a < 5 || b > 3",
+          "C": "a <= 5 && b >= 3",
+          "D": "a > 5 || b < 3"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "De Morgan's law."
+        },
+        {
+         "question": "The condition  ch >= 'a' && ch <= 'z'  is true when ch is",
+         "options": {
+          "A": "Any letter",
+          "B": "A lowercase letter",
+          "C": "A digit",
+          "D": "An uppercase letter"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "Lowercase letters have consecutive ASCII codes 97–122."
+        },
+        {
+         "question": "Which condition is true exactly when n is even?",
+         "options": {
+          "A": "n % 2 == 1",
+          "B": "n % 2 == 0",
+          "C": "n & 2 == 0",
+          "D": "n / 2 == 0"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "n & 1 == 0 also works ((n & 1) == 0)."
+        },
+        {
+         "question": "Which condition correctly tests whether year y is a leap year?",
+         "options": {
+          "A": "y % 4 == 0 || y % 100 == 0",
+          "B": "y % 100 == 0 && y % 400 != 0",
+          "C": "(y % 4 == 0 && y % 100 != 0) || y % 400 == 0",
+          "D": "y % 4 == 0"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1900 is not a leap year; 2000 is."
+        },
+        {
+         "question": "In C, the value of a relational expression such as a < b is",
+         "options": {
+          "A": "Any non-zero value",
+          "B": "−1 for true",
+          "C": "true or false of type bool",
+          "D": "1 for true or 0 for false, of type int"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "C99's _Bool came later; relational results are still int."
+        },
+        {
+         "question": "An if-else ladder is preferred over switch when",
+         "options": {
+          "A": "The conditions involve ranges or non-integer comparisons",
+          "B": "One int variable is compared with constants",
+          "C": "Menu choices are numbered",
+          "D": "There are more than two cases"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "switch tests equality with integer constants only."
+        },
+        {
+         "question": "What is printed?\nint a = 10, b = 20, c = 15;\nif (a > b) { if (a > c) printf(\"a\"); else printf(\"c\"); }\nelse { if (b > c) printf(\"b\"); else printf(\"c\"); }",
+         "options": {
+          "A": "b",
+          "B": "c",
+          "C": "a",
+          "D": "bc"
+         },
+         "answer": "A",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "a > b is false; in the else part b > c is true."
+        },
+        {
+         "question": "What is printed?\nprintf(\"%d\", 'A' < 'a');",
+         "options": {
+          "A": "65",
+          "B": "97",
+          "C": "1",
+          "D": "0"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "'A' = 65 and 'a' = 97."
+        },
+        {
+         "question": "What is printed?\nint x = 0, y = 5;\nif (x = y == 5) printf(\"%d\", x);",
+         "options": {
+          "A": "5",
+          "B": "1",
+          "C": "Nothing",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "PYQ pattern (KEA / KSET papers). == binds tighter than =: x = (y == 5) = 1, which is true."
+        },
+        {
+         "question": "What is printed?\nint a = 5, b = 5;\nif (a == b) printf(\"same\"); else printf(\"diff\");\nprintf(\"%d\", a != b);",
+         "options": {
+          "A": "same1",
+          "B": "diff1",
+          "C": "diff0",
+          "D": "same0"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "a == b is true; a != b is 0."
+        },
+        {
+         "question": "C's logical operators are",
+         "options": {
+          "A": "&&, || and ^^",
+          "B": "and, or and not",
+          "C": "&, | and ^",
+          "D": "&&, || and !"
+         },
+         "answer": "D",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "&, | and ^ are bitwise operators."
+        },
+        {
+         "question": "Which is a valid C if statement?",
+         "options": {
+          "A": "if a > b: max = a",
+          "B": "if a > b then max = a;",
+          "C": "if (a > b) max = a;",
+          "D": "if (a > b) then max = a;"
+         },
+         "answer": "C",
+         "subject": "Decision Control – if, else, Logical, Relational and Conditional Operators",
+         "explanation": "The condition must be in parentheses; there is no 'then'."
+        }
+       ]
+      },
+      {
+       "name": "2 · Loops – while, do-while, for, break, continue, switch-case and goto",
+       "questions": [
+        {
+         "question": "How many times does the body of  for (i = 0; i < 10; i += 3)  execute?",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "10",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "i = 0, 3, 6, 9."
+        },
+        {
+         "question": "How many times does the body of  for (i = 1; i <= 100; i *= 2)  execute?",
+         "options": {
+          "A": "100",
+          "B": "7",
+          "C": "8",
+          "D": "6"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "i = 1, 2, 4, 8, 16, 32, 64; next 128 > 100."
+        },
+        {
+         "question": "After  int i = 10;  do { i++; } while (i < 5);  the value of i is:",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "11",
+          "D": "10"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "A do-while body always runs once before the test."
+        },
+        {
+         "question": "With x = 0, what is x after:\nswitch (2) { case 1: x += 1; case 2: x += 2; case 3: x += 3; break; default: x += 10; }",
+         "options": {
+          "A": "15",
+          "B": "5",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "Execution starts at case 2 and falls through case 3 to the break: 2 + 3."
+        },
+        {
+         "question": "In the nested loops  for (i = 0; i < 5; i++) for (j = 0; j < i; j++) count++;  starting with count = 0, the final count is:",
+         "options": {
+          "A": "25",
+          "B": "5",
+          "C": "15",
+          "D": "10"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "0 + 1 + 2 + 3 + 4 = 10."
+        },
+        {
+         "question": "A break statement inside the inner loop of two nested loops:",
+         "options": {
+          "A": "Exits the function",
+          "B": "Exits only the innermost enclosing loop",
+          "C": "Restarts the outer loop",
+          "D": "Exits both loops"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "break leaves only the nearest enclosing loop or switch."
+        },
+        {
+         "question": "The structured program theorem (Böhm and Jacopini) states that any algorithm can be written using only:",
+         "options": {
+          "A": "Recursion and goto",
+          "B": "goto statements",
+          "C": "Sequence, selection and iteration",
+          "D": "Functions and pointers"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "These three control structures are sufficient, so goto is never strictly necessary."
+        },
+        {
+         "question": "What does this print?\nint i, s = 0;\nfor (i = 1; i <= 10; i++) { if (i % 3 == 0) continue; s += i; }\nprintf(\"%d\", s);",
+         "options": {
+          "A": "37",
+          "B": "55",
+          "C": "40",
+          "D": "18"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "55 − (3 + 6 + 9) = 37."
+        },
+        {
+         "question": "Assertion (A): A do-while loop executes its body at least once.\nReason (R): In a do-while loop the condition is tested before the body.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "A is true because the condition is tested after the body; R is false."
+        },
+        {
+         "question": "Assertion (A): case labels in a C switch statement may be floating-point constants such as 1.5.\nReason (R): case labels must be integral constant expressions.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "R is the rule, and it shows A is false."
+        },
+        {
+         "question": "How many times will the following C loop execute?\nfor (j = 1; j <= 10; j = j - 1)",
+         "options": {
+          "A": "Forever",
+          "B": "Never",
+          "C": "0",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "j starts at 1 and keeps decreasing, so j <= 10 stays true: the loop never terminates normally. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q21"
+        },
+        {
+         "question": "What will the following switch statement print?\nchar C = 'Y';\nswitch (C)\n{\n  case 'Y': printf(\"Yes/No\");\n  case 'N': printf(\"No/Yes\");\n            break;\n  default: printf(\"other\");\n}",
+         "options": {
+          "A": "Other",
+          "B": "Yes/No Other",
+          "C": "Other Yes/No",
+          "D": "Yes/No No/Yes"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "case 'Y' has no break, so control falls through into case 'N' and then breaks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q85"
+        },
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\nvoid main( )\n{\n  int i;\n  for (i = 1; i <= 5; i++)\n  {\n    if (i == 3)\n      continue;\n    printf(\"%d\\t\", i);\n  }\n}",
+         "options": {
+          "A": "1 2",
+          "B": "1 2 3 4 5",
+          "C": "3 4 5",
+          "D": "1 2 4 5"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "continue skips the printf only when i is 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q97"
+        },
+        {
+         "question": "In the given loop construct, which one is executed only once ?\nfor (exp1; exp2; exp3)",
+         "options": {
+          "A": "exp1",
+          "B": "exp1 and exp3",
+          "C": "exp3",
+          "D": "exp2"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "exp1 initialises once; exp2 is tested before every iteration; exp3 runs after every iteration. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q100"
+        },
+        {
+         "question": "What is the output of the following code?\nint main() {\n  for (; ;) {\n    printf(\"Hello\");\n  }\n  return 0;\n}",
+         "options": {
+          "A": "Compilation error",
+          "B": "Prints Hello 100 times",
+          "C": "Prints Hello infinitely",
+          "D": "Does not print Hello"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "for (;;) has no condition, which counts as always true. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q92"
+        },
+        {
+         "question": "What is printed?\nint i = 5;\nwhile (i < 5) { printf(\"%d\", i); i++; }",
+         "options": {
+          "A": "56789",
+          "B": "Nothing",
+          "C": "5",
+          "D": "An infinite loop"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "while tests first; the condition is false at the start."
+        },
+        {
+         "question": "What is printed?\nint i = 5;\ndo { printf(\"%d \", i); i++; } while (i < 5);",
+         "options": {
+          "A": "5",
+          "B": "Nothing",
+          "C": "An infinite loop",
+          "D": "5 6"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "A do-while body runs once before the test."
+        },
+        {
+         "question": "What is printed?\nint s = 0, i;\nfor (i = 1; i <= 5; i++) s += i;\nprintf(\"%d\", s);",
+         "options": {
+          "A": "10",
+          "B": "5",
+          "C": "15",
+          "D": "21"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "1 + 2 + 3 + 4 + 5."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 0; i < 5; i++);\nprintf(\"%d\", i);",
+         "options": {
+          "A": "4",
+          "B": "0",
+          "C": "01234",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "PYQ pattern (KEA / KSET papers). The ; after for( ) is an empty body; printf runs once after the loop, when i is 5."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 10; i > 0; i -= 3) printf(\"%d \", i);",
+         "options": {
+          "A": "10 7 4",
+          "B": "7 4 1",
+          "C": "10 7 4 1",
+          "D": "10 7 4 1 -2"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "i becomes −2, which stops the loop."
+        },
+        {
+         "question": "What is printed?\nint i;\nfor (i = 1; i <= 10; i++) { if (i == 4) break; printf(\"%d\", i); }",
+         "options": {
+          "A": "4",
+          "B": "1234",
+          "C": "12345678910",
+          "D": "123"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "break leaves the loop when i reaches 4."
+        },
+        {
+         "question": "How many stars are printed?\nfor (i = 1; i <= 3; i++)\n  for (j = 1; j <= i; j++)\n    printf(\"*\");",
+         "options": {
+          "A": "9",
+          "B": "6",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "1 + 2 + 3."
+        },
+        {
+         "question": "The goto statement is used to",
+         "options": {
+          "A": "Transfer control unconditionally to a labelled statement in the same function",
+          "B": "Exit the program",
+          "C": "Call a function",
+          "D": "Jump to another source file"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "Its overuse makes code hard to follow."
+        },
+        {
+         "question": "What is printed?\nint i = 0;\nwhile (i < 5) { i++; if (i == 2) continue; printf(\"%d\", i); }",
+         "options": {
+          "A": "2345",
+          "B": "1345",
+          "C": "1",
+          "D": "12345"
+         },
+         "answer": "B",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "i is incremented before continue, so the loop does not get stuck."
+        },
+        {
+         "question": "What is printed?\nswitch (5) {\n  default: printf(\"D\");\n  case 1: printf(\"1\"); break;\n  case 2: printf(\"2\");\n}",
+         "options": {
+          "A": "D12",
+          "B": "D",
+          "C": "Nothing",
+          "D": "D1"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "PYQ pattern (KEA / KSET papers). No case matches, so control goes to default and falls through into case 1 until break."
+        },
+        {
+         "question": "Which type is NOT allowed for the controlling expression of a switch?",
+         "options": {
+          "A": "float",
+          "B": "char",
+          "C": "int",
+          "D": "enum"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "PYQ pattern (KEA / KSET papers). switch needs an integer expression; case labels must be integer constants."
+        },
+        {
+         "question": "Two case labels with the same value in one switch cause",
+         "options": {
+          "A": "A compile-time error",
+          "B": "Only the first one to run",
+          "C": "Both to run",
+          "D": "A runtime error"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "Case values must be distinct."
+        },
+        {
+         "question": "exit(0) called inside a loop",
+         "options": {
+          "A": "Restarts the loop",
+          "B": "Skips one iteration",
+          "C": "Terminates the whole program",
+          "D": "Leaves only the loop"
+         },
+         "answer": "C",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "break leaves the loop; continue skips to the next iteration."
+        },
+        {
+         "question": "Which of these is an infinite loop?",
+         "options": {
+          "A": "while (1) { }",
+          "B": "while (0) { }",
+          "C": "for (i = 0; i < 1; i++) { }",
+          "D": "do { } while (0);"
+         },
+         "answer": "A",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "for (;;) is another common form."
+        },
+        {
+         "question": "What is printed?\nint i = 0, c = 0;\nwhile (i++ < 5) c++;\nprintf(\"%d %d\", c, i);",
+         "options": {
+          "A": "4 5",
+          "B": "6 6",
+          "C": "5 5",
+          "D": "5 6"
+         },
+         "answer": "D",
+         "subject": "Loops – while, do-while, for, break, continue, switch-case and goto",
+         "explanation": "PYQ pattern (KEA / KSET papers). The test runs 6 times (i = 0…5); the last test fails but still increments i to 6."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Control structures – revision sheet",
+       "md": "## Decisions\n- `if`, `if-else`, nested if, `else if` ladder; non-zero = true, 0 = false; relational results are 1/0 (int)\n- Traps: `if (x = 5)` is always true; `if (a > b);` has an empty body; without braces only one statement belongs to the if\n- **Dangling else** pairs with the nearest unmatched `if`\n- `10 <= x <= 20` is always true – write `x >= 10 && x <= 20`\n- `&&`, `||` short-circuit (right side may not run: `i++ || j++`)\n- `?:` – three operands, right-associative; `max = a > b ? a : b`\n- Never compare floats with `==` (`0.1f != 0.1`)\n- Leap year: `(y % 4 == 0 && y % 100 != 0) || y % 400 == 0`\n\n## Loops\n| Loop | Test | Runs at least |\n|---|---|---|\n| while | before body | 0 times |\n| for (init; test; update) | before body | 0 times (init once) |\n| do … while( ); | after body | 1 time |\n- `for (;;)` and `while (1)` are infinite; `for (i = 0; i < 5; i++);` – the `;` is the body (i ends at 5)\n- `break` – leaves the innermost loop/switch; `continue` – next iteration; `goto label;` – jump within a function; `exit()` – ends the program\n- Counting: `for (i = 1; i <= 100; i *= 2)` runs 7 times; `while (i++ < 5)` tests 6 times and leaves i = 6\n\n## switch\n- Expression and case labels must be integer types (int, char, enum) – no float, no ranges, no duplicates\n- Without `break` control falls through to the next case; `default` may be anywhere\n"
+      }
+     ]
+    },
+    {
+     "name": "Arrays",
+     "plan": {
+      "id": "P2-KRC-04"
+     },
+     "sets": [
+      {
+       "name": "1 · One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+       "questions": [
+        {
+         "question": "After  int a[5] = {1, 2};  the value of a[3] is:",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "0",
+          "D": "Garbage"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Elements without an initialiser in a partly initialised array are set to 0."
+        },
+        {
+         "question": "For  int a[] = {1, 2, 3, 4};  the value of  sizeof(a) / sizeof(a[0])  is:",
+         "options": {
+          "A": "4",
+          "B": "16",
+          "C": "8",
+          "D": "1"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Total bytes ÷ bytes per element = number of elements."
+        },
+        {
+         "question": "Accessing a[5] of an array declared  int a[5];  results in:",
+         "options": {
+          "A": "An automatic resize of the array",
+          "B": "A compile-time error always",
+          "C": "Undefined behaviour – C does no bounds checking",
+          "D": "The value 0"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Valid indices are 0 to 4; C does not check bounds."
+        },
+        {
+         "question": "With 4-byte int,  int a[3][4];  occupies:",
+         "options": {
+          "A": "12 bytes",
+          "B": "28 bytes",
+          "C": "48 bytes",
+          "D": "16 bytes"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "3 × 4 elements × 4 bytes."
+        },
+        {
+         "question": "For  int a[2][3] = {{1, 2, 3}, {4, 5, 6}};  the value of a[1][2] is:",
+         "options": {
+          "A": "6",
+          "B": "5",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Row 1 is {4, 5, 6}; column 2 is 6."
+        },
+        {
+         "question": "For  int a[] = {10, 20, 30, 40};  the value of  *(a + 2)  is:",
+         "options": {
+          "A": "30",
+          "B": "40",
+          "C": "20",
+          "D": "12"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "a[i] ≡ *(a + i)."
+        },
+        {
+         "question": "What does this print?\nint a[5] = {5, 1, 4, 2, 3}, i, m = a[0];\nfor (i = 1; i < 5; i++) if (a[i] > m) m = a[i];\nprintf(\"%d\", m);",
+         "options": {
+          "A": "4",
+          "B": "3",
+          "C": "1",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "It finds the maximum, using n − 1 = 4 comparisons."
+        },
+        {
+         "question": "Which initialisation of a 2-D array is INVALID in C?",
+         "options": {
+          "A": "int a[2][2] = {{1}, {3, 4}};",
+          "B": "int a[][2] = {{1, 2}, {3, 4}};",
+          "C": "int a[][] = {{1, 2}, {3, 4}};",
+          "D": "int a[2][2] = {1, 2, 3, 4};"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Only the first dimension may be omitted; the column size is needed for address computation."
+        },
+        {
+         "question": "What is the output of the following C code?\nint main()\n{\n  int ary[] = {1, 3, 5};\n  printf(\"%d %d\", ary[-1], ary[4]);\n  return 0;\n}",
+         "options": {
+          "A": "1 5",
+          "B": "0 0",
+          "C": "Compile error",
+          "D": "Garbage value"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "C does no bounds checking: ary[-1] and ary[4] read memory outside the array (undefined behaviour), so unpredictable 'garbage' values are printed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q3"
+        },
+        {
+         "question": "Given\nint a[3] = {1, 2, 3};\nprintf(\"%d\", a[3]);\nChoose the correct answer.",
+         "options": {
+          "A": "3",
+          "B": "garbage",
+          "C": "error",
+          "D": "0"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "a[3] is past the end of the array: undefined behaviour, typically a garbage value; C does no bounds checking. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q82"
+        },
+        {
+         "question": "An array has been declared as int a[] = {1, 2, 3, 4, 5, ….}; How can you find the number of elements of the array without manually counting them?",
+         "options": {
+          "A": "printf(\"%d\", sizeof(n));",
+          "B": "printf(\"%d\", sizeof(a)/sizeof(a[0]));",
+          "C": "printf(\"%d\", sizeof(int[a]));",
+          "D": "printf(\"%d\", sizeof(a[0]));"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Total bytes of the array divided by the bytes of one element. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q84"
+        },
+        {
+         "question": "If an array is declared as int arr [50], then how many elements can it hold?",
+         "options": {
+          "A": "49",
+          "B": "51",
+          "C": "0",
+          "D": "50"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Indices 0 … 49. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q56"
+        },
+        {
+         "question": "Consider the following declaration of a 2D array in C:\nChar a [100] [100];\nAssuming that the main memory is byte addressable and that the array is stored starting from memory address 0, the address of a [40] [50] is",
+         "options": {
+          "A": "4040",
+          "B": "4050",
+          "C": "5040",
+          "D": "5050"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Row-major: 40 × 100 + 50 = 4050 (1 byte per char). (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q9"
+        },
+        {
+         "question": "In many programming langauges what is the index of the first element in an array?",
+         "options": {
+          "A": "0",
+          "B": "1",
+          "C": "−1",
+          "D": "Size of the array"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "C arrays start at index 0. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q87"
+        },
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\nvoid main( )\n{\n  int a[3][2] = {1, 2, 3, 4, 5, 6};\n  printf(\"%d, %d\", a[0][0], a[2][1]);\n}",
+         "options": {
+          "A": "1, 5",
+          "B": "1, 6",
+          "C": "2, 5",
+          "D": "2, 6"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Rows are filled in order: {1, 2}, {3, 4}, {5, 6}; a[2][1] = 6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q94"
+        },
+        {
+         "question": "Given the array [4, 3, 2, 1, 8, 7, 6, 5]. After two passes of Bubble Sort, what is the status of array while sorting in ascending order?",
+         "options": {
+          "A": "[3, 2, 1, 4, 7, 6, 5, 8]",
+          "B": "[4, 3, 2, 1, 8, 7, 6, 5]",
+          "C": "[1, 2, 3, 4, 5, 6, 7, 8]",
+          "D": "[2, 1, 3, 4, 6, 5, 7, 8]"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Pass 1 → 3 2 1 4 7 6 5 8; pass 2 → 2 1 3 4 6 5 7 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q95"
+        },
+        {
+         "question": "In a array, all elements are stored in ____ memory locations.",
+         "options": {
+          "A": "Random",
+          "B": "Sequential",
+          "C": "Shared",
+          "D": "None of the above"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Array elements are contiguous. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q82"
+        },
+        {
+         "question": "Bubble sort of n elements needs at most how many passes?",
+         "options": {
+          "A": "n − 1",
+          "B": "n/2",
+          "C": "log₂ n",
+          "D": "n"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Each pass places one more element at the end."
+        },
+        {
+         "question": "For 6 elements, basic bubble sort makes how many comparisons in total?",
+         "options": {
+          "A": "6",
+          "B": "36",
+          "C": "15",
+          "D": "30"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "PYQ pattern (KEA / KSET papers). 5 + 4 + 3 + 2 + 1 = n(n − 1)/2 = 15."
+        },
+        {
+         "question": "After the first pass of bubble sort in ascending order",
+         "options": {
+          "A": "The array is sorted",
+          "B": "The middle element is in place",
+          "C": "The smallest element is first",
+          "D": "The largest element is in the last position"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "It 'bubbles' to the end."
+        },
+        {
+         "question": "The array {5, 1, 4, 2, 8} after the first pass of bubble sort (ascending) is",
+         "options": {
+          "A": "1 2 4 5 8",
+          "B": "5 1 4 2 8",
+          "C": "1 4 2 5 8",
+          "D": "1 4 5 2 8"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "PYQ pattern (KEA / KSET papers). Swaps: (5,1), (5,4), (5,2); 5 and 8 stay."
+        },
+        {
+         "question": "Bubble sort with a 'swapped' flag on an already sorted array takes",
+         "options": {
+          "A": "O(n) – one pass with no swaps",
+          "B": "O(n²)",
+          "C": "O(1)",
+          "D": "O(log n)"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Worst and average case: O(n²)."
+        },
+        {
+         "question": "int a[3][4] starts at address 1000 with 4-byte int, stored row-major. The address of a[2][1] is",
+         "options": {
+          "A": "1024",
+          "B": "1044",
+          "C": "1032",
+          "D": "1036"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "PYQ pattern (KEA / KSET papers). 1000 + (2 × 4 + 1) × 4 = 1036."
+        },
+        {
+         "question": "After  int a[2][3] = {{1}, {4, 5}};  the value of a[1][2] is",
+         "options": {
+          "A": "4",
+          "B": "0",
+          "C": "Garbage",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Missing initialisers are set to 0."
+        },
+        {
+         "question": "For  int a[10];  the valid indices are",
+         "options": {
+          "A": "1 to 9",
+          "B": "1 to 10",
+          "C": "0 to 10",
+          "D": "0 to 9"
+         },
+         "answer": "D",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "C does not check bounds."
+        },
+        {
+         "question": "Which array declaration is INVALID in C89 (but allowed as a variable-length array in C99)?",
+         "options": {
+          "A": "int a[] = {1, 2, 3};",
+          "B": "int n = 5; int a[n];",
+          "C": "int a[5];",
+          "D": "#define N 5 … int a[N];"
+         },
+         "answer": "B",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "C89 needs a constant size."
+        },
+        {
+         "question": "For a 3 × 3 matrix a, the loop  for (i = 0; i < 3; i++) s += a[i][i];  computes",
+         "options": {
+          "A": "The sum of the last column",
+          "B": "The sum of the first row",
+          "C": "The sum of the main diagonal (trace)",
+          "D": "The sum of all elements"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Elements with row = column."
+        },
+        {
+         "question": "The assignment  b[j][i] = a[i][j];  inside two nested loops stores in b",
+         "options": {
+          "A": "The transpose of a",
+          "B": "The square of a",
+          "C": "A copy of a",
+          "D": "The inverse of a"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Rows become columns."
+        },
+        {
+         "question": "How many elements does  int a[2][3][4];  have?",
+         "options": {
+          "A": "24",
+          "B": "12",
+          "C": "234",
+          "D": "9"
+         },
+         "answer": "A",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "2 × 3 × 4."
+        },
+        {
+         "question": "In an expression, the name a of  int a[5];  stands for",
+         "options": {
+          "A": "The size of the array",
+          "B": "A copy of the whole array",
+          "C": "&a[0], the address of the first element",
+          "D": "The value of a[0]"
+         },
+         "answer": "C",
+         "subject": "One- and Multi-dimensional Arrays, Initialisation and Bubble Sort",
+         "explanation": "Except with sizeof and &."
+        }
+       ]
+      },
+      {
+       "name": "2 · Strings and String Library Functions",
+       "questions": [
+        {
+         "question": "strcmp(\"abc\", \"abd\") returns:",
+         "options": {
+          "A": "A positive value",
+          "B": "0",
+          "C": "A negative value",
+          "D": "3"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "The first difference is 'c' < 'd'."
+        },
+        {
+         "question": "Given  char s[10];  the statement  s = \"hi\";  results in:",
+         "options": {
+          "A": "s holding \"hi\"",
+          "B": "s[0] = 'h' only",
+          "C": "A run-time error",
+          "D": "A compile error – an array cannot be assigned"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "Use strcpy(s, \"hi\") instead."
+        },
+        {
+         "question": "What does  char s[] = \"GATE\";  printf(\"%s\", s + 1);  print?",
+         "options": {
+          "A": "HATE",
+          "B": "GATE",
+          "C": "ATE",
+          "D": "E"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "s + 1 points to the second character."
+        },
+        {
+         "question": "Which statement is correct?\nchar s[] = \"hello\"; char *p = \"hello\";",
+         "options": {
+          "A": "s[0] = 'j' is valid, but p[0] = 'j' is undefined behaviour",
+          "B": "Both assignments are valid",
+          "C": "Both are compile errors",
+          "D": "p[0] = 'j' is valid, but s[0] = 'j' is not"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "s is a modifiable array; p points to a string literal, which must not be modified."
+        },
+        {
+         "question": "strlen(\"abc\\0def\") is:",
+         "options": {
+          "A": "7",
+          "B": "3",
+          "C": "6",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "strlen stops at the first null character."
+        },
+        {
+         "question": "What does this print?\nchar s[] = \"abcdef\"; int i;\nfor (i = 0; s[i]; i += 2) putchar(s[i]);",
+         "options": {
+          "A": "bdf",
+          "B": "ac",
+          "C": "abcdef",
+          "D": "ace"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "Indices 0, 2 and 4 print a, c, e; at i = 6 the loop meets the terminating '\\0' and stops."
+        },
+        {
+         "question": "Reversing the string \"program\" in place by swapping s[i] and s[n−1−i] needs how many swaps?",
+         "options": {
+          "A": "3",
+          "B": "7",
+          "C": "4",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "n = 7, swaps = ⌊7/2⌋ = 3; the middle character stays."
+        },
+        {
+         "question": "Match the string function with its action:\na. strlen\nb. strcpy\nc. strcmp\nd. strcat\n\n1. Copies a string\n2. Joins one string to the end of another\n3. Counts characters before '\\0'\n4. Compares two strings",
+         "options": {
+          "A": "a-3, b-4, c-1, d-2",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-3, b-1, c-4, d-2",
+          "D": "a-1, b-3, c-4, d-2"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "All are declared in <string.h>."
+        },
+        {
+         "question": "Assertion (A): An array name cannot appear on the left of an assignment in C.\nReason (R): An array name is not a modifiable l-value.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "That is exactly the rule that forbids array assignment."
+        },
+        {
+         "question": "Assertion (A): C strings store their length in the first byte.\nReason (R): C strings are terminated by the null character '\\0'.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "C finds the end by scanning for '\\0', so no length is stored (that is Pascal-style strings)."
+        },
+        {
+         "question": "What is printed?\nchar s[20] = \"Hello\"; strcat(s, \" C\"); printf(\"%d\", (int)strlen(s));",
+         "options": {
+          "A": "5",
+          "B": "7",
+          "C": "8",
+          "D": "20"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "\"Hello C\" has 7 characters."
+        },
+        {
+         "question": "Match the following functions in List-I with their purpose in List-II.\n(a) strcat(S1, S2)\n(b) strncmp(S1, S2, n)\n(c) strchr(S1, ch)\n(d) strstr(S1, S2)\n(i) Returns pointer to first occurrence ch in S1\n(ii) Returns pointer to first occurrence S2 in S1\n(iii) Concatenates S2 to S1\n(iv) Compares two strings based on n and returns a value",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – i, b – iii, c – iv, d – ii"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "strcat appends, strncmp compares up to n characters, strchr finds a character, strstr finds a substring. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q83"
+        },
+        {
+         "question": "What is the output of the following program ?\n#include<stdio.h>\n#include<string.h>\nvoid main()\n{\n  printf(\"%d%d\", sizeof (\"bengaluru\"),\n    strlen(\"bengaluru\"));\n}",
+         "options": {
+          "A": "9 9",
+          "B": "10 9",
+          "C": "10 10",
+          "D": "9 10"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "sizeof counts the terminating '\\0' (10 bytes); strlen does not (9). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q86"
+        },
+        {
+         "question": "What is printed?\nchar s[10] = \"abc\";\nprintf(\"%d %d\", (int)sizeof(s), (int)strlen(s));",
+         "options": {
+          "A": "3 3",
+          "B": "4 3",
+          "C": "10 10",
+          "D": "10 3"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). sizeof gives the array size; strlen counts characters before '\\0'."
+        },
+        {
+         "question": "strcpy(s1, s2) copies",
+         "options": {
+          "A": "s2 into s1",
+          "B": "s1 into s2",
+          "C": "s2 to the end of s1",
+          "D": "Nothing – it compares them"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "Destination first, like assignment s1 = s2."
+        },
+        {
+         "question": "strcmp(s1, s2) returns 0 when",
+         "options": {
+          "A": "s1 is empty",
+          "B": "s1 is longer",
+          "C": "The two strings are equal",
+          "D": "They differ"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "A negative value if s1 < s2, positive if s1 > s2 (dictionary order)."
+        },
+        {
+         "question": "What is printed?\nchar s[20] = \"Good\";\nstrcat(s, \"Day\");\nputs(s);",
+         "options": {
+          "A": "DayGood",
+          "B": "Good",
+          "C": "Good Day",
+          "D": "GoodDay"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "strcat appends without adding a space."
+        },
+        {
+         "question": "toupper() and isdigit() are declared in",
+         "options": {
+          "A": "<math.h>",
+          "B": "<ctype.h>",
+          "C": "<string.h>",
+          "D": "<stdlib.h>"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "Character classification and conversion."
+        },
+        {
+         "question": "gets() was removed from C11 because it",
+         "options": {
+          "A": "Cannot limit the input size, so it can overflow the buffer",
+          "B": "Reads only one character",
+          "C": "Needs a file pointer",
+          "D": "Is too slow"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "fgets(s, n, stdin) is the safe replacement."
+        },
+        {
+         "question": "strncpy(d, \"computer\", 3) copies",
+         "options": {
+          "A": "Nothing",
+          "B": "The string 3 times",
+          "C": "The first 3 characters \"com\" – no '\\0' is added automatically",
+          "D": "The last 3 characters"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "The programmer must add d[3] = '\\0'."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"hello\";\nint n = 0;\nwhile (s[n] != '\\0') n++;\nprintf(\"%d\", n);",
+         "options": {
+          "A": "6",
+          "B": "0",
+          "C": "5",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "This loop is how strlen works."
+        },
+        {
+         "question": "For  char s[] = \"hi\";  sizeof(s) is",
+         "options": {
+          "A": "2",
+          "B": "4",
+          "C": "1",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "'h', 'i' and '\\0'."
+        },
+        {
+         "question": "char s[] = {'h', 'i'};  declares",
+         "options": {
+          "A": "A char array that is not a proper string (no '\\0')",
+          "B": "A string of length 2",
+          "C": "A string of length 3",
+          "D": "An error"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "Passing it to printf(\"%s\") is unsafe."
+        },
+        {
+         "question": "What is printed?\nchar s[] = \"KARNATAKA\";\nprintf(\"%c%c\", s[0], s[4]);",
+         "options": {
+          "A": "KN",
+          "B": "KA",
+          "C": "KT",
+          "D": "AA"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "K(0) A(1) R(2) N(3) A(4)."
+        },
+        {
+         "question": "For two char arrays s1 and s2,  if (s1 == s2)  compares",
+         "options": {
+          "A": "Their addresses, not their contents",
+          "B": "Their contents",
+          "C": "Their first characters",
+          "D": "Their lengths"
+         },
+         "answer": "A",
+         "subject": "Strings and String Library Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Use strcmp(s1, s2) == 0 to compare contents."
+        },
+        {
+         "question": "sprintf(buf, \"%d\", 25);",
+         "options": {
+          "A": "Reads 25 from buf",
+          "B": "Prints 25 on the screen",
+          "C": "Writes the characters \"25\" into buf",
+          "D": "Writes 25 to a file"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "sscanf reads from a string."
+        },
+        {
+         "question": "The value of  atoi(\"123\") + 1  is",
+         "options": {
+          "A": "1231",
+          "B": "124",
+          "C": "\"1231\"",
+          "D": "An error"
+         },
+         "answer": "B",
+         "subject": "Strings and String Library Functions",
+         "explanation": "atoi (in <stdlib.h>) converts a string to int."
+        },
+        {
+         "question": "To check whether a string of length n is a palindrome, s[i] is compared with",
+         "options": {
+          "A": "s[n − i]",
+          "B": "s[i + 1]",
+          "C": "s[n / 2]",
+          "D": "s[n − 1 − i]"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "PYQ pattern (KEA / KSET papers). Compare from both ends towards the middle."
+        },
+        {
+         "question": "If ch holds a lowercase letter, ch − 32 gives",
+         "options": {
+          "A": "A space",
+          "B": "The next letter",
+          "C": "A digit",
+          "D": "The same letter in uppercase"
+         },
+         "answer": "D",
+         "subject": "Strings and String Library Functions",
+         "explanation": "'a' (97) − 32 = 'A' (65)."
+        },
+        {
+         "question": "char names[5][20];  can store",
+         "options": {
+          "A": "20 strings of 5 characters",
+          "B": "5 characters",
+          "C": "5 strings of up to 19 characters each",
+          "D": "100 strings"
+         },
+         "answer": "C",
+         "subject": "Strings and String Library Functions",
+         "explanation": "One byte of each row is needed for '\\0'."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Arrays and strings – revision sheet",
+       "md": "## Arrays\n- `int a[5];` indices 0–4; no bounds checking (a[5] or a[-1] → garbage / undefined)\n- `int a[5] = {1, 2};` → rest 0; `int a[] = {…}` size from initialisers; count = `sizeof(a) / sizeof(a[0])`\n- 2-D row-major: address of a[i][j] = base + (i × cols + j) × size; `char a[100][100]` → a[40][50] at 4050\n- `int a[3][2] = {1,2,3,4,5,6}` → a[2][1] = 6; `int a[2][3][4]` = 24 elements\n- Array name = `&a[0]` (cannot be assigned: `a = b` is an error); `2[a]` = `a[2]`\n- Bubble sort: n − 1 passes, n(n − 1)/2 comparisons, O(n²) (O(n) best with a swap flag); largest element moves to the end after each pass\n  - [4,3,2,1,8,7,6,5] → pass 1: 3 2 1 4 7 6 5 8 → pass 2: 2 1 3 4 6 5 7 8\n\n## Strings\n- char array ending in `'\\0'`; `\"hi\"` takes 3 bytes; `sizeof(\"bengaluru\")` = 10, `strlen` = 9\n- `char s[10]; s = \"hi\";` is an error – use `strcpy(s, \"hi\")`\n- `<string.h>`: strlen, strcpy(dest, src), strncpy, strcat(dest, src), strncmp, strcmp (0 when equal), strchr (char), strstr (substring), strrev (Turbo C)\n- `<ctype.h>`: toupper, tolower, isdigit, isalpha; `<stdlib.h>`: atoi, atof\n- `scanf(\"%s\")` stops at a space; `gets` removed (use `fgets`); compare contents with strcmp, not ==\n- `'a' − 32 = 'A'`; palindrome: s[i] vs s[n − 1 − i]\n"
       }
      ]
     }
