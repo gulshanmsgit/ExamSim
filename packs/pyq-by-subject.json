@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 687. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 484, Paper 2: 698. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -8200,7 +8200,116 @@
        ]
       },
       {
-       "name": "6 · PGCET 2024 MCA",
+       "name": "6 · GFGC 2021 CS",
+       "questions": [
+        {
+         "question": "Which register is used as a working area in CPU ?",
+         "options": {
+          "A": "Program counter",
+          "B": "Stalk pointer",
+          "C": "Accumulator",
+          "D": "Instruction register"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q14"
+        },
+        {
+         "question": "An instruction cycle refers to",
+         "options": {
+          "A": "Fetching an instruction",
+          "B": "Executing an instruction",
+          "C": "Fetching, decoding and Executing an instruction",
+          "D": "Reading and Executing an instruction"
+         },
+         "answer": "C",
+         "subject": "GFGC 2021 CS",
+         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q15"
+        },
+        {
+         "question": "Let Tp be the clock cycle time. The time taken to execute 5 instructions in a pipelined processor, if the first instruction takes 4 clock cycles.",
+         "options": {
+          "A": "8 Tp",
+          "B": "16 Tp",
+          "C": "20 Tp",
+          "D": "14 Tp"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "A 4-stage pipeline: (k + n − 1) cycles = 4 + 4 = 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q16"
+        },
+        {
+         "question": "Which of the following is not an application of logic operations ?",
+         "options": {
+          "A": "Insert new bit values into a register.",
+          "B": "Change bit values.",
+          "C": "Delete a group of bits.",
+          "D": "Shift bit values in a register."
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q17"
+        },
+        {
+         "question": "Match the following :\nL1  MOV AL, DATA\nL2  MOV BH, 'A'\nL3  MOV AX, [BX + 4]\nL4  MOV [BX + D1], CL\ni. Immediate address mode\nii. Direct data-addressing mode\niii. Register relative addressing mode\niv. Base-plus-indirect addressing mode\nCode :  L1 L2 L3 L4",
+         "options": {
+          "A": "ii i iv iii",
+          "B": "iv i iii ii",
+          "C": "ii iv iii i",
+          "D": "ii i iii iv"
+         },
+         "answer": "D",
+         "subject": "GFGC 2021 CS",
+         "explanation": "DATA is a memory address (direct); 'A' is a constant (immediate); [BX + 4] is register relative; [BX + DI] is base-plus-index. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q18"
+        },
+        {
+         "question": "Consider a four-stage pipeline processor in which each instruction on an average has 2 clock cycle stalls, then the speed up of this pipelined processor compared to an un-pipelined processor is ____",
+         "options": {
+          "A": "1.33",
+          "B": "2",
+          "C": "8",
+          "D": "0.5"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Speed-up = depth / (1 + stalls per instruction) = 4 / 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q22"
+        },
+        {
+         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
+         "options": {
+          "A": "1, 2, 1, 2",
+          "B": "2, 1, 2, 1",
+          "C": "2, 1, 1, 2",
+          "D": "1, 2, 2, 2"
+         },
+         "answer": "B",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q53"
+        },
+        {
+         "question": "Match the 8085 hardware interrupt with its vector address\nInterrupt: L1. RST 7.5  L2. RST 6.5  L3. RST 5.5  L4. TRAP\nVector Address: i. 003CH  ii. 0034H  iii. 002CH  iv. 0024H\nCode: L1 L2 L3 L4",
+         "options": {
+          "A": "i ii iii iv",
+          "B": "ii iii i iv",
+          "C": "iii ii i iv",
+          "D": "iv ii iii i"
+         },
+         "answer": "A",
+         "subject": "GFGC 2021 CS",
+         "explanation": "Vector = n × 8 for RST n: 7.5 → 3CH, 6.5 → 34H, 5.5 → 2CH, TRAP (4.5) → 24H. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q54"
+        }
+       ]
+      },
+      {
+       "name": "7 · PGCET 2024 MCA",
        "questions": [
         {
          "question": "Conversion of decimal number 100 to Octal and Hexadecimal is ____ and ____",
@@ -8309,7 +8418,7 @@
        ]
       },
       {
-       "name": "7 · KSET 2024 CS&A",
+       "name": "8 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
@@ -8405,64 +8514,173 @@
        ]
       },
       {
-       "name": "8 · GFGC 2021 CS",
+       "name": "9 · Legislative Council 2024 Junior Console Operator P2",
        "questions": [
         {
-         "question": "Which register is used as a working area in CPU ?",
+         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
          "options": {
-          "A": "Program counter",
-          "B": "Stalk pointer",
-          "C": "Accumulator",
-          "D": "Instruction register"
-         },
-         "answer": "C",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q14"
-        },
-        {
-         "question": "An instruction cycle refers to",
-         "options": {
-          "A": "Fetching an instruction",
-          "B": "Executing an instruction",
-          "C": "Fetching, decoding and Executing an instruction",
-          "D": "Reading and Executing an instruction"
-         },
-         "answer": "C",
-         "subject": "GFGC 2021 CS",
-         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q15"
-        },
-        {
-         "question": "Which of the following is not an application of logic operations ?",
-         "options": {
-          "A": "Insert new bit values into a register.",
-          "B": "Change bit values.",
-          "C": "Delete a group of bits.",
-          "D": "Shift bit values in a register."
-         },
-         "answer": "D",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q17"
-        },
-        {
-         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
-         "options": {
-          "A": "1, 2, 1, 2",
-          "B": "2, 1, 2, 1",
-          "C": "2, 1, 1, 2",
-          "D": "1, 2, 2, 2"
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "a, b, c and d"
          },
          "answer": "B",
-         "subject": "GFGC 2021 CS",
-         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GFGC 2021 CS · Q53"
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
+        },
+        {
+         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
+         "options": {
+          "A": "2.4 cycles",
+          "B": "3.6 cycles",
+          "C": "5.0 cycles",
+          "D": "6.0 cycles"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
+        },
+        {
+         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, d and e",
+          "C": "b, d and e",
+          "D": "a, b, c, d and e"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
+        },
+        {
+         "question": "Which of the following is an example of a pipeline hazard?",
+         "options": {
+          "A": "Branch Misprediction",
+          "B": "Cache miss",
+          "C": "Data dependency between instructions",
+          "D": "Instruction fetch stall"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
+        },
+        {
+         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
+         "options": {
+          "A": "RISC",
+          "B": "CISC",
+          "C": "VLIW",
+          "D": "EPIC"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
+        },
+        {
+         "question": "Which of the following best defines a bus in a computer system?",
+         "options": {
+          "A": "A path for transferring data and instructions between components",
+          "B": "A memory unit",
+          "C": "An input/output device",
+          "D": "A register used for arithmetic operations"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
+        },
+        {
+         "question": "Which of the following describes a CPU's clock speed?",
+         "options": {
+          "A": "The number of cores in the CPU",
+          "B": "The rate at which the CPU can execute instructions",
+          "C": "The size of the CPU cache memory",
+          "D": "The thermal design power of the CPU"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
         }
        ]
       },
       {
-       "name": "9 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "10 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "options": {
+          "A": "(a), (b), (c) and (d)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(a) and (c)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q14"
+        },
+        {
+         "question": "Match List – I that has addressing mode with List – II that contains its description.\n(a) Immediate\n(b) Direct\n(c) Register\n(d) Register Indirect\n(i) Operand is in memory, instructions specifies the memory address.\n(ii) Operand value is the part of the instructions itself\n(iii) Operand is in CPU register\n(iv) Register contains address of the operand",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – iii, c – iv, d – ii",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Immediate – operand in the instruction; direct – its address; register – in a register; register indirect – address in a register. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q16"
+        },
+        {
+         "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
+         "options": {
+          "A": "(a), (b), (c), (d), (e), (f), (g)",
+          "B": "(f), (c), (d), (a), (g), (e), (b)",
+          "C": "(g), (f), (e), (d), (a), (b), (c)",
+          "D": "(c), (a), (b), (g), (e), (d), (f)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Fetch: PC to MAR and PC + 4 (f), update PC (c), load IR (d); execute: operand address R₃ (a), R₁ to Y (g), add (e), result to R₁ (b). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q19"
+        },
+        {
+         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
+         "options": {
+          "A": "I0",
+          "B": "I1",
+          "C": "I2",
+          "D": "I3"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q21"
+        },
+        {
+         "question": "A computer uses 8 bit unsigned fixed-point representation with 4 bits for integer and 4 bits for fraction. What is the largest number it can represent?",
+         "options": {
+          "A": "15.9375",
+          "B": "16",
+          "C": "15.5",
+          "D": "31.875"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "1111.1111₂ = 15 + 15/16 = 15.9375. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q24"
+        }
+       ]
+      },
+      {
+       "name": "11 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "Number of output in a half adder is",
@@ -8519,64 +8737,64 @@
        ]
       },
       {
-       "name": "10 · PGCET 2026 CS",
+       "name": "12 · PGCET 2023 M.Tech CS",
        "questions": [
         {
-         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
          "options": {
-          "A": "(a), (b), (c) and (d)",
-          "B": "(a), (b) and (d)",
-          "C": "(b), (c) and (d)",
-          "D": "(a) and (c)"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q14"
-        },
-        {
-         "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
-         "options": {
-          "A": "(a), (b), (c), (d), (e), (f), (g)",
-          "B": "(f), (c), (d), (a), (g), (e), (b)",
-          "C": "(g), (f), (e), (d), (a), (b), (c)",
-          "D": "(c), (a), (b), (g), (e), (d), (f)"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Fetch: PC to MAR and PC + 4 (f), update PC (c), load IR (d); execute: operand address R₃ (a), R₁ to Y (g), add (e), result to R₁ (b). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q19"
-        },
-        {
-         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
-         "options": {
-          "A": "I0",
-          "B": "I1",
-          "C": "I2",
-          "D": "I3"
-         },
-         "answer": "C",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q21"
-        },
-        {
-         "question": "A computer uses 8 bit unsigned fixed-point representation with 4 bits for integer and 4 bits for fraction. What is the largest number it can represent?",
-         "options": {
-          "A": "15.9375",
-          "B": "16",
-          "C": "15.5",
-          "D": "31.875"
+          "A": "Gate-level minimization",
+          "B": "Door-level minimization",
+          "C": "Gate-level maximization",
+          "D": "Circuit-level maximization"
          },
          "answer": "A",
-         "subject": "PGCET 2026 CS",
-         "explanation": "1111.1111₂ = 15 + 15/16 = 15.9375. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q24"
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q18"
+        },
+        {
+         "question": "In which addressing mode is the effective address equal to the address part of the instruction?",
+         "options": {
+          "A": "Indirect register",
+          "B": "Direct",
+          "C": "Register direct",
+          "D": "Relative"
+         },
+         "answer": "B",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "Direct (absolute) addressing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q20"
+        },
+        {
+         "question": "A control unit that utilizes a ROM to store binary control information is called",
+         "options": {
+          "A": "Microprogrammed control unit",
+          "B": "Hardwired control unit",
+          "C": "Arithmetic control unit",
+          "D": "Input output control unit"
+         },
+         "answer": "A",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "The ROM is the control memory holding microinstructions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q21"
+        },
+        {
+         "question": "Which of the following registers holds the micro instructions when the computation of the next address is done and read from memory ?",
+         "options": {
+          "A": "Micro register",
+          "B": "Pipeline register",
+          "C": "Parallel register",
+          "D": "Buffer"
+         },
+         "answer": "B",
+         "subject": "PGCET 2023 M.Tech CS",
+         "explanation": "The control data register (pipeline register) holds the current microinstruction while the next address is computed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q59"
         }
        ]
       },
       {
-       "name": "11 · Other papers",
+       "name": "13 · Other papers",
        "questions": [
         {
          "question": "What will be the frequency of the output from a JK flip-flop when J = 1, K = 1 and a clock with pulse waveform is given?",
@@ -8668,71 +8886,6 @@
          "subject": "Other papers",
          "explanation": "Registers hold data (DR, AC), instructions (IR) and intermediate results (AC, TR). (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q91"
-        },
-        {
-         "question": "Which of the following best defines a bus in a computer system?",
-         "options": {
-          "A": "A path for transferring data and instructions between components",
-          "B": "A memory unit",
-          "C": "An input/output device",
-          "D": "A register used for arithmetic operations"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
-        },
-        {
-         "question": "Which of the following describes a CPU's clock speed?",
-         "options": {
-          "A": "The number of cores in the CPU",
-          "B": "The rate at which the CPU can execute instructions",
-          "C": "The size of the CPU cache memory",
-          "D": "The thermal design power of the CPU"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
-        },
-        {
-         "question": "Which of the following is an optimal gate level implementation of digital circuit?",
-         "options": {
-          "A": "Gate-level minimization",
-          "B": "Door-level minimization",
-          "C": "Gate-level maximization",
-          "D": "Circuit-level maximization"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Gate-level minimization finds the simplest gate realisation of a Boolean function (Mano, ch. 3). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q18"
-        },
-        {
-         "question": "A control unit that utilizes a ROM to store binary control information is called",
-         "options": {
-          "A": "Microprogrammed control unit",
-          "B": "Hardwired control unit",
-          "C": "Arithmetic control unit",
-          "D": "Input output control unit"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "The ROM is the control memory holding microinstructions. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q21"
-        },
-        {
-         "question": "Which of the following registers holds the micro instructions when the computation of the next address is done and read from memory ?",
-         "options": {
-          "A": "Micro register",
-          "B": "Pipeline register",
-          "C": "Parallel register",
-          "D": "Buffer"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "The control data register (pipeline register) holds the current microinstruction while the next address is computed. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2023 M.Tech CS · Q59"
         },
         {
          "question": "The one's complement of binary number 101010 is :",

@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Unit 3 — Computer System Architecture",
- "description": "6 of 9 topics so far (12 sets × 30 questions): Digital Logic – Combinational; Digital Logic – Sequential; Data Representation; Computer Arithmetic; Basic Computer Organization and Design; Programming the Basic Computer. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "8 of 9 topics so far (16 sets × 30 questions): Digital Logic – Combinational; Digital Logic – Sequential; Data Representation; Computer Arithmetic; Basic Computer Organization and Design; Programming the Basic Computer; Central Processing Unit; Input-Output Organization. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P2 · Unit 3 – Computer System Architecture",
@@ -4526,6 +4526,1505 @@
       {
        "title": "Programming the basic computer – revision sheet",
        "md": "## Languages and the assembler\n- Machine language (binary/hex) → assembly (mnemonics, labels; machine-dependent; one line ≈ one instruction) → high-level\n- Mano's line: **label, instruction, comment (/)**; pseudo-instructions ORG N, END, DEC N, HEX N (directives, not machine code)\n- Two-pass assembler: **pass 1** – location counter, address symbol table (labels, literals); **pass 2** – object code using pseudo, MRI, non-MRI and symbol tables, listing\n- Two passes are needed for forward references; one-pass assemblers back-patch\n- Codes: LDA 500 = 2500, LDA 500 I = A500; ADD = 1xxx; CLA = 7800\n- Macro = expanded in-line at assembly time; subroutine = called at run time; cross-assembler = for another processor\n\n## Loops and arithmetic\n- Counter = −N, ISZ skips the branch back when it reaches 0; pointer + indirect addressing for arrays\n- Subtract: CMA, INC, ADD; OR via De Morgan (CMA, AND, CMA); logical shift: CLE then CIR/CIL\n- Multiply by shift-and-add; double precision: low halves, then high halves + E\n\n## Subroutines and I/O\n- Call: BSA SUB (return address in SUB's first word); return: BUN SUB I; parameters in AC or after the call; no recursion\n- Input: SKI / BUN back / INP; output: SKO / BUN back / OUT (programmed I/O = busy waiting)\n- Interrupt service routine: save AC and E, service the device, restore, ION, BUN 0 I\n- Pack two characters: CIL × 8 then ADD\n"
+      }
+     ]
+    },
+    {
+     "name": "Central Processing Unit",
+     "sets": [
+      {
+       "name": "1 · General Register Organization, Stack Organization and Instruction Formats",
+       "questions": [
+        {
+         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
+        },
+        {
+         "question": "In Mano's general register organization (seven registers on a bus system), the two source registers are selected by",
+         "options": {
+          "A": "The program counter",
+          "B": "The stack pointer",
+          "C": "Two multiplexers driven by SELA and SELB",
+          "D": "One decoder"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PYQ pattern (KEA / KSET papers). The outputs go to the A and B inputs of the ALU."
+        },
+        {
+         "question": "In the same organization, the destination register is selected by",
+         "options": {
+          "A": "A 3 × 8 decoder driven by SELD",
+          "B": "A multiplexer",
+          "C": "The ALU",
+          "D": "The OPR field"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "The decoder enables the load input of one register."
+        },
+        {
+         "question": "The control word of Mano's seven-register CPU has",
+         "options": {
+          "A": "16 bits",
+          "B": "8 bits",
+          "C": "12 bits: 3 + 3 + 3 + 3",
+          "D": "14 bits: SELA 3, SELB 3, SELD 3, OPR 5"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "OPR selects one of the ALU operations."
+        },
+        {
+         "question": "For the micro-operation R1 ← R2 + R3, the control word sets",
+         "options": {
+          "A": "SELD = R2, SELA = R1",
+          "B": "SELA = R1, SELB = R2, SELD = R3",
+          "C": "OPR = SUB",
+          "D": "SELA = R2, SELB = R3, SELD = R1, OPR = ADD"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Sources on the buses, destination on the decoder."
+        },
+        {
+         "question": "A stack works on the principle",
+         "options": {
+          "A": "Last in, first out (LIFO)",
+          "B": "First in, first out (FIFO)",
+          "C": "Priority order",
+          "D": "Random access by address"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PUSH and POP work on the top."
+        },
+        {
+         "question": "The register that holds the address of the top of the stack is the",
+         "options": {
+          "A": "Program counter",
+          "B": "Data register",
+          "C": "Stack pointer (SP)",
+          "D": "Accumulator"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "SP changes on every push and pop."
+        },
+        {
+         "question": "A register stack of 64 words needs a stack pointer of",
+         "options": {
+          "A": "5 bits",
+          "B": "6 bits",
+          "C": "64 bits",
+          "D": "8 bits"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2⁶ = 64; FULL and EMTY flags record the state."
+        },
+        {
+         "question": "In Mano's memory stack, which grows toward lower addresses, PUSH is",
+         "options": {
+          "A": "M[SP] ← DR, then SP ← SP + 1",
+          "B": "DR ← M[SP], then SP ← SP + 1",
+          "C": "SP ← SP − 1, then M[SP] ← DR",
+          "D": "SP ← SP + 1 only"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "POP: DR ← M[SP], SP ← SP + 1."
+        },
+        {
+         "question": "Popping from an empty stack causes",
+         "options": {
+          "A": "Stack underflow",
+          "B": "A page fault",
+          "C": "Stack overflow",
+          "D": "A cache miss"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Pushing onto a full stack causes overflow."
+        },
+        {
+         "question": "Stack-organized computers evaluate arithmetic expressions most easily in",
+         "options": {
+          "A": "Prefix with brackets",
+          "B": "Reverse Polish (postfix) notation",
+          "C": "Infix notation",
+          "D": "Binary-coded decimal"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PYQ pattern (KEA / KSET papers). Operands are pushed; an operator pops two and pushes the result."
+        },
+        {
+         "question": "The reverse Polish form of (A + B) * (C + D) is",
+         "options": {
+          "A": "+ A B * + C D",
+          "B": "A B C D + + *",
+          "C": "A + B C D + *",
+          "D": "A B + C D + *"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Each operator follows its operands."
+        },
+        {
+         "question": "The value of the reverse Polish expression  3 4 * 5 6 * +  is",
+         "options": {
+          "A": "42",
+          "B": "72",
+          "C": "27",
+          "D": "35"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "12 + 30."
+        },
+        {
+         "question": "The reverse Polish form of A * B + C * D is",
+         "options": {
+          "A": "A * B C * D +",
+          "B": "A B * C D * +",
+          "C": "* A B * C D +",
+          "D": "A B C D * * +"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Multiplications first, then the addition."
+        },
+        {
+         "question": "Zero-address instructions are used in",
+         "options": {
+          "A": "General-register machines",
+          "B": "Accumulator machines",
+          "C": "Machines without memory",
+          "D": "Stack-organized computers"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PYQ pattern (KEA / KSET papers). ADD pops two operands and pushes the sum."
+        },
+        {
+         "question": "One-address instructions use an implied",
+         "options": {
+          "A": "Stack",
+          "B": "Index register",
+          "C": "Accumulator (AC) for one operand and the result",
+          "D": "Program counter"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "LOAD A, ADD B, STORE T…"
+        },
+        {
+         "question": "Evaluating X = (A + B) * (C + D) with three-address instructions needs",
+         "options": {
+          "A": "2 instructions",
+          "B": "4 instructions",
+          "C": "8 instructions",
+          "D": "3 instructions"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "ADD R1, A, B; ADD R2, C, D; MUL X, R1, R2."
+        },
+        {
+         "question": "With zero-address (stack) instructions, X = (A + B) * (C + D) needs",
+         "options": {
+          "A": "5 instructions",
+          "B": "8 instructions",
+          "C": "6 instructions",
+          "D": "3 instructions"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PUSH A, PUSH B, ADD, PUSH C, PUSH D, ADD, MUL, POP X."
+        },
+        {
+         "question": "With two-address instructions, X = (A + B) * (C + D) needs",
+         "options": {
+          "A": "3 instructions",
+          "B": "4 instructions",
+          "C": "6 instructions",
+          "D": "8 instructions"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "MOV R1, A; ADD R1, B; MOV R2, C; ADD R2, D; MUL R1, R2; MOV X, R1."
+        },
+        {
+         "question": "With one-address instructions, X = (A + B) * (C + D) needs",
+         "options": {
+          "A": "7 instructions",
+          "B": "5 instructions",
+          "C": "6 instructions",
+          "D": "8 instructions"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "LOAD A; ADD B; STORE T; LOAD C; ADD D; MUL T; STORE X."
+        },
+        {
+         "question": "Three-address instructions give",
+         "options": {
+          "A": "Always faster decoding",
+          "B": "Short programs but long instruction words",
+          "C": "No memory references",
+          "D": "Long programs but short instructions"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "The address fields make each instruction long."
+        },
+        {
+         "question": "In a RISC load/store architecture, memory is accessed only by",
+         "options": {
+          "A": "Stack instructions",
+          "B": "Every arithmetic instruction",
+          "C": "Branch instructions",
+          "D": "LOAD and STORE instructions"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Arithmetic works on registers."
+        },
+        {
+         "question": "The common fields of an instruction format are",
+         "options": {
+          "A": "Operation code, mode and address fields",
+          "B": "Tag, index and offset",
+          "C": "Label, comment and result",
+          "D": "Sign, exponent and mantissa"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "The mode field gives the addressing mode."
+        },
+        {
+         "question": "An instruction set with 100 different operations needs an opcode of at least",
+         "options": {
+          "A": "6 bits",
+          "B": "100 bits",
+          "C": "7 bits",
+          "D": "8 bits"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "PYQ pattern (KEA / KSET papers). 2⁶ = 64 < 100 ≤ 128 = 2⁷."
+        },
+        {
+         "question": "A 16-bit instruction has two register fields on a machine with 16 registers. How many bits are left for the opcode?",
+         "options": {
+          "A": "6",
+          "B": "12",
+          "C": "4",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "16 − 4 − 4."
+        },
+        {
+         "question": "Giving instructions with fewer address fields longer opcodes, within a fixed instruction length, is called",
+         "options": {
+          "A": "Microprogramming",
+          "B": "Relocation",
+          "C": "Expanding opcode",
+          "D": "Pipelining"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "It makes room for more operations."
+        },
+        {
+         "question": "A memory stack is used mainly to",
+         "options": {
+          "A": "Hold the program code",
+          "B": "Save return addresses and processor status during subroutine calls and interrupts",
+          "C": "Store the page table",
+          "D": "Hold I/O data"
+         },
+         "answer": "B",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "It also passes parameters and holds local variables."
+        },
+        {
+         "question": "The bounds of a memory stack can be checked with",
+         "options": {
+          "A": "Two processor registers holding the upper and lower limits",
+          "B": "A parity bit",
+          "C": "The ALU flags",
+          "D": "The program counter"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "SP is compared with them after each push or pop."
+        },
+        {
+         "question": "The four status bits commonly set by the ALU are",
+         "options": {
+          "A": "Carry, sign, zero and overflow",
+          "B": "Fetch, decode, execute and store",
+          "C": "Parity, interrupt, halt and trap",
+          "D": "Read, write, execute and wait"
+         },
+         "answer": "A",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Conditional branches test them."
+        },
+        {
+         "question": "In a register stack, PUSH (stack growing upward) is",
+         "options": {
+          "A": "SP ← 0",
+          "B": "M[SP] ← DR only",
+          "C": "SP ← SP + 1, then M[SP] ← DR",
+          "D": "DR ← M[SP], then SP ← SP − 1"
+         },
+         "answer": "C",
+         "subject": "General Register Organization, Stack Organization and Instruction Formats",
+         "explanation": "Mano's register stack; FULL is set when SP wraps to 0."
+        }
+       ]
+      },
+      {
+       "name": "2 · Addressing Modes, RISC and CISC Computers (with Pipelining)",
+       "questions": [
+        {
+         "question": "In which addressing mode, the effective address is equal to the address part of the instruction?",
+         "options": {
+          "A": "Indexed",
+          "B": "Relative",
+          "C": "Register",
+          "D": "Direct"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "In direct addressing the instruction's address field is the effective address. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q98"
+        },
+        {
+         "question": "In Relative Addressing Mode, the effective address = ____",
+         "options": {
+          "A": "address part of instruction + PC",
+          "B": "address part of instruction + index register",
+          "C": "address part of instruction + base register",
+          "D": "address part of instruction + register indirect"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Relative (PC-relative) mode adds the address field to the program counter; index and base modes use other registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q17"
+        },
+        {
+         "question": "If the operand is given explicitly in the instruction, the addressing mode is called",
+         "options": {
+          "A": "Immediate",
+          "B": "Absolute",
+          "C": "Direct",
+          "D": "Indirect"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "In immediate mode the operand itself is part of the instruction. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q15"
+        },
+        {
+         "question": "In a pipeline unit, with K stages and n instructions,\n(i) Speedup of the pipeline unit compared to sequential processor is Kn / (K + (n − 1))\n(ii) The pipeline has to be flushed if the pipeline unit encounters branch instruction.\nFrom the above statements choose the correct option",
+         "options": {
+          "A": "Both (i) and (ii) are false",
+          "B": "(i) is true but (ii) is false",
+          "C": "Both (i) and (ii) are true",
+          "D": "(ii) is true but (i) is false"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Sequential time nK cycles vs pipelined K + n − 1 cycles; a taken branch invalidates the instructions already fetched behind it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q16"
+        },
+        {
+         "question": "In the absence of data and control hazards, the k-unit instruction unit pipeline with n instructions has speed up",
+         "options": {
+          "A": "nk / (k + (n − 1))",
+          "B": "(k + (n − 1)) / nk",
+          "C": "nk / ((k − 1)*n)",
+          "D": "k + n / (nk)"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Non-pipelined time nk cycles; pipelined k + n − 1 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q19"
+        },
+        {
+         "question": "____ is caused because of a delay in the availability of instruction.",
+         "options": {
+          "A": "Data Hazard",
+          "B": "Instruction Hazard",
+          "C": "Interrupt Hazard",
+          "D": "Structural Hazard"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Hamacher: an instruction (control) hazard is a pipeline stall because the next instruction is not available, e.g. after a cache miss or branch. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 CS Paper-2 · Q22"
+        },
+        {
+         "question": "Match the following :\nL1  MOV AL, DATA\nL2  MOV BH, 'A'\nL3  MOV AX, [BX + 4]\nL4  MOV [BX + D1], CL\ni. Immediate address mode\nii. Direct data-addressing mode\niii. Register relative addressing mode\niv. Base-plus-indirect addressing mode\nCode :  L1 L2 L3 L4",
+         "options": {
+          "A": "ii i iv iii",
+          "B": "iv i iii ii",
+          "C": "ii iv iii i",
+          "D": "ii i iii iv"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "DATA is a memory address (direct); 'A' is a constant (immediate); [BX + 4] is register relative; [BX + DI] is base-plus-index. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q18"
+        },
+        {
+         "question": "In which addressing mode is the effective address equal to the address part of the instruction?",
+         "options": {
+          "A": "Indirect register",
+          "B": "Direct",
+          "C": "Register direct",
+          "D": "Relative"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Direct (absolute) addressing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q20"
+        },
+        {
+         "question": "Match List – I that has addressing mode with List – II that contains its description.\n(a) Immediate\n(b) Direct\n(c) Register\n(d) Register Indirect\n(i) Operand is in memory, instructions specifies the memory address.\n(ii) Operand value is the part of the instructions itself\n(iii) Operand is in CPU register\n(iv) Register contains address of the operand",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – iii, c – iv, d – ii",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Immediate – operand in the instruction; direct – its address; register – in a register; register indirect – address in a register. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q16"
+        },
+        {
+         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
+         "options": {
+          "A": "RISC",
+          "B": "CISC",
+          "C": "VLIW",
+          "D": "EPIC"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
+        },
+        {
+         "question": "Let Tp be the clock cycle time. The time taken to execute 5 instructions in a pipelined processor, if the first instruction takes 4 clock cycles.",
+         "options": {
+          "A": "8 Tp",
+          "B": "16 Tp",
+          "C": "20 Tp",
+          "D": "14 Tp"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "A 4-stage pipeline: (k + n − 1) cycles = 4 + 4 = 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q16"
+        },
+        {
+         "question": "Consider a four-stage pipeline processor in which each instruction on an average has 2 clock cycle stalls, then the speed up of this pipelined processor compared to an un-pipelined processor is ____",
+         "options": {
+          "A": "1.33",
+          "B": "2",
+          "C": "8",
+          "D": "0.5"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Speed-up = depth / (1 + stalls per instruction) = 4 / 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q22"
+        },
+        {
+         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
+         "options": {
+          "A": "2.4 cycles",
+          "B": "3.6 cycles",
+          "C": "5.0 cycles",
+          "D": "6.0 cycles"
+         },
+         "answer": "A",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
+        },
+        {
+         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, d and e",
+          "C": "b, d and e",
+          "D": "a, b, c, d and e"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
+        },
+        {
+         "question": "Which of the following is an example of a pipeline hazard?",
+         "options": {
+          "A": "Branch Misprediction",
+          "B": "Cache miss",
+          "C": "Data dependency between instructions",
+          "D": "Instruction fetch stall"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
+        },
+        {
+         "question": "In implied addressing mode, the operand is",
+         "options": {
+          "A": "In the program counter",
+          "B": "Given in the address field",
+          "C": "Specified implicitly by the definition of the instruction",
+          "D": "In memory at the address held in a register"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "E.g. CMA (complement accumulator)."
+        },
+        {
+         "question": "In indirect addressing, the address field contains",
+         "options": {
+          "A": "An offset from PC",
+          "B": "A register number",
+          "C": "The operand itself",
+          "D": "The address of a memory word that holds the effective address"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Two memory reads to reach the operand."
+        },
+        {
+         "question": "In indexed addressing, the effective address is",
+         "options": {
+          "A": "The operand itself",
+          "B": "Address field + index register",
+          "C": "The base register alone",
+          "D": "PC + address field"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Used for arrays: the index register holds the element offset."
+        },
+        {
+         "question": "Base-register addressing is mainly used for",
+         "options": {
+          "A": "Interrupts",
+          "B": "Immediate constants",
+          "C": "Loop counters",
+          "D": "Relocation of programs in memory"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Only the base register changes when the program moves."
+        },
+        {
+         "question": "Autoincrement mode is convenient for",
+         "options": {
+          "A": "Constants",
+          "B": "Interrupts",
+          "C": "Stepping through arrays held in memory",
+          "D": "Subroutine calls"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "The register is incremented after the access."
+        },
+        {
+         "question": "A two-word instruction at addresses 200–201 has address field 500. After the fetch PC = 202, R1 = 400 and XR = 100. The effective address in relative mode is",
+         "options": {
+          "A": "400",
+          "B": "500",
+          "C": "600",
+          "D": "702"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano's example: EA = PC + address field = 202 + 500."
+        },
+        {
+         "question": "For the same instruction (address field 500, XR = 100), the effective address in indexed mode is",
+         "options": {
+          "A": "100",
+          "B": "702",
+          "C": "600",
+          "D": "500"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "500 + 100."
+        },
+        {
+         "question": "Which addressing mode needs no memory reference to fetch the operand?",
+         "options": {
+          "A": "Indexed",
+          "B": "Immediate",
+          "C": "Direct",
+          "D": "Indirect"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Register mode also needs none."
+        },
+        {
+         "question": "After the instruction has been fetched, how many memory references does indirect addressing need to get the operand?",
+         "options": {
+          "A": "0",
+          "B": "3",
+          "C": "2",
+          "D": "1"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "One for the address, one for the operand."
+        },
+        {
+         "question": "Which is a characteristic of RISC processors?",
+         "options": {
+          "A": "Memory-to-memory arithmetic",
+          "B": "Fixed-length instructions executed mostly in one clock cycle, with hardwired control",
+          "C": "Microprogrammed control with variable-length instructions",
+          "D": "Many complex addressing modes"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "PYQ pattern (KEA / KSET papers). Also many registers and a load/store design."
+        },
+        {
+         "question": "Which is a characteristic of CISC processors?",
+         "options": {
+          "A": "A pure load/store architecture",
+          "B": "Register windows",
+          "C": "Single-cycle execution of every instruction",
+          "D": "A large instruction set with variable-length formats and many addressing modes"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Usually microprogrammed."
+        },
+        {
+         "question": "Overlapped register windows in RISC processors are used to",
+         "options": {
+          "A": "Store the page table",
+          "B": "Hold microinstructions",
+          "C": "Speed up division",
+          "D": "Pass parameters between procedures without memory accesses"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "Berkeley RISC / SPARC."
+        },
+        {
+         "question": "Which of these is a CISC architecture?",
+         "options": {
+          "A": "RISC-V",
+          "B": "Intel x86",
+          "C": "MIPS",
+          "D": "ARM"
+         },
+         "answer": "B",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "VAX and IBM 370 are other CISC examples."
+        },
+        {
+         "question": "A delayed branch in a RISC pipeline means",
+         "options": {
+          "A": "Branches are removed by the assembler",
+          "B": "Branches are executed twice",
+          "C": "The instruction after the branch (in the delay slot) is executed before the branch takes effect",
+          "D": "The branch waits for an interrupt"
+         },
+         "answer": "C",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "The compiler fills the slot with a useful instruction."
+        },
+        {
+         "question": "A 5-stage pipeline executes 100 instructions with no stalls in",
+         "options": {
+          "A": "100 cycles",
+          "B": "105 cycles",
+          "C": "500 cycles",
+          "D": "104 cycles"
+         },
+         "answer": "D",
+         "subject": "Addressing Modes, RISC and CISC Computers (with Pipelining)",
+         "explanation": "PYQ pattern (KEA / KSET papers). k + n − 1 = 5 + 99."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "CPU – revision sheet",
+       "md": "## General register organization\n- 7 registers on a bus system; SELA/SELB drive two MUXes (ALU inputs), SELD drives a 3 × 8 decoder (destination)\n- Control word 14 bits = SELA 3 + SELB 3 + SELD 3 + OPR 5; R1 ← R2 + R3 → SELA = R2, SELB = R3, SELD = R1, OPR = ADD\n- ALU status bits: C (carry), S (sign), Z (zero), V (overflow)\n\n## Stack organization\n- LIFO; SP = top; 64-word register stack → 6-bit SP, FULL/EMTY flags\n- Memory stack growing down: PUSH SP ← SP − 1, M[SP] ← DR; POP DR ← M[SP], SP ← SP + 1; limit registers check overflow/underflow\n- Reverse Polish: (A + B) * (C + D) → A B + C D + *; 3 4 * 5 6 * + = 42\n\n## Instruction formats – X = (A + B) * (C + D)\n| Format | Instructions |\n|---|---|\n| Three-address | 3 (short program, long instructions) |\n| Two-address | 6 |\n| One-address (AC) | 7 |\n| Zero-address (stack) | 8 |\n- Opcode bits ≥ ⌈log₂ operations⌉ (100 ops → 7 bits); expanding opcode\n\n## Addressing modes (EA = effective address)\n| Mode | EA / operand |\n|---|---|\n| Implied | in the opcode (CMA) |\n| Immediate | operand in the instruction (no memory access) |\n| Register / register indirect | in register / address in register |\n| Direct | address field |\n| Indirect | M[address field] (2 memory accesses) |\n| Relative | PC + address field |\n| Indexed | XR + address field |\n| Base register | base + address (relocation) |\n| Autoincrement/decrement | register indirect, then ±1 |\n- Mano example: PC = 202, address 500, XR = 100 → relative 702, indexed 600\n\n## RISC vs CISC and pipelining\n- RISC: few simple instructions, fixed length, load/store, many registers, register windows, hardwired, ~1 cycle, delayed branch (ARM, MIPS, SPARC, RISC-V)\n- CISC: many instructions and modes, variable length, memory operands, microprogrammed (x86, VAX)\n- Pipeline: k stages, n instructions → k + n − 1 cycles; speed-up nk / (k + n − 1); with s stall cycles per instruction speed-up = k / (1 + s)\n- Hazards: structural, data (dependency – forwarding), control/instruction (branches – prediction, delay slots); stalls reduced by forwarding, prediction, out-of-order execution, register renaming\n"
+      }
+     ]
+    },
+    {
+     "name": "Input-Output Organization",
+     "sets": [
+      {
+       "name": "1 · Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+       "questions": [
+        {
+         "question": "Input or output devices attached to a computer are called",
+         "options": {
+          "A": "Registers",
+          "B": "Buses",
+          "C": "Peripherals",
+          "D": "Processors"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Keyboards, printers, disks, displays."
+        },
+        {
+         "question": "An input-output interface is needed between the CPU and peripherals mainly because",
+         "options": {
+          "A": "Peripherals have no power supply",
+          "B": "Peripherals differ from the CPU in signal type, speed, data format and operating mode",
+          "C": "The CPU cannot address memory",
+          "D": "Memory is too fast"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano, ch. 11."
+        },
+        {
+         "question": "An I/O bus consists of",
+         "options": {
+          "A": "Address lines and a clock",
+          "B": "Data lines alone",
+          "C": "Power and ground lines",
+          "D": "Data lines, address lines and control lines"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The address selects the interface."
+        },
+        {
+         "question": "The four kinds of I/O command an interface may receive are",
+         "options": {
+          "A": "Add, subtract, shift and halt",
+          "B": "Push, pop, call and return",
+          "C": "Control, status, data output and data input",
+          "D": "Read, write, fetch and decode"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Mano, ch. 11."
+        },
+        {
+         "question": "In isolated I/O",
+         "options": {
+          "A": "No control lines are needed",
+          "B": "I/O and memory have separate address spaces, and the CPU uses separate instructions such as IN and OUT",
+          "C": "I/O registers are memory locations",
+          "D": "DMA is required"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "PYQ pattern (KEA / KSET papers). Memory-mapped I/O uses ordinary memory instructions."
+        },
+        {
+         "question": "An advantage of memory-mapped I/O is that",
+         "options": {
+          "A": "Separate IN/OUT instructions are faster",
+          "B": "The whole address space stays free for memory",
+          "C": "It needs no address decoding",
+          "D": "Every memory-reference instruction can also work on I/O registers"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The cost is part of the address space."
+        },
+        {
+         "question": "Memory-mapped I/O reduces the memory addresses available because",
+         "options": {
+          "A": "Part of the address space is assigned to I/O registers",
+          "B": "I/O devices need cache",
+          "C": "DMA uses memory",
+          "D": "Interrupts use memory"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Isolated I/O avoids this."
+        },
+        {
+         "question": "A processor with its own instruction set that runs I/O programs (channel programs) is an",
+         "options": {
+          "A": "Cache controller",
+          "B": "I/O processor (IOP)",
+          "C": "ALU",
+          "D": "Floating-point unit"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "It frees the CPU from I/O work."
+        },
+        {
+         "question": "The drawback of strobe-controlled asynchronous transfer is that",
+         "options": {
+          "A": "Two control lines are needed",
+          "B": "It works for serial data alone",
+          "C": "It needs a common clock",
+          "D": "The source cannot know whether the destination actually received the data"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "PYQ pattern (KEA / KSET papers). Handshaking solves this."
+        },
+        {
+         "question": "Handshaking uses",
+         "options": {
+          "A": "One strobe pulse",
+          "B": "A common clock",
+          "C": "Two control signals – e.g. 'data valid' from the source and 'data accepted' from the destination",
+          "D": "Parity bits"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Each unit tells the other what it has done."
+        },
+        {
+         "question": "In handshaking, a fault in the destination unit can be detected by",
+         "options": {
+          "A": "A timeout – the source waits too long for the reply signal",
+          "B": "Raising the clock rate",
+          "C": "A checksum",
+          "D": "Parity checking"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Then an error routine is run."
+        },
+        {
+         "question": "Two units with independent clocks transfer data using",
+         "options": {
+          "A": "A shared clock",
+          "B": "Asynchronous transfer (strobe or handshaking)",
+          "C": "DMA",
+          "D": "Memory-mapped I/O"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Most CPU–peripheral transfers are asynchronous."
+        },
+        {
+         "question": "In a destination-initiated strobe transfer",
+         "options": {
+          "A": "The destination raises the strobe to request data, and the source puts the data on the bus",
+          "B": "Data is sent serially",
+          "C": "The source sends data without being asked",
+          "D": "The CPU clock times the transfer"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The source-initiated version is the reverse."
+        },
+        {
+         "question": "Which peripheral transfers data the slowest?",
+         "options": {
+          "A": "Solid-state drive",
+          "B": "Gigabit network card",
+          "C": "Magnetic disk",
+          "D": "Keyboard"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "It depends on human typing speed."
+        },
+        {
+         "question": "Each peripheral has its own controller, which",
+         "options": {
+          "A": "Runs user programs",
+          "B": "Stores the operating system",
+          "C": "Operates the device and communicates with the interface",
+          "D": "Replaces the CPU"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "E.g. a disk controller."
+        },
+        {
+         "question": "An interface with four registers selects one of them using",
+         "options": {
+          "A": "Register-select inputs RS1 and RS0 plus a chip-select CS",
+          "B": "The program counter",
+          "C": "The interrupt vector",
+          "D": "Eight select lines"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano's example interface unit."
+        },
+        {
+         "question": "The status register of an interface tells the CPU",
+         "options": {
+          "A": "The memory size",
+          "B": "Whether the device is ready, busy or has an error",
+          "C": "The cache contents",
+          "D": "The next instruction"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Flag bits such as FGI and FGO."
+        },
+        {
+         "question": "Port A and port B of a programmable interface hold",
+         "options": {
+          "A": "Page tables",
+          "B": "Interrupt priorities",
+          "C": "Microinstructions",
+          "D": "Data being transferred in or out"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The control register sets their direction."
+        },
+        {
+         "question": "In synchronous data transfer between CPU and memory, both units",
+         "options": {
+          "A": "Use DMA",
+          "B": "Use start and stop bits",
+          "C": "Share a common clock",
+          "D": "Use handshaking signals"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Transfers happen on clock edges."
+        },
+        {
+         "question": "Which device is purely an output peripheral?",
+         "options": {
+          "A": "Keyboard",
+          "B": "Microphone",
+          "C": "Printer",
+          "D": "Scanner"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The others are input devices."
+        },
+        {
+         "question": "A touch screen is",
+         "options": {
+          "A": "Both an input and an output device",
+          "B": "An input device alone",
+          "C": "An output device alone",
+          "D": "A storage device"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "It displays and senses touch."
+        },
+        {
+         "question": "Compared with the CPU, most peripherals transfer data",
+         "options": {
+          "A": "Without control signals",
+          "B": "At exactly the same rate",
+          "C": "Faster",
+          "D": "Much more slowly, so synchronization is needed"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Hence buffering and flags."
+        },
+        {
+         "question": "Character-oriented peripherals such as terminals exchange data mostly as",
+         "options": {
+          "A": "ASCII (alphanumeric) codes",
+          "B": "Floating-point numbers",
+          "C": "Page numbers",
+          "D": "Microinstructions"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "One character per transfer."
+        },
+        {
+         "question": "Three-state (tri-state) buffers allow",
+         "options": {
+          "A": "Storing three bits",
+          "B": "Several sources to share one bus line, only one being enabled at a time",
+          "C": "Error correction",
+          "D": "Faster ALU operations"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The disabled outputs are in the high-impedance state."
+        },
+        {
+         "question": "A computer that uses one common bus and common read/write lines for both memory and I/O uses",
+         "options": {
+          "A": "Memory-mapped I/O",
+          "B": "Programmed DMA",
+          "C": "Direct cache access",
+          "D": "Isolated I/O"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Isolated I/O has separate I/O read/write lines."
+        },
+        {
+         "question": "A keyboard interface tells the CPU that a key has been pressed by",
+         "options": {
+          "A": "Changing the program counter",
+          "B": "Setting a status flag (or raising an interrupt)",
+          "C": "Moving the stack pointer",
+          "D": "Filling a cache line"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "The CPU then reads the data register."
+        },
+        {
+         "question": "Arrange the source-initiated handshake: (a) the destination accepts the data and raises 'data accepted' (b) the source places the data and raises 'data valid' (c) the source removes 'data valid' (d) the destination lowers 'data accepted'",
+         "options": {
+          "A": "a, b, c, d",
+          "B": "c, a, b, d",
+          "C": "b, a, c, d",
+          "D": "b, c, a, d"
+         },
+         "answer": "C",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "PYQ pattern (KEA / KSET papers). Each step waits for the other unit's signal."
+        },
+        {
+         "question": "The Intel 8255 is a",
+         "options": {
+          "A": "Serial communication chip",
+          "B": "DMA controller",
+          "C": "Interrupt controller",
+          "D": "Programmable peripheral interface with three 8-bit ports"
+         },
+         "answer": "D",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Ports A, B and C."
+        },
+        {
+         "question": "When an interface receives a control command, it",
+         "options": {
+          "A": "Activates the peripheral and tells it what to do",
+          "B": "Changes the PC",
+          "C": "Writes to memory",
+          "D": "Halts the CPU"
+         },
+         "answer": "A",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "E.g. rewind a tape or start a disk."
+        },
+        {
+         "question": "The I/O address placed on the address lines is used to",
+         "options": {
+          "A": "Select a memory bank",
+          "B": "Select the interface (and the register within it) for the transfer",
+          "C": "Select a microinstruction",
+          "D": "Select a cache way"
+         },
+         "answer": "B",
+         "subject": "Peripheral Devices, Input-Output Interface and Asynchronous Data Transfer",
+         "explanation": "Each interface decodes its own addresses."
+        }
+       ]
+      },
+      {
+       "name": "2 · Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+       "questions": [
+        {
+         "question": "Match the 8085 hardware interrupt with its vector address\nInterrupt: L1. RST 7.5  L2. RST 6.5  L3. RST 5.5  L4. TRAP\nVector Address: i. 003CH  ii. 0034H  iii. 002CH  iv. 0024H\nCode: L1 L2 L3 L4",
+         "options": {
+          "A": "i ii iii iv",
+          "B": "ii iii i iv",
+          "C": "iii ii i iv",
+          "D": "iv ii iii i"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Vector = n × 8 for RST n: 7.5 → 3CH, 6.5 → 34H, 5.5 → 2CH, TRAP (4.5) → 24H. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q54"
+        },
+        {
+         "question": "The three modes of transferring data between the CPU and I/O devices are",
+         "options": {
+          "A": "Serial, parallel and USB",
+          "B": "Strobe, handshake and clock",
+          "C": "Polling, paging and caching",
+          "D": "Programmed I/O, interrupt-initiated I/O and DMA"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). Mano, ch. 11."
+        },
+        {
+         "question": "Finding the interrupting device by software polling is",
+         "options": {
+          "A": "Done by a daisy chain",
+          "B": "Done by DMA",
+          "C": "Simple but slow when many devices are connected",
+          "D": "The fastest method"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The polling order sets the priority."
+        },
+        {
+         "question": "In a daisy-chain priority interrupt",
+         "options": {
+          "A": "Priority is set by software alone",
+          "B": "The device electrically nearest the CPU has the highest priority",
+          "C": "The farthest device has the highest priority",
+          "D": "All devices have equal priority"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). The acknowledge passes from device to device."
+        },
+        {
+         "question": "In a daisy chain, a device that has a pending interrupt",
+         "options": {
+          "A": "Blocks the acknowledge (PO = 0) and puts its vector address on the bus",
+          "B": "Passes the acknowledge on (PO = 1)",
+          "C": "Ignores the acknowledge",
+          "D": "Resets the CPU"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Devices further down see PI = 0."
+        },
+        {
+         "question": "A parallel priority interrupt circuit uses",
+         "options": {
+          "A": "A daisy chain",
+          "B": "An interrupt register, a mask register and a priority encoder",
+          "C": "A shift register",
+          "D": "A DMA controller"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The encoder outputs the vector of the highest-priority request."
+        },
+        {
+         "question": "The mask register in a priority interrupt unit",
+         "options": {
+          "A": "Holds the return address",
+          "B": "Stores the vector addresses",
+          "C": "Counts interrupts",
+          "D": "Disables (masks) selected interrupt requests"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Set by the program."
+        },
+        {
+         "question": "In a vectored interrupt, the CPU obtains the address of the service routine from",
+         "options": {
+          "A": "Polling every device",
+          "B": "A fixed location only",
+          "C": "The interrupting device (its vector)",
+          "D": "The DMA controller"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Non-vectored interrupts branch to a fixed location."
+        },
+        {
+         "question": "A non-maskable interrupt such as TRAP in the 8085 is used for",
+         "options": {
+          "A": "Timer ticks that may be ignored",
+          "B": "Keyboard input",
+          "C": "Software exceptions alone",
+          "D": "Critical events such as power failure – it cannot be disabled"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "It has the highest priority."
+        },
+        {
+         "question": "When the CPU accepts an interrupt, it first",
+         "options": {
+          "A": "Halts",
+          "B": "Completes the current instruction, saves PC (and status) and branches to the service routine",
+          "C": "Clears memory",
+          "D": "Discards the current instruction"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Then IEN is cleared to block nesting (in simple CPUs)."
+        },
+        {
+         "question": "A divide-by-zero detected by the CPU causes",
+         "options": {
+          "A": "An internal interrupt (trap)",
+          "B": "An external interrupt",
+          "C": "A cache miss",
+          "D": "A DMA request"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "External interrupts come from devices or timers."
+        },
+        {
+         "question": "A software interrupt is",
+         "options": {
+          "A": "Caused by a timer",
+          "B": "Caused by an I/O device",
+          "C": "Started by executing an instruction, e.g. a supervisor call to the OS",
+          "D": "Caused by a power failure"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "INT n on x86."
+        },
+        {
+         "question": "In DMA, the controller requests the buses with BR, and the CPU replies with",
+         "options": {
+          "A": "BG (bus grant), after putting its bus lines in the high-impedance state",
+          "B": "An interrupt",
+          "C": "A strobe",
+          "D": "A parity bit"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). The DMA controller then drives the buses."
+        },
+        {
+         "question": "A DMA controller contains",
+         "options": {
+          "A": "A page table",
+          "B": "A data register alone",
+          "C": "An address register, a word-count register and a control register",
+          "D": "The program counter"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The CPU loads them before the transfer."
+        },
+        {
+         "question": "In cycle-stealing DMA",
+         "options": {
+          "A": "The whole block is sent while the CPU waits",
+          "B": "The CPU transfers each word",
+          "C": "Interrupts are disabled",
+          "D": "The controller transfers one word and returns the bus, stealing single memory cycles from the CPU"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The CPU slows down a little."
+        },
+        {
+         "question": "In burst-mode DMA",
+         "options": {
+          "A": "One word per cycle is stolen",
+          "B": "A block of words is transferred in one continuous burst while the CPU is held off the bus",
+          "C": "The CPU executes the I/O program",
+          "D": "No bus request is made"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Used for fast devices such as disks."
+        },
+        {
+         "question": "When the word count of a DMA transfer reaches zero, the controller",
+         "options": {
+          "A": "Starts again",
+          "B": "Halts the computer",
+          "C": "Stops and interrupts the CPU",
+          "D": "Clears memory"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The CPU then checks the result."
+        },
+        {
+         "question": "DMA is best suited for",
+         "options": {
+          "A": "High-speed block transfers such as disk to memory",
+          "B": "Reading a switch",
+          "C": "Single keystrokes",
+          "D": "Printing one character"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Programmed I/O suits slow, small transfers."
+        },
+        {
+         "question": "The Intel 8237 and 8259 are, respectively, a",
+         "options": {
+          "A": "Timer and a UART",
+          "B": "DMA controller and a programmable interrupt controller",
+          "C": "Interrupt controller and a DMA controller",
+          "D": "Peripheral interface and a timer"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "8255 = PPI, 8253/8254 = timer, 8251 = USART."
+        },
+        {
+         "question": "An I/O processor (channel) differs from a simple DMA controller because it",
+         "options": {
+          "A": "Uses no bus",
+          "B": "Is slower than programmed I/O",
+          "C": "Cannot access memory",
+          "D": "Fetches and executes its own I/O instructions (channel programs)"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "The CPU only starts the channel program."
+        },
+        {
+         "question": "In asynchronous serial transmission, each character is framed by",
+         "options": {
+          "A": "A start bit (0) and one or more stop bits (1)",
+          "B": "A header and trailer of bytes",
+          "C": "A clock pulse",
+          "D": "Two parity bits"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). The line rests at 1 between characters."
+        },
+        {
+         "question": "A terminal sends 10 characters per second, each with 1 start bit, 8 data bits and 2 stop bits. The baud rate is",
+         "options": {
+          "A": "100",
+          "B": "110",
+          "C": "88",
+          "D": "80"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). 11 bits × 10 characters per second."
+        },
+        {
+         "question": "With 1 start bit, 8 data bits and 1 stop bit, the fraction of transmitted bits that carry data is",
+         "options": {
+          "A": "90%",
+          "B": "100%",
+          "C": "80%",
+          "D": "70%"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "8 / 10."
+        },
+        {
+         "question": "A UART (universal asynchronous receiver-transmitter)",
+         "options": {
+          "A": "Stores interrupt vectors",
+          "B": "Is a DMA controller",
+          "C": "Decodes addresses",
+          "D": "Converts parallel data to serial for transmission and back on reception"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "It also adds the start, stop and parity bits."
+        },
+        {
+         "question": "Synchronous serial transmission",
+         "options": {
+          "A": "Is slower than asynchronous transmission",
+          "B": "Needs no clock",
+          "C": "Uses start and stop bits for every character",
+          "D": "Sends blocks of characters without start/stop bits per character, keeping the two clocks in step"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Sync characters mark the start of a block."
+        },
+        {
+         "question": "In the 8085, which interrupt is non-maskable and has the highest priority?",
+         "options": {
+          "A": "RST 6.5",
+          "B": "INTR",
+          "C": "TRAP",
+          "D": "RST 7.5"
+         },
+         "answer": "C",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "PYQ pattern (KEA / KSET papers). INTR has the lowest priority."
+        },
+        {
+         "question": "The 8085 interrupts in order of priority (highest first) are",
+         "options": {
+          "A": "INTR, RST 5.5, RST 6.5, RST 7.5, TRAP",
+          "B": "TRAP, RST 7.5, RST 6.5, RST 5.5, INTR",
+          "C": "TRAP, INTR, RST 7.5, RST 6.5, RST 5.5",
+          "D": "RST 7.5, TRAP, RST 6.5, RST 5.5, INTR"
+         },
+         "answer": "B",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "TRAP is both edge and level triggered."
+        },
+        {
+         "question": "Interrupt latency is",
+         "options": {
+          "A": "The delay between an interrupt request and the start of its service routine",
+          "B": "The time between two interrupts",
+          "C": "The time a service routine takes",
+          "D": "The time to switch off interrupts"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Lower latency suits real-time systems."
+        },
+        {
+         "question": "During a DMA transfer, the CPU",
+         "options": {
+          "A": "Can continue internal work that does not need the buses",
+          "B": "Executes each data transfer instruction",
+          "C": "Must poll the device",
+          "D": "Is switched off"
+         },
+         "answer": "A",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "It waits only when it needs the bus."
+        },
+        {
+         "question": "Which mode of transfer gives the highest data rate for block transfers?",
+         "options": {
+          "A": "Interrupt-initiated I/O",
+          "B": "Polling with handshaking",
+          "C": "Programmed I/O",
+          "D": "DMA"
+         },
+         "answer": "D",
+         "subject": "Modes of Transfer, Priority Interrupt, DMA and Serial Communication",
+         "explanation": "Data does not pass through the CPU."
+        }
+       ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "I/O organization – revision sheet",
+       "md": "## Interface\n- Needed because of differences in signals, speed, data format and modes; I/O bus = data + address + control lines\n- Commands: control, status, data output, data input; registers chosen by CS, RS1, RS0 (ports A, B, control, status)\n- Isolated I/O (separate address space, IN/OUT, I/O read/write lines) vs memory-mapped I/O (I/O registers are memory addresses; all memory instructions work)\n- IOP / channel runs its own I/O programs; chips: 8255 PPI, 8251 USART, 8253/54 timer, 8257/8237 DMA, 8259 PIC\n\n## Asynchronous transfer\n- Strobe (one line; source- or destination-initiated) – no acknowledgement\n- Handshaking (two lines: data valid / data accepted; timeout detects faults): b → a → c → d sequence\n- Synchronous transfer uses a common clock (CPU–memory)\n\n## Modes of transfer\n1. Programmed I/O – CPU polls the flag (busy waiting)\n2. Interrupt-initiated I/O – device interrupts when ready\n3. DMA – BR/BG; address, word-count and control registers; burst vs cycle stealing; interrupt when the count reaches 0\n\n## Priority interrupt\n- Software polling; daisy chain (nearest device highest; PI/PO; vector on the bus); parallel (interrupt register + mask register + priority encoder)\n- Vectored vs non-vectored; maskable vs non-maskable; internal (trap), external, software interrupts\n- 8085: TRAP (24H, NMI) > RST 7.5 (3CH) > RST 6.5 (34H) > RST 5.5 (2CH) > INTR; interrupt latency = request → start of ISR\n\n## Serial communication\n- Asynchronous: start bit 0, 5–8 data bits, optional parity, 1–2 stop bits; 10 char/s × 11 bits = 110 baud; UART\n- Synchronous: blocks with sync characters, no start/stop bits per character\n"
       }
      ]
     }
