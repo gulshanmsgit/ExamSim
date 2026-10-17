@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)",
- "description": "Real questions from past KEA / KSET papers (895 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2; Legislative Council 2024 – Junior Console Operator Paper-2; Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section). Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
+ "description": "Real questions from past KEA / KSET papers (1007 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2; Legislative Council 2024 – Junior Console Operator Paper-2; Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section); GFGC 2021 – Assistant Professor Computer Science. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
  "subjects": [
   {
    "name": "P2 · Previous-Year Papers (KEA/KSET)",
@@ -11876,6 +11876,1492 @@
        ]
       }
      ]
+    },
+    {
+     "name": "GFGC 2021 – Assistant Professor Computer Science",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Which of the following statement is a proposition ?",
+         "options": {
+          "A": "The only even prime number is 2",
+          "B": "Get me a glass of water",
+          "C": "Where are you going ?",
+          "D": "God bless you !"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "A proposition is a declarative sentence that is true or false. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q1"
+        },
+        {
+         "question": "Given x = (313)₅ and y = (311)₅ then x + y will be",
+         "options": {
+          "A": "(1301)₅",
+          "B": "(1124)₅",
+          "C": "(1224)₅",
+          "D": "(1201)₅"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "83 + 81 = 164 = 1·125 + 1·25 + 2·5 + 4 = (1124)₅. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q2"
+        },
+        {
+         "question": "If there are 60 students in a class, then there must be at least ____, names of students starting with same English letter.",
+         "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Pigeonhole: ⌈60/26⌉ = 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q3"
+        },
+        {
+         "question": "Which is not a graph colouring application ?",
+         "options": {
+          "A": "Register allocation",
+          "B": "Mobile Radio frequency assignment",
+          "C": "Sudoku",
+          "D": "Eight queen puzzle"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Register allocation, frequency assignment and Sudoku are classic colouring problems; eight queens is solved by backtracking. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q4"
+        },
+        {
+         "question": "Calculate P(B/A), if P(A/B) = 0.75, P(B) = 0.5, P(A) = 0.4 using Bayes' theorem",
+         "options": {
+          "A": "0.9375",
+          "B": "0.9215",
+          "C": "0.9175",
+          "D": "0.9075"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "0.75 × 0.5 / 0.4 = 0.9375. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q5"
+        },
+        {
+         "question": "Given proposition is a : (p ⇒ q) ⇔ (~q ⇒ ~ F)",
+         "options": {
+          "A": "Absurdity",
+          "B": "Contingency",
+          "C": "Tautology",
+          "D": "Contradiction"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Read as (p ⇒ q) ⇔ (~q ⇒ ~p): an implication and its contrapositive are equivalent, so a tautology ('F' is a misprint for p). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q6"
+        },
+        {
+         "question": "How many different arrangements of the letters in the word \"BOOGH\" can be formed if the vowels must be kept next to each other ?",
+         "options": {
+          "A": "5! × 2",
+          "B": "5! × 3",
+          "C": "4! × 2",
+          "D": "3! × 3"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Treat OO as one block: 4! arrangements; the intended answer multiplies by 2! for the vowels (strictly, the two O's are identical, giving 4! = 24). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q7"
+        },
+        {
+         "question": "Which is the identity element in the group G = {2, 4, 6, 8} under multiplication modulo 10 ?",
+         "options": {
+          "A": "5",
+          "B": "9",
+          "C": "6",
+          "D": "12"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "6 × 2 = 12 ≡ 2, 6 × 4 ≡ 4, 6 × 6 ≡ 6, 6 × 8 ≡ 8 (mod 10). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q8"
+        },
+        {
+         "question": "What is the Initial Basic Feasible Solution (IBFS) for the following Supply and Demand table ?\nProcess | S₁ | S₂ | S₃ | Supply\nP₁ | 2 | 7 | 10 | 10\nP₂ | 4 | 8 | 2 | 20\nP₃ | 6 | 9 | 1 | 40\nDemand | 10 | 35 | 25 | 70\\70",
+         "options": {
+          "A": "₹ 320",
+          "B": "₹ 340",
+          "C": "₹ 350",
+          "D": "₹ 360"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "North-west corner (and least cost) both give 10×2 + 20×8 + 15×9 + 25×1 = 340. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q9"
+        },
+        {
+         "question": "What is the chromatic number for the given graph ?\n[Figure: a hexagon – a cycle of 6 vertices]",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "5"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "An even cycle is bipartite: 2 colours. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q10"
+        },
+        {
+         "question": "How many Hamiltonian paths the following graph has ?\n[Figure: edges a–b, b–d, d–e, b–c, c–d]",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "a and e have degree 1, so they are the ends: only a–b–c–d–e. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q11"
+        },
+        {
+         "question": "The formula for calculating average duration time D̄ and variance v for pessimistic time estimate in the PERT networks are [where a = optimistic time, b = pessimistic time and m = most likely time]",
+         "options": {
+          "A": "D̄ = (b + 4m + a)/6, v = ((a − b)/6)²",
+          "B": "D̄ = (b + 4m + b)/6, v = ((b − a)/6)²",
+          "C": "D̄ = (a + 4m + b)/3, v = ((b − a)/3)²",
+          "D": "D̄ = (b + 4m + a)/3, v = ((a − b)/3)²"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "te = (a + 4m + b)/6 and σ² = ((b − a)/6)²; option 1 is the same formula ((a − b)² = (b − a)²). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q12"
+        },
+        {
+         "question": "The sum of product form of the Boolean expression F = Ā(BC̄ + B̄C̄) + B(C̄D̄ + CD) is given by",
+         "options": {
+          "A": "F = Σ (0, 1, 4, 5, 7, 12, 15)",
+          "B": "F = Σ (0, 1, 5, 6, 7, 12, 15)",
+          "C": "F = Σ (0, 1, 4, 5, 7, 13, 15)",
+          "D": "F = Σ (0, 1, 3, 5, 7, 12, 15)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "ĀBC̄ → 4, 5; ĀB̄C̄ → 0, 1; BC̄D̄ → 4, 12; BCD → 7, 15. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q13"
+        },
+        {
+         "question": "Which register is used as a working area in CPU ?",
+         "options": {
+          "A": "Program counter",
+          "B": "Stalk pointer",
+          "C": "Accumulator",
+          "D": "Instruction register"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q14"
+        },
+        {
+         "question": "An instruction cycle refers to",
+         "options": {
+          "A": "Fetching an instruction",
+          "B": "Executing an instruction",
+          "C": "Fetching, decoding and Executing an instruction",
+          "D": "Reading and Executing an instruction"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "All the phases together form one instruction cycle. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q15"
+        },
+        {
+         "question": "Let Tp be the clock cycle time. The time taken to execute 5 instructions in a pipelined processor, if the first instruction takes 4 clock cycles.",
+         "options": {
+          "A": "8 Tp",
+          "B": "16 Tp",
+          "C": "20 Tp",
+          "D": "14 Tp"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "A 4-stage pipeline: (k + n − 1) cycles = 4 + 4 = 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q16"
+        },
+        {
+         "question": "Which of the following is not an application of logic operations ?",
+         "options": {
+          "A": "Insert new bit values into a register.",
+          "B": "Change bit values.",
+          "C": "Delete a group of bits.",
+          "D": "Shift bit values in a register."
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Selective set/clear/complement, mask (delete) and insert are logic microoperations; shifting is a separate shift microoperation (Mano, ch. 4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q17"
+        },
+        {
+         "question": "Match the following :\nL1  MOV AL, DATA\nL2  MOV BH, 'A'\nL3  MOV AX, [BX + 4]\nL4  MOV [BX + D1], CL\ni. Immediate address mode\nii. Direct data-addressing mode\niii. Register relative addressing mode\niv. Base-plus-indirect addressing mode\nCode :  L1 L2 L3 L4",
+         "options": {
+          "A": "ii i iv iii",
+          "B": "iv i iii ii",
+          "C": "ii iv iii i",
+          "D": "ii i iii iv"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "DATA is a memory address (direct); 'A' is a constant (immediate); [BX + 4] is register relative; [BX + DI] is base-plus-index. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q18"
+        },
+        {
+         "question": "Which memory has the lowest access time ?",
+         "options": {
+          "A": "Cache memory",
+          "B": "Main memory",
+          "C": "Registers",
+          "D": "Optical disk"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Registers are inside the CPU. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q19"
+        },
+        {
+         "question": "The DMA read operation transfer data from",
+         "options": {
+          "A": "Memory to the I/O device",
+          "B": "An I/O device to the memory",
+          "C": "Memory to CPU registers",
+          "D": "An I/O device to CPU register"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "In DMA-controller terms (e.g. Intel 8237), a 'DMA read' reads memory and writes to the I/O device; a 'DMA write' goes from the device to memory. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q21"
+        },
+        {
+         "question": "Consider a four-stage pipeline processor in which each instruction on an average has 2 clock cycle stalls, then the speed up of this pipelined processor compared to an un-pipelined processor is ____",
+         "options": {
+          "A": "1.33",
+          "B": "2",
+          "C": "8",
+          "D": "0.5"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Speed-up = depth / (1 + stalls per instruction) = 4 / 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q22"
+        },
+        {
+         "question": "Which of the following property allows the processor to execute a number of clustered locations ?",
+         "options": {
+          "A": "Coherence",
+          "B": "Spatial",
+          "C": "Temporal",
+          "D": "Inclusion"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Spatial locality: nearby addresses are used together. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q23"
+        },
+        {
+         "question": "Consider a typical disk that rotates at 180 RPM, what is the average rotational delay?",
+         "options": {
+          "A": "0.32 sec",
+          "B": "0.4 sec",
+          "C": "0.16 sec",
+          "D": "0.2 sec"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "180 RPM = 3 rotations per second, so one rotation takes 1/3 s; the average delay is half a rotation ≈ 0.16 s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q24"
+        },
+        {
+         "question": "Consider the following statement with respect to shared memory and message passing inter-process communication.\nS₁ : Message passing is useful for exchanging large amount of data, because no conflicts need to be avoided.\nS₂ : Shared memory can be faster than message passing since message passing systems are typically implemented using system calls.",
+         "options": {
+          "A": "S₁ is True and S₂ is false",
+          "B": "S₁ is false and S₂ is true",
+          "C": "Both S₁ and S₂ are false",
+          "D": "Both S₁ and S₂ are true"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Silberschatz: message passing suits SMALL amounts of data. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "Consider the following declaration of a two-dimensional array in C :\nChar a[100] [100]\nAssuming that the main memory is byte-addressable and that array is stored starting from memory address, the address of a [40] [50] as ____",
+         "options": {
+          "A": "4040",
+          "B": "4050",
+          "C": "5040",
+          "D": "5050"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Starting from address 0, row-major: 40 × 100 + 50 = 4050 (GATE 2002). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q26"
+        },
+        {
+         "question": "The C-preprocessors are specified with ____ symbol.",
+         "options": {
+          "A": "#",
+          "B": "$",
+          "C": "“ ”",
+          "D": "&"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "#include, #define, #if … (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q27"
+        },
+        {
+         "question": "Static variable means ____",
+         "options": {
+          "A": "It is same as an automatic variable but is placed at the head of a program.",
+          "B": "It cannot be initialized.",
+          "C": "It retains its value throughout the file of the program.",
+          "D": "It is initialized once at the commencement of execution and cannot be changed at run time."
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "A static variable lives for the whole run and keeps its value between calls (it can be changed). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q29"
+        },
+        {
+         "question": "Which of the following is not correct for virtual function in C++ ?",
+         "options": {
+          "A": "Virtual function can be static.",
+          "B": "Virtual function should be accessed using pointers.",
+          "C": "Virtual function is defined in base class.",
+          "D": "Must be declared in public section of the class."
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Virtual functions cannot be static. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q30"
+        },
+        {
+         "question": "In C++, Destructor has a same name as the constructor and it is preceded by ____",
+         "options": {
+          "A": "!",
+          "B": "?",
+          "C": "~",
+          "D": "$"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "e.g. ~Box(). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q31"
+        },
+        {
+         "question": "Which of the following operators is used to allocate memory to array variable in Java?",
+         "options": {
+          "A": "alloc",
+          "B": "malloc",
+          "C": "new",
+          "D": "new malloc"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "int[] a = new int[5]; Java has no malloc. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q33"
+        },
+        {
+         "question": "Choose the incorrect statement from the following about the basic ray tracing technique used in image synthesis :",
+         "options": {
+          "A": "In this technique, rays are cast from the eye point through every pixel on the screen.",
+          "B": "This technique removes hidden surfaces.",
+          "C": "In this technique, viewing transformations are not applied to the scene prior to rendering.",
+          "D": "In this technique, rays are cast from the light source to the objects in the scene."
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Basic (backward) ray tracing casts rays from the eye, not from the lights. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q34"
+        },
+        {
+         "question": "Aspect ratio is generally defined as the ratio of the ____",
+         "options": {
+          "A": "Vertical to horizontal points",
+          "B": "Horizontal to vertical points",
+          "C": "Vertical to (horizontal + vertical) points",
+          "D": "Both Vertical to horizontal points and Horizontal to vertical points, depending on the convention followed"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Hearn & Baker define it as the ratio of vertical points to horizontal points. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q35"
+        },
+        {
+         "question": "Which homogeneous 2D matrix transforms the figure (a) to the figure (b) ?\n[Figure (a): a house with base from (0, 0) to (2, 0), walls up to y = 2 and roof peak at (1, 3). Figure (b): the same house lying on its side – peak at (0, 2), roof corners at (2, 1) and (2, 3), base corners at (6, 1) and (6, 3)]\nMatrices are written row by row.",
+         "options": {
+          "A": "[1 −2 6; 1 0 2; 0 0 1]",
+          "B": "[0 −2 6; 1 0 1; 0 0 1]",
+          "C": "[0 2 6; 1 0 1; 0 0 1]",
+          "D": "[0 2 −6; 2 0 1; 0 0 1]"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "x′ = −2y + 6 and y′ = x + 1 map (1, 3) → (0, 2), (0, 2) → (2, 1) and (2, 0) → (6, 3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q36"
+        },
+        {
+         "question": "In an Entity-Relationship model, suppose R is a many-to-one relationship from Entity Set E₁ to Entity set E₂. Assume that E₁ and E₂ participate totally in R and that the cardinality of E₁ is greater than the cardinality of E₂. Which one of the following is true about R ?",
+         "options": {
+          "A": "Every entity in E₁ is associated with exactly one entity in E₂.",
+          "B": "Some entity in E₁ is associated with more than one entity in E₂.",
+          "C": "Every entity in E₂ is associated with exactly one entity in E₁.",
+          "D": "Every entity in E₂ is associated with associated with at most on entity in E₁."
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "GATE 2018: many-to-one with total participation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q38"
+        },
+        {
+         "question": "Which of the following is a fundamental operation in the relational algebra ?",
+         "options": {
+          "A": "Natural Join",
+          "B": "Division",
+          "C": "Cartesian product",
+          "D": "Intersection"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Basic: select, project, union, difference, Cartesian product, rename. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q39"
+        },
+        {
+         "question": "Relation R with an associated set of functional dependencies, F, is decomposed into BCNF. The redundancy (arising out of functional dependencies) in the resulting set of relation is ____.",
+         "options": {
+          "A": "No redundancy",
+          "B": "More than zero but less than that of an equivalent 3NF decomposition.",
+          "C": "Proportional to the size of F +",
+          "D": "Indetermined"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "GATE 2002: BCNF removes FD-based redundancy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q40"
+        },
+        {
+         "question": "In second Normal form",
+         "options": {
+          "A": "No functional dependencies exist",
+          "B": "No multivalued dependencies exist",
+          "C": "No partial functional dependencies exist",
+          "D": "No partial multivalued dependencies exist"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "2NF removes partial dependencies on a key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q41"
+        },
+        {
+         "question": "____ is responsible for using that the database remains in a consistent state despite system failure.",
+         "options": {
+          "A": "Storage Manager",
+          "B": "Transaction Manager",
+          "C": "Concurrency Control Manager",
+          "D": "Database Administrator"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Silberschatz: the transaction manager. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q42"
+        },
+        {
+         "question": "Which one of the following statements about normal forms is FALSE ?",
+         "options": {
+          "A": "BCNF is stricter than 3NF.",
+          "B": "Loss less, dependency-preserving decomposition into 3NF is always possible.",
+          "C": "Loss less, dependency-preserving decomposition into BCNF is always possible.",
+          "D": "Any relation with two attributes is BCNF."
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "BCNF may lose dependencies (GATE 2005). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q43"
+        },
+        {
+         "question": "IN SQL, testing whether a subquery is empty done using",
+         "options": {
+          "A": "DISTINCT",
+          "B": "UNIQUE",
+          "C": "NULL",
+          "D": "EXISTS"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "EXISTS. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q44"
+        },
+        {
+         "question": "Which level of locking provides the highest degree of concurrency in a relational database ?",
+         "options": {
+          "A": "Page",
+          "B": "Table",
+          "C": "Row",
+          "D": "Column"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Row-level locks are the finest in common use. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q45"
+        },
+        {
+         "question": "How to select data from \"Student table starting with the name of student (Sname) with letter 'S' ?",
+         "options": {
+          "A": "Select * from student where Sname like 'S%'.",
+          "B": "Select * from student where Sname like '%S%'.",
+          "C": "Select * from student where Sname like '%S'.",
+          "D": "Select * from student where Sname like '–S%'."
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "'S%' = starts with S. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q46"
+        },
+        {
+         "question": "Which of the following refer to data mining ?",
+         "options": {
+          "A": "Knowledge discovery in database",
+          "B": "Data warehousing",
+          "C": "Regression Analysis",
+          "D": "Parallel processing in database"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Data mining is the core of KDD. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q47"
+        },
+        {
+         "question": "In Support Vector Machine, the dimension of the hyperplane depends on",
+         "options": {
+          "A": "The number of features",
+          "B": "The number of samples",
+          "C": "The number of target variable",
+          "D": "The number of classes"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "With n features the hyperplane has n − 1 dimensions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q48"
+        },
+        {
+         "question": "Which of the following is a NOSQL database type ?",
+         "options": {
+          "A": "SQL",
+          "B": "JSON",
+          "C": "Document database",
+          "D": "Relational database"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Document, key-value, column and graph stores. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q49"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "Given the request sequence = {176, 79, 34, 60, 92, 11, 41, 114}. The initial head position at 50, then the total seek count using SSTF is",
+         "options": {
+          "A": "201",
+          "B": "202",
+          "C": "203",
+          "D": "204"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "50 → 41 → 34 → 11 → 60 → 79 → 92 → 114 → 176: 9 + 7 + 23 + 49 + 19 + 13 + 22 + 62 = 204. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q51"
+        },
+        {
+         "question": "The pass numbers for each of the following activities :\n[ASSEMBLER PASSES]\n1. Object code generation\n2. Literals added to literal table\n3. Listing printed\n4. Address resolution of local symbols",
+         "options": {
+          "A": "1, 2, 1, 2",
+          "B": "2, 1, 2, 1",
+          "C": "2, 1, 1, 2",
+          "D": "1, 2, 2, 2"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Pass 1 builds the tables (literals, symbol addresses); pass 2 generates object code and prints the listing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q53"
+        },
+        {
+         "question": "Match the 8085 hardware interrupt with its vector address\nInterrupt: L1. RST 7.5  L2. RST 6.5  L3. RST 5.5  L4. TRAP\nVector Address: i. 003CH  ii. 0034H  iii. 002CH  iv. 0024H\nCode: L1 L2 L3 L4",
+         "options": {
+          "A": "i ii iii iv",
+          "B": "ii iii i iv",
+          "C": "iii ii i iv",
+          "D": "iv ii iii i"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Vector = n × 8 for RST n: 7.5 → 3CH, 6.5 → 34H, 5.5 → 2CH, TRAP (4.5) → 24H. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q54"
+        },
+        {
+         "question": "Consider a main memory with four page frames and the following sequence of page references : 3, 8, 2, 3, 9, 1, 6, 3, 8, 9, 3, 6, 2, 1, 3.\nWhich one of the following is true with respect to page replacement policies. First-in-First-out (FIFO) and Least Recently Used (LRU) ?",
+         "options": {
+          "A": "Both incur the same number of page faults",
+          "B": "FIFO incurs 2 more page faults than LRU",
+          "C": "LRU incurs 2 more page faults than FIFO",
+          "D": "FIFO incurs 1 more page fault than LRU"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Simulated: FIFO 12 faults, LRU 10 (GATE 2017). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q55"
+        },
+        {
+         "question": "Consider six memory partitions of size 200 kB, 400 kB, 600 kB, 500 kB, 300 kB, and 250 kB, where kB, refers kilobytes. These partitions need to be allotted to four processes of sizes 357 kB, 210 kB, 468 kB and 491 kB in that order. If the best fit algorithm is used, which partitions are NOT allotted to any processes ?",
+         "options": {
+          "A": "200 kB and 300 kB",
+          "B": "200 kB and 250 kB",
+          "C": "250 kB and 300 kB",
+          "D": "300 kB and 400 kB"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "357 → 400, 210 → 250, 468 → 500, 491 → 600. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q57"
+        },
+        {
+         "question": "Four jobs to be executed on a single processor system arrive at time 0 in the order A, B, C, D, their burst CPU time requirements are 4, 1, 8, 1 time units respectively. The completion time of A under Round-Robin scheduling with time slice of one time unit is ____.",
+         "options": {
+          "A": "10",
+          "B": "4",
+          "C": "8",
+          "D": "9"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "A B C D A C A C A: A finishes at 9. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q59"
+        },
+        {
+         "question": "Consider the page references : 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2 with 4 page frames. The number of page faults for LRU and optimal are",
+         "options": {
+          "A": "6, 6",
+          "B": "5, 6",
+          "C": "6, 5",
+          "D": "5, 5"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Simulated: LRU 6, optimal 6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q61"
+        },
+        {
+         "question": "Expand DSM",
+         "options": {
+          "A": "Direct System Module",
+          "B": "Direct System Memory",
+          "C": "Demoralized System Memory",
+          "D": "Distributed Shared Memory"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "DSM. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q62"
+        },
+        {
+         "question": "In software testing, how the error, fault and failure are related to each other ?",
+         "options": {
+          "A": "Error leads to failure but fault is not related to error and failure.",
+          "B": "Fault leads to failure but error is not related to fault and failure.",
+          "C": "Error leads to fault and fault leads to failure.",
+          "D": "Fault leads to error and error leads to failure."
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "A human error puts a fault in the code; executing it causes a failure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q63"
+        },
+        {
+         "question": "Match the following :\na. Size-oriented metrics\nb. Function-oriented\nc. Extended function\nd. Function point\ni. Uses number of external interfaces as one of the measurement parameter.\nii. Originally designed to be applied to business information metrics system.\niii. Derived by normalizing quality and/or productivity point metrics measures in considering the size of the software.\niv. Uses algorithm characteristics as one of the measurement parameter.\nCodes (a b c d):",
+         "options": {
+          "A": "iii iv i ii",
+          "B": "ii i iv iii",
+          "C": "iv ii iii i",
+          "D": "iii i iv ii"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Pressman's metrics. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q64"
+        },
+        {
+         "question": "Regression testing is primarily related to",
+         "options": {
+          "A": "Functional testing",
+          "B": "Development testing",
+          "C": "Data flow testing",
+          "D": "Maintenance testing"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Re-testing after changes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q65"
+        },
+        {
+         "question": "A good software design must have",
+         "options": {
+          "A": "High module coupling, high module cohesion",
+          "B": "High module coupling, low module cohesion",
+          "C": "Low module coupling, high module cohesion",
+          "D": "Low module coupling, low module cohesion"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Low coupling, high cohesion. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q66"
+        },
+        {
+         "question": "Design recovery from source code is done during",
+         "options": {
+          "A": "Reverse Engineering",
+          "B": "Re-Engineering",
+          "C": "Re-use",
+          "D": "All of these"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Reverse engineering recovers design. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q67"
+        },
+        {
+         "question": "Which of the following word correctly summarize the importance of software design ?",
+         "options": {
+          "A": "Quality",
+          "B": "Complexity",
+          "C": "Efficiency",
+          "D": "Accuracy"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Pressman: design is where quality is fostered. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q68"
+        },
+        {
+         "question": "If the cyclomatic complexity of each of the modules A' and B' shown below is 11, what is the cyclomatic complexity of the sequential integration shown on the right hand side ?\n[Figure: A' and B' separately, then A' followed by B']",
+         "options": {
+          "A": "11",
+          "B": "31",
+          "C": "21",
+          "D": "20"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "V = 11 + 11 − 1 = 21 (GATE 2019). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q69"
+        },
+        {
+         "question": "Which of the following is not a key issue by an agile philosophy of software engineering ?",
+         "options": {
+          "A": "The importance of self-organizing teams as well as communication and collaborative between team members and customers.",
+          "B": "Recognition that change represents opportunity.",
+          "C": "Emphasis on rapid delivery of software that satisfies the customer.",
+          "D": "Having a separate testing phase after a build phase."
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Agile tests continuously. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q70"
+        },
+        {
+         "question": "Assume that a program will experience 100 failures in infinite time. It has now experienced 50 failures. The initial failure intensity was 20 failures/CPU hr. then the current failure intensity will be",
+         "options": {
+          "A": "5 failures/CPU hr.",
+          "B": "10 failures/CPU hr.",
+          "C": "20 failures/CPU hr.",
+          "D": "40 failures/CPU hr."
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Musa basic model: 20 × (1 − 50/100) = 10. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q71"
+        },
+        {
+         "question": "Which of the following are the facts about a top-down software testing approach ?\n(i) Top-down testing typically requires the tester to build method stubs.\n(ii) Top-down testing typically requires the tester to build test drivers.",
+         "options": {
+          "A": "Only (i) is true",
+          "B": "Only (ii) is true",
+          "C": "Both (i) and (ii) are true",
+          "D": "Neither (i) nor (ii) is true"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Drivers are for bottom-up testing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q72"
+        },
+        {
+         "question": "Which of the following is not part of the Test document ?",
+         "options": {
+          "A": "Test case",
+          "B": "Requirements Traceability Matrix",
+          "C": "Test Strategy",
+          "D": "Project Initiation Note"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "A project initiation note is a project-management document. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q73"
+        },
+        {
+         "question": "Which of the following is not a metrics for design model ?",
+         "options": {
+          "A": "Interface design metrics",
+          "B": "Component level metrics",
+          "C": "Architectural metrics",
+          "D": "Complexity metrics"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Pressman: architectural, component-level and interface design metrics. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q74"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "Consider the following operations performed on stack of size 5.\npush(11);\npop();\npush(21);\npush(33);\npop();\npush(44);\npop();\npop();\npush(55);\nAfter the completion of all operations, the number of elements present in stack is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "The stack ends holding only 55. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q76"
+        },
+        {
+         "question": "Identify the data structure which allow deletions at both ends of the list but insertion at only one end.",
+         "options": {
+          "A": "Input restricted dequeue",
+          "B": "Output restricted dequeue",
+          "C": "Priority queues",
+          "D": "Stack"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Input is restricted to one end. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q77"
+        },
+        {
+         "question": "Given Inorder and preorder traversals of binary tree as below:\nInorder: D E C G B F A\nPreorder: G E D C F B A\nThe postorder traversal of the binary tree will be",
+         "options": {
+          "A": "ABCDEFG",
+          "B": "ABFGECD",
+          "C": "DCEBAFG",
+          "D": "DEGFABC"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Root G; left subtree from D E C (root E), right from B F A (root F). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q78"
+        },
+        {
+         "question": "What approach is being followed in Floyd Warshall Algorithm ?",
+         "options": {
+          "A": "Greedy Technique",
+          "B": "Dynamic Programming",
+          "C": "Linear Programming",
+          "D": "Back tracking"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "DP over intermediate vertices. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q79"
+        },
+        {
+         "question": "Consider the following sequence of nodes for the undirected graph given below :\n[Figure edges: a–b, a–d, b–c, b–d, b–e, c–e, c–f, d–e, d–g, e–f, e–g, g–f]\nA Depth First Search (DFS) is started at node a. The nodes are visited in the order they are first visited. Which one of the following is a possible output ?",
+         "options": {
+          "A": "a e b f d g c",
+          "B": "a d g f c b e",
+          "C": "a f g e b c d",
+          "D": "a g b c d e f"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "a–d–g–f–c–b–e follows edges each time (GATE 2008); a is not adjacent to e, f or g. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q80"
+        },
+        {
+         "question": "What is the weight of a minimum spanning tree of the following graph ?\n[Figure edges with weights: a–b 6, a–c 1, a–d 2, c–d 2, b–d 3, b–g 2, g–j 19, g–h 8, g–i 14, j–i 5, d–h 15, h–i 4, h–f 4, f–i 9, a–e 8, e–h 8, e–f 11, e–i 2]",
+         "options": {
+          "A": "29",
+          "B": "31",
+          "C": "38",
+          "D": "41"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Kruskal: 1 + 2 + 2 + 2 + 3 + 4 + 4 + 5 + 8 = 31. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q81"
+        },
+        {
+         "question": "A binary search tree is generated by inserting the following integers in the order :\n50, 15, 62, 5, 20, 58, 3, 8, 37, 60, 24, 48, 52\nThe number of nodes in the left of the root and right of the root, respectively is",
+         "options": {
+          "A": "{4, 8}",
+          "B": "{7, 5}",
+          "C": "{8, 4}",
+          "D": "{5, 7}"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Left: 15, 5, 20, 3, 8, 37, 24, 48; right: 62, 58, 60, 52. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q82"
+        },
+        {
+         "question": "Solve the following recurrence relation using Master's Theorem\nT(n) = 2T(n/4) + n^0.51",
+         "options": {
+          "A": "θ(n^0.51)",
+          "B": "θ(n^0.52)",
+          "C": "θ(n)",
+          "D": "θ(n²)"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "n^(log₄2) = n^0.5 < n^0.51: case 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q83"
+        },
+        {
+         "question": "Match the following :\nList – I\nL₁. Prims algorithm\nL₂. Floyd-Warshall algorithm\nL₃. Mergesort\nL₄. Hamiltonian Circuit\nList – II\ni. Back tracking\nii. Greedy method\niii. Dynamic programming\niv. Divide and conquest\nCodes (L₁ L₂ L₃ L₄):",
+         "options": {
+          "A": "iii ii iv i",
+          "B": "i ii iv iii",
+          "C": "ii iii iv i",
+          "D": "ii i iii iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Paradigms. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q84"
+        },
+        {
+         "question": "How many conditions have to be met if an NP complete problem is polynomially reducible ?",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "It must be in NP and every NP problem must reduce to it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q85"
+        },
+        {
+         "question": "A parenthesis checker program would be best implemented using",
+         "options": {
+          "A": "Array",
+          "B": "List",
+          "C": "Queue",
+          "D": "Stack"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "The last opened bracket must close first. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q87"
+        },
+        {
+         "question": "Let G = {{a, b}, {S, A}, S, {S → a A b, aA → aa Ab, A → ∈}}. The language generated by this grammar is",
+         "options": {
+          "A": "L = {aⁿbⁿ | n∈ℕ, n >= 1}",
+          "B": "L = {aⁿ⁺¹bⁿ | n∈ℕ, n >= 1}",
+          "C": "L = {aⁿ⁺¹bⁿ | n∈ℕ, n >= 0}",
+          "D": "L = {aⁿbⁿ | n∈ℕ, n >= 0}"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "ab, aabb, aaabbb, … (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q88"
+        },
+        {
+         "question": "Consider the below given regular expressions :\n(i) (11)* (ε + 1)\n(ii) 11*\n(iii) (11)* 1\n(iv) 1*\nWhich of the following options is correct ?",
+         "options": {
+          "A": "(i) and (iv) are equivalent",
+          "B": "(i) and (ii) are equivalent",
+          "C": "(ii) and (iii) are equivalent",
+          "D": "(i) and (iii) are equivalent"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Even or odd number of 1s = any number of 1s. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q89"
+        },
+        {
+         "question": "The sum of minimum and maximum number of final states for a DFA which has 8 states is equal to",
+         "options": {
+          "A": "9",
+          "B": "8",
+          "C": "7",
+          "D": "10"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "1 + 8. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q90"
+        },
+        {
+         "question": "The context free grammar that will generate the language {aᵐbⁿcᵐ⁻ⁿ | m >= n >= 0} is ____",
+         "options": {
+          "A": "G = {{a, b, c}, {S, T}, S, {S → aSc|T, T → aTb|∈}}",
+          "B": "G = {{a, b, c}, {S, T}, S, {S → aSc|T, T → bTc|∈}}",
+          "C": "G = {{a, b, c}, {S, T}, S, {S → TbTaT|TcTbT|TcTaT, T → aT|bT|cT|∈}}",
+          "D": "G = {{a, b, c}, {S, T}, S, {S → aSc|T, T → bTa|∈}}"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "aᵐbⁿcᵐ⁻ⁿ = aᵐ⁻ⁿ (aⁿbⁿ) cᵐ⁻ⁿ. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q91"
+        },
+        {
+         "question": "Match the following\nList – I\na. Pushdown automata\nb. Regular expression\nc. Data flow analysis\nd. Type checking\nList – II\ni. Syntax analysis\nii. Code optimization\niii. Lexical analysis\niv. Semantic analysis\nCodes (a b c d):",
+         "options": {
+          "A": "i iii iv ii",
+          "B": "i iii ii iv",
+          "C": "iv iii i ii",
+          "D": "iv i ii iii"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Compiler phases. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q93"
+        },
+        {
+         "question": "Among simple LR (SLR), canonical LR, and look-ahead LR (LALR), which of the following pairs identify the method that is very easy to implement and the method that is the most powerful, in that order ?",
+         "options": {
+          "A": "SLR, LALR",
+          "B": "Canonical LR, LALR",
+          "C": "SLR, Canonical LR",
+          "D": "LALR, Canonical LR"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "GATE 2015. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q94"
+        },
+        {
+         "question": "Given the grammar : G = {S → AB, A → aA|bB|b, B → b}, the equivalent Greibach Normal form of G is given by",
+         "options": {
+          "A": "{S → AB, A → aA|bB|b, B → b}",
+          "B": "{S → aAB, A → A|a, B → B|b}",
+          "C": "{S → aAB|bBB|bB, A → aA|bB|b, B → b}",
+          "D": "{S → aAB|bAB|B, A → aA|bB|b, B → b}"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Substitute A's productions into S → AB. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q95"
+        },
+        {
+         "question": "The class of context free language is not closed under",
+         "options": {
+          "A": "Union",
+          "B": "Star",
+          "C": "Intersection",
+          "D": "Repeated concatenation"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "CFLs are not closed under intersection. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q96"
+        },
+        {
+         "question": "Consider the following two statements :\nS₁ : Every regular grammar is LL(1)\nS₂ : Every regular set has an LR(1) grammar\nWhich of the following is TRUE ?",
+         "options": {
+          "A": "Both S₁ and S₂ are true",
+          "B": "Both S₁ and S₂ are false",
+          "C": "S₁ is true and S₂ is false",
+          "D": "S₁ is false and S₂ is true"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "An ambiguous regular grammar is not LL(1); every regular set has an LR(1) grammar (GATE 2007). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q97"
+        },
+        {
+         "question": "In static allocation, names are bound to storage at ____ time.",
+         "options": {
+          "A": "compile",
+          "B": "execution",
+          "C": "debugging",
+          "D": "Both compile and execution"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Static = compile time. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q98"
+        },
+        {
+         "question": "Let A = 2, B = 3, C = 4 and D = 5. What is the final value of the prefix expression :\n+ * A B − C D ?",
+         "options": {
+          "A": "5",
+          "B": "−5",
+          "C": "10",
+          "D": "−10"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "(2 × 3) + (4 − 5) = 6 − 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q99"
+        },
+        {
+         "question": "The subnet mask for a particular network is 255.255.31.0. Which of the following pairs of IP address could belong to this network ?",
+         "options": {
+          "A": "172.57.88.62 and 172.58.87.233",
+          "B": "10.35.28.2 and 10.35.29.4",
+          "C": "191.203.31.87 and 191.234.31.88",
+          "D": "128.8.129.43 and 128.8.161.55"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "129 AND 31 = 1 and 161 AND 31 = 1, so both give 128.8.1.0 (GATE 2003). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q100"
+        }
+       ]
+      },
+      {
+       "name": "Q101–125",
+       "questions": [
+        {
+         "question": "Suppose a digitized voice channel is made by digitizing 6 kHz bandwidth analog voice signal. It is required to sample the signal at twice the highest frequency (two samples per Hertz). What is the bit rate required, if it is assumed that each sample requires 8 bits ?",
+         "options": {
+          "A": "64 kbps",
+          "B": "96 kbps",
+          "C": "128 kbps",
+          "D": "256 kbps"
+         },
+         "answer": "B",
+         "subject": "Q101–125",
+         "explanation": "12,000 samples/s × 8 bits = 96,000 bps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q102"
+        },
+        {
+         "question": "Match the following\na. Physical\nb. Datalink\nc. Network\nd. Transport\ni. SCTP\nii. IP Sec\niii. PPP\niv. Cables",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Cables – physical; PPP – data link; IPsec – network; SCTP – transport. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q103"
+        },
+        {
+         "question": "Encrypt the plain text message \"INTRANET\" using Transposition cipher technique with the following key:\n3 5 2 1 4 (Cipher text)\n1 2 3 4 5 (Plain text)\nUse 'X' as bogus character.",
+         "options": {
+          "A": "TANIRTXENX",
+          "B": "TNAIRTXENX",
+          "C": "TANRITXENX",
+          "D": "TANIRTEXNX"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Blocks of 5: INTRA, NETXX. Output order = plaintext positions 3, 5, 2, 1, 4: INTRA → T A N I R; NETXX → T X E N X. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q104"
+        },
+        {
+         "question": "In GSM cellular communication system, a data block of 184 bits is encoded into 224 bits of codeword on the control channel before sending it to a convolution encoder. Determine the number of parity check bits added and the code rate of the block encoder used.",
+         "options": {
+          "A": "40 bits, 0.82",
+          "B": "20 bits, 0.5",
+          "C": "80 bits, 1.64",
+          "D": "60 bits, 0.72"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Parity bits = 224 − 184 = 40; code rate = k/n = 184/224 ≈ 0.82. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q105"
+        },
+        {
+         "question": "What type of computing technology refers to services and applications that typically run on a distributed network through virtualized resources?",
+         "options": {
+          "A": "Distributed computing",
+          "B": "Cloud computing",
+          "C": "Soft computing",
+          "D": "Parallel computing"
+         },
+         "answer": "B",
+         "subject": "Q101–125",
+         "explanation": "On-demand, virtualised resources over the network. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q106"
+        },
+        {
+         "question": "Which one of the following is not a hacking method?",
+         "options": {
+          "A": "Sniffing",
+          "B": "Social engineering",
+          "C": "Spoofing",
+          "D": "Malware"
+         },
+         "answer": "D",
+         "subject": "Q101–125",
+         "explanation": "Sniffing, social engineering and spoofing are attack techniques; malware is the malicious software itself. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q107"
+        },
+        {
+         "question": "The four primary security principles related to a message are",
+         "options": {
+          "A": "Confidentiality, authentication, integrity and non-repudiation.",
+          "B": "Confidentiality, access control, non-repudiation and integrity.",
+          "C": "Authentication, authorization, non-repudiation and availability.",
+          "D": "Availability, access control, authorization and authentication."
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "These four apply to a message itself; access control and availability apply to systems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q108"
+        },
+        {
+         "question": "______ is the community that is working together to establish an IoT architecture based on open source technologies and standards.",
+         "options": {
+          "A": "Eclipse IoT",
+          "B": "Red Hat",
+          "C": "Intercloud",
+          "D": "Bot&Bot"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Eclipse IoT hosts projects such as Paho (MQTT) and Mosquitto. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q109"
+        },
+        {
+         "question": "______ is the standard port number of secure MQTT?",
+         "options": {
+          "A": "1883",
+          "B": "8000",
+          "C": "8883",
+          "D": "8888"
+         },
+         "answer": "C",
+         "subject": "Q101–125",
+         "explanation": "MQTT uses 1883; MQTT over TLS uses 8883. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q110"
+        },
+        {
+         "question": "Which of the following protocol is used for discovering and retrieving objects from a cloud?",
+         "options": {
+          "A": "OCCI",
+          "B": "SMTP",
+          "C": "HTTP",
+          "D": "FTP"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Open Cloud Computing Interface – a REST-based standard for managing cloud resources. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q111"
+        },
+        {
+         "question": "Which of the following are used to generate a message digest by the network security protocols?\nP. RSA  Q. SHA-1  R. DES  S. MD5",
+         "options": {
+          "A": "P and R only",
+          "B": "Q and R only",
+          "C": "Q and S only",
+          "D": "R and S only"
+         },
+         "answer": "C",
+         "subject": "Q101–125",
+         "explanation": "SHA-1 and MD5 are hash functions; RSA and DES are encryption algorithms. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q112"
+        },
+        {
+         "question": "Which of the following is a proposed means of testing the intelligence of a machine?",
+         "options": {
+          "A": "Turing Test",
+          "B": "Turning Test",
+          "C": "Tuning Test",
+          "D": "Timing Test"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Turing's 'imitation game' (1950). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q113"
+        },
+        {
+         "question": "Which is not a property of representational of knowledge?",
+         "options": {
+          "A": "Representational verification",
+          "B": "Representational adequacy",
+          "C": "Inferential adequacy",
+          "D": "Inferential efficiency"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "The four properties are representational adequacy, inferential adequacy, inferential efficiency and acquisitional efficiency. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q114"
+        },
+        {
+         "question": "What is another type of default reasoning ?",
+         "options": {
+          "A": "Monotonic reasoning",
+          "B": "Analogical reasoning",
+          "C": "Bitonic reasoning",
+          "D": "Non-Monotonic reasoning"
+         },
+         "answer": "D",
+         "subject": "Q101–125",
+         "explanation": "Default conclusions may be withdrawn later. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q115"
+        },
+        {
+         "question": "An agent is composed of",
+         "options": {
+          "A": "Architecture",
+          "B": "Agent function",
+          "C": "Perception sequence",
+          "D": "Architecture and program"
+         },
+         "answer": "D",
+         "subject": "Q101–125",
+         "explanation": "Agent = architecture + program (Russell & Norvig). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q116"
+        },
+        {
+         "question": "The process of removing details from a given state representation is called",
+         "options": {
+          "A": "Extraction",
+          "B": "Abstraction",
+          "C": "Information Retrieval",
+          "D": "Mining of data"
+         },
+         "answer": "B",
+         "subject": "Q101–125",
+         "explanation": "Abstraction keeps only what matters for the problem. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q117"
+        },
+        {
+         "question": "The field that investigates the mechanics of human intelligence is",
+         "options": {
+          "A": "Psychology",
+          "B": "Cognitive Science",
+          "C": "Sociology",
+          "D": "Learning"
+         },
+         "answer": "B",
+         "subject": "Q101–125",
+         "explanation": "Cognitive science combines AI models with psychology. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q118"
+        },
+        {
+         "question": "Adversarial search problems use",
+         "options": {
+          "A": "Competitive Environment",
+          "B": "Cooperative Environment",
+          "C": "Neither competitive nor cooperative Environment",
+          "D": "Both Competitive and cooperative Environment"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Games: the agents' goals conflict. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q119"
+        },
+        {
+         "question": "The truth value of traditional set theory is ____ and that of fuzzy set is ____",
+         "options": {
+          "A": "Either 0 or 1, between 0 and 1",
+          "B": "Between 0 & 1, either 0 or 1",
+          "C": "Between 0 & 1, between 0 and 1",
+          "D": "Either 0 or 1, either 0 or 1"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Crisp membership is 0 or 1; fuzzy membership is any value in [0, 1]. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q120"
+        },
+        {
+         "question": "How the Bayesian network can be used to answer any query?",
+         "options": {
+          "A": "Full distribution",
+          "B": "Joint distribution",
+          "C": "Partial distribution",
+          "D": "No distribution"
+         },
+         "answer": "B",
+         "subject": "Q101–125",
+         "explanation": "The network encodes the full joint distribution, from which any query can be answered. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q121"
+        },
+        {
+         "question": "What is Adaline in neural networks ?",
+         "options": {
+          "A": "Adaptive Linear Element",
+          "B": "Automatic Linear Element",
+          "C": "Adaptive Line Element",
+          "D": "Adaptive Nonlinear element"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Widrow and Hoff (1960), trained with the LMS (delta) rule. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q122"
+        },
+        {
+         "question": "Dendrites are",
+         "options": {
+          "A": "Fibers of nerves",
+          "B": "Nuclear projections",
+          "C": "Other name for nucleus",
+          "D": "Twisted network"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "Dendrites are the input fibres of a biological neuron; the axon carries the output. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q123"
+        },
+        {
+         "question": "Roulette wheel selections scheme is preferable when",
+         "options": {
+          "A": "Fitness values are uniformly distributed",
+          "B": "Fitness values are non-uniformly distributed",
+          "C": "Needs low selection pressure",
+          "D": "Needs high population diversity"
+         },
+         "answer": "A",
+         "subject": "Q101–125",
+         "explanation": "When a few individuals have much higher fitness, roulette selection lets them take over; rank selection is used then. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q124"
+        },
+        {
+         "question": "General algorithm applied on game tree for making decision of Win/Lose is",
+         "options": {
+          "A": "DFS/BFS Search Algorithms",
+          "B": "Heuristic Search Algorithms",
+          "C": "Greedy Search Algorithms",
+          "D": "Min/Max Algorithms"
+         },
+         "answer": "D",
+         "subject": "Q101–125",
+         "explanation": "Minimax. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q125"
+        }
+       ]
+      }
+     ]
     }
    ]
   }
@@ -11988,6 +13474,17 @@
      "subject": "P2 · Previous-Year Papers (KEA/KSET)",
      "topic": "Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section)",
      "weight": 30
+    }
+   ]
+  },
+  {
+   "name": "GFGC 2021 – Assistant Professor Computer Science · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "GFGC 2021 – Assistant Professor Computer Science",
+     "weight": 112
     }
    ]
   }
