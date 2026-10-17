@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "11 of 14 topics so far (22 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail; Unit 5 – Nudi Software & Baraha. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "12 of 14 topics so far (24 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail; Unit 5 – Nudi Software & Baraha; Unit 6 – Artificial Intelligence. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -5517,6 +5517,504 @@
          "answer": "A",
          "subject": "Baraha, Phonetic Typing and Transliteration",
          "explanation": "Unicode text is accessible, searchable and readable on phones."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 6 – Artificial Intelligence",
+     "sets": [
+      {
+       "name": "1 · Introduction and History of AI",
+       "questions": [
+        {
+         "question": "Which of the following technologies are counted as part of the 'Fourth Industrial Revolution' (Industry 4.0)?",
+         "options": {
+          "A": "Hand looms only",
+          "B": "AI, the Internet of Things, cloud computing and robotics",
+          "C": "Telegraph only",
+          "D": "Steam engines only"
+         },
+         "answer": "B",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). Industry 4.0 links smart machines, data and AI; steam power drove the first industrial revolution."
+        },
+        {
+         "question": "Artificial Intelligence (AI) is the branch of computer science that:",
+         "options": {
+          "A": "Makes machines perform tasks that normally need human intelligence",
+          "B": "Only repairs hardware",
+          "C": "Only stores data",
+          "D": "Only designs keyboards"
+         },
+         "answer": "A",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). Such tasks include learning, reasoning, understanding language and seeing."
+        },
+        {
+         "question": "The term 'Artificial Intelligence' was coined in 1956 at the Dartmouth Conference by:",
+         "options": {
+          "A": "Bill Gates",
+          "B": "Alan Turing",
+          "C": "John McCarthy",
+          "D": "Charles Babbage"
+         },
+         "answer": "C",
+         "subject": "Introduction and History of AI",
+         "explanation": "McCarthy is called the father of AI; he also created the LISP language."
+        },
+        {
+         "question": "The 'Turing Test', proposed in 1950, checks whether:",
+         "options": {
+          "A": "A printer works",
+          "B": "A machine's conversation can be told apart from a human's",
+          "C": "A computer is virus-free",
+          "D": "A network is fast"
+         },
+         "answer": "B",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). Alan Turing's paper was 'Computing Machinery and Intelligence'."
+        },
+        {
+         "question": "Machine learning is:",
+         "options": {
+          "A": "Repairing machines",
+          "B": "A kind of printer",
+          "C": "A part of AI in which computers learn patterns from data without being explicitly programmed for every rule",
+          "D": "Learning to type"
+         },
+         "answer": "C",
+         "subject": "Introduction and History of AI",
+         "explanation": "Arthur Samuel used the term in 1959 for his checkers program."
+        },
+        {
+         "question": "Deep learning uses:",
+         "options": {
+          "A": "Artificial neural networks with many layers",
+          "B": "Only spreadsheets",
+          "C": "Only punched cards",
+          "D": "Only keyboards"
+         },
+         "answer": "A",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). It powers image and speech recognition."
+        },
+        {
+         "question": "IBM's Deep Blue became famous in 1997 for:",
+         "options": {
+          "A": "Inventing the internet",
+          "B": "Translating Kannada",
+          "C": "Landing on the Moon",
+          "D": "Defeating world chess champion Garry Kasparov"
+         },
+         "answer": "D",
+         "subject": "Introduction and History of AI",
+         "explanation": "In 2016 Google DeepMind's AlphaGo beat Lee Sedol at Go."
+        },
+        {
+         "question": "AI that is designed to do one specific task, such as face recognition, is called:",
+         "options": {
+          "A": "Manual AI",
+          "B": "Narrow (weak) AI",
+          "C": "General (strong) AI",
+          "D": "Super AI"
+         },
+         "answer": "B",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). All AI in use today is narrow AI."
+        },
+        {
+         "question": "ELIZA (1966), one of the first chatbots, was created by:",
+         "options": {
+          "A": "Tim Berners-Lee",
+          "B": "Steve Jobs",
+          "C": "Joseph Weizenbaum",
+          "D": "John McCarthy"
+         },
+         "answer": "C",
+         "subject": "Introduction and History of AI",
+         "explanation": "It imitated a psychotherapist."
+        },
+        {
+         "question": "Natural Language Processing (NLP) enables computers to:",
+         "options": {
+          "A": "Cool the processor",
+          "B": "Understand and generate human language",
+          "C": "Store files",
+          "D": "Print in colour"
+         },
+         "answer": "B",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). Chatbots, translation and voice assistants use NLP."
+        },
+        {
+         "question": "Computer vision is the AI field that lets machines:",
+         "options": {
+          "A": "Cook food",
+          "B": "Smell gases only",
+          "C": "Increase memory",
+          "D": "Interpret images and videos"
+         },
+         "answer": "D",
+         "subject": "Introduction and History of AI",
+         "explanation": "Used in face unlock and self-driving cars."
+        },
+        {
+         "question": "What is the full form of ChatGPT?",
+         "options": {
+          "A": "Chat Generative Pre-Tested Transformer",
+          "B": "Chat Generative Post-Tested Transformer",
+          "C": "Chat Generative Post-Trained Transformer",
+          "D": "Chat Generative Pre-Trained Transformer"
+         },
+         "answer": "D",
+         "subject": "Introduction and History of AI",
+         "explanation": "GPT = Generative Pre-trained Transformer; ChatGPT was released by OpenAI in November 2022. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q76"
+        },
+        {
+         "question": "A Large Language Model (LLM) is trained on:",
+         "options": {
+          "A": "Huge amounts of text, to predict and generate language",
+          "B": "Only numbers",
+          "C": "Only pictures of animals",
+          "D": "Only sound waves"
+         },
+         "answer": "A",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). GPT, Gemini and Llama are LLMs."
+        },
+        {
+         "question": "The 'Transformer' architecture used in modern LLMs was introduced in the 2017 paper:",
+         "options": {
+          "A": "'Computing Machinery and Intelligence'",
+          "B": "'The Mythical Man-Month'",
+          "C": "'Attention Is All You Need'",
+          "D": "'As We May Think'"
+         },
+         "answer": "C",
+         "subject": "Introduction and History of AI",
+         "explanation": "It was written by researchers at Google."
+        },
+        {
+         "question": "Training a model with labelled examples (input with correct output) is called:",
+         "options": {
+          "A": "Manual learning",
+          "B": "Supervised learning",
+          "C": "Unsupervised learning",
+          "D": "Reinforcement learning"
+         },
+         "answer": "B",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). Grouping unlabelled data (clustering) is unsupervised."
+        },
+        {
+         "question": "Learning by trial and reward, as in game-playing AI, is:",
+         "options": {
+          "A": "Clustering",
+          "B": "Supervised learning",
+          "C": "Data entry",
+          "D": "Reinforcement learning"
+         },
+         "answer": "D",
+         "subject": "Introduction and History of AI",
+         "explanation": "The agent receives rewards or penalties for actions."
+        },
+        {
+         "question": "Consider the statements:\nI. Machine learning is a subset of Artificial Intelligence.\nII. Deep learning is a subset of machine learning.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Introduction and History of AI",
+         "explanation": "AI ⊃ machine learning ⊃ deep learning."
+        },
+        {
+         "question": "Assertion (A): AI systems can give wrong or biased answers.\nReason (R): AI models learn from data, which may be incomplete or biased.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Introduction and History of AI",
+         "explanation": "Generated false facts are called 'hallucinations'."
+        },
+        {
+         "question": "Assertion (A): The term 'Artificial Intelligence' was coined by Charles Babbage.\nReason (R): John McCarthy coined the term at the 1956 Dartmouth Conference.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Introduction and History of AI",
+         "explanation": "A is false; R is true."
+        },
+        {
+         "question": "Match:\na. John McCarthy\nb. Alan Turing\nc. Deep Blue\nd. ELIZA\n\n1. Test of machine intelligence\n2. Chess computer\n3. Early chatbot\n4. Coined the term AI",
+         "options": {
+          "A": "a-4, b-1, c-2, d-3",
+          "B": "a-3, b-1, c-2, d-4",
+          "C": "a-4, b-2, c-1, d-3",
+          "D": "a-1, b-4, c-2, d-3"
+         },
+         "answer": "A",
+         "subject": "Introduction and History of AI",
+         "explanation": "PYQ pattern (KEA computer literacy). AI history matching."
+        }
+       ]
+      },
+      {
+       "name": "2 · Applications of AI and AI in India",
+       "questions": [
+        {
+         "question": "What is Google Gemini?",
+         "options": {
+          "A": "A search engine",
+          "B": "An image editor",
+          "C": "A generative AI-based Chatbot",
+          "D": "A web browser"
+         },
+         "answer": "C",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Gemini (earlier Bard) is Google's generative AI chatbot and family of models. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q71"
+        },
+        {
+         "question": "Recently BharatGen was in the news. What is BharatGen?",
+         "options": {
+          "A": "Indigenously developed, Artificial Intelligence (AI) based Multimodal Large Language Model (LLM).",
+          "B": "It is an indigenously developed low cost tablet computer.",
+          "C": "It is a genetically engineered paddy seed that will double the yield.",
+          "D": "It is a scheme for improving the mental health of the young generation (10 -25 years)."
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "BharatGen, led by IIT Bombay under the DST, builds multimodal LLMs for Indian languages. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "UPSC coaching entrance 2025 (19 Jul) · Q21"
+        },
+        {
+         "question": "Voice assistants such as Siri, Alexa and Google Assistant use:",
+         "options": {
+          "A": "Speech recognition and natural language processing",
+          "B": "Only spreadsheets",
+          "C": "Only printers",
+          "D": "Only scanners"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). They convert speech to text and respond."
+        },
+        {
+         "question": "Which of the following is an application of AI in agriculture?",
+         "options": {
+          "A": "Hand weeding only",
+          "B": "Storing grain in sacks",
+          "C": "Ploughing with bullocks",
+          "D": "Detecting crop diseases from leaf photos and forecasting weather"
+         },
+         "answer": "D",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Apps like Kisan e-Mitra answer farmers' questions."
+        },
+        {
+         "question": "AI in healthcare is used for:",
+         "options": {
+          "A": "Replacing all doctors",
+          "B": "Reading X-rays and scans to help detect diseases early",
+          "C": "Building hospitals",
+          "D": "Making medicines taste sweet"
+         },
+         "answer": "B",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). AI supports, not replaces, doctors."
+        },
+        {
+         "question": "Recommendation systems that suggest videos on YouTube or products on Amazon are based on:",
+         "options": {
+          "A": "Printer settings",
+          "B": "Manual lists only",
+          "C": "Random choice",
+          "D": "Machine learning from user behaviour"
+         },
+         "answer": "D",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "They analyse past viewing or buying."
+        },
+        {
+         "question": "Self-driving (autonomous) cars mainly use:",
+         "options": {
+          "A": "Sensors, computer vision and AI decision-making",
+          "B": "Only a steering wheel",
+          "C": "Only GPS",
+          "D": "Only a horn"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). LIDAR, cameras and radar feed the AI."
+        },
+        {
+         "question": "In education, AI can help by:",
+         "options": {
+          "A": "Stopping homework",
+          "B": "Personalised (adaptive) learning, automatic grading and doubt-solving chatbots",
+          "C": "Closing schools",
+          "D": "Removing teachers"
+         },
+         "answer": "B",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "DIKSHA and other platforms use AI features."
+        },
+        {
+         "question": "India's IndiaAI Mission, approved in March 2024, aims to:",
+         "options": {
+          "A": "Build AI computing capacity, datasets and innovation in India",
+          "B": "Ban AI",
+          "C": "Import all AI",
+          "D": "Only make robots for factories"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). It was approved with an outlay of over ₹10,000 crore."
+        },
+        {
+         "question": "NITI Aayog's National Strategy for AI (2018) is popularly called:",
+         "options": {
+          "A": "Make in India",
+          "B": "Startup India",
+          "C": "#AIforAll",
+          "D": "Digital India"
+         },
+         "answer": "C",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Focus sectors: healthcare, agriculture, education, smart cities and mobility."
+        },
+        {
+         "question": "Bhashini, the Government of India's AI platform, mainly provides:",
+         "options": {
+          "A": "Weather forecasts",
+          "B": "Bank loans",
+          "C": "Translation and speech tools for Indian languages",
+          "D": "Train tickets"
+         },
+         "answer": "C",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). It is part of the National Language Translation Mission."
+        },
+        {
+         "question": "A 'deepfake' is:",
+         "options": {
+          "A": "A kind of antivirus",
+          "B": "A deep sea map",
+          "C": "A secure password",
+          "D": "Fake audio, image or video created with AI to look real"
+         },
+         "answer": "D",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Deepfakes are used in fraud and misinformation."
+        },
+        {
+         "question": "Generative AI tools can:",
+         "options": {
+          "A": "Create new text, images, music or code from prompts",
+          "B": "Only delete files",
+          "C": "Only count numbers",
+          "D": "Only print documents"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). DALL·E and Midjourney generate images."
+        },
+        {
+         "question": "Spam filters in e-mail use AI to:",
+         "options": {
+          "A": "Increase storage",
+          "B": "Classify messages as spam or not spam",
+          "C": "Write e-mails",
+          "D": "Change fonts"
+         },
+         "answer": "B",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "It is a classification task."
+        },
+        {
+         "question": "A robot that uses AI to sense and act in its surroundings is studied in:",
+         "options": {
+          "A": "Typography",
+          "B": "Accountancy",
+          "C": "Robotics",
+          "D": "Cartography"
+         },
+         "answer": "C",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). Industrial robots assemble cars."
+        },
+        {
+         "question": "Which of the following is an ethical concern of AI?",
+         "options": {
+          "A": "Easier search",
+          "B": "Bias, privacy, job loss and misuse such as deepfakes",
+          "C": "Better weather forecasts",
+          "D": "Faster translation"
+         },
+         "answer": "B",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Responsible AI stresses fairness and transparency."
+        },
+        {
+         "question": "Consider the statements:\nI. Chatbots like ChatGPT and Gemini are examples of generative AI.\nII. Generative AI always gives correct answers.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "They can produce wrong answers, so users must verify."
+        },
+        {
+         "question": "Assertion (A): Teachers should check facts given by AI chatbots before using them in class.\nReason (R): AI chatbots can sometimes produce confident but incorrect information.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Such errors are called hallucinations."
+        },
+        {
+         "question": "Assertion (A): Face recognition to unlock a phone is an application of AI.\nReason (R): Computer vision lets machines identify faces in images.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "Face unlock is computer vision."
+        },
+        {
+         "question": "Match:\na. ChatGPT\nb. Gemini\nc. Bhashini\nd. Alexa\n\n1. OpenAI chatbot\n2. Google AI chatbot\n3. Amazon voice assistant\n4. Indian-language AI platform",
+         "options": {
+          "A": "a-2, b-1, c-4, d-3",
+          "B": "a-3, b-2, c-4, d-1",
+          "C": "a-1, b-4, c-2, d-3",
+          "D": "a-1, b-2, c-4, d-3"
+         },
+         "answer": "D",
+         "subject": "Applications of AI and AI in India",
+         "explanation": "PYQ pattern (KEA computer literacy). AI tool matching."
         }
        ]
       }
