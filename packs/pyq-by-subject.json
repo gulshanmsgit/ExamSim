@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 628, Paper 2: 1213. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 628, Paper 2: 1294. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -9165,7 +9165,103 @@
        ]
       },
       {
-       "name": "5 · GFGC 2021 CS",
+       "name": "5 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "For the given truth table write the expression for sum and carry\nx y z | Carry Sum\n0 0 0 | 0 0\n0 0 1 | 0 1\n0 1 0 | 0 1\n0 1 1 | 1 0\n1 0 0 | 0 1\n1 0 1 | 1 0\n1 1 0 | 1 0\n1 1 1 | 1 1",
+         "options": {
+          "A": "S = xȳz + xz̄ + xȳ + xz, C = xyz + xy + xz",
+          "B": "S = x̄ȳz + x̄yz̄ + xȳz̄ + xyz, C = xy + xz + yz",
+          "C": "S = xyz + x̄ȳz̄ + xȳz̄ + x̄yz, C = xz + xx + xy",
+          "D": "S = x̄ȳz̄ + xyz + x̄ȳz + x̄z̄, C = xz̄ + x̄ȳ + ȳz̄"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Full adder: sum = odd parity, carry = majority. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q23"
+        },
+        {
+         "question": "The conditions to be satisfied for the PDA to be deterministic\n(a) δ (q, a, x) has at most one number for any q ∈ Q\n(b) if δ (q, a, x) is non-empty, for some a in Σ then δ (q, ∈, x) must be empty.",
+         "options": {
+          "A": "(a) only",
+          "B": "(b) only",
+          "C": "(a) or (b)",
+          "D": "Both (a) and (b)"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Both conditions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q34"
+        },
+        {
+         "question": "The solution of the partial differential equation ∂²u/∂x² + u = 0 given that when x = 0, u = eʸ and ∂u/∂x = 1 is",
+         "options": {
+          "A": "u = eʸ sinx + cosx",
+          "B": "u = eʸ cosx + sinx",
+          "C": "u = eʸ sinx – cosx",
+          "D": "u = eʸ cosx – sinx"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "u = A(y) cos x + B(y) sin x with A = eʸ, B = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q87"
+        },
+        {
+         "question": "If Z[1/n!] = e^(1/z), which of the following two equalities are true?\n(a) Z[1/(n+1)!] = z(e^(1/z) − 1)\n(b) Z[1/(n+1)!] = z e^(1/z)\n(c) Z[1/(n+2)!] = z²(e^(1/z) − 1 − 1/z)\n(d) Z[1/(n+2)!] = z²(e^(1/z) + 1/z)",
+         "options": {
+          "A": "(a) and (d)",
+          "B": "(a) and (c)",
+          "C": "(b) and (d)",
+          "D": "(b) and (c)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Shifting removes the first terms of the series for e^(1/z). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q88"
+        },
+        {
+         "question": "How is 'THE' pronounced before a word that starts with a consonant sound?",
+         "options": {
+          "A": "thee",
+          "B": "thuh",
+          "C": "thay",
+          "D": "tho"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "'The' is /ðə/ before consonant sounds and /ðiː/ before vowel sounds. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q96"
+        },
+        {
+         "question": "Which of these following sentences uses appropriate article?",
+         "options": {
+          "A": "I saw a moon shining brightly last night",
+          "B": "I saw the moon shining brightly last night",
+          "C": "I saw moon shining brightly last night",
+          "D": "I saw an moon shining brightly last night"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "There is only one moon. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q97"
+        },
+        {
+         "question": "Match the words in Column-A with their correct type in Column-B\nColumn-A\n(i) Quickly\n(ii) Beautiful\n(iii) Run\n(iv) Happiness\nColumn-B\n(a) Adjective\n(b) Adverb\n(c) Noun\n(d) Verb",
+         "options": {
+          "A": "i – c, ii – d, iii – b, iv – a",
+          "B": "i – d, ii – b, iii – a, iv – c",
+          "C": "i – b, ii – a, iii – d, iv – c",
+          "D": "i – d, ii – c, iii – b, iv – a"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Parts of speech. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q99"
+        }
+       ]
+      },
+      {
+       "name": "6 · GFGC 2021 CS",
        "questions": [
         {
          "question": "Given x = (313)₅ and y = (311)₅ then x + y will be",
@@ -9248,7 +9344,7 @@
        ]
       },
       {
-       "name": "6 · Legislative Council 2024 Computer Operator P2",
+       "name": "7 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "External devices such as printers, keyboards and modems are known as",
@@ -9331,7 +9427,7 @@
        ]
       },
       {
-       "name": "7 · PGCET 2023 M.Tech CS",
+       "name": "8 · PGCET 2023 M.Tech CS",
        "questions": [
         {
          "question": "What is the source ?",
@@ -9414,7 +9510,7 @@
        ]
       },
       {
-       "name": "8 · Legislative Council 2024 Data Entry Operator P2",
+       "name": "9 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
          "question": "The software available for free, but source code may not be available, such softwares are called",
@@ -9471,7 +9567,7 @@
        ]
       },
       {
-       "name": "9 · Legislative Council 2024 Junior Console Operator P2",
+       "name": "10 · Legislative Council 2024 Junior Console Operator P2",
        "questions": [
         {
          "question": "What type of software licence allows users to modify and redistribute the source code freely?",
@@ -10594,6 +10690,45 @@
          "subject": "Other papers",
          "explanation": "Row 3 = row 1 + row 2, so the determinant is 0; two rows are independent. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2024 M.Tech CS · Q87"
+        },
+        {
+         "question": "Match the following notations in List – I with its meaning in List – II.\nList – I (ER Notation)\n(a) E₁ — R — E₂ with a double line between R and E₂\n(b) a dashed ellipse\n(c) an ellipse with its name underlined\n(d) a diamond\nList – II (Description)\n(i) Relationship\n(ii) Key attribute\n(iii) Derived attribute\n(iv) Total participation of E2 in R",
+         "options": {
+          "A": "a – iii, b – i, c – iv, d – ii",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – i, b – iv, c – iii, d – ii"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Chen notation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q54"
+        },
+        {
+         "question": "A phone number validation can be addressed using various regex patterns.\nBelow is a table showcasing some of the patterns with List – I having a mobile number sample and List – II having a regular expression. Match the relevant regular expression to the mobile number.\nList – I (Patterns)\n(a) 123–456–7890\n(b) 1234567890\n(c) 123.456.7890\n(d) +1123 456 7890\nList – II (Regular Expression)\n(i) /^\\+1\\d{3}\\d{3}\\d{4}$/\n(ii) /^\\d{3}\\.\\d{3}\\.\\d{4}$/\n(iii) /^\\d{10}$/\n(iv) /^\\d{3}-\\d{3}-\\d{4}$/",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – i, b – iii, c – iv, d – ii",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Separators decide the pattern. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q75"
+        },
+        {
+         "question": "The rank of the matrix\nA = | 1 4 5 |\n    | 2 6 8 |\n    | 3 7 22 | is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "The determinant is −36 ≠ 0. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q81"
         }
        ]
       }
@@ -11476,7 +11611,285 @@
        ]
       },
       {
-       "name": "4 · GTTC 2024 Lecturer CS",
+       "name": "4 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Arrange the following steps in the order for inserting data elements into an array-based list\n(a) Repeat till all elements are inserted\n(b) insert data\n(c) update counter\n(d) check capacity\n(e) initialise the list, and counter too",
+         "options": {
+          "A": "(a), (b), (d), (c), (e)",
+          "B": "(a), (b), (c), (d), (e)",
+          "C": "(e), (d), (b), (c), (a)",
+          "D": "(b), (a), (c), (e), (d)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Initialise; for each element check capacity, insert, update the count; repeat. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q3"
+        },
+        {
+         "question": "Simplify the given Boolean function using K-map.\nf = (x̄yz + xȳz̄ + xyz + xyz̄)",
+         "options": {
+          "A": "f = x̄y + ȳz̄",
+          "B": "f = yz + xz̄",
+          "C": "f = xy + yz",
+          "D": "f = x̄ȳ + ȳz"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Minterms 3, 4, 6, 7: yz covers 3, 7 and xz̄ covers 4, 6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q13"
+        },
+        {
+         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
+         "options": {
+          "A": "(a), (b), (c) and (d)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(a) and (c)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q14"
+        },
+        {
+         "question": "Which of the following is a Data Transfer instruction?",
+         "options": {
+          "A": "ADD",
+          "B": "MOV",
+          "C": "SUB",
+          "D": "INC"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "The others are arithmetic. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q15"
+        },
+        {
+         "question": "Match List – I that has addressing mode with List – II that contains its description.\n(a) Immediate\n(b) Direct\n(c) Register\n(d) Register Indirect\n(i) Operand is in memory, instructions specifies the memory address.\n(ii) Operand value is the part of the instructions itself\n(iii) Operand is in CPU register\n(iv) Register contains address of the operand",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – iii, c – iv, d – ii",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Immediate – operand in the instruction; direct – its address; register – in a register; register indirect – address in a register. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q16"
+        },
+        {
+         "question": "Consider the following memory access times\nL1 cache hit is equal to 1 cycle.\nL2 cache hit = 5 cycles\nMain memory access = 050 cycles\nDisk access = 10,000 cycles\nA program has the following probabilities\nL1 hit = 80%, L2 hit = 15% (if L1 missed)\nMain memory hit = 4.85% (if L2 missed)\nDisk access = 0.15 % (if main memory missed)\nOrder the following events from fastest to slowest access time.\ndisk, L1 cache, main memory, L2 cache",
+         "options": {
+          "A": "L1 cache, disk, main memory, L2 cache",
+          "B": "L2 cache, disk, main memory, L1 cache",
+          "C": "disk, L2 cache, L1 cache, main memory",
+          "D": "L1 cache, L2 cache, main memory, disk"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "1 < 5 < 50 < 10,000 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q17"
+        },
+        {
+         "question": "Subtract (37)₈ from (53)₈ using 8 bit representation",
+         "options": {
+          "A": "101010101",
+          "B": "100001100",
+          "C": "111111110",
+          "D": "101011101"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "43 − 31 = 12: 00101011 + 11100001 (2's complement of 31) = 1 00001100; the carry-out is dropped. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q18"
+        },
+        {
+         "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
+         "options": {
+          "A": "(a), (b), (c), (d), (e), (f), (g)",
+          "B": "(f), (c), (d), (a), (g), (e), (b)",
+          "C": "(g), (f), (e), (d), (a), (b), (c)",
+          "D": "(c), (a), (b), (g), (e), (d), (f)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Fetch: PC to MAR and PC + 4 (f), update PC (c), load IR (d); execute: operand address R₃ (a), R₁ to Y (g), add (e), result to R₁ (b). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q19"
+        },
+        {
+         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
+         "options": {
+          "A": "I0",
+          "B": "I1",
+          "C": "I2",
+          "D": "I3"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q21"
+        },
+        {
+         "question": "A computer uses 8 bit unsigned fixed-point representation with 4 bits for integer and 4 bits for fraction. What is the largest number it can represent?",
+         "options": {
+          "A": "15.9375",
+          "B": "16",
+          "C": "15.5",
+          "D": "31.875"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "1111.1111₂ = 15 + 15/16 = 15.9375. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q24"
+        },
+        {
+         "question": "Match List – I (Automata and grammar) with List – II (Data structure used & transition) and select the correct answer for the given table\nList – I\n(a) Deterministic Finite Automata\n(b) Ambiguous grammar\n(c) Pushdown Automata\n(d) Turing machine\nList – II\n(i) Stack\n(ii) Tape\n(iii) more than 1 LMD or RMD\n(iv) δ : (Q × Σ → Q)",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – iii, b – iv, c – ii, d – i",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Basic definitions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q30"
+        },
+        {
+         "question": "Consider the finite automata and choose the correct regular expression from the following:\n[Figure: q₁ is the start and final state; q₁ –a→ q₂, q₂ –b→ q₁, q₁ –b→ q₃, q₃ –a→ q₁, q₂ –a→ q₄, q₃ –b→ q₄, and q₄ loops on a, b]",
+         "options": {
+          "A": "(ab* + ba)",
+          "B": "(ba + ab*)",
+          "C": "(aa + bb)",
+          "D": "(ab + ba)*"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Every return to q₁ reads ab or ba. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q33"
+        },
+        {
+         "question": "The first and follow set of the below given grammar is\nS → aSbS / bSaS / ∈",
+         "options": {
+          "A": "First (S) = {a, b} Follow (S) = {a, b}",
+          "B": "First (S) = {a, b, ∈} Follow (S) = {$, a}",
+          "C": "First (S) = {a, b, ∈} Follow (S) = {$, a, b}",
+          "D": "First (S) = {a, ∈} Follow (S) = {a, b}"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "S is followed by b, a or end of input. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q35"
+        },
+        {
+         "question": "Consider a grammar given below\nS → 0S1 / 01\nand the string 0011\nWrite all the viable prefixes occurring on top of the stack",
+         "options": {
+          "A": "∈, 0S1, 001",
+          "B": "0, 00, 0S, 001, 0S1, 0011",
+          "C": "0, 00, 0S, 001, 0S1",
+          "D": "∈, 0, 00, 001, 0011"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Stack contents: 0, 00, 001 (reduce to 0S), 0S1 (reduce to S). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q37"
+        },
+        {
+         "question": "If Node A receives a distance table from neighbour B, A updates its cost to destination D given by",
+         "options": {
+          "A": "Cost (A, D) = Max (Current cost (A, D), Cost (A, B))",
+          "B": "Cost (A, D) = Min (Current cost (A, D), Cost (A, B)) + Received cost (B, D)",
+          "C": "Cost (A, D) = Min (Current cost (A, D), Cost (A, B)) + Received cost (A, D)",
+          "D": "Cost (A, B) = Max (Current cost (A, D), Cost (A, B))"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Bellman–Ford: min(current, cost(A, B) + B's cost to D); option 2 has the bracket misplaced but is the intended rule. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q69"
+        },
+        {
+         "question": "Match the Eigen value properties (List-I) with the Eigen values (List-II) and choose the correct answer.\nList-I\n(a) Trace of a square matrix A\n(b) Eigen values of an idempotent matrix A\n(c) Eigen values of a triangular matrix A\n(d) Eigen values of a matrix A and its transpose A'\nList-II\n(i) are same\n(ii) sum of the eigen values of A\n(iii) 0 and 1\n(iv) diagonal elements of A",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iv, b – ii, c – i, d – iii",
+          "D": "a – i, b – iii, c – iv, d – ii"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Eigenvalue properties. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q82"
+        },
+        {
+         "question": "Which of the following (among (a), (b), (c) and (d)) are true in the Fourier series expansion of a function f(x)?\n(a) f(x) is periodic, single valued and finite\n(b) f(x) has a finite number of discontinuities in any one period\n(c) f(x) has at the most a finite number of maxima and minima\n(d) f(x) is multivalued",
+         "options": {
+          "A": "(a), (b) and (d)",
+          "B": "(a), (c) and (d)",
+          "C": "(a), (b) and (c)",
+          "D": "(b), (c) and (d)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Dirichlet's conditions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q84"
+        },
+        {
+         "question": "If F⃗ is a vector point function, the value of Curl (Curl F⃗) is",
+         "options": {
+          "A": "grad (div F⃗) – ∇²F⃗",
+          "B": "∇²F⃗",
+          "C": "Zero",
+          "D": "grad (div F⃗)"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Standard identity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q85"
+        },
+        {
+         "question": "The first order ordinary differential equation dy/dx = f(x, y) satisfying the condition y(x₀) = y₀ is called",
+         "options": {
+          "A": "Isoperimetric Problem",
+          "B": "Root Finding Problem",
+          "C": "Initial Value Problem",
+          "D": "Boundary Value Problem"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "IVP. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q89"
+        },
+        {
+         "question": "The Simpson's Three-Eighth rule to compute the value of the integral ∫ₐᵇ f(x) dx for the function y = f(x) with n = 12 equal parts is",
+         "options": {
+          "A": "(3h/8)[(y₀ + y₁₂) + 3(y₃ + y₆ + y₉) + 2(y₁ + y₂ + y₄ + y₅ + y₇ + y₈ + y₁₀ + y₁₁)]",
+          "B": "(3h/8)[(y₀ + y₁₂) + 2(y₃ + y₆ + y₉) + 3(y₁ + y₂ + y₄ + y₅ + y₇ + y₈ + y₁₀ + y₁₁)]",
+          "C": "(3h/8)[(y₀ + y₁₂) + 3(y₃ + y₆ + y₉) + 3(y₁ + y₂ + y₄ + y₅ + y₇ + y₈ + y₁₀ + y₁₁)]",
+          "D": "(3h/8)[(y₀ + y₁₂) + 2(y₃ + y₆ + y₉) + 2(y₁ + y₂ + y₄ + y₅ + y₇ + y₈ + y₁₀ + y₁₁)]"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Weight 2 for multiples of 3, weight 3 for the rest. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q90"
+        },
+        {
+         "question": "Given a factorial function in C\nint fact(int n) {\n  int fact = 1;\n  for (int i = 1; i <= n; i++) fact *= i;\n  return fact;\n}\nWhich is the correct C function from the given options which finds the binomial coefficient ⁿCᵣ?",
+         "options": {
+          "A": "int ⁿCᵣ (int r, int n) {\n  return fact(n)/(fact (n − r) * fact(r));}",
+          "B": "int ⁿCᵣ (int n, int r) {\n  return fact(n)/(fact (r) * fact(n − r));}",
+          "C": "int ⁿCᵣ (int r, int n) {\n  return fact(n)/(fact (r) * fact(n − r));}",
+          "D": "int ⁿCᵣ (int n, int r) {\n  return fact(n)/(fact (r − n) * fact(r));}"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "ⁿCᵣ = n! / (r! (n − r)!). Options 1–3 all use this formula; option 2 also takes the arguments in the usual order (n, r), so it is the intended answer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q94"
+        }
+       ]
+      },
+      {
+       "name": "5 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "Which register holds the address of the current instruction being executed?",
@@ -11689,7 +12102,7 @@
        ]
       },
       {
-       "name": "5 · Legislative Council 2024 Junior Console Operator P2",
+       "name": "6 · Legislative Council 2024 Junior Console Operator P2",
        "questions": [
         {
          "question": "Which is the correct sequence of steps for selecting an Access Point (AP)?\na. The node sends a probe frame\nb. The AP replies with an association response frame\nc. All APs within reach reply with a probe response frame\nd. The node selects one of the access points and sends an AP an Association Request Frame.",
@@ -11889,7 +12302,7 @@
        ]
       },
       {
-       "name": "6 · PGCET 2026 MCA",
+       "name": "7 · PGCET 2026 MCA",
        "questions": [
         {
          "question": "The sum of the binary numbers 10110.10 and 11010.01 is",
@@ -12089,7 +12502,7 @@
        ]
       },
       {
-       "name": "7 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "8 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "Which of the following is NOT. a web development framework?\n(a) Angular   (b) React\n(c) Django   (d) Java",
@@ -12276,7 +12689,7 @@
        ]
       },
       {
-       "name": "8 · KSET 2023 CS&A",
+       "name": "9 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "____ translates the high-level language program into machine language.",
@@ -12424,7 +12837,7 @@
        ]
       },
       {
-       "name": "9 · PGCET 2025 MCA",
+       "name": "10 · PGCET 2025 MCA",
        "questions": [
         {
          "question": "In Boolean algebra, which of the following is correct?",
@@ -12572,7 +12985,7 @@
        ]
       },
       {
-       "name": "10 · Legislative Council 2024 Computer Operator P2",
+       "name": "11 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "Match the following in relation to Memory\nList-1\n(a) ROM\n(b) Cache memory\n(c) Virtual memory\n(d) Flash memory\nList-2\ni) Retains data even when power is turned off\nii) Reads only memory\niii) Small, fast memory\niv) Provides an illusion of more memory than physically available",
@@ -12707,7 +13120,7 @@
        ]
       },
       {
-       "name": "11 · PGCET 2024 MCA",
+       "name": "12 · PGCET 2024 MCA",
        "questions": [
         {
          "question": "The fastest memory in a computer system is",
@@ -12842,7 +13255,7 @@
        ]
       },
       {
-       "name": "12 · KEA 2026 CS Paper-2",
+       "name": "13 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "____ is caused because of a delay in the availability of instruction.",
@@ -12964,7 +13377,7 @@
        ]
       },
       {
-       "name": "13 · KSET 2025 CS&A",
+       "name": "14 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
@@ -13086,7 +13499,7 @@
        ]
       },
       {
-       "name": "14 · Legislative Council 2024 Sr/Jr Programmer P2",
+       "name": "15 · Legislative Council 2024 Sr/Jr Programmer P2",
        "questions": [
         {
          "question": "In a single cache block, the multiple words are put for",
@@ -13208,7 +13621,7 @@
        ]
       },
       {
-       "name": "15 · KSET 2024 CS&A",
+       "name": "16 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "Which one of the following expressions is in canonical SoP form considering A, B, C as Boolean variables?",
@@ -13300,89 +13713,6 @@
          "subject": "KSET 2024 CS&A",
          "explanation": "A crossbar has one crosspoint for every processor–memory pair: 9 × 6 = 54. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 CS&A · Q20"
-        }
-       ]
-      },
-      {
-       "name": "16 · PGCET 2026 CS",
-       "questions": [
-        {
-         "question": "Which of the following are correct statements about counters?\n(a) Counters are sequential circuits\n(b) Counters can be synchronous or asynchronous\n(c) Counters is an example for combinational circuits\n(d) Counters can count pulses",
-         "options": {
-          "A": "(a), (b), (c) and (d)",
-          "B": "(a), (b) and (d)",
-          "C": "(b), (c) and (d)",
-          "D": "(a) and (c)"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Counters are built from flip-flops, so they are sequential, not combinational. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q14"
-        },
-        {
-         "question": "Match List – I that has addressing mode with List – II that contains its description.\n(a) Immediate\n(b) Direct\n(c) Register\n(d) Register Indirect\n(i) Operand is in memory, instructions specifies the memory address.\n(ii) Operand value is the part of the instructions itself\n(iii) Operand is in CPU register\n(iv) Register contains address of the operand",
-         "options": {
-          "A": "a – ii, b – i, c – iii, d – iv",
-          "B": "a – i, b – iii, c – iv, d – ii",
-          "C": "a – iii, b – ii, c – iv, d – i",
-          "D": "a – ii, b – iv, c – i, d – iii"
-         },
-         "answer": "A",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Immediate – operand in the instruction; direct – its address; register – in a register; register indirect – address in a register. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q16"
-        },
-        {
-         "question": "Consider the following memory access times\nL1 cache hit is equal to 1 cycle.\nL2 cache hit = 5 cycles\nMain memory access = 050 cycles\nDisk access = 10,000 cycles\nA program has the following probabilities\nL1 hit = 80%, L2 hit = 15% (if L1 missed)\nMain memory hit = 4.85% (if L2 missed)\nDisk access = 0.15 % (if main memory missed)\nOrder the following events from fastest to slowest access time.\ndisk, L1 cache, main memory, L2 cache",
-         "options": {
-          "A": "L1 cache, disk, main memory, L2 cache",
-          "B": "L2 cache, disk, main memory, L1 cache",
-          "C": "disk, L2 cache, L1 cache, main memory",
-          "D": "L1 cache, L2 cache, main memory, disk"
-         },
-         "answer": "D",
-         "subject": "PGCET 2026 CS",
-         "explanation": "1 < 5 < 50 < 10,000 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q17"
-        },
-        {
-         "question": "Arrange the following control sequence for execution of instruction: ADD (R₃), R₁\n(a) R₃out, MARin, Read\n(b) Zout, R₁in, End\n(c) Zout, PCin, Yin, WMFC\n(d) MDRout, IRin\n(e) MDRout, Select Y, add, Zin\n(f) PCout, MARin, Read, Select 4, add, Zin\n(g) R₁out, Yin, WMFC",
-         "options": {
-          "A": "(a), (b), (c), (d), (e), (f), (g)",
-          "B": "(f), (c), (d), (a), (g), (e), (b)",
-          "C": "(g), (f), (e), (d), (a), (b), (c)",
-          "D": "(c), (a), (b), (g), (e), (d), (f)"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Fetch: PC to MAR and PC + 4 (f), update PC (c), load IR (d); execute: operand address R₃ (a), R₁ to Y (g), add (e), result to R₁ (b). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q19"
-        },
-        {
-         "question": "A 4 to 1 multiplexer has four data inputs I0, I1, I2, I3, two select lines S1 and S0, and one output y. If S1S0 = 10, which input is connected to the output?",
-         "options": {
-          "A": "I0",
-          "B": "I1",
-          "C": "I2",
-          "D": "I3"
-         },
-         "answer": "C",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Select value 10₂ = 2 → I2. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q21"
-        },
-        {
-         "question": "A computer uses 8 bit unsigned fixed-point representation with 4 bits for integer and 4 bits for fraction. What is the largest number it can represent?",
-         "options": {
-          "A": "15.9375",
-          "B": "16",
-          "C": "15.5",
-          "D": "31.875"
-         },
-         "answer": "A",
-         "subject": "PGCET 2026 CS",
-         "explanation": "1111.1111₂ = 15 + 15/16 = 15.9375. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q24"
         }
        ]
       },
@@ -14254,7 +14584,116 @@
        ]
       },
       {
-       "name": "6 · KSET 2023 CS&A",
+       "name": "6 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Determine the prime implicants of the function\nf(w, x, y, z) = Σ (1, 4, 6, 7, 8, 9, 10, 11, 15) using Quine-McCluskey method.",
+         "options": {
+          "A": "xyz, wxz, wxy, xyz, wyz, wxz",
+          "B": "xyz, w'xz', w'xy, yxz, wyz, wx'",
+          "C": "x'y'z, w'xz', w'xy, xyz, wyz, wx'",
+          "D": "x'y'z, w'zx, wxy, xyz, wz'y, w'x'"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "x'y'z (1, 9), w'xz' (4, 6), w'xy (6, 7), xyz (7, 15), wyz (11, 15), wx' (8–11). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q20"
+        },
+        {
+         "question": "Which of the following describes the proper sequence for the life cycle methods of an applet?",
+         "options": {
+          "A": "start() → init() → stop() → paint() → destroy()",
+          "B": "init() → paint() → start() → destroy() → stop()",
+          "C": "init() → start() → paint() → stop() → destroy()",
+          "D": "start() → init() → paint() → stop() → destroy()"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "init once, start each time it becomes visible, paint to draw, stop when hidden, destroy at the end. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q72"
+        },
+        {
+         "question": "Match the following with the HTML Tags in the List – I with their functions in the List – II.\nList – I (HTML Tags)\n(a) <ol>…<li>…</ol>\n(b) <ul>…<li>…</ul>\n(c) <i>…</i>\n(d) <hr>…</hr>\nList – II (Functionality)\n(i) Numbered list\n(ii) Bulleted list\n(iii) Putting a horizontal line\n(iv) Font style in italics",
+         "options": {
+          "A": "a – i, b – iv, c – ii, d – iii",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "HTML basics. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q74"
+        },
+        {
+         "question": "Which of the following statement are correct?\n(a) XML tags are case-sensitive\n(b) Cascading Style Sheets (CSS) cannot be used with XML\n(c) All well formed XML documents must contain a Document Type Definition (DTD)\n(d) Java Script can read XML data",
+         "options": {
+          "A": "Only (a) and (d) are correct",
+          "B": "Only (b) and (c) are correct",
+          "C": "(a), (b), (c) and (d) are correct",
+          "D": "Only (c) and (d) are correct"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "CSS can style XML; a DTD is optional. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q77"
+        },
+        {
+         "question": "Given the snippet below, what will it print if the data base is connected successfully?\nConnection con = DriverManager.getConnection (dbURL, user, pwd);\nif (con != null)\n{\nSystem.out.println (\"Connection Successful\")\n}",
+         "options": {
+          "A": "Connection Failed",
+          "B": "Exception Thrown",
+          "C": "Connection Successful",
+          "D": "No output"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "con is not null. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q79"
+        },
+        {
+         "question": "A function f(x, y) in two variables x and y is continuous at the point (a, b), if\n(i) lim (x→a, y→b) f(x, y) ____\nand\n(ii) is equal to ____",
+         "options": {
+          "A": "exists, f(b, a)",
+          "B": "exists, f(a, b)",
+          "C": "does not exist, f(b, a)",
+          "D": "does not exist, f(a, b)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "The limit exists and equals f(a, b). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q83"
+        },
+        {
+         "question": "For the differential equation d²y/dx² – 5 dy/dx + 6y = 2e^(2x), which of the following pairs represents its complementary function and Particular Integral that will lead to its complete solution? The Complementary Function (C.F) is provided in List-I and the Particular Integral (P.I) is provided in List-II.\nList-I\n(a) C₁e^(2x) + C₂e^(3x)\n(b) C₁e^(−2x) + C₂e^(3x)\n(c) C₁e^(2x) + C₂e^(−3x)\n(d) C₁e^(2x) + C₂xe^(2x)\nList-II\n(i) 4e^(2x)\n(ii) 2x²e^(2x)\n(iii) −2xe^(2x)\n(iv) 2xe^(2x)",
+         "options": {
+          "A": "(c) and (iv)",
+          "B": "(b) and (i)",
+          "C": "(d) and (ii)",
+          "D": "(a) and (iii)"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Roots 2, 3; e^(2x) is a root, so PI = Axe^(2x) with A(2·2 − 5) = 2 → A = −2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q86"
+        },
+        {
+         "question": "What is the output of the following code?\nint main() {\n  for (; ;) {\n    printf(\"Hello\");\n  }\n  return 0;\n}",
+         "options": {
+          "A": "Compilation error",
+          "B": "Prints Hello 100 times",
+          "C": "Prints Hello infinitely",
+          "D": "Does not print Hello"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "for (;;) has no condition, which counts as always true. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q92"
+        }
+       ]
+      },
+      {
+       "name": "7 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "Read the code and predict the value of x.\n#include <stdio.h>\nint main()\n{\n  int x;\n  x = 5 > 8 ? 10 : 1 != 2 < 5 ? 20 : 30;\n  printf(\"%d\", x);\n  return 0;\n}",
@@ -14350,7 +14789,7 @@
        ]
       },
       {
-       "name": "7 · PGCET 2024 M.Tech CS",
+       "name": "8 · PGCET 2024 M.Tech CS",
        "questions": [
         {
          "question": "Identify which one of the following is not an implicit object in JSP.",
@@ -14446,7 +14885,7 @@
        ]
       },
       {
-       "name": "8 · GFGC 2021 CS",
+       "name": "9 · GFGC 2021 CS",
        "questions": [
         {
          "question": "If there are 60 students in a class, then there must be at least ____, names of students starting with same English letter.",
@@ -14529,7 +14968,7 @@
        ]
       },
       {
-       "name": "9 · PGCET 2023 M.Tech CS",
+       "name": "10 · PGCET 2023 M.Tech CS",
        "questions": [
         {
          "question": "If f(x) is a probability density function of a continuous random variable, then :",
@@ -14599,7 +15038,7 @@
        ]
       },
       {
-       "name": "10 · GTTC 2024 Lecturer CS",
+       "name": "11 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "Which data structure is used for implementing recursion?",
@@ -14656,7 +15095,7 @@
        ]
       },
       {
-       "name": "11 · Other papers",
+       "name": "12 · Other papers",
        "questions": [
         {
          "question": "Identify the structure/structures used in the syntax of function in C.\n(a) Function declaration\n(b) Function definition\n(c) Function call",
@@ -15975,7 +16414,142 @@
        ]
       },
       {
-       "name": "8 · GTTC 2024 Lecturer CS",
+       "name": "8 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Based on the given below interprocess communication models which model is/are faster for exchange of large data on the same machine?\n[Model A: P₁ and P₂ share a memory region. Model B: P₁ sends to the kernel, P₂ receives from the kernel (message passing)]",
+         "options": {
+          "A": "Neither Model A nor Model B",
+          "B": "Both Model A and Model B",
+          "C": "Model B only",
+          "D": "Model A only"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Shared memory avoids a system call per message. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q49"
+        },
+        {
+         "question": "In an Entity Relationship Model (ER Model) total participation refers to",
+         "options": {
+          "A": "Participation of weak entity in identifying relationship",
+          "B": "Every instance of an entity must participate in the relationship",
+          "C": "Single instance of an entity must participate in the relationship",
+          "D": "Some entities in the relationship may not participate in relationship type"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Total participation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q51"
+        },
+        {
+         "question": "For the following query tree identify the correct relational algebra expression.\n[Query tree: π P.Pnumber, P.DNum, E.Lname, E.Address, E.Bdate over (3) ⋈ D.Mgr_SSN = E.SSN with EMPLOYEE, over (2) ⋈ P.Dnum = D.Dnumber with DEPARTMENT, over (1) σ P.Plocation = 'Stafford' on PROJECT]",
+         "options": {
+          "A": "(σ Plocation='Stafford' (PROJECT)) ⋈ DNum=Dnumber (DEPARTMENT)",
+          "B": "PROJECT ⋈ DNum=DNumber DEPARTMENT",
+          "C": "π Pnumber, Dnum, Lname, Address, Bdate (((σ Plocation='Stafford' (PROJECT)) ⋈ Dnum=Dnumber (DEPARTMENT)) ⋈ Mgr_SSN=SSN (EMPLOYEE))",
+          "D": "π Pnumber, Dnum, Lname, Address, Bdate ((σ Plocation='Stafford' (PROJECT)) ⋈ DNum=DNumber (DEPARTMENT))"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Elmasri–Navathe's query Q2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q52"
+        },
+        {
+         "question": "Identify the relational algebra expression which is equivalent to SQL's LEFT JOIN?",
+         "options": {
+          "A": "R ⟕ S (left outer join)",
+          "B": "R ⟖ S (right outer join)",
+          "C": "R ⟗ S (full outer join)",
+          "D": "R ⋈ S (natural join)"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "The bars on the left side keep all rows of R (symbols named in brackets). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q53"
+        },
+        {
+         "question": "In B+ tree the search key is 12 bytes long, block size is 2048 bytes, record pointer is 10 bytes long and block pointer is 8 bytes long. The maximum number of keys that can be accommodated in each non-leaf node of the tree is ____",
+         "options": {
+          "A": "50",
+          "B": "100",
+          "C": "102",
+          "D": "48"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "8n + 12(n − 1) ≤ 2048 gives n = 103 pointers, so 102 keys. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q56"
+        },
+        {
+         "question": "Consider the following schematic relation with FDs. Identify the correct normal form for the given schematic relation\n[R(Attribute 1 (key), Attribute 2, Attribute 3); FD1: Attribute 1 → Attribute 2, Attribute 3; FD2: Attribute 2 → Attribute 3]",
+         "options": {
+          "A": "Relation is not in 3rd normal form, but it is in BCNF",
+          "B": "Relation is not in 3rd normal form",
+          "C": "Relation is in 3rd normal form and in BCNF also",
+          "D": "Relation is not in BCNF, but it is in 3NF"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Attribute 3 depends transitively on the key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q57"
+        },
+        {
+         "question": "Identify the SQL constraint to set some value to a field whose value has not been added explicitly.",
+         "options": {
+          "A": "DEFAULT",
+          "B": "NOT NULL",
+          "C": "CHECK",
+          "D": "UNIQUE"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "DEFAULT. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q58"
+        },
+        {
+         "question": "Identify the SQL query to print the details of employee whose first name ends with 'a' and contains exactly 5 alphabets before 'a'.",
+         "options": {
+          "A": "Select * from employee where first_name LIKE '*****a';",
+          "B": "Select * from employee where first_name LIKE '_ _ _ _ _a';",
+          "C": "Select * from employee where first_name LIKE '%%%%%a';",
+          "D": "Select * from employee where first_name LIKE '%a';"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "_ matches exactly one character. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q59"
+        },
+        {
+         "question": "Which of the following is true about atomicity in transaction?\n(a) In each transaction, either the entire transaction is executed or it is not.\n(b) The transaction cannot be partially completed, since there is no mid way.",
+         "options": {
+          "A": "Only 'a' is true",
+          "B": "Only 'b' is true",
+          "C": "Both 'a' and 'b' are true",
+          "D": "Both 'a' and 'b' are false"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "All or nothing. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q60"
+        },
+        {
+         "question": "What is the correct sequence to create a database connection?\n(i) Connecting to the DBMS\n(ii) Processing data returned by the DBMS\n(iii) Loading the JDBC driver\n(iv) Terminating the connection with the DBMS\n(v) Creating and executing a statement",
+         "options": {
+          "A": "(i), (ii), (iv), (iii), (v)",
+          "B": "(iii), (i), (ii), (v), (iv)",
+          "C": "(iii), (i), (v), (ii), (iv)",
+          "D": "(ii), (i), (v), (iii), (iv)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Load driver, connect, execute, process, close. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q76"
+        }
+       ]
+      },
+      {
+       "name": "9 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "In formal relational model, set of individual values is called",
@@ -16097,7 +16671,7 @@
        ]
       },
       {
-       "name": "9 · KSET 2025 CS&A",
+       "name": "10 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "Identify the correctness of the following statements?\ni. Logical data independence is the ability to modify the logical schema without transforming the application programs\nii. Logical data independence modifies the logical schema as well as the application programs\niii. Logical data independence is complicated to achieve than the physical data independence",
@@ -16219,7 +16793,7 @@
        ]
       },
       {
-       "name": "10 · KEA 2026 CS Paper-2",
+       "name": "11 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "A relation is in 3 NF if it has following one of the properties.",
@@ -16328,7 +16902,7 @@
        ]
       },
       {
-       "name": "11 · KSET 2024 CS&A",
+       "name": "12 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "Which of the following can act as possible termination conditions in K-means?\n(a) For a fixed number of iterations\n(b) The assignment of observations to clusters does not change between iterations except for cases with a bad local minimum\n(c) Centroids do not change between successive iterations\n(d) Terminate when reduction in the sum of square distances between points and their assigned cluster centroids falls below threshold.",
@@ -16437,7 +17011,7 @@
        ]
       },
       {
-       "name": "12 · Other papers",
+       "name": "13 · Other papers",
        "questions": [
         {
          "question": "In RDBMS, a data record is known as ____",
@@ -18315,7 +18889,207 @@
        ]
       },
       {
-       "name": "8 · GFGC 2021 CS",
+       "name": "8 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "The fair measures for calculating efficiency of algorithm are",
+         "options": {
+          "A": "Processor time and memory",
+          "B": "Complexity and capacity",
+          "C": "Time and space",
+          "D": "Data and space"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Time and space complexity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q1"
+        },
+        {
+         "question": "What is the maximum number of reduction moves taken by a bottom-up parser for a grammar with no epsilon and unit productions to parse a given string with n tokens?",
+         "options": {
+          "A": "n",
+          "B": "2n – 1",
+          "C": "n – 1",
+          "D": "n/2"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "GATE 2013 (unit productions there meaning A → a): n − 1 reductions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q22"
+        },
+        {
+         "question": "Match the code-generation technique (List – I) with its functions (List – II)\nList – I\n(a) DAG-based code generation\n(b) Back-patching\n(c) Register Allocation by cloning\n(d) Three-Address code\nList – II\n(i) Manages forward references\n(ii) Eliminates redundant computation within basic block\n(iii) Solves NP-complete problem of register usage\n(iv) Helps in debugging",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – i, b – iv, c – iii, d – ii"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "DAGs find common subexpressions; back-patching fills forward jumps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q40"
+        },
+        {
+         "question": "Which of the following statement(s) is/are correct with respect to functionality of linker?\n(A) Combines independently compiled objects\n(B) Resolves symbolic references\n(C) Relocation\n(D) Allocation",
+         "options": {
+          "A": "Only A",
+          "B": "A, B and C",
+          "C": "Only D",
+          "D": "A, C and D"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Allocation is done by the loader. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q41"
+        },
+        {
+         "question": "What is the average turnaround time for the given set of processes with Preemptive Shortest Remaining Processing Time First (SRPT) algorithm?\nProcess | Arrival time | Burst time\nP₁ | 0 | 5\nP₂ | 1 | 3\nP₃ | 2 | 3\nP₄ | 4 | 1",
+         "options": {
+          "A": "6.25",
+          "B": "5.75",
+          "C": "5.50",
+          "D": "6.00"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Simulated: completions P₂ 4, P₄ 5, P₃ 8, P₁ 12 → turnarounds 3, 1, 6, 12 → 22/4 = 5.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q43"
+        },
+        {
+         "question": "For the following synchronization construct used by processes P₁ and P₂ which of the statement is true?\nProcess P₁:\nwhile (true)\n{\nw₁ = true;\nwhile (w₂ == true);\ncritical section\nw₁ = false;\n}\nRemainder section\nProcess P₂:\nwhile (true)\n{\nw₂ = true;\nwhile (w₁ == true);\ncritical section\nw₂ = false;\n}\nRemainder section\nNote: w₁ and w₂ are shared variables and are initialized to false",
+         "options": {
+          "A": "It requires that processes enter the critical section in strict alternation",
+          "B": "It does not prevent deadlocks but ensures mutual exclusion",
+          "C": "It does not ensure mutual exclusion",
+          "D": "It does not ensure bounded waiting"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "If both set their flags, both spin for ever (GATE 2016). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q44"
+        },
+        {
+         "question": "Which of the following statements are true for the following uniprocessor system state diagram? Assuming always some processes in ready state\n[Diagram: New –A→ Ready, Ready –B→ Running, Running –C→ Ready, Running –D→ Terminated, Running –F→ Blocked, Blocked –E→ Ready]\nA: The OS uses non-preemptive scheduling\nB: If a process makes a transition D, it would result in another process making transition A immediately\nC: A process P₂ in blocked state can make transition while another process P₁ is in running state\nD: The OS uses preemptive scheduling",
+         "options": {
+          "A": "C and D",
+          "B": "A and B",
+          "C": "C and A",
+          "D": "C and B"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Transition C (running → ready) means preemption (GATE 2009). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q45"
+        },
+        {
+         "question": "Match the following memory types to their properties:\nList – I (Memory type)\n(a) Look-ahead buffer\n(b) Virtual memory\n(c) Random Access Memory (RAM)\n(d) Shared memory\nList – II (Property)\n(i) Volatile main memory\n(ii) Mutual exclusion\n(iii) Spatial locality\n(iv) Address translation",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – ii, b – iv, c – iii, d – i",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Memory types. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q46"
+        },
+        {
+         "question": "Match the file management commands with its functionalities:\nList – I (Commands)\n(a) ls\n(b) pwd\n(c) touch\n(d) chmod\nList – II (Function)\n(i) Change file permissions\n(ii) List files and folders\n(iii) Display current working directory\n(iv) Update timestamp/create empty file",
+         "options": {
+          "A": "a – i, b – iv, c – iii, d – ii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – i, c – ii, d – iii"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "ls lists, pwd prints the working directory, touch updates the timestamp or creates an empty file, chmod changes permissions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q47"
+        },
+        {
+         "question": "For the given resource allocation graph\n[Graph: R₁ (2 instances) is held by P₂ and P₃ and requested by P₁; R₂ (2 instances) is held by P₁ and P₄ and requested by P₃]\nSelect the correct statement from the given options",
+         "options": {
+          "A": "Graph contains No cycle No Deadlock",
+          "B": "Graph contains No cycle with Deadlock",
+          "C": "Graph contains a cycle with Deadlock",
+          "D": "Graph contains a cycle with No Deadlock"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "P₁ → R₁ → P₃ → R₂ → P₁ is a cycle, but P₂ and P₄ can finish and free instances. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q48"
+        },
+        {
+         "question": "Which of the following is/are not TRUE?\n(a) Kernel is the program that contains core of operating system\n(b) Kernel is the first part of operating system to load into memory during booting\n(c) Kernel is made of various modules which cannot be loaded in running operating system\n(d) Kernel remains in the memory during the entire computer session",
+         "options": {
+          "A": "(a) and (b)",
+          "B": "(a) and (c)",
+          "C": "Only (c)",
+          "D": "(c) and (d)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Loadable kernel modules (e.g. Linux insmod / modprobe) can be added to a running kernel, so (c) is false. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q50"
+        },
+        {
+         "question": "Applying FIFO page replacement for the reference string →7, 0, 1, 2, 0, 3, 0, 4, 2, 3. The main memory can accommodate 3 pages. How many page faults will occur?",
+         "options": {
+          "A": "10",
+          "B": "6",
+          "C": "9",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Faults on 7, 0, 1, 2, 3, 0, 4, 2, 3 – only the first re-use of 0 is a hit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q55"
+        },
+        {
+         "question": "In a RSA cryptosystem, a participant A uses 2 prime numbers p = 13 and q = 17, to generate public and private keys if the public key of A is 35, then private key of A is",
+         "options": {
+          "A": "Private key of participant A = (d, n) = (11, 192)",
+          "B": "Private key of participant A = (d, n) = (11, 221)",
+          "C": "Private key of participant A = (d, n) = (7, 220)",
+          "D": "Private key of participant A = (d, n) = (10, 195)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "n = 13 × 17 = 221, φ(n) = 12 × 16 = 192, and 35 × 11 = 385 = 2 × 192 + 1, so d = 11 and the private key is (11, 221). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q70"
+        },
+        {
+         "question": "Arrange the following steps in sequence for a process to enter and exit a critical section using semaphore:\n(a) Perform a Wait () operation\n(b) Perform a Signal() operation\n(c) Execute Remainder section code\n(d) Execute Critical section code",
+         "options": {
+          "A": "(a) → (d) → (b) → (c)",
+          "B": "(c) → (a) → (d) → (b)",
+          "C": "(b) → (c) → (a) → (d)",
+          "D": "(a) → (b) → (c) → (d)"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "wait, critical section, signal, remainder. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q80"
+        },
+        {
+         "question": "Match the homonym words in Column-A with two of their meanings in Column-B\nColumn-A\n(i) LIGHT\n(ii) ROSE\n(iii) WATCH\n(iv) BARK\nColumn-B\n(a) time piece\n(b) a sound dog makes\n(c) weight not heavy\n(d) past tense of rise\n(e) outer covering of a tree\n(f) to look carefully\n(g) a flower\n(h) to shine",
+         "options": {
+          "A": "i – (ch), ii – (dg), iii – (af), iv – (be)",
+          "B": "i – (gh), ii – (ab), iii – (cd), iv – (ef)",
+          "C": "i – (cf), ii – (da), iii – (bg), iv – (eh)",
+          "D": "i – (ch), ii – (af), iii – (dg), iv – (be)"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Each word's two meanings. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q98"
+        }
+       ]
+      },
+      {
+       "name": "9 · GFGC 2021 CS",
        "questions": [
         {
          "question": "What is the Initial Basic Feasible Solution (IBFS) for the following Supply and Demand table ?\nProcess | S₁ | S₂ | S₃ | Supply\nP₁ | 2 | 7 | 10 | 10\nP₂ | 4 | 8 | 2 | 20\nP₃ | 6 | 9 | 1 | 40\nDemand | 10 | 35 | 25 | 70\\70",
@@ -18489,7 +19263,7 @@
        ]
       },
       {
-       "name": "9 · KSET 2024 CS&A",
+       "name": "10 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "The time between the receival of an interrupt and its service is called",
@@ -18663,7 +19437,7 @@
        ]
       },
       {
-       "name": "10 · KSET 2023 CS&A",
+       "name": "11 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "____ is invoked when there is a need to perform process scheduling, that is when a process from the ready queue is to be selected for dispatching to the CPU.",
@@ -18811,7 +19585,7 @@
        ]
       },
       {
-       "name": "11 · GTTC 2024 Lecturer CS",
+       "name": "12 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "A system shares 9 tapes drives. The current allocation and maximum requirements of tapes drives for that processes are shown below.\nProcess – Current Allocation – Max. Requirement: P₁ – 3 – 7; P₂ – 1 – 6; P₃ – 3 – 5\nWhich of the following is NOT best describes the system?",
@@ -18933,7 +19707,7 @@
        ]
       },
       {
-       "name": "12 · PGCET 2023 M.Tech CS",
+       "name": "13 · PGCET 2023 M.Tech CS",
        "questions": [
         {
          "question": "Which is an important file used by the system and should not be altered or removed from the disk?",
@@ -19055,7 +19829,7 @@
        ]
       },
       {
-       "name": "13 · Legislative Council 2024 Data Entry Operator P2",
+       "name": "14 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
          "question": "The OS environment which permits many processors active at the same time is.",
@@ -19134,63 +19908,6 @@
          "subject": "Legislative Council 2024 Data Entry Operator P2",
          "explanation": "Sender and receiver share one secret key (e.g. AES, DES). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q95"
-        }
-       ]
-      },
-      {
-       "name": "14 · PGCET 2026 CS",
-       "questions": [
-        {
-         "question": "Match the file management commands with its functionalities:\nList – I (Commands)\n(a) ls\n(b) pwd\n(c) touch\n(d) chmod\nList – II (Function)\n(i) Change file permissions\n(ii) List files and folders\n(iii) Display current working directory\n(iv) Update timestamp/create empty file",
-         "options": {
-          "A": "a – i, b – iv, c – iii, d – ii",
-          "B": "a – iii, b – ii, c – i, d – iv",
-          "C": "a – ii, b – iii, c – iv, d – i",
-          "D": "a – iv, b – i, c – ii, d – iii"
-         },
-         "answer": "C",
-         "subject": "PGCET 2026 CS",
-         "explanation": "ls lists, pwd prints the working directory, touch updates the timestamp or creates an empty file, chmod changes permissions. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q47"
-        },
-        {
-         "question": "Which of the following is/are not TRUE?\n(a) Kernel is the program that contains core of operating system\n(b) Kernel is the first part of operating system to load into memory during booting\n(c) Kernel is made of various modules which cannot be loaded in running operating system\n(d) Kernel remains in the memory during the entire computer session",
-         "options": {
-          "A": "(a) and (b)",
-          "B": "(a) and (c)",
-          "C": "Only (c)",
-          "D": "(c) and (d)"
-         },
-         "answer": "C",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Loadable kernel modules (e.g. Linux insmod / modprobe) can be added to a running kernel, so (c) is false. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q50"
-        },
-        {
-         "question": "Applying FIFO page replacement for the reference string →7, 0, 1, 2, 0, 3, 0, 4, 2, 3. The main memory can accommodate 3 pages. How many page faults will occur?",
-         "options": {
-          "A": "10",
-          "B": "6",
-          "C": "9",
-          "D": "8"
-         },
-         "answer": "C",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Faults on 7, 0, 1, 2, 3, 0, 4, 2, 3 – only the first re-use of 0 is a hit. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q55"
-        },
-        {
-         "question": "In a RSA cryptosystem, a participant A uses 2 prime numbers p = 13 and q = 17, to generate public and private keys if the public key of A is 35, then private key of A is",
-         "options": {
-          "A": "Private key of participant A = (d, n) = (11, 192)",
-          "B": "Private key of participant A = (d, n) = (11, 221)",
-          "C": "Private key of participant A = (d, n) = (7, 220)",
-          "D": "Private key of participant A = (d, n) = (10, 195)"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "n = 13 × 17 = 221, φ(n) = 12 × 16 = 192, and 35 × 11 = 385 = 2 × 192 + 1, so d = 11 and the private key is (11, 221). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q70"
         }
        ]
       },
@@ -20648,7 +21365,90 @@
        ]
       },
       {
-       "name": "5 · GFGC 2021 CS",
+       "name": "5 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "For a graph with 'V' vertices and 'E' edges match the properties in List-I to solutions in List-II.\n(a) Maximum edges in undirected simple graph\n(b) Maximum edges in directed simple graph\n(c) Sum of degree in undirected graph\n(d) Edges in complete graph\n(i) V (V − 1)\n(ii) 2E\n(iii) V (V − 1)/2\n(iv) n (n − 1)/2",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Undirected V(V − 1)/2, directed V(V − 1), degree sum 2E, complete graph n(n − 1)/2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q6"
+        },
+        {
+         "question": "Consider the triangle graph K₃ with edges of weights 1, 2 and 3. Compute the sum of weights of all spanning trees, where the weight of a spanning tree is the sum of its edges.",
+         "options": {
+          "A": "6",
+          "B": "12",
+          "C": "18",
+          "D": "24"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Three spanning trees: 1 + 2, 1 + 3, 2 + 3 → 3 + 4 + 5 = 12. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q9"
+        },
+        {
+         "question": "For connected undirected graph having 20 vertices and 19 edges, which of the following statements is true?\n(a) Graph has no cycle\n(b) Graph is a Tree\n(c) Graph has two connected components\n(d) Graph is complete",
+         "options": {
+          "A": "(a) and (d)",
+          "B": "(a) and (b)",
+          "C": "(b) and (c)",
+          "D": "(c) and (d)"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "A connected graph with n − 1 edges is a tree. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q11"
+        },
+        {
+         "question": "Let S be an NP-complete problem, Q & R are two other problems not known to be in NP. Q is reducible to S in polynomial time and S is reducible to R in polynomial time. Then which of the following statement is true?",
+         "options": {
+          "A": "R is NP complete",
+          "B": "R is NP Hard",
+          "C": "Q is NP complete",
+          "D": "Q is NP Hard"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "An NP-complete problem reduces to R, so R is NP-hard (GATE 2006). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q12"
+        },
+        {
+         "question": "Consider the SDT scheme given below with non-terminals {R, S, T} and terminals {a, b, c}\nA → RT {Print +}\nA → aS {print + + +}\nR → Ab {Print + +}\nS → c {Print +}\nT → A { print +}\nUsing the above SDT, calculate the total number of + that are printed for the input – acbac",
+         "options": {
+          "A": "6",
+          "B": "10",
+          "C": "12",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "A → RT, R → Ab, both A's → aS, both S → c: 1 + 2 + 1 + 2×3 + 2×1 = 12. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q39"
+        },
+        {
+         "question": "Given the array [4, 3, 2, 1, 8, 7, 6, 5]. After two passes of Bubble Sort, what is the status of array while sorting in ascending order?",
+         "options": {
+          "A": "[3, 2, 1, 4, 7, 6, 5, 8]",
+          "B": "[4, 3, 2, 1, 8, 7, 6, 5]",
+          "C": "[1, 2, 3, 4, 5, 6, 7, 8]",
+          "D": "[2, 1, 3, 4, 6, 5, 7, 8]"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Two passes of adjacent swaps. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q95"
+        }
+       ]
+      },
+      {
+       "name": "6 · GFGC 2021 CS",
        "questions": [
         {
          "question": "How many Hamiltonian paths the following graph has ?\n[Figure: edges a–b, b–d, d–e, b–c, c–d]",
@@ -20718,7 +21518,7 @@
        ]
       },
       {
-       "name": "6 · Legislative Council 2024 Sr/Jr Programmer P2",
+       "name": "7 · Legislative Council 2024 Sr/Jr Programmer P2",
        "questions": [
         {
          "question": "The minimum number of fields in each node of a doubly-linked list is ____",
@@ -20788,7 +21588,7 @@
        ]
       },
       {
-       "name": "7 · GTTC 2024 Lecturer CS",
+       "name": "8 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "What is the worst case time complexity of quick sort algorithms?",
@@ -20845,7 +21645,7 @@
        ]
       },
       {
-       "name": "8 · PGCET 2024 M.Tech CS",
+       "name": "9 · PGCET 2024 M.Tech CS",
        "questions": [
         {
          "question": "What is the time complexity of accessing an element in an array by its index?",
@@ -20902,7 +21702,7 @@
        ]
       },
       {
-       "name": "9 · Other papers",
+       "name": "10 · Other papers",
        "questions": [
         {
          "question": "What is the output of the following code?\nImport numpy as np\na = np.arange(4).reshape (2,2)\npoint (np.argmax(a))",
@@ -22279,7 +23079,337 @@
        ]
       },
       {
-       "name": "4 · GFGC 2021 CS",
+       "name": "4 · PGCET 2026 CS",
+       "questions": [
+        {
+         "question": "Consider a linked list, visiting each element of the linked list is known as",
+         "options": {
+          "A": "Sorting",
+          "B": "Merging",
+          "C": "Traversal",
+          "D": "Inserting"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Traversal = visiting every element once. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q2"
+        },
+        {
+         "question": "Which of the following applications uses circular linked list?",
+         "options": {
+          "A": "Recursive function call",
+          "B": "Undo operation in a text editor",
+          "C": "Implementation of hash table",
+          "D": "Allocating CPU to other resources"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Round-robin CPU allocation cycles through the list. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q4"
+        },
+        {
+         "question": "Match Traversals in List-I and its Properties in List-II.\n(a) Inorder traversal of BST\n(b) Preorder traversal\n(c) Postorder traversal\n(d) Level order traversal\n(i) Root processed first\n(ii) Produces sorted output\n(iii) Uses queue internally\n(iv) Children processed before root",
+         "options": {
+          "A": "a – iii, b – iv, c – i, d – ii",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Inorder of a BST is sorted; preorder visits the root first; postorder last; level order uses a queue. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q5"
+        },
+        {
+         "question": "The algorithm which is used to find the shortest path between two cities in positioning system or GPS navigation system is",
+         "options": {
+          "A": "Dijkstra Algorithm",
+          "B": "Bellman-Ford Algorithm",
+          "C": "BFS Algorithm",
+          "D": "SFS Algorithm"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Road distances are non-negative weights. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q7"
+        },
+        {
+         "question": "Consider a connected graph with 8 vertices and 7 edges. If we perform a Breadth First Search traversal, how many vertices and edges will be visited?",
+         "options": {
+          "A": "8 vertices, 7 edges",
+          "B": "7 vertices, 7 edges",
+          "C": "8 vertices, 8 edges",
+          "D": "7 vertices, 8 edges"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Connected with V − 1 edges = a tree; BFS reaches every vertex and edge. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q10"
+        },
+        {
+         "question": "Which of the following is/are not correct with respect to context free language?\n(a) A CFL can be accepted by DPDA\n(b) union of 2 CFLs is context free\n(c) The intersection of two CFLs is context free\n(d) The complement of CFLs is context free",
+         "options": {
+          "A": "(b) only",
+          "B": "(a) and (c)",
+          "C": "(a) and (b)",
+          "D": "(a), (c) and (d)"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Only (b) is true in general. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q25"
+        },
+        {
+         "question": "Which of the following strings are in L* for the given language L = {ab, aa, baa}?\n(a) abaabaaabaa\n(b) aaaabaaaa\n(c) baaaaabaaaab\n(d) baaaaabaa",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(b), (c) and (d)",
+          "C": "(a), (b) and (d)",
+          "D": "(a), (c) and (d)"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "(c) ends in 'b' after 'aaa', which no split allows (GATE 2012). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q27"
+        },
+        {
+         "question": "Which of the following are also regular languages if L₁ and L₂ are regular languages?\n(a) L₁ + L₂\n(b) L₁ . L₂\n(c) L₁ ⊆ L₂\n(d) L₁ * L₂",
+         "options": {
+          "A": "(a) only",
+          "B": "(b) only",
+          "C": "(c) only",
+          "D": "(a), (b) and (d)"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Union, concatenation and star are closure operations; (c) is a relation, not a language. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q28"
+        },
+        {
+         "question": "The language generated by the following context free grammar\nS → aSb\nS → aS\nS → bS\nS → ∈",
+         "options": {
+          "A": "All possible number of a's and b's including ∈",
+          "B": "Unequal number of a's and b's",
+          "C": "Number of a's followed by any number of b's",
+          "D": "Number of b's followed by any number of a's"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "S → aS | bS | ε alone gives every string. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q29"
+        },
+        {
+         "question": "Print the enumerator for the following language\nL = {aⁿ b²ⁿ / n ≥ 0} is/are\n(a) aⁿ b²ⁿ\n(b) ab², a²b⁴ …\n(c) ab, a²b², …..\n(d) ∈, ab², a²b⁴, a³b⁶ …..",
+         "options": {
+          "A": "(a) and (b)",
+          "B": "(b) only",
+          "C": "(a) and (c)",
+          "D": "(d) only"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "n starts at 0, so ε is listed first. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q31"
+        },
+        {
+         "question": "Which language is accepted by the following given PDA productions?\nδ (q₀, a, z₀) = (q₀, aaa z₀)\nδ (q₀, a, a) = (q₀, aaaa)\nδ (q₀, b, a) = (q₁, ∈)\nδ (q₁, b, a) = (q₁, ∈)\nδ (q₁, ∈, z₀) = (q_f, z₀)",
+         "options": {
+          "A": "L = {aⁿbⁿ / n > 0}",
+          "B": "L = {aⁿb²ⁿ / n ≥ 0}",
+          "C": "L = {a²ⁿbⁿ / n > 0}",
+          "D": "L = {aⁿb³ⁿ / n > 0}"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Each a pushes three a's; each b pops one. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q32"
+        },
+        {
+         "question": "Match the phases of compiler (List – I) with its functionalities (List – II)\nList – I\n(a) Lexical Analysis\n(b) Semantic Analysis\n(c) Intermediate code generator\n(d) Runtime Environment\nList – II\n(i) Platform independent code\n(ii) Activation records\n(iii) Type consistency\n(iv) Error Detection",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Compiler phases. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q36"
+        },
+        {
+         "question": "Which of the following is not true about control links?",
+         "options": {
+          "A": "Connects activation records dynamically",
+          "B": "Used for stack unwinding",
+          "C": "Points to the lexically enclosing procedure",
+          "D": "Points to the callers activation records"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "That is the access (static) link. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q42"
+        },
+        {
+         "question": "In (7,4) Hamming code ____ bits represent the message and ____ bits for error correction",
+         "options": {
+          "A": "4 bits and 3 bits",
+          "B": "3 bits and 4 bits",
+          "C": "4 bits and 7 bits",
+          "D": "7 bits and 4 bits"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "A (7,4) code has 7-bit codewords: 4 data bits and 3 parity bits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q61"
+        },
+        {
+         "question": "Why does topological addressing enable large networks to be built?",
+         "options": {
+          "A": "It reduces the size of routing tables and the amount of information that must be exchanged",
+          "B": "It reduces the size and information in forwarding table",
+          "C": "It only reduces the size of routing table",
+          "D": "It reduces the size of routing table and increases the amount of information to be exchanged"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Hierarchical addresses let one entry (prefix) stand for a whole region – route aggregation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q62"
+        },
+        {
+         "question": "A network on the internet has a subnet mask of 255.255.192.0. What is the maximum number of hosts it can handle?",
+         "options": {
+          "A": "2¹² hosts",
+          "B": "2¹⁶ hosts",
+          "C": "2¹⁵ hosts",
+          "D": "2¹⁴ hosts"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "14 host bits (strictly 2¹⁴ − 2 usable hosts). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q63"
+        },
+        {
+         "question": "Each router in a link state protocol performs these 5 steps, arrange them in chronological order.\n(a) Send the packet to all other routers\n(b) Measure the delay or cost to each of its neighbours\n(c) Compute the shortest path to every other router\n(d) Construct a packet telling all it has just learned\n(e) Discover its neighbours and learn their network address",
+         "options": {
+          "A": "e, b, a, d, c",
+          "B": "b, c, e, a, d",
+          "C": "c, d, a, e, b",
+          "D": "e, b, d, a, c"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Tanenbaum's five steps: discover, measure, build LSP, flood, run Dijkstra. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q64"
+        },
+        {
+         "question": "Match the following data units at different layers.\nList – I (Layers)\n(a) Physical Layer\n(b) Data Link Layer\n(c) Network Layer\n(d) Transport Layer\nList – II (Data units)\n(i) Segments\n(ii) Packets\n(iii) Frames\n(iv) Bits",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – iii, b – iv, c – ii, d – i",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "PGCET 2026 CS",
+         "explanation": "PDUs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q65"
+        },
+        {
+         "question": "In the distance vector routing algorithm each router",
+         "options": {
+          "A": "Sends the entire network topology to all routers periodically",
+          "B": "Maintains only the distance to each destination and the next hop and exchanges this with neighbours",
+          "C": "Chooses routers based on source-routing headers",
+          "D": "Requires a centralized controller to compute all paths"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Topology flooding is link state; distance vector shares its vector only with neighbours (Bellman–Ford). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q66"
+        },
+        {
+         "question": "Find the class of the following IP address 208.34.84.10",
+         "options": {
+          "A": "Class B",
+          "B": "Class C",
+          "C": "Class A",
+          "D": "Class D"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "192–223. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q67"
+        },
+        {
+         "question": "Match the following protocols with port numbers.\nList – I (Protocols)\n(a) Hyper Text Transfer Protocol (HTTP)\n(b) Simple Mail Transfer Protocol (SMTP)\n(c) Domain Name System (DNS)\n(d) Simple Network Management Protocol (SNMP)\nList – II (Port numbers)\n(i) 161\n(ii) 80\n(iii) 25\n(iv) 53",
+         "options": {
+          "A": "a – iii, b – ii, c – i, d – iv",
+          "B": "a – iv, b – ii, c – i, d – iii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Well-known ports. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q68"
+        },
+        {
+         "question": "HTTP defines standard status codes that can be used to convey the results of a client's request.\nMatch the HTTP error code series in List – I with the relevant description in List – II.\nList – I (HTTP Error codes)\n(a) 2xx – Success\n(b) 3xx – Redirection\n(c) 4xx – Client Error\n(d) 5xx – Server Error\nList – II (Description)\n(i) The server takes responsibility for these error status codes\n(ii) Indicates that client's request was accepted successfully\n(iii) Indicates that client must take some additional action in order to complete their request\n(iv) This category of error codes points the finger at clients",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – i, b – ii, c – iv, d – iii",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "D",
+         "subject": "PGCET 2026 CS",
+         "explanation": "Status classes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q71"
+        },
+        {
+         "question": "The dynamic memory allocation functions in C language are defined in ____",
+         "options": {
+          "A": "<stdio.h>",
+          "B": "<stdlib.h>",
+          "C": "<string.h>",
+          "D": "<conio.h>"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "malloc, calloc, realloc, free. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q91"
+        },
+        {
+         "question": "Match the following operators in C to their purpose.\nList-I\n(a) ^\n(b) >>\n(c) <<\n(d) |\nList-II\n(i) Performs bitwise OR operations\n(ii) Multiplies by power of 2\n(iii) Divides by power of 2\n(iv) Performs bitwise EX-OR operations",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "B",
+         "subject": "PGCET 2026 CS",
+         "explanation": "^ is XOR, >> divides and << multiplies by powers of 2, | is OR. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q93"
+        },
+        {
+         "question": "Match the following verbs with prepositions\nColumn-A\n(i) She is afraid ___ dogs\n(ii) She is good ___ mathematics\n(iii) We are interested ___ the movie\n(iv) The book belongs ___ me\nColumn-B\n(a) at\n(b) to\n(c) of\n(d) in",
+         "options": {
+          "A": "i – c, ii – a, iii – d, iv – b",
+          "B": "i – c, ii – d, iii – a, iv – b",
+          "C": "i – d, ii – c, iii – b, iv – a",
+          "D": "i – b, ii – a, iii – d, iv – c"
+         },
+         "answer": "A",
+         "subject": "PGCET 2026 CS",
+         "explanation": "afraid of, good at, interested in, belongs to. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q100"
+        }
+       ]
+      },
+      {
+       "name": "5 · GFGC 2021 CS",
        "questions": [
         {
          "question": "Which of the following statement is a proposition ?",
@@ -22583,7 +23713,7 @@
        ]
       },
       {
-       "name": "5 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "6 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "Match the following with respect to client side scripting for their correctness.\na) Source code is not visible to the user\nb) It runs on user's computer\nc) Provides security for data\nd) HTML, CSS and JavaScripts are used\ni. Not correct\nii. correct",
@@ -22887,7 +24017,7 @@
        ]
       },
       {
-       "name": "6 · PGCET 2024 M.Tech CS",
+       "name": "7 · PGCET 2024 M.Tech CS",
        "questions": [
         {
          "question": "Which of the following does not represent the given language ?\nLanguage : {0, 01}",
@@ -23165,7 +24295,7 @@
        ]
       },
       {
-       "name": "7 · PGCET 2023 M.Tech CS",
+       "name": "8 · PGCET 2023 M.Tech CS",
        "questions": [
         {
          "question": "An element at position i in an array has its left child of a binary tree stored at position",
@@ -23352,7 +24482,7 @@
        ]
       },
       {
-       "name": "8 · Legislative Council 2024 Sr/Jr Programmer P2",
+       "name": "9 · Legislative Council 2024 Sr/Jr Programmer P2",
        "questions": [
         {
          "question": "Which of the following JavaScript objects is used for making an AJAX request?",
@@ -23513,7 +24643,7 @@
        ]
       },
       {
-       "name": "9 · KSET 2024 CS&A",
+       "name": "10 · KSET 2024 CS&A",
        "questions": [
         {
          "question": "In ____ technique, Virtual Memory Managers (VMMs) do not virtualize real hardware but instead create an optimized virtual system.",
@@ -23648,7 +24778,7 @@
        ]
       },
       {
-       "name": "10 · KSET 2025 CS&A",
+       "name": "11 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "Consider the following statements regarding the interconnection topology.\ni. In star topology, if the master node is dead, the other nodes (processor) can still interact with each other.\nii. In bus topology, only two processors can interact with each other at any one given point in time.\niii. In hyper cube topology, two nodes are connected if there is change in two bits in their processor identity (processor id)",
@@ -23783,7 +24913,7 @@
        ]
       },
       {
-       "name": "11 · KEA 2026 CS Paper-2",
+       "name": "12 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "Assume the stop-and-wait system, the bandwidth of the line is 1 Mbps and 1 bit takes 20 milliseconds to make a round trip. Compute bandwidth-delay product if the system data packets are 1000 bits in length. What is the utilization percentage of the link?",
@@ -23905,7 +25035,7 @@
        ]
       },
       {
-       "name": "12 · KSET 2023 CS&A",
+       "name": "13 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "In a communication network, if a path from Site A to Site B is fixed for the duration of one session, the routing scheme adopted is called ____.",
@@ -24027,7 +25157,7 @@
        ]
       },
       {
-       "name": "13 · Legislative Council 2024 Data Entry Operator P2",
+       "name": "14 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
          "question": "What is the default subnet mask of a class B, IP value in address?",
@@ -24119,63 +25249,6 @@
          "subject": "Legislative Council 2024 Data Entry Operator P2",
          "explanation": "Text is written. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q100"
-        }
-       ]
-      },
-      {
-       "name": "14 · PGCET 2026 CS",
-       "questions": [
-        {
-         "question": "In (7,4) Hamming code ____ bits represent the message and ____ bits for error correction",
-         "options": {
-          "A": "4 bits and 3 bits",
-          "B": "3 bits and 4 bits",
-          "C": "4 bits and 7 bits",
-          "D": "7 bits and 4 bits"
-         },
-         "answer": "A",
-         "subject": "PGCET 2026 CS",
-         "explanation": "A (7,4) code has 7-bit codewords: 4 data bits and 3 parity bits. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q61"
-        },
-        {
-         "question": "Why does topological addressing enable large networks to be built?",
-         "options": {
-          "A": "It reduces the size of routing tables and the amount of information that must be exchanged",
-          "B": "It reduces the size and information in forwarding table",
-          "C": "It only reduces the size of routing table",
-          "D": "It reduces the size of routing table and increases the amount of information to be exchanged"
-         },
-         "answer": "A",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Hierarchical addresses let one entry (prefix) stand for a whole region – route aggregation. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q62"
-        },
-        {
-         "question": "Each router in a link state protocol performs these 5 steps, arrange them in chronological order.\n(a) Send the packet to all other routers\n(b) Measure the delay or cost to each of its neighbours\n(c) Compute the shortest path to every other router\n(d) Construct a packet telling all it has just learned\n(e) Discover its neighbours and learn their network address",
-         "options": {
-          "A": "e, b, a, d, c",
-          "B": "b, c, e, a, d",
-          "C": "c, d, a, e, b",
-          "D": "e, b, d, a, c"
-         },
-         "answer": "D",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Tanenbaum's five steps: discover, measure, build LSP, flood, run Dijkstra. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q64"
-        },
-        {
-         "question": "In the distance vector routing algorithm each router",
-         "options": {
-          "A": "Sends the entire network topology to all routers periodically",
-          "B": "Maintains only the distance to each destination and the next hop and exchanges this with neighbours",
-          "C": "Chooses routers based on source-routing headers",
-          "D": "Requires a centralized controller to compute all paths"
-         },
-         "answer": "B",
-         "subject": "PGCET 2026 CS",
-         "explanation": "Topology flooding is link state; distance vector shares its vector only with neighbours (Bellman–Ford). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PGCET 2026 CS · Q66"
         }
        ]
       },
