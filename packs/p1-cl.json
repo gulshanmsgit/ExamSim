@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "12 of 14 topics so far (24 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail; Unit 5 – Nudi Software & Baraha; Unit 6 – Artificial Intelligence. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "13 of 14 topics so far (26 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail; Unit 5 – Nudi Software & Baraha; Unit 6 – Artificial Intelligence; Unit 6 – Cyber Security. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -6015,6 +6015,514 @@
          "answer": "D",
          "subject": "Applications of AI and AI in India",
          "explanation": "PYQ pattern (KEA computer literacy). AI tool matching."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Unit 6 – Cyber Security",
+     "sets": [
+      {
+       "name": "1 · Introduction, Cyber Space and Cyber Threats",
+       "questions": [
+        {
+         "question": "A ______ can infect both the boot sectors and executable files.",
+         "options": {
+          "A": "Polymorphic virus",
+          "B": "Multi-partite virus",
+          "C": "Stealth virus",
+          "D": "Companion virus"
+         },
+         "answer": "B",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "A multipartite virus attacks both the boot sector and program files, so it spreads in several ways. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q77"
+        },
+        {
+         "question": "Identify the suitable term that describes a network of compromised computers where a hacker controls remotely to launch a Distributed Denial of Service (DDoS) attack.",
+         "options": {
+          "A": "Trojan Horse",
+          "B": "Spyware",
+          "C": "Botnet",
+          "D": "Ransomware"
+         },
+         "answer": "C",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "A botnet is a 'robot network' of infected machines (zombies) controlled by a bot-herder. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q79"
+        },
+        {
+         "question": "______ is the process of flooding a target with fake traffic to the server, network or website unavailable to authorized users by overwhelming with excessive traffic or requests.",
+         "options": {
+          "A": "Man-in-the-Middle attack",
+          "B": "IP spoofing",
+          "C": "DDoS attack",
+          "D": "Protocol attack"
+         },
+         "answer": "C",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "A Distributed Denial of Service attack floods the target from many machines at once. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q89"
+        },
+        {
+         "question": "______ attacks occur when attacker continuously bombards with various protocol messages designed to consume system resources.",
+         "options": {
+          "A": "Identity theft",
+          "B": "Denial of service",
+          "C": "Man in the middle attack",
+          "D": "Virus attack"
+         },
+         "answer": "B",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Denial-of-service attacks exhaust bandwidth, memory or CPU so that genuine users are refused. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q76"
+        },
+        {
+         "question": "Expand OWASP in reference to Cyber Security.",
+         "options": {
+          "A": "Open World Advanced Security Project",
+          "B": "Open Web Application Security Project",
+          "C": "Open World Alternate Security Project",
+          "D": "Open Web Application Service Plan"
+         },
+         "answer": "B",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "OWASP publishes the 'Top 10' list of web-application security risks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q80"
+        },
+        {
+         "question": "Cyber security is the practice of:",
+         "options": {
+          "A": "Typing quickly",
+          "B": "Designing websites only",
+          "C": "Making computers faster",
+          "D": "Protecting computers, networks, programs and data from attack, damage or unauthorised access"
+         },
+         "answer": "D",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). Its goals are confidentiality, integrity and availability (the CIA triad)."
+        },
+        {
+         "question": "The term 'cyberspace' was coined by the science-fiction writer:",
+         "options": {
+          "A": "Isaac Asimov",
+          "B": "Arthur C. Clarke",
+          "C": "William Gibson",
+          "D": "H. G. Wells"
+         },
+         "answer": "C",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "It appeared in his story 'Burning Chrome' (1982) and the novel 'Neuromancer' (1984)."
+        },
+        {
+         "question": "A computer virus differs from a worm in that a virus:",
+         "options": {
+          "A": "Is hardware",
+          "B": "Is always harmless",
+          "C": "Cannot copy itself",
+          "D": "Needs a host program and user action to spread, while a worm spreads by itself across networks"
+         },
+         "answer": "D",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). The 'Morris worm' (1988) was one of the first internet worms."
+        },
+        {
+         "question": "A Trojan horse is malware that:",
+         "options": {
+          "A": "Pretends to be useful software but does harmful things in the background",
+          "B": "Only displays advertisements",
+          "C": "Improves speed",
+          "D": "Is an antivirus"
+         },
+         "answer": "A",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "It does not replicate itself like a virus."
+        },
+        {
+         "question": "Ransomware:",
+         "options": {
+          "A": "Shows only pop-ups",
+          "B": "Speeds up the computer",
+          "C": "Encrypts a victim's files and demands payment to unlock them",
+          "D": "Is a firewall"
+         },
+         "answer": "C",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). WannaCry (2017) was a major ransomware attack."
+        },
+        {
+         "question": "Phishing is:",
+         "options": {
+          "A": "Backing up files",
+          "B": "Catching fish online",
+          "C": "Repairing networks",
+          "D": "Tricking people through fake e-mails, messages or websites into revealing passwords or bank details"
+         },
+         "answer": "D",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Vishing uses phone calls; smishing uses SMS."
+        },
+        {
+         "question": "Spyware is software that:",
+         "options": {
+          "A": "Defragments disks",
+          "B": "Secretly collects information about a user without consent",
+          "C": "Prints documents",
+          "D": "Removes viruses"
+         },
+         "answer": "B",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). Keyloggers record every keystroke."
+        },
+        {
+         "question": "The Indian national agency for responding to cyber security incidents is:",
+         "options": {
+          "A": "CERT-In (Indian Computer Emergency Response Team)",
+          "B": "ISRO",
+          "C": "DRDO",
+          "D": "NASSCOM"
+         },
+         "answer": "A",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "It works under the Ministry of Electronics and IT (MeitY) and was set up in 2004."
+        },
+        {
+         "question": "A 'zero-day' vulnerability is a security flaw that:",
+         "options": {
+          "A": "Is fixed on the first day",
+          "B": "Is unknown to the vendor and has no patch yet",
+          "C": "Exists only on Sundays",
+          "D": "Cannot be exploited"
+         },
+         "answer": "B",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). Attackers exploit it before a fix is available."
+        },
+        {
+         "question": "An ethical hacker (white-hat hacker) is one who:",
+         "options": {
+          "A": "Defaces websites",
+          "B": "Spreads viruses",
+          "C": "Tests systems with permission to find and fix weaknesses",
+          "D": "Steals data for money"
+         },
+         "answer": "C",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Black-hat hackers break in for gain; grey-hat hackers fall in between."
+        },
+        {
+         "question": "Consider the statements:\nI. A worm can spread across networks without user action.\nII. A Trojan horse replicates itself like a virus.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Trojans do not self-replicate."
+        },
+        {
+         "question": "Assertion (A): A DDoS attack is harder to stop than a simple DoS attack.\nReason (R): In a DDoS attack, the traffic comes from many compromised machines at once.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Blocking one source is not enough."
+        },
+        {
+         "question": "Assertion (A): Phishing attacks exploit weaknesses in hardware.\nReason (R): Phishing tricks human users into revealing information.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Phishing is social engineering; A is false."
+        },
+        {
+         "question": "Match:\na. Virus\nb. Worm\nc. Ransomware\nd. Spyware\n\n1. Demands payment\n2. Spreads by itself over networks\n3. Secretly collects information\n4. Attaches to a host file",
+         "options": {
+          "A": "a-4, b-2, c-1, d-3",
+          "B": "a-4, b-1, c-2, d-3",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-2, b-4, c-1, d-3"
+         },
+         "answer": "A",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "PYQ pattern (KEA computer literacy). Malware matching."
+        },
+        {
+         "question": "The 'CIA triad' in information security stands for:",
+         "options": {
+          "A": "Code, Install, Audit",
+          "B": "Cyber, Internet, Antivirus",
+          "C": "Control, Information, Access",
+          "D": "Confidentiality, Integrity and Availability"
+         },
+         "answer": "D",
+         "subject": "Introduction, Cyber Space and Cyber Threats",
+         "explanation": "Every security measure protects one or more of these."
+        }
+       ]
+      },
+      {
+       "name": "2 · Internet Security – Protection, Issues and Challenges",
+       "questions": [
+        {
+         "question": "______ includes mechanism designed to block traffic from intruders.",
+         "options": {
+          "A": "Encryption",
+          "B": "Digital signature",
+          "C": "IPS",
+          "D": "Firewall"
+         },
+         "answer": "D",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "A firewall filters traffic between a trusted network and the internet; KEA's final key accepted both IPS (intrusion prevention system) and Firewall. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q72"
+        },
+        {
+         "question": "A system that prevents unauthorised access to a private computer network is",
+         "options": {
+          "A": "IDS",
+          "B": "FireWall",
+          "C": "Nmap",
+          "D": "Malware"
+         },
+         "answer": "B",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "An IDS only detects intrusions; Nmap is a port scanner. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q94"
+        },
+        {
+         "question": "Which of the following are required to secure the computer when it is connected to the network?\n(a) Firewall\n(b) Wi-Fi Repeater\n(c) Antivirus\n(d) Software updates",
+         "options": {
+          "A": "a, b and c",
+          "B": "b, c and d",
+          "C": "a, c and d",
+          "D": "a, b and d"
+         },
+         "answer": "C",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "A Wi-Fi repeater only extends signal range; it adds no security. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q86"
+        },
+        {
+         "question": "Data Encryption Standard (DES) is an example for",
+         "options": {
+          "A": "Stream Cipher",
+          "B": "Bit Cipher",
+          "C": "Block Cipher",
+          "D": "Byte Cipher"
+         },
+         "answer": "C",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "DES encrypts 64-bit blocks with a 56-bit key; it has been replaced by AES. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q87"
+        },
+        {
+         "question": "What do DES and DSA stand for in context of cryptography?",
+         "options": {
+          "A": "Data Encryption System, Digital System Analysis",
+          "B": "Data Enabled System, Digital System Architecture",
+          "C": "Data Encryption Standard, Digital Signature Algorithm",
+          "D": "Data Encryption Symbol, Digital Signature Authentication"
+         },
+         "answer": "C",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "DSA is a NIST standard for digital signatures. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q92"
+        },
+        {
+         "question": "Pick the odd one out from the list with respect to antivirus softwares.",
+         "options": {
+          "A": "TotalAV",
+          "B": "Norton360",
+          "C": "Guardio",
+          "D": "Opera"
+         },
+         "answer": "D",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Opera is a web browser; the others are security tools. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q90"
+        },
+        {
+         "question": "Which type of virus is designed to infect both executable files and system boot sector, making removal exceptionally difficult?",
+         "options": {
+          "A": "Resident virus",
+          "B": "Sparse infector virus",
+          "C": "Multipartite virus",
+          "D": "Stealth virus"
+         },
+         "answer": "C",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Unless both the boot sector and the files are cleaned, a multipartite virus re-infects the system. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q77"
+        },
+        {
+         "question": "Determine which of the following statements correctly describes a feature of incognito mode:\n(a) Does not record browsing history.\n(b) Allows multiple logins on one device.\n(c) Provides virus protection.\n(d) Hides IP address.",
+         "options": {
+          "A": "(c) and (d) only",
+          "B": "(b), (c) and (d) only",
+          "C": "(a) and (b) only",
+          "D": "(a), (b), (c) and (d)"
+         },
+         "answer": "C",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Incognito keeps no local history or cookies after closing and lets you sign in to a second account; it does not stop viruses or hide your IP address. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q98"
+        },
+        {
+         "question": "A strong password should:",
+         "options": {
+          "A": "Be 'password123'",
+          "B": "Be long and mix upper- and lower-case letters, numbers and symbols",
+          "C": "Be your date of birth",
+          "D": "Be the same for every account"
+         },
+         "answer": "B",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "PYQ pattern (KEA computer literacy). Use a different password for each account; a password manager helps."
+        },
+        {
+         "question": "Two-factor authentication (2FA) improves security by requiring:",
+         "options": {
+          "A": "Something you know (password) plus something you have (OTP / phone) or are (fingerprint)",
+          "B": "Two antivirus programs",
+          "C": "Two passwords typed twice",
+          "D": "Two computers"
+         },
+         "answer": "A",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Even a stolen password is not enough."
+        },
+        {
+         "question": "The padlock and 'https' in a browser address bar show that:",
+         "options": {
+          "A": "Downloads are virus-free",
+          "B": "The connection to the website is encrypted using TLS/SSL",
+          "C": "The website is free of all scams",
+          "D": "The site is government-owned"
+         },
+         "answer": "B",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "PYQ pattern (KEA computer literacy). Phishing sites can also use https, so check the address carefully."
+        },
+        {
+         "question": "In public-key (asymmetric) cryptography, a message encrypted with the receiver's public key can be decrypted only with the:",
+         "options": {
+          "A": "Any key",
+          "B": "Receiver's public key",
+          "C": "Sender's public key",
+          "D": "Receiver's private key"
+         },
+         "answer": "D",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "RSA is a common public-key algorithm."
+        },
+        {
+         "question": "Regularly installing software updates (patches) is important because they:",
+         "options": {
+          "A": "Fix security holes that attackers could exploit",
+          "B": "Only change the colours",
+          "C": "Always slow the computer",
+          "D": "Delete user files"
+         },
+         "answer": "A",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "PYQ pattern (KEA computer literacy). Many attacks exploit unpatched systems."
+        },
+        {
+         "question": "Which of the following is a safe practice on public Wi-Fi?",
+         "options": {
+          "A": "Avoid online banking, or use a VPN",
+          "B": "Download unknown files",
+          "C": "Turn off the firewall",
+          "D": "Share passwords with others"
+         },
+         "answer": "A",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Public networks can be monitored by attackers."
+        },
+        {
+         "question": "Taking regular backups (for example the 3-2-1 rule) mainly protects against:",
+         "options": {
+          "A": "Slow internet",
+          "B": "Data loss from ransomware, hardware failure or accidents",
+          "C": "Spelling mistakes",
+          "D": "Low battery"
+         },
+         "answer": "B",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "PYQ pattern (KEA computer literacy). 3 copies, on 2 types of media, 1 kept off-site."
+        },
+        {
+         "question": "Consider the statements:\nI. Incognito mode hides your browsing from your internet service provider.\nII. An antivirus should be kept up to date.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "B",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Incognito only stops local history; the ISP and websites can still see traffic."
+        },
+        {
+         "question": "Assertion (A): A firewall can block unauthorised network traffic.\nReason (R): A firewall filters packets according to security rules.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "Firewalls can be hardware or software."
+        },
+        {
+         "question": "Assertion (A): An IDS blocks every attack automatically.\nReason (R): An intrusion detection system monitors traffic and raises alerts about suspicious activity.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "An IDS detects; an IPS or firewall blocks. A is false."
+        },
+        {
+         "question": "Match:\na. Firewall\nb. Antivirus\nc. Encryption\nd. Backup\n\n1. Detects and removes malware\n2. Filters network traffic\n3. Makes data unreadable without a key\n4. Copy of data for recovery",
+         "options": {
+          "A": "a-2, b-1, c-3, d-4",
+          "B": "a-1, b-2, c-3, d-4",
+          "C": "a-2, b-3, c-1, d-4",
+          "D": "a-4, b-1, c-3, d-2"
+         },
+         "answer": "A",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "PYQ pattern (KEA computer literacy). Security tools matching."
+        },
+        {
+         "question": "A major challenge in cyber security today is:",
+         "options": {
+          "A": "Too many printers",
+          "B": "The lack of computers",
+          "C": "Slow typists",
+          "D": "The fast growth of connected devices (IoT) and of social-engineering attacks"
+         },
+         "answer": "D",
+         "subject": "Internet Security – Protection, Issues and Challenges",
+         "explanation": "The human factor is often the weakest link."
         }
        ]
       }

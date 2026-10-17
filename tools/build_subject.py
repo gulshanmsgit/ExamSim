@@ -30,13 +30,13 @@ PACKS = {
     "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b"]},
     "p2-u10": {"subject": "P2 · Unit 10 – Artificial Intelligence", "modules": ["p2u10_a", "p2u10_b"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
-    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j", "p1_psy_k", "p1_psy_l", "p1_psy_m", "p1_psy_n", "p1_psy_o", "p1_psy_p"]},
+    "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j", "p1_psy_k", "p1_psy_l", "p1_psy_m", "p1_psy_n", "p1_psy_o", "p1_psy_p", "p1_psy_q"]},
     "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g", "p1_gk_pyq", "p1_gk_notes", "p1_gk_h", "p1_gk_i", "p1_gk_j", "p1_gk_k"]},
-    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f", "p1_cl_g", "p1_cl_h", "p1_cl_i", "p1_cl_j", "p1_cl_k", "p1_cl_l"]},
-    "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e", "p1_eng_f", "p1_eng_g", "p1_eng_h", "p1_eng_i", "p1_eng_j", "p1_eng_k"]},
-    "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e", "p1_he_f", "p1_he_g", "p1_he_h"]},
+    "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f", "p1_cl_g", "p1_cl_h", "p1_cl_i", "p1_cl_j", "p1_cl_k", "p1_cl_l", "p1_cl_m"]},
+    "p1-eng": {"subject": "P1 · General English", "modules": ["p1_eng_a", "p1_eng_b", "p1_eng_c", "p1_eng_d", "p1_eng_e", "p1_eng_f", "p1_eng_g", "p1_eng_h", "p1_eng_i", "p1_eng_j", "p1_eng_k", "p1_eng_l"]},
+    "p1-he": {"subject": "P1 · Health Education", "modules": ["p1_he_a", "p1_he_b", "p1_he_c", "p1_he_d", "p1_he_e", "p1_he_f", "p1_he_g", "p1_he_h", "p1_he_i"]},
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e", "p1_ve_f", "p1_ve_g"]},
-    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026", "p1_ca_2026_b", "p1_ca_2026_c", "p1_ca_2026_d", "p1_ca_2026_e", "p1_ca_plan_g", "p1_ca_plan_h"]},
+    "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026", "p1_ca_2026_b", "p1_ca_2026_c", "p1_ca_2026_d", "p1_ca_2026_e", "p1_ca_plan_g", "p1_ca_plan_h", "p1_ca_plan_i"]},
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
@@ -54,7 +54,9 @@ CA_PLAN = {"Current International Affairs": "P1-CA-01", "Current National Affair
            "Festivals, Folk Dances, Tribes of the Country": "P1-CA-06", "United Nations Organizations and Headquarters": "P1-CA-07",
            "Initiatives in Education in India": "P1-CA-08", "Monuments and National Forests": "P1-CA-09",
            "Important Tourist Places and Peaks": "P1-CA-10", "Industries and Ores": "P1-CA-11", "Three Wings of the Army": "P1-CA-12",
-           "Indian Constitution": "P1-CA-13", "Highways, Railways and Airport Names": "P1-CA-14", "Abbreviations": "P1-CA-15"}
+           "Indian Constitution": "P1-CA-13", "Highways, Railways and Airport Names": "P1-CA-14", "Abbreviations": "P1-CA-15",
+           # planner General Knowledge rows on current affairs, left out of the structure pack (tools/make_structure.py SKIP_IDS)
+           "Current International Affairs – India's Foreign Relations": "P1-GK-16", "Current State and National Affairs": "P1-GK-17"}
 EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PLAN) + [f"{m} {y}" for y in (2026, 2027) for m in MONTHS],
                                           "plan": CA_PLAN, "sizes": {"Karnataka": 30, "National": 10},
                                           "group": "③ Current affairs (planner topics + monthly · 75% Karnataka, 25% national)"},
