@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · Computer Literacy",
- "description": "10 of 14 topics so far (20 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "11 of 14 topics so far (22 sets × 20 questions): Unit 1 – Introduction to Computer; Unit 2 – Operating Systems; Unit 2 – Window Settings & Advanced Windows; Unit 3 – MS Office (Word); Unit 3 – MS PowerPoint; Unit 3 – MS Excel; Unit 3 – MS Paint; Unit 3 – Google Platform; Unit 4 – Internet Basics; Unit 4 – E-mail; Unit 5 – Nudi Software & Baraha. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · Computer Literacy",
@@ -5022,6 +5022,503 @@
       {
        "title": "E-mail – revision sheet",
        "md": "## Basics\n- Address = **username@domain** (ravi@gmail.com); first network e-mail – **Ray Tomlinson, 1971**, chose '@'\n- Strong password: 8–12+ characters, upper/lower case, digits, symbols; turn on 2-step verification\n- Five functions (Tanenbaum): composition, transfer, reporting, displaying, disposition\n\n## Composing\n| Field | Use |\n|---|---|\n| To | main recipients |\n| Cc | copy – everyone sees addresses |\n| Bcc | blind copy – hidden addresses |\n| Subject | topic of the mail |\n| Attachment | file (paper clip); Gmail limit 25 MB |\n| Signature | auto text at the end |\n- Reply (Re:) – sender only; Reply all – sender + To + Cc; Forward (Fwd:) – to someone else with attachments\n- Gmail shortcuts: c compose, r reply, a reply all, f forward, e archive\n\n## Folders\nInbox · Sent · Drafts · Spam/Junk · Trash/Bin (30 days) · Starred/Important · Archive (All Mail) · Labels (many per mail) · Filters/Rules · Vacation responder\n\n## Protocols\n| Protocol | Job | Port |\n|---|---|---|\n| **SMTP** | send / transfer | 25 (587) |\n| **POP3** | download to one device | 110 |\n| **IMAP** | keep on server, sync devices | 143 (993) |\n| MIME | attachments, non-text | – |\n- Path: user → SMTP → DNS (MX lookup) → receiver SMTP → IMAP/POP → inbox\n- Webmail (browser) vs mail client (Outlook – mail, calendar, contacts, tasks; Thunderbird)\n\n## Safety & netiquette\n- Phishing mails ask for passwords/OTP – never click; don't open unknown .exe attachments; spam = unwanted bulk mail\n- Clear subject, no ALL CAPS, avoid needless Reply-all and chain mails\n"
+      }
+     ]
+    },
+    {
+     "name": "Unit 5 – Nudi Software & Baraha",
+     "sets": [
+      {
+       "name": "1 · Nudi, Keyboard Layout, Unicode and Fonts",
+       "questions": [
+        {
+         "question": "The default shortcut key to activate or toggle Nudi (including 4.0/6.0) is:",
+         "options": {
+          "A": "Alt+Shift+F12",
+          "B": "Scroll Lock or F12",
+          "C": "Alt+Del",
+          "D": "None of the above"
+         },
+         "answer": "B",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "In Nudi the Scroll Lock key switches between Kannada and English typing (the Scroll Lock light shows Kannada mode). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q95"
+        },
+        {
+         "question": "Which of the following is true about Nudi 4.0's compatibility with MS Office 2016 and above?",
+         "options": {
+          "A": "Only works with 32 bit Office.",
+          "B": "Requires manual font mapping for every installation.",
+          "C": "Provides seamless real-time typing in Kannada.",
+          "D": "Does not work with Office 2016 at all."
+         },
+         "answer": "C",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Recent Nudi versions type Kannada directly into Office 2016 and later without manual set-up. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q87"
+        },
+        {
+         "question": "Nudi, the Kannada word-processing software provided free by the Government of Karnataka, was developed by:",
+         "options": {
+          "A": "C-DAC Pune only",
+          "B": "Infosys",
+          "C": "Kannada Ganaka Parishat (KGP)",
+          "D": "Microsoft"
+         },
+         "answer": "C",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). It became the Government of Karnataka's standard for official Kannada computing."
+        },
+        {
+         "question": "The main purpose of Nudi software is to:",
+         "options": {
+          "A": "Edit photographs",
+          "B": "Browse the internet",
+          "C": "Make video calls",
+          "D": "Type Kannada text in office applications such as Word and Excel"
+         },
+         "answer": "D",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Kannada letters are typed using a standard keyboard layout."
+        },
+        {
+         "question": "The Kannada keyboard layout used in Nudi is the:",
+         "options": {
+          "A": "Morse code layout",
+          "B": "KGP (Kannada Ganaka Parishat) layout approved by the Government of Karnataka",
+          "C": "QWERTY English layout only",
+          "D": "Dvorak layout"
+         },
+         "answer": "B",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). In it, each key maps to a Kannada letter or vowel sign."
+        },
+        {
+         "question": "In Nudi, when the Scroll Lock light is ON, typing produces:",
+         "options": {
+          "A": "Kannada characters",
+          "B": "Only numbers",
+          "C": "Only capital English letters",
+          "D": "Nothing"
+         },
+         "answer": "A",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Pressing Scroll Lock again returns to English."
+        },
+        {
+         "question": "Unicode is:",
+         "options": {
+          "A": "An antivirus",
+          "B": "A Kannada font only",
+          "C": "A universal character-encoding standard that gives every character of every script a unique number",
+          "D": "A web browser"
+         },
+         "answer": "C",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). UTF-8 is the most common way of storing Unicode text."
+        },
+        {
+         "question": "The Kannada block in Unicode lies in the range:",
+         "options": {
+          "A": "U+0B80 to U+0BFF",
+          "B": "U+0900 to U+097F",
+          "C": "U+0000 to U+007F",
+          "D": "U+0C80 to U+0CFF"
+         },
+         "answer": "D",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "U+0900 – Devanagari; U+0B80 – Tamil; U+0000–007F – basic Latin (ASCII)."
+        },
+        {
+         "question": "The main advantage of Unicode Kannada text over older ASCII-based (non-Unicode) Kannada fonts is that:",
+         "options": {
+          "A": "It cannot be used on the web",
+          "B": "It displays correctly on any computer or phone, and can be searched and sorted",
+          "C": "It works only in Nudi",
+          "D": "It needs a special font on every computer"
+         },
+         "answer": "B",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). ASCII-font text shows as English gibberish if the same font is missing."
+        },
+        {
+         "question": "Kannada text typed in an old ASCII Nudi font can be changed into Unicode using:",
+         "options": {
+          "A": "A spreadsheet formula",
+          "B": "A Nudi/Unicode converter",
+          "C": "A printer driver",
+          "D": "An antivirus"
+         },
+         "answer": "B",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Converters also go from Unicode back to ASCII fonts for old documents."
+        },
+        {
+         "question": "TrueType fonts (.ttf) are:",
+         "options": {
+          "A": "Video formats",
+          "B": "Bitmap fonts of one size only",
+          "C": "Scalable outline fonts that print and display at any size",
+          "D": "Fonts that work only on Linux"
+         },
+         "answer": "C",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). TrueType was developed by Apple and adopted by Microsoft; OpenType extends it."
+        },
+        {
+         "question": "To make a Kannada document readable on another computer that does not have Nudi installed, it is best to:",
+         "options": {
+          "A": "Use an ASCII Nudi font only",
+          "B": "Use capital letters",
+          "C": "Save it as a bitmap",
+          "D": "Type it in Unicode"
+         },
+         "answer": "D",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Unicode fonts are built into modern operating systems."
+        },
+        {
+         "question": "A standard (non-Unicode) Kannada font maps Kannada glyphs onto:",
+         "options": {
+          "A": "Numbers only",
+          "B": "Images",
+          "C": "Unicode Kannada code points",
+          "D": "The codes of English (ASCII) characters"
+         },
+         "answer": "D",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). That is why such text turns into Latin letters when the font is changed."
+        },
+        {
+         "question": "The Government of Karnataka's Kannada software policy encourages using Kannada in:",
+         "options": {
+          "A": "Unicode for official e-governance work",
+          "B": "Only handwritten form",
+          "C": "Only English",
+          "D": "Bitmap images"
+         },
+         "answer": "A",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Unicode makes Kannada usable in websites, databases and mobile apps."
+        },
+        {
+         "question": "Which of these is NOT a Kannada typing tool?",
+         "options": {
+          "A": "Baraha",
+          "B": "Nudi",
+          "C": "Adobe Photoshop",
+          "D": "Google Input Tools (Kannada)"
+         },
+         "answer": "C",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). Windows also has a built-in Kannada keyboard."
+        },
+        {
+         "question": "Consider the statements:\nI. Nudi is free software provided for Kannada computing.\nII. Nudi works only for Hindi.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "A",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Nudi is for Kannada."
+        },
+        {
+         "question": "Assertion (A): Unicode Kannada text can be searched on the internet.\nReason (R): Every Kannada character has a standard Unicode number recognised by all systems.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "ASCII-font Kannada is not searchable as Kannada."
+        },
+        {
+         "question": "Assertion (A): A document in an ASCII Kannada font always looks correct on any computer.\nReason (R): ASCII fonts store Kannada letters as English character codes.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "Without the same font it shows as English letters; R is true."
+        },
+        {
+         "question": "Match:\na. Nudi\nb. Unicode\nc. TrueType\nd. Scroll Lock (in Nudi)\n\n1. Universal character code\n2. Scalable font format\n3. Kannada typing software\n4. Kannada/English toggle",
+         "options": {
+          "A": "a-3, b-1, c-2, d-4",
+          "B": "a-1, b-3, c-2, d-4",
+          "C": "a-3, b-2, c-1, d-4",
+          "D": "a-4, b-1, c-2, d-3"
+         },
+         "answer": "A",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "PYQ pattern (KEA computer literacy). Basic terms matching."
+        },
+        {
+         "question": "UTF-8 encoding stores a Kannada Unicode character in:",
+         "options": {
+          "A": "1 byte",
+          "B": "3 bytes",
+          "C": "8 bytes",
+          "D": "16 bytes"
+         },
+         "answer": "B",
+         "subject": "Nudi, Keyboard Layout, Unicode and Fonts",
+         "explanation": "UTF-8 uses 1 byte for ASCII and 3 bytes for characters in the U+0800–U+FFFF range, including Kannada."
+        }
+       ]
+      },
+      {
+       "name": "2 · Baraha, Phonetic Typing and Transliteration",
+       "questions": [
+        {
+         "question": "Baraha, a popular free Indian-language typing software, was developed by:",
+         "options": {
+          "A": "Google",
+          "B": "Sheshadrivasu Chandrashekharan",
+          "C": "Microsoft",
+          "D": "Kannada Ganaka Parishat"
+         },
+         "answer": "B",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). The first version came out in 1998 for Kannada."
+        },
+        {
+         "question": "Baraha mainly uses which typing method?",
+         "options": {
+          "A": "Handwriting recognition only",
+          "B": "Voice only",
+          "C": "Phonetic transliteration – typing Kannada sounds with English letters",
+          "D": "Morse code"
+         },
+         "answer": "C",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "For example, 'kannaDa' gives ಕನ್ನಡ."
+        },
+        {
+         "question": "Besides Kannada, Baraha supports:",
+         "options": {
+          "A": "Several Indian scripts such as Devanagari, Telugu, Tamil and Malayalam",
+          "B": "Only Chinese",
+          "C": "Only English",
+          "D": "No other language"
+         },
+         "answer": "A",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). It can also convert text between scripts."
+        },
+        {
+         "question": "Baraha IME (Input Method Editor) allows a user to:",
+         "options": {
+          "A": "Edit videos",
+          "B": "Scan documents",
+          "C": "Repair the hard disk",
+          "D": "Type Kannada directly into other programs such as Word, browsers and e-mail"
+         },
+         "answer": "D",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "The IME works system-wide."
+        },
+        {
+         "question": "BarahaPad is:",
+         "options": {
+          "A": "A drawing tablet",
+          "B": "Baraha's own simple text editor",
+          "C": "A mobile phone",
+          "D": "A Kannada keyboard device"
+         },
+         "answer": "B",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Text can be exported in Unicode or ANSI fonts."
+        },
+        {
+         "question": "In phonetic typing, the English letters 'ma' would typically produce the Kannada letter:",
+         "options": {
+          "A": "ಪ",
+          "B": "ಮ",
+          "C": "ನ",
+          "D": "ಕ"
+         },
+         "answer": "B",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Each Kannada sound is typed with similar-sounding Latin letters."
+        },
+        {
+         "question": "The main difference between Nudi and Baraha typing is that:",
+         "options": {
+          "A": "Nudi uses the KGP keyboard layout, while Baraha mainly uses phonetic (transliteration) typing",
+          "B": "Both use only English",
+          "C": "Baraha is only for Hindi",
+          "D": "Nudi is only for mobile phones"
+         },
+         "answer": "A",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Many users find phonetic typing easier to learn."
+        },
+        {
+         "question": "Text typed in Baraha's Unicode mode can be:",
+         "options": {
+          "A": "Printed only",
+          "B": "Read only on Windows XP",
+          "C": "Opened only in BarahaPad",
+          "D": "Pasted into websites, e-mails and social media and read on any device"
+         },
+         "answer": "D",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Unicode makes it portable."
+        },
+        {
+         "question": "Which of the following is an advantage of Kannada computing tools like Nudi and Baraha for teachers?",
+         "options": {
+          "A": "Charging mobile phones",
+          "B": "Increasing internet speed",
+          "C": "Preparing Kannada question papers, notices and worksheets on computer",
+          "D": "Removing computer viruses"
+         },
+         "answer": "C",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Kannada e-content can be shared easily."
+        },
+        {
+         "question": "Google Input Tools / Gboard Kannada typing on phones mainly uses:",
+         "options": {
+          "A": "Braille",
+          "B": "Transliteration and Kannada keyboard layouts",
+          "C": "Morse code",
+          "D": "Shorthand"
+         },
+         "answer": "B",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Voice typing in Kannada is also available."
+        },
+        {
+         "question": "To type ಕನ್ನಡ in Baraha phonetic typing, the double consonant 'nn' is entered as:",
+         "options": {
+          "A": "N only",
+          "B": "n2",
+          "C": "nn (typing the consonant twice)",
+          "D": "Shift + n"
+         },
+         "answer": "C",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Repeating the letter adds the conjunct (ottakshara)."
+        },
+        {
+         "question": "Which statement about fonts in Kannada computing is correct?",
+         "options": {
+          "A": "Fonts do not matter",
+          "B": "Each tool's text can be read only in its own font",
+          "C": "Kannada has no Unicode fonts",
+          "D": "A Unicode Kannada font can display Unicode text typed in Nudi or Baraha"
+         },
+         "answer": "D",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Tunga (Windows) and Noto Sans Kannada are common Unicode Kannada fonts."
+        },
+        {
+         "question": "A transliteration tool converts:",
+         "options": {
+          "A": "Text from one script into another based on sound (e.g. Latin to Kannada)",
+          "B": "Text from one meaning to another language",
+          "C": "Images into text",
+          "D": "Sound into video"
+         },
+         "answer": "A",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Translation changes the language; transliteration changes only the script."
+        },
+        {
+         "question": "Which Windows feature lets you type Kannada without installing extra software?",
+         "options": {
+          "A": "Paint",
+          "B": "Disk Cleanup",
+          "C": "Task Manager",
+          "D": "Adding the Kannada language and keyboard in Language settings"
+         },
+         "answer": "D",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Win + Space switches between input languages."
+        },
+        {
+         "question": "Kannada letters with vowel signs (gunitakshara) such as ಕಾ, ಕಿ are formed in typing software by:",
+         "options": {
+          "A": "Typing only the vowel",
+          "B": "Typing the consonant followed by the vowel sign",
+          "C": "Using capital letters only",
+          "D": "Drawing them"
+         },
+         "answer": "B",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Software shapes the combined glyph automatically."
+        },
+        {
+         "question": "Consider the statements:\nI. Baraha is a phonetic typing tool.\nII. Baraha supports more than one Indian language.",
+         "options": {
+          "A": "Only I",
+          "B": "Only II",
+          "C": "Both I and II",
+          "D": "Neither I nor II"
+         },
+         "answer": "C",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Both are correct."
+        },
+        {
+         "question": "Assertion (A): Phonetic typing is easy for people who already know English typing.\nReason (R): Kannada sounds are typed using similar-sounding English letters.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "A",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "No new keyboard layout has to be learnt."
+        },
+        {
+         "question": "Assertion (A): Transliteration and translation mean the same thing.\nReason (R): Transliteration changes the script of a word according to its sound.",
+         "options": {
+          "A": "Both A and R are true, and R is the correct explanation of A",
+          "B": "Both A and R are true, but R is not the correct explanation of A",
+          "C": "A is true, but R is false",
+          "D": "A is false, but R is true"
+         },
+         "answer": "D",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Translation changes the language and meaning; transliteration only the script."
+        },
+        {
+         "question": "Match:\na. Baraha\nb. BarahaPad\nc. Baraha IME\nd. Transliteration\n\n1. Changing script by sound\n2. Baraha's text editor\n3. Typing in any application\n4. Phonetic Indian-language software",
+         "options": {
+          "A": "a-2, b-4, c-3, d-1",
+          "B": "a-4, b-3, c-2, d-1",
+          "C": "a-4, b-2, c-3, d-1",
+          "D": "a-1, b-2, c-3, d-4"
+         },
+         "answer": "C",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "PYQ pattern (KEA computer literacy). Tool matching."
+        },
+        {
+         "question": "A teacher wants to post a Kannada notice on the school website. The best choice is:",
+         "options": {
+          "A": "Type it in Unicode using Nudi, Baraha or another Unicode tool",
+          "B": "Write it in English letters",
+          "C": "Type it in an ASCII font and take a screenshot only",
+          "D": "Use only images"
+         },
+         "answer": "A",
+         "subject": "Baraha, Phonetic Typing and Transliteration",
+         "explanation": "Unicode text is accessible, searchable and readable on phones."
+        }
+       ]
       }
      ]
     }
