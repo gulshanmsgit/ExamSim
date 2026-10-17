@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 588, Paper 2: 737. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 628, Paper 2: 737. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -2369,6 +2369,136 @@
          "source": "GFGC 2021 GK · Q46"
         },
         {
+         "question": "Expand RAID related to disk organization technique.",
+         "options": {
+          "A": "Related Array of Independent Disks",
+          "B": "Redundant Array of Independent Disks",
+          "C": "Removable Array of Independent Disks",
+          "D": "Remote Array of Independent Disks"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "RAID combines several disks for speed (RAID 0) or safety (RAID 1 mirroring, RAID 5 parity). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q89"
+        },
+        {
+         "question": "The Primary functions of utility software is/are:\n(a) Disk cleanup.\n(b) System restore and disk compression.\n(c) Protection from virus.\n(d) Managing Database.",
+         "options": {
+          "A": "a and b only",
+          "B": "c only",
+          "C": "a, b and c only",
+          "D": "a, b, c and d"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Utility programs maintain and protect the system; managing a database is the job of a DBMS (application software). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q74"
+        },
+        {
+         "question": "Truth table is a way of expressing which of the following functions?",
+         "options": {
+          "A": "Boolean functions",
+          "B": "Prime functions",
+          "C": "Illogical functions",
+          "D": "Trigonometric functions"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "A truth table lists the output of a Boolean (logic) function for every combination of inputs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q83"
+        },
+        {
+         "question": "TIFRAC stands for",
+         "options": {
+          "A": "Tata Institute of Fundamental Research Advanced Computer",
+          "B": "Tata Institute of Fundamental Research Advanced Calculator",
+          "C": "Tata Institute of Fundamental Research Automatic Computer",
+          "D": "Tata Institute of Fundamental Research Automatic Calculator"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "TIFRAC (commissioned 1960, Mumbai) was India's first indigenously built electronic digital computer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q97"
+        },
+        {
+         "question": "Expand FLOPS",
+         "options": {
+          "A": "Filtering Point Operations Per Second",
+          "B": "Floating Point Operations Per Second",
+          "C": "Flex Point Operations Per Second",
+          "D": "Floating Point Operations Per System"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "FLOPS measure the speed of supercomputers (e.g. India's PARAM series by C-DAC). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q91"
+        },
+        {
+         "question": "Which of the following is the full form of DDL?",
+         "options": {
+          "A": "Detailed Data Language",
+          "B": "Dynamic Data Language",
+          "C": "Data Derivation Language",
+          "D": "Data Definition Language"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "DDL commands (CREATE, ALTER, DROP) define database structures; DML commands (INSERT, UPDATE) change the data. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q75"
+        },
+        {
+         "question": "State whether the following statements are True or False with respect to MS Word features:\na. Using Hyperlinks is allowed in MS Word.\nb. Digital signature is allowed in MS Word.",
+         "options": {
+          "A": "a true, b true",
+          "B": "a true, b false",
+          "C": "a false, b true",
+          "D": "a false, b false"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Word supports hyperlinks (Insert → Link) and digital signatures (File → Info → Protect Document). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q84"
+        },
+        {
+         "question": "MSD stands for :",
+         "options": {
+          "A": "Many Significant Digit",
+          "B": "More Significant Digit",
+          "C": "Most Significant Digit",
+          "D": "Multi Significant Digit"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "The MSD is the left-most digit, with the highest place value; LSD is the right-most. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q95"
+        },
+        {
+         "question": "SMPS stands for",
+         "options": {
+          "A": "Switched Mode Power Supply",
+          "B": "Simple Mode Power Supply",
+          "C": "Switched Mode Power Source",
+          "D": "Storage Mode Power Supply"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "The SMPS converts mains AC to the low DC voltages a computer needs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q75"
+        },
+        {
+         "question": "ISDN stands for",
+         "options": {
+          "A": "Infrastructure Services Digital Network",
+          "B": "Integrated Services Digital Network",
+          "C": "Internal Signal Digital Network",
+          "D": "Integrated Signal Digital Network"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "ISDN carries voice and data digitally over telephone lines. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q97"
+        },
+        {
          "question": "An example for an artificial element is",
          "options": {
           "A": "Oxygen",
@@ -2408,6 +2538,19 @@
          "source": "KRIES 2025 entrance · Q93"
         },
         {
+         "question": "Expand ENIAC",
+         "options": {
+          "A": "Electronic Numerical Integrator and Computer",
+          "B": "Electrical Numerical Integrator and Computer",
+          "C": "Electrical Numbered Integrator and Computer",
+          "D": "Electronic Numerical Integrator and Concepts."
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "ENIAC (1946, University of Pennsylvania) was the first general-purpose electronic digital computer, built with about 18,000 vacuum tubes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q80"
+        },
+        {
          "question": "Viruses cause diseases in plants and animals. Viruses which infect bacteria are known as",
          "options": {
           "A": "Viroids",
@@ -2432,6 +2575,45 @@
          "subject": "Other papers",
          "explanation": "It is a prose Kannada rendering of the Valmiki Ramayana made in the court of Chamaraja Wodeyar. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "Legislative Council 2024 Programmer P1 · Q77"
+        },
+        {
+         "question": "What does the acronym ISP stand for ?",
+         "options": {
+          "A": "Internet Service Provider",
+          "B": "Internal Service Provider",
+          "C": "Internet Service Providing",
+          "D": "Internet Service Provision"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "BSNL, Airtel and Jio are ISPs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 MCA · Q27"
+        },
+        {
+         "question": "Expand EDVAC :",
+         "options": {
+          "A": "Electronic Discrete Variable Automatic Computer",
+          "B": "Electronic Discrete Volatile Automatic Computer",
+          "C": "Electronic Duplex Variable Automatic Computer",
+          "D": "Electronic Duplex Volatile Arithmetic Computer"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "EDVAC used von Neumann's stored-program idea. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-2 · Q74"
+        },
+        {
+         "question": "Select the correct statement/statements :\na. Microsoft Edge, Safari, Adobe Flash, Google Chrome are examples of browsers.\nb. Mbps stands for Mega bytes per second and MBps stands for Mega bits per second.\nc. 2 GB = 1024 MB\nd. Ubuntu, Red Hat Enterprise Linux, and Windows XP are examples of Operating Systems.",
+         "options": {
+          "A": "a only",
+          "B": "b and d only",
+          "C": "a and c only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "Adobe Flash is a plug-in, not a browser; Mbps = megabits and MBps = megabytes; 2 GB = 2048 MB; only d is correct. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-2 · Q89"
         }
        ]
       }
@@ -2574,6 +2756,19 @@
          "source": "VAO 2024 Paper-1 · Q35"
         },
         {
+         "question": "Expand HSRP.",
+         "options": {
+          "A": "High Speed Registration Place",
+          "B": "High Security Registration Plate",
+          "C": "Heavy Security Registration Place",
+          "D": "High Space Registration Plate"
+         },
+         "answer": "B",
+         "subject": "VAO 2024 Paper-1",
+         "explanation": "HSRP number plates are mandatory for vehicles; Karnataka set deadlines for older vehicles in 2024–25. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-1 · Q38"
+        },
+        {
          "question": "Match the following educational schemes with their objectives:\na) National Means-cum-Merit Scholarship scheme\nb) Vidyanjali\nc) Unnat Bharat Abhiyan\nd) Pragati\ni. Scholarship for girls in technical education\nii. Connecting higher education institutions with society & villages\niii. Award scholarship to meritorious students of economically weaker sections\niv. Remedial classes & training programmes for students through voluntarism.",
          "options": {
           "A": "a – iii, b – iv, c – ii, d – i",
@@ -2667,168 +2862,7 @@
        ]
       },
       {
-       "name": "2 · GTTC 2024 Asst Gr-II GK",
-       "questions": [
-        {
-         "question": "Consider the following statements.\nIndia observed 'Pravasi Bharatiya Divas' on 9th January to mark\n(a) Return of Dr. B.R. Ambedkar from England\n(b) Return of Mahatma Gandhi from South Africa\n(c) Return of Swami Vivekananda from Chicago, USA.\nSelect the correct answer using the codes given below.",
-         "options": {
-          "A": "a only",
-          "B": "b only",
-          "C": "a and b",
-          "D": "b and c"
-         },
-         "answer": "B",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "Gandhiji returned to India on 9 January 1915; the day has been observed since 2003. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q20"
-        },
-        {
-         "question": "Which of the following tablets is administered to children and adolescents on National Deworming Day?",
-         "options": {
-          "A": "Albendazole tablet",
-          "B": "Paracetamol tablet",
-          "C": "Vitamin-A tablet",
-          "D": "Calcium tablet"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "National Deworming Day is held on 10 February (and 10 August); children aged 1–19 get albendazole. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q30"
-        },
-        {
-         "question": "IUCN Red List refers to a list that contains the details of",
-         "options": {
-          "A": "Extinct species all over the world",
-          "B": "Hybrid varieties of crop plants",
-          "C": "Crop plant varieties introduced from foreign countries",
-          "D": "Weed plants of Asia"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "The Red List records the extinction risk of species worldwide, from Least Concern to Extinct. IUCN is headquartered at Gland, Switzerland. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q37"
-        },
-        {
-         "question": "'SWAYAM' an initiative of the Government of India aims at",
-         "options": {
-          "A": "Promoting the SHG's in rural areas",
-          "B": "Providing affordable and quality education to the citizens for free",
-          "C": "Providing public health facilities",
-          "D": "Providing technical assistance to entrepreneurs"
-         },
-         "answer": "B",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "It aims at access, equity and quality in education through free online courses. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q58"
-        },
-        {
-         "question": "M.S. Swaminathan, who is regarded as the \"Father of India's Green Revolution\", has recently passed away. Which of the following award/awards he has received?\n(a) Ramon Magsaysay Award  (b) Bharat Ratna\n(c) Albert Einstein Award  (d) Padmashree",
-         "options": {
-          "A": "b only",
-          "B": "a, b, c and d",
-          "C": "c only",
-          "D": "a only"
-         },
-         "answer": "B",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "He received the Padma Shri (1967), Magsaysay (1971), Albert Einstein World Science Award (1986) and the Bharat Ratna (2024, posthumously). (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q64"
-        },
-        {
-         "question": "Grama Panchayat libraries in Karnataka was renamed as",
-         "options": {
-          "A": "Arivu Kendra",
-          "B": "Kalike Kendra",
-          "C": "Shikshana Kendra",
-          "D": "Jnana Kendra"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "Karnataka renamed its Grama Panchayat libraries 'Arivu Kendras' (knowledge centres) and upgraded them with digital resources. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q66"
-        },
-        {
-         "question": "Match List-I with List-II and select the correct answer using the codes given below:\nList-I (Tiger Reserve)\na) Dudhwa\nb) Bandipur\nc) Periyar\nd) Sariska\nList-II (State)\ni. Kerala\nii. Rajasthan\niii. Karnataka\niv. Uttar Pradesh",
-         "options": {
-          "A": "a – iii, b – iv, c – ii, d – i",
-          "B": "a – iv, b – iii, c – ii, d – i",
-          "C": "a – iv, b – iii, c – i, d – ii",
-          "D": "a – iii, b – iv, c – i, d – ii"
-         },
-         "answer": "C",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "Dudhwa – UP; Bandipur – Karnataka; Periyar – Kerala; Sariska – Rajasthan. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q70"
-        },
-        {
-         "question": "'Kimberly process' recently was in news, which is related to:",
-         "options": {
-          "A": "To regulate coal trade",
-          "B": "To regulate the gold trade",
-          "C": "To regulate the diamond trade",
-          "D": "To regulate the milk products"
-         },
-         "answer": "C",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "The Kimberley Process Certification Scheme (2003) stops trade in 'conflict diamonds'; India chaired it in 2019. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q72"
-        },
-        {
-         "question": "Which female writer won the prestigious Booker Prize for literature in 2024 and from which country does she hail?",
-         "options": {
-          "A": "Samantha Harvey - U.K.",
-          "B": "Arundhati Roy - India",
-          "C": "Rachel Kushner - U.S.",
-          "D": "Margaret Atwood - Canada"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "She won for the novel 'Orbital'. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q93"
-        },
-        {
-         "question": "Pradhana Mantri Suraksha Bima Yojana (PMSBY) is a",
-         "options": {
-          "A": "Government backed accident insurance scheme",
-          "B": "Only scheme for rural landless households",
-          "C": "Government health insurance programme",
-          "D": "The scheme meant for child life insurance"
-         },
-         "answer": "A",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "PMSBY gives accident cover of ₹2 lakh for a small yearly premium; PMJJBY is the life-insurance scheme. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q94"
-        },
-        {
-         "question": "Which of the following statements is/are INCORRECT with respect to UN Peace Building Commission (PBC)?\n(a) India has been re-elected to the UN PBC for the 2025-2026 term\n(b) The UN Peace Building Commission was established in 1945\n(c) India is not the founding member of UN PBC\n(d) The PBC serves as a vital link between the UN General Assembly and the Security Council",
-         "options": {
-          "A": "a only",
-          "B": "b only",
-          "C": "b and c only",
-          "D": "a and d only"
-         },
-         "answer": "C",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "The PBC was set up in 2005 and India is one of its founding members. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q97"
-        },
-        {
-         "question": "'Agni warrior 2024' military exercise was held between which of the following countries?",
-         "options": {
-          "A": "India and Sri lanka",
-          "B": "India and Russia",
-          "C": "India and Singapore",
-          "D": "India and Israel"
-         },
-         "answer": "C",
-         "subject": "GTTC 2024 Asst Gr-II GK",
-         "explanation": "Agni Warrior is a bilateral artillery exercise of the Indian Army and the Singapore Army. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q99"
-        }
-       ]
-      },
-      {
-       "name": "3 · KEA 2026 GK-1 (HK, 22 Feb 2026)",
+       "name": "2 · KEA 2026 GK-1 (HK, 22 Feb 2026)",
        "questions": [
         {
          "question": "Match the metals in List-I with their nature in List-II.\nList-I\n(a) Gold (Au)\n(b) Copper (Cu)\n(c) Magnesium (Mg)\n(d) Lead (Pb)\nList-II\n(i) Never found in free state in nature\n(ii) Chalcocite is its ore\n(iii) Found in earth crust as oxides, sulphides and carbonates\n(iv) Found in free state in nature",
@@ -2842,6 +2876,19 @@
          "subject": "KEA 2026 GK-1 (HK, 22 Feb 2026)",
          "explanation": "Gold is found native; chalcocite (Cu₂S) is a copper ore; magnesium is too reactive to occur free; lead occurs as galena (sulphide), cerussite (carbonate) and oxides. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 GK-1 (HK, 22 Feb 2026) · Q7"
+        },
+        {
+         "question": "In India, PCRA advises people to save fuels. The full form of PCRA refers to",
+         "options": {
+          "A": "Petroleum Conservation Research Association",
+          "B": "Power Conservation Research Association",
+          "C": "Petroleum Consumption Research Association",
+          "D": "Power Consumption Research Association"
+         },
+         "answer": "A",
+         "subject": "KEA 2026 GK-1 (HK, 22 Feb 2026)",
+         "explanation": "PCRA (1977) works under the Ministry of Petroleum and Natural Gas; it runs the 'Saksham' campaign. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (HK, 22 Feb 2026) · Q11"
         },
         {
          "question": "Who is the Asia's first female Loco Pilot who retired recently?",
@@ -2868,6 +2915,19 @@
          "subject": "KEA 2026 GK-1 (HK, 22 Feb 2026)",
          "explanation": "They won the compound archery world titles in Berlin (2023). (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 GK-1 (HK, 22 Feb 2026) · Q20"
+        },
+        {
+         "question": "Expand VB-G RAM G",
+         "options": {
+          "A": "Viksit Bharat - Gram Rozgar Ajeevika Mission (Guarantee)",
+          "B": "Viksit Bharat - Gramin Rozgar Ajeevika Mission (Guarantee)",
+          "C": "Viksit Bharat - Guarantee for Rozgar and Ajeevika Mission (Gramin)",
+          "D": "Viksit Bharat - Guarantee for Rural Ajeevika Mission (Gramin)"
+         },
+         "answer": "C",
+         "subject": "KEA 2026 GK-1 (HK, 22 Feb 2026)",
+         "explanation": "The VB-G RAM G Act (December 2025) replaced MGNREGA and raised the work guarantee to 125 days. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (HK, 22 Feb 2026) · Q39"
         },
         {
          "question": "According to Article 368 of Indian Constitution, changes in which of the following is not considered as an Amendment to Indian Constitution?",
@@ -2989,6 +3049,180 @@
        ]
       },
       {
+       "name": "3 · GTTC 2024 Asst Gr-II GK",
+       "questions": [
+        {
+         "question": "Consider the following statements.\nIndia observed 'Pravasi Bharatiya Divas' on 9th January to mark\n(a) Return of Dr. B.R. Ambedkar from England\n(b) Return of Mahatma Gandhi from South Africa\n(c) Return of Swami Vivekananda from Chicago, USA.\nSelect the correct answer using the codes given below.",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "a and b",
+          "D": "b and c"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "Gandhiji returned to India on 9 January 1915; the day has been observed since 2003. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q20"
+        },
+        {
+         "question": "Which of the following tablets is administered to children and adolescents on National Deworming Day?",
+         "options": {
+          "A": "Albendazole tablet",
+          "B": "Paracetamol tablet",
+          "C": "Vitamin-A tablet",
+          "D": "Calcium tablet"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "National Deworming Day is held on 10 February (and 10 August); children aged 1–19 get albendazole. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q30"
+        },
+        {
+         "question": "IUCN Red List refers to a list that contains the details of",
+         "options": {
+          "A": "Extinct species all over the world",
+          "B": "Hybrid varieties of crop plants",
+          "C": "Crop plant varieties introduced from foreign countries",
+          "D": "Weed plants of Asia"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "The Red List records the extinction risk of species worldwide, from Least Concern to Extinct. IUCN is headquartered at Gland, Switzerland. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q37"
+        },
+        {
+         "question": "Expand KSHIP",
+         "options": {
+          "A": "Karnataka State Hospital Improvement Plan",
+          "B": "Karnataka State Highways Improvement Plan",
+          "C": "Karnataka State Human Improvement Programme",
+          "D": "Karnataka State Horticulture Improvement Programme"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "KSHIP upgrades state highways with World Bank / ADB help. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q57"
+        },
+        {
+         "question": "'SWAYAM' an initiative of the Government of India aims at",
+         "options": {
+          "A": "Promoting the SHG's in rural areas",
+          "B": "Providing affordable and quality education to the citizens for free",
+          "C": "Providing public health facilities",
+          "D": "Providing technical assistance to entrepreneurs"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "It aims at access, equity and quality in education through free online courses. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q58"
+        },
+        {
+         "question": "M.S. Swaminathan, who is regarded as the \"Father of India's Green Revolution\", has recently passed away. Which of the following award/awards he has received?\n(a) Ramon Magsaysay Award  (b) Bharat Ratna\n(c) Albert Einstein Award  (d) Padmashree",
+         "options": {
+          "A": "b only",
+          "B": "a, b, c and d",
+          "C": "c only",
+          "D": "a only"
+         },
+         "answer": "B",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "He received the Padma Shri (1967), Magsaysay (1971), Albert Einstein World Science Award (1986) and the Bharat Ratna (2024, posthumously). (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q64"
+        },
+        {
+         "question": "Grama Panchayat libraries in Karnataka was renamed as",
+         "options": {
+          "A": "Arivu Kendra",
+          "B": "Kalike Kendra",
+          "C": "Shikshana Kendra",
+          "D": "Jnana Kendra"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "Karnataka renamed its Grama Panchayat libraries 'Arivu Kendras' (knowledge centres) and upgraded them with digital resources. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q66"
+        },
+        {
+         "question": "Match List-I with List-II and select the correct answer using the codes given below:\nList-I (Tiger Reserve)\na) Dudhwa\nb) Bandipur\nc) Periyar\nd) Sariska\nList-II (State)\ni. Kerala\nii. Rajasthan\niii. Karnataka\niv. Uttar Pradesh",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iv, b – iii, c – ii, d – i",
+          "C": "a – iv, b – iii, c – i, d – ii",
+          "D": "a – iii, b – iv, c – i, d – ii"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "Dudhwa – UP; Bandipur – Karnataka; Periyar – Kerala; Sariska – Rajasthan. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q70"
+        },
+        {
+         "question": "'Kimberly process' recently was in news, which is related to:",
+         "options": {
+          "A": "To regulate coal trade",
+          "B": "To regulate the gold trade",
+          "C": "To regulate the diamond trade",
+          "D": "To regulate the milk products"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "The Kimberley Process Certification Scheme (2003) stops trade in 'conflict diamonds'; India chaired it in 2019. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q72"
+        },
+        {
+         "question": "Which female writer won the prestigious Booker Prize for literature in 2024 and from which country does she hail?",
+         "options": {
+          "A": "Samantha Harvey - U.K.",
+          "B": "Arundhati Roy - India",
+          "C": "Rachel Kushner - U.S.",
+          "D": "Margaret Atwood - Canada"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "She won for the novel 'Orbital'. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q93"
+        },
+        {
+         "question": "Pradhana Mantri Suraksha Bima Yojana (PMSBY) is a",
+         "options": {
+          "A": "Government backed accident insurance scheme",
+          "B": "Only scheme for rural landless households",
+          "C": "Government health insurance programme",
+          "D": "The scheme meant for child life insurance"
+         },
+         "answer": "A",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "PMSBY gives accident cover of ₹2 lakh for a small yearly premium; PMJJBY is the life-insurance scheme. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q94"
+        },
+        {
+         "question": "Which of the following statements is/are INCORRECT with respect to UN Peace Building Commission (PBC)?\n(a) India has been re-elected to the UN PBC for the 2025-2026 term\n(b) The UN Peace Building Commission was established in 1945\n(c) India is not the founding member of UN PBC\n(d) The PBC serves as a vital link between the UN General Assembly and the Security Council",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "b and c only",
+          "D": "a and d only"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "The PBC was set up in 2005 and India is one of its founding members. (Official answer: KEA final key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q97"
+        },
+        {
+         "question": "'Agni warrior 2024' military exercise was held between which of the following countries?",
+         "options": {
+          "A": "India and Sri lanka",
+          "B": "India and Russia",
+          "C": "India and Singapore",
+          "D": "India and Israel"
+         },
+         "answer": "C",
+         "subject": "GTTC 2024 Asst Gr-II GK",
+         "explanation": "Agni Warrior is a bilateral artillery exercise of the Indian Army and the Singapore Army. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GTTC 2024 Asst Gr-II GK · Q99"
+        }
+       ]
+      },
+      {
        "name": "4 · KEA 2026 GK-2 (NHK, 25 Jan 2026)",
        "questions": [
         {
@@ -3081,6 +3315,19 @@
          "subject": "KEA 2026 GK-2 (NHK, 25 Jan 2026)",
          "explanation": "The final was at the Dubai International Cricket Stadium. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 GK-2 (NHK, 25 Jan 2026) · Q67"
+        },
+        {
+         "question": "Expand NWDPRA:",
+         "options": {
+          "A": "National Watershed Development Procedure for Rainfed Areas",
+          "B": "National Watershed Development Programme for Rainfed Areas",
+          "C": "National Watershed Development Project for Rainfed Areas",
+          "D": "Natural Watershed Development Project for Rainfed Areas"
+         },
+         "answer": "C",
+         "subject": "KEA 2026 GK-2 (NHK, 25 Jan 2026)",
+         "explanation": "NWDPRA was launched in 1990–91 by the Ministry of Agriculture for rainfed farming areas. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-2 (NHK, 25 Jan 2026) · Q73"
         },
         {
          "question": "Which of the following statements about Kannada movie \"Kandeelu\" are incorrect?\na. The movie was directed by Yashoda Prakash.\nb. It was awarded with National Film Award in the category of Best Feature Film in Kannada during 70th National Film Awards Ceremony.\nc. The movie was directed by Girish Kasaravalli.",
@@ -3270,6 +3517,19 @@
          "source": "UPSC coaching entrance 2026 (HK) · Q70"
         },
         {
+         "question": "What is the full form of ISD which is related to GST?",
+         "options": {
+          "A": "Input Service Distributor",
+          "B": "Indian Standard Data",
+          "C": "Income Sales Distributor",
+          "D": "Inter State Delivery"
+         },
+         "answer": "A",
+         "subject": "UPSC coaching entrance 2026 (HK)",
+         "explanation": "An ISD distributes input tax credit for common services among its branches. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "UPSC coaching entrance 2026 (HK) · Q72"
+        },
+        {
          "question": "Match the following:\nList-I\na. Ekakuta temple\nb. Dwikuta temple\nc. Trikuta temple\nd. Chaturkuta temple\nList-II\ni. Kesava temple of Somanathapura\nii. Lakshmidevi temple of Doddagaddavalli\niii. Chennakeshava temple of Belur\niv. Hoysaleshwara temple of Halebidu\nChoose the answer from the following codes :",
          "options": {
           "A": "a – iii, b – iv, c – ii, d – i",
@@ -3353,6 +3613,19 @@
          "source": "PSI 2023 General Paper · Q36"
         },
         {
+         "question": "Expand HRIDAY",
+         "options": {
+          "A": "Harbour City Development and Approved Yojana",
+          "B": "Heritage City Development and Augmentation Yojana",
+          "C": "Heritage City Development and Assurance Yojana",
+          "D": "Huge Canal Development and Augmentation Yojana"
+         },
+         "answer": "B",
+         "subject": "PSI 2023 General Paper",
+         "explanation": "HRIDAY (2015) developed heritage cities; Badami was among its first 12 cities. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2023 General Paper · Q69"
+        },
+        {
          "question": "Mullayanagiri Hills are located in the ____ ranges of Western Ghats.",
          "options": {
           "A": "Aravalli",
@@ -3407,7 +3680,142 @@
        ]
       },
       {
-       "name": "7 · KEA 2026 GK-1 (NHK, 11 Jan 2026)",
+       "name": "7 · PSI 2024 General Paper",
+       "questions": [
+        {
+         "question": "Which one of the following tribes is not correctly matched?",
+         "options": {
+          "A": "Birhor - Chhattisgarh",
+          "B": "Apatani - Arunachal Pradesh",
+          "C": "Kadar - Tamil Nadu",
+          "D": "Jaunsari - Maharashtra"
+         },
+         "answer": "D",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "The Jaunsari live in the Jaunsar-Bawar region of Uttarakhand. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q32"
+        },
+        {
+         "question": "Consider the following statements about National Parks of Karnataka and choose the correct options given below:\na) The Moyar river passes through the southern part of Bandipur National Park.\nb) Bannerghatta National Park is a part of wildlife corridor for elephants which connects the B.R. Hills and Sathyamangalam forests.\nc) The Kudremukh National Park is spread over Dakshina Kannada, Udupi and Chikkamagaluru districts of Karnataka.\nd) The unique feature of Nagarahole National Park is that it is the only habitat in Asia where 'Black Panther' is found.",
+         "options": {
+          "A": "a, b and c are correct",
+          "B": "b, c and d are correct",
+          "C": "a, b and d are correct",
+          "D": "only a and b are correct"
+         },
+         "answer": "A",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "Black panthers (melanistic leopards) are seen in Nagarahole–Kabini but also in Dandeli and other forests of Asia, so (d) is wrong. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q33"
+        },
+        {
+         "question": "Soft drinks beverages are usually stored in PET bottles. Expand PET.",
+         "options": {
+          "A": "Poly ethylene terephthalate",
+          "B": "Poly ethyl tolyene",
+          "C": "Propyl ethyl terephthalate",
+          "D": "Phenyl ethanyl terephthalate"
+         },
+         "answer": "A",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "PET is a recyclable polyester (resin code 1). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q39"
+        },
+        {
+         "question": "WHO declares Monkeypox (Mpox) outbreak a public health emergency of international concern. In this regard which of the following statements are correct?\na) Monkeypox virus belongs to the same family of viruses as smallpox virus\nb) This disease spreads through direct skin-to-skin contact\nc) It is a zoonotic disease also\nd) Monkeypox variants are called as clades",
+         "options": {
+          "A": "Only a and c are correct",
+          "B": "Only a, b and c are correct",
+          "C": "Only a, c and d are correct",
+          "D": "a, b, c and d are correct"
+         },
+         "answer": "D",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "Mpox is an orthopoxvirus (like smallpox), zoonotic, spread by close contact, and its variants are called clades (Ib caused the 2024 emergency). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q61"
+        },
+        {
+         "question": "Match the following correctly:\nRegions in news recently: a) Kursk  b) Tigray  c) St Martin Island  d) Kachin  e) Nagorno-Karabakh\nCountries related: i. Myanmar  ii. Russia  iii. Azerbaijan  iv. Ethiopia  v. Bangladesh",
+         "options": {
+          "A": "a - ii, b - i, c - iii, d - iv, e - v",
+          "B": "a - ii, b - iii, c - v, d - i, e - iv",
+          "C": "a - ii, b - iv, c - v, d - i, e - iii",
+          "D": "a - v, b - iv, c - i, d - ii, e - iii"
+         },
+         "answer": "C",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "Kursk (Russia), Tigray (Ethiopia), St Martin's Island (Bangladesh), Kachin (Myanmar), Nagorno-Karabakh (Azerbaijan). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q63"
+        },
+        {
+         "question": "Gobekli Tepe which was in the news recently is a place related to:",
+         "options": {
+          "A": "Archaeological site in Turkey",
+          "B": "Conflict zone in Ukraine",
+          "C": "Dark oxygen was discovered in Pacific Ocean",
+          "D": "Missile testing site in Iran"
+         },
+         "answer": "A",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "It is a Neolithic site about 11,000 years old and a UNESCO World Heritage Site. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q66"
+        },
+        {
+         "question": "Which of the following countries are members of both QUAD as well as Middle East QUAD (I2U2)?\na) India\nb) Australia\nc) USA\nd) UAE",
+         "options": {
+          "A": "a and d",
+          "B": "a and c",
+          "C": "c and d",
+          "D": "b and c"
+         },
+         "answer": "B",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "I2U2 = India, Israel, the USA and the UAE; the Quad = India, Japan, the USA and Australia. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q69"
+        },
+        {
+         "question": "Saumitra Kumar Haldar is the chairman of CWMA. Expand CWMA.",
+         "options": {
+          "A": "Canal Water Management Authority",
+          "B": "Cauvery Water Management Authority",
+          "C": "Central Water-Management Authority",
+          "D": "Cauvery Water Maintenance Authority"
+         },
+         "answer": "B",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "The Cauvery Water Management Authority (2018) implements the Supreme Court's Cauvery award; CWRC is its regulation committee. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q79"
+        },
+        {
+         "question": "Match the following initiatives related to transportation infrastructure with their aims:\na) Gati Shakti Plan  i. Efficient logistics network\nb) Bharatmala Pariyojana  ii. Development of ropeways\nc) Parvatmala Pariyojana  iii. Online processing of land acquisition to accelerate highway infrastructure\nd) Bhoomi Rashi  iv. Connect, improve and decongest highways and road network in India",
+         "options": {
+          "A": "a - ii, b - iv, c - iii, d - i",
+          "B": "a - i, b - iv, c - ii, d - iii",
+          "C": "a - iii, b - ii, c - i, d - iv",
+          "D": "a - i, b - ii, c - iii, d - iv"
+         },
+         "answer": "B",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "PM Gati Shakti (2021) – integrated logistics; Bharatmala – highways; Parvatmala (2022) – ropeways; Bhoomi Rashi – online land acquisition for NHs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q82"
+        },
+        {
+         "question": "Against whom did Carlos Alcaraz win 2024 Men's singles Wimbledon Tennis Title and belongs to which country?",
+         "options": {
+          "A": "Novak Djokovic - Spain",
+          "B": "Rafael Nadal - Spain",
+          "C": "Roger Federer - Switzerland",
+          "D": "Novak Djokovic - Serbia"
+         },
+         "answer": "A",
+         "subject": "PSI 2024 General Paper",
+         "explanation": "Alcaraz (Spain) beat Novak Djokovic in the 2024 final. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q90"
+        }
+       ]
+      },
+      {
+       "name": "8 · KEA 2026 GK-1 (NHK, 11 Jan 2026)",
        "questions": [
         {
          "question": "Among the following monuments, which is not built by Ibrahim Adil Shah II?",
@@ -3421,6 +3829,19 @@
          "subject": "KEA 2026 GK-1 (NHK, 11 Jan 2026)",
          "explanation": "The Jami Masjid of Vijayapura was begun by Ali Adil Shah I (c. 1576); Ibrahim Roza, Mehtar Mahal and the town of Navaraspur belong to Ibrahim Adil Shah II. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 GK-1 (NHK, 11 Jan 2026) · Q5"
+        },
+        {
+         "question": "Expand SMILE",
+         "options": {
+          "A": "Support for Medium Industries for Livelihood and Enterprise",
+          "B": "Smart Management of Intelligence and Leadership Efforts",
+          "C": "Support for Marginalized Individuals for Livelihood and Enterprise",
+          "D": "Support for Marginalized Individuals for Livelihood and Employment"
+         },
+         "answer": "C",
+         "subject": "KEA 2026 GK-1 (NHK, 11 Jan 2026)",
+         "explanation": "SMILE (2022, Ministry of Social Justice) supports transgender persons and people engaged in begging. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (NHK, 11 Jan 2026) · Q13"
         },
         {
          "question": "Indicate the correct chronological order for the setting up of the following institutions.\n(a) GATT\n(b) IMF\n(c) European Union\n(d) WTO",
@@ -3516,7 +3937,7 @@
        ]
       },
       {
-       "name": "8 · KEA 2026 GK-2 (HK, 9 May 2026)",
+       "name": "9 · KEA 2026 GK-2 (HK, 9 May 2026)",
        "questions": [
         {
          "question": "Consider the following statements regarding Kailasanatha temple of Ellora.\nStatements:\n(a) A cave temple built by huge monolith\n(b) It is in Ahamadnagar district of Maharashtra\n(c) It was built by the king Krishna-I\nChoose the correct answer from the options given below.",
@@ -3571,6 +3992,19 @@
          "source": "KEA 2026 GK-2 (HK, 9 May 2026) · Q48"
         },
         {
+         "question": "Expand DILRMP.",
+         "options": {
+          "A": "Digital India Labour Records Modernisation Programme",
+          "B": "Digital India Land Records Modernisation Programme",
+          "C": "Digital India Land Reforms Modernisation Programme",
+          "D": "Digital India Land Records Monetary Programme"
+         },
+         "answer": "B",
+         "subject": "KEA 2026 GK-2 (HK, 9 May 2026)",
+         "explanation": "DILRMP computerises land records; Karnataka's Bhoomi was a pioneer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-2 (HK, 9 May 2026) · Q67"
+        },
+        {
          "question": "Which organizations conducted jointly the Financial Sector Assessment Program (FSAP) in 2025?",
          "options": {
           "A": "World Bank and IMF",
@@ -3621,115 +4055,6 @@
          "subject": "KEA 2026 GK-2 (HK, 9 May 2026)",
          "explanation": "UNODA (New York) supports disarmament work, including the Arms Trade Treaty and weapons of mass destruction. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 GK-2 (HK, 9 May 2026) · Q93"
-        }
-       ]
-      },
-      {
-       "name": "9 · PSI 2024 General Paper",
-       "questions": [
-        {
-         "question": "Which one of the following tribes is not correctly matched?",
-         "options": {
-          "A": "Birhor - Chhattisgarh",
-          "B": "Apatani - Arunachal Pradesh",
-          "C": "Kadar - Tamil Nadu",
-          "D": "Jaunsari - Maharashtra"
-         },
-         "answer": "D",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "The Jaunsari live in the Jaunsar-Bawar region of Uttarakhand. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q32"
-        },
-        {
-         "question": "Consider the following statements about National Parks of Karnataka and choose the correct options given below:\na) The Moyar river passes through the southern part of Bandipur National Park.\nb) Bannerghatta National Park is a part of wildlife corridor for elephants which connects the B.R. Hills and Sathyamangalam forests.\nc) The Kudremukh National Park is spread over Dakshina Kannada, Udupi and Chikkamagaluru districts of Karnataka.\nd) The unique feature of Nagarahole National Park is that it is the only habitat in Asia where 'Black Panther' is found.",
-         "options": {
-          "A": "a, b and c are correct",
-          "B": "b, c and d are correct",
-          "C": "a, b and d are correct",
-          "D": "only a and b are correct"
-         },
-         "answer": "A",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "Black panthers (melanistic leopards) are seen in Nagarahole–Kabini but also in Dandeli and other forests of Asia, so (d) is wrong. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q33"
-        },
-        {
-         "question": "WHO declares Monkeypox (Mpox) outbreak a public health emergency of international concern. In this regard which of the following statements are correct?\na) Monkeypox virus belongs to the same family of viruses as smallpox virus\nb) This disease spreads through direct skin-to-skin contact\nc) It is a zoonotic disease also\nd) Monkeypox variants are called as clades",
-         "options": {
-          "A": "Only a and c are correct",
-          "B": "Only a, b and c are correct",
-          "C": "Only a, c and d are correct",
-          "D": "a, b, c and d are correct"
-         },
-         "answer": "D",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "Mpox is an orthopoxvirus (like smallpox), zoonotic, spread by close contact, and its variants are called clades (Ib caused the 2024 emergency). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q61"
-        },
-        {
-         "question": "Match the following correctly:\nRegions in news recently: a) Kursk  b) Tigray  c) St Martin Island  d) Kachin  e) Nagorno-Karabakh\nCountries related: i. Myanmar  ii. Russia  iii. Azerbaijan  iv. Ethiopia  v. Bangladesh",
-         "options": {
-          "A": "a - ii, b - i, c - iii, d - iv, e - v",
-          "B": "a - ii, b - iii, c - v, d - i, e - iv",
-          "C": "a - ii, b - iv, c - v, d - i, e - iii",
-          "D": "a - v, b - iv, c - i, d - ii, e - iii"
-         },
-         "answer": "C",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "Kursk (Russia), Tigray (Ethiopia), St Martin's Island (Bangladesh), Kachin (Myanmar), Nagorno-Karabakh (Azerbaijan). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q63"
-        },
-        {
-         "question": "Gobekli Tepe which was in the news recently is a place related to:",
-         "options": {
-          "A": "Archaeological site in Turkey",
-          "B": "Conflict zone in Ukraine",
-          "C": "Dark oxygen was discovered in Pacific Ocean",
-          "D": "Missile testing site in Iran"
-         },
-         "answer": "A",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "It is a Neolithic site about 11,000 years old and a UNESCO World Heritage Site. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q66"
-        },
-        {
-         "question": "Which of the following countries are members of both QUAD as well as Middle East QUAD (I2U2)?\na) India\nb) Australia\nc) USA\nd) UAE",
-         "options": {
-          "A": "a and d",
-          "B": "a and c",
-          "C": "c and d",
-          "D": "b and c"
-         },
-         "answer": "B",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "I2U2 = India, Israel, the USA and the UAE; the Quad = India, Japan, the USA and Australia. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q69"
-        },
-        {
-         "question": "Match the following initiatives related to transportation infrastructure with their aims:\na) Gati Shakti Plan  i. Efficient logistics network\nb) Bharatmala Pariyojana  ii. Development of ropeways\nc) Parvatmala Pariyojana  iii. Online processing of land acquisition to accelerate highway infrastructure\nd) Bhoomi Rashi  iv. Connect, improve and decongest highways and road network in India",
-         "options": {
-          "A": "a - ii, b - iv, c - iii, d - i",
-          "B": "a - i, b - iv, c - ii, d - iii",
-          "C": "a - iii, b - ii, c - i, d - iv",
-          "D": "a - i, b - ii, c - iii, d - iv"
-         },
-         "answer": "B",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "PM Gati Shakti (2021) – integrated logistics; Bharatmala – highways; Parvatmala (2022) – ropeways; Bhoomi Rashi – online land acquisition for NHs. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q82"
-        },
-        {
-         "question": "Against whom did Carlos Alcaraz win 2024 Men's singles Wimbledon Tennis Title and belongs to which country?",
-         "options": {
-          "A": "Novak Djokovic - Spain",
-          "B": "Rafael Nadal - Spain",
-          "C": "Roger Federer - Switzerland",
-          "D": "Novak Djokovic - Serbia"
-         },
-         "answer": "A",
-         "subject": "PSI 2024 General Paper",
-         "explanation": "Alcaraz (Spain) beat Novak Djokovic in the 2024 final. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "PSI 2024 General Paper · Q90"
         }
        ]
       },
@@ -3872,6 +4197,19 @@
          "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q30"
         },
         {
+         "question": "With reference to animal breeding, expand MoET",
+         "options": {
+          "A": "Multiple Ovary Embryo Transfer technology",
+          "B": "Multiple Ovulation Embryo Transfer technology",
+          "C": "Multiple Ovules Embryo Transfer technology",
+          "D": "Multiple Oogonia Embryo Transfer technology"
+         },
+         "answer": "B",
+         "subject": "KEA 2026 GK-3 (HK, 4 Jul 2026)",
+         "explanation": "MOET is used to multiply high-yielding cattle breeds quickly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q41"
+        },
+        {
          "question": "Match the following operations in List-I with their purpose in List-II.\nList-I (Operation)\n(a) Operation Sindoor\n(b) Operation Brahma\n(c) Operation Ajay\n(d) Operation Black Forest\nList-II (Purpose)\n(i) Anti-Naxal operations\n(ii) Evacuation of Indian nationals during West Asia conflict\n(iii) In response to the Pahalgam terror attack\n(iv) Humanitarian assistance to Myanmar after a devastating earthquake",
          "options": {
           "A": "a-iii, b-ii, c-i, d-iv",
@@ -3929,6 +4267,19 @@
          "source": "Legislative Council 2024 Data Entry P1 · Q19"
         },
         {
+         "question": "Expand SAPCC",
+         "options": {
+          "A": "State Authority Policy on Climate Change",
+          "B": "State Action Plans on Climate Change",
+          "C": "Security Action Plans on Chemical Change",
+          "D": "State Administration Plans on Climate Change"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Data Entry P1",
+         "explanation": "States prepare SAPCCs in line with the National Action Plan on Climate Change (NAPCC, 2008). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry P1 · Q41"
+        },
+        {
          "question": "Economic Freedom Index (EFI) is released by which organisation?",
          "options": {
           "A": "World Economic Forum",
@@ -3940,6 +4291,19 @@
          "subject": "Legislative Council 2024 Data Entry P1",
          "explanation": "The Index of Economic Freedom was started in 1995 by the Heritage Foundation with The Wall Street Journal. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "Legislative Council 2024 Data Entry P1 · Q45"
+        },
+        {
+         "question": "Expand MUDRA",
+         "options": {
+          "A": "Micro Units Development and Rural Agency",
+          "B": "Micro Units Development and Refinance Agency",
+          "C": "Micro Units Development and Regional Agency",
+          "D": "Micro Units Development and Record Agency"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Data Entry P1",
+         "explanation": "PM Mudra Yojana (2015) gives Shishu, Kishore, Tarun and Tarun Plus loans. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry P1 · Q46"
         },
         {
          "question": "Term 'Reserve Tranche' is associated with which of the following organisation?",
@@ -3957,7 +4321,77 @@
        ]
       },
       {
-       "name": "13 · UPSC coaching entrance 2025 (19 Jul)",
+       "name": "13 · Legislative Council 2024 Asst/Computer Operator P1",
+       "questions": [
+        {
+         "question": "The Food and Agriculture Organization (FAO) of United Nations had decided which of the following year as International Year of Millets?",
+         "options": {
+          "A": "2021",
+          "B": "2023",
+          "C": "2013",
+          "D": "2014"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Asst/Computer Operator P1",
+         "explanation": "The UN General Assembly declared 2023 the International Year of Millets on India's proposal; FAO led the observance. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q10"
+        },
+        {
+         "question": "Which one of the following is the correct sequence of the given mountain peaks in increasing order of their altitude?",
+         "options": {
+          "A": "Mullayyanagiri – Kuduremukh – Tadiandamol – Biligiriranga Hills",
+          "B": "Biligiriranga Hills – Tadiyandamol – Kuduremukh – Mullayyanagiri",
+          "C": "Kuduremukh – Biligiriranga Hills – Mullayyanagiri – Tadiyandamol",
+          "D": "Tadiandamol – Mullayyanagiri – Biligiriranga Hills – Kuduremukh"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Asst/Computer Operator P1",
+         "explanation": "BR Hills (lowest) < Tadiandamol (~1,748 m) < Kudremukh (~1,894 m) < Mullayanagiri (~1,930 m). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q18"
+        },
+        {
+         "question": "Which of the following places from Karnataka are already declared as Ramsar sites?\na) Magadi Kere Conservation Reserve\nb) Ankasamudra Bird Conservation Reserve\nc) Aghanashini Estuary\nd) Ranganathittu Bird Sanctuary\nOptions:",
+         "options": {
+          "A": "All of them",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "b, c and d only"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Asst/Computer Operator P1",
+         "explanation": "Ranganathittu became Karnataka's first Ramsar site in 2022; Magadi Kere (Gadag), Ankasamudra (Vijayanagara) and Aghanashini (Uttara Kannada) followed in August 2024. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q26"
+        },
+        {
+         "question": "'SONAR' stands for",
+         "options": {
+          "A": "Solar navigation and reflection",
+          "B": "Sound over navigation and ranging",
+          "C": "Sound navigation and ranging",
+          "D": "Solar navigation and ranging"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Asst/Computer Operator P1",
+         "explanation": "SONAR uses ultrasonic waves to find objects under water. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q50"
+        },
+        {
+         "question": "The Union Budget, 2025 introduced SWAMIH 2.0. Expand SWAMIH.",
+         "options": {
+          "A": "Special Window for Affordable and Mid-Income Housing",
+          "B": "Second Window for Affordable and Mid-Income Housing",
+          "C": "Second World Affordable and Mid-Income Homes",
+          "D": "Special Window for Aged and Mid-Income Housing"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Asst/Computer Operator P1",
+         "explanation": "SWAMIH funds stalled housing projects; SWAMIH 2.0 aims to complete about one lakh more homes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q85"
+        }
+       ]
+      },
+      {
+       "name": "14 · UPSC coaching entrance 2025 (19 Jul)",
        "questions": [
         {
          "question": "Recently CARICOM was in the news. Consider the following statements:\na. CARICOM refers to Caribbean Community and Common Market.\nb. The organization was founded on August 1, 1973, with the Treaty of Chaguramas.\nc. CARICOM has 15 members and 6 associate member countries.\nd. Recently the second India-CARICOM Summit was organised in Guyana.\nWhich of the above statement(s) is/are correct?",
@@ -4010,11 +4444,195 @@
          "subject": "UPSC coaching entrance 2025 (19 Jul)",
          "explanation": "Varuna – France (navy); Cyclone – Egypt; Indra – Russia; Dharma Guardian – Japan; Surya Kiran – Nepal. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "UPSC coaching entrance 2025 (19 Jul) · Q12"
+        },
+        {
+         "question": "Recently the Election Commission of India has initiated the delisting of 345 RUPPs. Expand RUPPs.",
+         "options": {
+          "A": "Registered Unrecognised Political Parties",
+          "B": "Registered Unauthorised Political Parties",
+          "C": "Registered Unrecognised People's Parties",
+          "D": "Registered Unauthorised People's Parties"
+         },
+         "answer": "A",
+         "subject": "UPSC coaching entrance 2025 (19 Jul)",
+         "explanation": "RUPPs that had not contested any election for six years were removed from the list in 2025. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "UPSC coaching entrance 2025 (19 Jul) · Q18"
         }
        ]
       },
       {
-       "name": "14 · Other papers",
+       "name": "15 · KEA 2026 GK-3 (NHK, 10 May 2026)",
+       "questions": [
+        {
+         "question": "Consider the following peaks in Karnataka.\n(a) Tadiandamol\n(b) Baba Budangiri\n(c) Kudremukha\n(d) Kumara Parvatha\nWhich is the correct sequence from highest to lowest?",
+         "options": {
+          "A": "(c), (b), (d) and (a)",
+          "B": "(b), (c), (a) and (d)",
+          "C": "(b), (c), (d) and (a)",
+          "D": "(c), (b), (a) and (d)"
+         },
+         "answer": "B",
+         "subject": "KEA 2026 GK-3 (NHK, 10 May 2026)",
+         "explanation": "Baba Budangiri (~1,895 m) is marginally higher than Kudremukh (~1,894 m); Tadiandamol (~1,748 m) is above Kumara Parvatha (~1,712 m). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q36"
+        },
+        {
+         "question": "Which of the following pairs are correct regarding tiger reserve forests of India?\n(i) Kaval - Telangana\n(ii) Bore - Maharashtra\n(iii) Pench - Madhya Pradesh\n(iv) Kanha - Uttar Pradesh\nCodes:",
+         "options": {
+          "A": "(i), (ii) and (iii) correct",
+          "B": "(ii), (iii) and (iv) correct",
+          "C": "(i), (ii) and (iv) correct",
+          "D": "(ii) and (iii) correct"
+         },
+         "answer": "A",
+         "subject": "KEA 2026 GK-3 (NHK, 10 May 2026)",
+         "explanation": "Kanha is in Madhya Pradesh, not Uttar Pradesh. Pench has reserves in both MP and Maharashtra. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q40"
+        },
+        {
+         "question": "The 97th Constitutional Amendment deals with",
+         "options": {
+          "A": "Nari Vandana Bill",
+          "B": "Co-operative Societies",
+          "C": "Goods and Services Tax",
+          "D": "Official Languages"
+         },
+         "answer": "B",
+         "subject": "KEA 2026 GK-3 (NHK, 10 May 2026)",
+         "explanation": "97th Amendment (2011): right to form co-operatives in Art. 19(1)(c), Art. 43B and Part IXB. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q78"
+        },
+        {
+         "question": "Expand PM-SVANidhi",
+         "options": {
+          "A": "Prime Minister Street Vendor's Atma Nirbhar Nidhi",
+          "B": "Prime Minister Sainik Vikas Atma Nirbhar Nidhi",
+          "C": "Prime Minister Suraksha Vidhi Atma Nirbhar Nidhi",
+          "D": "Prime Minister Skill Vikas Atma Nirbhar Nidhi"
+         },
+         "answer": "A",
+         "subject": "KEA 2026 GK-3 (NHK, 10 May 2026)",
+         "explanation": "It gives collateral-free working-capital loans to street vendors (2020). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q95"
+        }
+       ]
+      },
+      {
+       "name": "16 · KRIES 2025 entrance",
+       "questions": [
+        {
+         "question": "Expand LPG.",
+         "options": {
+          "A": "Liquefied Petroleum Gas",
+          "B": "Liquid Petroleum Gas",
+          "C": "Liquid Paraffin Gas",
+          "D": "Liquefied Paraffin Gas"
+         },
+         "answer": "A",
+         "subject": "KRIES 2025 entrance",
+         "explanation": "It is mainly propane and butane. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2025 entrance · Q76"
+        },
+        {
+         "question": "Bharatanatyam, one of the dance forms, is the major dance art of which state?",
+         "options": {
+          "A": "Karnataka",
+          "B": "Kerala",
+          "C": "Tamil Nadu",
+          "D": "Andhra Pradesh"
+         },
+         "answer": "C",
+         "subject": "KRIES 2025 entrance",
+         "explanation": "Bharatanatyam developed in the temples of Tamil Nadu. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2025 entrance · Q84"
+        },
+        {
+         "question": "What was the movement started by Panduranga Hegde in Karnataka to prevent deforestation in Western Ghats which has rich biodiversity?",
+         "options": {
+          "A": "Chipko Movement",
+          "B": "The Jungle Bachao Movement",
+          "C": "Appiko Movement",
+          "D": "Gokak Movement"
+         },
+         "answer": "C",
+         "subject": "KRIES 2025 entrance",
+         "explanation": "Appiko ('hug') began in 1983 at Salkani, Uttara Kannada, inspired by Chipko. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2025 entrance · Q87"
+        },
+        {
+         "question": "____ is the highest peak in the Aravalli Range.",
+         "options": {
+          "A": "Nilagiri Hills",
+          "B": "Gurushikara",
+          "C": "Mount Everest",
+          "D": "Kanchenjunga"
+         },
+         "answer": "B",
+         "subject": "KRIES 2025 entrance",
+         "explanation": "Guru Shikhar (about 1,722 m) is near Mount Abu, Rajasthan. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KRIES 2025 entrance · Q91"
+        }
+       ]
+      },
+      {
+       "name": "17 · Legislative Council 2024 Programmer P1",
+       "questions": [
+        {
+         "question": "India is a member of which of the following?\na) G20  b) G7\nc) Shanghai Cooperation Organisation (SCO)  d) New Development Bank (NDB)\nSelect the correct answer using the codes given below:",
+         "options": {
+          "A": "a only",
+          "B": "a, c and d only",
+          "C": "a, b and c only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Programmer P1",
+         "explanation": "India is in the G20, the SCO (full member since 2017) and the BRICS New Development Bank; it attends G7 summits only as an invited guest. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Programmer P1 · Q18"
+        },
+        {
+         "question": "Arrange the following major ports of India from north to south direction.\na) Haldia\nb) Kolkata\nc) Vishakapatnam\nd) Paradeep",
+         "options": {
+          "A": "a, c, b, d",
+          "B": "b, a, d, c",
+          "C": "c, b, a, d",
+          "D": "d, c, b, a"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Programmer P1",
+         "explanation": "Kolkata (≈22.6° N) → Haldia (≈22.0° N) → Paradip (≈20.3° N) → Visakhapatnam (≈17.7° N). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Programmer P1 · Q25"
+        },
+        {
+         "question": "'MCB' in an electric circuit stands for",
+         "options": {
+          "A": "Master Circuit Breaker",
+          "B": "Miniature Circuit Breaker",
+          "C": "Main Circuit Breaker",
+          "D": "Master Current Breaker"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Programmer P1",
+         "explanation": "An MCB automatically switches off the circuit on overload or short circuit. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Programmer P1 · Q53"
+        },
+        {
+         "question": "Consider the following statements with reference to International Solar Alliance (ISA).\na) It is a global initiative launched by India and France in 2015 at the COP 21 Summit held in Paris\nb) Its objective is to promote solar energy as a sustainable solution for energy access and climate change\nc) Headquarters of ISA is in Bangalore\nd) STAR-C Initiative and Green Hydrogen Innovation Centre are few of the initiatives launched by ISA\nHow many of the above statements is/are correct?",
+         "options": {
+          "A": "All the four are correct",
+          "B": "Only three statements are correct",
+          "C": "Only two statements are correct",
+          "D": "Only one statement is correct"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Programmer P1",
+         "explanation": "ISA's headquarters is in Gurugram (Haryana), so c is wrong; a, b and d are correct. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Programmer P1 · Q64"
+        }
+       ]
+      },
+      {
+       "name": "18 · Other papers",
        "questions": [
         {
          "question": "Secondary education as an important link in education is identified by",
@@ -4069,45 +4687,6 @@
          "source": "GFGC 2021 GK · Q43"
         },
         {
-         "question": "Consider the following peaks in Karnataka.\n(a) Tadiandamol\n(b) Baba Budangiri\n(c) Kudremukha\n(d) Kumara Parvatha\nWhich is the correct sequence from highest to lowest?",
-         "options": {
-          "A": "(c), (b), (d) and (a)",
-          "B": "(b), (c), (a) and (d)",
-          "C": "(b), (c), (d) and (a)",
-          "D": "(c), (b), (a) and (d)"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Baba Budangiri (~1,895 m) is marginally higher than Kudremukh (~1,894 m); Tadiandamol (~1,748 m) is above Kumara Parvatha (~1,712 m). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q36"
-        },
-        {
-         "question": "Which of the following pairs are correct regarding tiger reserve forests of India?\n(i) Kaval - Telangana\n(ii) Bore - Maharashtra\n(iii) Pench - Madhya Pradesh\n(iv) Kanha - Uttar Pradesh\nCodes:",
-         "options": {
-          "A": "(i), (ii) and (iii) correct",
-          "B": "(ii), (iii) and (iv) correct",
-          "C": "(i), (ii) and (iv) correct",
-          "D": "(ii) and (iii) correct"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Kanha is in Madhya Pradesh, not Uttar Pradesh. Pench has reserves in both MP and Maharashtra. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q40"
-        },
-        {
-         "question": "The 97th Constitutional Amendment deals with",
-         "options": {
-          "A": "Nari Vandana Bill",
-          "B": "Co-operative Societies",
-          "C": "Goods and Services Tax",
-          "D": "Official Languages"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "97th Amendment (2011): right to form co-operatives in Art. 19(1)(c), Art. 43B and Part IXB. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 GK-3 (NHK, 10 May 2026) · Q78"
-        },
-        {
          "question": "____ is the highest peak in India.",
          "options": {
           "A": "Mullayanagiri",
@@ -4145,45 +4724,6 @@
          "subject": "Other papers",
          "explanation": "Dr Rajkumar received it for 1995; Puttanna Kanagal never received it. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KRIES 2024 entrance · Q90"
-        },
-        {
-         "question": "Bharatanatyam, one of the dance forms, is the major dance art of which state?",
-         "options": {
-          "A": "Karnataka",
-          "B": "Kerala",
-          "C": "Tamil Nadu",
-          "D": "Andhra Pradesh"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Bharatanatyam developed in the temples of Tamil Nadu. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KRIES 2025 entrance · Q84"
-        },
-        {
-         "question": "What was the movement started by Panduranga Hegde in Karnataka to prevent deforestation in Western Ghats which has rich biodiversity?",
-         "options": {
-          "A": "Chipko Movement",
-          "B": "The Jungle Bachao Movement",
-          "C": "Appiko Movement",
-          "D": "Gokak Movement"
-         },
-         "answer": "C",
-         "subject": "Other papers",
-         "explanation": "Appiko ('hug') began in 1983 at Salkani, Uttara Kannada, inspired by Chipko. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KRIES 2025 entrance · Q87"
-        },
-        {
-         "question": "____ is the highest peak in the Aravalli Range.",
-         "options": {
-          "A": "Nilagiri Hills",
-          "B": "Gurushikara",
-          "C": "Mount Everest",
-          "D": "Kanchenjunga"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Guru Shikhar (about 1,722 m) is near Mount Abu, Rajasthan. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KRIES 2025 entrance · Q91"
         },
         {
          "question": "Kutub Minar is located in",
@@ -4264,6 +4804,19 @@
          "source": "KSET 2024 General Paper · Q5"
         },
         {
+         "question": "Expand QR Code:",
+         "options": {
+          "A": "Quick Reply code",
+          "B": "Quick Response Code",
+          "C": "Quick Retrace Code",
+          "D": "Quick Reaction Code"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "It was invented by Denso Wave (Japan) in 1994. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 General Paper · Q31"
+        },
+        {
          "question": "Which initiative of the Government of India provides 24x7 DTH satellite TV channels?",
          "options": {
           "A": "Shodhganga",
@@ -4329,84 +4882,6 @@
          "source": "KSET 2025 General Paper · Q49"
         },
         {
-         "question": "The Food and Agriculture Organization (FAO) of United Nations had decided which of the following year as International Year of Millets?",
-         "options": {
-          "A": "2021",
-          "B": "2023",
-          "C": "2013",
-          "D": "2014"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "The UN General Assembly declared 2023 the International Year of Millets on India's proposal; FAO led the observance. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q10"
-        },
-        {
-         "question": "Which one of the following is the correct sequence of the given mountain peaks in increasing order of their altitude?",
-         "options": {
-          "A": "Mullayyanagiri – Kuduremukh – Tadiandamol – Biligiriranga Hills",
-          "B": "Biligiriranga Hills – Tadiyandamol – Kuduremukh – Mullayyanagiri",
-          "C": "Kuduremukh – Biligiriranga Hills – Mullayyanagiri – Tadiyandamol",
-          "D": "Tadiandamol – Mullayyanagiri – Biligiriranga Hills – Kuduremukh"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "BR Hills (lowest) < Tadiandamol (~1,748 m) < Kudremukh (~1,894 m) < Mullayanagiri (~1,930 m). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q18"
-        },
-        {
-         "question": "Which of the following places from Karnataka are already declared as Ramsar sites?\na) Magadi Kere Conservation Reserve\nb) Ankasamudra Bird Conservation Reserve\nc) Aghanashini Estuary\nd) Ranganathittu Bird Sanctuary\nOptions:",
-         "options": {
-          "A": "All of them",
-          "B": "a, b and c only",
-          "C": "a, b and d only",
-          "D": "b, c and d only"
-         },
-         "answer": "A",
-         "subject": "Other papers",
-         "explanation": "Ranganathittu became Karnataka's first Ramsar site in 2022; Magadi Kere (Gadag), Ankasamudra (Vijayanagara) and Aghanashini (Uttara Kannada) followed in August 2024. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q26"
-        },
-        {
-         "question": "India is a member of which of the following?\na) G20  b) G7\nc) Shanghai Cooperation Organisation (SCO)  d) New Development Bank (NDB)\nSelect the correct answer using the codes given below:",
-         "options": {
-          "A": "a only",
-          "B": "a, c and d only",
-          "C": "a, b and c only",
-          "D": "a, b, c and d"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "India is in the G20, the SCO (full member since 2017) and the BRICS New Development Bank; it attends G7 summits only as an invited guest. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q18"
-        },
-        {
-         "question": "Arrange the following major ports of India from north to south direction.\na) Haldia\nb) Kolkata\nc) Vishakapatnam\nd) Paradeep",
-         "options": {
-          "A": "a, c, b, d",
-          "B": "b, a, d, c",
-          "C": "c, b, a, d",
-          "D": "d, c, b, a"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "Kolkata (≈22.6° N) → Haldia (≈22.0° N) → Paradip (≈20.3° N) → Visakhapatnam (≈17.7° N). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q25"
-        },
-        {
-         "question": "Consider the following statements with reference to International Solar Alliance (ISA).\na) It is a global initiative launched by India and France in 2015 at the COP 21 Summit held in Paris\nb) Its objective is to promote solar energy as a sustainable solution for energy access and climate change\nc) Headquarters of ISA is in Bangalore\nd) STAR-C Initiative and Green Hydrogen Innovation Centre are few of the initiatives launched by ISA\nHow many of the above statements is/are correct?",
-         "options": {
-          "A": "All the four are correct",
-          "B": "Only three statements are correct",
-          "C": "Only two statements are correct",
-          "D": "Only one statement is correct"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "ISA's headquarters is in Gurugram (Haryana), so c is wrong; a, b and d are correct. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q64"
-        },
-        {
          "question": "The first Vande Bharat Express train which was inaugurated on February 18, 2019 runs between which of the following cities?",
          "options": {
           "A": "Mumbai-Sainagar Shirdi",
@@ -4418,6 +4893,19 @@
          "subject": "Other papers",
          "explanation": "The first Vande Bharat (Train 18) ran between New Delhi and Varanasi; it was flagged off on 15 February 2019 and began regular service soon after. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2023 MCA · Q49"
+        },
+        {
+         "question": "Expand 'UPI'.",
+         "options": {
+          "A": "United Payment India",
+          "B": "Unified Payment Interface",
+          "C": "Unique Payment Information",
+          "D": "Unified Payment Information"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "UPI was launched by NPCI in 2016. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 MCA · Q52"
         },
         {
          "question": "Which of following statement with regard to G20 Summit is wrong?",
@@ -6694,7 +7182,64 @@
        ]
       },
       {
-       "name": "9 · Legislative Council 2024 Data Entry Operator P2",
+       "name": "9 · Legislative Council 2024 Asst/Jr Asst P2",
+       "questions": [
+        {
+         "question": "______ includes mechanism designed to block traffic from intruders.",
+         "options": {
+          "A": "Encryption",
+          "B": "Digital signature",
+          "C": "IPS",
+          "D": "Firewall"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Asst/Jr Asst P2",
+         "explanation": "A firewall filters traffic between a trusted network and the internet; KEA's final key accepted both IPS (intrusion prevention system) and Firewall. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q72"
+        },
+        {
+         "question": "The hash function value used during message authentication is referred to as",
+         "options": {
+          "A": "Message Digest",
+          "B": "Message Authentication Code",
+          "C": "Digital Signature",
+          "D": "Message Length"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Asst/Jr Asst P2",
+         "explanation": "A hash function such as SHA-256 turns a message into a fixed-length message digest. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q73"
+        },
+        {
+         "question": "Which PowerPoint view displays each slide of the presentation as a thumbnail and is useful for rearranging slides?",
+         "options": {
+          "A": "Slide Master",
+          "B": "Slide Show",
+          "C": "Slide Design",
+          "D": "Slide Sorter"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Asst/Jr Asst P2",
+         "explanation": "Slide Sorter shows all slides as thumbnails that can be dragged into a new order. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q93"
+        },
+        {
+         "question": "____ chart shows the proportional size of items that make up only one data series to the sum of the items.",
+         "options": {
+          "A": "Bar Chart",
+          "B": "Pie Chart",
+          "C": "Line Chart",
+          "D": "Area Chart"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Asst/Jr Asst P2",
+         "explanation": "A pie chart shows parts of a whole for one data series. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q96"
+        }
+       ]
+      },
+      {
+       "name": "10 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
          "question": "=SUM(A1:E1) formula in MS Excel performs which of the following task?",
@@ -6751,7 +7296,7 @@
        ]
       },
       {
-       "name": "10 · Other papers",
+       "name": "11 · Other papers",
        "questions": [
         {
          "question": "Which Google product allows you to Survey, Quiz or question students with multiple choice open ended and other questions?",
@@ -6793,6 +7338,19 @@
          "source": "GTTC 2024 Technician Gr-III CS (C1) · Q80"
         },
         {
+         "question": "Section 66 of the IT act 2000 deals with",
+         "options": {
+          "A": "Posting of obscene pictures",
+          "B": "Hacking",
+          "C": "Spamming",
+          "D": "Cyber terrorism"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "Section 66 covers computer-related offences such as hacking; 66F is cyber terrorism and 67 is obscene material. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q75"
+        },
+        {
          "question": "In Google Sheet, which sign is used in the formula for absolute reference?",
          "options": {
           "A": "Underscore ( _ )",
@@ -6819,45 +7377,6 @@
          "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q98"
         },
         {
-         "question": "______ includes mechanism designed to block traffic from intruders.",
-         "options": {
-          "A": "Encryption",
-          "B": "Digital signature",
-          "C": "IPS",
-          "D": "Firewall"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "A firewall filters traffic between a trusted network and the internet; KEA's final key accepted both IPS (intrusion prevention system) and Firewall. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q72"
-        },
-        {
-         "question": "Which PowerPoint view displays each slide of the presentation as a thumbnail and is useful for rearranging slides?",
-         "options": {
-          "A": "Slide Master",
-          "B": "Slide Show",
-          "C": "Slide Design",
-          "D": "Slide Sorter"
-         },
-         "answer": "D",
-         "subject": "Other papers",
-         "explanation": "Slide Sorter shows all slides as thumbnails that can be dragged into a new order. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q93"
-        },
-        {
-         "question": "____ chart shows the proportional size of items that make up only one data series to the sum of the items.",
-         "options": {
-          "A": "Bar Chart",
-          "B": "Pie Chart",
-          "C": "Line Chart",
-          "D": "Area Chart"
-         },
-         "answer": "B",
-         "subject": "Other papers",
-         "explanation": "A pie chart shows parts of a whole for one data series. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q96"
-        },
-        {
          "question": "Expand OWASP in reference to Cyber Security.",
          "options": {
           "A": "Open World Advanced Security Project",
@@ -6882,6 +7401,32 @@
          "subject": "Other papers",
          "explanation": "BharatGen, led by IIT Bombay under the DST, builds multimodal LLMs for Indian languages. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "UPSC coaching entrance 2025 (19 Jul) · Q21"
+        },
+        {
+         "question": "Choose the advantages offered by digital signature.\na. Identifies the signatory\nb. Maintains integrity of signed data\nc. Prevents forgery or impersonation\nd. Encrypts the data\nChoose the correct answer from the following codes :",
+         "options": {
+          "A": "b and c only",
+          "B": "a and b only",
+          "C": "Only d",
+          "D": "a, b and c"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "A digital signature gives authentication, integrity and non-repudiation; it does not by itself encrypt the message. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-2 · Q81"
+        },
+        {
+         "question": "Section 65 of IT Act 2000 deals with :",
+         "options": {
+          "A": "Tampering with documents",
+          "B": "Hacking",
+          "C": "Acts of cyber terrorism",
+          "D": "Using other person's email ID"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Section 65 punishes tampering with computer source documents (up to 3 years and/or ₹2 lakh fine). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-2 · Q90"
         }
        ]
       }

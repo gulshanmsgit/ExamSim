@@ -68,10 +68,11 @@ KARNATAKA = [
      ["September–October 2025", "2011", "2001", "2019"], 0, PYQ + "The earlier Kantharaj report survey was done in 2015."),
     ("Internal reservation among Scheduled Castes in Karnataka was studied by the commission headed by:",
      ["Justice H. N. Nagamohan Das", "Justice A. J. Sadashiva", "Justice Santosh Hegde", "Justice John Michael D'Cunha"], 0, "The Sadashiva commission had studied it earlier (2012)."),
-    ("The Speaker of the Karnataka Legislative Assembly (16th Assembly) is:",
-     ["U. T. Khader", "Basavaraj Horatti", "Vishweshwar Hegde Kageri", "K. R. Ramesh Kumar"], 0, PYQ + "Basavaraj Horatti is Chairman of the Legislative Council."),
+    ("D. K. Shivakumar was sworn in as Chief Minister of Karnataka in June 2026 after the resignation of:",
+     ["Siddaramaiah", "B. S. Yediyurappa", "Basavaraj Bommai", "H. D. Kumaraswamy"], 0,
+     PYQ + "Siddaramaiah resigned in May 2026; Shivakumar took the oath on 3 June 2026 with G. Parameshwara as Deputy CM."),
     ("The Governor of Karnataka since July 2021 is:",
-     ["Thaawarchand Gehlot", "Vajubhai Vala", "H. R. Bhardwaj", "Arif Mohammad Khan"], 0, "Siddaramaiah has been Chief Minister since May 2023, with D. K. Shivakumar as Deputy CM."),
+     ["Thaawarchand Gehlot", "Vajubhai Vala", "H. R. Bhardwaj", "Arif Mohammad Khan"], 0, "He administered the oath to Chief Minister D. K. Shivakumar on 3 June 2026."),
     ("Namma Metro's Yellow Line (R. V. Road – Bommasandra), opened in August 2025, serves mainly:",
      ["Electronic City", "Whitefield", "Kengeri", "Yelahanka"], 0, PYQ + "The Purple and Green lines were the first two."),
     ("'Invest Karnataka 2025', the global investors' meet, was held in Bengaluru in:",
@@ -125,11 +126,11 @@ NOTES = {
 | Post | Name |
 |---|---|
 | Governor | **Thaawarchand Gehlot** (July 2021) |
-| Chief Minister / Deputy CM | **Siddaramaiah** (May 2023) / **D. K. Shivakumar** |
-| Speaker / Council Chairman | **U. T. Khader** / **Basavaraj Horatti** |
-| Chief Secretary | Shalini Rajneesh (2024) |
-| Lokayukta | Justice B. S. Patil |
-| VGIT chair | **Kris Gopalakrishnan** |
+| Chief Minister | **D. K. Shivakumar** (sworn in **3 June 2026**) – Deputy CM **G. Parameshwara** |
+| Previous CM | **Siddaramaiah** (May 2023 – resigned May 2026; longest-serving CM, Jan 2026) |
+| Council Chairman | Basavaraj Horatti |
+| VGIT chair (Jan 2026) | **Kris Gopalakrishnan** |
+U. T. Khader, Speaker 2023–26, became Health Minister in the Shivakumar ministry.
 
 ## Five guarantees (2023)
 | Scheme | Benefit |
