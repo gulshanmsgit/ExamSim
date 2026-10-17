@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "Previous-year questions by subject (P1 + P2)",
- "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 628, Paper 2: 956. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
+ "description": "Every real KEA / KSET / KPSC-style previous-year question collected so far, sorted by syllabus subject – Paper 1: 628, Paper 2: 998. Each set is one exam paper (small papers are pooled); the source and whether the answer is KEA's official key are shown with every question. Grows as more papers and topics are added; re-importing adds only new sets.",
  "subjects": [
   {
    "name": "P1 · Previous-Year Questions · General Paper",
@@ -9137,6 +9137,120 @@
          "source": "Legislative Council 2024 Computer Operator P2 · Q100"
         }
        ]
+      },
+      {
+       "name": "5 · Legislative Council 2024 Data Entry Operator P2",
+       "questions": [
+        {
+         "question": "The software available for free, but source code may not be available, such softwares are called",
+         "options": {
+          "A": "Proprietary software",
+          "B": "Application software",
+          "C": "Freeware",
+          "D": "System software"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "Freeware is free of cost but usually closed source. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q79"
+        },
+        {
+         "question": "____ command is used to change the attributes of a file",
+         "options": {
+          "A": "COPY",
+          "B": "REN",
+          "C": "ATTRIB",
+          "D": "TYPE"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "DOS ATTRIB +R/+H etc. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q82"
+        },
+        {
+         "question": "____ tab is used to enable 'Ruler' option in MS Word.",
+         "options": {
+          "A": "Design",
+          "B": "Page layout",
+          "C": "Review",
+          "D": "View"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "View → Ruler. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q83"
+        },
+        {
+         "question": "A 4 bit word is called as",
+         "options": {
+          "A": "Noble",
+          "B": "Nibble",
+          "C": "Byte",
+          "D": "Bit"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "4 bits = nibble. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q97"
+        }
+       ]
+      },
+      {
+       "name": "6 · Legislative Council 2024 Junior Console Operator P2",
+       "questions": [
+        {
+         "question": "What type of software licence allows users to modify and redistribute the source code freely?",
+         "options": {
+          "A": "Proprietary license",
+          "B": "Freeware license",
+          "C": "Open source licence",
+          "D": "Shareware licence"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Open source. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q77"
+        },
+        {
+         "question": "Which of the following is NOT a feature of Microsoft Word?",
+         "options": {
+          "A": "Data analysis",
+          "B": "Spell check",
+          "C": "Mail merge",
+          "D": "Text formatting"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Data analysis is Excel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q85"
+        },
+        {
+         "question": "Which of the following is the correct way to protect a Microsoft Word document with a password?",
+         "options": {
+          "A": "Go to file → Info → Protect Document → Encrypt with password",
+          "B": "Go to Review → Protect → Password",
+          "C": "Go to file → Review → Encrypt with password",
+          "D": "Go to Review → Options → Password protections"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "File → Info. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q88"
+        },
+        {
+         "question": "Which feature is used to make a selected sentence to all capital letters or all small letters?",
+         "options": {
+          "A": "Change Letter",
+          "B": "Change Sentence",
+          "C": "Change Case",
+          "D": "Change Word"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Home → Change Case (Shift + F3). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q96"
+        }
+       ]
       }
      ]
     },
@@ -10077,6 +10191,19 @@
          "source": "GTTC 2024 Technician Gr-III CS (C1) · Q54"
         },
         {
+         "question": "The shortcut keys in MS Word used to find a text and automatically replace it with something different are",
+         "options": {
+          "A": "Ctrl + R",
+          "B": "Ctrl + U",
+          "C": "Ctrl + H",
+          "D": "Ctrl + Z"
+         },
+         "answer": "C",
+         "subject": "Other papers",
+         "explanation": "Ctrl + H opens Replace. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q99"
+        },
+        {
          "question": "How do you convert a string S = '123489' into an integer?",
          "options": {
           "A": "s.to_int ( )",
@@ -10310,7 +10437,207 @@
        ]
       },
       {
-       "name": "2 · PGCET 2026 MCA",
+       "name": "2 · Legislative Council 2024 Junior Console Operator P2",
+       "questions": [
+        {
+         "question": "Which is the correct sequence of steps for selecting an Access Point (AP)?\na. The node sends a probe frame\nb. The AP replies with an association response frame\nc. All APs within reach reply with a probe response frame\nd. The node selects one of the access points and sends an AP an Association Request Frame.",
+         "options": {
+          "A": "a → b → d → c",
+          "B": "a → c → d → b",
+          "C": "a → c → b → d",
+          "D": "a → b → c → d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Probe, probe responses, association request, association response. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q13"
+        },
+        {
+         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
+        },
+        {
+         "question": "Match the following instruction types with their examples\nInstruction type\na. Data Transfer\nb. Arithmetic\nc. Branching\nd. Logic\nExamples\ni. ADD, SUB\nii. MOV, LDA, STA\niii. BEQ, JUMP\niv. AND, OR",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Instruction classes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q22"
+        },
+        {
+         "question": "Given\nL1 Cache: Hit time = 2 cycles, Miss rate = 10%, Miss penalty = 50 cycles\nL2 Cache: Hit time = 10 cycles, Miss rate = 5%, Miss Penalty = 100 cycles\nWhat is the average memory access time for the system?",
+         "options": {
+          "A": "3.5 cycles",
+          "B": "2.5 cycles",
+          "C": "4.5 cycles",
+          "D": "1.5 cycles"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "AMAT = 2 + 0.10 × (10 + 0.05 × 100) = 2 + 1.5 = 3.5 cycles. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q23"
+        },
+        {
+         "question": "The function of heat sink in a computer is to",
+         "options": {
+          "A": "Cool down the CPU",
+          "B": "Store backup data",
+          "C": "Increase the RAM capacity",
+          "D": "Manage input/output devices"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "It draws heat away. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q25"
+        },
+        {
+         "question": "Which of the following techniques are used to improve cache hit rates?\na) Increasing cache size\nb) Reducing associativity\nc) Implementing cache prefetching\nd) Using a victim cache\ne) Increasing the block size",
+         "options": {
+          "A": "a, b, c and d",
+          "B": "a, c, d and e",
+          "C": "a, b and d",
+          "D": "a, b, d and e"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Reducing associativity raises conflict misses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q26"
+        },
+        {
+         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
+         "options": {
+          "A": "2.4 cycles",
+          "B": "3.6 cycles",
+          "C": "5.0 cycles",
+          "D": "6.0 cycles"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
+        },
+        {
+         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, d and e",
+          "C": "b, d and e",
+          "D": "a, b, c, d and e"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
+        },
+        {
+         "question": "Arrange the stages correctly during the pipeline execution of a CPU\ni) Instruction fetch\nii) Instruction decode\niii) Execute\niv) Write Back",
+         "options": {
+          "A": "i → ii → iii → iv",
+          "B": "ii → i → iv → iii",
+          "C": "i → ii → iv → iii",
+          "D": "i → iii → ii → iv"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Fetch, decode, execute, write back. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q29"
+        },
+        {
+         "question": "Which of the following is an example of a pipeline hazard?",
+         "options": {
+          "A": "Branch Misprediction",
+          "B": "Cache miss",
+          "C": "Data dependency between instructions",
+          "D": "Instruction fetch stall"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
+        },
+        {
+         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
+         "options": {
+          "A": "RISC",
+          "B": "CISC",
+          "C": "VLIW",
+          "D": "EPIC"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
+        },
+        {
+         "question": "Which of the following best defines a bus in a computer system?",
+         "options": {
+          "A": "A path for transferring data and instructions between components",
+          "B": "A memory unit",
+          "C": "An input/output device",
+          "D": "A register used for arithmetic operations"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
+        },
+        {
+         "question": "Which of the following describes a CPU's clock speed?",
+         "options": {
+          "A": "The number of cores in the CPU",
+          "B": "The rate at which the CPU can execute instructions",
+          "C": "The size of the CPU cache memory",
+          "D": "The thermal design power of the CPU"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
+        },
+        {
+         "question": "Which of the following is an example of open-source software?",
+         "options": {
+          "A": "Microsoft Word",
+          "B": "Adobe Photoshop",
+          "C": "Mozilla Firefox",
+          "D": "Google Chrome"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Firefox (Chrome is proprietary; Chromium is open). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q81"
+        },
+        {
+         "question": "Which feature in Microsoft Word allows you to create a form where user can select from predefined options?",
+         "options": {
+          "A": "SmartArt",
+          "B": "Content Controls",
+          "C": "Bookmark",
+          "D": "Track Changes"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Drop-down list content controls (Developer tab). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q84"
+        }
+       ]
+      },
+      {
+       "name": "3 · PGCET 2026 MCA",
        "questions": [
         {
          "question": "The sum of the binary numbers 10110.10 and 11010.01 is",
@@ -10510,7 +10837,7 @@
        ]
       },
       {
-       "name": "3 · GTTC 2024 Technician Gr-III CS (C1)",
+       "name": "4 · GTTC 2024 Technician Gr-III CS (C1)",
        "questions": [
         {
          "question": "Which of the following is NOT. a web development framework?\n(a) Angular   (b) React\n(c) Django   (d) Java",
@@ -10697,7 +11024,7 @@
        ]
       },
       {
-       "name": "4 · KSET 2023 CS&A",
+       "name": "5 · KSET 2023 CS&A",
        "questions": [
         {
          "question": "____ translates the high-level language program into machine language.",
@@ -10845,7 +11172,7 @@
        ]
       },
       {
-       "name": "5 · PGCET 2025 MCA",
+       "name": "6 · PGCET 2025 MCA",
        "questions": [
         {
          "question": "In Boolean algebra, which of the following is correct?",
@@ -10993,7 +11320,7 @@
        ]
       },
       {
-       "name": "6 · GFGC 2021 CS",
+       "name": "7 · GFGC 2021 CS",
        "questions": [
         {
          "question": "Which register is used as a working area in CPU ?",
@@ -11128,7 +11455,7 @@
        ]
       },
       {
-       "name": "7 · Legislative Council 2024 Computer Operator P2",
+       "name": "8 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "Match the following in relation to Memory\nList-1\n(a) ROM\n(b) Cache memory\n(c) Virtual memory\n(d) Flash memory\nList-2\ni) Retains data even when power is turned off\nii) Reads only memory\niii) Small, fast memory\niv) Provides an illusion of more memory than physically available",
@@ -11263,7 +11590,7 @@
        ]
       },
       {
-       "name": "8 · PGCET 2024 MCA",
+       "name": "9 · PGCET 2024 MCA",
        "questions": [
         {
          "question": "The fastest memory in a computer system is",
@@ -11398,7 +11725,7 @@
        ]
       },
       {
-       "name": "9 · KEA 2026 CS Paper-2",
+       "name": "10 · KEA 2026 CS Paper-2",
        "questions": [
         {
          "question": "____ is caused because of a delay in the availability of instruction.",
@@ -11520,7 +11847,7 @@
        ]
       },
       {
-       "name": "10 · KSET 2025 CS&A",
+       "name": "11 · KSET 2025 CS&A",
        "questions": [
         {
          "question": "For a given Boolean expression, F = X·Y·Z + X·Y·Z̅ + X·Y·Z + X̅·Y, the simplified Boolean expression is",
@@ -11638,128 +11965,6 @@
          "subject": "KSET 2025 CS&A",
          "explanation": "Non-pipelined time nk cycles; pipelined k + n − 1 cycles. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2025 CS&A · Q19"
-        }
-       ]
-      },
-      {
-       "name": "11 · Legislative Council 2024 Junior Console Operator P2",
-       "questions": [
-        {
-         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
-         "options": {
-          "A": "a and b only",
-          "B": "a, b and c only",
-          "C": "a, b and d only",
-          "D": "a, b, c and d"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "GPUs, DSPs and FPGAs are specialised; RISC is a general-purpose design style. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
-        },
-        {
-         "question": "Given\nL1 Cache: Hit time = 2 cycles, Miss rate = 10%, Miss penalty = 50 cycles\nL2 Cache: Hit time = 10 cycles, Miss rate = 5%, Miss Penalty = 100 cycles\nWhat is the average memory access time for the system?",
-         "options": {
-          "A": "3.5 cycles",
-          "B": "2.5 cycles",
-          "C": "4.5 cycles",
-          "D": "1.5 cycles"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "AMAT = 2 + 0.10 × (10 + 0.05 × 100) = 2 + 1.5 = 3.5 cycles. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q23"
-        },
-        {
-         "question": "Which of the following techniques are used to improve cache hit rates?\na) Increasing cache size\nb) Reducing associativity\nc) Implementing cache prefetching\nd) Using a victim cache\ne) Increasing the block size",
-         "options": {
-          "A": "a, b, c and d",
-          "B": "a, c, d and e",
-          "C": "a, b and d",
-          "D": "a, b, d and e"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Reducing associativity raises conflict misses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q26"
-        },
-        {
-         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
-         "options": {
-          "A": "2.4 cycles",
-          "B": "3.6 cycles",
-          "C": "5.0 cycles",
-          "D": "6.0 cycles"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "0.20 × 12 = 2.4 cycles per instruction (taking every branch as mispredicted, as the question intends). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
-        },
-        {
-         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
-         "options": {
-          "A": "a, b and d",
-          "B": "a, b, d and e",
-          "C": "b, d and e",
-          "D": "a, b, c, d and e"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Forwarding, prediction, out-of-order execution and renaming all hide stalls. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
-        },
-        {
-         "question": "Which of the following is an example of a pipeline hazard?",
-         "options": {
-          "A": "Branch Misprediction",
-          "B": "Cache miss",
-          "C": "Data dependency between instructions",
-          "D": "Instruction fetch stall"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
-        },
-        {
-         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
-         "options": {
-          "A": "RISC",
-          "B": "CISC",
-          "C": "VLIW",
-          "D": "EPIC"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
-        },
-        {
-         "question": "Which of the following best defines a bus in a computer system?",
-         "options": {
-          "A": "A path for transferring data and instructions between components",
-          "B": "A memory unit",
-          "C": "An input/output device",
-          "D": "A register used for arithmetic operations"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "A bus is a set of common lines (data, address, control). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
-        },
-        {
-         "question": "Which of the following describes a CPU's clock speed?",
-         "options": {
-          "A": "The number of cores in the CPU",
-          "B": "The rate at which the CPU can execute instructions",
-          "C": "The size of the CPU cache memory",
-          "D": "The thermal design power of the CPU"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Clock speed (Hz) sets the pace of the timing signals. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
         }
        ]
       },
@@ -12233,6 +12438,19 @@
       {
        "name": "17 · Other papers",
        "questions": [
+        {
+         "question": "The symbol 'E' represents ____ decimal value in Hexadecimal number system.",
+         "options": {
+          "A": "13",
+          "B": "14",
+          "C": "5",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Other papers",
+         "explanation": "A = 10 … E = 14. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q75"
+        },
         {
          "question": "The 2's complement of 101000 is",
          "options": {
@@ -14578,6 +14796,32 @@
        "name": "9 · Other papers",
        "questions": [
         {
+         "question": "In RDBMS, a data record is known as ____",
+         "options": {
+          "A": "Column",
+          "B": "Table",
+          "C": "Database",
+          "D": "Tuple"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "A row = tuple. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q76"
+        },
+        {
+         "question": "Match the following\nEntity Type\na) Attribute\nb) Relationship\nc) Entity\nd) Cardinality Ratio\nER Representation\n(i) an ellipse\n(ii) a diamond\n(iii) a rectangle\n(iv) two rectangles joined through a diamond, the lines labelled 1 and N",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Other papers",
+         "explanation": "Chen notation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q77"
+        },
+        {
          "question": "Primary key in DBMS should be",
          "options": {
           "A": "Unique",
@@ -14600,6 +14844,32 @@
       {
        "name": "1 · Legislative Council 2024 Junior Console Operator P2",
        "questions": [
+        {
+         "question": "The clock speed of a microprocessor is measured in",
+         "options": {
+          "A": "Hertz",
+          "B": "Bytes",
+          "C": "Bits",
+          "D": "Instructions per second"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "GHz. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q18"
+        },
+        {
+         "question": "What is the key advantage of using a superscalar architecture in processor?",
+         "options": {
+          "A": "Increased clock speed",
+          "B": "Reduced power consumption",
+          "C": "Ability to execute multiple instructions per clock cycle",
+          "D": "Simplicity of design"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Several execution units issue in parallel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q19"
+        },
         {
          "question": "What is the primary function of a DMA controller in a computer system?",
          "options": {
@@ -14653,6 +14923,19 @@
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q36"
         },
         {
+         "question": "In a virtual memory system, what is the purpose of the page table?",
+         "options": {
+          "A": "To manage the execution of processes",
+          "B": "To map virtual addresses to physical addresses",
+          "C": "To store the Process Control Block (PCB)",
+          "D": "To track file allocation and its usage"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Page → frame mapping. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q37"
+        },
+        {
          "question": "Which is the correct sequence of steps involved in resolving deadlock using the resource allocation graph method?",
          "options": {
           "A": "Check for cycles → Identify deadlocked processes → Release Resources",
@@ -14664,6 +14947,19 @@
          "subject": "Legislative Council 2024 Junior Console Operator P2",
          "explanation": "A cycle reveals the deadlocked processes, whose resources are then released (by aborting or preempting). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q38"
+        },
+        {
+         "question": "Match the following CPU Scheduling algorithms with their characteristics.\nList-1\na. FCFS\nb. Round Robin\nc. Shortest Job First\nd. Priority Scheduling\nList-2\ni. Preemptive and based on priority values\nii. Non-preemptive and leads to the \"convoy effect\"\niii. Preemptive and shortest burst time first.\niv. Non-preemptive and shortest burst time first.",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iv, b – iii, c – i, d – ii",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q39"
         },
         {
          "question": "Order the following steps of process creation in an operating system.\na. Assigning a Process Control Block (PCB) to the process\nb. Loading the process in memory\nc. Assigning the process ID\nd. Creating a new entry in process table",
@@ -14848,6 +15144,19 @@
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q68"
         },
         {
+         "question": "Which of the following components is responsible for providing power to computer systems?",
+         "options": {
+          "A": "Switched-Mode Power Supply (SMPS)",
+          "B": "Central Processing Unit (CPU)",
+          "C": "Hard Disk Drive (HDD)",
+          "D": "Graphics Processing Unit (GPU)"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "SMPS. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q69"
+        },
+        {
          "question": "Considering the following statements, choose the correct option.\nAssertion (A): Software drivers enable the operating system to communicate with hardware system.\nReason (R): Without the appropriate drivers, an operating system cannot operate hardware devices.",
          "options": {
           "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
@@ -14859,6 +15168,19 @@
          "subject": "Legislative Council 2024 Junior Console Operator P2",
          "explanation": "Drivers translate the OS's generic requests into device-specific commands. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q72"
+        },
+        {
+         "question": "What is the purpose of a chipset on the motherboard?",
+         "options": {
+          "A": "To execute the software program",
+          "B": "To manage the data flow between the CPU and other components of computer",
+          "C": "To store the operating system",
+          "D": "To provide electrical power to computers"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Chipset = traffic controller. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q73"
         },
         {
          "question": "Which of the following softwares is considered as application software?",
@@ -14898,6 +15220,19 @@
          "subject": "Legislative Council 2024 Junior Console Operator P2",
          "explanation": "A web browser is an application program. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Junior Console Operator P2 · Q82"
+        },
+        {
+         "question": "In Microsoft Outlook, which of the following features is used to automatically sort incoming emails into predefined folders based on set criteria?",
+         "options": {
+          "A": "Categories",
+          "B": "Rules",
+          "C": "Search folders",
+          "D": "Quick steps"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Rules. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q89"
         },
         {
          "question": "What is the primary role of a Translation Lookaside Buffer (TLB)?",
@@ -16555,6 +16890,19 @@
          "subject": "Legislative Council 2024 Data Entry Operator P2",
          "explanation": "Virus protection is done by separate utility (antivirus) software. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q74"
+        },
+        {
+         "question": "____ is not a scheduling algorithm in OS",
+         "options": {
+          "A": "First come first serve",
+          "B": "Shortest job first",
+          "C": "Round Robin",
+          "D": "Banker's Algorithm"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "Banker's algorithm avoids deadlock. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q81"
         },
         {
          "question": "The smallest unit that can be written to or read from the disk is a",
@@ -18345,6 +18693,19 @@
          "subject": "Other papers",
          "explanation": "Always about n²/2 comparisons. (Official answer: KEA final key, GTTC 2024.)",
          "source": "GTTC 2024 Technician Gr-III CS (C1) · Q95"
+        },
+        {
+         "question": "Which of the following statements about Microsoft Word are true?\n(i) Headers & Footers are identical in every page of a document by default.\n(ii) You can insert page numbers in Word documents using the Insert tab.\n(iii) Comments can be added to a document by clicking on the \"Review\" tab but they can't be edited once it's added\n(iv) Find and Replace allows you to search for specific text and replace it with something else in the document.",
+         "options": {
+          "A": "i and ii are true",
+          "B": "i and iv are true",
+          "C": "ii and iii are true",
+          "D": "ii and iv are true"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "KEA's final key accepts options 1, 2 or 4 – only (iii) is false. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q97"
         }
        ]
       }
@@ -18354,7 +18715,506 @@
      "name": "Unit 9 – Data Communication & Networks",
      "sets": [
       {
-       "name": "1 · Legislative Council 2024 Computer Operator P2",
+       "name": "1 · Legislative Council 2024 Junior Console Operator P2",
+       "questions": [
+        {
+         "question": "Which of the following is a connectionless protocol?",
+         "options": {
+          "A": "TCP",
+          "B": "UDP",
+          "C": "FTP",
+          "D": "SMTP"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "UDP sends independent user datagrams without connection set-up. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q1"
+        },
+        {
+         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
+         "options": {
+          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
+          "B": "MPLS uses labels to forward packets based on predetermined routes",
+          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
+          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "'Multiprotocol' means MPLS can carry many protocols, not only IP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
+        },
+        {
+         "question": "What is the maximum number of devices that can be addressed using a class C IP address?",
+         "options": {
+          "A": "254",
+          "B": "256",
+          "C": "512",
+          "D": "1024"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "2⁸ − 2 = 254 (network and broadcast addresses excluded). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q3"
+        },
+        {
+         "question": "Which of the following statements are true about ethernet protocol?\na) Ethernet operates at the data link layer of the OSI model\nb) Ethernet uses MAC addresses to identify devices within local network\nc) Ethernet is a wireless communication protocol\nd) Ethernet uses a token based method for collision detection.",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a and d only",
+          "D": "c and d only"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Ethernet is wired (IEEE 802.3) and uses CSMA/CD, not tokens. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q4"
+        },
+        {
+         "question": "Steps in which sequence occur when a packet is lost during TCP transmission?",
+         "options": {
+          "A": "Timeout → Retransmission → Acknowledgement",
+          "B": "Acknowledgement → Timeout → Retransmission",
+          "C": "Retransmission → Timeout → Acknowledgement",
+          "D": "Timeout → Acknowledgement → Retransmission"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "The retransmission timer expires, the segment is resent, then acknowledged. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q5"
+        },
+        {
+         "question": "Which of the following statements are true about the BGP (Border Gateway Protocol)?\na) BGP is a distance vector routing protocol\nb) BGP is used for routing between different autonomous systems\nc) BGP is a path vector protocol\nd) BGP uses hop count as its routing metric",
+         "options": {
+          "A": "b and c",
+          "B": "a and b",
+          "C": "b and d",
+          "D": "a, b and d"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "BGP is a path-vector inter-AS protocol using policies and path attributes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q6"
+        },
+        {
+         "question": "Match the following OSI layers with their respective functions.\nLayer\na. Application layer\nb. Transport layer\nc. Network layer\nd. Data link layer\nFunction\ni) Provides reliable data transfer between hosts\nii) Provides error detection and correction.\niii) Provides end-to-end communication and network services\niv) Defines how data is transferred over the Physical medium",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – iii, b – i, c – iv, d – ii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q7"
+        },
+        {
+         "question": "Match the routing protocols with their characteristics.\na) RIP  b) OSPF  c) BGP  d) EIGRP\ni) Uses link state algorithm  ii) Uses distance vector algorithm\niii) Path-vector protocol used for inter-domain routing  iv) Hybrid of distance vector and link-state protocols",
+         "options": {
+          "A": "a - ii, b - i, c - iii, d - iv",
+          "B": "a - i, b - ii, c - iv, d - iii",
+          "C": "a - ii, b - i, c - iv, d - iii",
+          "D": "a - i, b - iv, c - iii, d - ii"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "RIP – distance vector; OSPF – link state; BGP – path vector; EIGRP – advanced distance vector ('hybrid'). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q8"
+        },
+        {
+         "question": "Which is the correct sequence of operations in the IP datagram encapsulation process?",
+         "options": {
+          "A": "Segment → Packet → Frame → Bit",
+          "B": "Bit → Frame → Packet → Segment",
+          "C": "Frame → Packet → Segment → Bit",
+          "D": "Segment → Frame → Bit → Packet"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Transport → network → data link → physical. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q9"
+        },
+        {
+         "question": "Which of the following statements are true about the Internet Protocol (IP)?\na. IP provides reliable end-to-end communication\nb. IP is connectionless protocol\nc. Internet Protocol uses IP addresses to deliver packets\nd. IP guarantees the order of packet delivery",
+         "options": {
+          "A": "a, c and d",
+          "B": "b and c",
+          "C": "a, b and c",
+          "D": "a, b and d"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "IP is a best-effort, connectionless, unreliable protocol; reliability and ordering come from TCP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q10"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses\nReason (R): ARP is used only in IPV4 networks and is not necessary in IPV6",
+         "options": {
+          "A": "Both (A) and (R) are correct and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are correct but (R) is not the correct explanation of (A)",
+          "C": "(A) is correct but (R) is incorrect",
+          "D": "Both (A) and (R) are incorrect"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA treats R as wrong: IPv6 still needs address resolution – it is done by ICMPv6 Neighbor Discovery instead of ARP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q11"
+        },
+        {
+         "question": "Match the following IP address classes with their default subnet mask\nIP address class: a. Class A  b. Class B  c. Class C  d. Class D\nSubnet mask: i. 255.255.0.0  ii. 255.255.255.0  iii. 255.0.0.0.  iv. N/A (Multicast Address)",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "A /8, B /16, C /24; class D is multicast with no mask. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q12"
+        },
+        {
+         "question": "In TCP sliding window mechanism, which is the correct sequence of events when the receiver gets a segment?",
+         "options": {
+          "A": "Sequence number check → Data Transfer → Buffering → Acknowledgement",
+          "B": "Sequence number check → Buffering → Data Transfer → Acknowledgement",
+          "C": "Data Transfer → Buffering → Acknowledgement → Sequence number check",
+          "D": "Acknowledgement → Sequence number check → Data Transfer → Buffering"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q14"
+        },
+        {
+         "question": "What is the maximum length of an MAC address?",
+         "options": {
+          "A": "32 bits",
+          "B": "48 bits",
+          "C": "64 bits",
+          "D": "128 bits"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "An Ethernet MAC address is 48 bits, written as 12 hexadecimal digits, e.g. 07:01:02:01:2C:4B. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
+        },
+        {
+         "question": "Which of the following is NOT a high-level programming language?",
+         "options": {
+          "A": "Python",
+          "B": "Java",
+          "C": "Assembly",
+          "D": "C++"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Assembly is low-level. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q16"
+        },
+        {
+         "question": "Which one of the following computer networks is built on top of another network?",
+         "options": {
+          "A": "Prior Network",
+          "B": "Chief Network",
+          "C": "Prime Network",
+          "D": "Overlay Network"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "e.g. P2P networks over the Internet. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q17"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): A system with multiple cores can provide better performance than a single core system for highly parallel tasks\nReason (R): Multiple cores allow simultaneous execution of multiple instructions, there by speeding up tasks that can be divided into smaller parallel tasks.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "R explains A. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q20"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): virtual memory allows the execution of processes that may not be entirely loaded into memory\nReason (R): virtual memory uses paging or segmentation to map logical addresses to physical addresses",
+         "options": {
+          "A": "(A) is true but (R) is false",
+          "B": "Both (A) and (R) are true but R is not the correct explanation of (A)",
+          "C": "Both (A) and (R) are true and R is the correct explanation of (A)",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q24"
+        },
+        {
+         "question": "What does the subnet mask in IP configuration do?",
+         "options": {
+          "A": "It determines the default gateway for the network",
+          "B": "It specifies the range of IP addresses in the network",
+          "C": "It encrypts the data sent over the network",
+          "D": "It translates domain names to IP addresses"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "ANDing an address with the mask gives the network address. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q52"
+        },
+        {
+         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "OSI defines seven layers; TCP/IP is used in the Internet; the hybrid model combines both; the Internet model shows its structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
+        },
+        {
+         "question": "Which of the following statements are true about DNS (Domain Name System)?\na. DNS maps domain names to IP addresses\nb. DNS servers always use a centralized database for resolution\nc. DNS provides scalability and redundancy in name resolution\nd. DNS works with IPV4 addresses.",
+         "options": {
+          "A": "a and b only",
+          "B": "a and c only",
+          "C": "a and d only",
+          "D": "b and c only"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "DNS is a distributed, hierarchical database. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q54"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): DNS servers cache the IP addresses of domain names to speed up subsequent requests\nReason (R): Caching degrades DNS look up efficiency by storing previously resolved domain name entries.",
+         "options": {
+          "A": "Both Assertion and Reason are true and Reason is the correct explanation of Assertion",
+          "B": "Assertion is true but Reason is false",
+          "C": "Assertion is false but Reason is true",
+          "D": "Both Assertion and Reason are false"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Caching improves efficiency (subject to TTL). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q55"
+        },
+        {
+         "question": "Which of the following is the correct sequence of events when a packet is routed in an IP network?",
+         "options": {
+          "A": "Packet creation → Routing → Fragmentation → Transmission → Delivery",
+          "B": "Packet creation → Fragmentation → Routing → Transmission → Delivery",
+          "C": "Packet creation → Routing → Transmission → Delivery → Fragmentation",
+          "D": "Packet creation → Routing → Transmission → Fragmentation → Delivery"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q56"
+        },
+        {
+         "question": "Match the following types of internet connections with their characteristics\nConnection Type\na. DSL\nb. Fiber optic\nc. Ethernet cable\nd. Satellite\nCharacteristics\ni. Wireless internet via satellites\nii. Internet over cable TV lines\niii. Transmits digital data over telephone lines.\niv. Internet over coaxial cables",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q57"
+        },
+        {
+         "question": "Which of the following statements about IPV6 are true?\na. It uses 128 bit addresses\nb. IPV6 eliminates the need for DHCP\nc. IPV6 can coexist with IPV4 in dual stack environment\nd. IPV6 addresses are always written in decimal notation",
+         "options": {
+          "A": "a and c only",
+          "B": "a and b only",
+          "C": "a, c and d only",
+          "D": "c and b only"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "IPv6 still uses DHCPv6 (besides SLAAC) and is written in hexadecimal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q58"
+        },
+        {
+         "question": "Which of the following are correct matches for the Transmission Control Protocol (TCP)?\na. Connection-oriented protocol\nb. Unreliable data delivery\nc. Error detection and correction\nd. No flow control",
+         "options": {
+          "A": "a and c only",
+          "B": "a and d only",
+          "C": "a, b and c only",
+          "D": "All of the above"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "TCP is reliable and provides flow, error and congestion control. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q59"
+        },
+        {
+         "question": "Match the following types of Internet addresses with their purpose\na. IPV4  b. IPV6  c. Private address  d. Public address\ni. Used for local N/W communication  ii. 32-bit address format  iii. 128-bit address format  iv. Used for communication over internet",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Private ranges: 10/8, 172.16/12, 192.168/16. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q60"
+        },
+        {
+         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
+         "options": {
+          "A": "Link layer",
+          "B": "Transport layer",
+          "C": "Application layer",
+          "D": "Network layer"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "TCP and UDP provide process-to-process (end-to-end) delivery. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): IPV4 addresses consist of 128 bits\nReason (R): Uses a 32 bit address format",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "IPv4 = 32 bits; IPv6 = 128 bits. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q62"
+        },
+        {
+         "question": "Match the following DNS record types with their purposes\nRecord Type: a. A  b. MX  c. CNAME  d. PTR\nPurpose: i. Maps IP address to domain name  ii. Alias for domain name  iii. Mail exchange server record  iv. Maps domain name to IP address.",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "AAAA maps a name to an IPv6 address; NS names the authoritative server. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q63"
+        },
+        {
+         "question": "Which sequence accurately describes the process of sending data in IPV6?",
+         "options": {
+          "A": "Host → Switch → Destination",
+          "B": "Host → Router → Destination",
+          "C": "Host → Network → Router → Destination",
+          "D": "Host → Router → Switch → Destination"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "KEA's key: the host hands the packet to a router, which forwards it to the destination network. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q64"
+        },
+        {
+         "question": "Match the following IP address classes with their range\na. Class A  b. Class B  c. Class C  d. Class D\ni) 0.0.0.0 to 127.255.255.255  ii) 192.0.0.0 to 223.225.255.255  iii) 128.0.0.0 to 191.255.255.255  iv) 224.0.0.0 to 239.255.255.255",
+         "options": {
+          "A": "a – i, b – iii, c – ii, d – iv",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Class E is 240.0.0.0–255.255.255.255 (reserved). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q65"
+        },
+        {
+         "question": "Which of the following is a disadvantage of NAT (Network address Translation)?",
+         "options": {
+          "A": "It allows devices on the private network to access the public internet",
+          "B": "It simplifies the IP address allocation scheme",
+          "C": "It can cause issues with protocols that require end-to-end connectivity",
+          "D": "It consumes a lot of network bandwidth."
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "NAT hides private hosts behind one public address, breaking end-to-end addressing for some protocols (e.g. some VoIP, IPsec). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q66"
+        },
+        {
+         "question": "In computer system, which component is responsible for converting binary data into human readable format?",
+         "options": {
+          "A": "CPU",
+          "B": "GPU",
+          "C": "I/O devices (such as monitor)",
+          "D": "RAM"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Output devices. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q71"
+        },
+        {
+         "question": "You need to insert a table of contents in Microsoft Word but you want it to automatically update when changes are made to the document. Which of the following steps should you follow?",
+         "options": {
+          "A": "Go to the \"Insert\" tab, select \"Table\" and manually input your headings",
+          "B": "Go to the \"Review\" tab, select \"Track changes\" and manually update the content",
+          "C": "Go to the \"Home\" tab, select \"Styles\" and manually style to the headings",
+          "D": "Go to the \"Reference\" tab, select \"Table of contents\" and choose automatic style"
+         },
+         "answer": "D",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "References → Table of Contents → Automatic. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q91"
+        },
+        {
+         "question": "Match the following:\nList – I\na. OneNote\nb. Publisher\nc. OneDrive\nd. Word\nList – II\ni. Used for creating publications and marketing materials\nii. Used for note-taking and organization\niii. Used for creating and editing documents\niv. Cloud storage service",
+         "options": {
+          "A": "a – iii, b – iv, c – i, d – ii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Office apps. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q95"
+        },
+        {
+         "question": "You are preparing a PowerPoint presentation and need to ensure that each slide advances automatically after 20 seconds without requiring manual interaction. Which of the following steps should you follow?",
+         "options": {
+          "A": "Go to the slide show tab, click on Rehearse Timings and set each slide to advance after 20 seconds",
+          "B": "Go to transitions tab and set the advance slide option to 20 seconds for each slide",
+          "C": "Use the slide master to set the timing for all slides",
+          "D": "Apply a slide transition effect to each slide and manually adjust the timing"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "Transitions → Advance Slide → After 00:20. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q98"
+        },
+        {
+         "question": "What is the primary function of physical layer in the OSI model?",
+         "options": {
+          "A": "Provides routing of packets across networks",
+          "B": "Transmits raw bitstream over the physical medium",
+          "C": "Handles error correction and retransmission",
+          "D": "Manages data transfer between applications"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Junior Console Operator P2",
+         "explanation": "It deals with bits, signals, connectors and the medium. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
+        }
+       ]
+      },
+      {
+       "name": "2 · Legislative Council 2024 Computer Operator P2",
        "questions": [
         {
          "question": "Once the user loads the acceptable program & provides required data, the computer doesn't need human intervention. This feature is known as ____.",
@@ -18762,7 +19622,7 @@
        ]
       },
       {
-       "name": "2 · GTTC 2024 Lecturer CS",
+       "name": "3 · GTTC 2024 Lecturer CS",
        "questions": [
         {
          "question": "Two statements are given below: One is Assertion (A) and the other is Reason (R)\nRead the statements carefully and choose the correct answer:\nAssertion (A) : Abstraction is the process of exposing the implementation details of object.\nReasoning (R): Abstraction allows you to focus on what an object does rather than how it does it, it helps in managing complexity.",
@@ -19153,362 +20013,6 @@
          "subject": "GTTC 2024 Lecturer CS",
          "explanation": "Time-Slotted Channel Hopping (IEEE 802.15.4e) schedules slots so radios can sleep otherwise. (Official answer: KEA final key, GTTC recruitment 2024.)",
          "source": "GTTC 2024 Lecturer CS · Q100"
-        }
-       ]
-      },
-      {
-       "name": "3 · Legislative Council 2024 Junior Console Operator P2",
-       "questions": [
-        {
-         "question": "Which of the following is a connectionless protocol?",
-         "options": {
-          "A": "TCP",
-          "B": "UDP",
-          "C": "FTP",
-          "D": "SMTP"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "UDP sends independent user datagrams without connection set-up. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q1"
-        },
-        {
-         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
-         "options": {
-          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
-          "B": "MPLS uses labels to forward packets based on predetermined routes",
-          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
-          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
-         },
-         "answer": "D",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "'Multiprotocol' means MPLS can carry many protocols, not only IP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
-        },
-        {
-         "question": "What is the maximum number of devices that can be addressed using a class C IP address?",
-         "options": {
-          "A": "254",
-          "B": "256",
-          "C": "512",
-          "D": "1024"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "2⁸ − 2 = 254 (network and broadcast addresses excluded). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q3"
-        },
-        {
-         "question": "Which of the following statements are true about ethernet protocol?\na) Ethernet operates at the data link layer of the OSI model\nb) Ethernet uses MAC addresses to identify devices within local network\nc) Ethernet is a wireless communication protocol\nd) Ethernet uses a token based method for collision detection.",
-         "options": {
-          "A": "a and b only",
-          "B": "a, b and c only",
-          "C": "a and d only",
-          "D": "c and d only"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Ethernet is wired (IEEE 802.3) and uses CSMA/CD, not tokens. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q4"
-        },
-        {
-         "question": "Steps in which sequence occur when a packet is lost during TCP transmission?",
-         "options": {
-          "A": "Timeout → Retransmission → Acknowledgement",
-          "B": "Acknowledgement → Timeout → Retransmission",
-          "C": "Retransmission → Timeout → Acknowledgement",
-          "D": "Timeout → Acknowledgement → Retransmission"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "The retransmission timer expires, the segment is resent, then acknowledged. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q5"
-        },
-        {
-         "question": "Which of the following statements are true about the BGP (Border Gateway Protocol)?\na) BGP is a distance vector routing protocol\nb) BGP is used for routing between different autonomous systems\nc) BGP is a path vector protocol\nd) BGP uses hop count as its routing metric",
-         "options": {
-          "A": "b and c",
-          "B": "a and b",
-          "C": "b and d",
-          "D": "a, b and d"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "BGP is a path-vector inter-AS protocol using policies and path attributes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q6"
-        },
-        {
-         "question": "Match the routing protocols with their characteristics.\na) RIP  b) OSPF  c) BGP  d) EIGRP\ni) Uses link state algorithm  ii) Uses distance vector algorithm\niii) Path-vector protocol used for inter-domain routing  iv) Hybrid of distance vector and link-state protocols",
-         "options": {
-          "A": "a - ii, b - i, c - iii, d - iv",
-          "B": "a - i, b - ii, c - iv, d - iii",
-          "C": "a - ii, b - i, c - iv, d - iii",
-          "D": "a - i, b - iv, c - iii, d - ii"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "RIP – distance vector; OSPF – link state; BGP – path vector; EIGRP – advanced distance vector ('hybrid'). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q8"
-        },
-        {
-         "question": "Which of the following statements are true about the Internet Protocol (IP)?\na. IP provides reliable end-to-end communication\nb. IP is connectionless protocol\nc. Internet Protocol uses IP addresses to deliver packets\nd. IP guarantees the order of packet delivery",
-         "options": {
-          "A": "a, c and d",
-          "B": "b and c",
-          "C": "a, b and c",
-          "D": "a, b and d"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "IP is a best-effort, connectionless, unreliable protocol; reliability and ordering come from TCP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q10"
-        },
-        {
-         "question": "Considering the following statements, choose the correct option.\nAssertion (A): ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses\nReason (R): ARP is used only in IPV4 networks and is not necessary in IPV6",
-         "options": {
-          "A": "Both (A) and (R) are correct and (R) is the correct explanation of (A)",
-          "B": "Both (A) and (R) are correct but (R) is not the correct explanation of (A)",
-          "C": "(A) is correct but (R) is incorrect",
-          "D": "Both (A) and (R) are incorrect"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "KEA treats R as wrong: IPv6 still needs address resolution – it is done by ICMPv6 Neighbor Discovery instead of ARP. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q11"
-        },
-        {
-         "question": "Match the following IP address classes with their default subnet mask\nIP address class: a. Class A  b. Class B  c. Class C  d. Class D\nSubnet mask: i. 255.255.0.0  ii. 255.255.255.0  iii. 255.0.0.0.  iv. N/A (Multicast Address)",
-         "options": {
-          "A": "a – i, b – iii, c – iv, d – ii",
-          "B": "a – ii, b – iv, c – i, d – iii",
-          "C": "a – iii, b – i, c – ii, d – iv",
-          "D": "a – iii, b – i, c – iv, d – ii"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "A /8, B /16, C /24; class D is multicast with no mask. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q12"
-        },
-        {
-         "question": "In TCP sliding window mechanism, which is the correct sequence of events when the receiver gets a segment?",
-         "options": {
-          "A": "Sequence number check → Data Transfer → Buffering → Acknowledgement",
-          "B": "Sequence number check → Buffering → Data Transfer → Acknowledgement",
-          "C": "Data Transfer → Buffering → Acknowledgement → Sequence number check",
-          "D": "Acknowledgement → Sequence number check → Data Transfer → Buffering"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q14"
-        },
-        {
-         "question": "What is the maximum length of an MAC address?",
-         "options": {
-          "A": "32 bits",
-          "B": "48 bits",
-          "C": "64 bits",
-          "D": "128 bits"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "An Ethernet MAC address is 48 bits, written as 12 hexadecimal digits, e.g. 07:01:02:01:2C:4B. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
-        },
-        {
-         "question": "What does the subnet mask in IP configuration do?",
-         "options": {
-          "A": "It determines the default gateway for the network",
-          "B": "It specifies the range of IP addresses in the network",
-          "C": "It encrypts the data sent over the network",
-          "D": "It translates domain names to IP addresses"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "ANDing an address with the mask gives the network address. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q52"
-        },
-        {
-         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
-         "options": {
-          "A": "a – ii, b – i, c – iv, d – iii",
-          "B": "a – ii, b – iv, c – i, d – iii",
-          "C": "a – iv, b – ii, c – iii, d – i",
-          "D": "a – iv, b – iii, c – ii, d – i"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "OSI defines seven layers; TCP/IP is used in the Internet; the hybrid model combines both; the Internet model shows its structure. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
-        },
-        {
-         "question": "Which of the following statements are true about DNS (Domain Name System)?\na. DNS maps domain names to IP addresses\nb. DNS servers always use a centralized database for resolution\nc. DNS provides scalability and redundancy in name resolution\nd. DNS works with IPV4 addresses.",
-         "options": {
-          "A": "a and b only",
-          "B": "a and c only",
-          "C": "a and d only",
-          "D": "b and c only"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "DNS is a distributed, hierarchical database. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q54"
-        },
-        {
-         "question": "Considering the following statements, choose the correct option.\nAssertion (A): DNS servers cache the IP addresses of domain names to speed up subsequent requests\nReason (R): Caching degrades DNS look up efficiency by storing previously resolved domain name entries.",
-         "options": {
-          "A": "Both Assertion and Reason are true and Reason is the correct explanation of Assertion",
-          "B": "Assertion is true but Reason is false",
-          "C": "Assertion is false but Reason is true",
-          "D": "Both Assertion and Reason are false"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Caching improves efficiency (subject to TTL). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q55"
-        },
-        {
-         "question": "Which of the following is the correct sequence of events when a packet is routed in an IP network?",
-         "options": {
-          "A": "Packet creation → Routing → Fragmentation → Transmission → Delivery",
-          "B": "Packet creation → Fragmentation → Routing → Transmission → Delivery",
-          "C": "Packet creation → Routing → Transmission → Delivery → Fragmentation",
-          "D": "Packet creation → Routing → Transmission → Fragmentation → Delivery"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q56"
-        },
-        {
-         "question": "Which of the following statements about IPV6 are true?\na. It uses 128 bit addresses\nb. IPV6 eliminates the need for DHCP\nc. IPV6 can coexist with IPV4 in dual stack environment\nd. IPV6 addresses are always written in decimal notation",
-         "options": {
-          "A": "a and c only",
-          "B": "a and b only",
-          "C": "a, c and d only",
-          "D": "c and b only"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "IPv6 still uses DHCPv6 (besides SLAAC) and is written in hexadecimal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q58"
-        },
-        {
-         "question": "Which of the following are correct matches for the Transmission Control Protocol (TCP)?\na. Connection-oriented protocol\nb. Unreliable data delivery\nc. Error detection and correction\nd. No flow control",
-         "options": {
-          "A": "a and c only",
-          "B": "a and d only",
-          "C": "a, b and c only",
-          "D": "All of the above"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "TCP is reliable and provides flow, error and congestion control. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q59"
-        },
-        {
-         "question": "Match the following types of Internet addresses with their purpose\na. IPV4  b. IPV6  c. Private address  d. Public address\ni. Used for local N/W communication  ii. 32-bit address format  iii. 128-bit address format  iv. Used for communication over internet",
-         "options": {
-          "A": "a – iv, b – iii, c – i, d – ii",
-          "B": "a – ii, b – iii, c – i, d – iv",
-          "C": "a – iii, b – ii, c – i, d – iv",
-          "D": "a – ii, b – iii, c – iv, d – i"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Private ranges: 10/8, 172.16/12, 192.168/16. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q60"
-        },
-        {
-         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
-         "options": {
-          "A": "Link layer",
-          "B": "Transport layer",
-          "C": "Application layer",
-          "D": "Network layer"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "TCP and UDP provide process-to-process (end-to-end) delivery. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
-        },
-        {
-         "question": "Considering the following statements, choose the correct option.\nAssertion (A): IPV4 addresses consist of 128 bits\nReason (R): Uses a 32 bit address format",
-         "options": {
-          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
-          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
-          "C": "(A) is false but (R) is true",
-          "D": "Both (A) and (R) are false"
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "IPv4 = 32 bits; IPv6 = 128 bits. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q62"
-        },
-        {
-         "question": "Match the following DNS record types with their purposes\nRecord Type: a. A  b. MX  c. CNAME  d. PTR\nPurpose: i. Maps IP address to domain name  ii. Alias for domain name  iii. Mail exchange server record  iv. Maps domain name to IP address.",
-         "options": {
-          "A": "a – i, b – ii, c – iii, d – iv",
-          "B": "a – i, b – iii, c – ii, d – iv",
-          "C": "a – iv, b – ii, c – iii, d – i",
-          "D": "a – iv, b – iii, c – ii, d – i"
-         },
-         "answer": "D",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "AAAA maps a name to an IPv6 address; NS names the authoritative server. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q63"
-        },
-        {
-         "question": "Which sequence accurately describes the process of sending data in IPV6?",
-         "options": {
-          "A": "Host → Switch → Destination",
-          "B": "Host → Router → Destination",
-          "C": "Host → Network → Router → Destination",
-          "D": "Host → Router → Switch → Destination"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "KEA's key: the host hands the packet to a router, which forwards it to the destination network. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q64"
-        },
-        {
-         "question": "Match the following IP address classes with their range\na. Class A  b. Class B  c. Class C  d. Class D\ni) 0.0.0.0 to 127.255.255.255  ii) 192.0.0.0 to 223.225.255.255  iii) 128.0.0.0 to 191.255.255.255  iv) 224.0.0.0 to 239.255.255.255",
-         "options": {
-          "A": "a – i, b – iii, c – ii, d – iv",
-          "B": "a – i, b – ii, c – iii, d – iv",
-          "C": "a – ii, b – iii, c – iv, d – i",
-          "D": "a – iii, b – iv, c – ii, d – i"
-         },
-         "answer": "A",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "Class E is 240.0.0.0–255.255.255.255 (reserved). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q65"
-        },
-        {
-         "question": "Which of the following is a disadvantage of NAT (Network address Translation)?",
-         "options": {
-          "A": "It allows devices on the private network to access the public internet",
-          "B": "It simplifies the IP address allocation scheme",
-          "C": "It can cause issues with protocols that require end-to-end connectivity",
-          "D": "It consumes a lot of network bandwidth."
-         },
-         "answer": "C",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "NAT hides private hosts behind one public address, breaking end-to-end addressing for some protocols (e.g. some VoIP, IPsec). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q66"
-        },
-        {
-         "question": "What is the primary function of physical layer in the OSI model?",
-         "options": {
-          "A": "Provides routing of packets across networks",
-          "B": "Transmits raw bitstream over the physical medium",
-          "C": "Handles error correction and retransmission",
-          "D": "Manages data transfer between applications"
-         },
-         "answer": "B",
-         "subject": "Legislative Council 2024 Junior Console Operator P2",
-         "explanation": "It deals with bits, signals, connectors and the medium. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
         }
        ]
       },
@@ -20630,6 +21134,32 @@
        "name": "11 · Legislative Council 2024 Data Entry Operator P2",
        "questions": [
         {
+         "question": "What is the default subnet mask of a class B, IP value in address?",
+         "options": {
+          "A": "255.0.0.0",
+          "B": "255.255.0.0",
+          "C": "255.255.255.255",
+          "D": "255.255.255.0"
+         },
+         "answer": "B",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "Class B = /16. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q71"
+        },
+        {
+         "question": "Which of the following is a linear data structure?",
+         "options": {
+          "A": "Tree",
+          "B": "Graph",
+          "C": "Stack",
+          "D": "Hash table"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "Stacks, queues, arrays and lists are linear. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q72"
+        },
+        {
          "question": "Data transmission used in walkie-talkie is",
          "options": {
           "A": "Simplex",
@@ -20680,6 +21210,19 @@
          "subject": "Legislative Council 2024 Data Entry Operator P2",
          "explanation": "A WAN spans large areas and usually uses links owned by several carriers and organisations; a LAN is normally privately owned. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Data Entry Operator P2 · Q93"
+        },
+        {
+         "question": "____ is an example for a written communication",
+         "options": {
+          "A": "Making a phone call",
+          "B": "Attending a meeting",
+          "C": "Sending a text message",
+          "D": "Having a conversation"
+         },
+         "answer": "C",
+         "subject": "Legislative Council 2024 Data Entry Operator P2",
+         "explanation": "Text is written. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q100"
         }
        ]
       },
@@ -21505,6 +22048,19 @@
          "subject": "Other papers",
          "explanation": "Top-down LL parsers loop forever on left recursion; LR parsers handle it. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 CS Paper-2 · Q42"
+        },
+        {
+         "question": "The main goal of machine learning is",
+         "options": {
+          "A": "To completely automate manual tasks",
+          "B": "To make computers intelligent like human beings",
+          "C": "To create self aware machines",
+          "D": "To enable computers to learn from data"
+         },
+         "answer": "D",
+         "subject": "Other papers",
+         "explanation": "Learning from data without explicit programming. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q84"
         }
        ]
       }

@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)",
- "description": "Real questions from past KEA / KSET papers (765 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
+ "description": "Real questions from past KEA / KSET papers (895 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2; Legislative Council 2024 – Junior Console Operator Paper-2; Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section). Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
  "subjects": [
   {
    "name": "P2 · Previous-Year Papers (KEA/KSET)",
@@ -10151,6 +10151,1731 @@
        ]
       }
      ]
+    },
+    {
+     "name": "Legislative Council 2024 – Junior Console Operator Paper-2",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Which of the following is a connectionless protocol?",
+         "options": {
+          "A": "TCP",
+          "B": "UDP",
+          "C": "FTP",
+          "D": "SMTP"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "UDP sends datagrams without a connection. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q1"
+        },
+        {
+         "question": "Which of the following is NOT a feature of MPLS [Multi Protocol Label Switching]?",
+         "options": {
+          "A": "MPLS operates at layer 2.5 between layer 2 and layer 3",
+          "B": "MPLS uses labels to forward packets based on predetermined routes",
+          "C": "MPLS allows for traffic engineering by controlling the path of data flows",
+          "D": "MPLS supports only IP traffic and does not work with non-IP protocols"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "'Multiprotocol' – MPLS carries IP and non-IP traffic. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q2"
+        },
+        {
+         "question": "What is the maximum number of devices that can be addressed using a class C IP address?",
+         "options": {
+          "A": "254",
+          "B": "256",
+          "C": "512",
+          "D": "1024"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "2⁸ − 2 = 254 hosts. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q3"
+        },
+        {
+         "question": "Which of the following statements are true about ethernet protocol?\na) Ethernet operates at the data link layer of the OSI model\nb) Ethernet uses MAC addresses to identify devices within local network\nc) Ethernet is a wireless communication protocol\nd) Ethernet uses a token based method for collision detection.",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a and d only",
+          "D": "c and d only"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Ethernet is wired and uses CSMA/CD. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q4"
+        },
+        {
+         "question": "Steps in which sequence occur when a packet is lost during TCP transmission?",
+         "options": {
+          "A": "Timeout → Retransmission → Acknowledgement",
+          "B": "Acknowledgement → Timeout → Retransmission",
+          "C": "Retransmission → Timeout → Acknowledgement",
+          "D": "Timeout → Acknowledgement → Retransmission"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "No ACK arrives, the timer expires, the segment is resent and then acknowledged. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q5"
+        },
+        {
+         "question": "Which of the following statements are true about the BGP (Border Gateway Protocol)?\na) BGP is a distance vector routing protocol\nb) BGP is used for routing between different autonomous systems\nc) BGP is a path vector protocol\nd) BGP uses hop count as its routing metric",
+         "options": {
+          "A": "b and c",
+          "B": "a and b",
+          "C": "b and d",
+          "D": "a, b and d"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "BGP is a path-vector inter-AS protocol. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q6"
+        },
+        {
+         "question": "Match the following OSI layers with their respective functions.\nLayer\na. Application layer\nb. Transport layer\nc. Network layer\nd. Data link layer\nFunction\ni) Provides reliable data transfer between hosts\nii) Provides error detection and correction.\niii) Provides end-to-end communication and network services\niv) Defines how data is transferred over the Physical medium",
+         "options": {
+          "A": "a – i, b – ii, c – iv, d – iii",
+          "B": "a – iii, b – i, c – iv, d – ii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q7"
+        },
+        {
+         "question": "Match the routing protocols with their characteristics.\na) RIP\nb) OSPF\nc) BGP\nd) EIGRP\ni) Uses link state algorithm\nii) Uses distance vector algorithm\niii) Path - vector protocol used for inter-domain routing\niv) Hybrid of distance vector and link-state protocols",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – i, b – iv, c – iii, d – ii"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "RIP distance vector, OSPF link state, BGP path vector, EIGRP hybrid. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q8"
+        },
+        {
+         "question": "Which is the correct sequence of operations in the IP datagram encapsulation process?",
+         "options": {
+          "A": "Segment → Packet → Frame → Bit",
+          "B": "Bit → Frame → Packet → Segment",
+          "C": "Frame → Packet → Segment → Bit",
+          "D": "Segment → Frame → Bit → Packet"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Transport → network → data link → physical. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q9"
+        },
+        {
+         "question": "Which of the following statements are true about the Internet Protocol (IP)?\na. IP provides reliable end-to-end communication\nb. IP is connectionless protocol\nc. Internet Protocol uses IP addresses to deliver packets\nd. IP guarantees the order of packet delivery",
+         "options": {
+          "A": "a, c and d",
+          "B": "b and c",
+          "C": "a, b and c",
+          "D": "a, b and d"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "IP is best-effort and connectionless. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q10"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses\nReason (R): ARP is used only in IPV4 networks and is not necessary in IPV6",
+         "options": {
+          "A": "Both (A) and (R) are correct and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are correct but (R) is not the correct explanation of (A)",
+          "C": "(A) is correct but (R) is incorrect",
+          "D": "Both (A) and (R) are incorrect"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "KEA's key (IPv6 replaces ARP with Neighbor Discovery). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q11"
+        },
+        {
+         "question": "Match the following IP address classes with their default subnet mask\nIP address class\na. Class A\nb. Class B\nc. Class C\nd. Class D\nSubnet mask\ni. 255.255.0.0\nii. 255.255.255.0\niii. 255.0.0.0.\niv. N/A (Multicast Address)",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Default masks /8, /16, /24. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q12"
+        },
+        {
+         "question": "Which is the correct sequence of steps for selecting an Access Point (AP)?\na. The node sends a probe frame\nb. The AP replies with an association response frame\nc. All APs within reach reply with a probe response frame\nd. The node selects one of the access points and sends an AP an Association Request Frame.",
+         "options": {
+          "A": "a → b → d → c",
+          "B": "a → c → d → b",
+          "C": "a → c → b → d",
+          "D": "a → b → c → d"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Probe, probe responses, association request, association response. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q13"
+        },
+        {
+         "question": "In TCP sliding window mechanism, which is the correct sequence of events when the receiver gets a segment?",
+         "options": {
+          "A": "Sequence number check → Data Transfer → Buffering → Acknowledgement",
+          "B": "Sequence number check → Buffering → Data Transfer → Acknowledgement",
+          "C": "Data Transfer → Buffering → Acknowledgement → Sequence number check",
+          "D": "Acknowledgement → Sequence number check → Data Transfer → Buffering"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q14"
+        },
+        {
+         "question": "What is the maximum length of an MAC address?",
+         "options": {
+          "A": "32 bits",
+          "B": "48 bits",
+          "C": "64 bits",
+          "D": "128 bits"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "6 bytes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q15"
+        },
+        {
+         "question": "Which of the following is NOT a high-level programming language?",
+         "options": {
+          "A": "Python",
+          "B": "Java",
+          "C": "Assembly",
+          "D": "C++"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Assembly is low-level. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q16"
+        },
+        {
+         "question": "Which one of the following computer networks is built on top of another network?",
+         "options": {
+          "A": "Prior Network",
+          "B": "Chief Network",
+          "C": "Prime Network",
+          "D": "Overlay Network"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "e.g. P2P networks over the Internet. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q17"
+        },
+        {
+         "question": "The clock speed of a microprocessor is measured in",
+         "options": {
+          "A": "Hertz",
+          "B": "Bytes",
+          "C": "Bits",
+          "D": "Instructions per second"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "GHz. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q18"
+        },
+        {
+         "question": "What is the key advantage of using a superscalar architecture in processor?",
+         "options": {
+          "A": "Increased clock speed",
+          "B": "Reduced power consumption",
+          "C": "Ability to execute multiple instructions per clock cycle",
+          "D": "Simplicity of design"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Several execution units issue in parallel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q19"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): A system with multiple cores can provide better performance than a single core system for highly parallel tasks\nReason (R): Multiple cores allow simultaneous execution of multiple instructions, there by speeding up tasks that can be divided into smaller parallel tasks.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "R explains A. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q20"
+        },
+        {
+         "question": "Which of the following types of processors, typically use specialized architecture?\n(a) GPUs (Graphics Processing Units)\n(b) DSPs (Digital Signal Processors)\n(c) FPGAs (Field Programmable Gate Arrays)\n(d) RISC Processors",
+         "options": {
+          "A": "a and b only",
+          "B": "a, b and c only",
+          "C": "a, b and d only",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "RISC is a general-purpose design. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q21"
+        },
+        {
+         "question": "Match the following instruction types with their examples\nInstruction type\na. Data Transfer\nb. Arithmetic\nc. Branching\nd. Logic\nExamples\ni. ADD, SUB\nii. MOV, LDA, STA\niii. BEQ, JUMP\niv. AND, OR",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Instruction classes. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q22"
+        },
+        {
+         "question": "Given\nL1 Cache: Hit time = 2 cycles, Miss rate = 10%, Miss penalty = 50 cycles\nL2 Cache: Hit time = 10 cycles, Miss rate = 5%, Miss Penalty = 100 cycles\nWhat is the average memory access time for the system?",
+         "options": {
+          "A": "3.5 cycles",
+          "B": "2.5 cycles",
+          "C": "4.5 cycles",
+          "D": "1.5 cycles"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "2 + 0.1 × (10 + 0.05 × 100) = 2 + 1.5 = 3.5. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q23"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): virtual memory allows the execution of processes that may not be entirely loaded into memory\nReason (R): virtual memory uses paging or segmentation to map logical addresses to physical addresses",
+         "options": {
+          "A": "(A) is true but (R) is false",
+          "B": "Both (A) and (R) are true but R is not the correct explanation of (A)",
+          "C": "Both (A) and (R) are true and R is the correct explanation of (A)",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q24"
+        },
+        {
+         "question": "The function of heat sink in a computer is to",
+         "options": {
+          "A": "Cool down the CPU",
+          "B": "Store backup data",
+          "C": "Increase the RAM capacity",
+          "D": "Manage input/output devices"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "It draws heat away. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "Which of the following techniques are used to improve cache hit rates?\na) Increasing cache size\nb) Reducing associativity\nc) Implementing cache prefetching\nd) Using a victim cache\ne) Increasing the block size",
+         "options": {
+          "A": "a, b, c and d",
+          "B": "a, c, d and e",
+          "C": "a, b and d",
+          "D": "a, b, d and e"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Lower associativity raises conflict misses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q26"
+        },
+        {
+         "question": "A processor has a branch misprediction penalty of 12 cycles and the branch instructions make 20% of the instructions. What is the average increase in execution time due to branch mispredictions?",
+         "options": {
+          "A": "2.4 cycles",
+          "B": "3.6 cycles",
+          "C": "5.0 cycles",
+          "D": "6.0 cycles"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "KEA's key: 0.2 × 12 = 2.4 (taking every branch as mispredicted). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q27"
+        },
+        {
+         "question": "Which of the following can be used to mitigate the performance penalty caused by pipeline stalls in a processor?\na) Data forwarding\nb) Branch prediction\nc) Instruction level parallelism\nd) Out of order execution\ne) Register renaming",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, d and e",
+          "C": "b, d and e",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q28"
+        },
+        {
+         "question": "Arrange the stages correctly during the pipeline execution of a CPU\ni) Instruction fetch\nii) Instruction decode\niii) Execute\niv) Write Back",
+         "options": {
+          "A": "i → ii → iii → iv",
+          "B": "ii → i → iv → iii",
+          "C": "i → ii → iv → iii",
+          "D": "i → iii → ii → iv"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Fetch, decode, execute, write back. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q29"
+        },
+        {
+         "question": "Which of the following is an example of a pipeline hazard?",
+         "options": {
+          "A": "Branch Misprediction",
+          "B": "Cache miss",
+          "C": "Data dependency between instructions",
+          "D": "Instruction fetch stall"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "KEA's key: a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30"
+        },
+        {
+         "question": "What is the primary function of a DMA controller in a computer system?",
+         "options": {
+          "A": "To manage memory hierarchy",
+          "B": "To provide direct access to I/O devices",
+          "C": "To execute instructions directly",
+          "D": "To manage the control unit"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "DMA moves data between devices and memory without the CPU. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q31"
+        },
+        {
+         "question": "Which of the following is true for instruction execution multicore processor?",
+         "options": {
+          "A": "It contains multiple ALUs",
+          "B": "It only works on a single task at a time",
+          "C": "It can execute more instructions in parallel",
+          "D": "It is more power consuming"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Cores work in parallel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q32"
+        },
+        {
+         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
+         "options": {
+          "A": "RISC",
+          "B": "CISC",
+          "C": "VLIW",
+          "D": "EPIC"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33"
+        },
+        {
+         "question": "Which of the following best defines a bus in a computer system?",
+         "options": {
+          "A": "A path for transferring data and instructions between components",
+          "B": "A memory unit",
+          "C": "An input/output device",
+          "D": "A register used for arithmetic operations"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Address, data and control buses. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q34"
+        },
+        {
+         "question": "Which of the following is a disadvantage of First Come First Served (FCFS) scheduling algorithm?",
+         "options": {
+          "A": "It leads to starvation of processes",
+          "B": "It may cause high waiting time for processes",
+          "C": "It is a preemptive scheduling algorithm",
+          "D": "It requires knowledge of burst times."
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Convoy effect. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q35"
+        },
+        {
+         "question": "Consider the following processes and their burst times\nProcess | Burst Time\nP₁ | 5\nP₂ | 8\nP₃ | 3\nP₄ | 6\nP₅ | 7\nIf the CPU scheduling is performed using Shortest Job First (SJF) (non-preemptive), then what will be the correct sequence of processes executed?",
+         "options": {
+          "A": "P₃, P₁, P₄, P₅, P₂",
+          "B": "P₃, P₁, P₂, P₅, P₄",
+          "C": "P₁, P₃, P₄, P₅, P₂",
+          "D": "P₃, P₄, P₁, P₅, P₂"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Shortest first: 3, 5, 6, 7, 8. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q36"
+        },
+        {
+         "question": "In a virtual memory system, what is the purpose of the page table?",
+         "options": {
+          "A": "To manage the execution of processes",
+          "B": "To map virtual addresses to physical addresses",
+          "C": "To store the Process Control Block (PCB)",
+          "D": "To track file allocation and its usage"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Page → frame mapping. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q37"
+        },
+        {
+         "question": "Which is the correct sequence of steps involved in resolving deadlock using the resource allocation graph method?",
+         "options": {
+          "A": "Check for cycles → Identify deadlocked processes → Release Resources",
+          "B": "Identify deadlocked processes → Check for cycles → Release Resources",
+          "C": "Check for cycles → Release Resources → Identify deadlocked processes",
+          "D": "Identify deadlocked processes → Release Resources → Check for cycles"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Detect a cycle first. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q38"
+        },
+        {
+         "question": "Match the following CPU Scheduling algorithms with their characteristics.\nList-1\na. FCFS\nb. Round Robin\nc. Shortest Job First\nd. Priority Scheduling\nList-2\ni. Preemptive and based on priority values\nii. Non-preemptive and leads to the \"convoy effect\"\niii. Preemptive and shortest burst time first.\niv. Non-preemptive and shortest burst time first.",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iv, b – iii, c – i, d – ii",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q39"
+        },
+        {
+         "question": "Order the following steps of process creation in an operating system.\na. Assigning a Process Control Block (PCB) to the process\nb. Loading the process in memory\nc. Assigning the process ID\nd. Creating a new entry in process table",
+         "options": {
+          "A": "a → c → d → b",
+          "B": "c → a → d → b",
+          "C": "c → d → a → b",
+          "D": "b → d → a → c"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q40"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): The Round Robin (RR) scheduling algorithm is considered a preemptive scheduling algorithm.\nReason (R): The Round Robin (RR) algorithm allocates a fixed time slice to each process in the ready queue before moving to the next process.",
+         "options": {
+          "A": "Both (A) and (R) are true but reason is not the correct explanation of assertion.",
+          "B": "Both (A) and (R) are true and reason is the correct explanation of assertion",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "The time slice is why RR preempts. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q41"
+        },
+        {
+         "question": "Match the following types of system calls with their description\nSystem calls\na. Process control\nb. File management\nc. Device management\nd. Information maintenance\nDescription\ni. Creates and deletes files\nii. Schedules and terminates processes\niii. Performs input and output operations.\niv. Retrieves system status information",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – i, b – ii, c – iii, d – iv",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "System call categories. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q42"
+        },
+        {
+         "question": "Order the steps for handling a disk I/O request in a typical disk scheduling algorithm\na. The request is placed in the disk queue\nb. The scheduler selects the next request\nc. The request is serviced by reading/writing to disk\nd. The disk arm moves to the requested location",
+         "options": {
+          "A": "a → b → c → d",
+          "B": "b → c → a → d",
+          "C": "a → b → d → c",
+          "D": "b → c → d → a"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Queue, select, seek, transfer. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q43"
+        },
+        {
+         "question": "Which of the following file allocation methods would be efficient when dealing with a large number of small sized files?\ni. Contiguous allocation\nii. Linked allocation\niii. Indexed allocation\niv. File Allocation Table (FAT)",
+         "options": {
+          "A": "i and iii only",
+          "B": "ii and iv only",
+          "C": "i and ii only",
+          "D": "iii and iv only"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q44"
+        },
+        {
+         "question": "Which of the following memory management techniques can cause fragmentation?\na. Paging\nb. Segmentation\nc. Contiguous Allocation\nd. Virtual Memory",
+         "options": {
+          "A": "a and b only",
+          "B": "b and c only",
+          "C": "b and d only",
+          "D": "b, c and d only"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Segmentation and contiguous allocation cause external fragmentation. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q45"
+        },
+        {
+         "question": "In a priority scheduling algorithm, which of the following are true?\na. Higher priority processes are executed first\nb. Starvation can occur if low-priority processes are never executed\nc. Equal priority processes are executed in the order they arrive.\nd. Preemption is mandatory in priority scheduling",
+         "options": {
+          "A": "a and b",
+          "B": "a, b and c",
+          "C": "a, b, c and d",
+          "D": "a, c and d"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Priority scheduling may be non-preemptive. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q46"
+        },
+        {
+         "question": "Which of the following is an example of a synchronous I/O operation?",
+         "options": {
+          "A": "Reading data from a disk with no interruption",
+          "B": "Using an interrupt handler to signal completion of I/O",
+          "C": "A process waiting for data to arrive before continuing execution",
+          "D": "Writing data to a file while the process is executing"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Synchronous = the caller blocks. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q47"
+        },
+        {
+         "question": "Which of the following is the primary goal of an operating system?",
+         "options": {
+          "A": "To provide a platform for running applications",
+          "B": "To manage hardware resources",
+          "C": "To execute instructions",
+          "D": "To manage application software"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q48"
+        },
+        {
+         "question": "Which of the following is NOT a type of system call?",
+         "options": {
+          "A": "Process control",
+          "B": "File manipulation",
+          "C": "Database operations",
+          "D": "Device management"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Database operations are not an OS call category. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q49"
+        },
+        {
+         "question": "Which scheduling algorithm is used in realtime systems to ensure that critical processes meet their deadlines?",
+         "options": {
+          "A": "Round Robin (RR)",
+          "B": "Shortest Job First (SJF)",
+          "C": "Earliest Deadline First (EDF)",
+          "D": "First Come, First Served (FCFS)"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "EDF. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "Which of the following page replacement algorithms can lead to optimal performance?\na. Least Recently Used (LRU)\nb. Optimal Page Replacement\nc. FIFO\nd. Second Chance",
+         "options": {
+          "A": "a, b and c",
+          "B": "b and a",
+          "C": "b, c and d",
+          "D": "a, b, c and d"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "KEA's key: OPT and its close approximation LRU. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q51"
+        },
+        {
+         "question": "What does the subnet mask in IP configuration do?",
+         "options": {
+          "A": "It determines the default gateway for the network",
+          "B": "It specifies the range of IP addresses in the network",
+          "C": "It encrypts the data sent over the network",
+          "D": "It translates domain names to IP addresses"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "It separates network and host bits. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q52"
+        },
+        {
+         "question": "Match the following Network Models with their characteristics\nModel\na. OSI Model\nb. TCP/IP Model\nc. Hybrid Model\nd. Internet Model\nCharacteristics\ni. Used for reliable communication in the Internet\nii. Defines several layers for communication\niii. Represents structure of the Internet\niv. Combines both OSI & TCP/IP Models",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iv, c – i, d – iii",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q53"
+        },
+        {
+         "question": "Which of the following statements are true about DNS (Domain Name System)?\na. DNS maps domain names to IP addresses\nb. DNS servers always use a centralized database for resolution\nc. DNS provides scalability and redundancy in name resolution\nd. DNS works with IPV4 addresses.",
+         "options": {
+          "A": "a and b only",
+          "B": "a and c only",
+          "C": "a and d only",
+          "D": "b and c only"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "DNS is distributed; it handles IPv6 too. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q54"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): DNS servers cache the IP addresses of domain names to speed up subsequent requests\nReason (R): Caching degrades DNS look up efficiency by storing previously resolved domain name entries.",
+         "options": {
+          "A": "Both Assertion and Reason are true and Reason is the correct explanation of Assertion",
+          "B": "Assertion is true but Reason is false",
+          "C": "Assertion is false but Reason is true",
+          "D": "Both Assertion and Reason are false"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Caching improves efficiency. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q55"
+        },
+        {
+         "question": "Which of the following is the correct sequence of events when a packet is routed in an IP network?",
+         "options": {
+          "A": "Packet creation → Routing → Fragmentation → Transmission → Delivery",
+          "B": "Packet creation → Fragmentation → Routing → Transmission → Delivery",
+          "C": "Packet creation → Routing → Transmission → Delivery → Fragmentation",
+          "D": "Packet creation → Routing → Transmission → Fragmentation → Delivery"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q56"
+        },
+        {
+         "question": "Match the following types of internet connections with their characteristics\nConnection Type\na. DSL\nb. Fiber optic\nc. Ethernet cable\nd. Satellite\nCharacteristics\ni. Wireless internet via satellites\nii. Internet over cable TV lines\niii. Transmits digital data over telephone lines.\niv. Internet over coaxial cables",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q57"
+        },
+        {
+         "question": "Which of the following statements about IPV6 are true?\na. It uses 128 bit addresses\nb. IPV6 eliminates the need for DHCP\nc. IPV6 can coexist with IPV4 in dual stack environment\nd. IPV6 addresses are always written in decimal notation",
+         "options": {
+          "A": "a and c only",
+          "B": "a and b only",
+          "C": "a, c and d only",
+          "D": "c and b only"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "IPv6 is written in hexadecimal; DHCPv6 still exists. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q58"
+        },
+        {
+         "question": "Which of the following are correct matches for the Transmission Control Protocol (TCP)?\na. Connection-oriented protocol\nb. Unreliable data delivery\nc. Error detection and correction\nd. No flow control",
+         "options": {
+          "A": "a and c only",
+          "B": "a and d only",
+          "C": "a, b and c only",
+          "D": "All of the above"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "TCP is reliable with flow control. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q59"
+        },
+        {
+         "question": "Match the following types of Internet addresses with their purpose\na. IPV4\nb. IPV6\nc. Private address\nd. Public address\ni. Used for local N/W communication\nii. 32-bit address format\niii. 128-bit address format\niv. Used for communication over internet",
+         "options": {
+          "A": "a – iv, b – iii, c – i, d – ii",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – ii, b – iii, c – iv, d – i"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Address types. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q60"
+        },
+        {
+         "question": "In the TCP/IP model, which layer is responsible for providing end-to-end communication?",
+         "options": {
+          "A": "Link layer",
+          "B": "Transport layer",
+          "C": "Application layer",
+          "D": "Network layer"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Transport (process to process). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q61"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): IPV4 addresses consist of 128 bits\nReason (R): Uses a 32 bit address format",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is false but (R) is true",
+          "D": "Both (A) and (R) are false"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "IPv4 is 32-bit. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q62"
+        },
+        {
+         "question": "Match the following DNS record types with their purposes\nRecord Type\na. A\nb. MX\nc. CNAME\nd. PTR\nPurpose\ni. Maps IP address to domain name\nii. Alias for domain name\niii. Mail exchange server record\niv. Maps domain name to IP address.",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iv, b – ii, c – iii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "PTR is the reverse lookup. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q63"
+        },
+        {
+         "question": "Which sequence accurately describes the process of sending data in IPV6?",
+         "options": {
+          "A": "Host → Switch → Destination",
+          "B": "Host → Router → Destination",
+          "C": "Host → Network → Router → Destination",
+          "D": "Host → Router → Switch → Destination"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q64"
+        },
+        {
+         "question": "Match the following IP address classes with their range\nClass\na. Class A\nb. Class B\nc. Class C\nd. Class D\nRange\ni) 0.0.0.0 to 127.255.255.255\nii) 192.0.0.0 to 223.225.255.255\niii) 128.0.0.0 to 191.255.255.255\niv) 224.0.0.0 to 239.255.255.255",
+         "options": {
+          "A": "a – i, b – iii, c – ii, d – iv",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – iv, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Class ranges (the paper prints 223.225 for 223.255). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q65"
+        },
+        {
+         "question": "Which of the following is a disadvantage of NAT (Network address Translation)?",
+         "options": {
+          "A": "It allows devices on the private network to access the public internet",
+          "B": "It simplifies the IP address allocation scheme",
+          "C": "It can cause issues with protocols that require end-to-end connectivity",
+          "D": "It consumes a lot of network bandwidth."
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "NAT breaks end-to-end addressing. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q66"
+        },
+        {
+         "question": "A compiler is used for",
+         "options": {
+          "A": "Converting machine language to high level programming language",
+          "B": "Converting high level programming language to machine language",
+          "C": "Running software application",
+          "D": "Managing hardware devices"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Translation. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q67"
+        },
+        {
+         "question": "Which of the following is NOT considered as an essential part of a computer system's hardware?",
+         "options": {
+          "A": "CPU",
+          "B": "Keyboard",
+          "C": "Compiler",
+          "D": "Monitor"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "A compiler is software. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q68"
+        },
+        {
+         "question": "Which of the following components is responsible for providing power to computer systems?",
+         "options": {
+          "A": "Switched-Mode Power Supply (SMPS)",
+          "B": "Central Processing Unit (CPU)",
+          "C": "Hard Disk Drive (HDD)",
+          "D": "Graphics Processing Unit (GPU)"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "SMPS. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q69"
+        },
+        {
+         "question": "Which of the following describes a CPU's clock speed?",
+         "options": {
+          "A": "The number of cores in the CPU",
+          "B": "The rate at which the CPU can execute instructions",
+          "C": "The size of the CPU cache memory",
+          "D": "The thermal design power of the CPU"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Cycles per second. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q70"
+        },
+        {
+         "question": "In computer system, which component is responsible for converting binary data into human readable format?",
+         "options": {
+          "A": "CPU",
+          "B": "GPU",
+          "C": "I/O devices (such as monitor)",
+          "D": "RAM"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Output devices. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q71"
+        },
+        {
+         "question": "Considering the following statements, choose the correct option.\nAssertion (A): Software drivers enable the operating system to communicate with hardware system.\nReason (R): Without the appropriate drivers, an operating system cannot operate hardware devices.",
+         "options": {
+          "A": "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "B": "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+          "C": "(A) is true but (R) is false",
+          "D": "(A) is false but (R) is true"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "R explains A. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q72"
+        },
+        {
+         "question": "What is the purpose of a chipset on the motherboard?",
+         "options": {
+          "A": "To execute the software program",
+          "B": "To manage the data flow between the CPU and other components of computer",
+          "C": "To store the operating system",
+          "D": "To provide electrical power to computers"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Chipset = traffic controller. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q73"
+        },
+        {
+         "question": "Which of the following softwares is considered as application software?",
+         "options": {
+          "A": "Windows OS",
+          "B": "Linux OS",
+          "C": "Microsoft Excel",
+          "D": "BIOS"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Excel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q74"
+        },
+        {
+         "question": "Which of the following is an example of system software?",
+         "options": {
+          "A": "Microsoft Word",
+          "B": "Google Chrome",
+          "C": "Windows 10",
+          "D": "Adobe Photoshop"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "An OS. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q75"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "Which software development model is known for its iterative approach where feedback is gathered after each cycle?",
+         "options": {
+          "A": "Waterfall Model",
+          "B": "Agile Model",
+          "C": "V – Model",
+          "D": "Spiral Model"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Agile sprints. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q76"
+        },
+        {
+         "question": "What type of software licence allows users to modify and redistribute the source code freely?",
+         "options": {
+          "A": "Proprietary license",
+          "B": "Freeware license",
+          "C": "Open source licence",
+          "D": "Shareware licence"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Open source. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q77"
+        },
+        {
+         "question": "Match the following application software.\nList – I\na. Word processor\nb. Spreadsheet\nc. DBMS\nd. Web browser\nList – II\ni. Used to organize, manipulate and analyse numerical data\nii. Software for creating, storing and managing data\niii. Used for viewing websites and accessing information online\niv. Used for creating, editing and formatting text document",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – iv, b – i, c – iii, d – ii",
+          "C": "a – iv, b – i, c – ii, d – iii",
+          "D": "a – i, b – ii, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Word processor text, spreadsheet numbers, DBMS data, browser websites. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q78"
+        },
+        {
+         "question": "What is the primary purpose of software testing?",
+         "options": {
+          "A": "To enhance the features of the software",
+          "B": "To find and fix bugs and errors",
+          "C": "To improve the user interface",
+          "D": "To make the software compatible with all devices"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Find defects. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q79"
+        },
+        {
+         "question": "What is the primary purpose of assertions in software development?",
+         "options": {
+          "A": "To make the code more readable",
+          "B": "To check for logical errors during run time",
+          "C": "To enhance the performance by skipping checks",
+          "D": "To validate user inputs"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Assertions catch logic errors. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q80"
+        },
+        {
+         "question": "Which of the following is an example of open-source software?",
+         "options": {
+          "A": "Microsoft Word",
+          "B": "Adobe Photoshop",
+          "C": "Mozilla Firefox",
+          "D": "Google Chrome"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Firefox (Chrome is proprietary; Chromium is open). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q81"
+        },
+        {
+         "question": "Which of the following is an example of application software?",
+         "options": {
+          "A": "Windows OS",
+          "B": "Google Chrome",
+          "C": "Linux Kernel",
+          "D": "Device Drivers"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "A browser. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q82"
+        },
+        {
+         "question": "Which of the following tools is used for version control in software development?",
+         "options": {
+          "A": "Git",
+          "B": "Eclipse",
+          "C": "Photoshop",
+          "D": "Visual studio"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Git. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q83"
+        },
+        {
+         "question": "Which feature in Microsoft Word allows you to create a form where user can select from predefined options?",
+         "options": {
+          "A": "SmartArt",
+          "B": "Content Controls",
+          "C": "Bookmark",
+          "D": "Track Changes"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Drop-down list content controls (Developer tab). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q84"
+        },
+        {
+         "question": "Which of the following is NOT a feature of Microsoft Word?",
+         "options": {
+          "A": "Data analysis",
+          "B": "Spell check",
+          "C": "Mail merge",
+          "D": "Text formatting"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Data analysis is Excel. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q85"
+        },
+        {
+         "question": "In Microsoft Excel, which feature can be used to combine data from multiple worksheets into a single summary worksheet?",
+         "options": {
+          "A": "Power Query",
+          "B": "VLOOKUP()",
+          "C": "Data Validation",
+          "D": "Consolidate"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Data → Consolidate. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q86"
+        },
+        {
+         "question": "In PowerPoint, which feature allows you to apply animation effects to individual element of a slide rather than to the entire slide?",
+         "options": {
+          "A": "Slide Transition",
+          "B": "Custom Animation",
+          "C": "Animation Painter",
+          "D": "Motion Paths"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Transitions apply to whole slides. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q87"
+        },
+        {
+         "question": "Which of the following is the correct way to protect a Microsoft Word document with a password?",
+         "options": {
+          "A": "Go to file → Info → Protect Document → Encrypt with password",
+          "B": "Go to Review → Protect → Password",
+          "C": "Go to file → Review → Encrypt with password",
+          "D": "Go to Review → Options → Password protections"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "File → Info. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q88"
+        },
+        {
+         "question": "In Microsoft Outlook, which of the following features is used to automatically sort incoming emails into predefined folders based on set criteria?",
+         "options": {
+          "A": "Categories",
+          "B": "Rules",
+          "C": "Search folders",
+          "D": "Quick steps"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Rules. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q89"
+        },
+        {
+         "question": "In Microsoft Excel, you have a table with customer names in column A, dates in column B, and sales amount in column C. You want to calculate the total sales for a specific customer within a given date range. Which formula would you use?",
+         "options": {
+          "A": "=SUM (A2:A10, \"CustomerName\", C2:C10)",
+          "B": "=SUMIFS (C2:C10, A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\", B2:B10, \"<12/31/2024\")",
+          "C": "=SUMPRODUCT (A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\")",
+          "D": "=AVERAGEIFS (C2:C10, A2:A10, \"CustomerName\", B2:B10, \">01/01/2024\", B2:B10, \"<12/31/2024\")"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "SUMIFS sums with several conditions. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q90"
+        },
+        {
+         "question": "You need to insert a table of contents in Microsoft Word but you want it to automatically update when changes are made to the document. Which of the following steps should you follow?",
+         "options": {
+          "A": "Go to the \"Insert\" tab, select \"Table\" and manually input your headings",
+          "B": "Go to the \"Review\" tab, select \"Track changes\" and manually update the content",
+          "C": "Go to the \"Home\" tab, select \"Styles\" and manually style to the headings",
+          "D": "Go to the \"Reference\" tab, select \"Table of contents\" and choose automatic style"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "References → Table of Contents → Automatic. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q91"
+        },
+        {
+         "question": "Which of the following statements about Microsoft Excel are true?\n(i) Conditional Formatting can be used to highlight cells based on specific criteria like values, text or dates.\n(ii) The IF function can only return numeric values.\n(iii) PivotTables can be used to summarize and analyse data dynamically by dragging and dropping fields.\n(iv) The VLOOKUP function is case-sensitive by default.",
+         "options": {
+          "A": "i and iii are true",
+          "B": "ii and iv are true",
+          "C": "i, iii and iv are true",
+          "D": "i, ii and iii are true"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "IF can return text; VLOOKUP ignores case. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q92"
+        },
+        {
+         "question": "Which of the following statements about Microsoft PowerPoint are true?\n(i) You can set a slideshow to advance automatically after a set period without user interaction.\n(ii) Slide master allows you to apply consistent formatting to all slides in a presentation.\n(iii) The SmartArt feature allows you to insert pre-designed graphic diagrams like flowcharts and hierarchies.\n(iv) PowerPoint does not support embedding videos directly, only links to videos are allowed",
+         "options": {
+          "A": "i, ii and iii are true",
+          "B": "ii and iv are true",
+          "C": "i, iii and iv are true",
+          "D": "iii and iv are true"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Videos can be embedded. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q93"
+        },
+        {
+         "question": "Match the following:\nList – I\na. Excel\nb. PowerPoint\nc. Access\nd. Outlook\nList – II\ni. Used for creating presentations\nii. Used for managing emails\niii. Used for data analysis and visualization\niv. Used for managing databases",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Office apps. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q94"
+        },
+        {
+         "question": "Match the following:\nList – I\na. OneNote\nb. Publisher\nc. OneDrive\nd. Word\nList – II\ni. Used for creating publications and marketing materials\nii. Used for note-taking and organization\niii. Used for creating and editing documents\niv. Cloud storage service",
+         "options": {
+          "A": "a – iii, b – iv, c – i, d – ii",
+          "B": "a – iii, b – ii, c – i, d – iv",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Office apps. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q95"
+        },
+        {
+         "question": "Which feature is used to make a selected sentence to all capital letters or all small letters?",
+         "options": {
+          "A": "Change Letter",
+          "B": "Change Sentence",
+          "C": "Change Case",
+          "D": "Change Word"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Home → Change Case (Shift + F3). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q96"
+        },
+        {
+         "question": "Which of the following statements about Microsoft Word are true?\n(i) Headers & Footers are identical in every page of a document by default.\n(ii) You can insert page numbers in Word documents using the Insert tab.\n(iii) Comments can be added to a document by clicking on the \"Review\" tab but they can't be edited once it's added\n(iv) Find and Replace allows you to search for specific text and replace it with something else in the document.",
+         "options": {
+          "A": "i and ii are true",
+          "B": "i and iv are true",
+          "C": "ii and iii are true",
+          "D": "ii and iv are true"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "KEA's final key accepts options 1, 2 or 4 – only (iii) is false. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q97"
+        },
+        {
+         "question": "You are preparing a PowerPoint presentation and need to ensure that each slide advances automatically after 20 seconds without requiring manual interaction. Which of the following steps should you follow?",
+         "options": {
+          "A": "Go to the slide show tab, click on Rehearse Timings and set each slide to advance after 20 seconds",
+          "B": "Go to transitions tab and set the advance slide option to 20 seconds for each slide",
+          "C": "Use the slide master to set the timing for all slides",
+          "D": "Apply a slide transition effect to each slide and manually adjust the timing"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Transitions → Advance Slide → After 00:20. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q98"
+        },
+        {
+         "question": "What is the primary function of physical layer in the OSI model?",
+         "options": {
+          "A": "Provides routing of packets across networks",
+          "B": "Transmits raw bitstream over the physical medium",
+          "C": "Handles error correction and retransmission",
+          "D": "Manages data transfer between applications"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Bits on the wire. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q99"
+        },
+        {
+         "question": "What is the primary role of a Translation Lookaside Buffer (TLB)?",
+         "options": {
+          "A": "To map virtual memory addresses to physical addresses",
+          "B": "To store recently accessed instructions",
+          "C": "To cache the results of arithmetic operations",
+          "D": "To store data for frequently accessed programs"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "A cache of recent page-table entries. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Junior Console Operator P2 · Q100"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section)",
+     "sets": [
+      {
+       "name": "Q71–100 · Computer section",
+       "questions": [
+        {
+         "question": "What is the default subnet mask of a class B, IP value in address?",
+         "options": {
+          "A": "255.0.0.0",
+          "B": "255.255.0.0",
+          "C": "255.255.255.255",
+          "D": "255.255.255.0"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Class B = /16. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q71"
+        },
+        {
+         "question": "Which of the following is a linear data structure?",
+         "options": {
+          "A": "Tree",
+          "B": "Graph",
+          "C": "Stack",
+          "D": "Hash table"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Stacks, queues, arrays and lists are linear. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q72"
+        },
+        {
+         "question": "The OS environment which permits many processors active at the same time is ____.",
+         "options": {
+          "A": "Multiprogramming",
+          "B": "Time-sharing",
+          "C": "Multiprocessing",
+          "D": "Multitasking"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Multiprocessing = several CPUs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q73"
+        },
+        {
+         "question": "Which one among the following is not a basic function of operating system?",
+         "options": {
+          "A": "Virus protection",
+          "B": "File management",
+          "C": "Device management",
+          "D": "Process management"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Antivirus is a utility. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q74"
+        },
+        {
+         "question": "The symbol 'E' represents ____ decimal value in Hexadecimal number system.",
+         "options": {
+          "A": "13",
+          "B": "14",
+          "C": "5",
+          "D": "8"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "A = 10 … E = 14. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q75"
+        },
+        {
+         "question": "In RDBMS, a data record is known as ____",
+         "options": {
+          "A": "Column",
+          "B": "Table",
+          "C": "Database",
+          "D": "Tuple"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "A row = tuple. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q76"
+        },
+        {
+         "question": "Match the following\nEntity Type\na) Attribute\nb) Relationship\nc) Entity\nd) Cardinality Ratio\nER Representation\n(i) an ellipse\n(ii) a diamond\n(iii) a rectangle\n(iv) two rectangles joined through a diamond, the lines labelled 1 and N",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iv, b – iii, c – ii, d – i",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Chen notation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q77"
+        },
+        {
+         "question": "= SUM (A1 : E1) formula in MS Excel performs which of the following task?",
+         "options": {
+          "A": "calculates the sum of all the values in cells from A1 to E1",
+          "B": "calculates the sum of values in cells, A1 and E1 only",
+          "C": "calculates the sum of the values in cells A1 to A10",
+          "D": "calculates the sum of values in cells E1 to E10"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "A colon means a range; SUM(A1,E1) would add only two cells. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q78"
+        },
+        {
+         "question": "The software available for free, but source code may not be available, such softwares are called",
+         "options": {
+          "A": "Proprietary software",
+          "B": "Application software",
+          "C": "Freeware",
+          "D": "System software"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Freeware is free of cost but usually closed source. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q79"
+        },
+        {
+         "question": "Expand ENIAC",
+         "options": {
+          "A": "Electronic Numerical Integrator and Computer",
+          "B": "Electrical Numerical Integrator and Computer",
+          "C": "Electrical Numbered Integrator and Computer",
+          "D": "Electronic Numerical Integrator and Concepts."
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "ENIAC (1946): Electronic Numerical Integrator and Computer. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q80"
+        },
+        {
+         "question": "____ is not a scheduling algorithm in OS",
+         "options": {
+          "A": "First come first serve",
+          "B": "Shortest job first",
+          "C": "Round Robin",
+          "D": "Banker's Algorithm"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Banker's algorithm avoids deadlock. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q81"
+        },
+        {
+         "question": "____ command is used to change the attributes of a file",
+         "options": {
+          "A": "COPY",
+          "B": "REN",
+          "C": "ATTRIB",
+          "D": "TYPE"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "DOS ATTRIB +R/+H etc. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q82"
+        },
+        {
+         "question": "____ tab is used to enable 'Ruler' option in MS Word.",
+         "options": {
+          "A": "Design",
+          "B": "Page layout",
+          "C": "Review",
+          "D": "View"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "View → Ruler. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q83"
+        },
+        {
+         "question": "The main goal of machine learning is",
+         "options": {
+          "A": "To completely automate manual tasks",
+          "B": "To make computers intelligent like human beings",
+          "C": "To create self aware machines",
+          "D": "To enable computers to learn from data"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Learning from data without explicit programming. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q84"
+        },
+        {
+         "question": "The 2's complement of 101000 is",
+         "options": {
+          "A": "011000",
+          "B": "010101",
+          "C": "010111",
+          "D": "000111"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "1's complement 010111, plus 1 = 011000. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q85"
+        },
+        {
+         "question": "The smallest unit that can be written to or read from the disk is a",
+         "options": {
+          "A": "Track",
+          "B": "Head",
+          "C": "Byte",
+          "D": "Sector"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Disks transfer whole sectors. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q86"
+        },
+        {
+         "question": "Primary key in DBMS should be",
+         "options": {
+          "A": "Unique",
+          "B": "Not null",
+          "C": "Unique and not null",
+          "D": "Null"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Entity integrity. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q87"
+        },
+        {
+         "question": "Data transmission used in walkie-talkie is",
+         "options": {
+          "A": "Simplex",
+          "B": "Duplex",
+          "C": "Half-duplex",
+          "D": "Complex"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Both ways, one at a time. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q88"
+        },
+        {
+         "question": "A set of programs that controls the resources of a system and provides it to the users with an interface that is easier to use is called",
+         "options": {
+          "A": "Utility programs",
+          "B": "Application software",
+          "C": "Operating system",
+          "D": "Firmware"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Definition of an OS. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q89"
+        },
+        {
+         "question": "Simplex communication system can transmit data",
+         "options": {
+          "A": "In one direction",
+          "B": "In both directions",
+          "C": "Switch direction each time the direction of data transfer reverses",
+          "D": "None of the above"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "e.g. TV broadcast. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q90"
+        },
+        {
+         "question": "CPU Registers are used for\na) Storing data\nb) Storing instructions\nc) Storing intermediate results",
+         "options": {
+          "A": "Only a is correct",
+          "B": "Only b is correct",
+          "C": "Both a and c are correct",
+          "D": "a, b and c are correct"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "IR holds instructions; others hold data and results. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q91"
+        },
+        {
+         "question": "MAN stands for",
+         "options": {
+          "A": "Metropolitan Area Network",
+          "B": "Main Area Network",
+          "C": "Modified Area Network",
+          "D": "Middle Area Network"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "City-wide network. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q92"
+        },
+        {
+         "question": "The ____ network is owned by multiple organizations.",
+         "options": {
+          "A": "LAN",
+          "B": "WAN",
+          "C": "MAN",
+          "D": "PAN"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "WAN links belong to several carriers and organisations. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q93"
+        },
+        {
+         "question": "A system that prevents unauthorised access to a private computer network is",
+         "options": {
+          "A": "IDS",
+          "B": "FireWall",
+          "C": "Nmap",
+          "D": "Malware"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "An IDS detects; a firewall blocks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q94"
+        },
+        {
+         "question": "____ is used in a symmetric encryption",
+         "options": {
+          "A": "Public key",
+          "B": "Private key",
+          "C": "Candidate key",
+          "D": "Secret key"
+         },
+         "answer": "D",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "One shared secret key. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q95"
+        },
+        {
+         "question": "The shortcut keys for slide show in MS PowerPoint are",
+         "options": {
+          "A": "Shift + F5",
+          "B": "Shift + F7",
+          "C": "Ctrl + F2",
+          "D": "Ctrl + F5"
+         },
+         "answer": "A",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Shift + F5 starts the show from the current slide (F5 alone from the beginning). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q96"
+        },
+        {
+         "question": "A 4 bit word is called as",
+         "options": {
+          "A": "Noble",
+          "B": "Nibble",
+          "C": "Byte",
+          "D": "Bit"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "4 bits = nibble. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q97"
+        },
+        {
+         "question": "In MS-EXCEL, the full form of 'PV' is",
+         "options": {
+          "A": "Past Value",
+          "B": "Present Value",
+          "C": "Post Value",
+          "D": "Pet Value"
+         },
+         "answer": "B",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "PV() = present value. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q98"
+        },
+        {
+         "question": "The shortcut keys in MS Word used to find a text and automatically replace it with something different are",
+         "options": {
+          "A": "Ctrl + R",
+          "B": "Ctrl + U",
+          "C": "Ctrl + H",
+          "D": "Ctrl + Z"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Ctrl + H opens Replace. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q99"
+        },
+        {
+         "question": "____ is an example for a written communication",
+         "options": {
+          "A": "Making a phone call",
+          "B": "Attending a meeting",
+          "C": "Sending a text message",
+          "D": "Having a conversation"
+         },
+         "answer": "C",
+         "subject": "Q71–100 · Computer section",
+         "explanation": "Text is written. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "Legislative Council 2024 Data Entry Operator P2 · Q100"
+        }
+       ]
+      }
+     ]
     }
    ]
   }
@@ -10241,6 +11966,28 @@
      "subject": "P2 · Previous-Year Papers (KEA/KSET)",
      "topic": "Legislative Council 2024 – Computer Operator Paper-2",
      "weight": 100
+    }
+   ]
+  },
+  {
+   "name": "Legislative Council 2024 – Junior Console Operator Paper-2 · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "Legislative Council 2024 – Junior Console Operator Paper-2",
+     "weight": 100
+    }
+   ]
+  },
+  {
+   "name": "Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section) · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section)",
+     "weight": 30
     }
    ]
   }
