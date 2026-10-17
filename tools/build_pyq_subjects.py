@@ -144,7 +144,7 @@ def collect(pack_names):
 def main(report=False):
     # ---- Paper 1
     p1_topics = []
-    p1_items, _ = collect(P1_PACKS)
+    p1_items, p1_seen = collect(P1_PACKS)
     for pack, topic in P1_PACKS.items():
         qs = [q for n, q in p1_items if n == pack]
         if qs:
@@ -159,7 +159,7 @@ def main(report=False):
             for st in t["sets"]:
                 for q in st["questions"]:
                     src = q.get("source")
-                    if not src or src in seen:
+                    if not src or src in seen or src in p1_seen:  # already filed under a Paper 1 subject
                         continue
                     seen.add(src)
                     u = OVERRIDE.get(src) or classify(q)

@@ -16,7 +16,8 @@ from packlib import build_pack
 GROUP = "③ Previous-year papers · KEA / KSET (real questions, source shown on each)"
 PYQ_PACKS = {
     "pyq-p2": {"subject": "P2 · Previous-Year Papers (KEA/KSET)", "icon": "📜",
-               "papers": ["pyq_kset2023_csa", "pyq_kset2024_csa", "pyq_kset2025_csa", "pyq_kea2026_cs"],
+               "papers": ["pyq_kset2023_csa", "pyq_kset2024_csa", "pyq_kset2025_csa", "pyq_kea2026_cs",
+                          "pyq_gttc2024_lecturer_cs", "pyq_gttc2024_tech_cs", "pyq_klc2024_programmer_p2", "pyq_klc2024_compop_p2"],
                "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)"},
 }
 PYQ_SUBJECTS = {c["subject"] for c in PYQ_PACKS.values()}
