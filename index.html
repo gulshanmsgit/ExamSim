@@ -1402,7 +1402,59 @@ const examKey = () => (D.prefs.examMode in EXAMS ? D.prefs.examMode : 'gpstr');
 const planKeyOf = sp => (sp && sp.key in EXAMS ? sp.key : 'gpstr');
 // 'Day done' ticks are stored per exam so that the same date in two plans is ticked separately (GPSTR keeps the old keys)
 const dayDoneKey = date => (planKeyOf(D.plan) === 'gpstr' ? 'day:' : 'day:' + planKeyOf(D.plan) + ':') + date;
-function setActivePlan() { D.plan = D.plans[examKey()] || D.plans.gpstr || Object.values(D.plans).find(Boolean) || null; }
+function setActivePlan() {
+  const key = D.plans[examKey()] ? examKey() : D.plans.gpstr ? 'gpstr' : Object.keys(D.plans).find(k => D.plans[k]);
+  const sp = key ? D.plans[key] : null, auto = sp && planCfg(key).auto;
+  D.plan = sp && auto && auto.start && auto.exam && auto.start < auto.exam ? autoPlan(sp, auto.start, auto.exam) : sp;
+}
+// Per-exam plan settings in prefs.planCfg[exam]: view 'date' (day-by-day calendar) or 'subject' (no dates), and auto
+// {start, exam}: a calendar built by the app that replaces the planner's fixed dates
+const planCfg = k => ((D.prefs.planCfg || {})[k || examKey()]) || {};
+async function setPlanCfg(patch) {
+  const k = planKeyOf(D.plan), old = D.prefs.planCfg;
+  D.prefs.planCfg = { ...(old || {}), [k]: { ...planCfg(k), ...patch } };
+  setActivePlan();
+  try { await savePrefs(); } catch (e) { D.prefs.planCfg = old; setActivePlan(); toast(errText(e), 'error'); return false; }
+  return true;
+}
+/* Build a calendar from the start date to the day before the exam. Learning topics get days in proportion to their planned
+   hours (Paper 1 and Paper 2 side by side; a long topic continues as '(contd.)'), and the last ~20 % of the days hold the
+   planner's 'Revision & Mocks' rows. Row start/target dates follow the new calendar, so 'overdue' stays right. */
+function autoPlan(sp, start, exam) {
+  const dates = [];
+  for (let d = start; d < exam && dates.length < 400; d = addDays(d, 1)) dates.push(d);
+  if (!dates.length) return sp;
+  const N = dates.length, rev = N < 4 ? 0 : N < 10 ? 1 : Math.min(14, Math.round(N * 0.2)), L = N - rev;
+  const isRev = g => /revision|mock/i.test(g.name), wd = d => planDate(d).toLocaleDateString('en', { weekday: 'short' });
+  const out = { ...sp, examDate: exam, exams: undefined, dateMap: undefined, autoBuilt: { start, exam }, sheets: {},
+    calendar: dates.map(date => ({ date, day: wd(date), phase: 'Learning', hours: 0, p1: [], p2: [], habit: '15 min news / CA notes', done: false })) };
+  const when = {};
+  const spread = (rows, k, from, n) => { // each row gets the days its share of the hours covers
+    const tot = rows.reduce((s, r) => s + (r.hours || 0.5), 0) || 1;
+    let cum = 0;
+    for (const r of rows) {
+      const h = r.hours || 0.5, a = Math.min(n - 1, Math.floor(cum / tot * n)), b = Math.max(a, Math.min(n - 1, Math.ceil((cum + h) / tot * n - 1e-9) - 1));
+      for (let i = a; i <= b; i++) {
+        const c = out.calendar[from + i];
+        c[k].push(`${r.id} ${r.topic}${i > a ? ' (contd.)' : ''}`);
+        c.hours += h / (b - a + 1);
+        if (/mock/i.test(r.topic)) c.phase = 'MOCK TEST'; else if (from && c.phase === 'Learning') c.phase = 'Revision';
+      }
+      when[r.id] = { start: dates[from + a], target: dates[from + b] };
+      cum += h;
+    }
+  };
+  for (const k of ['p1', 'p2']) {
+    const sh = sp.sheets && sp.sheets[k]; if (!sh) continue;
+    spread(sh.groups.filter(g => !isRev(g)).flatMap(g => g.rows), k, 0, L);
+    const revRows = sh.groups.filter(isRev).flatMap(g => g.rows);
+    if (rev) spread(revRows, k, L, rev); else revRows.forEach(r => { when[r.id] = { start: dates[N - 1], target: dates[N - 1] }; });
+  }
+  for (const [k, sh] of Object.entries(sp.sheets || {}))
+    out.sheets[k] = sh && { ...sh, groups: sh.groups.map(g => ({ ...g, rows: g.rows.map(r => when[r.id] ? { ...r, ...when[r.id], day: wd(when[r.id].start) } : r) })) };
+  out.calendar.forEach(c => { c.hours = Math.round(c.hours * 2) / 2; c.p1 = c.p1.length ? [c.p1.join('\n')] : []; c.p2 = c.p2.length ? [c.p2.join('\n')] : []; });
+  return out;
+}
 // Exams other than GPSTR (KRIES) show just their own plan's topics in the Library, subject pages and Plan
 let _scope = null, _scopeOf = null;
 function examScope() {
@@ -2271,6 +2323,7 @@ function renderPlan() {
     <div class="card plan-sum"><div class="row" style="gap:6px 18px"><span>${left != null ? `<b>${left}</b> days left` : ''}</span><span>${where}</span>
       <span><b>${all.done}</b> / ${all.total} topics done${all.overdue ? ` · <span class="od">${all.overdue} overdue</span>` : ''}</span></div>
       <div class="goal-bar" style="margin-top:8px" title="${all.pct}% of planner topics completed"><i style="width:${all.pct}%"></i></div></div>
+    ${planModeCard()}
     <div class="tabs plan-tabs">${tabs.map(([k, l]) => `<button class="tab ${PL.tab === k ? 'active' : ''}" data-ptab="${k}">${l}</button>`).join('')}</div><div id="planBody"></div>`;
   el.innerHTML = h;
   const body = $('#planBody');
@@ -2289,6 +2342,37 @@ function renderPlan() {
   if (q) q.oninput = () => { PL.q = q.value; const pos = q.selectionStart; renderPlan(); const n = $('#plQ'); n.focus(); n.setSelectionRange(pos, pos); };
   if ($('#plF')) $('#plF').onchange = () => { PL.filter = $('#plF').value; renderPlan(); };
 }
+
+// How the plan is followed: by date (calendar from the planner, or built from your own start and exam dates) or by subject
+function planModeCard() {
+  const key = planKeyOf(D.plan), sp = D.plans[key] || D.plan, cfg = planCfg(key), byS = subjectWise(), auto = D.plan.autoBuilt;
+  const cal0 = (sp.calendar || [])[0], s0 = auto ? auto.start : dayKey() > (cal0 ? cal0.date : '') ? dayKey() : cal0.date;
+  const e0 = auto ? auto.exam : sp.examDate || (sp.exams && sp.exams.length ? sp.exams[sp.exams.length - 1].date : '') || addDays(dayKey(), 30);
+  let h = `<div class="card plan-mode"><div class="row" style="gap:8px 14px"><b>Follow the plan</b>
+    <div class="seg"><button data-pmode="date" class="${byS ? '' : 'on'}">${I('calendar')} By date</button><button data-pmode="subject" class="${byS ? 'on' : ''}">${I('book')} By subject</button></div></div>`;
+  if (byS) h += `<p class="small muted" style="margin:8px 0 0">No dates: study subject by subject at your own pace. Today shows your subjects; tick topics as you finish them.</p>`;
+  else h += `<p class="small muted" style="margin:8px 0">${auto ? `Built automatically for <b>${esc(fmtPD(auto.start))} – ${esc(fmtPD(addDays(auto.exam, -1)))}</b> (${(D.plan.calendar || []).length} days, exam ${esc(fmtPD(auto.exam))}). Topics get days by their planned hours; the last days are revision and mock tests.`
+      : `Using the planner's own dates. Set your start and exam dates to rebuild the whole calendar automatically.`}</p>
+    <div class="row" style="gap:8px"><label class="small">Start <input type="date" id="pmStart" value="${esc(s0)}" style="width:auto"></label>
+      <label class="small">Exam <input type="date" id="pmExam" value="${esc(e0)}" style="width:auto"></label>
+      <button class="btn primary" id="pmBuild">${I('calendar')} ${auto ? 'Rebuild plan' : 'Build my plan'}</button>
+      ${auto ? '<button class="btn ghost" id="pmReset">Use the planner&rsquo;s dates</button>' : ''}</div>`;
+  return h + '</div>';
+}
+document.addEventListener('click', async e => {
+  const m = e.target.closest('[data-pmode]');
+  if (m) { if (await setPlanCfg({ view: m.dataset.pmode })) { setTodayTabLabel(); TD.date = null; renderPlan(); } return; }
+  if (e.target.closest('#pmBuild')) {
+    const start = $('#pmStart').value, exam = $('#pmExam').value;
+    if (!start || !exam) { toast('Choose both dates', 'error'); return; }
+    if (exam <= start) { toast('The exam date must be after the start date', 'error'); return; }
+    const n = Math.round((planDate(exam) - planDate(start)) / 86400000);
+    if (n > 400) { toast('Please choose dates less than 400 days apart', 'error'); return; }
+    if (await setPlanCfg({ auto: { start, exam } })) { TD.date = null; toast(`Plan built: ${plural(n, 'day')} until the exam ✓`); renderPlan(); }
+    return;
+  }
+  if (e.target.closest('#pmReset')) { if (await setPlanCfg({ auto: null })) { TD.date = null; toast("Back to the planner's dates"); renderPlan(); } }
+});
 
 function taskHTML(t) {
   const m = /^(P[12]-[A-Z0-9]+-\d+)\s+(.*)$/.exec(t);
@@ -4654,7 +4738,8 @@ function dayGroupsHTML(d) {
 }
 
 /* ---------- KRIES: subject-wise view instead of dates (owner, 12 Oct 2026); GPSTR keeps the day view ---------- */
-function subjectWise() { return !!D.plan && planKeyOf(D.plan) === 'kries'; }
+// 'By subject' mode (no dates) or 'By date' (day-by-day calendar); chosen per exam in the Study plan, KRIES defaults to subjects
+function subjectWise() { if (!D.plan) return false; const v = planCfg(planKeyOf(D.plan)).view; return v ? v === 'subject' : planKeyOf(D.plan) === 'kries'; }
 function setTodayTabLabel() { const s = $('[data-go="today"] span'); if (s) s.textContent = subjectWise() ? 'Subjects' : 'Today'; }
 // Plan topics of one paper grouped by subject, in plan order
 function paperSubjects(k) {
