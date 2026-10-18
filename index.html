@@ -2361,18 +2361,19 @@ function planModeCard() {
 }
 document.addEventListener('click', async e => {
   const m = e.target.closest('[data-pmode]');
-  if (m) { if (await setPlanCfg({ view: m.dataset.pmode })) { setTodayTabLabel(); TD.date = null; renderPlan(); } return; }
+  if (m) { if (await setPlanCfg({ view: m.dataset.pmode })) { setTodayTabLabel(); TD.date = null; refreshModeViews(); } return; }
   if (e.target.closest('#pmBuild')) {
     const start = $('#pmStart').value, exam = $('#pmExam').value;
     if (!start || !exam) { toast('Choose both dates', 'error'); return; }
     if (exam <= start) { toast('The exam date must be after the start date', 'error'); return; }
     const n = Math.round((planDate(exam) - planDate(start)) / 86400000);
     if (n > 400) { toast('Please choose dates less than 400 days apart', 'error'); return; }
-    if (await setPlanCfg({ auto: { start, exam } })) { TD.date = null; toast(`Plan built: ${plural(n, 'day')} until the exam ✓`); renderPlan(); }
+    if (await setPlanCfg({ auto: { start, exam } })) { TD.date = null; toast(`Plan built: ${plural(n, 'day')} until the exam ✓`); refreshModeViews(); }
     return;
   }
-  if (e.target.closest('#pmReset')) { if (await setPlanCfg({ auto: null })) { TD.date = null; toast("Back to the planner's dates"); renderPlan(); } }
+  if (e.target.closest('#pmReset')) { if (await setPlanCfg({ auto: null })) { TD.date = null; toast("Back to the planner's dates"); refreshModeViews(); } }
 });
+function refreshModeViews() { if (!$('#today').hidden) renderToday(); else if (!$('#plan').hidden) renderPlan(); else rerender(); }
 
 function taskHTML(t) {
   const m = /^(P[12]-[A-Z0-9]+-\d+)\s+(.*)$/.exec(t);
@@ -4753,14 +4754,14 @@ function paperSubjects(k) {
   return { subs: [...subs.values()].filter(x => x.s), missing };
 }
 function renderSubjectsView(el) {
-  const today = dayKey(), exams = D.plan.exams || [];
+  const today = dayKey(), exams = D.plan.exams || (D.plan.examDate ? [{ paper: '', date: D.plan.examDate }] : []);
   const all = planRows(), done = all.filter(r => rowState(r).status === 'Completed').length, pc = all.length ? Math.round(done / all.length * 100) : 0;
   const left = D.plan.examDate && today <= D.plan.examDate ? Math.round((planDate(D.plan.examDate) - planDate(today)) / 86400000) : null;
   let h = `<div class="td-hero"><div class="td-hero-top"><div class="grow">
-      <div class="td-eyebrow">${esc(EXAMS.kries.name)}</div><h1>Subjects</h1>
-      <div class="td-sub">${exams.map(x => esc(x.paper) + ' exam ' + esc(fmtPD(x.date))).join(' · ')}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
+      <div class="td-eyebrow">${esc(EXAMS[planKeyOf(D.plan)].name)}</div><h1>Subjects</h1>
+      <div class="td-sub">${exams.map(x => (x.paper ? esc(x.paper) + ' exam ' : 'Exam ') + esc(fmtPD(x.date))).join(' · ')}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
       <div class="ring" style="--p:${pc}" title="${done} of ${all.length} topics done"><span>${done}/${all.length}</span><small>topics</small></div></div></div>`;
-  h += onboardingHTML();
+  h += planModeCard() + onboardingHTML();
   for (const [k, label] of [['p1', 'Paper 1 · General'], ['p2', 'Paper 2 · Computer Science']]) {
     if (!planPapers().includes(k)) continue;
     const { subs, missing } = paperSubjects(k);
@@ -4808,6 +4809,7 @@ function renderToday() {
       <div class="seg td-seg">${[['Yesterday', addDays(today, -1)], ['Today', today], ['Tomorrow', addDays(today, 1)]].map(([l, x]) => `<button data-td="${x}" class="${date === x ? 'on' : ''}">${l}</button>`).join('')}</div>
       <button class="icon-btn" data-td-step="1" title="Next day" aria-label="Next day">${I('chev')}</button>
       <input type="date" id="tdDate" value="${date}" aria-label="Choose a date"></div></div>`;
+  if (D.plan) h += planModeCard();
   h += onboardingHTML();
   if (!D.plan) {
     el.innerHTML = h + `<div class="card empty"><p>Load your study plan to see what to study each day.</p><button class="btn primary" data-open-bank>${I('download')} Open question bank</button></div>` + tdDoneHTML(date);

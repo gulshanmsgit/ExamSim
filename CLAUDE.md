@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v87; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v88; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -108,7 +108,7 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 - `openAskAi({topicId, q, sel})` builds a prompt with the exam context (GPSTR-CST, KEA question styles), subject, topic, plan ID, coverage, sub-topics, the headings of the topic's notes, practice accuracy and – for a question – options, key, the student's answer, explanation and source. Goals: in depth / revision notes / exam facts + practice / my doubt (+ 'This question'). Buttons: copy & open ChatGPT or Claude (prompt pre-filled via ?q=), Gemini (copy), or answer in-app with Groq and save to the topic's notes. Entry points: `data-askai=topicId` (topic page, notes page) and the '🤖 Ask AI more' button in explainBlock() (exam review, flashcards).
 
 ### Plan modes: by date / by subject, auto-built calendar (17 Oct 2026, owner's request)
-- Study plan → "Follow the plan" card: **By date** (Days tab, Today shows the day) or **By subject** (no dates; Today becomes the Subjects view, as KRIES had). Saved per exam in `D.prefs.planCfg[exam].view`; KRIES defaults to subjects, GPSTR to dates (`subjectWise()`).
+- Study plan, Today and the Subjects view → "Follow the plan" card: **By date** (Days tab, Today shows the day) or **By subject** (no dates; Today becomes the Subjects view, as KRIES had). Saved per exam in `D.prefs.planCfg[exam].view`; KRIES defaults to subjects, GPSTR to dates (`subjectWise()`).
 - In date mode the owner sets **Start** and **Exam** dates → `autoPlan(sp, start, exam)` builds the calendar from start to the day before the exam: learning rows spread by planned hours (P1 and P2 side by side, sheet order = subject by subject, long topics continue as "(contd.)"), last ~20 % of days (max 14) for the "Revision & Mocks" rows; row start/target dates are rewritten so overdue stays right. Saved as `planCfg[exam].auto = {start, exam}`; `setActivePlan()` applies it, so `D.plan` is a derived copy (the imported plan in `D.plans` is untouched). "Use the planner's dates" clears it.
 
 ### Study plan & pack workflow (built, tested, committed 26 Sep 2026)
