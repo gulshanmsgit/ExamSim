@@ -21,7 +21,7 @@ PYQ_PACKS = {
                           "pyq_klc2024_console_p2", "pyq_klc2024_dataentry_p2",
                           "pyq_gfgc2021_cs",
                           "pyq_pgcet2023_mtech_cs", "pyq_pgcet2024_mtech_cs", "pyq_pgcet2026_cs",
-                          "pyq_pgcet2023_mca", "pyq_pgcet2024_mca"],
+                          "pyq_pgcet2023_mca", "pyq_pgcet2024_mca", "pyq_pgcet2025_mca", "pyq_pgcet2026_mca"],
                "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)"},
 }
 PYQ_SUBJECTS = {c["subject"] for c in PYQ_PACKS.values()}

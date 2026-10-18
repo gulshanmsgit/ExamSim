@@ -18,7 +18,7 @@ plain, step-by-step explanations, testing in the browser before handing over, an
 Workflow: Claude edits and commits locally; **the owner runs `git push origin main`** (PowerShell/VS Code terminal in the Desktop folder). Commit messages end with the Co-Authored-By line from the system prompt.
 
 ## App architecture (`index.html`, one file, vanilla JS, no build step)
-- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v89; CDN libraries go in a separate cache `examsim-libs`),
+- Other files: `sw.js` (service worker, network-first; **bump `CACHE = 'examsim-vN'` on every release**, currently v90; CDN libraries go in a separate cache `examsim-libs`),
   `manifest.webmanifest`, `icons/`, `firestore.rules`, `README.md`, `packs/`, `tools/`.
 - **Storage: Firebase Firestore**, project `examsim-4db41` (config in `FIREBASE_CONFIG` at the top of the script; SDK 10.12.2 loaded by dynamic `import()` from gstatic).
   No login: data lives under `workspaces/{syncCode}/{collection}/{id}`; the 24+ char sync code is the "key".
@@ -91,6 +91,7 @@ split recorded in `tools/syllabus_map.json` first; `python tools/check_packs.py`
   GTTC Lecturer CS 2024 (key in GBOREC2024_GTTC_revisedkey…pdf), Legislative Council programmer P2 2024 (key in klc2024_KLC_REVISED_KEY…pdf),
   Raichur Univ. CS&A 2024, GFGC CS 2021-22; then KEA GK 2026 ×2, Kannada/English/Computer 2026, KSET General Paper 2025
   (their keys still need finding on the exam pages). QUESTION_STANDARD.md §8 has the rules.
+- **All Computer Science previous-year papers are done (18 Oct 2026):** 18 papers, 1626 Q in `packs/pyq-p2.json` (modules `tools/pyq_*.py`, listed in build_pyq.py). With official KEA keys: GTTC 2024 Lecturer + Technician, Legislative Council 2024 Programmer P2, Computer Operator P2, Junior Console Operator P2. ExamSim-solved: GFGC 2021 CS, Legislative Council Data Entry P2 (computer section Q71–100 only; its parsed key is unreliable), PGCET M.Tech CS 2023/2024, PGCET 2026 CS, PGCET MCA 2023–2026 (MCA papers include maths, reasoning, GK and English as printed). Flawed/ambiguous questions are skipped and listed in each module docstring. `ru2024_asstprof_csa.pdf` is byte-identical to `kset2024_csa.pdf` (KEA archive mislabel) – no separate module. "Legislative Council Programmer Paper-1" is a GK paper, not CS. build_pyq_subjects.py skips sources already filed under a Paper 1 subject. Scratchpad helpers used: draft.py/raw.py (OCR), used.py (questions already transcribed in topic packs, by source), mkmod.py (merge into a module), keycheck.py (compare with final_*.json keys).
 - App: questions may carry `source`; `pyqBadge(q)` shows "PYQ · <source>" (real) or "PYQ pattern" (generated, explanation starts
   with "PYQ pattern") in the exam, review and answer sheet. packlib: 5th tuple item = source; set `keep_order: True` keeps printed option order.
 

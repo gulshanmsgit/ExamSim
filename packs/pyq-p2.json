@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)",
- "description": "Real questions from past KEA / KSET papers (1439 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2; Legislative Council 2024 – Junior Console Operator Paper-2; Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section); GFGC 2021 – Assistant Professor Computer Science; PGCET 2023 – M.Tech Computer Science; PGCET 2024 – M.Tech Computer Science; PGCET 2026 – M.Tech Computer Science stream; PGCET 2023 – MCA entrance; PGCET 2024 – MCA entrance. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
+ "description": "Real questions from past KEA / KSET papers (1626 so far): KSET 2023 – Computer Science & Application; KSET 2024 – Computer Science & Application; KSET 2025 – Computer Science & Applications; KEA 2026 – Computer Science Paper-2 (5 Jul 2026); GTTC 2024 – Lecturer (Engineering) Computer Science; GTTC 2024 – Technician Gr-III Computer Science; Legislative Council 2024 – Sr/Jr Programmer Paper-2; Legislative Council 2024 – Computer Operator Paper-2; Legislative Council 2024 – Junior Console Operator Paper-2; Legislative Council 2024 – Data Entry Operator Paper-2 (Computer section); GFGC 2021 – Assistant Professor Computer Science; PGCET 2023 – M.Tech Computer Science; PGCET 2024 – M.Tech Computer Science; PGCET 2026 – M.Tech Computer Science stream; PGCET 2023 – MCA entrance; PGCET 2024 – MCA entrance; PGCET 2025 – MCA entrance; PGCET 2026 – MCA entrance. Typed from KEA's scanned question papers with the options in the printed order; each question shows its paper and number. Where KEA publishes no full key, the answer was worked out by ExamSim and says so. Each paper also comes as a full-paper mock test.",
  "subjects": [
   {
    "name": "P2 · Previous-Year Papers (KEA/KSET)",
@@ -19098,6 +19098,2487 @@
        ]
       }
      ]
+    },
+    {
+     "name": "PGCET 2025 – MCA entrance",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Which of the following is correct?\n(a) m⁴ − 256 = (m² + 16) (m² − 16)\n(b) m⁴ − 256 = (m + 4i) (m − 4i) (m + 4) (m − 4)",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "both a and b",
+          "D": "neither a nor b"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "(m + 4i)(m − 4i) = m² + 16. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q1"
+        },
+        {
+         "question": "Which of the following is not a quadratic equation?",
+         "options": {
+          "A": "(x − 2)² + 1 = 2x + 3",
+          "B": "x (x + 1) + 8 = (x + 2) (x − 2)",
+          "C": "x (2x + 3) = x² + 1",
+          "D": "(x + 2)³ = x³ − 4"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "The x² terms cancel, leaving x + 12 = 0. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q2"
+        },
+        {
+         "question": "A person has 2 parents, 4 grandparents, 8 great grandparents and so on. The number of his ancestors during the ten generations preceding his own is",
+         "options": {
+          "A": "1512",
+          "B": "4086",
+          "C": "1023",
+          "D": "2046"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "2 + 4 + … + 2¹⁰ = 2¹¹ − 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q3"
+        },
+        {
+         "question": "If the co-efficients of three consecutive terms in the expansion of (1 + a)ⁿ are in the ratio 1 : 7 : 42, then the value of n is",
+         "options": {
+          "A": "55",
+          "B": "50",
+          "C": "45",
+          "D": "60"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "r/(n − r + 1) = 1/7 and (r + 1)/(n − r) = 1/6 give r = 7, n = 55. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q4"
+        },
+        {
+         "question": "The number of different 8-letter arrangement that can be made from the letters of the word DAUGHTER so that all vowels do not occur together is",
+         "options": {
+          "A": "36000",
+          "B": "43200",
+          "C": "64800",
+          "D": "53600"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "8! − 6! × 3! = 40320 − 4320. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q5"
+        },
+        {
+         "question": "The area of a triangle whose vertices are (3, 8) (−4, 2) and (5, 1) is",
+         "options": {
+          "A": "30.5",
+          "B": "61",
+          "C": "40.5",
+          "D": "81"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "½ |3(2 − 1) − 4(1 − 8) + 5(8 − 2)| = 61/2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q6"
+        },
+        {
+         "question": "Let A, B and C are the square matrices of the order n × n. Then which of the following is not correct?",
+         "options": {
+          "A": "A + B = B + A",
+          "B": "(A + B) + C = A + (B + C)",
+          "C": "AB = BA",
+          "D": "(AB)C = A(BC)"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Matrix multiplication is not commutative. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q7"
+        },
+        {
+         "question": "The angle between the line through the points (4, 7, 8), (2, 3, 4) and the line through the points (−1, −2, 1), (1, 2, 5) is",
+         "options": {
+          "A": "π/3",
+          "B": "π/2",
+          "C": "π/6",
+          "D": "0"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Both directions are (2, 4, 4): the lines are parallel. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q9"
+        },
+        {
+         "question": "The mid point of the line joining the points (1, 4, 8) and (3, 6, 10) is",
+         "options": {
+          "A": "(2, 5, 9)",
+          "B": "(1, 1, 1)",
+          "C": "(4, 10, 18)",
+          "D": "(2, 2, 2)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Average the coordinates. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q10"
+        },
+        {
+         "question": "The equation of the circle which passes through the points (2, −2) and (3, 4) and whose centre lies on the line x + y = 2 is",
+         "options": {
+          "A": "(x − 0.7)² + (y − 1.3)² = 12.58",
+          "B": "(x + 0.7)² + (y + 1.3)² = 12.58",
+          "C": "(x − 0.7)² + (y + 1.3)² = 12.58",
+          "D": "x² + y² = 5"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Equal distances give the centre (0.7, 1.3). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q11"
+        },
+        {
+         "question": "The equation of the ellipse, with major axis along the x-axis and passing through the points (4, 3) and (−1, 4) is",
+         "options": {
+          "A": "15x² + 7y² = 247",
+          "B": "15x² − 7y² = 247",
+          "C": "7x² − 15y² = 247",
+          "D": "7x² + 15y² = 247"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Solving 16u + 9v = 1, u + 16v = 1 gives u = 7/247, v = 15/247. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q12"
+        },
+        {
+         "question": "The equation of the hyperbola where foci are (0, ±12) and the length of the latus rectum is 36 is",
+         "options": {
+          "A": "x² − y² = 108",
+          "B": "x² − 3y² = 108",
+          "C": "3y² − x² = 108",
+          "D": "x² + 3y² = 108"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "2b²/a = 36 and a² + b² = 144 give a² = 36, b² = 108. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q13"
+        },
+        {
+         "question": "In Boolean algebra, which of the following is correct?",
+         "options": {
+          "A": "x∧y = x'∨y",
+          "B": "x∨y = x'∧y",
+          "C": "x∧(x∨y) = x",
+          "D": "x∨1 = x"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Absorption law; x∨1 = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q14"
+        },
+        {
+         "question": "In Boolean algebra, simplified form of (x∧y)∨x'∨y' is",
+         "options": {
+          "A": "1",
+          "B": "0",
+          "C": "y",
+          "D": "x"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "x'∨y' = (x∧y)' by De Morgan, so the expression is P∨P' = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q15"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(a) x ∨ y ∧ x′ ∧ y′ = (x′ ∧ y) ∨ (x ∧ y′)\n(b) x ∨ y ∧ y ∨ z ∧ z ∨ x = (x ∧ y) ∨ (y ∧ z) ∨ (z ∧ x)",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "both a and b",
+          "D": "neither a nor b"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Reading (b) as (x ∨ y)(y ∨ z)(z ∨ x), it is the majority function; (a)'s right side is XOR, which (x ∨ y)(x′ ∧ y′) = 0 is not. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q16"
+        },
+        {
+         "question": "Which of the following is/are true?\n(a) cos2x = cos²x + sin²x\n(b) cos2x = (1 − tan²x)/(1 + tan²x)",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "both a and b",
+          "D": "neither a nor b"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "cos 2x = cos²x − sin²x. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q17"
+        },
+        {
+         "question": "For any real numbers x and y, which of the following is/are correct?\n(a) If sinx = siny then x = nπ + (−1)ⁿy where n ∈ z\n(b) If tanx = tany then x = nπ + y where n ∈ z",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "both a and b",
+          "D": "neither a nor b"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Standard general solutions. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q18"
+        },
+        {
+         "question": "If Sinx = 3/5, Cosy = −12/13 where x and y both lie in second quadrant, the value of Sin(x + y) is",
+         "options": {
+          "A": "−56/65",
+          "B": "4/5",
+          "C": "5/13",
+          "D": "56/65"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "3/5 × (−12/13) + (−4/5) × 5/13. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q19"
+        },
+        {
+         "question": "The value of Sin⁻¹ (Sin 3π/5)",
+         "options": {
+          "A": "2π/5",
+          "B": "3π/5",
+          "C": "5/3π",
+          "D": "4π/5"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "sin(3π/5) = sin(2π/5). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q20"
+        },
+        {
+         "question": "A bag contains 8 white and 6 red balls. The probability of drawing two balls of the same colour is",
+         "options": {
+          "A": "28/91",
+          "B": "15/91",
+          "C": "13/91",
+          "D": "43/91"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "(28 + 15)/91. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q21"
+        },
+        {
+         "question": "Two students Anil and Ashima appeared for an examination. The probability that Anil will qualify the examination is 0.05 and that Ashima will qualify the examination is 0.10. The probability that both will qualify the examination is 0.02. The probability that both will not qualify the examination is",
+         "options": {
+          "A": "0.13",
+          "B": "0.87",
+          "C": "0.98",
+          "D": "0.15"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "1 − (0.05 + 0.10 − 0.02). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q22"
+        },
+        {
+         "question": "The standard deviation of 8, 10, 12, 14, 16, 18, 20, 22, 24, 26 is",
+         "options": {
+          "A": "33",
+          "B": "5.74",
+          "C": "15",
+          "D": "3.98"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Variance 33, so σ = √33. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q23"
+        },
+        {
+         "question": "The lines of regression of y on x and x on y are available as 4x − 5y + 33 = 0 and 20x − 9y = 107 respectively. The co-efficient of correlation between x and y is",
+         "options": {
+          "A": "0.6",
+          "B": "0.8",
+          "C": "0.45",
+          "D": "0.95"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "√(0.8 × 0.45). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q24"
+        },
+        {
+         "question": "A frequency distribution of variable x with mean 42 and median 50 is",
+         "options": {
+          "A": "positively skewed distribution",
+          "B": "negatively skewed distribution",
+          "C": "mesokurtic distribution",
+          "D": "platykurtic distribution"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Mean < median. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "Viruses:\n(a) are usually spread by downloading from public pages or copying the content from an infected hard disk or pendrive\n(b) does not spread\nWhich of the following is/are correct?",
+         "options": {
+          "A": "both a and b are correct",
+          "B": "only a is correct",
+          "C": "only b is correct",
+          "D": "neither a nor b is correct"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Viruses spread. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q26"
+        },
+        {
+         "question": "Given the following statements:\nS1: NAND and NOR are universal gates\nS2: AND, OR, NOT are basic gates\nWhich of the following is the correct answer?",
+         "options": {
+          "A": "S1: true and S2: true",
+          "B": "S1: false and S2: false",
+          "C": "S1: false and S2: true",
+          "D": "S1: true and S2: false"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Any Boolean function can be built from NAND alone or NOR alone. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q27"
+        },
+        {
+         "question": "Select the correct arrangement in the decreasing order of size",
+         "options": {
+          "A": "KB, MB, GB, Bit, Byte, Nibble",
+          "B": "Bit, Byte, Nibble, KB, GB, MB",
+          "C": "GB, MB, KB, Byte, Nibble, Bit",
+          "D": "MB, KB, GB, Nibble, Bit, Byte"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Largest first. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q28"
+        },
+        {
+         "question": "Given the following lists:\nList 1\n(a) Input devices\n(b) Memory devices\n(c) System software\n(d) Operating system\nList 2\n(i) Floppy disks, Hard drives\n(ii) Keyboard, Microphone\n(iii) Windows, Linux\n(iv) Compiler, Assembler\nIdentify the correct match from the following:",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iii, b – iv, c – ii, d – i",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – iii, b – ii, c – iv, d – i"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Matching. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q29"
+        },
+        {
+         "question": "The (a) memory is used to (b) the performance mismatch between the (c) memory and the (d).\nThe correct order of words in the above statement is",
+         "options": {
+          "A": "(a) Main, (b) Increase, (c) Cache, (d) CPU Registers",
+          "B": "(a) Secondary, (b) Increase, (c) CPU Registers, (d) Main memory",
+          "C": "(a) Cache, (b) Decrease, (c) Main, (d) CPU Register",
+          "D": "(a) Cache, (b) Decrease, (c) Main, (d) Secondary memory"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Cache reduces the gap between main memory and the CPU registers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q30"
+        },
+        {
+         "question": "Identify the correct answer from the given options:\n(a) Mouse is a device which can be connected externally to a computer\n(b) Left and Right buttons of the mouse have the same functionality\n(c) The moving speed of the pointer on the screen is fixed",
+         "options": {
+          "A": "(a), (b) and (c) are true",
+          "B": "(a) is true, (b) and (c) are false",
+          "C": "(a) and (b) are true, (c) is false",
+          "D": "(a) and (c) are true, (b) is false"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Pointer speed can be adjusted. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q31"
+        },
+        {
+         "question": "Consider the following statements with respect to internet:\nS1 : A computer requires a correct IP address to access internet\nS2 : Internet is a worldwide system of interconnected computer networks and electronic devices that communicate with each other using an established set of protocols\nS3 : One of the biggest advantage of internet is a safe cyber space.\nWhich of the following is correct?",
+         "options": {
+          "A": "S1 : True, S2 : True; S3 : True",
+          "B": "S1 : True, S2 : True; S3 : False",
+          "C": "S1 : False, S2 : True; S3 : True",
+          "D": "S1 : False, S2 : False; S3 : False"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Cyberspace is not safe by default. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q32"
+        },
+        {
+         "question": "Which of the following statements is true with respect to a database?",
+         "options": {
+          "A": "Collection of data or information without any organization",
+          "B": "Organized collection of data or information that can be accessed and updated",
+          "C": "Organized collection of data that cannot be updated",
+          "D": "Collection of data or information with proper organization"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Definition. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q33"
+        },
+        {
+         "question": "____ is a method used to encode information into a format that can be used and understood by computer system.",
+         "options": {
+          "A": "Data structure",
+          "B": "Data definition",
+          "C": "Data representation",
+          "D": "Data crunching"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Data representation = how information is coded (binary, ASCII, floating point …). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q34"
+        },
+        {
+         "question": "Match the following:\nList 1\n(a) 1024 bytes\n(b) 1024 KB\n(c) 1024 MB\n(d) 1024 GB\nList 2\n(i) 1 gigabyte\n(ii) 1 megabyte\n(iii) 1 terabyte\n(iv) 1 kilobyte",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iv, b – ii, c – i, d – iii",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Each step is ×1024. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q35"
+        },
+        {
+         "question": "Which among the following is correct about 85₁₀ equivalent 4-bit BCD code?",
+         "options": {
+          "A": "0111 0110",
+          "B": "1000 0101",
+          "C": "10000011",
+          "D": "0010 0101"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Each decimal digit is coded separately: 8 = 1000, 5 = 0101. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q36"
+        },
+        {
+         "question": "With respect to Binary, Octal and Hexadecimal number systems:\nS1: Octal and Hexadecimal representation offer compact representation than binary\nS2: Binary numbers are fundamental in computing and are used at the lowest level in digital system\nWhich of the following is correct?",
+         "options": {
+          "A": "Both S1 and S2 are true",
+          "B": "Both S1 and S2 are false",
+          "C": "S1 is true and S2 is false",
+          "D": "S2 is true and S1 is false"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "One octal digit = 3 bits, one hex digit = 4 bits, so both are compact; hardware works in binary. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q37"
+        },
+        {
+         "question": "If negative members are stored in 2's complement form, then range of numbers that can be stored in 8 bits is ____",
+         "options": {
+          "A": "−127 to +127",
+          "B": "−127 to +128",
+          "C": "−128 to +127",
+          "D": "−128 to +128"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "n-bit 2's complement: −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 = −128 … +127. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q38"
+        },
+        {
+         "question": "53 in 2's complement form is ____.",
+         "options": {
+          "A": "1001011",
+          "B": "001010",
+          "C": "0110101",
+          "D": "001011"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "A positive number is the same in 2's complement: 53 = 110101, with a 0 sign bit → 0110101. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q39"
+        },
+        {
+         "question": "Decimal equivalent of the 763.4₍₈₎ is ____.",
+         "options": {
+          "A": "499.5",
+          "B": "499",
+          "C": "49.95",
+          "D": "459.9"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "7·64 + 6·8 + 3 + 4/8 = 448 + 48 + 3 + 0.5 = 499.5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q40"
+        },
+        {
+         "question": "The magnitude of the binary number 10111011 in 1's complement and 2's complement representation are ____ and ____ respectively.",
+         "options": {
+          "A": "−69, −68",
+          "B": "−68, −69",
+          "C": "−59, −58",
+          "D": "−58, −59"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Sign bit 1. 1's complement: invert → 01000100 = 68 → −68. 2's complement: invert + 1 → 01000101 = 69 → −69. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q41"
+        },
+        {
+         "question": "1's and 2's complement of −24₍₁₀₎ in binary are ____ and ____.",
+         "options": {
+          "A": "100111, 101000",
+          "B": "011000, 011001",
+          "C": "101000, 100111",
+          "D": "011001, 011000"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "24 = 011000 (6 bits); invert → 100111 (1's complement); add 1 → 101000 (2's complement). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q42"
+        },
+        {
+         "question": "If the random variable x has a probability distribution P (x) of the following form where k is a scalar\nP(x) = k if x = 0; 2k if x = 1; 3k if x = 2; 0 otherwise,\nthen the value of P(x < 2) is",
+         "options": {
+          "A": "1/6",
+          "B": "2/6",
+          "C": "13/6",
+          "D": "1/2"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "6k = 1; P(0) + P(1) = 3k. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q43"
+        },
+        {
+         "question": "____ is the most common security method with respect to using computers.",
+         "options": {
+          "A": "Lock and key",
+          "B": "Key card systems",
+          "C": "Passwords",
+          "D": "Surveillance system"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Passwords are the most widely used method of user authentication. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q44"
+        },
+        {
+         "question": "Given the following statements with respect to Operating System:\nS1: Kernel is the heart of Operating System\nS2: Operating System acts as an interface between user and computer\nS3: Operating System is a hardware\nWhich of the following is correct?",
+         "options": {
+          "A": "S1, S2 and S3 are correct",
+          "B": "S1 and S2 are correct and S3 is not correct",
+          "C": "S1, S2 and S3 are incorrect",
+          "D": "S1 is correct and S2 & S3 are incorrect"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "An OS is system software, not hardware. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q45"
+        },
+        {
+         "question": "Which mode loads the minimal set of drivers when starting windows operating system?",
+         "options": {
+          "A": "Safe mode",
+          "B": "Normal mode",
+          "C": "VGA mode",
+          "D": "Network support mode"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Safe mode starts Windows with only essential drivers and services, for troubleshooting. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q46"
+        },
+        {
+         "question": "Match the following:\nList 1\n(a) Open source Operating System\n(b) Multiprocessing Operating System\n(c) Real time Operating System\n(d) Batch processing Operating System\nList 2\n(i) Does not interact with the computer directly\n(ii) Processes data and events that have critically defined time constraints\n(iii) Source code is open to all\n(iv) Used to boost the performance of multiple CPUs in a single computer system",
+         "options": {
+          "A": "a – i, b – ii, c – iii, d – iv",
+          "B": "a – i, b – iv, c – ii, d – iii",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "OS types. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q47"
+        },
+        {
+         "question": "Given the following information with respect to a multitasking Operating System:\nS1: Enables a computer to execute multiple tasks or processes simultaneously.\nS2: Increases the productivity of the machine if the tasks to be done are organised and carried out correctly.\nS3: Supports only single user.\nWhich of the following is correct?",
+         "options": {
+          "A": "Only S1 and S2 are correct and S3 is incorrect",
+          "B": "Only S1 and S3 are correct and S2 is incorrect",
+          "C": "Only S2 and S3 are correct and S1 is incorrect",
+          "D": "Only S1 is correct and S2 and S3 are incorrect"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Multitasking systems can be multi-user. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q48"
+        },
+        {
+         "question": "How is X related to Y?\nA: X is Y's sister\nB: Z is the father of X and Y.",
+         "options": {
+          "A": "Statement A alone is sufficient to answer the question",
+          "B": "Statement B alone is sufficient to answer the question",
+          "C": "The data either in A or B are sufficient to answer the question",
+          "D": "The data given in both the statements together are not sufficient to answer the question"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "A states the relation directly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q49"
+        },
+        {
+         "question": "In a certain code '297' means 'clear blue sky'. Which number means 'sky'?\nA: In that language '926' means 'clear blue colour'\nB: In that language '175' means 'dark cloudy sky'.",
+         "options": {
+          "A": "Statement A alone is sufficient to answer the question",
+          "B": "Statement B alone is sufficient to answer the question",
+          "C": "The data either in A or B are sufficient to answer the question",
+          "D": "The data given in both the statements together are not sufficient to answer the question"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "A leaves 7 for sky; B shares only 7 with 297. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "A train 125 m long passes a man running at 5 km/hr in the same direction in which the train is going in 10 seconds. The speed of the train is",
+         "options": {
+          "A": "45 km/hr",
+          "B": "50 km/hr",
+          "C": "54 km/hr",
+          "D": "55 km/hr"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Relative speed 12.5 m/s = 45 km/h; plus 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q51"
+        },
+        {
+         "question": "The angle of elevation of a ladder leaning against a wall is 60° and the foot of the ladder is 4.6 m away from the wall. The length of the ladder is",
+         "options": {
+          "A": "2.3 m",
+          "B": "4.6 m",
+          "C": "7.8 m",
+          "D": "9.2 m"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "4.6 / cos 60°. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q52"
+        },
+        {
+         "question": "A, B and C can do a piece of work in 20, 30 and 60 days respectively. In how many days can A do the work if he is assisted by B and C on every 3rd day?",
+         "options": {
+          "A": "12 days",
+          "B": "15 days",
+          "C": "16 days",
+          "D": "18 days"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Each 3 days: 2/20 + 1/10 = 1/5 of the work. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q53"
+        },
+        {
+         "question": "The difference between simple and compound interests compounded annually on a certain sum of money for 2 years at 4% per annum is Rs 1. The sum in ₹ is",
+         "options": {
+          "A": "₹625",
+          "B": "₹630",
+          "C": "₹640",
+          "D": "₹650"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "P (0.04)² = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q54"
+        },
+        {
+         "question": "If selling price is doubled, the profit triples. Find the profit in percent",
+         "options": {
+          "A": "66 2/3",
+          "B": "100",
+          "C": "105 1/3",
+          "D": "120"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "2S − C = 3(S − C) gives S = 2C. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q55"
+        },
+        {
+         "question": "At 3:40, the hour hand and the minute hand of a clock form an angle of",
+         "options": {
+          "A": "120°",
+          "B": "125°",
+          "C": "130°",
+          "D": "135°"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "|30 × 3 − 5.5 × 40|. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q56"
+        },
+        {
+         "question": "The following pie-chart shows the percentage distribution of the expenditure incurred in publishing a book. If for a certain quantity of books, the publisher has to pay Rs. 30,600 as printing cost, then what will be the amount of royalty to be paid for these books?\n[Pie chart: Printing cost 20%, Transportation cost 10%, Paper cost 25%, Binding 20%, Royalty 15%, Promotion cost 10%]",
+         "options": {
+          "A": "Rs. 19,450",
+          "B": "Rs. 21,200",
+          "C": "Rs. 22,950",
+          "D": "Rs. 26,150"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "30600 × 15/20. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q57"
+        },
+        {
+         "question": "Study the following table and answer the question: What is the average amount of interest per year which the company had to pay during this period?\nYear – Interest on loans (in Lakh rupees): 1998 – 23.4; 1999 – 32.5; 2000 – 41.6; 2001 – 36.4; 2002 – 49.4",
+         "options": {
+          "A": "32.43 lakh rupees",
+          "B": "33.72 lakh rupees",
+          "C": "34.18 lakh rupees",
+          "D": "36.66 lakh rupees"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "183.3 / 5. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q58"
+        },
+        {
+         "question": "Statements: Some actors are singers. All the singers are dancers.\nConclusions:\nA. Some actors are dancers\nB. No singer is an actor",
+         "options": {
+          "A": "only A follows",
+          "B": "only B follows",
+          "C": "either A or B follows",
+          "D": "neither A nor B follows"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "B contradicts the first statement. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q59"
+        },
+        {
+         "question": "A: A huge truck overturned on the middle of the road last night.\nB: The Police had cordoned off the entire area in the locality this morning for half of the day.",
+         "options": {
+          "A": "Statement A is the cause and statement B is its effect",
+          "B": "Statement B is the cause and statement A is its effect",
+          "C": "Both Statements A and B are independent causes",
+          "D": "Both statements A and B are effects of some common cause"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "The accident led to the cordon. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q60"
+        },
+        {
+         "question": "Two positions of dice are shown below:\nWhich digit will appear on the face opposite to the face with number 4?\n[Dice 1: 2 on top, 1 front, 3 right. Dice 2: 6 on top, 5 front, 3 right]",
+         "options": {
+          "A": "3",
+          "B": "5",
+          "C": "6",
+          "D": "2"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "1, 2, 5 and 6 all touch 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q61"
+        },
+        {
+         "question": "The total of the ages of Amar, Akbar and Anthony is 80 years. What was the total of their ages 5 years ago?",
+         "options": {
+          "A": "60 years",
+          "B": "65 years",
+          "C": "50 years",
+          "D": "55 years"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "80 − 15. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q62"
+        },
+        {
+         "question": "In the series 53, 53, 40, 40, 27, 27, ......, What number should come next?",
+         "options": {
+          "A": "12",
+          "B": "14",
+          "C": "27",
+          "D": "53"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Each pair drops by 13. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q63"
+        },
+        {
+         "question": "In the series 42, 40, 38, 35, 33, 31, 28 the next 2 terms are",
+         "options": {
+          "A": "25, 22",
+          "B": "26, 23",
+          "C": "26, 24",
+          "D": "25, 23"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "−2, −2, −3 repeating. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q64"
+        },
+        {
+         "question": "What number should fill the blank in the series?\nF2, ___, D8, C16, B32",
+         "options": {
+          "A": "A16",
+          "B": "G4",
+          "C": "E4",
+          "D": "E3"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Letters go back by one, numbers double. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q65"
+        },
+        {
+         "question": "A and B invest in a business in the ratio 3:2. If 5% of the total profit goes to charity and A's share is Rs. 855, the total profit is",
+         "options": {
+          "A": "Rs. 1425",
+          "B": "Rs. 1500",
+          "C": "Rs. 1537.50",
+          "D": "Rs. 1576"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "0.95 × 3/5 × P = 855. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q66"
+        },
+        {
+         "question": "In options trading, what does the term \"Strike Price\" refer to?",
+         "options": {
+          "A": "The current market price of the underlying asset",
+          "B": "The price at which the underlying asset can be bought or sold",
+          "C": "The price of the option contract itself",
+          "D": "The commission fee for executing the trade"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "The exercise price. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q67"
+        },
+        {
+         "question": "Which of the following are critical factors for achieving sustainable competitive advantages in a business?\n(i) Exploiting economies of scale.\n(ii) Maintaining high levels of customer satisfaction and loyalty.\n(iii) Frequent changes in business strategy.\n(iv) Developing unique, valuable resources and capabilities.",
+         "options": {
+          "A": "i, ii and iv only",
+          "B": "i, iii and iv only",
+          "C": "ii, iii and iv only",
+          "D": "i, ii, iii and iv"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Frequent strategy changes do not build advantage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q68"
+        },
+        {
+         "question": "Which of the following are crucial for industries to navigate uncertain economic condition and market disruptions?\n(a) Diversifying revenue streams and expanding into new markets.\n(b) Implementing cost-cutting measures and reducing operating expenses.\n(c) Maintaining a rigid organizational structure to ensure stability.\n(d) Proactively monitoring market trends and competitor activities.",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, b, c and d",
+          "C": "a, b and c",
+          "D": "b, c and d"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Rigidity hurts in disruption. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q70"
+        },
+        {
+         "question": "What does the term \"Cabotage\" refer to in the transportation industry?",
+         "options": {
+          "A": "The transportation of goods or passengers across international borders",
+          "B": "The transportation of goods or passengers within a country",
+          "C": "The transportation of goods internationally by a domestic operator",
+          "D": "The leasing of foreign transport vessel for domestic use"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Domestic carriage between two points in one country. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q71"
+        },
+        {
+         "question": "Which of the following is/are not the functions of NCTE?\n(a) Understanding surveys and studies relating to various aspects of teacher education and publish the result thereof.\n(b) Recruiting qualified staff in the teacher education institutions.\n(c) Laying down norms for any specified category of courses or trainings in teacher education.\n(d) Creating job opportunities for the students who have completed teacher education programmes in the NCTE recognized institutions.",
+         "options": {
+          "A": "a and d only",
+          "B": "c and d only",
+          "C": "b and d only",
+          "D": "d only"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "NCTE Act s.12 covers surveys and norms, not recruitment or jobs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q72"
+        },
+        {
+         "question": "Xiomi tied up with Foxconn to establish its plant in which of the following states of India?",
+         "options": {
+          "A": "Andhra Pradesh",
+          "B": "Maharashtra",
+          "C": "Telangana",
+          "D": "Tamil Nadu"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Sri City, Andhra Pradesh (2015). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q73"
+        },
+        {
+         "question": "Which of the following statements about the vitamins are correct?\n(a) Vitamin A and Vitamin B were discovered by Elmer McCollum.\n(b) Deficiency of Vitamin D causes weak bones.\n(c) Vitamin C was invented by Albert Szent-Gyorgyi.\n(d) Deficiency of Vitamin B causes scurvy.\nSelect the correct answer using the codes given below:",
+         "options": {
+          "A": "a, b and d",
+          "B": "b, c and d",
+          "C": "a, c and d",
+          "D": "a, b and c"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "Scurvy is caused by lack of vitamin C, so (d) is wrong. McCollum identified 'fat-soluble A' and 'water-soluble B'; Szent-Györgyi isolated vitamin C (Nobel 1937). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q74"
+        },
+        {
+         "question": "The accidental death coverage of Pradhan Mantri Suraksha Bima Yojana (PMSBY) is",
+         "options": {
+          "A": "Rs. One Lakh",
+          "B": "Rs. Two Lakhs",
+          "C": "Rs. Three Lakhs",
+          "D": "Rs. Four Lakhs"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "₹2 lakh for death or full disability. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q75"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "Consider the following statements regarding the Health Belief Model (HBM).\n(a) The Health Belief Model (HBM) is a framework for understanding how patients beliefs influence their health behaviors.\n(b) HBM does not consider perceived barriers to taking health-related actions.\nWhich of the statements given above is/are correct?",
+         "options": {
+          "A": "a only",
+          "B": "b only",
+          "C": "Both a and b",
+          "D": "Neither a nor b"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Perceived barriers is one of its constructs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q76"
+        },
+        {
+         "question": "Which term refers to the ability to turn ideas into action through creativity, innovation and risk-taking?",
+         "options": {
+          "A": "Managerial skill",
+          "B": "Strategic planning",
+          "C": "Entrepreneurship",
+          "D": "Operational efficiency"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Entrepreneurship. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q77"
+        },
+        {
+         "question": "Which aspect of the LEARN model is focused on collaboratively deciding on treatment?",
+         "options": {
+          "A": "Listen",
+          "B": "Explain",
+          "C": "Recommend",
+          "D": "Negotiate"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Listen, Explain, Acknowledge, Recommend, Negotiate. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q78"
+        },
+        {
+         "question": "An inclusive workplace culture enhances employee satisfaction and retention by promoting diversity and equity.\nWhich of the following initiatives contribute to developing an inclusive workplace culture?\n(a) Diversity training programmes\n(b) Equal employment opportunity policies\n(c) Performance-based incentives\n(d) Flexible working hours\n(e) Inclusive leadership practices",
+         "options": {
+          "A": "a, b and d",
+          "B": "b, c and e",
+          "C": "a, b, d and e",
+          "D": "a, c, d and e"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Incentives are not an inclusion measure. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q79"
+        },
+        {
+         "question": "Which of the following characteristics are essential for entrepreneurial success?\n(a) Risk aversion\n(b) Innovation and creativity\n(c) Hierarchical decision-making\n(d) Long-term stability\n(e) Adaptability to market changes",
+         "options": {
+          "A": "b and e",
+          "B": "a, c and d",
+          "C": "b, d and e",
+          "D": "a, b and e"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Innovation and adaptability. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q80"
+        },
+        {
+         "question": "Match the following:\nList I (Types of ventures)\na. Scalable Startup\nb. Small Business\nc. Social Enterprises\nd. Large company\nList II (Characteristics)\ni. Aimed at addressing social issues and community needs\nii. High growth potential, often technology-driven\niii. Local businesses with limited growth potential\niv. Established firms expanding through innovation",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – i, b – ii, c – iii, d – iv",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Venture types. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q82"
+        },
+        {
+         "question": "Which factors contribute to fostering an entrepreneurial ecosystem?\n(a) Access to venture capital\n(b) Government regulations\n(c) Supportive mentorship programs\n(d) Competitive market conditions\n(e) Technological advancements",
+         "options": {
+          "A": "a, c and e",
+          "B": "b, c and d",
+          "C": "a, b and d",
+          "D": "b, d and e"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Capital, mentoring, technology. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q83"
+        },
+        {
+         "question": "Which of the following factors can directly affect the value of a bond?\n(a) Interest rates\n(b) Credit rating of the issuer\n(c) Company's stock price\n(d) Inflation rate",
+         "options": {
+          "A": "a, b and d",
+          "B": "a, c and d",
+          "C": "a and d",
+          "D": "b, c and d"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Stock prices do not directly set bond values. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q84"
+        },
+        {
+         "question": "Which technology is often used in Advanced Driver-Assistance Systems (ADAS) to detect obstacles and enhance vehicle safety?",
+         "options": {
+          "A": "Radio Frequency Identification (RFID)",
+          "B": "Light Detection and Ranging (LiDAR)",
+          "C": "Infrared sensors",
+          "D": "Ultrasonic sensors"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "LiDAR (with radar and cameras). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q85"
+        },
+        {
+         "question": "Choose the word which is CLOSEST in meaning to the word REFRAIN:",
+         "options": {
+          "A": "Exult",
+          "B": "Abstain",
+          "C": "Cease",
+          "D": "Forswear"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Refrain = abstain. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q86"
+        },
+        {
+         "question": "Choose the word which is OPPOSITE in meaning to the word TRANQUILITY:",
+         "options": {
+          "A": "Lull",
+          "B": "Chaos",
+          "C": "Torture",
+          "D": "Sympathy"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Calm vs chaos. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q87"
+        },
+        {
+         "question": "Choose the right meaning of the underlined phrase:\nPlease keep an eye on him as he looks suspicious.",
+         "options": {
+          "A": "Watch somebody unintentionally",
+          "B": "Watch somebody carefully",
+          "C": "Watch somebody carelessly",
+          "D": "to look at somebody for pleasure"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Keep an eye on = watch carefully. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q88"
+        },
+        {
+         "question": "Direction: Choose the correct word and fill in the blank.\nThere was a ____ in my bag.",
+         "options": {
+          "A": "Whole",
+          "B": "Whorl",
+          "C": "Hole",
+          "D": "Whirl"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Homophone. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q89"
+        },
+        {
+         "question": "Directions: There are five sentences marked as I, II, III, IV and V. The position of I is fixed as the first sentence of the passage. You are required to choose one of the four alternatives given below which would be the most logical sequence of the sentences in the passage.\nI. A wounded dolphin, stranded on land must be handled with great care.\nII. The animal must be kept wet and cool, or it will die under its own weight.\nIII. Its fins get crushed under its own weight.\nIV. Its tender skin, as fragile as wet paper must be protected from the drying out by applying ordinary cooking oil.\nV. Once the dolphin is removed from the water, its body weight becomes its enemy.",
+         "options": {
+          "A": "III – V – II – IV",
+          "B": "IV – II – V – III",
+          "C": "V – III – II – IV",
+          "D": "II – III – IV – V"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Weight problem, example, remedy, skin. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q90"
+        },
+        {
+         "question": "Please select the best alternative for the underlined expression to improve the sentence in meaning.\nWho did you invite to the party? (underlined: Who did you)",
+         "options": {
+          "A": "Whom did you",
+          "B": "What did you",
+          "C": "Which did you",
+          "D": "No improvement"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Object form. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q91"
+        },
+        {
+         "question": "Directions: Select the most appropriate form of the word and fill in the blank in the following sentence.\nHe likes ____ music.",
+         "options": {
+          "A": "Classic",
+          "B": "Classics",
+          "C": "Classical",
+          "D": "Classically"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Classical music. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q92"
+        },
+        {
+         "question": "Direction : Read the sentence to find out whether there is any error in it. The error, if any, will be in one part of the sentence. The alphabet number of that part is the answer.\nI have come to (A) / know that (B) / his father has died (C) / three days ago (D).",
+         "options": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "With 'ago', use 'died'. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q93"
+        },
+        {
+         "question": "Choose the best option to fill in the blank and complete the following sentence.\nThis problem ____ by your brother yesterday.",
+         "options": {
+          "A": "solves",
+          "B": "is solved",
+          "C": "was solved",
+          "D": "will be solved"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Past passive. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q94"
+        },
+        {
+         "question": "Choose the sentence which is grammatically correct from the options given.",
+         "options": {
+          "A": "I am too weak that I can't walk",
+          "B": "I am so weak because I can't walk",
+          "C": "I am so weak that I can't walk",
+          "D": "I have been too weak that I can't walk"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "so … that. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q95"
+        },
+        {
+         "question": "Passage – Metal Detectors: Metal detectors make magnetic waves. These waves go through the ground. The waves change when they hit metal. Then the device beeps. This lets the person with the device know that metal is close. The first metal detectors were meant to help miners. They were big. They cost a lot of money. They used a lot of power. And worst of all, they didn't work well. People kept trying to make them better. Metal detectors got smaller. Now they are light and cheap. They also work better. That is why people bring them back to the beach. They can look for rings in the water. They can look for phones in the sand. Metal detectors also protect people. They help to keep guns out of some places. They are in airports. They are in courthouses. Some schools use them. They help guards look for weapons. These devices also make clothes safer. It sounds funny, but it's true. Most clothes are made in big factories. There are lots of needles in these places. Needles break from time to time. They get stuck in the clothes. They would poke people trying them on. They don't though. That's because our clothes are scanned for metal. Isn't that nice? Let's hear it from the metal detectors. They make the world a safer place.\nWhich was one of the problems with the first metal detectors?",
+         "options": {
+          "A": "They were too handy",
+          "B": "They were less expensive",
+          "C": "They worked well",
+          "D": "They used lot of power"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Stated in paragraph 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q96"
+        },
+        {
+         "question": "Passage – Metal Detectors: Metal detectors make magnetic waves. These waves go through the ground. The waves change when they hit metal. Then the device beeps. This lets the person with the device know that metal is close. The first metal detectors were meant to help miners. They were big. They cost a lot of money. They used a lot of power. And worst of all, they didn't work well. People kept trying to make them better. Metal detectors got smaller. Now they are light and cheap. They also work better. That is why people bring them back to the beach. They can look for rings in the water. They can look for phones in the sand. Metal detectors also protect people. They help to keep guns out of some places. They are in airports. They are in courthouses. Some schools use them. They help guards look for weapons. These devices also make clothes safer. It sounds funny, but it's true. Most clothes are made in big factories. There are lots of needles in these places. Needles break from time to time. They get stuck in the clothes. They would poke people trying them on. They don't though. That's because our clothes are scanned for metal. Isn't that nice? Let's hear it from the metal detectors. They make the world a safer place.\nWhich of the following best describes the main idea of the first paragraph?",
+         "options": {
+          "A": "It describes the sounds of a metal detector",
+          "B": "It explains how metal detectors work",
+          "C": "It warns about the effects of metal detectors",
+          "D": "It explains how magnetic waves move"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Paragraph 1 explains the working. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q97"
+        },
+        {
+         "question": "Passage – Metal Detectors: Metal detectors make magnetic waves. These waves go through the ground. The waves change when they hit metal. Then the device beeps. This lets the person with the device know that metal is close. The first metal detectors were meant to help miners. They were big. They cost a lot of money. They used a lot of power. And worst of all, they didn't work well. People kept trying to make them better. Metal detectors got smaller. Now they are light and cheap. They also work better. That is why people bring them back to the beach. They can look for rings in the water. They can look for phones in the sand. Metal detectors also protect people. They help to keep guns out of some places. They are in airports. They are in courthouses. Some schools use them. They help guards look for weapons. These devices also make clothes safer. It sounds funny, but it's true. Most clothes are made in big factories. There are lots of needles in these places. Needles break from time to time. They get stuck in the clothes. They would poke people trying them on. They don't though. That's because our clothes are scanned for metal. Isn't that nice? Let's hear it from the metal detectors. They make the world a safer place.\nHow do metal detectors make clothing safer?",
+         "options": {
+          "A": "Metal detectors make sure factory machines are working the right way",
+          "B": "Metal detectors make sure workers don't bring weapons into factories",
+          "C": "Metal detectors make sure that broken needles don't get into clothing",
+          "D": "Metal detectors help people recover lost clothing at the beach"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Clothes are scanned for needles. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q98"
+        },
+        {
+         "question": "Passage – Metal Detectors: Metal detectors make magnetic waves. These waves go through the ground. The waves change when they hit metal. Then the device beeps. This lets the person with the device know that metal is close. The first metal detectors were meant to help miners. They were big. They cost a lot of money. They used a lot of power. And worst of all, they didn't work well. People kept trying to make them better. Metal detectors got smaller. Now they are light and cheap. They also work better. That is why people bring them back to the beach. They can look for rings in the water. They can look for phones in the sand. Metal detectors also protect people. They help to keep guns out of some places. They are in airports. They are in courthouses. Some schools use them. They help guards look for weapons. These devices also make clothes safer. It sounds funny, but it's true. Most clothes are made in big factories. There are lots of needles in these places. Needles break from time to time. They get stuck in the clothes. They would poke people trying them on. They don't though. That's because our clothes are scanned for metal. Isn't that nice? Let's hear it from the metal detectors. They make the world a safer place.\nWhy do people bring metal detectors to the beach?",
+         "options": {
+          "A": "Metal detectors help people find valuable items",
+          "B": "Metal detectors help people keep the sand clean and safe",
+          "C": "Metal detectors help guards keep weapons away from the beach",
+          "D": "Metal detectors help in finding bombs"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Rings and phones. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q99"
+        },
+        {
+         "question": "Read the sentence and choose the word with the correct spelling from the options given.\nThe hotel can ____ up to 500 guests.",
+         "options": {
+          "A": "acommodate",
+          "B": "accomodate",
+          "C": "acomodate",
+          "D": "accommodate"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Double c, double m. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2025 MCA · Q100"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "PGCET 2026 – MCA entrance",
+     "sets": [
+      {
+       "name": "Q1–25",
+       "questions": [
+        {
+         "question": "Which of the following is/are true?\n(i) (a + b)³ = a³ + 3a²b + 3ab² + b³\n(ii) (a + b + c)² = a² + b² + c² + 2ab + 2bc + 2ca\n(iii) (x + a) (x + b) = x² + (a + b) x + ab",
+         "options": {
+          "A": "Both (i) and (ii)",
+          "B": "(iii) only",
+          "C": "Both (i) and (iii)",
+          "D": "(i), (ii) and (iii)"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "All three identities hold. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q1"
+        },
+        {
+         "question": "Match the items in List-I with the items in List-II and choose the correct answer.\nList-I\n(a) 1/(1 + x)\n(b) 1/(1 − x)\n(c) 1/√(1 + x)\n(d) 1/√(1 − x)\nList-II\n(i) 1 − ½x + (3/8)x² − (5/16)x³ + (35/128)x⁴ − (63/256)x⁵ + …\n(ii) 1 + ½x + (3/8)x² + (5/16)x³ + (35/128)x⁴ + (63/256)x⁵ + …\n(iii) 1 − x + x² − x³ + x⁴ − x⁵ + …\n(iv) 1 + x + x² + x³ + x⁴ + …",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – ii, b – i, c – iv, d – iii",
+          "D": "a – iv, b – iii, c – i, d – ii"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "Binomial series. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q3"
+        },
+        {
+         "question": "Which of the following statement/statements is/are true?\n(i) The number of four digit numbers that can be formed by using 2, 3, 4, 5, 6 with repetition is 625\n(ii) The number of four digit numbers that can be formed by using 2, 3, 4, 5, 6 without repetition is 120",
+         "options": {
+          "A": "Only (i)",
+          "B": "Only (ii)",
+          "C": "Both (i) and (ii)",
+          "D": "Neither (i) nor (ii)"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "5⁴ = 625 and ⁵P₄ = 120. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q4"
+        },
+        {
+         "question": "If A = [1 2 4; −1 3 0; 1 2 0], then the value of determinant of A is",
+         "options": {
+          "A": "−10",
+          "B": "10",
+          "C": "20",
+          "D": "−20"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Expand along column 3: 4 × (−2 − 3) = −20. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q5"
+        },
+        {
+         "question": "If A = [1 2; −1 3], B = [−1 2; 0 4], then match the following and choose the correct answer.\nList – I\n(a) A + B\n(b) A − B\n(c) AB\n(d) 2A + B′\nList – II\n(i) [−1 10; 1 10]\n(ii) [0 4; −1 7]\n(iii) [1 4; 0 10]\n(iv) [2 0; −1 −1]",
+         "options": {
+          "A": "a – ii, b – iv, c – i, d – iii",
+          "B": "a – iii, b – iv, c – i, d – ii",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Computed directly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q6"
+        },
+        {
+         "question": "Let 'U' be universal set. If A and B are subsets of U, then match the following and choose the correct answer.\nList – I\n(a) A ∪ A′\n(b) (A ∪ B)′\n(c) (A ∩ B)′\n(d) (A′)′\nList – II\n(i) A\n(ii) A′ ∪ B′\n(iii) A′ ∩ B′\n(iv) U",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Complement laws and De Morgan. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q7"
+        },
+        {
+         "question": "In a shop, the cost of 3 pens and 3 pencils is Rs. 9 and the cost of 4 pens and 6 pencils is Rs. 14. The cost of each pencil in Rs. is",
+         "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "p + c = 3 and 4p + 6c = 14 give c = 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q8"
+        },
+        {
+         "question": "The equation of the line passing through the points (1, 2) and (−1, 4) is",
+         "options": {
+          "A": "x + y = 3",
+          "B": "x + y = 4",
+          "C": "2x + y = 4",
+          "D": "x + 2y = 3"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Slope −1 through (1, 2). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q9"
+        },
+        {
+         "question": "The midpoint of the line joining the points (2, 4) and (6, −2) is",
+         "options": {
+          "A": "(4, −1)",
+          "B": "(4, 1)",
+          "C": "(2, 4)",
+          "D": "(3, −1)"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "((2 + 6)/2, (4 − 2)/2). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q10"
+        },
+        {
+         "question": "The point of intersection of the lines 3x + 2y = 6 and 3x − 2y = −2 is",
+         "options": {
+          "A": "(2/3, 2)",
+          "B": "(2/3, −2)",
+          "C": "(−2/3, 2)",
+          "D": "(−2/3, −2)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Adding: 6x = 4. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q11"
+        },
+        {
+         "question": "The centre of the circle (x + 5)² + (y − 3)² = 36 is",
+         "options": {
+          "A": "(5, 3)",
+          "B": "(−5, −3)",
+          "C": "(−5, 3)",
+          "D": "(5, −3)"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "(x − h)² + (y − k)². (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q12"
+        },
+        {
+         "question": "The reflection of the point (4, −13) about the line 5x + y + 6 = 0 is",
+         "options": {
+          "A": "(−1, −14)",
+          "B": "(−5, −14)",
+          "C": "(−1, −5)",
+          "D": "(−2, −7)"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Image = P − 2(5·4 − 13 + 6)/26 × (5, 1). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q13"
+        },
+        {
+         "question": "The equation of the parabola which is symmetric about the y–axis and passes through the point (2, −3) is",
+         "options": {
+          "A": "4x² = −3y",
+          "B": "4x² = 3y",
+          "C": "3x² = 4y",
+          "D": "3x² = −4y"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "x² = ky with 4 = −3k. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q14"
+        },
+        {
+         "question": "Match the postulates in List-I with the expressions in List-II.\nList – I\n(a) Identity law\n(b) Null law\n(c) Complement law\n(d) Idempotent law\nList – II\n(i) A + Ā = 1 and A.Ā = 0\n(ii) A + A = A and A.A = A\n(iii) A + 0 = A and A.1 = A\n(iv) A + 1 = 1 and A.0 = 0",
+         "options": {
+          "A": "a – iv, b – ii, c – i, d – iii",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – i, c – ii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "Boolean postulates. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q16"
+        },
+        {
+         "question": "The sum of the binary numbers 10110.10 and 11010.01 is",
+         "options": {
+          "A": "48",
+          "B": "48.5",
+          "C": "48.75",
+          "D": "48.25"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "22.5 + 26.25 = 48.75 (110000.11₂). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q17"
+        },
+        {
+         "question": "The Boolean function AB + AC is equivalent to",
+         "options": {
+          "A": "AB + AC + BC",
+          "B": "A′BC′ + ABC′ + A′BC",
+          "C": "ABC + A′BC + B′C′",
+          "D": "ABC + ABC′ + AB′C"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "Expand to minterms. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q18"
+        },
+        {
+         "question": "The Boolean expressions (AB)' = A' + B' and (A + B)' = A'B' represent",
+         "options": {
+          "A": "Absorption law",
+          "B": "Distributive law",
+          "C": "De Morgan's law",
+          "D": "Idempotent law"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "De Morgan's theorems. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q19"
+        },
+        {
+         "question": "Match List-I with List-II.\nList – I\n(a) sin (π/3)\n(b) sin (π/4)\n(c) sin (π/6)\n(d) sin (π/2)\nList – II\n(i) 1/√2\n(ii) 1/2\n(iii) √3/2\n(iv) 1",
+         "options": {
+          "A": "a – iii, b – i, c – ii, d – iv",
+          "B": "a – iv, b – ii, c – i, d – iii",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "Standard values. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q20"
+        },
+        {
+         "question": "The general solution of 2cosθ − √3 = 0 is",
+         "options": {
+          "A": "θ = nπ + (−1)ⁿ π/6, n ∈ I",
+          "B": "θ = 2nπ ± π/6, n ∈ I",
+          "C": "θ = 2nπ ± π/3, n ∈ I",
+          "D": "θ = nπ + (−1)ⁿ π/3, n ∈ I"
+         },
+         "answer": "B",
+         "subject": "Q1–25",
+         "explanation": "cos θ = cos π/6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q21"
+        },
+        {
+         "question": "In a right angled isosceles triangle ΔABC, right angle at C, if side a = 2, then sides b and c are respectively",
+         "options": {
+          "A": "2√2, 2",
+          "B": "√2, 2",
+          "C": "2, √2",
+          "D": "2, 2√2"
+         },
+         "answer": "D",
+         "subject": "Q1–25",
+         "explanation": "b = a = 2; hypotenuse c = 2√2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q22"
+        },
+        {
+         "question": "tan⁻¹ (1) + cos⁻¹ (−1/2) + sin⁻¹ (−1/2) =",
+         "options": {
+          "A": "π/4",
+          "B": "π/2",
+          "C": "3π/4",
+          "D": "3π/2"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "π/4 + 2π/3 − π/6. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q23"
+        },
+        {
+         "question": "Two dice are thrown and the sum of the numbers which come up on the dice is noted. Among the following events\nA: The sum is even.\nB: The sum is a multiple of 3.\nC: The sum is less than 4.\nD: The sum is greater than 11.\nWhich pair of events are mutually exclusive?",
+         "options": {
+          "A": "A and B",
+          "B": "A and C",
+          "C": "C and D",
+          "D": "B and D"
+         },
+         "answer": "C",
+         "subject": "Q1–25",
+         "explanation": "C = {2, 3}, D = {12}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q24"
+        },
+        {
+         "question": "Two students 'A' and 'B' appeared for an exam. The probability that 'A' will qualify the examination is 0.05 and that 'B' will qualify the examination is 0.10. The probability that 'A' and 'B' will qualify the exam is 0.02. Find the probability that both 'A' and 'B' will not qualify in the examination.",
+         "options": {
+          "A": "0.87",
+          "B": "0.98",
+          "C": "1",
+          "D": "0.11"
+         },
+         "answer": "A",
+         "subject": "Q1–25",
+         "explanation": "1 − 0.13. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q25"
+        }
+       ]
+      },
+      {
+       "name": "Q26–50",
+       "questions": [
+        {
+         "question": "The probability of selecting a man from a crowd containing 20 men and 33 women is",
+         "options": {
+          "A": "20/33",
+          "B": "33/20",
+          "C": "20/53",
+          "D": "33/53"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "20 of 53. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q26"
+        },
+        {
+         "question": "Three cards are drawn successively without replacement from a pack of 52 well shuffled cards. What is the probability that first two cards are kings and the third card drawn is an ace?",
+         "options": {
+          "A": "4/52",
+          "B": "3/51",
+          "C": "4/50",
+          "D": "2/5525"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "4/52 × 3/51 × 4/50. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q27"
+        },
+        {
+         "question": "A man is known to speak truth 3 out of 4 times. He throws a die and reports that it is a six. Find the probability that it is actually six.",
+         "options": {
+          "A": "1/8",
+          "B": "2/8",
+          "C": "3/8",
+          "D": "1/2"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Bayes: (1/6 × 3/4)/(1/6 × 3/4 + 5/6 × 1/4). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q28"
+        },
+        {
+         "question": "The variance of 25 observations is 6. If each observation is multiplied by 3, then the new variance of the resulting observations is",
+         "options": {
+          "A": "56",
+          "B": "50",
+          "C": "54",
+          "D": "36"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Variance × 3². (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q29"
+        },
+        {
+         "question": "A committee of two persons is selected from two men and two women. What is the probability that the committee will have one man?",
+         "options": {
+          "A": "1/3",
+          "B": "2/3",
+          "C": "1",
+          "D": "4/3"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "4 of the 6 pairs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q30"
+        },
+        {
+         "question": "Select the correct statement(s) from below given statements.\n(i) Cache memory is an extremely fast and small memory between CPU and main memory.\n(ii) Main memory is an extremely fast and larger memory between CPU and cache memory.",
+         "options": {
+          "A": "Only (ii) is correct",
+          "B": "Only (i) is correct",
+          "C": "Both (i) and (ii) are correct",
+          "D": "Both (i) and (ii) are wrong"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Main memory is behind the cache, not between. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q31"
+        },
+        {
+         "question": "Arrange the below given operators based on their priority.\n(a) <, >, <=, >=\n(b) &&\n(c) !\n(d) *, /, %",
+         "options": {
+          "A": "(d), (c), (b), (a)",
+          "B": "(b), (c), (a), (d)",
+          "C": "(a), (b), (c), (d)",
+          "D": "(c), (d), (a), (b)"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Unary !, then multiplicative, relational, logical AND. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q32"
+        },
+        {
+         "question": "Primary classification of programming languages are\n(a) Machine language\n(b) Assembly language\n(c) High level language\n(d) Pseudocode and Algorithms",
+         "options": {
+          "A": "Only (c) and (d) are correct",
+          "B": "Only (a) and (b) are correct",
+          "C": "Only (a), (b) and (c) are correct",
+          "D": "Only (a) and (d) are correct"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Pseudocode and algorithms are design aids, not programming languages. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q33"
+        },
+        {
+         "question": "Match the following with respect to connections between processor and memory.\nList – I (Registers)\n(a) IR\n(b) MAR\n(c) MDR\n(d) PC\nList – II (Usage)\n(i) Keeps track of execution of a program\n(ii) Holds the instruction that is currently being executed\n(iii) Data to be written into or read out of the addressed location\n(iv) Holds the address of the location to be accessed",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – i, b – ii, c – iv, d – iii",
+          "C": "a – ii, b – iv, c – iii, d – i",
+          "D": "a – iv, b – ii, c – i, d – iii"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "IR – current instruction; MAR – address; MDR – data; PC – program sequence. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q34"
+        },
+        {
+         "question": "In b = 66.6/a + 12 * n; which operation will be performed first?",
+         "options": {
+          "A": "66.6/a",
+          "B": "12*n",
+          "C": "a + 12",
+          "D": "Depends upon the compiler"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "/ and * have equal precedence, left to right. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q35"
+        },
+        {
+         "question": "What is the meaning of 16 x 8 organizations with respect to memory chip?",
+         "options": {
+          "A": "8 words of 16 bits each",
+          "B": "16 bits × 8 bits",
+          "C": "16 words of 8 bits each",
+          "D": "16 words of 8 bytes each"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Words × bits per word. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q37"
+        },
+        {
+         "question": "Reservation clerks for Airlines and Hotels check availability for given request and make reservation. These type of users are categorised into ____ with respect to database applications.",
+         "options": {
+          "A": "Casual end users",
+          "B": "Parametric end users",
+          "C": "Sophisticated end users",
+          "D": "Standalone users"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Elmasri–Navathe's naive/parametric users. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q38"
+        },
+        {
+         "question": "____ language is used to define the logical, external and physical schemas and access authorizations.",
+         "options": {
+          "A": "Data Manipulation Language (DML)",
+          "B": "Data Definition Language (DDL)",
+          "C": "Logical Definition Language (LDL)",
+          "D": "Data-Driven Language (DDL)"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "DDL. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q40"
+        },
+        {
+         "question": "Arrange the given list of memories as per the size.\n(a) Cache memory\n(b) Registers\n(c) Secondary memory\n(d) Primary memory",
+         "options": {
+          "A": "(b), (a), (d), (c)",
+          "B": "(b), (a), (c), (d)",
+          "C": "(a), (b), (c), (d)",
+          "D": "(d), (b), (a), (c)"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Smallest to largest. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q41"
+        },
+        {
+         "question": "The control unit of a computer is designed to go through an instruction cycle that is divided into following phases.\n(a) Fetch the instruction from memory\n(b) Decode the instruction\n(c) Execute the instruction",
+         "options": {
+          "A": "Only (b) and (c) are correct",
+          "B": "Only (c) is correct",
+          "C": "Only (a) is correct",
+          "D": "(a), (b) and (c) are correct"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "Fetch, decode, execute. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q42"
+        },
+        {
+         "question": "Full form of WAMP is ____ with respect to web applications.",
+         "options": {
+          "A": "Windows, Apache, MySQL and PHP",
+          "B": "Word, Adobe, MySQL and PHP",
+          "C": "Windows, Apache, Mainstream and Program",
+          "D": "Windows, Adobe, MySQL and PHP"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "Like LAMP on Linux. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q43"
+        },
+        {
+         "question": "Which of the following are valid hexadecimal numbers?\n(i) 1A3F\n(ii) 29GF\n(iii) FF12\n(iv) 7BHE",
+         "options": {
+          "A": "(i), (ii) and (iv)",
+          "B": "(i), (ii) and (iii)",
+          "C": "(i) and (iii)",
+          "D": "(i), (iii) and (iv)"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "G and H are not hex digits. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q44"
+        },
+        {
+         "question": "The decimal number 25₁₀ is represented in binary as ____",
+         "options": {
+          "A": "1 1 0 0 1",
+          "B": "1 0 1 0 1",
+          "C": "1 1 1 0 0",
+          "D": "1 0 0 1 1"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "16 + 8 + 1. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q45"
+        },
+        {
+         "question": "Arrange the following steps in correct order to binary:\n(i) Repeat division until becomes 0\n(ii) Divide the number by 2\n(iii) Write the remainder\n(iv) Write the remainder in reverse order",
+         "options": {
+          "A": "(i) → (ii) → (iii) → (iv)",
+          "B": "(ii) → (iii) → (i) → (iv)",
+          "C": "(iii) → (i) → (iv) → (ii)",
+          "D": "(iv) → (ii) → (iii) → (i)"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "Divide, note remainder, repeat, read upwards. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q46"
+        },
+        {
+         "question": "Match the Characters in List-I with their correct ASCII Property in List-II.\nList – I\n(a) 'A'\n(b) 'a'\n(c) '0' (Zero)\n(d) ' ' (Space)\nList – II\n(i) ASCII 32 (Decimal)\n(ii) ASCII 48 (Decimal)\n(iii) ASCII 65 (Decimal)\n(iv) ASCII differ from (i) by 32",
+         "options": {
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – i, b – iv, c – iii, d – ii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – iv, c – ii, d – i"
+         },
+         "answer": "D",
+         "subject": "Q26–50",
+         "explanation": "'a' = 97 = 65 + 32. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q47"
+        },
+        {
+         "question": "A floating point number typically consists of\n(i) Sign bit\n(ii) Parity bit\n(iii) Mantissa (Significand)\n(iv) Exponent",
+         "options": {
+          "A": "(i), (ii) and (iv)",
+          "B": "(i), (iii) and (iv)",
+          "C": "(ii), (iii) and (iv)",
+          "D": "(i), (ii) and (iii)"
+         },
+         "answer": "B",
+         "subject": "Q26–50",
+         "explanation": "A parity bit is an error-detection bit, not part of the number. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q48"
+        },
+        {
+         "question": "Arrange the steps to find two's complement of a binary number.\n(i) Take 1's complement\n(ii) Write the binary number\n(iii) Add 1\n(iv) Obtain final result",
+         "options": {
+          "A": "(iv) → (i) → (iii) → (ii)",
+          "B": "(ii) → (iii) → (i) → (iv)",
+          "C": "(ii) → (i) → (iii) → (iv)",
+          "D": "(i) → (ii) → (iii) → (iv)"
+         },
+         "answer": "C",
+         "subject": "Q26–50",
+         "explanation": "Write the number, invert it, add 1, read the result. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q49"
+        },
+        {
+         "question": "The result of 101₂ × 10₂ is ____.",
+         "options": {
+          "A": "1010₂",
+          "B": "1000₂",
+          "C": "1110₂",
+          "D": "1100₂"
+         },
+         "answer": "A",
+         "subject": "Q26–50",
+         "explanation": "5 × 2 = 10 = 1010₂ (multiplying by 10₂ is a left shift). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q50"
+        }
+       ]
+      },
+      {
+       "name": "Q51–75",
+       "questions": [
+        {
+         "question": "Match the binary operations in List-I with correct results in List-II.\nList – I\n(a) 1 + 1\n(b) 10 − 1\n(c) 1 × 0\n(d) 11 ÷ 1\nList – II\n(i) 1\n(ii) 10\n(iii) 11\n(iv) 0",
+         "options": {
+          "A": "a – ii, b – i, c – iv, d – iii",
+          "B": "a – iii, b – ii, c – iv, d – i",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – i, b – iv, c – ii, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Binary arithmetic. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q51"
+        },
+        {
+         "question": "Which scheduling algorithm works on the principles of time slices?",
+         "options": {
+          "A": "FCFS",
+          "B": "Round Robin",
+          "C": "SJF",
+          "D": "Priority Scheduling"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Round robin. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q52"
+        },
+        {
+         "question": "Which of the following are the characteristics of Real Time Operating Systems (RTOS)?\n(i) Deterministic response\n(ii) High latency allowed\n(iii) Strict timing constraints\n(iv) Used in embedded systems",
+         "options": {
+          "A": "(i) and (iii) only",
+          "B": "(i), (iii) and (iv) only",
+          "C": "(ii) and (iv) only",
+          "D": "(i), (ii) and (iii) only"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "High latency is not allowed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q53"
+        },
+        {
+         "question": "Arrange the steps in process state transition.\n(i) Running\n(ii) Ready\n(iii) New\n(iv) Waiting",
+         "options": {
+          "A": "(i) → (ii) → (iii) → (iv)",
+          "B": "(iii) → (ii) → (i) → (iv)",
+          "C": "(iv) → (i) → (ii) → (iii)",
+          "D": "(ii) → (i) → (iii) → (iv)"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "New → ready → running → waiting. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q54"
+        },
+        {
+         "question": "Match the operating systems in List-I with their correct characteristics in List-II.\nList – I\n(a) Batch OS\n(b) Real Time OS\n(c) Time Sharing OS\n(d) Distributed OS\nList – II\n(i) Immediate response required\n(ii) No user interaction\n(iii) Multiuser share CPU\n(iv) Multiple systems connected",
+         "options": {
+          "A": "a – ii, b – i, c – iii, d – iv",
+          "B": "a – ii, b – i, c – iv, d – iii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iii, b – i, c – iv, d – ii"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "OS types. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q55"
+        },
+        {
+         "question": "In a class exam, Ramya's average mark was 90 per paper. If she had obtained 4 more marks in Maths paper and 20 more marks in Physics paper, then her average per paper would have been 94. How many papers were there in the exam?",
+         "options": {
+          "A": "6",
+          "B": "8",
+          "C": "9",
+          "D": "7"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "24 extra marks raise the average by 4. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q56"
+        },
+        {
+         "question": "In a two digit number, the digit in the unit's place is equal to the square of the digit in ten's place and the difference between the numbers obtained by interchanging the digits is 54. What is 40% of the original number?",
+         "options": {
+          "A": "23.4",
+          "B": "15.6",
+          "C": "37.2",
+          "D": "39"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "9(x² − x) = 54 gives x = 3: number 39. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q57"
+        },
+        {
+         "question": "In a certain code language, SHORE is written as PELOB, then match the following original letters in List-I that are coded in List-II.\nList-I\n(a) B\n(b) Z\n(c) Q\n(d) J\nList-II\n(i) W\n(ii) G\n(iii) N\n(iv) Y",
+         "options": {
+          "A": "a – iv, b – i, c – ii, d – iii",
+          "B": "a – iv, b – i, c – iii, d – ii",
+          "C": "a – iii, b – i, c – ii, d – iv",
+          "D": "a – ii, b – iii, c – i, d – iv"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Each letter moves back 3. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q59"
+        },
+        {
+         "question": "No reptiles can fly. All birds can fly\nWhich of the following must be true?",
+         "options": {
+          "A": "No birds are reptiles",
+          "B": "All reptiles can fly",
+          "C": "All flying creatures are birds",
+          "D": "Some birds are reptiles"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "Birds fly, reptiles don't. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q60"
+        },
+        {
+         "question": "Which one of the following number is completely divisible by 45?",
+         "options": {
+          "A": "181566",
+          "B": "331145",
+          "C": "242865",
+          "D": "2023550"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Ends in 5 and digit sum 27. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q61"
+        },
+        {
+         "question": "A class of 30 students comprises of boys who can play cricket, hockey and/or football. 3 boys play only cricket, 3 boys play only hockey and 2 play only football. 4 boys could play all 3 games, while 11 could play football and cricket and 10 boys could play football and hockey. How many boys played cricket and hockey but not football?",
+         "options": {
+          "A": "1",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+         },
+         "answer": "D",
+         "subject": "Q51–75",
+         "explanation": "3 + 3 + 2 + 4 + 7 + 6 + x = 30. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q62"
+        },
+        {
+         "question": "If 15th August, 2023 was on Tuesday, then on which day of the week would the Independence Day be celebrated in the year 2040?",
+         "options": {
+          "A": "Tuesday",
+          "B": "Wednesday",
+          "C": "Thursday",
+          "D": "Friday"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Calendar check: 15 Aug 2040 is a Wednesday. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q64"
+        },
+        {
+         "question": "If A ★ B means A and B are of the same age\nA − B means B is younger than A.\nThen Himani ★ Mahesh − Jay means ____.",
+         "options": {
+          "A": "Himani is younger than Jay",
+          "B": "Mahesh is younger than Jay",
+          "C": "Jay is the youngest",
+          "D": "Jay is the oldest"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Himani = Mahesh > Jay. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q66"
+        },
+        {
+         "question": "If sum of 2 numbers is 10 and the difference of their squares is 20, then these numbers are ____",
+         "options": {
+          "A": "8 and 2",
+          "B": "6 and 4",
+          "C": "7 and 3",
+          "D": "5 and 5"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "a − b = 2. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q67"
+        },
+        {
+         "question": "A figure consists of a triangle attached to a square such that the triangle points upward. If the figure is rotated 90° clockwise, then where will be the triangle point?",
+         "options": {
+          "A": "Left",
+          "B": "Right",
+          "C": "Downward",
+          "D": "Upward"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Up turns to right. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q68"
+        },
+        {
+         "question": "Distribution of total number of cellular phones sold by six stores in December, 2025 is given in the following pie chart.\n[Pie chart: T 20%, U 12%, P 14%, Q 10%, R 18%, S 26%]\nWhat is the central angle corresponding to the total number of cellular phones sold by S?",
+         "options": {
+          "A": "99.2°",
+          "B": "93.6°",
+          "C": "105.6°",
+          "D": "97.4°"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "26% of 360°. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q69"
+        },
+        {
+         "question": "A researcher is conducting a statistical study on the students academic performance and life style habits. To ensure the study is scientifically valid, the most appropriate sequence for carrying out data collection, analysis and the following tasks is\n(P) Apply statistical methods to summarise and test relationships in the data\n(Q) Design research objects variable sampling plan and data collection instrument\n(R) Interpret findings and draw conclusions\n(S) Collect responses from selected participants\n(T) Class, code and organise the collected raw data",
+         "options": {
+          "A": "S → T → Q → P → R",
+          "B": "S → T → Q → R → P",
+          "C": "Q → S → T → P → R",
+          "D": "T → Q → S → P → R"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "Design, collect, organise, analyse, interpret. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q70"
+        },
+        {
+         "question": "Which of the following statements are correct?\n(a) Startups are innovation-driven businesses and aim at scalability\n(b) Securities and Exchange Board of India regulates stock markets and protects investors\n(c) GST is an indirect tax applicable across India and is collected only once at the final stage of the transaction\n(d) Blinkit operates in quick commerce, which focuses on fast delivery using dark stores.",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(a), (b) and (d)",
+          "C": "(b), (c) and (d)",
+          "D": "(c) and (d) only"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "GST is collected at every stage with input credit. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q71"
+        },
+        {
+         "question": "With reference to health indicators, consider the following statements.\n(a) Infant Mortality Rate (IMR) is the number of deaths of infants under one year per 1000 live births\n(b) Maternal Mortality Ratio (MMR) is expressed per 1000 live births\n(c) Life expectancy indicates the average number of years a newborn is expected to live.",
+         "options": {
+          "A": "(a) and (c)",
+          "B": "(a) and (b)",
+          "C": "(b) and (c)",
+          "D": "(a), (b) and (c)"
+         },
+         "answer": "A",
+         "subject": "Q51–75",
+         "explanation": "MMR is per 100 000 live births. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q72"
+        },
+        {
+         "question": "Consider the following statements and select the correct answer using the codes given below.\n(i) Commercial paper is issued by corporations\n(ii) Certificate deposit is issued by RBI\n(iii) Treasury Bills are zero-coupon instruments\n(iv) RBI can directly lend to the public",
+         "options": {
+          "A": "(i), (ii), (iii) and (iv) are correct",
+          "B": "(i), (ii) and (iii) are correct",
+          "C": "(i) and (iii) are correct",
+          "D": "Only (i) is correct"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "CDs are issued by banks; RBI does not lend to the public. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q73"
+        },
+        {
+         "question": "Match the following heads of various financial institutions in List-I with their respective names in List-II and choose the correct answer.\nList – I\n(a) Governor of RBI\n(b) Chairperson of SEBI\n(c) Chairperson of IRDA\n(d) CEO of NITI Aayog\nList – II\n(i) Ajay Seth\n(ii) Nidhi Chhibber\n(iii) Sanjay Malhotra\n(iv) Tuhin Kanta Panday",
+         "options": {
+          "A": "a – iii, b – iv, c – ii, d – i",
+          "B": "a – iv, b – iii, c – i, d – ii",
+          "C": "a – iii, b – iv, c – i, d – ii",
+          "D": "a – iv, b – iii, c – ii, d – i"
+         },
+         "answer": "C",
+         "subject": "Q51–75",
+         "explanation": "As at the 2026 exam (per the options printed). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q74"
+        },
+        {
+         "question": "An economy experiences sustained growth in industrial output accomplished by a gradual shift of labour from agriculture to manufacturing and rising per-capita income. This situation most appropriately indicates",
+         "options": {
+          "A": "Cyclical fluctuations in economic activity",
+          "B": "Structural transformation of the economy",
+          "C": "Short-term increase in aggregate demand",
+          "D": "Expansion of informal sector employment"
+         },
+         "answer": "B",
+         "subject": "Q51–75",
+         "explanation": "Sectoral shift = structural change. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q75"
+        }
+       ]
+      },
+      {
+       "name": "Q76–100",
+       "questions": [
+        {
+         "question": "Match the following.\nList-I (Transportation mode)\n(a) Rail transport\n(b) Road transport\n(c) Air transport\n(d) Water transport\nList-II (Characteristics)\n(i) High speed and high operating cost\n(ii) High flexibility and last mile connectivity\n(iii) Economies of scale in bulk freight movement\n(iv) Lowest cost for intercontinental bulk trade",
+         "options": {
+          "A": "a – i, b – iv, c – ii, d – iii",
+          "B": "a – iv, b – ii, c – i, d – iii",
+          "C": "a – ii, b – i, c – iii, d – iv",
+          "D": "a – iii, b – ii, c – i, d – iv"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Transport modes. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q76"
+        },
+        {
+         "question": "Match the List-I (concepts) with their List-II (explanation) on entrepreneurial finance and select the right option.\nList – I (Concept)\n(a) Opportunity recognition\n(b) Bootstrapping\n(c) Venture capital\n(d) Angel investors\nList – II (Explanation)\n(i) Arranging funds for business\n(ii) Identifying viable business ideas\n(iii) Self financing\n(iv) Early stage external funding",
+         "options": {
+          "A": "a – ii, b – iii, c – iv, d – i",
+          "B": "a – ii, b – iii, c – i, d – iv",
+          "C": "a – iii, b – ii, c – iv, d – i",
+          "D": "a – ii, b – i, c – iv, d – iii"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Angels fund the earliest stage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q77"
+        },
+        {
+         "question": "In a standard e-commerce business model, what is the correct sequence of a product's journey?",
+         "options": {
+          "A": "Sorting centre → Warehouse → Customer → Last-mile delivery",
+          "B": "Customer → Warehouse → Sorting centre → Last-mile delivery",
+          "C": "Warehouse → Sorting centre → Last-mile delivery → Customer",
+          "D": "Last-mile delivery → Warehouse → Sorting centre → Customer"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Fulfilment chain. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q78"
+        },
+        {
+         "question": "Which of the following statements about consumer-to-consumer (C2C) e-business model are correct?\n(a) It involves transactions between two consumers\n(b) Online platforms like OLX facilitate C2C trade\n(c) It reduces dependency on traditional retailers\n(d) Businesses directly supply goods and services to customers in this model",
+         "options": {
+          "A": "(a), (b) and (c)",
+          "B": "(a) and (b) only",
+          "C": "(b), (c) and (d)",
+          "D": "(c) and (d) only"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "(d) describes B2C. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q79"
+        },
+        {
+         "question": "Which of the following statements about Government of India initiatives to promote entrepreneurship under MSME schemes are correct?\n(a) The Prime Minister's Employment Generation Programme is implemented by the Ministry of Micro, Small and Medium Enterprises.\n(b) PMEGP provides financial support only to existing enterprises and excludes new entrepreneurs.\n(c) The MSME ministry promotes entrepreneurship through credit linked subsidy schemes\n(d) Udyam registration is necessary to access most benefits under MSME related government schemes.",
+         "options": {
+          "A": "(a) and (c) only",
+          "B": "(a), (c) and (d) only",
+          "C": "(b) and (d) only",
+          "D": "(a) and (b) only"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "PMEGP is for new units. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q80"
+        },
+        {
+         "question": "In which of the two separate fields had Linus Pauling won the Nobel Prize?\n(i) Peace\n(ii) Physics\n(iii) Chemistry\n(iv) Economics Sciences",
+         "options": {
+          "A": "(i) and (iv)",
+          "B": "(ii) and (iv)",
+          "C": "(i) and (iii)",
+          "D": "(iii) and (iv)"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Chemistry 1954, Peace 1962. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q81"
+        },
+        {
+         "question": "The process of conversion of solid directly into vapour is called",
+         "options": {
+          "A": "Condensation",
+          "B": "Sublimation",
+          "C": "Evaporation",
+          "D": "Fusion"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "e.g. camphor. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q82"
+        },
+        {
+         "question": "Consider the following statements and select the correct answer using the codes given below:\n(I) Primary market deals with Initial Public Offer (IPO)\n(II) Money market is a market for long-term transaction\n(III) SEBI was established in the year 1992\n(IV) Capital market is a market for short-term transaction",
+         "options": {
+          "A": "(I), (II), (III) and (IV) are correct",
+          "B": "(I), (II) and (III) are correct",
+          "C": "(I) and (II) are correct",
+          "D": "(I) and (III) are correct"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Money market is short-term, capital market long-term; SEBI got statutory powers in 1992. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q83"
+        },
+        {
+         "question": "When the balance between the material and non-material culture is disrupted by rapid social change, the material culture is left behind. This situation is called",
+         "options": {
+          "A": "Left culture",
+          "B": "Far-culture",
+          "C": "Cultural lag",
+          "D": "Taken culture"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Ogburn's cultural lag. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q86"
+        },
+        {
+         "question": "Vandana Shiva and Flavia Agnes are linked with these gender issues.\n(a) Gender and land rights\n(b) Ecofeminism\n(c) Woman and work\n(d) Gender and law",
+         "options": {
+          "A": "(a) and (b)",
+          "B": "(b) and (d)",
+          "C": "(c) and (d)",
+          "D": "(a) and (d)"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Shiva – ecofeminism; Agnes – women's legal rights. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q87"
+        },
+        {
+         "question": "Which is NOT an advantage of writing Business letter?",
+         "options": {
+          "A": "It has wide reach",
+          "B": "It can be standalone medium",
+          "C": "It is not cost effective",
+          "D": "It can be reproduced and repeated"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Cost-ineffectiveness is a disadvantage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q89"
+        },
+        {
+         "question": "Which of the following are the characteristics of mantle?\n(a) Located between crust and core\n(b) Mostly solid rock\n(c) Extends to about 2900 km depth\n(d) Entirely molten",
+         "options": {
+          "A": "(a) and (b)",
+          "B": "(a), (b) and (c)",
+          "C": "(a) and (c)",
+          "D": "(b) and (d)"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "The mantle is mostly solid. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q90"
+        },
+        {
+         "question": "Match the following List-I (verb forms) with List-II (non-finites):\nList – I (Verb form)\n(a) Present participle\n(b) Infinitive\n(c) Gerund\n(d) Perfect participle\nList – II (Non-finites)\n(i) Verb form used as a noun without \"to\"\n(ii) Verb form ending in -ing used as an adjective or for continuous tense\n(iii) Base form of a verb often preceded by \"to\"\n(iv) Having + past participle showing completed action before another action",
+         "options": {
+          "A": "a – iv, b – ii, c – iii, d – i",
+          "B": "a – iv, b – i, c – ii, d – iii",
+          "C": "a – ii, b – iii, c – i, d – iv",
+          "D": "a – ii, b – i, c – iii, d – iv"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Non-finites. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q91"
+        },
+        {
+         "question": "Match the following clauses with their functions.\nList – I (Clauses)\n(a) Noun clause\n(b) Adverbial clause\n(c) Relative clause\n(d) Conditional clause\nList – II (Functions)\n(i) Modifies a noun and usually begins with who, which, that\n(ii) Functions as a noun within a sentence\n(iii) Modifies a verb, adjective or adverb (time, reason, condition, etc)\n(iv) Expresses a condition often introduced by 'if' or 'unless'",
+         "options": {
+          "A": "a – ii, b – iii, c – i, d – iv",
+          "B": "a – iv, b – ii, c – iii, d – i",
+          "C": "a – iii, b – iv, c – ii, d – i",
+          "D": "a – ii, b – iv, c – i, d – iii"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Clause types. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q92"
+        },
+        {
+         "question": "Choose the correct word to complete the sentence:\nHis speech was so ____ that everyone lost interest halfway through.",
+         "options": {
+          "A": "Engaging",
+          "B": "Monotonous",
+          "C": "Lively",
+          "D": "Exciting"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Dull speeches lose listeners. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q93"
+        },
+        {
+         "question": "Passage: Technology has transformed the way people communicate. In the past, letters took days or even weeks to reach their destination. Today, messages can be sent instantly through e-mails and mobile applications. While this has made communication faster and more convenient, it has also reduced face-to-face interactions. Many people now prefer texting over meeting in person, which may affect social relationships in the long run.\nHow were messages sent in the past?",
+         "options": {
+          "A": "Through mobile apps",
+          "B": "Through emails",
+          "C": "Through letters",
+          "D": "Through video calls"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Letters took days. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q94"
+        },
+        {
+         "question": "Passage: Technology has transformed the way people communicate. In the past, letters took days or even weeks to reach their destination. Today, messages can be sent instantly through e-mails and mobile applications. While this has made communication faster and more convenient, it has also reduced face-to-face interactions. Many people now prefer texting over meeting in person, which may affect social relationships in the long run.\nWhat is one advantage of modern communication?",
+         "options": {
+          "A": "It is slower",
+          "B": "It is more expensive",
+          "C": "It is instant",
+          "D": "It requires travel"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Sent instantly. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q95"
+        },
+        {
+         "question": "Passage: Technology has transformed the way people communicate. In the past, letters took days or even weeks to reach their destination. Today, messages can be sent instantly through e-mails and mobile applications. While this has made communication faster and more convenient, it has also reduced face-to-face interactions. Many people now prefer texting over meeting in person, which may affect social relationships in the long run.\nWhat is one disadvantage of modern communication mentioned in the passage?",
+         "options": {
+          "A": "Increased travel",
+          "B": "Reduced face-to-face interaction",
+          "C": "Higher costs",
+          "D": "Lack of technology"
+         },
+         "answer": "B",
+         "subject": "Q76–100",
+         "explanation": "Stated in the passage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q96"
+        },
+        {
+         "question": "OBFUSCATE nearly means\n(a) Illuminate\n(b) Confound\n(c) Explicate\n(d) Muddle",
+         "options": {
+          "A": "(a) and (b) are correct",
+          "B": "(b) and (c) are correct",
+          "C": "(b) and (d) are correct",
+          "D": "(a) and (c) are correct"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "To make unclear. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q97"
+        },
+        {
+         "question": "Choose the antonyms of LOQUACIOUS.\n(a) Garrulous\n(b) Voluble\n(c) Reticent\n(d) Taciturn",
+         "options": {
+          "A": "(a) and (b) are correct",
+          "B": "(b) and (c) are correct",
+          "C": "(c) and (d) are correct",
+          "D": "(d) and (a) are correct"
+         },
+         "answer": "C",
+         "subject": "Q76–100",
+         "explanation": "Garrulous and voluble are synonyms. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q98"
+        },
+        {
+         "question": "Choose the correct meaning of the phrase \"a blessing in disguise\".",
+         "options": {
+          "A": "Hidden danger",
+          "B": "A very obvious problem",
+          "C": "A happy occasion",
+          "D": "Something that seems bad but turns out to be good"
+         },
+         "answer": "D",
+         "subject": "Q76–100",
+         "explanation": "Example: Missing the bus was a blessing in disguise – it crashed later. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q99"
+        },
+        {
+         "question": "Arrange the sentences in the correct order.\n(A) The teacher appreciated her efforts\n(B) She worked hard to complete the project on time\n(C) Meena was assigned a project in the class.\n(D) She presented it confidently before everyone",
+         "options": {
+          "A": "C B D A",
+          "B": "B C D A",
+          "C": "C D B A",
+          "D": "B D C A"
+         },
+         "answer": "A",
+         "subject": "Q76–100",
+         "explanation": "Assigned, worked, presented, appreciated. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 MCA · Q100"
+        }
+       ]
+      }
+     ]
     }
    ]
   }
@@ -19276,6 +21757,28 @@
      "subject": "P2 · Previous-Year Papers (KEA/KSET)",
      "topic": "PGCET 2024 – MCA entrance",
      "weight": 100
+    }
+   ]
+  },
+  {
+   "name": "PGCET 2025 – MCA entrance · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "PGCET 2025 – MCA entrance",
+     "weight": 97
+    }
+   ]
+  },
+  {
+   "name": "PGCET 2026 – MCA entrance · full paper",
+   "mode": "count",
+   "sources": [
+    {
+     "subject": "P2 · Previous-Year Papers (KEA/KSET)",
+     "topic": "PGCET 2026 – MCA entrance",
+     "weight": 90
     }
    ]
   }
