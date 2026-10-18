@@ -7,6 +7,7 @@ so every answer here was worked out by ExamSim and says so. Skipped: GTTC KEC Q4
 from packlib import AR, I_II
 
 PYQ = "PYQ pattern (KEA / KPSC / SSC English). "
+KLC_KEY = " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)"
 NOTE = " (Answer worked out by ExamSim; not KEA's official key.)"
 
 TENSES = [
@@ -69,7 +70,7 @@ TENSES = [
     ("Convert the following sentence from active voice to passive voice.\nWhy did your brother write such a letter?",
      ["Why was your brother written such a letter?", "Why did your brother was written such a letter?", "Why did such a letter wrote your brother?",
       "Why was such a letter written by your brother?"], 3,
-     "The object 'such a letter' becomes the subject: Why + was + such a letter + written + by your brother?" + NOTE, "GTTC 2024 Officer/Asst Gr-III KEC · Q66"),
+     "The object 'such a letter' becomes the subject: Why + was + such a letter + written + by your brother?" + KLC_KEY, "Legislative Council 2024 Asst/Jr Asst P2 · Q66"),
 ]
 
 SPECIAL = [

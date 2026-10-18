@@ -7,15 +7,16 @@ KEA 2026 KEC (NHK) Q38 on simple sentences is kept for P1-ENG-11 Clauses."""
 from packlib import AR, I_II
 
 PYQ = "PYQ pattern (KEA / KPSC / SSC English). "
+KLC_KEY = " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)"
 NOTE = " (Answer worked out by ExamSim; not KEA's official key.)"
 
 ASSERT_QUESTION = [
     ("Choose the correct question tag for the statement given below.\nI do not dare to fight with you,",
      ["Will I", "Should I", "Do I", "Can I"], 2,
-     "'Dare' is used here as an ordinary verb with 'do not', so the tag uses 'do': …, do I?" + NOTE, "GTTC 2024 Officer/Asst Gr-III KEC · Q57"),
+     "'Dare' is used here as an ordinary verb with 'do not', so the tag uses 'do': …, do I?" + KLC_KEY, "Legislative Council 2024 Asst/Jr Asst P2 · Q57"),
     ("Choose the appropriate question tag for the given sentence.\nChildren play cricket everyday, ___?",
      ["Don't they", "Didn't they", "Don't children", "Didn't children"], 0,
-     "Simple present, positive statement → negative tag with 'don't' and a pronoun (they)." + NOTE, "GTTC 2024 Officer/Asst Gr-III KEC · Q61"),
+     "Simple present, positive statement → negative tag with 'don't' and a pronoun (they)." + KLC_KEY, "Legislative Council 2024 Asst/Jr Asst P2 · Q61"),
     ("These movies are really cringeworthy.\nChoose the correct question tag for the given statement",
      ["Don't they?", "Are they?", "Aren't they?", "Aren't some?"], 2, "Positive statement with 'are' → negative tag 'aren't they?'" + NOTE,
      "Legislative Council 2024 Data Entry Operator P2 · Q44"),

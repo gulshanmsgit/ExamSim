@@ -7,20 +7,21 @@ unclear: KEA 2025 KEC (HK) Q71 (no option fits), KEA 2026 KEC-1 (NHK) Q74 and KE
 from packlib import AR, I_II
 
 PYQ = "PYQ pattern (KEA / KPSC / TET computer literacy). "
+KLC_KEY = " (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)"
 NOTE = " (Answer worked out by ExamSim; not KEA's official key.)"
 
 HISTORY_WWW = [
     ("The internet is evolved from the basic ideas of",
      ["ARPANET", ".NET", "USENET News", "Network"], 0,
-     "ARPANET (1969) of the US Department of Defense's ARPA was the first packet-switched network to use TCP/IP (from 1 January 1983)." + NOTE,
-     "GTTC 2024 Officer/Asst Gr-III KEC · Q75"),
+     "ARPANET (1969) of the US Department of Defense's ARPA was the first packet-switched network to use TCP/IP (from 1 January 1983)." + KLC_KEY,
+     "Legislative Council 2024 Asst/Jr Asst P2 · Q75"),
     ("The glue that holds the Internet is",
      ["UDP", "RPC", "TCP/IP", "FTP"], 2, "TCP/IP is the protocol suite every Internet host uses; UDP and FTP are parts of it." + NOTE, "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q95"),
     ("The internet that provides the basic services to its users are",
      ["Telnet, FTP, Email", "Scanning", "Network analysis", "Probing devices"], 0,
-     "Classic Internet services: e-mail, file transfer (FTP), remote login (Telnet), the WWW." + NOTE, "GTTC 2024 Officer/Asst Gr-III KEC · Q86"),
+     "Classic Internet services: e-mail, file transfer (FTP), remote login (Telnet), the WWW." + KLC_KEY, "Legislative Council 2024 Asst/Jr Asst P2 · Q86"),
     ("The total number of IP addresses of IPv6 version is",
-     ["2^32", "2^48", "2^128", "2^256"], 2, "IPv6 addresses are 128 bits; IPv4 addresses are 32 bits (2^32)." + NOTE, "GTTC 2024 Officer/Asst Gr-III KEC · Q82"),
+     ["2^32", "2^48", "2^128", "2^256"], 2, "IPv6 addresses are 128 bits; IPv4 addresses are 32 bits (2^32)." + KLC_KEY, "Legislative Council 2024 Asst/Jr Asst P2 · Q82"),
     ("Who invented the World Wide Web (1989–91) at CERN?",
      ["Tim Berners-Lee", "Vint Cerf", "Bill Gates", "Marc Andreessen"], 0,
      PYQ + "He also wrote the first browser and web server and defined HTML, HTTP and URLs. Vint Cerf and Bob Kahn designed TCP/IP – 'fathers of the Internet'."),
