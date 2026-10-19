@@ -903,6 +903,41 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   .sv-seg button span{display:none}.sv-sum{margin-left:0}.sv-name{font-size:.92rem}.sv-tile>.small{font-size:.76rem}
   .sv-act{flex-wrap:wrap;margin:0 -6px -4px}.sv-act .btn{font-size:.78rem;padding:3px 6px;min-height:30px}.sv-more{display:none}}
 @media (max-width:330px){.sv-grid{grid-template-columns:1fr}}
+/* ---- weightage pills + mind map ---- */
+.sv-w{align-self:flex-start;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px;color:var(--sc);background:color-mix(in srgb,var(--sc) 16%,transparent);letter-spacing:.01em}
+.sv-w small{font-weight:500;opacity:.8}
+.sv-w.det{color:#fff;background:var(--sc)}
+.sv-w.light{color:var(--muted);background:var(--grey-bg)}
+.sv-cov{font-size:.8rem;color:var(--muted);margin-top:2px}.sv-cov b{color:var(--text)}.sv-cov .ic{width:14px;height:14px;vertical-align:-2px;color:var(--sc)}
+.sv-cov small{opacity:.8}
+.sv-tile .sv-more{position:absolute;right:12px;bottom:12px;padding:0}
+.sv-act .sv-open{margin-left:auto;margin-right:18px}
+.modal.mm{max-width:min(1180px,96vw);padding:16px 18px}
+.mm-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mm-head h3{margin:0}
+.mm-head .btn.sm{padding:4px 10px;font-size:.84rem}
+.mm-legend{display:flex;gap:14px;margin:8px 0;color:var(--muted)}
+.mm-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;background:var(--grey-bg);vertical-align:-1px}
+.mm-legend i.done{background:var(--green)}.mm-legend i.prog{background:var(--orange)}
+.mm-wrap{overflow:auto;max-height:68vh;border-radius:12px;background:var(--bg);border:.5px solid var(--sep);padding:10px}
+.mm-svg{display:block}
+.mm-root{fill:var(--sc)}.mm-root-t{fill:#fff;font:700 15px system-ui,sans-serif}
+.mm-l1,.mm-l2{fill:none;stroke:color-mix(in srgb,var(--sc) 55%,transparent);stroke-width:2}
+.mm-l2{stroke-width:1.3;stroke:var(--sep)}
+.mm-l1.done{stroke:var(--green)}.mm-l1.prog{stroke:var(--orange)}
+.mm-t{cursor:pointer}
+.mm-t rect{fill:var(--card);stroke:var(--border)}
+.mm-t .bar{fill:var(--grey-bg);stroke:none}
+.mm-t.done .bar{fill:var(--green)}.mm-t.prog .bar{fill:var(--orange)}
+.mm-t.done rect:first-of-type{stroke:color-mix(in srgb,var(--green) 55%,transparent)}
+.mm-t text{fill:var(--text);font:600 13px system-ui,sans-serif}
+.mm-t text.pid{fill:var(--muted);font:600 10px system-ui,sans-serif}
+.mm-t:hover rect:first-of-type,.mm-t:focus rect:first-of-type{stroke:var(--sc);stroke-width:1.5}
+.mm-t:focus{outline:none}
+.mm-t .tog{fill:var(--sc)}.mm-t .tog-t{fill:#fff;font:700 13px system-ui,sans-serif}
+.mm-dot{fill:var(--sc)}
+.mm-leaf{fill:var(--text);font:400 12.5px system-ui,sans-serif}
+@media (max-width:640px){.modal.mm{padding:12px}.mm-wrap{max-height:62vh}}
 </style>
 </head>
 <body>
@@ -943,6 +978,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-.6-10A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></symbol>
 <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></symbol>
 <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+<symbol id="i-tree" viewBox="0 0 24 24"><rect x="3" y="9.5" width="6" height="5" rx="1.2"/><rect x="15" y="3" width="6" height="5" rx="1.2"/><rect x="15" y="16" width="6" height="5" rx="1.2"/><path d="M9 12h3M12 5.5v13M12 5.5h3M12 18.5h3"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
 <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8 21h8M9.5 17h5v4h-5z"/></symbol>
 </defs></svg>
@@ -1689,6 +1725,7 @@ $('#themeBtn').onclick = () => { theme = theme === 'dark' ? 'light' : 'dark'; ap
 let modalOnClose = null;
 function openModal(html, actions) {
   const m = $('#modal');
+  m.classList.remove('mm'); m.onclick = m.ondblclick = null;
   m.innerHTML = html + '<div class="row"></div>';
   const row = m.lastElementChild;
   actions.forEach(a => {
@@ -2888,7 +2925,7 @@ function renderSubject() {
   const packsCard = subjectPacksHTML(s), packsNew = packIndex && packsForSubject(s).some(packNeeded);
   if (packsNew) h += packsCard;
   h += `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Topics</h2>
-    <button class="btn" data-syl="${s.id}"><svg class=ic><use href=#i-book></use></svg> Syllabus</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}"><svg class=ic><use href=#i-cards></use></svg> Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
+    <button class="btn" data-syl="${s.id}"><svg class=ic><use href=#i-book></use></svg> Syllabus</button><button class="btn" data-mm="${s.id}"><svg class=ic><use href=#i-tree></use></svg> Mind map</button>${sets.length ? `<button class="btn" data-revise="subject:${s.id}"><svg class=ic><use href=#i-cards></use></svg> Revise subject</button>` : ''}<button class="btn primary" id="sNewTopic">+ New topic</button></div>`;
   h += topics.length ? topics.map(t => {
     const tSets = D.sets.filter(x => x.topicId === t.id), tAtts = D.attempts.filter(a => a.topicId === t.id);
     const avg = tAtts.length ? (tAtts.reduce((n, a) => n + pct(a), 0) / tAtts.length).toFixed(0) + '%' : '—';
@@ -4881,19 +4918,20 @@ function renderSubjectsView(el) {
       const c = svCounts(x.subs.flatMap(y => y.topics));
       return `<button role="tab" data-svp="${x.k}" class="${x.k === k ? 'on' : ''}" aria-selected="${x.k === k}"><b>${x.short}</b><span>${esc(x.long)}</span><em>${c.done}/${c.total}</em></button>`;
     }).join('')}</div>` : `<h2 class="grow">${P.short} · ${esc(P.long)}</h2>`}
-    <div class="sv-sum ${k}">${svPie(pc2, 'sm')}<div><b>${pc2.done} of ${pc2.total}</b><span class="small muted">topics done${pc2.prog ? ` · ${pc2.prog} in progress` : ''}</span></div></div></div>`;
+    <div class="sv-sum ${k}">${svPie(pc2, 'sm')}<div><b>${pc2.done} of ${pc2.total}</b><span class="small muted">topics done${pc2.prog ? ` · ${pc2.prog} in progress` : ''}</span>${svCoverage(P.subs)}</div></div></div>`;
   const open = TD.svSubj;
   h += `<div class="sv-grid">` + P.subs.map(({ s, topics }) => {
     const c = svCounts(topics), nQ = topics.reduce((n, t) => n + topicQuestionCount(t.id), 0), on = open === s.id;
     const tile = `<div class="sv-tile ${on ? 'on' : ''}${c.done === c.total ? ' full' : ''}" style="--sc:${subjColor(s)}" data-sv="${s.id}" role="button" tabindex="0" aria-expanded="${on}" title="Show topics">
         <div class="sv-top"><span class="subj-ic">${esc(subjIcon(s))}</span>${svPie(c)}</div>
-        <b class="sv-name">${esc(displayName(s))}</b>
+        <b class="sv-name">${esc(displayName(s))}</b>${svWeightPill(subjWeight(s, topics))}
         <div class="small muted">${c.done}/${c.total} topics done · ${plural(nQ, 'question')}</div>
         <div class="sv-bar"><i class="d" style="width:${c.total ? c.done / c.total * 100 : 0}%"></i><i class="g" style="width:${c.total ? c.prog / c.total * 100 : 0}%"></i></div>
-        <div class="sv-act"><button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button>
-          <span class="sv-more">${I(on ? 'up' : 'chevd')} ${on ? 'Hide' : 'Topics'}</span></div></div>`;
+        <div class="sv-act"><button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-mm="${s.id}" title="Mind map of this subject">${I('tree')} Mind map</button>
+          <button class="btn ghost sm sv-open" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></div>
+        <span class="sv-more" aria-hidden="true">${I(on ? 'up' : 'chevd')}</span></div>`;
     const panel = on ? `<div class="sv-panel" style="--sc:${subjColor(s)}"><div class="sv-panel-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b class="grow">${esc(displayName(s))}</b>
-        <span class="small muted">${c.done}/${c.total} done</span><button class="icon-btn" data-sv="${s.id}" title="Close" aria-label="Close topics">${I('x')}</button></div>
+        <span class="small muted">${c.done}/${c.total} done</span><button class="btn sm" data-mm="${s.id}">${I('tree')} Mind map</button><button class="icon-btn" data-sv="${s.id}" title="Close" aria-label="Close topics">${I('x')}</button></div>
         ${topics.map(t => planTopicRow(t, false)).join('')}</div>` : '';
     return tile + panel;
   }).join('') + '</div>';
@@ -4903,6 +4941,124 @@ function renderSubjectsView(el) {
   el.innerHTML = h;
   wireToday();
 }
+
+// Exam weight of a subject: official marks (GPSTR Paper 1), an estimated share (GPSTR Paper 2), or – for KRIES, whose
+// notification gives no split – whether its Paper 2 syllabus asks for the area "in detail" (C, Data Structures, OS)
+const KRIES_DETAIL = ['C Programming', 'Data Structures', 'Operating System'];
+function subjWeight(s, topics) {
+  const marks = (D.plan && D.plan.marks) || {}, n = nameKey(s.name);
+  const k = Object.keys(marks).find(x => n.startsWith(nameKey(x)));
+  if (k) { const v = +marks[k]; return v >= 1 ? { marks: v, label: `${v} marks`, tip: 'Official marks for this subject' } : { share: v, label: `~${Math.round(v * 100)}%`, tip: 'Estimated share of the paper – the syllabus gives no split', est: true }; }
+  if (planKeyOf(D.plan) === 'kries' && topics.length && topics[0].plan.id.startsWith('P2')) {
+    const det = topics.filter(t => KRIES_DETAIL.includes((planRow(t.plan.id) || {}).subject)).length;
+    if (det * 2 >= topics.length) return { detail: true, label: 'In detail', tip: 'The KRIES syllabus asks for this area in detail' };
+    return { label: 'By name', tip: 'The KRIES syllabus only names this area', light: true };
+  }
+  return null;
+}
+const svWeightPill = w => w ? `<span class="sv-w ${w.est ? 'est' : ''} ${w.detail ? 'det' : ''} ${w.light ? 'light' : ''}" title="${esc(w.tip)}">${esc(w.label)}${w.est ? ' <small>est.</small>' : ''}</span>` : '';
+// "Marks covered" line for one paper: done topics × the subject's weight
+function svCoverage(subs) {
+  const rows = subs.map(({ s, topics }) => ({ w: subjWeight(s, topics), c: svCounts(topics) })).filter(x => x.w);
+  if (!rows.length) return '';
+  if (rows.some(x => x.w.marks)) {
+    const tot = Object.values(D.plan.marks).filter(v => +v >= 1).reduce((n, v) => n + +v, 0), got = rows.reduce((n, x) => n + (x.w.marks || 0) * (x.c.total ? x.c.done / x.c.total : 0), 0);
+    return `<span class="sv-cov" title="Official marks of the subjects × share of their topics done">${I('target')} <b>${Math.round(got)} of ${tot}</b> marks covered</span>`;
+  }
+  if (rows.some(x => x.w.share)) {
+    const got = rows.reduce((n, x) => n + (x.w.share || 0) * (x.c.total ? x.c.done / x.c.total : 0), 0);
+    return `<span class="sv-cov" title="Estimated unit weights × share of their topics done">${I('target')} <b>~${Math.round(got * 100)}%</b> of the paper covered <small>est.</small></span>`;
+  }
+  const det = rows.filter(x => x.w.detail), d = det.reduce((n, x) => n + x.c.done, 0), t = det.reduce((n, x) => n + x.c.total, 0);
+  return t ? `<span class="sv-cov" title="C Programming, Data Structures and Operating System are asked in detail">${I('target')} In-detail areas: <b>${d}/${t}</b> topics done</span>` : '';
+}
+
+/* ---------- Mind map: subject → topics → sub-topics as a tree (owner, 19 Oct 2026) ---------- */
+const MM = { subj: null, open: new Set() };
+// Sub-topics of a topic: its set names / syllabus sub-points, else the planner's coverage split at top-level commas
+function mmLeaves(t) {
+  let subs = topicSubs(t).filter(x => !/previous-year|pyq|practice|mixed|revision|mock/i.test(x)); // set names that are not sub-topics
+  if (!subs.length && t.plan && t.plan.coverage) {
+    let c = t.plan.coverage.replace(/^\([A-Z]+\)\s*/, ''), depth = 0, cur = '';
+    const i = c.indexOf(' – '); if (i > 0 && i < 70) c = c.slice(i + 3);
+    subs = [];
+    for (const ch of c) {
+      if (ch === '(') depth++; else if (ch === ')') depth = Math.max(0, depth - 1);
+      if ((ch === ',' || ch === ';') && !depth) { subs.push(cur); cur = ''; } else cur += ch;
+    }
+    subs.push(cur);
+    subs = subs.map(x => x.replace(/^\s*(and|&)\s+/i, '').trim()).filter(Boolean);
+  }
+  return subs.slice(0, 12).map(x => x.charAt(0).toUpperCase() + x.slice(1));
+}
+async function openMindMap(subjectId) {
+  const s = byId('subjects', subjectId);
+  if (!s) return;
+  await loadSyllabus().catch(() => null);
+  const topics = D.topics.filter(t => t.subjectId === s.id && t.plan && t.plan.id && (!examScope() || examScope().has(t.plan.id)))
+    .sort((a, b) => a.plan.id.localeCompare(b.plan.id, undefined, { numeric: true }));
+  if (MM.subj !== s.id) {
+    MM.subj = s.id; MM.open = new Set();
+    const nLeaves = topics.reduce((n, t) => n + mmLeaves(t).length, 0);
+    if (nLeaves <= 70) topics.forEach(t => MM.open.add(t.id));
+  }
+  openModal(`<div class="mm-head" style="--sc:${subjColor(s)}"><span class="subj-ic">${esc(subjIcon(s))}</span><div class="grow"><h3>${esc(displayName(s))}</h3>
+      <div class="small muted">Mind map · tap a topic to show or hide its sub-topics; double-click to open it</div></div>
+      <button class="btn sm" data-mm-all="1">Expand all</button><button class="btn sm" data-mm-all="0">Collapse</button></div>
+    <div class="mm-legend small"><span><i class="done"></i>Done</span><span><i class="prog"></i>In progress</span><span><i></i>Not started</span></div>
+    <div class="mm-wrap" id="mmWrap"></div>`, [{ label: 'Open subject', onClick: () => openSubject(s.id) }, { label: 'Close', cls: 'primary' }]);
+  $('#modal').classList.add('mm');
+  const draw = () => { $('#mmWrap').innerHTML = mindMapSVG(s, topics); };
+  draw();
+  $('#modal').ondblclick = e => { const n = e.target.closest('[data-mm-t]'); if (n) { closeModal(); openTopic(n.dataset.mmT); } };
+  $('#modal').onclick = e => {
+    const a = e.target.closest('[data-mm-all]');
+    if (a) { MM.open = new Set(a.dataset.mmAll === '1' ? topics.map(t => t.id) : []); draw(); return; }
+    const n = e.target.closest('[data-mm-t]');
+    if (!n) return;
+    const id = n.dataset.mmT;
+    if (!n.classList.contains('has')) { closeModal(); openTopic(id); return; } // nothing to unfold: open the topic
+    MM.open.has(id) ? MM.open.delete(id) : MM.open.add(id); draw();
+  };
+}
+function mindMapSVG(s, topics) {
+  const ctx = (mindMapSVG.c || (mindMapSVG.c = document.createElement('canvas').getContext('2d')));
+  const tw = (txt, f) => { ctx.font = f; return ctx.measureText(txt).width; };
+  const cut = (x, n) => x.length > n ? x.slice(0, n - 1) + '…' : x;
+  const F_ROOT = '700 15px system-ui,sans-serif', F_T = '600 13px system-ui,sans-serif', F_L = '400 12.5px system-ui,sans-serif';
+  const LH = 26, TH = 30, GAP = 8;
+  const items = topics.map(t => {
+    const leaves = MM.open.has(t.id) ? mmLeaves(t) : [], all = mmLeaves(t).length, st = planStatus(t.plan.id);
+    return { t, leaves, all, name: cut(t.name, 44), cls: st === 'Completed' ? 'done' : st === 'In Progress' || st === 'Review Required' ? 'prog' : '', rows: Math.max(1, leaves.length) };
+  });
+  const rootLines = [];
+  for (const w of displayName(s).split(/\s+/)) { const l = rootLines.length - 1; if (l >= 0 && (rootLines[l] + ' ' + w).length <= 18) rootLines[l] += ' ' + w; else rootLines.push(w); }
+  if (rootLines.length > 4) { rootLines.length = 4; rootLines[3] = cut(rootLines[3], 17) + '…'; }
+  const wR = Math.max(...rootLines.map(l => tw(l, F_ROOT))) + 28, hR = rootLines.length * 19 + 18;
+  const wT = Math.max(120, ...items.map(x => tw(x.name, F_T) + tw(x.t.plan.id, '600 10px system-ui') + 52));
+  const wL = Math.max(0, ...items.flatMap(x => x.leaves.map(l => tw(cut(l, 60), F_L) + 22)));
+  const x1 = wR + 56, x2 = x1 + wT + 46, W = Math.ceil(x2 + (wL ? wL + 10 : 0)) + 8;
+  let y = 10;
+  for (const it of items) { const h = it.rows * LH; it.y = y + h / 2; it.ly = y + LH / 2; y += h + GAP; }
+  const H = Math.max(y + 4, hR + 20), rootY = !items.length ? H / 2 : H > 520 ? Math.max(items[0].y, hR / 2 + 6) : (items[0].y + items[items.length - 1].y) / 2; // long maps: root at the top so it stays in view
+  const curve = (ax, ay, bx, by) => `M${ax},${ay} C${(ax + bx) / 2},${ay} ${(ax + bx) / 2},${by} ${bx},${by}`;
+  let g = `<rect class="mm-root" x="2" y="${rootY - hR / 2}" width="${wR}" height="${hR}" rx="12"/><text class="mm-root-t" text-anchor="middle">${rootLines.map((l, i) => `<tspan x="${2 + wR / 2}" y="${rootY - hR / 2 + 23 + i * 19}">${esc(l)}</tspan>`).join('')}</text>`;
+  for (const it of items) {
+    g += `<path class="mm-l1 ${it.cls}" d="${curve(2 + wR, rootY, x1, it.y)}"/>`;
+    g += `<g class="mm-t ${it.cls} ${it.all ? 'has' : ''}" data-mm-t="${it.t.id}" tabindex="0" role="button" aria-expanded="${!!it.leaves.length}"><title>${esc(it.t.name)}${it.all ? ` – ${it.all} sub-topics` : ''}</title>
+      <rect x="${x1}" y="${it.y - TH / 2}" width="${wT}" height="${TH}" rx="9"/><rect class="bar" x="${x1}" y="${it.y - TH / 2}" width="4" height="${TH}" rx="2"/>
+      <text class="pid" x="${x1 + 12}" y="${it.y + 4}">${esc(it.t.plan.id.replace(/^P[12]-/, ''))}</text>
+      <text x="${x1 + 16 + tw(it.t.plan.id.replace(/^P[12]-/, ''), '600 10px system-ui')}" y="${it.y + 4.5}">${esc(it.name)}</text>
+      ${it.all ? `<circle class="tog" cx="${x1 + wT}" cy="${it.y}" r="8"/><text class="tog-t" x="${x1 + wT}" y="${it.y + 4}" text-anchor="middle">${it.leaves.length ? '−' : '+'}</text>` : ''}</g>`;
+    it.leaves.forEach((l, i) => {
+      const ly = it.ly + i * LH;
+      g += `<path class="mm-l2" d="${curve(x1 + wT + 8, it.y, x2, ly)}"/><circle class="mm-dot" cx="${x2 + 4}" cy="${ly}" r="3"/><text class="mm-leaf" x="${x2 + 13}" y="${ly + 4}"><title>${esc(l)}</title>${esc(cut(l, 60))}</text>`;
+    });
+  }
+  if (!items.length) g += `<text class="mm-leaf" x="${x1}" y="${rootY + 4}">No study-plan topics in this subject.</text>`;
+  return `<svg class="mm-svg" style="--sc:${subjColor(s)}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Mind map of ${esc(displayName(s))}">${g}</svg>`;
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-mm]'); if (b) { e.preventDefault(); e.stopPropagation(); openMindMap(b.dataset.mm); } }, true);
 
 /* ---------- Today ---------- */
 function renderToday() {
