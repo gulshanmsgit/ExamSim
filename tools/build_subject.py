@@ -29,7 +29,7 @@ PACKS = {
     "p2-u3": {"subject": "P2 · Unit 3 – Computer System Architecture", "modules": ["p2u3_a", "p2u3_b", "p2u3_c", "p2u3_d", "p2u3_e"]},
     "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b", "p2u7_notes"]},
     "p2-u10": {"subject": "P2 · Unit 10 – Artificial Intelligence", "modules": ["p2u10_a", "p2u10_b"]},
-    "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
+    "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f", "p2u8_notes"]},
     "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j", "p1_psy_k", "p1_psy_l", "p1_psy_m", "p1_psy_n", "p1_psy_o", "p1_psy_p", "p1_psy_q", "p1_psy_r", "p1_psy_s"]},
     "p1-gk": {"subject": "P1 · General Knowledge", "modules": ["p1_gk_a", "p1_gk_b", "p1_gk_c", "p1_gk_d", "p1_gk_e", "p1_gk_f", "p1_gk_g", "p1_gk_pyq", "p1_gk_notes", "p1_gk_h", "p1_gk_i", "p1_gk_j", "p1_gk_k", "p1_gk_l"]},
     "p1-cl": {"subject": "P1 · Computer Literacy", "modules": ["p1_cl_a", "p1_cl_b", "p1_cl_c", "p1_cl_d", "p1_cl_e", "p1_cl_f", "p1_cl_g", "p1_cl_h", "p1_cl_i", "p1_cl_j", "p1_cl_k", "p1_cl_l", "p1_cl_m", "p1_cl_n"]},
