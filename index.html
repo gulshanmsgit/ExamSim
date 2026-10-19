@@ -1582,7 +1582,8 @@ function examScope() {
   if (_scopeOf !== D.plan) { _scope = new Set(planRows().map(r => r.id)); _scopeOf = D.plan; }
   return _scope;
 }
-const inScopeT = t => { const sc = examScope(); return !sc || !!(t.plan && sc.has(t.plan.id)); };
+// Topics with no plan ID (monthly current affairs, previous-year papers, your own topics) belong to every exam
+const inScopeT = t => { const sc = examScope(); return !sc || !(t.plan && t.plan.id) || sc.has(t.plan.id); };
 const inScopeS = sj => !examScope() || D.topics.some(t => t.subjectId === sj.id && inScopeT(t));
 const planPapers = () => (D.plan && D.plan.papers) || ['p1', 'p2'];
 const qCache = new Map();

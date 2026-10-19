@@ -24,7 +24,7 @@ P2_GROUP = "② Paper 2 · Computer Science (30 questions per sub-topic)"
 PACKS = {
     "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e", "p2u4_notes"]},
     "p2-u5": {"subject": "P2 · Unit 5 – Database Management Systems", "modules": ["p2u5_b", "p2u5_c", "p2u5_d", "p2u5_e", "p2u5_f", "p2u5_notes"]},
-    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i", "p2u6_notes"]},
+    "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i", "p2u6_notes", "p2u6_words"]},
     "p2-u9": {"subject": "P2 · Unit 9 – Data Communication & Networks", "modules": ["p2u9_a", "p2u9_b", "p2u9_c", "p2u9_d", "p2u9_e", "p2u9_f", "p2u9_notes"]},
     "p2-u3": {"subject": "P2 · Unit 3 – Computer System Architecture", "modules": ["p2u3_a", "p2u3_b", "p2u3_c", "p2u3_d", "p2u3_e"]},
     "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b", "p2u7_notes"]},
@@ -40,8 +40,8 @@ PACKS = {
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a", "p2_kr_notes"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
-    "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a", "p2_krd_b", "p2_krd_c", "p2_krd_d", "p2_krd_notes2"]},
-    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g", "p2_krc_notes2"]},
+    "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a", "p2_krd_b", "p2_krd_c", "p2_krd_d", "p2_krd_notes2", "p2_krd_words"]},
+    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g", "p2_krc_notes2", "p2_krc_words"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
 }
 
