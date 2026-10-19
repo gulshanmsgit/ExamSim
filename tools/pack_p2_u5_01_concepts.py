@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from packlib import AR, I_II, build_pack
+from p2u5_notes import NOTES  # revision note for this topic (19 Oct 2026)
 
 DATA_MODELS = [
     ("A data model is best defined as:",
@@ -572,5 +573,5 @@ build_pack(
     "Database System Concepts and Architecture: data models; schemas and instances; three-schema architecture; data independence; "
     "database languages and interfaces; centralized and client/server architectures. 30 questions per sub-topic.",
     [{"name": SUBJECT, "icon": "🗄️", "topics": [{"name": TOPIC, "sets": [
-        {"name": n, "tag": n.split(" · ", 1)[1], "questions": qs} for n, qs in sets]}]}],
+        {"name": n, "tag": n.split(" · ", 1)[1], "questions": qs} for n, qs in sets], "notes": NOTES[TOPIC]}]}],
 )
