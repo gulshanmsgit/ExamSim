@@ -25,8 +25,9 @@ PYQ_PACKS = {
                "name": "P2 · Previous-year papers — Computer Science (KEA / KSET)"},
     "pyq-p1": {"subject": "P1 · Previous-Year Papers (KEA)", "icon": "📜",
                "papers": ["pyq_klc2024_gk_p1", "pyq_klc2024_progr_p1", "pyq_klc2024_asst_p2",
-                          "pyq_gttc2024_asst_gk", "pyq_gttc2024_kec"],
-               "name": "P1 · Previous-year papers — General Knowledge (KEA, official keys)"},
+                          "pyq_gttc2024_asst_gk", "pyq_gttc2024_kec",
+                          "pyq_kea2025_gk_hk", "pyq_kea2026_gk3_hk"],
+               "name": "P1 · Previous-year papers — General Knowledge (KEA; official keys where published)"},
 }
 PYQ_SUBJECTS = {c["subject"] for c in PYQ_PACKS.values()}
 
