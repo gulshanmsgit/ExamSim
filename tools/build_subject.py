@@ -26,7 +26,7 @@ PACKS = {
     "p2-u5": {"subject": "P2 · Unit 5 – Database Management Systems", "modules": ["p2u5_b", "p2u5_c", "p2u5_d", "p2u5_e", "p2u5_f", "p2u5_notes"]},
     "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i", "p2u6_notes", "p2u6_words"]},
     "p2-u9": {"subject": "P2 · Unit 9 – Data Communication & Networks", "modules": ["p2u9_a", "p2u9_b", "p2u9_c", "p2u9_d", "p2u9_e", "p2u9_f", "p2u9_notes", "p2u9_notes2"]},
-    "p2-u3": {"subject": "P2 · Unit 3 – Computer System Architecture", "modules": ["p2u3_a", "p2u3_b", "p2u3_c", "p2u3_d", "p2u3_e"]},
+    "p2-u3": {"subject": "P2 · Unit 3 – Computer System Architecture", "modules": ["p2u3_a", "p2u3_b", "p2u3_c", "p2u3_d", "p2u3_e", "p2u3_notes2"]},
     "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b", "p2u7_notes"]},
     "p2-u10": {"subject": "P2 · Unit 10 – Artificial Intelligence", "modules": ["p2u10_a", "p2u10_b", "p2u10_notes2"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f", "p2u8_notes"]},
