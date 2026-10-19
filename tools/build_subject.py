@@ -40,8 +40,8 @@ PACKS = {
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
     "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
-    "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a", "p2_krd_b", "p2_krd_c", "p2_krd_d"]},
-    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g"]},
+    "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a", "p2_krd_b", "p2_krd_c", "p2_krd_d", "p2_krd_notes2"]},
+    "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g", "p2_krc_notes2"]},
     "p1-kries": {"subject": "P1 · KRIES – Karnataka & General Studies", "modules": ["p1_kr_a", "p1_kr_b", "p1_kr_c", "p1_kr_d", "p1_kr_e"]},
 }
 
@@ -100,7 +100,8 @@ def build(key):
         mod = importlib.import_module(m)
         for k, v in mod.TOPICS.items():  # a later module may add sets to a topic (e.g. a "Previous-Year Questions" set)
             content.setdefault(k, []).extend(v)
-        notes.update(getattr(mod, "NOTES", {}))  # optional ready-made notes per topic: [{"title", "md"}]
+        for k, v in getattr(mod, "NOTES", {}).items():  # optional ready-made notes per topic: [{"title", "md"}]; later modules add more
+            notes.setdefault(k, []).extend(v)
     missing = [t for t in content if t not in planned]
     assert not missing, f"topics not in the planner for {subject}: {missing}"
     topics = []
