@@ -4842,7 +4842,8 @@ function dayGroupsHTML(d) {
 // 'By subject' mode (no dates) or 'By date' (day-by-day calendar); chosen per exam in the Study plan, KRIES defaults to subjects
 function subjectWise() { if (!D.plan) return false; const v = planCfg(planKeyOf(D.plan)).view; return v ? v === 'subject' : planKeyOf(D.plan) === 'kries'; }
 function setTodayTabLabel() { const s = $('[data-go="today"] span'); if (s) s.textContent = subjectWise() ? 'Subjects' : 'Today'; }
-// Plan topics of one paper grouped by subject, in plan order
+// Plan topics of one paper grouped by subject; subjects named "Unit N" come in unit order, the rest after them in plan order
+const unitNo = s => { const m = /\bUnit\s*(\d+)/i.exec(s.name || ''); return m ? +m[1] : Infinity; };
 function paperSubjects(k) {
   const subs = new Map(), missing = [];
   for (const r of planRows(k)) {
@@ -4851,7 +4852,7 @@ function paperSubjects(k) {
     if (!subs.has(t.subjectId)) subs.set(t.subjectId, { s: byId('subjects', t.subjectId), topics: [] });
     subs.get(t.subjectId).topics.push(t);
   }
-  return { subs: [...subs.values()].filter(x => x.s), missing };
+  return { subs: [...subs.values()].filter(x => x.s).sort((a, b) => (unitNo(a.s) - unitNo(b.s)) || 0), missing };
 }
 const LS_SVPAPER = 'examsim.svpaper';
 // Topic counts of one subject for its progress donut
