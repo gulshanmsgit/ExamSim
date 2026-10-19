@@ -800,18 +800,19 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 @media (min-width:821px){
   body.has-tabbar{padding-left:236px}
   .tabbar{position:fixed;top:0;bottom:0;left:0;z-index:25;width:236px;max-width:none;margin:0;
-    display:flex;flex-direction:column;flex-wrap:nowrap;gap:2px;padding:58px 12px 16px;
+    display:flex;flex-direction:column;flex-wrap:nowrap;gap:2px;padding:18px 12px 14px;
     background:var(--side);border-right:.5px solid var(--sep);
     backdrop-filter:saturate(1.8) blur(30px);-webkit-backdrop-filter:saturate(1.8) blur(30px)}
   .tabbar[hidden]{display:none}
-  .tabbar::before{content:"";position:absolute;top:20px;left:20px;width:12px;height:12px;border-radius:50%;
-    background:#ff5f57;box-shadow:20px 0 0 #febc2e,40px 0 0 #28c840;opacity:.95}
   .tabbar::after{content:"ExamSim";order:-1;padding:0 10px 6px;font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
   .tb-item{width:100%;justify-content:flex-start;gap:10px;border:none;background:transparent;border-radius:7px;
     padding:7px 10px;color:var(--text);font-weight:500;font-size:.93rem}
   .tb-item svg{color:var(--primary);width:19px;height:19px}
   .tb-item:hover{background:var(--sel);color:var(--text)}
   .tb-item.on{background:var(--sel);color:var(--text);font-weight:600}
+  .tb-profile{margin-top:auto;padding:9px 10px}
+  .tb-profile .pf-av svg{color:#fff;width:17px;height:17px}
+  #wsBtn{display:none}
   main{padding:22px 32px 40px}
 }
 /* ---- phones: iOS tab bar ---- */
@@ -820,10 +821,88 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   .tb-item,.tb-item.on{background:none;color:var(--muted);font-weight:500;font-size:.66rem}
   .tb-item.on{color:var(--primary)}
   .tb-item.on svg{background:none}
+  .tb-profile{display:none!important}
   .page-head h1,.hero h1{font-size:1.75rem}
   .btn{border-radius:10px}
   .modal{border-radius:14px 14px 0 0}
 }
+/* ---- profile: avatar, sidebar entry, topbar chip, page ---- */
+.pf-av{position:relative;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;flex:0 0 auto;color:#fff;
+  background:linear-gradient(160deg,#5e9bff,#5856d6);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.15)}
+.pf-av svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pf-av .dot{position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;background:#30d158;border:2px solid var(--side)}
+.pf-av .dot.demo{background:#ff9f0a}
+.pf-av.lg{width:64px;height:64px}
+.pf-av.lg svg{width:32px;height:32px}
+.pf-av.lg .dot{width:16px;height:16px;border-width:3px;border-color:#1c1c1e}
+.tb-profile{display:flex;align-items:center;gap:10px;text-align:left}
+.tb-profile .tbp-t{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.tb-profile .tbp-t small{color:var(--muted);font-weight:500;font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-chip{display:inline-flex;align-items:center;gap:7px;border:.5px solid var(--btn-b);background:var(--btn);border-radius:99px;padding:3px 10px 3px 3px;cursor:pointer;font-weight:600;font-size:.85rem;color:var(--text)}
+.pf-chip .pf-av{width:26px;height:26px}.pf-chip .pf-av svg{width:15px;height:15px}
+.pf-chip .pf-av .dot{border-color:var(--btn)}
+.pf-hero{display:flex;align-items:center;gap:16px;padding:20px;border-radius:18px;margin-bottom:14px;color:#fff;
+  background:radial-gradient(120% 140% at 0 0,#3a3a8c 0,#1c1c1e 60%);box-shadow:var(--shadow-lg)}
+.pf-hero h1{margin:0;font-size:1.7rem;letter-spacing:-.02em}
+.pf-hero .pf-sub{color:rgba(235,235,245,.72);font-size:.9rem;margin-top:3px;display:flex;gap:6px 12px;flex-wrap:wrap}
+.pf-hero .pf-sub b{color:#fff;font-weight:600}
+.pf-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.pf-stat{background:var(--card);border:.5px solid var(--border);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
+.pf-stat b{display:block;font-size:1.45rem;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.pf-stat span{color:var(--muted);font-size:.8rem;font-weight:500}
+.pf-stat .ic{width:15px;height:15px;color:var(--primary);vertical-align:-2px}
+.pf-card h2{display:flex;align-items:center;gap:8px}
+.pf-card h2 .ic{width:20px;height:20px;color:var(--primary)}
+.pf-code{display:flex;gap:8px;align-items:center}
+.pf-code input{flex:1;min-width:0;font-family:ui-monospace,monospace;letter-spacing:.04em}
+@media (max-width:640px){.pf-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-hero{padding:16px}.pf-av.lg{width:52px;height:52px}}
+
+/* ---- Subjects (no-dates mode): paper tabs + tiles with a progress donut ---- */
+.sv-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+.sv-head h2{margin:0}
+.sv-seg{flex:1 1 360px;display:flex;padding:3px;max-width:560px}
+.sv-seg button{flex:1 1 0;display:flex;align-items:center;gap:6px;justify-content:center;padding:8px 10px;cursor:pointer;min-width:0;font-size:.92rem}
+.sv-seg button span{color:var(--muted);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sv-seg button em{font-style:normal;font-size:.74rem;font-weight:600;color:var(--muted);background:var(--grey-bg);border-radius:99px;padding:1px 7px}
+.sv-seg button[data-svp=p1].on b{color:var(--p1)}.sv-seg button[data-svp=p2].on b{color:var(--p2)}
+.sv-sum{display:flex;align-items:center;gap:10px;margin-left:auto}
+.sv-sum>div:last-child{display:flex;flex-direction:column;line-height:1.25}
+.sv-sum.p1{--sc:var(--p1)}.sv-sum.p2{--sc:var(--p2)}
+.sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));grid-auto-flow:row dense;gap:12px;margin-bottom:14px}
+.sv-tile{position:relative;display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:16px;cursor:pointer;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--sc) 11%,var(--card)),var(--card) 70%);
+  border:.5px solid var(--border);box-shadow:var(--shadow);transition:transform .12s,box-shadow .12s,border-color .12s}
+.sv-tile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(0,0,0,.45);border-color:color-mix(in srgb,var(--sc) 45%,var(--border))}
+.sv-tile:focus-visible{outline:2px solid var(--sc);outline-offset:2px}
+.sv-tile.on{border-color:var(--sc);box-shadow:0 0 0 1.5px var(--sc)}
+.sv-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:2px}
+.sv-top .subj-ic{width:42px;height:42px;font-size:1.3rem}
+.sv-name{font-size:1.02rem;line-height:1.3;overflow-wrap:anywhere}
+.sv-pie{--d:0;--g:0;position:relative;width:58px;height:58px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:conic-gradient(var(--sc) 0 calc(var(--d)*1%),color-mix(in srgb,var(--sc) 42%,transparent) 0 calc(var(--g)*1%),var(--grey-bg) 0)}
+.sv-pie::before{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--card)}
+.sv-pie span{position:relative;font-weight:700;font-size:.95rem;letter-spacing:-.02em}
+.sv-pie small{font-size:.62rem;font-weight:600;color:var(--muted);margin-left:1px}
+.sv-pie.sm{width:44px;height:44px}.sv-pie.sm::before{inset:5px;background:var(--bg)}.sv-pie.sm span{font-size:.78rem}
+.sv-tile.full .sv-pie span{color:var(--sc)}
+.sv-bar{display:flex;height:5px;border-radius:99px;background:var(--grey-bg);overflow:hidden}
+.sv-bar i{display:block;height:100%}.sv-bar .d{background:var(--sc)}.sv-bar .g{background:color-mix(in srgb,var(--sc) 42%,transparent)}
+.sv-act{display:flex;align-items:center;gap:2px;margin:2px -8px -6px}
+.sv-act .btn{padding:4px 8px;min-height:32px;font-size:.84rem}
+.sv-more{margin-left:auto;display:inline-flex;align-items:center;gap:3px;font-size:.8rem;font-weight:600;color:var(--muted);padding-right:8px}
+.sv-more .ic{width:15px;height:15px}
+.sv-panel{grid-column:1/-1;border-radius:16px;background:var(--card);border:.5px solid var(--border);border-top:3px solid var(--sc);box-shadow:var(--shadow);overflow:hidden;animation:svIn .18s ease-out}
+.sv-panel-h{display:flex;align-items:center;gap:10px;padding:10px 12px;background:color-mix(in srgb,var(--sc) 8%,var(--card));border-bottom:.5px solid var(--sep)}
+.sv-panel-h .subj-ic{width:30px;height:30px;font-size:1rem}
+.sv-panel-h b{flex:1;min-width:0}
+.sv-panel .trow{padding-left:12px;padding-right:12px}
+.sv-ca{padding:12px 14px;border-radius:14px;background:var(--card);border:.5px solid var(--border);box-shadow:var(--shadow)}
+@keyframes svIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media (max-width:640px){.sv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sv-tile{padding:12px}
+  .sv-pie{width:48px;height:48px}.sv-pie::before{inset:6px}.sv-top .subj-ic{width:36px;height:36px}
+  .sv-seg button span{display:none}.sv-sum{margin-left:0}.sv-name{font-size:.92rem}.sv-tile>.small{font-size:.76rem}
+  .sv-act{flex-wrap:wrap;margin:0 -6px -4px}.sv-act .btn{font-size:.78rem;padding:3px 6px;min-height:30px}.sv-more{display:none}}
+@media (max-width:330px){.sv-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -860,6 +939,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></symbol>
 <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
 <symbol id="i-cloudoff" viewBox="0 0 24 24"><path d="M3 3l18 18M8.5 8.5A5 5 0 0 0 6 18h11M18.7 16.3A4 4 0 0 0 17 9h-.3A6 6 0 0 0 10 6.1"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-.6-10A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
 <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8 21h8M9.5 17h5v4h-5z"/></symbol>
 </defs></svg>
@@ -879,6 +962,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   <button class="tb-item tb-add" data-go="add"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Add</span></button>
   <button class="tb-item" data-go="revhub"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg><span>Revise</span></button>
   <button class="tb-item" data-go="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg><span>Plan</span></button>
+  <button class="tb-item tb-profile" data-go="profile"><span class="pf-av"><svg><use href="#i-user"></use></svg><i class="dot" id="tbDot"></i></span><span class="tbp-t">Profile<small id="tbSync">Synced library</small></span></button>
 </nav>
 
 <main>
@@ -1650,7 +1734,7 @@ function confirmBox(title, html, okLabel) {
 
 const SCREENS = ['connect', 'today', 'home', 'subject', 'topic', 'add', 'mocks', 'revhub', 'errlog', 'notes', 'syllabus', 'progress', 'plan', 'profile', 'bank', 'mock', 'revise', 'setup', 'exam', 'results', 'review'];
 // Which navigation tab each screen belongs to; screens not listed hide the bar (exam, review, flashcards…)
-const TAB_OF = { today: 'today', home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', notes: 'home', syllabus: 'home', progress: 'plan', plan: 'plan', profile: '', bank: 'add' };
+const TAB_OF = { today: 'today', home: 'home', subject: 'home', topic: 'home', results: 'home', add: 'add', mocks: 'mocks', mock: 'mocks', revhub: 'revhub', errlog: 'revhub', notes: 'home', syllabus: 'home', progress: 'plan', plan: 'plan', profile: 'profile', bank: 'add' };
 function show(id) {
   navPush(id);
   for (const s of SCREENS) $('#' + s).hidden = s !== id;
@@ -1670,6 +1754,7 @@ $('#tabbar').addEventListener('click', e => {
   else if (go === 'mocks') openMocks();
   else if (go === 'revhub') openRevHub();
   else if (go === 'plan') openPlan();
+  else if (go === 'profile') openProfile();
   else if (go === 'add') {
     // Adding from a topic or subject page pre-selects it
     const onTopic = !$('#topic').hidden, onSubject = !$('#subject').hidden;
@@ -1684,8 +1769,10 @@ function renderBar() {
   if (back) $('#backBtn').onclick = e => { e.stopPropagation(); history.back(); };
   left.classList.toggle('link', !!store);
   $('#barCenter').innerHTML = '';
-  $('#barRight').innerHTML = store ? `<button class="chip" id="wsBtn" title="Profile, sync code and AI keys">${store.kind === 'cloud' ? '☁' : '⚠ Demo'} 👤 Profile</button>` : '';
+  const demo = store && store.kind !== 'cloud';
+  $('#barRight').innerHTML = store ? `<button class="pf-chip" id="wsBtn" title="Profile, sync code and AI keys"><span class="pf-av"><svg><use href="#i-user"></use></svg><i class="dot ${demo ? 'demo' : ''}"></i></span>${demo ? 'Demo' : 'Profile'}</button>` : '';
   if (store) $('#wsBtn').onclick = openProfile;
+  if (store) { $('#tbDot').classList.toggle('demo', demo); $('#tbSync').textContent = demo ? 'Demo – not saved' : 'Synced library'; }
 }
 $('#barLeft').onclick = () => { if (store && $('#exam').hidden) goHome(); };
 
@@ -3788,8 +3875,21 @@ document.addEventListener('click', e => {
   const st = e.target.closest('[data-td-step]');
   if (st) { TD.date = addDays(TD.date || dayKey(), +st.dataset.tdStep); renderToday(); return; }
   const b = e.target.closest('[data-td]');
-  if (b) { TD.date = b.dataset.td; renderToday(); }
+  if (b) { TD.date = b.dataset.td; renderToday(); return; }
+  const sp = e.target.closest('[data-svp]');
+  if (sp) { lsSet(LS_SVPAPER, sp.dataset.svp); TD.svSubj = null; renderToday(); return; }
+  const sv = e.target.closest('[data-sv]');
+  if (sv && (sv.matches('button') || !e.target.closest('button,a,input'))) svToggle(sv.dataset.sv);
 });
+document.addEventListener('keydown', e => {
+  const sv = (e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('.sv-tile');
+  if (sv && !$('#today').hidden) { e.preventDefault(); svToggle(e.target.dataset.sv); }
+});
+function svToggle(id) {
+  TD.svSubj = TD.svSubj === id ? null : id; renderToday();
+  const t = $(`.sv-tile[data-sv="${id}"]`);
+  if (t) { t.focus({ preventScroll: true }); if (TD.svSubj) t.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+}
 
 function planCard() {
   if (D.plan && (D.plan.calendar || []).length) return planHomeCard();
@@ -4753,6 +4853,14 @@ function paperSubjects(k) {
   }
   return { subs: [...subs.values()].filter(x => x.s), missing };
 }
+const LS_SVPAPER = 'examsim.svpaper';
+// Topic counts of one subject for its progress donut
+function svCounts(topics) {
+  const st = topics.map(t => planStatus(t.plan.id));
+  const done = st.filter(x => x === 'Completed').length, prog = st.filter(x => x === 'In Progress' || x === 'Review Required').length;
+  return { done, prog, total: topics.length, pc: topics.length ? Math.round(done / topics.length * 100) : 0 };
+}
+const svPie = (c, cls = '') => `<div class="sv-pie ${cls}" style="--d:${c.total ? c.done / c.total * 100 : 0};--g:${c.total ? (c.done + c.prog) / c.total * 100 : 0}" title="${c.done} done${c.prog ? `, ${c.prog} in progress` : ''} of ${c.total}"><span>${c.pc}<small>%</small></span></div>`;
 function renderSubjectsView(el) {
   const today = dayKey(), exams = D.plan.exams || (D.plan.examDate ? [{ paper: '', date: D.plan.examDate }] : []);
   const all = planRows(), done = all.filter(r => rowState(r).status === 'Completed').length, pc = all.length ? Math.round(done / all.length * 100) : 0;
@@ -4762,23 +4870,35 @@ function renderSubjectsView(el) {
       <div class="td-sub">${exams.map(x => (x.paper ? esc(x.paper) + ' exam ' : 'Exam ') + esc(fmtPD(x.date))).join(' · ')}${left != null ? ` · <b>${plural(left, 'day')}</b> to the exam` : ''}</div></div>
       <div class="ring" style="--p:${pc}" title="${done} of ${all.length} topics done"><span>${done}/${all.length}</span><small>topics</small></div></div></div>`;
   h += planModeCard() + onboardingHTML();
-  for (const [k, label] of [['p1', 'Paper 1 · General'], ['p2', 'Paper 2 · Computer Science']]) {
-    if (!planPapers().includes(k)) continue;
-    const { subs, missing } = paperSubjects(k);
-    if (!subs.length && !missing.length) continue;
-    h += `<div class="card"><div class="today-paper"><div class="tp-h ${k}">${esc(label)}</div>`
-      + subs.map(({ s, topics }) => {
-        const nDone = topics.filter(t => planStatus(t.plan.id) === 'Completed').length, nQ = topics.reduce((n, t) => n + topicQuestionCount(t.id), 0);
-        return `<details class="tp-subj" style="--sc:${subjColor(s)}"><summary class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b class="grow">${esc(displayName(s))}</b>
-          <span class="small muted">${nDone}/${topics.length} topics done · ${plural(nQ, 'question')}</span>
-          <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></summary>
-          ${topics.map(t => planTopicRow(t, false)).join('')}</details>`;
-      }).join('')
-      + missing.map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.topic || m.name || '')}</b>
-          <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('')
-      + (k === 'p1' ? `<div class="ca-row small"><span class="grow">${I('news')} <b>Monthly current affairs</b> <span class="muted">– January to October 2026, 75% Karnataka</span></span>${caButton()}</div>` : '')
-      + '</div></div>';
-  }
+  const papers = [['p1', 'Paper 1', 'General'], ['p2', 'Paper 2', 'Computer Science']].filter(([k]) => planPapers().includes(k))
+    .map(([k, short, long]) => ({ k, short, long, ...paperSubjects(k) })).filter(x => x.subs.length || x.missing.length);
+  if (!papers.length) { el.innerHTML = h; wireToday(); return; }
+  let k = lsGet(LS_SVPAPER, 'p1');
+  if (!papers.some(x => x.k === k)) k = papers[0].k;
+  const P = papers.find(x => x.k === k), pc2 = svCounts(P.subs.flatMap(x => x.topics));
+  h += `<div class="sv-head">${papers.length > 1 ? `<div class="seg sv-seg" role="tablist">${papers.map(x => {
+      const c = svCounts(x.subs.flatMap(y => y.topics));
+      return `<button role="tab" data-svp="${x.k}" class="${x.k === k ? 'on' : ''}" aria-selected="${x.k === k}"><b>${x.short}</b><span>${esc(x.long)}</span><em>${c.done}/${c.total}</em></button>`;
+    }).join('')}</div>` : `<h2 class="grow">${P.short} · ${esc(P.long)}</h2>`}
+    <div class="sv-sum ${k}">${svPie(pc2, 'sm')}<div><b>${pc2.done} of ${pc2.total}</b><span class="small muted">topics done${pc2.prog ? ` · ${pc2.prog} in progress` : ''}</span></div></div></div>`;
+  const open = TD.svSubj;
+  h += `<div class="sv-grid">` + P.subs.map(({ s, topics }) => {
+    const c = svCounts(topics), nQ = topics.reduce((n, t) => n + topicQuestionCount(t.id), 0), on = open === s.id;
+    const tile = `<div class="sv-tile ${on ? 'on' : ''}${c.done === c.total ? ' full' : ''}" style="--sc:${subjColor(s)}" data-sv="${s.id}" role="button" tabindex="0" aria-expanded="${on}" title="Show topics">
+        <div class="sv-top"><span class="subj-ic">${esc(subjIcon(s))}</span>${svPie(c)}</div>
+        <b class="sv-name">${esc(displayName(s))}</b>
+        <div class="small muted">${c.done}/${c.total} topics done · ${plural(nQ, 'question')}</div>
+        <div class="sv-bar"><i class="d" style="width:${c.total ? c.done / c.total * 100 : 0}%"></i><i class="g" style="width:${c.total ? c.prog / c.total * 100 : 0}%"></i></div>
+        <div class="sv-act"><button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button>
+          <span class="sv-more">${I(on ? 'up' : 'chevd')} ${on ? 'Hide' : 'Topics'}</span></div></div>`;
+    const panel = on ? `<div class="sv-panel" style="--sc:${subjColor(s)}"><div class="sv-panel-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b class="grow">${esc(displayName(s))}</b>
+        <span class="small muted">${c.done}/${c.total} done</span><button class="icon-btn" data-sv="${s.id}" title="Close" aria-label="Close topics">${I('x')}</button></div>
+        ${topics.map(t => planTopicRow(t, false)).join('')}</div>` : '';
+    return tile + panel;
+  }).join('') + '</div>';
+  if (P.missing.length) h += `<div class="card">` + P.missing.map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.topic || m.name || '')}</b>
+      <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('') + '</div>';
+  if (k === 'p1') h += `<div class="ca-row small sv-ca"><span class="grow">${I('news')} <b>Monthly current affairs</b> <span class="muted">– January to October 2026, 75% Karnataka</span></span>${caButton()}</div>`;
   el.innerHTML = h;
   wireToday();
 }
@@ -5483,24 +5603,33 @@ function chatProviders() {
 function openProfile() { renderProfile(); show('profile'); }
 function renderProfile() {
   const cfg = aiCfg();
-  let h = '<div class="page-head"><h1>Profile</h1></div><div class="kind">Library, AI keys and preferences</div>';
-  if (store.kind === 'cloud') {
-    const link = location.href.split('#')[0].split('?')[0] + '#ws=' + WS;
-    h += `<div class="card"><h2>☁ Your library</h2>
+  const cloud = store.kind === 'cloud', nKeys = AI_CHAT_ORDER.filter(p => cfg[p + 'Key']).length;
+  const answered = Object.values(D.days || {}).reduce((n, x) => n + (+x || 0), 0), { streak } = streakInfo();
+  const pr = D.plan ? planRows() : [], prDone = pr.filter(r => rowState(r).status === 'Completed').length;
+  let h = `<div class="pf-hero"><span class="pf-av lg"><svg><use href="#i-user"></use></svg><i class="dot ${cloud ? '' : 'demo'}"></i></span><div class="grow">
+      <h1>Profile</h1><div class="pf-sub"><span>${cloud ? `${I('cloud')} <b>Synced library</b>` : '<b>Demo mode</b> – nothing is saved'}</span>
+      ${D.plan ? `<span>${I('target')} <b>${esc(EXAMS[planKeyOf(D.plan)].name)}</b></span>` : ''}<span>${I('key')} ${nKeys ? plural(nKeys, 'AI key') : 'No AI keys yet'}</span></div></div></div>
+    <div class="pf-stats">
+      <div class="pf-stat"><b>${answered.toLocaleString()}</b><span>${I('help')} Questions answered</span></div>
+      <div class="pf-stat"><b>${D.attempts.length}</b><span>${I('clipboard')} Tests taken</span></div>
+      <div class="pf-stat"><b>${plural(streak, 'day')}</b><span>${I('flame')} Streak</span></div>
+      <div class="pf-stat"><b>${pr.length ? `${prDone}/${pr.length}` : '–'}</b><span>${I('check')} Plan topics done</span></div></div>`;
+  if (cloud) {
+    h += `<div class="card pf-card"><h2>${I('cloud')} Your library</h2>
       <p class="small muted" style="margin-top:0">Your <b>sync code</b> opens this library on any device. Keep it private: anyone who has it can see and change your data.</p>
-      <input type="text" readonly value="${esc(WS)}" style="font-family:ui-monospace,monospace">
+      <div class="pf-code"><input type="password" id="pfCode" readonly value="${esc(WS)}" aria-label="Sync code"><button class="btn" id="pfShow">Show</button></div>
       <div class="row" style="margin-top:10px"><button class="btn" id="pfCopyCode">Copy code</button><button class="btn" id="pfCopyLink">Copy link</button>
-      <button class="btn ghost" id="pfReload">Reload data</button><span class="spacer"></span><button class="btn ghost" id="pfSwitch" style="color:var(--red)">Switch library</button></div></div>`;
+      <button class="btn ghost" id="pfReload">${I('refresh')} Reload data</button><span class="spacer"></span><button class="btn ghost" id="pfSwitch" style="color:var(--red)">Switch library</button></div></div>`;
   } else {
-    h += `<div class="card"><h2>⚠ Demo mode</h2><p class="small">Nothing is saved: refreshing the page clears everything.</p><button class="btn" id="pfLeaveDemo">Leave demo</button></div>`;
+    h += `<div class="card pf-card"><h2>${I('alert')} Demo mode</h2><p class="small">Nothing is saved: refreshing the page clears everything.</p><button class="btn" id="pfLeaveDemo">Leave demo</button></div>`;
   }
   h += examModeCard();
-  h += `<div class="card"><h2>🤖 AI keys</h2>
+  h += `<div class="card pf-card"><h2>${I('key')} AI keys</h2>
     <p class="small muted" style="margin-top:0">Use your own free keys. They are stored <b>only on this device</b>, never in your library, Firebase or GitHub, and are sent only to Groq, Google or OpenRouter. Add them again on each phone or computer you use. With any one of these keys, 🤖 Ask AI answers inside the app and you can save the answer to your notes.</p>
     ${AI_CHAT_ORDER.map(p => aiKeyBlock(p, cfg)).join('')}
     <label class="small muted" style="display:block;margin-top:14px;font-weight:600">Language for AI explanations
       <select id="pfLang" style="width:auto;margin-left:6px">${['English', 'Kannada', 'Hindi', 'English and Kannada (bilingual)'].map(l => `<option ${cfg.lang === l ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>`;
-  h += `<div class="card"><h2>⚙ Preferences</h2><div class="settings">
+  h += `<div class="card pf-card"><h2>${I('gear')} Preferences</h2><div class="settings">
     <label>Daily goal (questions)<input type="number" id="pfGoal" min="1" max="1000" value="${D.prefs.dailyGoal || 30}"></label>
     <label>Theme<select id="pfTheme"><option value="light" ${theme === 'light' ? 'selected' : ''}>Light</option><option value="dark" ${theme === 'dark' ? 'selected' : ''}>Dark</option></select></label>
     <label>Text size<select id="pfText">${Object.entries(TEXT_SIZES).map(([k, [l]]) => `<option value="${k}" ${lsGet(LS_TEXT, 'm') === k ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>
@@ -5510,6 +5639,7 @@ function renderProfile() {
 
   if (store.kind === 'cloud') {
     const link = location.href.split('#')[0].split('?')[0] + '#ws=' + WS;
+    $('#pfShow').onclick = () => { const i = $('#pfCode'), hid = i.type === 'password'; i.type = hid ? 'text' : 'password'; $('#pfShow').textContent = hid ? 'Hide' : 'Show'; };
     $('#pfCopyCode').onclick = async () => { await copyText(WS); toast('Sync code copied'); };
     $('#pfCopyLink').onclick = async () => { await copyText(link); toast('Link copied'); };
     $('#pfReload').onclick = async () => { try { await loadAll(); toast('Library reloaded'); goHome(); } catch (e) { toast(errText(e), 'error'); } };
@@ -5539,7 +5669,7 @@ function examModeCard() {
     const ex = x.exams || (x.examDate ? [{ paper: 'Exam', date: x.examDate }] : []), cal = x.calendar || [];
     return ex.map(e => `${esc(e.paper)} ${esc(fmtPD(e.date))}`).join(' · ') + (cal.length ? ` · plan ${esc(fmtPD(cal[0].date))} – ${esc(fmtPD(cal[cal.length - 1].date))}` : '');
   };
-  return `<div class="card"><h2>🎯 Exam mode</h2>
+  return `<div class="card pf-card"><h2>${I('target')} Exam mode</h2>
     <p class="small muted" style="margin-top:0">Choose the exam you are preparing for now. Today, the Study plan and progress follow its calendar. Questions, notes and topic progress are shared between exams.</p>
     ${Object.entries(EXAMS).map(([k, x]) => `<div class="list-row"><div class="grow"><b>${esc(x.name)}</b> ${k === cur && sp(k) ? '<span class="pill correct">✓ Active</span>' : ''}<div class="small muted">${when(k)}</div></div>
       ${k === cur && sp(k) ? '' : sp(k) ? `<button class="btn primary" data-exam="${k}">Switch</button>` : `<button class="btn" data-exam="${k}">${I('download')} Import plan</button>`}</div>`).join('')}</div>`;
