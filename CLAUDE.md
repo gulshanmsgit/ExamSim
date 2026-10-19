@@ -111,7 +111,8 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 
 ### Notes-only modules and KRIES notes (19 Oct 2026, owner's request)
 - A module may carry only `NOTES` (with `TOPICS = {}`); build_subject now **merges** NOTES from several modules per topic, so a second note (own title) reaches learners who already imported the pack. Done: `p2u6_notes` (all 15 OS topics), `p2_krc_notes2` / `p2_krd_notes2` (detailed second notes for every KRIES C and DS topic), `p2u9_notes` (9 network topics), `p2u5_notes` (all DBMS topics; the DBMS Concepts note was added straight into packs/p2-u5-01-dbms-concepts.json because rebuilding that pack reshuffles options), `p2u4_notes` (OOP, C++ 1 and 2).
-- Still without notes: Unit 1 topics, Unit 4 C/web/language topics, Unit 7 Software Engineering, P2-KR-01 Java, P2-KR-02 Computer Graphics, Units 2, 3, 8, 10.
+- Also done: `p2u7_notes` (Software Engineering), `p2_kr_notes` (Basic Java, Computer Graphics), a second UNIX note (shell, vi, scripting) on Linux Operating System in `p2u6_notes`, and Unit 1 notes via `tools/p2u1_notes.py` (run it to put the notes into packs/p2-u1-complete.json – rebuilding that pack reshuffles options). Every KRIES Paper 2 topic now has notes.
+- Still without notes (GPSTR only): Unit 4 C/web/language topics, Units 2, 3, 8, 10.
 - Subjects view (no-dates mode): tiles with weightage pills (GPSTR P1 official marks from `D.plan.marks`, P2 estimated shares, KRIES 'In detail' for C/DS/OS) and a per-subject mind map (`openMindMap`, `data-mm`).
 
 ### Plan modes: by date / by subject, auto-built calendar (17 Oct 2026, owner's request)

@@ -27,7 +27,7 @@ PACKS = {
     "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i", "p2u6_notes"]},
     "p2-u9": {"subject": "P2 · Unit 9 – Data Communication & Networks", "modules": ["p2u9_a", "p2u9_b", "p2u9_c", "p2u9_d", "p2u9_e", "p2u9_f", "p2u9_notes"]},
     "p2-u3": {"subject": "P2 · Unit 3 – Computer System Architecture", "modules": ["p2u3_a", "p2u3_b", "p2u3_c", "p2u3_d", "p2u3_e"]},
-    "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b"]},
+    "p2-u7": {"subject": "P2 · Unit 7 – Software Engineering", "modules": ["p2u7_a", "p2u7_b", "p2u7_notes"]},
     "p2-u10": {"subject": "P2 · Unit 10 – Artificial Intelligence", "modules": ["p2u10_a", "p2u10_b"]},
     "p2-u8": {"subject": "P2 · Unit 8 – Data Structures & Algorithms", "modules": ["p2u8_a", "p2u8_b", "p2u8_c", "p2u8_d", "p2u8_e", "p2u8_f"]},
     "p1-psy": {"subject": "P1 · Educational Psychology", "modules": ["p1_psy_a", "p1_psy_b", "p1_psy_c", "p1_psy_d", "p1_psy_e", "p1_psy_f", "p1_psy_g", "p1_psy_h", "p1_psy_i", "p1_psy_j", "p1_psy_k", "p1_psy_l", "p1_psy_m", "p1_psy_n", "p1_psy_o", "p1_psy_p", "p1_psy_q", "p1_psy_r", "p1_psy_s"]},
@@ -38,7 +38,7 @@ PACKS = {
     "p1-ve": {"subject": "P1 · Value Education", "modules": ["p1_ve_a", "p1_ve_b", "p1_ve_c", "p1_ve_d", "p1_ve_e", "p1_ve_f", "p1_ve_g", "p1_ve_h"]},
     "p1-ca": {"subject": "P1 · Current Affairs", "modules": ["p1_ca_plan_a", "p1_ca_plan_b", "p1_ca_plan_c", "p1_ca_plan_d", "p1_ca_plan_e", "p1_ca_plan_f", "p1_ca_2026", "p1_ca_2026_b", "p1_ca_2026_c", "p1_ca_2026_d", "p1_ca_2026_e", "p1_ca_plan_g", "p1_ca_plan_h", "p1_ca_plan_i", "p1_ca_plan_j", "p1_ca_plan_k"]},
     # KRIES Paper 1 topics that are not in the GPSTR syllabus (tools/make_kries_plan.py); questions in Kannada, KEA style
-    "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a"]},
+    "p2-kries": {"subject": "P2 · KRIES – Additional Topics", "modules": ["p2_kr_a", "p2_kr_notes"]},
     # KRIES Computer Teacher syllabus 'Computer Fundamentals and C Programming' – one topic per heading (owner's request, 13 Oct 2026)
     "p2-kries-ds": {"subject": "P2 · KRIES – Data Structures", "modules": ["p2_krd_a", "p2_krd_b", "p2_krd_c", "p2_krd_d", "p2_krd_notes2"]},
     "p2-kries-c": {"subject": "P2 · KRIES – C Programming", "modules": ["p2_krc_a", "p2_krc_b", "p2_krc_c", "p2_krc_d", "p2_krc_e", "p2_krc_f", "p2_krc_g", "p2_krc_notes2"]},

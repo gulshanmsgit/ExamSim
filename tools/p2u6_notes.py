@@ -519,7 +519,73 @@ Single-level → two-level (per user) → **tree** (absolute/relative path names
 ## Exam traps
 - Linux is monolithic (modular), not a microkernel
 - `kill -9` sends SIGKILL (cannot be caught)
-- `/etc` holds configuration files; `/proc` is a virtual file system"""}],
+- `/etc` holds configuration files; `/proc` is a virtual file system"""},
+        {"title": "UNIX shell, vi and scripting – revision sheet (KRIES: Basic UNIX)", "md": """## UNIX in brief
+- **Ken Thompson and Dennis Ritchie**, Bell Labs, **1969**; rewritten in **C in 1973** (hence portable); BSD (Berkeley), System V (AT&T); POSIX standard; Linux and macOS are UNIX-like
+- Architecture: **hardware → kernel → shell → utilities/applications**; the **shell** is the command interpreter
+- Shells: **sh** (Bourne – Stephen Bourne), **bash** (Bourne Again – default on Linux), **csh** (C shell – Bill Joy), ksh (Korn), zsh; prompt `$` for users, `#` for root
+- Multi-user, multitasking, hierarchical file system starting at **/** (root), everything is a file
+
+## Files and permissions
+- `ls -l` first character: **-** regular, **d** directory, **l** symbolic link, **c** character device, **b** block device, **p** named pipe, **s** socket
+- `-rwxr-x---` → owner rwx (7), group r-x (5), others --- (0) → **750**
+- `chmod 644 f` (rw-r--r--), `chmod u+x f`, `chmod go-w f`, `chmod -R 755 dir`; `chown user f`, `chgrp group f`
+- **umask** removes permissions from the defaults (files 666, directories 777): umask **022** → files **644**, directories **755**
+- Links: `ln a b` (hard link – same inode, same file system), `ln -s a b` (soft/symbolic link – can cross file systems, breaks if the target is deleted)
+- Every file has an **inode** (owner, permissions, size, timestamps, block addresses – but **not the name**; names live in directories); `ls -i` shows inode numbers
+
+## Commands by task
+| Task | Commands |
+|---|---|
+| Navigation | `pwd`, `cd ~`, `cd ..`, `ls -la` |
+| Files | `cat`, `touch`, `cp -r`, `mv`, `rm -rf`, `mkdir -p`, `rmdir`, `file` |
+| View | `more`, `less`, `head -n 5`, `tail -f log` |
+| Search | `grep -i "word" f`, `grep -c` (count), `grep -v` (invert), `find / -name "*.c"` |
+| **Filters** | `sort` (`-n` numeric, `-r` reverse), `uniq` (adjacent duplicates), `wc -l/-w/-c`, `cut -d: -f1 /etc/passwd`, `tr 'a-z' 'A-Z'`, `sed 's/old/new/g'`, `awk '{print $1}'`, `tee`, `paste`, `diff`, `cmp`, `comm` |
+| Processes | `ps -ef`, `top`, `kill -9 PID`, `jobs`, `bg`, `fg`, `nohup cmd &`, `nice -n 10 cmd` |
+| Disk/system | `df -h`, `du -sh`, `free`, `uname -a`, `date`, `cal`, `who`, `whoami`, `uptime` |
+| Archives | `tar -cvf a.tar dir`, `tar -xvf a.tar`, `gzip`, `zip` |
+| Network | `ping`, `ssh`, `scp`, `ftp`, `wget`, `curl`, `ifconfig` / `ip addr` |
+| Help | `man ls`, `info`, `whatis`, `which` |
+| Scheduling | `cron` / `crontab -e` (min hour day month weekday), `at` |
+
+## Redirection and pipes
+- `>` overwrite output, `>>` append, `<` input, **`2>`** errors, `2>&1` errors with output, `/dev/null` discards
+- **Pipe** `|` sends one command's output to another: `ls -l | grep "^d" | wc -l` counts directories; `cat f | sort | uniq -c | sort -nr` counts repeated lines
+- Wildcards: `*` any string, `?` one character, `[abc]` one of the set
+
+## vi / vim editor
+| Mode | Enter with | Use |
+|---|---|---|
+| **Command (normal)** | Esc (default on start) | move, delete, copy |
+| **Insert** | `i` (before cursor), `a` (after), `o` (new line below), `I`, `A`, `O` | type text |
+| **Last-line (ex)** | `:` | save, quit, search–replace |
+- `:w` save, `:q` quit, **`:wq`** or `:x` or `ZZ` save and quit, **`:q!`** quit without saving
+- `dd` delete line, `5dd` five lines, `x` delete character, `yy` copy (yank) line, `p` paste, `u` undo, `/word` search forward, `n` next match, `:%s/old/new/g` replace everywhere, `:set nu` line numbers, `G` last line, `gg` first line, `h j k l` move
+- Other editors: ed, ex, emacs, nano
+
+## Shell scripting
+```bash
+#!/bin/bash
+# sum of numbers given as arguments
+sum=0
+for n in "$@"; do
+    sum=$((sum + n))
+done
+echo "Total of $# numbers: $sum"
+```
+`bash sum.sh 4 5 6` → **Total of 3 numbers: 15**
+- Special variables: **$0** script name, **$1 … $9** arguments, **$#** number of arguments, **$@ / $\\*** all arguments, **$?** exit status of the last command (0 = success), **$$** process ID
+- Variables: `name=KRIES` (no spaces around =), use `$name`; `read x` reads input; command substitution `` `date` `` or `$(date)`; arithmetic `$((a + b))` or `expr $a + $b`
+- Tests: `if [ $a -gt $b ]; then … elif …; else …; fi`; numeric `-eq -ne -lt -le -gt -ge`; strings `=`, `!=`, `-z` (empty); files `-f` (file exists), `-d` (directory), `-r -w -x`
+- Loops: `for i in 1 2 3; do …; done`, `while [ $i -le 5 ]; do …; done`; `case $x in a) … ;; *) … ;; esac`
+- Make executable: `chmod +x script.sh`, run `./script.sh`
+
+## Traps
+- `rm -r` removes directories recursively; `rmdir` only empty ones
+- `$?` = 0 means success in UNIX (opposite of C's true/false habit)
+- `uniq` removes only **adjacent** duplicates – sort first
+- `>` truncates the file before writing"""}],
 
     "Windows Operating System": [{"title": "Windows – revision sheet", "md": """## Design principles (Windows NT family → 10/11)
 - Goals: security, reliability, compatibility, performance, extensibility, **portability**, international support
