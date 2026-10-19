@@ -754,6 +754,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "System software – revision sheet",
+       "md": "## Software types\n| Type | Purpose | Examples |\n|---|---|---|\n| System software | Runs and manages the hardware, supports other programs | OS, assembler, compiler, linker, loader, device drivers |\n| Utility software | Maintenance tasks | Antivirus, disk defragmenter, backup, compression |\n| Application software | End-user tasks | Word processor, browser, Tally |\n| Firmware | Software in ROM/flash | BIOS/UEFI |\n\n## Language levels\n- **Machine language** (binary, 1st gen) → **assembly** (mnemonics, 2nd gen) → **high-level** (C, Java, 3rd gen) → **4GL** (SQL) → 5GL (Prolog, AI)\n- Low-level = machine dependent, fast; high-level = portable, needs translation\n\n## Translators\n| Translator | Input → output | Works | Note |\n|---|---|---|---|\n| **Assembler** | assembly → machine code | whole program | one-pass / **two-pass** (pass 1 builds the symbol table, pass 2 generates code) |\n| **Compiler** | HLL → object code | whole program at once | errors listed after compiling; faster execution (C, C++) |\n| **Interpreter** | HLL → executes line by line | statement by statement | stops at first error; slower (Python, BASIC) |\n| Cross-compiler | code for another machine | | embedded systems |\n| Decompiler / disassembler | reverse direction | | |\n- Java: compiler → **bytecode** → **JVM** interprets / JIT-compiles\n\n## Phases of a compiler\n1. **Lexical analysis** (scanner) – characters → **tokens**; removes white space/comments (tool: **LEX**)\n2. **Syntax analysis** (parser) – tokens → **parse tree**; checks grammar (CFG; tool: **YACC**)\n3. **Semantic analysis** – type checking\n4. **Intermediate code** – three-address code\n5. **Code optimisation** – removes redundancy\n6. **Code generation** – target code\n- **Symbol table** and **error handler** are used by all phases\n- Front end = phases 1–4 (machine independent); back end = 5–6\n\n## Linker, loader, macros\n- **Linker** combines object modules + library routines → one executable; resolves **external references**\n  - Static linking (copied in at link time) vs **dynamic linking** (DLL / .so loaded at run time)\n- **Loader** places the program in memory and starts it: allocation, linking, **relocation**, loading\n  - Absolute loader (no relocation), relocating loader, **bootstrap loader** (loads the OS at power-on)\n- **Macro** = named block of code expanded in place by the **macro processor** (no call overhead, bigger code); a **subroutine/function** is called (smaller code, call overhead)\n- **Debugger** – breakpoints, stepping, watching variables; **editor** – writes source; **profiler** – measures time\n\n## Exam traps\n- Compiler finds **all** errors after the whole program; interpreter stops at the **first**\n- Lexical analysis output = tokens; parser output = parse tree\n- Relocation is done by the **loader** (linker can also relocate in linking loaders)\n- Two-pass assembler is needed because of **forward references**"
+      }
      ]
     },
     {
@@ -1505,6 +1511,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Operating system basics – revision sheet",
+       "md": "## What an OS does\n- Interface between user and hardware; **resource manager** (CPU, memory, I/O, files) and **control program**\n- Functions: process management, memory management, file management, device (I/O) management, security & protection, networking, user interface (CLI/GUI), error detection, accounting\n- **Kernel** = core that stays in memory; **shell** = command interpreter (bash, cmd)\n\n## Types of OS\n| Type | Idea | Example |\n|---|---|---|\n| Batch | Similar jobs grouped, no interaction | early IBM |\n| **Multiprogramming** | Several jobs in memory; CPU switches when a job waits for I/O → better CPU use | |\n| **Time-sharing / multitasking** | Short time slice per user → fast response | UNIX |\n| Multiprocessing | 2+ CPUs share memory (symmetric SMP / asymmetric) | |\n| Distributed | Many computers appear as one | Amoeba |\n| Network OS | Shares files/printers over a LAN | Windows Server, Novell NetWare |\n| **Real-time** | Deadline-bound; **hard** (missile, pacemaker) vs **soft** (video streaming) | VxWorks, RTLinux |\n| Embedded / mobile | Device-specific | Android, iOS |\n\n## Structures\n- **Simple / monolithic** – everything in one kernel (MS-DOS, early UNIX, Linux is monolithic + modules)\n- **Layered** – layer n uses only n−1 (THE OS)\n- **Microkernel** – only IPC, scheduling, basic memory in kernel; rest in user space (Mach, QNX, MINIX) → reliable, slower\n- **Modular** – loadable kernel modules (Linux, Solaris); **hybrid** – macOS, Windows NT\n\n## Dual mode and system calls\n- **Mode bit**: kernel (0) / user (1); privileged instructions only in kernel mode\n- **System call** = program's request to the kernel (trap / software interrupt); parameters passed in registers, a memory block or the stack\n| Category | UNIX examples |\n|---|---|\n| Process control | fork(), exec(), exit(), wait() |\n| File management | open(), read(), write(), close() |\n| Device management | ioctl(), read(), write() |\n| Information | getpid(), alarm(), sleep() |\n| Communication | pipe(), shmget(), mmap(), socket() |\n| Protection | chmod(), umask(), chown() |\n- APIs: POSIX (UNIX/Linux/macOS), Win32 (Windows)\n\n## Booting\nPower on → **BIOS/UEFI** in ROM runs **POST** → finds boot device → **bootstrap loader** (MBR / GRUB) → loads kernel → init/systemd → login\n- Cold boot (power on) vs warm boot (restart)\n\n## Exam traps\n- Multiprogramming aims at **CPU utilisation**; time-sharing aims at **response time**\n- Interrupt = hardware signal; **trap** = software-generated (system call or error)\n- Linux = monolithic with loadable modules, not microkernel"
+      }
      ]
     },
     {
@@ -2253,6 +2265,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Processes and IPC – revision sheet",
+       "md": "## Process\n- Process = program **in execution** (active); program = passive file\n- Memory layout: **text** (code), **data** (globals), **heap** (dynamic, grows up), **stack** (locals, calls, grows down)\n\n## Process states (5-state model)\nNew → **Ready** → (dispatch) → **Running** → (I/O wait) → **Waiting/Blocked** → (I/O done) → Ready; Running → (time-out/interrupt) → Ready; Running → (exit) → **Terminated**\n- 7-state model adds **suspended ready** and **suspended blocked** (swapped out)\n\n## PCB (Process Control Block)\nProcess ID, state, program counter, CPU registers, scheduling info (priority, queue pointers), memory info (base/limit, page table), accounting, I/O status (open files)\n- **Context switch** = save PCB of old process + load PCB of new one; pure overhead\n\n## Schedulers\n| Scheduler | Chooses | Frequency |\n|---|---|---|\n| **Long-term** (job) | which jobs enter memory → controls **degree of multiprogramming** | rare |\n| **Short-term** (CPU) | which ready process gets the CPU | very often (ms) |\n| **Medium-term** | swapping out/in | in between |\n- **Dispatcher** gives the CPU to the chosen process; its delay = **dispatch latency**\n- I/O-bound vs CPU-bound processes – a good mix keeps devices busy\n\n## Process creation\n- UNIX: **fork()** creates a child (copy of parent); returns **0 in child**, child's PID in parent, −1 on error\n- **exec()** replaces the memory image; **wait()** parent waits; **exit()** ends\n- n fork() calls in sequence → **2ⁿ processes** (2ⁿ − 1 children)\n- **Zombie** = finished child whose parent has not called wait(); **orphan** = parent died first (adopted by init/systemd)\n\n## Inter-process communication\n| Model | How | Note |\n|---|---|---|\n| **Shared memory** | common memory region | fast; processes must synchronise |\n| **Message passing** | send()/receive() via kernel | easier, good for distributed |\n- Direct (name the process) vs indirect (mailbox/port); blocking (synchronous) vs non-blocking (asynchronous)\n- **Pipes**: ordinary (unidirectional, parent–child) vs **named pipes / FIFO** (any processes)\n- Others: signals, message queues, **sockets** (IP + port), **RPC**, RMI (Java)\n- Producer–consumer with a bounded buffer is the classic shared-memory example\n\n## Exam traps\n- fork() return value in child = **0**\n- 3 fork() → 8 processes\n- Long-term scheduler controls the degree of multiprogramming"
+      }
      ]
     },
     {
@@ -2990,6 +3008,12 @@
          "explanation": "full counts the filled slots, starting at 0."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Process synchronization – revision sheet",
+       "md": "## Race condition and critical section\n- **Race condition**: result depends on the order of access to shared data\n- Critical-section solution must give **mutual exclusion**, **progress**, **bounded waiting**\n- Structure: entry section → critical section → exit section → remainder\n\n## Software solutions\n- **Peterson's solution** (2 processes): `flag[i] = true; turn = j; while (flag[j] && turn == j);` → satisfies all three\n- Strict alternation (turn only) violates **progress**\n\n## Hardware support\n- Disable interrupts (only uniprocessor)\n- Atomic **test_and_set()** and **compare_and_swap()**; **mutex lock** (acquire/release)\n- **Spinlock** = busy waiting; fine for short waits on multiprocessors\n\n## Semaphores (Dijkstra)\n- Integer S with atomic **wait(P)**: `S--; if S < 0 block` and **signal(V)**: `S++; if S <= 0 wake one`\n- **Binary** (0/1, like mutex) vs **counting** (number of resources)\n- Count after operations: S = initial − (number of P) + (number of V); negative value = number of waiting processes\n- Problems: deadlock, starvation, **priority inversion** (fix: priority inheritance)\n\n## Classical problems\n| Problem | Semaphores |\n|---|---|\n| **Bounded buffer** (producer–consumer) | mutex = 1, **empty = n**, **full = 0** |\n| **Readers–writers** | rw_mutex = 1, mutex = 1, read_count = 0 – many readers or one writer |\n| **Dining philosophers** (5) | chopstick[5] = 1; deadlock if all pick left; fixes: max 4 at table, pick both at once, odd/even order |\n| Sleeping barber | customers, barbers, mutex |\n\n## Monitors\n- High-level construct: only **one process active inside** at a time; **condition variables** with wait() / signal()\n- Java `synchronized`, C# lock\n\n## Exam traps\n- Peterson's = 2 processes, software only\n- Producer: wait(empty) → wait(mutex) → add → signal(mutex) → signal(full); swapping the two waits can deadlock\n- Semaphore value −3 → 3 processes blocked"
       }
      ]
     },
@@ -3730,6 +3754,12 @@
          "explanation": "It is another example of implicit threading."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Threads – revision sheet",
+       "md": "## Thread basics\n- Thread = **lightweight process**, basic unit of CPU use: thread ID, program counter, registers, **stack** (own)\n- Threads of one process **share** code, data, open files, heap\n- Benefits: responsiveness, resource sharing, economy (creating/switching is cheaper), scalability on multicore\n\n| Process | Thread |\n|---|---|\n| Heavyweight, own address space | Lightweight, shared address space |\n| Costly creation and context switch | Cheap |\n| Isolated – one crash doesn't kill others | One thread can crash the whole process |\n| IPC needed to communicate | Share memory directly |\n\n## Concurrency vs parallelism\n- **Concurrency**: tasks make progress by interleaving (possible on one core)\n- **Parallelism**: tasks run at the same instant (needs multiple cores); data vs task parallelism\n- **Amdahl's law**: speed-up ≤ 1 / (S + (1 − S)/N), S = serial part. Example: S = 25%, N = 2 → 1.6; N → ∞ → 4\n\n## User vs kernel threads\n- **User threads**: managed by a library, kernel unaware; fast, but one blocking call blocks all\n- **Kernel threads**: managed by the OS; true parallelism\n\n## Multithreading models\n| Model | Mapping | Note |\n|---|---|---|\n| **Many-to-one** | many user → 1 kernel | no parallelism; blocking call blocks all (Green threads) |\n| **One-to-one** | each user → 1 kernel | parallel; overhead of many kernel threads (**Linux, Windows**) |\n| **Many-to-many** | many user → ≤ kernel threads | flexible; two-level variant also allows 1:1 binding |\n\n## Libraries and implicit threading\n- **Pthreads** (POSIX, `pthread_create`, `pthread_join`), **Windows threads** (`CreateThread`), **Java threads** (extend Thread / implement Runnable)\n- Implicit: **thread pools**, fork–join, **OpenMP** (`#pragma omp parallel`), Grand Central Dispatch, Intel TBB\n\n## Threading issues\n- fork() in a threaded program: copy all threads or only the caller; exec() replaces all\n- Signal handling – deliver to the right thread\n- **Thread cancellation**: asynchronous (immediate) vs **deferred** (at cancellation points)\n- Thread-local storage; scheduler activations (LWP between user and kernel threads)\n\n## Exam traps\n- Threads share data/heap/code but **not stack and registers**\n- Many-to-one cannot use multiple cores\n- Java thread starts with **start()**, not run()"
       }
      ]
     },
@@ -4480,6 +4510,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "CPU scheduling – revision sheet with worked example",
+       "md": "## Criteria\n- Maximise **CPU utilisation**, **throughput**; minimise **turnaround**, **waiting**, **response** time\n- **Turnaround time (TAT) = completion − arrival**; **waiting time (WT) = TAT − burst**; **response = first run − arrival**\n- Preemptive (CPU can be taken away) vs non-preemptive\n\n## Algorithms\n| Algorithm | Preemptive? | Key point |\n|---|---|---|\n| **FCFS** | No | Simple; **convoy effect** (short jobs wait behind a long one) |\n| **SJF** | No | **Optimal average waiting time**; needs burst prediction; starvation of long jobs |\n| **SRTF** (preemptive SJF) | Yes | Shortest remaining time first |\n| **Priority** | Either | Starvation → fix with **aging**; usually small number = high priority |\n| **Round Robin** | Yes | Time quantum q; large q → FCFS; very small q → too many context switches; good response for time-sharing |\n| **Multilevel queue** | | Fixed queues (system, interactive, batch), each with its own algorithm |\n| **Multilevel feedback queue** | Yes | Processes move between queues → most general/complex |\n- Burst prediction: τₙ₊₁ = α·tₙ + (1 − α)·τₙ (exponential averaging)\n\n## Worked example (all arrive at 0)\nP1 = 24, P2 = 3, P3 = 3\n- **FCFS** (P1, P2, P3): WT = 0, 24, 27 → **avg 17**\n- **SJF** (P2, P3, P1): WT = 0, 3, 6 → **avg 3**\n- **RR, q = 4**: P1 0–4, P2 4–7, P3 7–10, P1 10–30 → WT P1 = 6, P2 = 4, P3 = 7 → **avg 5.67**\n\nGantt chart tip: write each slice, then completion times; TAT = CT − AT; WT = TAT − BT.\n\n## Multiprocessor and real-time\n- Asymmetric vs **symmetric (SMP)**; **processor affinity** (soft/hard); load balancing (push/pull migration)\n- Real-time: **Rate-monotonic** (static priority, shorter period = higher priority; schedulable if U ≤ n(2^(1/n) − 1), ≈ 69% as n → ∞) and **EDF** (earliest deadline first, up to 100%)\n- Linux uses **CFS** (Completely Fair Scheduler, red-black tree, vruntime)\n\n## Exam traps\n- SJF gives minimum **average waiting time** (provably optimal)\n- RR with a very large quantum behaves like **FCFS**\n- Starvation in priority scheduling is solved by **aging**"
+      }
      ]
     },
     {
@@ -5221,6 +5257,12 @@
          "explanation": "Aborting one at a time is cheaper but needs repeated detection."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Deadlocks – revision sheet with Banker's example",
+       "md": "## Four necessary conditions (Coffman) – all must hold\n1. **Mutual exclusion** 2. **Hold and wait** 3. **No preemption** 4. **Circular wait**\n\n## Resource-allocation graph (RAG)\n- Request edge P → R, assignment edge R → P\n- No cycle → no deadlock. Cycle + **single instance** per resource → deadlock. Cycle + multiple instances → **maybe**\n- Wait-for graph (single instances): cycle ⇔ deadlock\n\n## Handling methods\n| Method | Idea |\n|---|---|\n| **Prevention** | Break one condition: spool (mutual exclusion), request all at once (hold & wait), allow preemption, **number resources and request in increasing order** (circular wait) |\n| **Avoidance** | Grant only if the state stays **safe** – Banker's algorithm |\n| **Detection + recovery** | Let it happen, detect cycles, then abort processes or preempt resources (rollback) |\n| **Ignore** (ostrich) | Used by most OS (UNIX, Windows) |\n\n## Banker's algorithm\n- **Need = Max − Allocation**; Available = total − sum of allocations\n- Safety: find a process with Need ≤ Available → it finishes → Available += its Allocation → repeat; if all finish → **safe sequence**\n- Example (one resource, 12 units): P0 max 10 alloc 5, P1 max 4 alloc 2, P2 max 9 alloc 2 → available 3; needs 5, 2, 7 → P1 (avail 5) → P0 (avail 10) → P2 → safe ⟨P1, P0, P2⟩\n\n## Formulas\n- Minimum resources so that n processes, each needing k, never deadlock: **n(k − 1) + 1**\n- Example: 3 processes each need 2 → 4 units guarantee no deadlock\n\n## Exam traps\n- Safe state ⇒ no deadlock; **unsafe ≠ deadlock** (only possible)\n- Deadlock ≠ starvation (starvation = indefinite waiting while others progress)\n- Banker's is for **multiple instances**; RAG cycle check for single instance"
       }
      ]
     },
@@ -5967,6 +6009,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Memory management – revision sheet with numericals",
+       "md": "## Address binding\n- At **compile** time (absolute code), **load** time (relocatable), **execution** time (needs **MMU**; most OS)\n- **Logical (virtual) address** – generated by CPU; **physical address** – seen by memory; MMU maps them\n- Base (relocation) register + limit register protect each process\n\n## Contiguous allocation\n- Fixed partitions → **internal fragmentation**; variable partitions → **external fragmentation**\n- Placement: **first fit** (fast), **best fit** (smallest hole that fits), **worst fit** (largest hole)\n- External fragmentation fix: **compaction** or paging; 50-percent rule (first fit loses ~⅓ of memory)\n- **Swapping**: move a process to the backing store and back\n\n## Paging\n- Physical memory → **frames**; logical → **pages** (same size, power of 2); no external fragmentation, only internal (last page)\n- Logical address = page number p + offset d; with 2ᵐ address space and 2ⁿ page size → **p = m − n bits, d = n bits**\n- Example: 32-bit address, 4 KB pages → offset 12 bits, page number 20 bits → 2²⁰ entries; at 4 B each → **4 MB page table**\n- **TLB** (associative cache of page-table entries); **EAT = h(t + m) + (1 − h)(t + 2m)**\n  - Example: TLB 20 ns, memory 100 ns, hit 80% → 0.8×120 + 0.2×220 = **140 ns**\n- Large tables: **hierarchical (two-level)**, **hashed**, **inverted** page table (one entry per frame)\n- Valid–invalid bit; shared pages (reentrant code)\n\n## Segmentation\n- User view: segments (main, stack, symbol table) of different size; address = (segment, offset)\n- Segment table: **base + limit**; offset ≥ limit → trap\n- External fragmentation possible; **segmented paging** combines both (Intel x86)\n\n| | Paging | Segmentation |\n|---|---|---|\n| Unit size | fixed | variable |\n| Fragmentation | internal | external |\n| Visible to programmer | no | yes |\n\n## Exam traps\n- Paging removes **external** fragmentation, not internal\n- Best fit leaves the smallest leftover holes; worst fit leaves the largest\n- Page-table size = number of pages × entry size"
+      }
      ]
     },
     {
@@ -6712,6 +6760,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Virtual memory – revision sheet with page-replacement example",
+       "md": "## Demand paging\n- Load a page only when needed; **lazy swapper (pager)**\n- **Page fault**: trap → find free frame → read page from disk → update table → restart instruction\n- **EAT = (1 − p) × memory access + p × page-fault service time**\n  - Example: 200 ns access, 8 ms service, p = 0.001 → ≈ 8.2 µs (40× slower) → keep p tiny\n- **Copy-on-write** after fork(); dirty (modify) bit avoids writing clean pages back\n\n## Page replacement (frames = 3, string 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1)\n| Algorithm | Rule | Faults |\n|---|---|---|\n| **FIFO** | Oldest page out | 15 |\n| **Optimal (OPT/MIN)** | Page used farthest in future | **9** (lowest possible) |\n| **LRU** | Least recently used | 12 |\n- **Belady's anomaly**: more frames → more faults; happens in **FIFO**, never in stack algorithms (LRU, OPT)\n  - Classic string 1 2 3 4 1 2 5 1 2 3 4 5: FIFO 3 frames = 9 faults, 4 frames = 10 faults\n- LRU approximations: reference bit, **second-chance (clock)**, enhanced second chance (ref, modify), LFU/MFU counting\n\n## Frame allocation\n- Equal vs proportional allocation; global vs local replacement\n- **Thrashing**: process spends more time paging than executing; cause = too many processes / too few frames → CPU use drops → long-term scheduler adds more → worse\n- Fixes: **working-set model** (pages used in the last Δ references; if Σ WSS > frames → suspend a process), **page-fault frequency** control\n- Locality of reference (temporal, spatial) makes virtual memory work\n\n## Exam traps\n- Optimal is not implementable (needs the future); used as a benchmark\n- Belady's anomaly → FIFO\n- Count the first loads of each page as faults too"
+      }
      ]
     },
     {
@@ -7456,6 +7510,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Disk storage and scheduling – revision sheet with worked example",
+       "md": "## Disk structure\n- Platter → tracks → **sectors**; same track on all platters = **cylinder**\n- **Access time = seek time + rotational latency + transfer time**; average latency = ½ rotation\n  - 7200 rpm → 8.33 ms per rotation → average latency ≈ **4.17 ms**\n- Disk capacity = surfaces × tracks × sectors × bytes per sector\n- SSD: no moving parts, no seek; wear levelling; TRIM\n- Low-level formatting (sectors), partitioning, logical formatting (file system); boot block; bad-block handling (sector sparing)\n\n## Disk scheduling (queue 98, 183, 37, 122, 14, 124, 65, 67; head at 53; cylinders 0–199)\n| Algorithm | Order / idea | Head movement |\n|---|---|---|\n| **FCFS** | in arrival order | **640** |\n| **SSTF** | nearest request first (may starve) | **236** |\n| **SCAN** (elevator), towards 0 | 37, 14, **0**, then 65 … 183 | **236** (towards 199: 331) |\n| **C-SCAN**, towards 199 | 65 … 183, **199 → 0** jump, 14, 37 | 382 counting the return (183 without it) |\n| **LOOK** | like SCAN but turns at the last request | towards 0: **208**; towards 199: 299 |\n| **C-LOOK**, towards 199 | like C-SCAN but jumps from the last request (183) to the first (14) | 322 counting the jump (153 without it) |\n- SSTF is not optimal and can starve far requests; SCAN/C-SCAN suit heavy load; C-SCAN gives more uniform waiting\n\n## RAID\n| Level | Method | Note |\n|---|---|---|\n| 0 | Striping | Fast, **no redundancy** |\n| 1 | **Mirroring** | 50% capacity, high reliability |\n| 2 | Bit-level, Hamming code | rare |\n| 3 | Byte-level, dedicated parity | |\n| 4 | Block-level, dedicated parity disk | parity disk bottleneck |\n| **5** | Block-level, **distributed parity** | survives 1 failure, common |\n| 6 | Double distributed parity (P + Q) | survives 2 failures |\n| 10 (1+0) | Mirror + stripe | fast and safe |\n\n## Exam traps\n- RAID 0 has no fault tolerance\n- SCAN = elevator algorithm\n- Always check the direction given before computing SCAN/LOOK totals"
+      }
      ]
     },
     {
@@ -8195,6 +8255,12 @@
          "explanation": "PYQ pattern (KEA / KSET papers). Each entry stores the first free block and the number of free blocks following it."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "File systems – revision sheet",
+       "md": "## File concept\n- Attributes: name, identifier, type, location, size, protection, time stamps; kept in the **FCB** (inode in UNIX)\n- Operations: create, write, read, reposition (seek), delete, truncate; open-file table + file pointer\n- Access methods: **sequential** (tape-like), **direct/relative** (any block by number), **indexed** (index → block, ISAM)\n\n## Directory structures\nSingle-level → two-level (per user) → **tree** (absolute/relative path names) → **acyclic graph** (sharing via links) → general graph (cycles; needs garbage collection)\n- **Hard link** – another name for the same inode; **soft (symbolic) link** – a file holding a path\n- **Mounting**: attach a file system at a mount point (`mount /dev/sdb1 /mnt`)\n- Protection: UNIX **rwx** for owner/group/others (chmod 754 = rwx r-x r--); access-control lists\n\n## Allocation methods\n| Method | How | Pros | Cons |\n|---|---|---|---|\n| **Contiguous** | start + length | fast sequential & direct access | external fragmentation, file can't grow |\n| **Linked** | each block points to next | no external fragmentation | **no direct access**, pointer space, reliability; **FAT** keeps links in a table |\n| **Indexed** | index block lists all blocks | direct access, no fragmentation | index overhead; linked / multilevel / **combined (UNIX inode)** |\n- UNIX inode: 12 direct + single + double + triple indirect pointers\n  - Example: 4 KB blocks, 4 B pointers → 1024 pointers per block → max ≈ 48 KB + 4 MB + 4 GB + 4 TB\n\n## Free-space management\n- **Bit vector** (1 bit per block; simple, fast to find runs), **linked list**, **grouping**, **counting** (start + count)\n- Example: 1 TB disk, 4 KB blocks → 2²⁸ blocks → bitmap of 32 MB\n\n## Efficiency and recovery\n- Unified buffer cache, read-ahead, free-behind\n- **Consistency checking** (fsck, chkdsk); **journaling / log-structured** file systems (ext4, NTFS) replay the log after a crash; backups (full, incremental)\n- Virtual File System (VFS) layer lets one OS use many file systems; NFS = network file system (RPC based)\n\n## Exam traps\n- Linked allocation cannot do direct access efficiently\n- FAT = linked allocation with the links kept in a table\n- Hard links cannot cross file systems; soft links can"
       }
      ]
     },
@@ -8939,6 +9005,12 @@
          "explanation": "PYQ pattern (KEA / KSET papers). That is why disks use DMA."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "I/O systems – revision sheet",
+       "md": "## I/O hardware\n- Device ↔ **controller** (has data-in, data-out, status, control registers) ↔ bus (PCIe, USB, SATA) ↔ CPU\n- **Port-mapped I/O** (special IN/OUT instructions) vs **memory-mapped I/O** (device registers share the address space; ordinary load/store)\n\n## Ways to do I/O\n| Method | How | CPU cost |\n|---|---|---|\n| **Programmed I/O / polling** | CPU keeps checking the busy bit | busy-waiting wastes CPU |\n| **Interrupt-driven** | device raises an interrupt when ready | CPU free meanwhile; overhead per word |\n| **DMA** | DMA controller moves a whole block between device and memory, interrupts once at the end | best for large transfers; **cycle stealing** |\n- Interrupts: maskable vs **non-maskable**; **interrupt vector** table; priority levels; interrupt service routine (ISR)\n\n## Application I/O interface\n- Block devices (disk – read/write/seek), character devices (keyboard – get/put), network devices (sockets)\n- Blocking, non-blocking and **asynchronous** I/O; device drivers hide hardware details (uniform interface)\n- Clocks and timers; `ioctl()` for device-specific commands\n\n## Kernel I/O subsystem\n- **I/O scheduling** (queue order)\n- **Buffering**: cope with speed mismatch / transfer-size mismatch; single, **double buffering**, circular buffer\n- **Caching**: keep a copy of data for speed (a buffer may hold the only copy; a cache holds a copy)\n- **Spooling**: queue output for a device that can serve one job at a time (**printer**) – Simultaneous Peripheral Operations On-Line\n- Device reservation, error handling, I/O protection (I/O instructions are privileged)\n- Life cycle of a request: system call → kernel I/O subsystem → driver → controller → interrupt → back to process\n\n## Exam traps\n- DMA interrupts the CPU **once per block**, interrupt-driven I/O once per word/byte\n- Spooling is used for **printers**\n- Memory-mapped I/O uses normal memory instructions"
       }
      ]
     },
@@ -9694,6 +9766,12 @@
         }
        ]
       }
+     ],
+     "notes": [
+      {
+       "title": "Protection and security – revision sheet",
+       "md": "## Protection vs security\n- **Protection** = internal mechanism controlling access of processes/users to resources\n- **Security** = defending the system against external and internal attacks; goals **CIA**: confidentiality, integrity, availability\n- **Principle of least privilege**; need-to-know; domain of protection = set of (object, rights)\n\n## Access matrix\n- Rows = domains, columns = objects, entries = rights (read, write, execute, owner, copy, control, switch)\n- Implementations: global table; **access-control list (ACL)** per object (column); **capability list** per domain (row); lock–key\n- **Role-based access control (RBAC)**; mandatory (MAC, SELinux) vs discretionary (DAC) access control\n\n## Authentication\n- Something you **know** (password, PIN), **have** (OTP token, smart card), **are** (biometrics) → multi-factor\n- Passwords stored as **salted hashes**; one-time passwords\n\n## Threats\n| Threat | What it is |\n|---|---|\n| **Trojan horse** | looks useful, does harm |\n| **Trap door / back door** | hidden entry left by the programmer |\n| **Logic bomb** | runs when a condition is met |\n| **Virus** | attaches to programs, needs a host and user action |\n| **Worm** | self-replicates over the network, no host needed (Morris worm 1988) |\n| Buffer/stack overflow | overwrites return address |\n| **DoS / DDoS** | floods a system to deny service |\n| Phishing, spoofing, man-in-the-middle, sniffing, ransomware | |\n\n## Cryptography and defences\n- **Symmetric** (same key; DES 56-bit, 3DES, **AES** 128/192/256) vs **asymmetric / public-key** (**RSA**, ECC; public key encrypts, private decrypts)\n- **Digital signature** = hash signed with the sender's **private** key; verified with the public key\n- Hash functions: MD5 (broken), SHA-1, **SHA-256**; certificates from a CA; SSL/TLS\n- Defences: firewalls (packet filter, proxy), IDS/IPS (signature vs anomaly), antivirus, patching, auditing/logging, sandboxing\n\n## Exam traps\n- Worm needs no host program; virus does\n- Digital signature uses the sender's private key\n- ACL is per object; capability list is per domain/user"
+      }
      ]
     },
     {
@@ -10434,6 +10512,12 @@
          "explanation": "PYQ pattern (KEA / KSET papers). Basic command matching."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Linux – revision sheet with commands",
+       "md": "## Design\n- UNIX-like, **open source** (GPL); kernel by **Linus Torvalds, 1991**; GNU tools by Richard Stallman\n- **Monolithic kernel with loadable kernel modules** (insmod, rmmod, lsmod, modprobe)\n- Components: kernel, system libraries (glibc), system utilities; distributions – Ubuntu, Fedora, Debian, Red Hat\n- Everything is a file; multi-user, multitasking\n\n## Basic commands\n| Task | Command |\n|---|---|\n| List / change / print directory | `ls -l`, `cd`, `pwd` |\n| Create / remove directory | `mkdir`, `rmdir`, `rm -r` |\n| Copy / move / delete | `cp`, `mv`, `rm` |\n| Show file | `cat`, `more`, `less`, `head`, `tail` |\n| Search text / files | `grep`, `find` |\n| Permissions / owner | `chmod 755 f`, `chown` |\n| Processes | `ps`, `top`, `kill -9 PID`, `nice`, `&` (background), `jobs`, `fg` |\n| Disk | `df` (free space), `du` (usage), `mount` |\n| Users | `whoami`, `who`, `passwd`, `su`, `sudo` |\n| Others | `wc` (count), `sort`, `man` (help), `echo`, `tar`, `chmod +x` |\n- Pipes `|` and redirection `>` (overwrite), `>>` (append), `<` (input)\n- chmod digits: r = 4, w = 2, x = 1 → **755 = rwxr-xr-x**, 644 = rw-r--r--\n\n## Internals\n- Processes: fork()/exec(); **task_struct** describes a process; threads via clone()\n- Scheduling: **CFS** (Completely Fair Scheduler) for normal tasks; real-time FIFO and RR classes; nice values −20 (high) … 19\n- Memory: paging, buddy system + slab allocator; swap space; page cache\n- File systems: **ext4** (journaling), XFS, Btrfs; **VFS** layer; inode-based\n- Directories: `/bin`, `/etc` (config), `/home`, `/root`, `/var` (logs), `/tmp`, `/dev` (devices), `/proc` (process info), `/boot`\n- I/O: block, character and network devices; IPC – pipes, FIFOs, signals, shared memory, message queues, semaphores, sockets\n- Boot: BIOS/UEFI → GRUB → kernel → **init / systemd** (PID 1) → runlevels / targets\n\n## Exam traps\n- Linux is monolithic (modular), not a microkernel\n- `kill -9` sends SIGKILL (cannot be caught)\n- `/etc` holds configuration files; `/proc` is a virtual file system"
       }
      ]
     },
@@ -11177,6 +11261,12 @@
          "explanation": "Rules can be set per program, port or network profile (domain, private, public)."
         }
        ]
+      }
+     ],
+     "notes": [
+      {
+       "title": "Windows – revision sheet",
+       "md": "## Design principles (Windows NT family → 10/11)\n- Goals: security, reliability, compatibility, performance, extensibility, **portability**, international support\n- **Hybrid kernel** design: layered + microkernel ideas; written mostly in C/C++\n- Layers: **HAL** (Hardware Abstraction Layer) → **kernel** (scheduling, interrupts, synchronisation) → **executive** (object manager, virtual memory manager, process manager, I/O manager, security reference monitor, cache manager, PnP and power manager, ALPC for local IPC)\n- Environmental subsystems (Win32, earlier POSIX); WoW64 runs 32-bit apps on 64-bit\n\n## Processes, threads, memory\n- Threads are the unit of scheduling; **32 priority levels** (16–31 real-time, 1–15 variable, 0 zero-page thread); preemptive priority scheduling with quantum boosts\n- Virtual memory with demand paging, page file (pagefile.sys); working-set manager\n\n## File system – NTFS\n- **Master File Table (MFT)**; journaling (log file) for recovery; security descriptors / **ACLs**; compression; **EFS** encryption; hard links, junctions; large volumes; **BitLocker** for full-volume encryption\n- FAT32 (max file 4 GB) and exFAT (flash drives) also supported\n- Volume management: dynamic disks, RAID 0/1/5 in software; Volume Shadow Copy (snapshots)\n\n## Features and tools\n- **Terminal Services / Remote Desktop (RDP)** – many remote sessions on one machine\n- **Fast user switching** – several users logged in, switch without logging off\n- Registry (hierarchical configuration database: HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER …)\n- Tools: Task Manager (Ctrl+Shift+Esc), Control Panel / Settings, Device Manager, Disk Management, Event Viewer, Command Prompt and **PowerShell**, Windows Defender, System Restore\n- Networking: SMB file sharing, TCP/IP stack, Active Directory (domains), named pipes, RPC\n\n## Exam traps\n- HAL hides hardware differences → portability\n- NTFS supports permissions, journaling and encryption; FAT32 has no security\n- Fast user switching keeps the other users' sessions running"
       }
      ]
     }
