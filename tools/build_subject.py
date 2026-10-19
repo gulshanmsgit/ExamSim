@@ -22,7 +22,7 @@ P2_GROUP = "② Paper 2 · Computer Science (30 questions per sub-topic)"
 
 # key: subject (exact planner name) and its content modules, in planner order
 PACKS = {
-    "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e", "p2u4_notes"]},
+    "p2-u4": {"subject": "P2 · Unit 4 – Programming Languages & Web", "modules": ["p2u4_a", "p2u4_b", "p2u4_c", "p2u4_d", "p2u4_e", "p2u4_notes", "p2u4_notes_b"]},
     "p2-u5": {"subject": "P2 · Unit 5 – Database Management Systems", "modules": ["p2u5_b", "p2u5_c", "p2u5_d", "p2u5_e", "p2u5_f", "p2u5_notes"]},
     "p2-u6": {"subject": "P2 · Unit 6 – System Software & Operating Systems", "modules": ["p2u6_a", "p2u6_b", "p2u6_c", "p2u6_d", "p2u6_e", "p2u6_f", "p2u6_g", "p2u6_h", "p2u6_i", "p2u6_notes", "p2u6_words"]},
     "p2-u9": {"subject": "P2 · Unit 9 – Data Communication & Networks", "modules": ["p2u9_a", "p2u9_b", "p2u9_c", "p2u9_d", "p2u9_e", "p2u9_f", "p2u9_notes"]},
