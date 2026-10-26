@@ -238,6 +238,12 @@ def pulled(letter, chunk=25):
                 if n["title"] not in {x["title"] for x in notes.get(tname, [])}:
                     notes.setdefault(tname, []).append(n)
     real = [_tuple(q) for item, q in pyq_questions() if item == letter and _key(q["question"], list(q["options"].values())) not in seen]
+    from p1_kx_pyq26 import PYQ26  # unused KEA 2026 GK questions sorted by item
+    for t in PYQ26.get(letter, []):
+        k = _key(t[0], t[1])
+        if k not in seen:
+            seen.add(k)
+            real.append(t)
     for i in range(0, len(real), chunk):
         part = real[i:i + chunk]
         if len(part) >= 4:
