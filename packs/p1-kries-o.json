@@ -1,7 +1,7 @@
 {
  "examsimPack": 1,
  "name": "P1 · KRIES O — Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
- "description": "All topics so far (10 sets × 20 questions): Series, Analogy, Odd One Out and Coding–Decoding; Blood Relations, Directions and Ranking; Clocks, Calendars, Syllogism and Venn Diagrams; Statements, Assumptions, Puzzles and Figures; KEA Previous-Year Questions – Mental Ability. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
+ "description": "All topics so far (11 sets × 20 questions): Series, Analogy, Odd One Out and Coding–Decoding; Blood Relations, Directions and Ranking; Clocks, Calendars, Syllogism and Venn Diagrams; Statements, Assumptions, Puzzles and Figures; KEA Previous-Year Questions – Mental Ability. More topics are added to this pack as the plan goes on; re-importing only adds the new sets.",
  "subjects": [
   {
    "name": "P1 · KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
@@ -2037,6 +2037,251 @@
          "explanation": "ಗೀತಾ ಎಡದಿಂದ 21ನೇ ⇒ ಬಲದಿಂದ 40 − 21 + 1 = 20. (Answer worked out by ExamSim; not KEA's official key.)"
         }
        ]
+      },
+      {
+       "name": "3 · Data Sufficiency, Puzzles, Counting and Reasoning",
+       "questions": [
+        {
+         "question": "ದತ್ತಾಂಶ ಸಾಕಷ್ಟು ಇದೆಯೇ? ಪ್ರಶ್ನೆ: X, Yಗಿಂತ ದೊಡ್ಡದೇ?\nI. X = 2Y\nII. Y ಧನ ಸಂಖ್ಯೆ",
+         "options": {
+          "A": "II ಮಾತ್ರ ಸಾಕು",
+          "B": "I ಮತ್ತು II ಸೇರಿದರೂ ಸಾಲದು",
+          "C": "I ಮಾತ್ರ ಸಾಕು",
+          "D": "I ಮತ್ತು II ಸೇರಿ ಸಾಕು"
+         },
+         "answer": "D",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "I ಮಾತ್ರ: Y ಋಣವಾದರೆ X < Y. I + II: Y > 0 ⇒ 2Y > Y. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ದತ್ತಾಂಶ ಸಾಕಷ್ಟು ಇದೆಯೇ? ಪ್ರಶ್ನೆ: Aಯ ವಯಸ್ಸು ಎಷ್ಟು?\nI. A, Bಗಿಂತ 5 ವರ್ಷ ಹಿರಿಯ.\nII. Bಯ ವಯಸ್ಸು 20 ವರ್ಷ.",
+         "options": {
+          "A": "II ಮಾತ್ರ ಸಾಕು",
+          "B": "I ಮತ್ತು II ಸೇರಿ ಸಾಕು",
+          "C": "I ಮಾತ್ರ ಸಾಕು",
+          "D": "I ಮತ್ತು II ಸೇರಿದರೂ ಸಾಲದು"
+         },
+         "answer": "B",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಎರಡನ್ನೂ ಸೇರಿಸಿದಾಗ A = 25. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ದತ್ತಾಂಶ ಸಾಕಷ್ಟು ಇದೆಯೇ? ಪ್ರಶ್ನೆ: ಒಂದು ತಿಂಗಳ 15ನೇ ತಾರೀಖು ಯಾವ ವಾರ?\nI. ಆ ತಿಂಗಳ 1ನೇ ತಾರೀಖು ಸೋಮವಾರ.\nII. ಆ ತಿಂಗಳಲ್ಲಿ 30 ದಿನಗಳಿವೆ.",
+         "options": {
+          "A": "I ಮತ್ತು II ಸೇರಿ ಸಾಕು",
+          "B": "I ಮತ್ತು II ಸೇರಿದರೂ ಸಾಲದು",
+          "C": "II ಮಾತ್ರ ಸಾಕು",
+          "D": "I ಮಾತ್ರ ಸಾಕು"
+         },
+         "answer": "D",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "1 ಸೋಮವಾರ ⇒ 15 (14 ದಿನ ನಂತರ) ಸೋಮವಾರ; II ಅಪ್ರಸ್ತುತ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "A, B, C, D ನಾಲ್ವರು ಕೆಂಪು, ನೀಲಿ, ಹಸಿರು, ಹಳದಿ – ಒಬ್ಬೊಬ್ಬರು ಬೇರೆ ಬಣ್ಣ ಇಷ್ಟಪಡುತ್ತಾರೆ. Aಗೆ ಕೆಂಪು ಅಥವಾ ನೀಲಿ ಇಷ್ಟವಿಲ್ಲ. Bಗೆ ಹಸಿರು ಇಷ್ಟ. Cಗೆ ಕೆಂಪು ಇಷ್ಟವಿಲ್ಲ. ಕೆಂಪು ಇಷ್ಟಪಡುವವರು ಯಾರು?",
+         "options": {
+          "A": "B",
+          "B": "D",
+          "C": "C",
+          "D": "A"
+         },
+         "answer": "B",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "B ಹಸಿರು ⇒ A ಹಳದಿ ⇒ C ನೀಲಿ ⇒ D ಕೆಂಪು. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ನಾಲ್ಕು ಅಂತಸ್ತಿನ ಕಟ್ಟಡದಲ್ಲಿ (ಕೆಳಗಿನದು 1) P, Q, R, S ವಾಸಿಸುತ್ತಾರೆ. R ಮೇಲಿನ ಅಂತಸ್ತಿನಲ್ಲಿ, S ನೆಲ ಅಂತಸ್ತಿನಲ್ಲಿ, P, Qಗಿಂತ ಮೇಲೆ. 2ನೇ ಅಂತಸ್ತಿನಲ್ಲಿ ಯಾರು?",
+         "options": {
+          "A": "P",
+          "B": "S",
+          "C": "Q",
+          "D": "R"
+         },
+         "answer": "C",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "R = 4, S = 1 ⇒ P = 3, Q = 2. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಚೌಕಾಕಾರದ ಮೇಜಿನ ಸುತ್ತ A, B, C, D ಕೇಂದ್ರಕ್ಕೆ ಮುಖಮಾಡಿ ಕುಳಿತಿದ್ದಾರೆ. A ಎದುರು C. B, Aಯ ಎಡಕ್ಕಿದ್ದಾನೆ. Bಯ ಎದುರು ಯಾರು?",
+         "options": {
+          "A": "C",
+          "B": "D",
+          "C": "A",
+          "D": "ಹೇಳಲಾಗದು"
+         },
+         "answer": "B",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ನಾಲ್ವರಲ್ಲಿ A–C ಎದುರುಬದುರು ⇒ ಉಳಿದ ಜೋಡಿ B–D ಎದುರುಬದುರು. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಒಂದು ತ್ರಿಭುಜದ ಶೃಂಗದಿಂದ ತಳಕ್ಕೆ ಒಂದು ರೇಖೆ ಎಳೆದರೆ ಚಿತ್ರದಲ್ಲಿರುವ ಒಟ್ಟು ತ್ರಿಭುಜಗಳು:",
+         "options": {
+          "A": "5",
+          "B": "2",
+          "C": "4",
+          "D": "3"
+         },
+         "answer": "D",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಎರಡು ಚಿಕ್ಕ + ಒಂದು ದೊಡ್ಡ = 3 (³C₂). (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "2 × 2 ಚೌಕ ಜಾಲದಲ್ಲಿ (ನಾಲ್ಕು ಸಮ ಚೌಕಗಳು) ಒಟ್ಟು ಆಯತಗಳ (ಚೌಕಗಳೂ ಸೇರಿ) ಸಂಖ್ಯೆ:",
+         "options": {
+          "A": "10",
+          "B": "5",
+          "C": "9",
+          "D": "8"
+         },
+         "answer": "C",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "³C₂ × ³C₂ = 3 × 3 = 9. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "4 × 4 ಚೌಕ ಜಾಲದಲ್ಲಿ ಒಟ್ಟು ಚೌಕಗಳ ಸಂಖ್ಯೆ:",
+         "options": {
+          "A": "25",
+          "B": "16",
+          "C": "30",
+          "D": "36"
+         },
+         "answer": "C",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "16 + 9 + 4 + 1 = 30. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಎಲ್ಲಾ ಮುಖಗಳಿಗೆ ಬಣ್ಣ ಹಚ್ಚಿದ ಘನವನ್ನು 125 ಸಮ ಸಣ್ಣ ಘನಗಳಾಗಿ ಕತ್ತರಿಸಿದರೆ ಯಾವ ಮುಖಕ್ಕೂ ಬಣ್ಣವಿಲ್ಲದ ಘನಗಳು:",
+         "options": {
+          "A": "36",
+          "B": "27",
+          "C": "8",
+          "D": "64"
+         },
+         "answer": "B",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "5×5×5: (5 − 2)³ = 27. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಎಲ್ಲಾ ಮುಖಗಳಿಗೆ ಬಣ್ಣ ಹಚ್ಚಿದ ಘನವನ್ನು 8 ಸಮ ಘನಗಳಾಗಿ ಕತ್ತರಿಸಿದರೆ ಮೂರು ಮುಖಗಳಿಗೆ ಬಣ್ಣವಿರುವ ಘನಗಳು:",
+         "options": {
+          "A": "0",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+         },
+         "answer": "D",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "2×2×2 – ಎಲ್ಲ 8 ಘನಗಳೂ ಮೂಲೆಗಳೇ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಯಾವುದೇ ಮೂರು ಬಿಂದುಗಳು ಒಂದೇ ರೇಖೆಯಲ್ಲಿಲ್ಲದ 6 ಬಿಂದುಗಳನ್ನು ಜೋಡಿಸಿ ಎಳೆಯಬಹುದಾದ ಸರಳರೇಖೆಗಳ ಸಂಖ್ಯೆ:",
+         "options": {
+          "A": "30",
+          "B": "15",
+          "C": "18",
+          "D": "12"
+         },
+         "answer": "B",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "⁶C₂ = 15. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಹೇಳಿಕೆ: \"ದ್ವಿಚಕ್ರ ವಾಹನ ಸವಾರರು ಹೆಲ್ಮೆಟ್ ಧರಿಸಿ\" – ಸಂಚಾರ ಪೊಲೀಸ್ ಸೂಚನೆ.\nಊಹೆಗಳು: I. ಹೆಲ್ಮೆಟ್ ತಲೆಗೆ ಗಾಯದ ಅಪಾಯ ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.\nII. ಸವಾರರು ಸೂಚನೆಯನ್ನು ಪಾಲಿಸುತ್ತಾರೆ.",
+         "options": {
+          "A": "I ಮಾತ್ರ",
+          "B": "II ಮಾತ್ರ",
+          "C": "I ಮತ್ತು II ಎರಡೂ",
+          "D": "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"
+         },
+         "answer": "C",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಸೂಚನೆಯ ಉದ್ದೇಶ ಮತ್ತು ಪರಿಣಾಮಕಾರಿತ್ವ – ಎರಡೂ ಅಡಕ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಹೇಳಿಕೆಗಳು: X ಕಂಪನಿಯ ಎಲ್ಲಾ ನೌಕರರು ಪದವೀಧರರು. ರವಿ X ಕಂಪನಿಯ ನೌಕರ.\nತೀರ್ಮಾನಗಳು: I. ರವಿ ಪದವೀಧರ.\nII. ಎಲ್ಲಾ ಪದವೀಧರರು X ಕಂಪನಿಯ ನೌಕರರು.",
+         "options": {
+          "A": "I ಮಾತ್ರ",
+          "B": "II ಮಾತ್ರ",
+          "C": "I ಮತ್ತು II ಎರಡೂ",
+          "D": "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"
+         },
+         "answer": "A",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "II ಪರಿವರ್ತನೆ ದೋಷ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಹೇಳಿಕೆ: ಒಂದು ಶಾಲೆಯಲ್ಲಿ ಹೆಚ್ಚಿನ ವಿದ್ಯಾರ್ಥಿಗಳು ಗಣಿತದಲ್ಲಿ ಅನುತ್ತೀರ್ಣರಾಗುತ್ತಿದ್ದಾರೆ.\nಕ್ರಮಗಳು: I. ಪರಿಹಾರ ಬೋಧನಾ ತರಗತಿಗಳನ್ನು ನಡೆಸಬೇಕು.\nII. ಪಠ್ಯಕ್ರಮದಿಂದ ಗಣಿತವನ್ನು ತೆಗೆಯಬೇಕು.",
+         "options": {
+          "A": "I ಮಾತ್ರ",
+          "B": "II ಮಾತ್ರ",
+          "C": "I ಮತ್ತು II ಎರಡೂ",
+          "D": "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"
+         },
+         "answer": "A",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "II ಅತಿರೇಕ ಮತ್ತು ಅಪ್ರಾಯೋಗಿಕ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಘಟನೆಗಳು: I. ಜಲಾನಯನ ಪ್ರದೇಶದಲ್ಲಿ ಭಾರೀ ಮಳೆಯಾಯಿತು.\nII. ಅಣೆಕಟ್ಟಿನ ಕ್ರೆಸ್ಟ್ ಗೇಟ್‌ಗಳನ್ನು ತೆರೆಯಲಾಯಿತು.\nಸರಿಯಾದ ಸಂಬಂಧ:",
+         "options": {
+          "A": "I ಕಾರಣ, II ಪರಿಣಾಮ",
+          "B": "ಎರಡೂ ಸ್ವತಂತ್ರ ಕಾರಣಗಳ ಪರಿಣಾಮ",
+          "C": "II ಕಾರಣ, I ಪರಿಣಾಮ",
+          "D": "ಎರಡೂ ಒಂದೇ ಕಾರಣದ ಪರಿಣಾಮ"
+         },
+         "answer": "A",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಒಳಹರಿವು ಹೆಚ್ಚಿ ಜಲಾಶಯ ತುಂಬಿತು. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಪ್ರಶ್ನೆ: ಪ್ಲಾಸ್ಟಿಕ್ ಚೀಲಗಳನ್ನು ನಿಷೇಧಿಸಬೇಕೇ?\nವಾದಗಳು: I. ಹೌದು, ಅವು ಚರಂಡಿ ಕಟ್ಟಿಸಿ ಪ್ರಾಣಿಗಳಿಗೆ ಹಾನಿ ಮಾಡುತ್ತವೆ.\nII. ಇಲ್ಲ, ಅವು ಅಗ್ಗ.",
+         "options": {
+          "A": "I ಮಾತ್ರ",
+          "B": "II ಮಾತ್ರ",
+          "C": "I ಮತ್ತು II ಎರಡೂ",
+          "D": "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"
+         },
+         "answer": "A",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "II ದುರ್ಬಲ – ಪರ್ಯಾಯಗಳು ಲಭ್ಯ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಹೇಳಿಕೆಗಳು: ಕೆಲವು ನಾಯಕರು ಪ್ರಾಮಾಣಿಕರು. ಎಲ್ಲಾ ಪ್ರಾಮಾಣಿಕರು ಗೌರವಾನ್ವಿತರು.\nತೀರ್ಮಾನಗಳು: I. ಕೆಲವು ನಾಯಕರು ಗೌರವಾನ್ವಿತರು.\nII. ಎಲ್ಲಾ ಗೌರವಾನ್ವಿತರು ನಾಯಕರು.",
+         "options": {
+          "A": "I ಮಾತ್ರ",
+          "B": "II ಮಾತ್ರ",
+          "C": "I ಮತ್ತು II ಎರಡೂ",
+          "D": "I ಆಗಲೀ II ಆಗಲೀ ಅಲ್ಲ"
+         },
+         "answer": "A",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಪ್ರಾಮಾಣಿಕ ನಾಯಕರು ಗೌರವಾನ್ವಿತರೂ ಹೌದು; II ಅನುಸರಿಸುವುದಿಲ್ಲ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಹೇಳಿಕೆ: \"ಚೆನ್ನಾಗಿ ಓದಿದರೆ ಉತ್ತೀರ್ಣನಾಗುತ್ತಾನೆ.\" ರವಿ ಉತ್ತೀರ್ಣನಾಗಲಿಲ್ಲ. ಖಚಿತವಾಗಿ ಹೇಳಬಹುದಾದದ್ದು:",
+         "options": {
+          "A": "ಪರೀಕ್ಷೆ ಕಷ್ಟವಾಗಿತ್ತು",
+          "B": "ಏನೂ ಹೇಳಲಾಗದು",
+          "C": "ರವಿ ಚೆನ್ನಾಗಿ ಓದಲಿಲ್ಲ",
+          "D": "ರವಿ ಚೆನ್ನಾಗಿ ಓದಿದ"
+         },
+         "answer": "C",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "P ⇒ Q; Q ಅಲ್ಲ ⇒ P ಅಲ್ಲ. (Answer worked out by ExamSim; not KEA's official key.)"
+        },
+        {
+         "question": "ಅರ್ಥಪೂರ್ಣ ಕ್ರಮದಲ್ಲಿ ಜೋಡಿಸಿ: 1. ಬೀಜ 2. ಗಿಡ 3. ಹೂವು 4. ಹಣ್ಣು 5. ಸಸಿ",
+         "options": {
+          "A": "1, 5, 3, 2, 4",
+          "B": "5, 1, 2, 3, 4",
+          "C": "1, 2, 5, 3, 4",
+          "D": "1, 5, 2, 3, 4"
+         },
+         "answer": "D",
+         "subject": "Data Sufficiency, Puzzles, Counting and Reasoning",
+         "explanation": "ಬೀಜ → ಸಸಿ → ಗಿಡ → ಹೂವು → ಹಣ್ಣು. (Answer worked out by ExamSim; not KEA's official key.)"
+        }
+       ]
       }
      ],
      "notes": [
@@ -2046,7 +2291,7 @@
       },
       {
        "title": "Previous-year analysis – Statements, Assumptions, Puzzles and Figures",
-       "md": "**Real previous-year questions in this topic: 0** · PYQ-pattern practice questions: 0 · all questions: 40\n\n- Priority: **Not seen** in the papers collected so far – syllabus topic, learn the essentials\n- Rank in this subject by real questions: **5 of 5** topics\n\n_How to use: start revision with High-priority topics; for Low/Not-seen topics learn definitions and one-line facts. Counts come from the papers collected in ExamSim (KEA recruitment papers 2024–26, KSET 2023–25, PGCET 2023–26, GFGC 2021)._"
+       "md": "**Real previous-year questions in this topic: 0** · PYQ-pattern practice questions: 0 · all questions: 60\n\n- Priority: **Not seen** in the papers collected so far – syllabus topic, learn the essentials\n- Rank in this subject by real questions: **5 of 5** topics\n\n_How to use: start revision with High-priority topics; for Low/Not-seen topics learn definitions and one-line facts. Counts come from the papers collected in ExamSim (KEA recruitment papers 2024–26, KSET 2023–25, PGCET 2023–26, GFGC 2021)._"
       }
      ]
     },
