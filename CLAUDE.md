@@ -181,3 +181,18 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 ### Ideas discussed but not built
 Resume an unfinished exam; edit a question in-app; star/bookmark questions; time per question; E-option strategy report;
 Firestore offline cache (keep cloud as the main copy); onboarding tour; skeleton loading.
+
+### KRIES Paper 1 = 15 subjects A–O (26 Oct 2026, owner: "a, b, c in the syllabus are SUBJECTS, not topics")
+- `tools/kries_p1.py` holds `SUBJECTS` (letter, name 'P1 · KRIES X – …', icon, topics with pulls `(pack, source topic, set idx | None)`).
+  `pulled(letter)` copies those sets from the built packs (dedup inside the subject) and adds the topic 'KEA Previous-Year Questions – …':
+  real pyq-p1.json GK questions sorted by `PYQ_ITEMS` (one letter per question) + `tools/p1_kx_pyq26.py` (`PYQ26`, 211 unused real
+  questions from the five KEA 2026 GK papers, English text, answers worked out by ExamSim).
+- Build keys `p1-kries-a … p1-kries-o` (modules `p1_kx_<l>` + every `p1_kx_<l>_*.py`), plan IDs `P1-K<letter>-NN` (make_kries_plan.py).
+  EXTRA_SUBJECTS entries come from `kries_p1.extra_subjects()` with `anysize` (any set size ≥ 4) and `renumber` (sets renumbered 1..n).
+  check_packs lets `p1-kries-*` repeat other packs' questions.
+- New Kannada sets (2 × 20 + note) for topics that had nothing to pull: `p1_kx_c_karnataka` (Geography of Karnataka),
+  `p1_kx_d_sociology`, `p1_kx_g_admin` (Public Administration and Local Government), `p1_kx_l_coop` (Co-operative Movement).
+  Still empty: D Business Studies and Commerce, E Indian Society, H Data Interpretation, I Wodeyars/Dewans, K Agriculture/Irrigation/Energy,
+  N Climate Change/Disasters, O Statements/Puzzles. Thin subjects to grow next: J, K, L, M, N, I, H, O.
+- Order after adding a module: scratchpad `kxmap.py` (writes syllabus_map for all 15) → build the letter(s) → check_packs → ship
+  (build_pyq_subjects, pyq_analysis, make_index, sw bump, commit, push).
