@@ -99,7 +99,8 @@ for f in sorted(listed):
                 qs = st.get("questions", [])
                 size = EXTRA_SUBJECTS[sname]["sizes"].get(st["name"].split(" · ", 1)[-1], EXTRA_SUBJECTS[sname].get("size", 20)) if sname in EXTRA_SUBJECTS else 30 if paper2 else 20
                 real = "Previous-Year Questions" in st["name"]  # real questions only: any size, printed answer letters
-                if not legacy and not real and len(qs) != size:
+                anysize = sname in EXTRA_SUBJECTS and EXTRA_SUBJECTS[sname].get("anysize")  # KRIES Paper 1 subjects: pulled sets keep their sizes
+                if not legacy and not real and not anysize and len(qs) != size:
                     err(f"{where}: {len(qs)} questions, expected {size}")
                 letters, ar = Counter(), Counter()
                 for i, q in enumerate(qs, 1):
@@ -117,7 +118,7 @@ for f in sorted(listed):
                     if "Assertion (A)" in q["question"]:
                         ar[q.get("answer")] += 1
                     k = app_key(q["question"], vals)
-                    if k in seen and (f in REUSE or seen[k].split(":", 1)[0] in REUSE):  # KRIES C topics reuse GPSTR Unit 4 questions by design
+                    if k in seen and (f in REUSE or seen[k].split(":", 1)[0] in REUSE or f.startswith("p1-kries-") or seen[k].startswith("p1-kries-")):  # KRIES C topics reuse GPSTR Unit 4 questions by design
                         pass
                     elif k in seen:
                         err(f"{where} Q{i}: duplicate of {seen[k]}")

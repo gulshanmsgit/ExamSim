@@ -219,9 +219,29 @@ def sheet_groups(groups, when):
     return out
 
 
+def kries_p1_groups():
+    """Paper 1 = the 15 syllabus items (A)–(O) as subjects (owner, 26 Oct 2026; tools/kries_p1.py)."""
+    import kries_p1
+    out = []
+    for letter, name, _icon, topics in kries_p1.SUBJECTS:
+        ids = kries_p1.plan_ids(letter)
+        rows = [(ids[t], t, cov, pri, hrs) for t, cov, pri, hrs, _ in topics]
+        rows.append((ids[kries_p1.pyq_topic(letter)], kries_p1.pyq_topic(letter), f"({letter}) Real KEA general-paper questions of this item", "High", 0.5))
+        out.append((name.split(" · ", 1)[1], f"KRIES Paper 1 item ({letter})", rows))
+    return out
+
+
 def main():
-    names = p1_names()
-    p1_groups = [(g, meta, [(pid, names[pid], cov, pri, hrs) for pid, cov, pri, hrs in rs]) for g, meta, rs in P1_GROUPS]
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent))
+    import kries_p1
+    p1_groups = kries_p1_groups()
+    p1_ids = [r[0] for _, _, rs in p1_groups for r in rs]
+    learning = [i for i, d in enumerate(DAYS) if d[4] == "Learning"]
+    per = -(-len(p1_ids) // len(learning))  # Paper 1 topics spread in syllabus order over the learning days
+    for n, i in enumerate(learning):
+        ids2, extra2, _ids1, extra1, phase = DAYS[i]
+        DAYS[i] = (ids2, extra2, p1_ids[n * per:(n + 1) * per], "", phase)
     rows = {r[0]: r for _, _, rs in P2_GROUPS + p1_groups for r in rs}
     cal, when = [], {}
     for i, (ids2, extra2, ids1, extra1, phase) in enumerate(DAYS):
@@ -238,7 +258,7 @@ def main():
     groups2, groups1 = sheet_groups(P2_GROUPS, when), sheet_groups(p1_groups, when)
     new_topics = lambda pre: [{"name": topic, "plan": {"id": pid, "start": when[pid][0], "end": when[pid][-1], "priority": pri, "tip": "", "coverage": cov}}
                               for _, _, rs in P2_GROUPS + p1_groups for pid, topic, cov, pri, _ in rs if pid.startswith(pre)]
-    extra_topics, c_topics, ds_topics, p1_topics = new_topics("P2-KR-"), new_topics("P2-KRC-"), new_topics("P2-KRD-"), sorted(new_topics("P1-KR-"), key=lambda t: t["plan"]["id"])
+    extra_topics, c_topics, ds_topics, p1_topics = new_topics("P2-KR-"), new_topics("P2-KRC-"), new_topics("P2-KRD-"), None
     pack = {
         "examsimPack": 1,
         "name": "Study plan · KRIES Computer Teacher 2026",
@@ -247,7 +267,7 @@ def main():
                        "land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC "
                        "arithmetic and social science – in Kannada; Paper 2: C Programming and Data Structures topic by topic as in the KRIES syllabus, Java, Computer Graphics). Importing it switches the app to KRIES "
                        "mode; switch back to GPSTR any time in Profile → Exam mode.",
-        "subjects": [{"name": P1_SUBJECT, "icon": "🏛", "topics": p1_topics}, {"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": DS_SUBJECT, "icon": "🌳", "topics": ds_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
+        "subjects": [{"name": name, "icon": icon, "topics": new_topics(f"P1-K{letter}-")} for letter, name, icon, _ in kries_p1.SUBJECTS] + [{"name": C_SUBJECT, "icon": "©", "topics": c_topics}, {"name": DS_SUBJECT, "icon": "🌳", "topics": ds_topics}, {"name": EXTRA_SUBJECT, "icon": "🖥", "topics": extra_topics}],
         "studyPlan": {
             "key": "kries", "title": "KRIES Computer Teacher 2026 study plan", "examDate": "2026-10-26",
             "exams": [{"paper": "Paper 1", "date": "2026-10-26"}, {"paper": "Paper 2", "date": "2026-10-27"}], "papers": ["p1", "p2"],
@@ -259,7 +279,7 @@ def main():
                                    "Networks by name.", "KRIES mode shows only the topics in this plan."],
             "statuses": ["Not Started", "In Progress", "Completed", "Review Required"],
             "sheets": {"p1": {"title": "PAPER 1 (GENERAL) — KRIES 2026", "source": "KRIES notification §10, Paper 1 items A–O",
-                              "howTo": "GK and current-affairs topics are shared with GPSTR; Karnataka items and mental ability are KRIES topics (in Kannada).",
+                              "howTo": "Each syllabus item (A)–(O) is a subject with its own topics: existing GK and current-affairs sets, new Kannada sets and real KEA questions.",
                               "groups": groups1},
                        "p2": {"title": "PAPER 2 (COMPUTER TEACHER) — KRIES 2026", "source": "KRIES Computer Teacher syllabus (Paper 2)",
                               "howTo": "Topics reuse the GPSTR question bank; progress is shared between the two exams.", "groups": groups2}},
@@ -276,7 +296,7 @@ def main():
     entry.update({"name": pack["name"], "description": pack["description"]})
     idx_path.write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     n1, n2 = (sum(len(g["rows"]) for g in gs) for gs in (groups1, groups2))
-    print(f"KRIES plan: {len(cal)} days {cal[0]['date']} – {cal[-1]['date']}, {n1} Paper 1 topics ({len(p1_topics)} new), "
+    print(f"KRIES plan: {len(cal)} days {cal[0]['date']} – {cal[-1]['date']}, {n1} Paper 1 topics in 15 subjects, "
           f"{n2} Paper 2 topics ({len(extra_topics)} new)")
 
 

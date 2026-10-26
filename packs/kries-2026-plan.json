@@ -4,106 +4,905 @@
  "description": "Exam mode for KRIES Computer Teacher recruitment (KEA): Paper 1 (general paper) on 26 Oct and Paper 2 (Computer Teacher) on 27 Oct 2026. An 18-day plan from 10 Oct mapped onto the topics you already have, plus KRIES-only topics (Paper 1: Karnataka land reforms, economy, Panchayat Raj, e-governance, environment, social and cultural history, mental ability, SSLC arithmetic and social science – in Kannada; Paper 2: C Programming and Data Structures topic by topic as in the KRIES syllabus, Java, Computer Graphics). Importing it switches the app to KRIES mode; switch back to GPSTR any time in Profile → Exam mode.",
  "subjects": [
   {
-   "name": "P1 · KRIES – Karnataka & General Studies",
-   "icon": "🏛",
+   "name": "P1 · KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+   "icon": "📰",
    "topics": [
     {
-     "name": "Land Reforms and Social Change in Karnataka",
+     "name": "International Affairs and Organisations",
      "plan": {
-      "id": "P1-KR-01",
+      "id": "P1-KA-01",
       "start": "2026-10-10",
       "end": "2026-10-10",
       "priority": "High",
       "tip": "",
-      "coverage": "(J) Land reforms in Karnataka after independence and social change – 1961 and 1974 Acts, land tribunals, Devaraj Urs, backward-class commissions, debt relief and bonded labour"
+      "coverage": "(A) World events, summits, international organisations and India's foreign relations"
      }
     },
     {
-     "name": "Karnataka Economy – Strengths, Weaknesses and Current Status",
+     "name": "National Affairs, Schemes and Defence",
      "plan": {
-      "id": "P1-KR-02",
-      "start": "2026-10-16",
-      "end": "2026-10-16",
+      "id": "P1-KA-02",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
       "priority": "High",
       "tip": "",
-      "coverage": "(K) Karnataka's economy – strengths and weaknesses, current status (economic survey, budget, GSDP, sectors, schemes)"
+      "coverage": "(A) Governance, central schemes, defence, abbreviations in the news"
      }
     },
     {
-     "name": "Rural Development, Panchayat Raj and Rural Co-operatives",
+     "name": "Karnataka Current Affairs",
      "plan": {
-      "id": "P1-KR-03",
-      "start": "2026-10-15",
-      "end": "2026-10-15",
+      "id": "P1-KA-03",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
       "priority": "High",
       "tip": "",
-      "coverage": "(L) Rural development, Panchayat Raj institutions and rural co-operatives"
+      "coverage": "(A) Karnataka – government decisions, schemes, appointments, events (January–October 2026)"
      }
     },
     {
-     "name": "Science and Technology in Karnataka Administration",
+     "name": "National Current Affairs – Month by Month",
      "plan": {
-      "id": "P1-KR-04",
-      "start": "2026-10-20",
-      "end": "2026-10-20",
+      "id": "P1-KA-04",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
       "priority": "Medium",
       "tip": "",
-      "coverage": "(M) Role of science and technology in effective administration in Karnataka (e-governance)"
+      "coverage": "(A) National events of 2026, month by month"
      }
     },
     {
-     "name": "Environment and Development of Karnataka",
+     "name": "Awards, Books, Films and Sports",
      "plan": {
-      "id": "P1-KR-05",
-      "start": "2026-10-18",
-      "end": "2026-10-18",
+      "id": "P1-KA-05",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
       "priority": "Medium",
       "tip": "",
-      "coverage": "(N) Environmental problems and development of Karnataka"
+      "coverage": "(A) Awards and honours, books and authors, films, sports"
      }
     },
     {
-     "name": "Mental Ability – Reasoning",
+     "name": "Important Days and Events",
      "plan": {
-      "id": "P1-KR-06",
-      "start": "2026-10-21",
-      "end": "2026-10-21",
-      "priority": "High",
+      "id": "P1-KA-06",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "Low",
       "tip": "",
-      "coverage": "(H, O) Mental ability – series, analogy, coding–decoding, blood relations, directions, ranking, calendar, clocks, statements and conclusions"
+      "coverage": "(A) National and international days, themes and slogans"
      }
     },
     {
-     "name": "Practical Knowledge – SSLC Arithmetic",
+     "name": "KEA Previous-Year Questions – Current Affairs",
      "plan": {
-      "id": "P1-KR-07",
-      "start": "2026-10-22",
-      "end": "2026-10-22",
-      "priority": "High",
-      "tip": "",
-      "coverage": "(H) Practical knowledge – percentages, ratio, averages, profit and loss, interest, time and work, speed, mensuration"
-     }
-    },
-    {
-     "name": "Social Science – SSLC Basics",
-     "plan": {
-      "id": "P1-KR-08",
-      "start": "2026-10-22",
-      "end": "2026-10-22",
-      "priority": "Medium",
-      "tip": "",
-      "coverage": "(D) Social science at SSLC level – civics, economics, sociology, business studies"
-     }
-    },
-    {
-     "name": "Social and Cultural History of Karnataka",
-     "plan": {
-      "id": "P1-KR-09",
+      "id": "P1-KA-07",
       "start": "2026-10-11",
       "end": "2026-10-11",
       "priority": "High",
       "tip": "",
-      "coverage": "(I) Social and cultural history of Karnataka – religious and social reform (Basavanna, Dasas), Wodeyars and Dewans, armed rebellions, freedom movement, unification, literature and culture"
+      "coverage": "(A) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+   "icon": "🔬",
+   "topics": [
+    {
+     "name": "Physics",
+     "plan": {
+      "id": "P1-KB-01",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(B) Motion, force, energy, heat, light, sound, electricity and magnetism (SSLC level)"
+     }
+    },
+    {
+     "name": "Chemistry",
+     "plan": {
+      "id": "P1-KB-02",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(B) Matter, acids, bases and salts, metals, carbon compounds, everyday chemistry"
+     }
+    },
+    {
+     "name": "Biology",
+     "plan": {
+      "id": "P1-KB-03",
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(B) Cell, life processes, plants and animals, heredity, ecology"
+     }
+    },
+    {
+     "name": "Health, Nutrition and Diseases",
+     "plan": {
+      "id": "P1-KB-04",
+      "start": "2026-10-12",
+      "end": "2026-10-12",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(B) Nutrition, vitamins, diseases, immunisation, public health"
+     }
+    },
+    {
+     "name": "Inventions, Discoveries, Space and Technology",
+     "plan": {
+      "id": "P1-KB-05",
+      "start": "2026-10-12",
+      "end": "2026-10-12",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(B) Inventions, discoveries, scientists, space and defence technology"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – General Science",
+     "plan": {
+      "id": "P1-KB-06",
+      "start": "2026-10-12",
+      "end": "2026-10-12",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(B) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+   "icon": "🌍",
+   "topics": [
+    {
+     "name": "Physical Geography – Earth, Landforms and Climate",
+     "plan": {
+      "id": "P1-KC-01",
+      "start": "2026-10-12",
+      "end": "2026-10-12",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(C) Earth, latitudes and longitudes, interior, rocks, landforms, atmosphere, climate"
+     }
+    },
+    {
+     "name": "Geography of India – Regions, Soils, Resources and Crops",
+     "plan": {
+      "id": "P1-KC-02",
+      "start": "2026-10-12",
+      "end": "2026-10-12",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(C) Physical divisions, rivers, soils, forests, minerals, agriculture of India"
+     }
+    },
+    {
+     "name": "Geography of Karnataka",
+     "plan": {
+      "id": "P1-KC-03",
+      "start": "2026-10-13",
+      "end": "2026-10-13",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(C) Regions, rivers, climate, soils, forests, minerals, crops, districts of Karnataka"
+     }
+    },
+    {
+     "name": "Population, Industries and Transport",
+     "plan": {
+      "id": "P1-KC-04",
+      "start": "2026-10-13",
+      "end": "2026-10-13",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(C) Population and census, industries and ores, highways, railways, ports and airports"
+     }
+    },
+    {
+     "name": "World Geography, Countries and Places",
+     "plan": {
+      "id": "P1-KC-05",
+      "start": "2026-10-13",
+      "end": "2026-10-13",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(C) Countries, capitals and currencies, peaks, tourist places, monuments and parks"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Geography",
+     "plan": {
+      "id": "P1-KC-06",
+      "start": "2026-10-13",
+      "end": "2026-10-13",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(C) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+   "icon": "📘",
+   "topics": [
+    {
+     "name": "Civics and Political Science",
+     "plan": {
+      "id": "P1-KD-01",
+      "start": "2026-10-13",
+      "end": "2026-10-13",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(D) SSLC civics – government, rights, international relations, political science"
+     }
+    },
+    {
+     "name": "Economics – Indian Economy, Banking and Money",
+     "plan": {
+      "id": "P1-KD-02",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(D) Indian economy, planning, banking, money, budget, industries"
+     }
+    },
+    {
+     "name": "Sociology",
+     "plan": {
+      "id": "P1-KD-03",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(D) Society, social groups, social stratification, social change (SSLC sociology)"
+     }
+    },
+    {
+     "name": "Business Studies and Commerce",
+     "plan": {
+      "id": "P1-KD-04",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
+      "priority": "Low",
+      "tip": "",
+      "coverage": "(D) Business, trade, banking services, consumer protection, entrepreneurship (SSLC business studies)"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Social Science",
+     "plan": {
+      "id": "P1-KD-05",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(D) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+   "icon": "👪",
+   "topics": [
+    {
+     "name": "Indian Society – Diversity, Caste, Family and Religion",
+     "plan": {
+      "id": "P1-KE-01",
+      "start": "2026-10-14",
+      "end": "2026-10-14",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(E) Features of Indian society, unity in diversity, caste, family, religion"
+     }
+    },
+    {
+     "name": "Social Reform Movements in India",
+     "plan": {
+      "id": "P1-KE-02",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(E) Brahmo Samaj to Ambedkar – reformers and movements"
+     }
+    },
+    {
+     "name": "Culture – Festivals, Dances, Arts and Tribes",
+     "plan": {
+      "id": "P1-KE-03",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(E) Festivals, classical and folk dances, arts, tribes of India"
+     }
+    },
+    {
+     "name": "Education, Women and Social Welfare",
+     "plan": {
+      "id": "P1-KE-04",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(E) Education policies, women and child welfare, weaker sections, social laws"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Indian Society",
+     "plan": {
+      "id": "P1-KE-05",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(E) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+   "icon": "🏺",
+   "topics": [
+    {
+     "name": "Ancient India",
+     "plan": {
+      "id": "P1-KF-01",
+      "start": "2026-10-15",
+      "end": "2026-10-15",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(F) Prehistory, Indus, Vedic age, Jainism and Buddhism, Mauryas, Guptas"
+     }
+    },
+    {
+     "name": "Medieval India",
+     "plan": {
+      "id": "P1-KF-02",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(F) Sultanate, Mughals, Marathas, Bhakti and Sufi, medieval South India"
+     }
+    },
+    {
+     "name": "Modern India and the Freedom Struggle",
+     "plan": {
+      "id": "P1-KF-03",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(F) British rule, 1857, national movement, Gandhian era, independence"
+     }
+    },
+    {
+     "name": "History of Karnataka – Dynasties",
+     "plan": {
+      "id": "P1-KF-04",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(F) Satavahanas to Vijayanagara and the Bahmanis; Nayakas and Mysore"
+     }
+    },
+    {
+     "name": "World History",
+     "plan": {
+      "id": "P1-KF-05",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "Low",
+      "tip": "",
+      "coverage": "(F) Ancient, medieval and modern world events"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – History of India and Karnataka",
+     "plan": {
+      "id": "P1-KF-06",
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(F) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+   "icon": "⚖",
+   "topics": [
+    {
+     "name": "Making of the Constitution, Preamble, Rights and Duties",
+     "plan": {
+      "id": "P1-KG-01",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(G) Constituent Assembly, sources, Preamble, citizenship, rights, DPSP, duties"
+     }
+    },
+    {
+     "name": "Union and State Governments",
+     "plan": {
+      "id": "P1-KG-02",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(G) President, Parliament, Prime Minister, Governor, State Legislature"
+     }
+    },
+    {
+     "name": "Judiciary and Constitutional Bodies",
+     "plan": {
+      "id": "P1-KG-03",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(G) Supreme Court, High Courts, writs, Election Commission, CAG, UPSC, Finance Commission"
+     }
+    },
+    {
+     "name": "Amendments, Articles and Schedules",
+     "plan": {
+      "id": "P1-KG-04",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(G) Important amendments, articles, parts and schedules"
+     }
+    },
+    {
+     "name": "Public Administration and Local Government",
+     "plan": {
+      "id": "P1-KG-05",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(G) Public administration, civil services, budget process, local bodies, RTI, ombudsman"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Constitution and Public Administration",
+     "plan": {
+      "id": "P1-KG-06",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(G) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+   "icon": "🧮",
+   "topics": [
+    {
+     "name": "Number System, Percentage, Ratio and Average",
+     "plan": {
+      "id": "P1-KH-01",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H) Numbers, LCM/HCF, percentage, ratio and proportion, average"
+     }
+    },
+    {
+     "name": "Profit, Loss and Interest",
+     "plan": {
+      "id": "P1-KH-02",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H) Profit and loss, discount, simple and compound interest"
+     }
+    },
+    {
+     "name": "Time, Work, Speed and Mensuration",
+     "plan": {
+      "id": "P1-KH-03",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H) Time and work, pipes, speed and distance, trains, boats, areas and volumes"
+     }
+    },
+    {
+     "name": "Data Interpretation and Everyday Practical Knowledge",
+     "plan": {
+      "id": "P1-KH-04",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(H) Tables, bar and pie charts, probability, practical problems"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Practical Knowledge",
+     "plan": {
+      "id": "P1-KH-05",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(H) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+   "icon": "🛕",
+   "topics": [
+    {
+     "name": "Religious and Social Reform – Vachanas and Dasas",
+     "plan": {
+      "id": "P1-KI-01",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Basavanna and the Vachana movement, Haridasas, saints and reformers"
+     }
+    },
+    {
+     "name": "Literature, Arts and Culture of Karnataka",
+     "plan": {
+      "id": "P1-KI-02",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Kannada literature, art and architecture, music, folk arts"
+     }
+    },
+    {
+     "name": "Wodeyars, Dewans and Princely Mysore",
+     "plan": {
+      "id": "P1-KI-03",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Mysore Wodeyars, Dewans, modernisation of Mysore State"
+     }
+    },
+    {
+     "name": "Rebellions, Freedom Movement and Unification",
+     "plan": {
+      "id": "P1-KI-04",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Armed rebellions, freedom struggle in Karnataka, Ekikarana"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Social and Cultural History of Karnataka",
+     "plan": {
+      "id": "P1-KI-05",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(I) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES J – Land Reforms and Social Change in Karnataka (ಭೂ ಸುಧಾರಣೆ)",
+   "icon": "🌾",
+   "topics": [
+    {
+     "name": "Land Reform Acts and Land Tribunals",
+     "plan": {
+      "id": "P1-KJ-01",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(J) 1961 and 1974 Acts, land tribunals, tenancy, ceiling"
+     }
+    },
+    {
+     "name": "Social Change – Urs Era, Backward Classes and Reservation",
+     "plan": {
+      "id": "P1-KJ-02",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(J) Devaraj Urs, backward class commissions, reservation, social justice"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Land Reforms and Social Change",
+     "plan": {
+      "id": "P1-KJ-03",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(J) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+   "icon": "💹",
+   "topics": [
+    {
+     "name": "Structure, Strengths and Weaknesses of Karnataka's Economy",
+     "plan": {
+      "id": "P1-KK-01",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(K) GSDP, sectors, strengths, weaknesses, human development"
+     }
+    },
+    {
+     "name": "Budget, Industries and Guarantee Schemes",
+     "plan": {
+      "id": "P1-KK-02",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(K) State budget, industrial policy, IT-BT, guarantee schemes"
+     }
+    },
+    {
+     "name": "Agriculture, Irrigation, Energy and Regional Imbalance",
+     "plan": {
+      "id": "P1-KK-03",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(K) Agriculture, irrigation projects, power, Nanjundappa report, Kalyana Karnataka"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Economy of Karnataka",
+     "plan": {
+      "id": "P1-KK-04",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(K) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+   "icon": "🏡",
+   "topics": [
+    {
+     "name": "Panchayat Raj Institutions",
+     "plan": {
+      "id": "P1-KL-01",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(L) Committees, 73rd Amendment, Karnataka Panchayat Raj Act, gram sabha"
+     }
+    },
+    {
+     "name": "Rural Development Programmes",
+     "plan": {
+      "id": "P1-KL-02",
+      "start": "2026-10-21",
+      "end": "2026-10-21",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(L) MGNREGA, rural housing, drinking water, rural livelihood schemes"
+     }
+    },
+    {
+     "name": "Co-operative Movement in Karnataka",
+     "plan": {
+      "id": "P1-KL-03",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(L) Co-operative principles, history (Kanaginahal), co-operative banks and societies"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Rural Development and Panchayat Raj",
+     "plan": {
+      "id": "P1-KL-04",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(L) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES M – Science and Technology in Administration (ವಿಜ್ಞಾನ-ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಆಡಳಿತ)",
+   "icon": "💻",
+   "topics": [
+    {
+     "name": "e-Governance Projects of Karnataka",
+     "plan": {
+      "id": "P1-KM-01",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(M) Bhoomi, Kaveri, Seva Sindhu, Nemmadi, Sakala and other projects"
+     }
+    },
+    {
+     "name": "Technology Institutions and Digital Services",
+     "plan": {
+      "id": "P1-KM-02",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(M) Science and technology institutions, digital services, space and IT policy"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Science and Technology in Administration",
+     "plan": {
+      "id": "P1-KM-03",
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(M) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+   "icon": "🌳",
+   "topics": [
+    {
+     "name": "Western Ghats, Forests and Wildlife",
+     "plan": {
+      "id": "P1-KN-01",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(N) Western Ghats, forests, protected areas, biodiversity"
+     }
+    },
+    {
+     "name": "Water, Pollution, Laws and Sustainable Development",
+     "plan": {
+      "id": "P1-KN-02",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(N) River disputes, pollution, environmental laws, sustainability"
+     }
+    },
+    {
+     "name": "Climate Change, Disasters and Environmental Movements",
+     "plan": {
+      "id": "P1-KN-03",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(N) Climate change, droughts and floods, Appiko, Chipko and other movements"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Environment of Karnataka",
+     "plan": {
+      "id": "P1-KN-04",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(N) Real KEA general-paper questions of this item"
+     }
+    }
+   ]
+  },
+  {
+   "name": "P1 · KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+   "icon": "🧠",
+   "topics": [
+    {
+     "name": "Series, Analogy, Odd One Out and Coding–Decoding",
+     "plan": {
+      "id": "P1-KO-01",
+      "start": "2026-10-23",
+      "end": "2026-10-23",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(O) Number and letter series, analogy, classification, coding"
+     }
+    },
+    {
+     "name": "Blood Relations, Directions and Ranking",
+     "plan": {
+      "id": "P1-KO-02",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(O) Blood relations, direction sense, ranking and arrangement"
+     }
+    },
+    {
+     "name": "Clocks, Calendars, Syllogism and Venn Diagrams",
+     "plan": {
+      "id": "P1-KO-03",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(O) Clocks, calendars, syllogisms, Venn diagrams"
+     }
+    },
+    {
+     "name": "Statements, Assumptions, Puzzles and Figures",
+     "plan": {
+      "id": "P1-KO-04",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "priority": "Medium",
+      "tip": "",
+      "coverage": "(O) Statement–assumption/conclusion, puzzles, seating, cubes and dice, figures"
+     }
+    },
+    {
+     "name": "KEA Previous-Year Questions – Mental Ability",
+     "plan": {
+      "id": "P1-KO-05",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "priority": "High",
+      "tip": "",
+      "coverage": "(O) Real KEA general-paper questions of this item"
      }
     }
    ]
@@ -392,25 +1191,25 @@
    "p1": {
     "title": "PAPER 1 (GENERAL) — KRIES 2026",
     "source": "KRIES notification §10, Paper 1 items A–O",
-    "howTo": "GK and current-affairs topics are shared with GPSTR; Karnataka items and mental ability are KRIES topics (in Kannada).",
+    "howTo": "Each syllabus item (A)–(O) is a subject with its own topics: existing GK and current-affairs sets, new Kannada sets and real KEA questions.",
     "groups": [
      {
-      "name": "Karnataka (items I–N)",
+      "name": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
       "meta": [
-       "KRIES Paper 1 · Karnataka-specific items – heavily asked in KEA general papers",
-       "6 topics"
+       "KRIES Paper 1 item (A)",
+       "7 topics"
       ],
       "rows": [
        {
-        "id": "P1-KR-09",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Social and Cultural History of Karnataka",
-        "coverage": "(I) Social and cultural history of Karnataka – religious and social reform (Basavanna, Dasas), Wodeyars and Dewans, armed rebellions, freedom movement, unification, literature and culture",
+        "id": "P1-KA-01",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "International Affairs and Organisations",
+        "coverage": "(A) World events, summits, international organisations and India's foreign relations",
         "priority": "High",
-        "hours": 1.5,
-        "start": "2026-10-11",
-        "target": "2026-10-11",
-        "day": "Sun",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
         "status": "Not Started",
         "rev1": "No",
         "rev2": "No",
@@ -419,10 +1218,27 @@
         "notes": ""
        },
        {
-        "id": "P1-KR-01",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Land Reforms and Social Change in Karnataka",
-        "coverage": "(J) Land reforms in Karnataka after independence and social change – 1961 and 1974 Acts, land tribunals, Devaraj Urs, backward-class commissions, debt relief and bonded labour",
+        "id": "P1-KA-02",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "National Affairs, Schemes and Defence",
+        "coverage": "(A) Governance, central schemes, defence, abbreviations in the news",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KA-03",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "Karnataka Current Affairs",
+        "coverage": "(A) Karnataka – government decisions, schemes, appointments, events (January–October 2026)",
         "priority": "High",
         "hours": 1.5,
         "start": "2026-10-10",
@@ -436,49 +1252,15 @@
         "notes": ""
        },
        {
-        "id": "P1-KR-02",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Karnataka Economy – Strengths, Weaknesses and Current Status",
-        "coverage": "(K) Karnataka's economy – strengths and weaknesses, current status (economic survey, budget, GSDP, sectors, schemes)",
-        "priority": "High",
-        "hours": 1.5,
-        "start": "2026-10-16",
-        "target": "2026-10-16",
-        "day": "Fri",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-KR-03",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Rural Development, Panchayat Raj and Rural Co-operatives",
-        "coverage": "(L) Rural development, Panchayat Raj institutions and rural co-operatives",
-        "priority": "High",
-        "hours": 1.5,
-        "start": "2026-10-15",
-        "target": "2026-10-15",
-        "day": "Thu",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-KR-04",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Science and Technology in Karnataka Administration",
-        "coverage": "(M) Role of science and technology in effective administration in Karnataka (e-governance)",
+        "id": "P1-KA-04",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "National Current Affairs – Month by Month",
+        "coverage": "(A) National events of 2026, month by month",
         "priority": "Medium",
         "hours": 1.0,
-        "start": "2026-10-20",
-        "target": "2026-10-20",
-        "day": "Tue",
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
         "status": "Not Started",
         "rev1": "No",
         "rev2": "No",
@@ -487,14 +1269,48 @@
         "notes": ""
        },
        {
-        "id": "P1-KR-05",
-        "subject": "Karnataka (items I–N)",
-        "topic": "Environment and Development of Karnataka",
-        "coverage": "(N) Environmental problems and development of Karnataka",
+        "id": "P1-KA-05",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "Awards, Books, Films and Sports",
+        "coverage": "(A) Awards and honours, books and authors, films, sports",
         "priority": "Medium",
-        "hours": 1.0,
-        "start": "2026-10-18",
-        "target": "2026-10-18",
+        "hours": 0.75,
+        "start": "2026-10-10",
+        "target": "2026-10-10",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KA-06",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "Important Days and Events",
+        "coverage": "(A) National and international days, themes and slogans",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KA-07",
+        "subject": "KRIES A – Current Affairs (ಪ್ರಚಲಿತ ವಿದ್ಯಮಾನಗಳು)",
+        "topic": "KEA Previous-Year Questions – Current Affairs",
+        "coverage": "(A) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
         "day": "Sun",
         "status": "Not Started",
         "rev1": "No",
@@ -506,35 +1322,18 @@
       ]
      },
      {
-      "name": "History, society and culture (items E, F)",
+      "name": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
       "meta": [
-       "GPSTR GK topics",
-       "4 topics"
+       "KRIES Paper 1 item (B)",
+       "6 topics"
       ],
       "rows": [
        {
-        "id": "P1-GK-05",
-        "subject": "History, society and culture (items E, F)",
-        "topic": "Karnataka History, Culture and Art",
-        "coverage": "(F) History of Karnataka – dynasties, culture, art and architecture",
+        "id": "P1-KB-01",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "Physics",
+        "coverage": "(B) Motion, force, energy, heat, light, sound, electricity and magnetism (SSLC level)",
         "priority": "High",
-        "hours": 1.0,
-        "start": "2026-10-10",
-        "target": "2026-10-10",
-        "day": "Sat",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-GK-06",
-        "subject": "History, society and culture (items E, F)",
-        "topic": "Indian History and Culture – Ancient",
-        "coverage": "(E, F) Indian society and its history – ancient India",
-        "priority": "Medium",
         "hours": 1.0,
         "start": "2026-10-11",
         "target": "2026-10-11",
@@ -547,11 +1346,11 @@
         "notes": ""
        },
        {
-        "id": "P1-GK-07",
-        "subject": "History, society and culture (items E, F)",
-        "topic": "Indian History and Culture – Medieval",
-        "coverage": "(E, F) Medieval India",
-        "priority": "Medium",
+        "id": "P1-KB-02",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "Chemistry",
+        "coverage": "(B) Matter, acids, bases and salts, metals, carbon compounds, everyday chemistry",
+        "priority": "High",
         "hours": 1.0,
         "start": "2026-10-11",
         "target": "2026-10-11",
@@ -564,12 +1363,63 @@
         "notes": ""
        },
        {
-        "id": "P1-GK-08",
-        "subject": "History, society and culture (items E, F)",
-        "topic": "Indian History and Culture – Modern",
-        "coverage": "(E, F) Modern India and the freedom struggle",
+        "id": "P1-KB-03",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "Biology",
+        "coverage": "(B) Cell, life processes, plants and animals, heredity, ecology",
         "priority": "High",
         "hours": 1.0,
+        "start": "2026-10-11",
+        "target": "2026-10-11",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KB-04",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "Health, Nutrition and Diseases",
+        "coverage": "(B) Nutrition, vitamins, diseases, immunisation, public health",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KB-05",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "Inventions, Discoveries, Space and Technology",
+        "coverage": "(B) Inventions, discoveries, scientists, space and defence technology",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KB-06",
+        "subject": "KRIES B – General Science (ಸಾಮಾನ್ಯ ವಿಜ್ಞಾನ)",
+        "topic": "KEA Previous-Year Questions – General Science",
+        "coverage": "(B) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
         "start": "2026-10-12",
         "target": "2026-10-12",
         "day": "Mon",
@@ -583,19 +1433,53 @@
       ]
      },
      {
-      "name": "Constitution and public administration (item G)",
+      "name": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
       "meta": [
-       "GPSTR GK and current-affairs topics",
-       "2 topics"
+       "KRIES Paper 1 item (C)",
+       "6 topics"
       ],
       "rows": [
        {
-        "id": "P1-GK-15",
-        "subject": "Constitution and public administration (item G)",
-        "topic": "Indian Constitution – Fundamental Rights, Legislature, Executive, Judiciary",
-        "coverage": "(G) Indian Constitution – fundamental rights, legislature, executive, judiciary; public administration",
+        "id": "P1-KC-01",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "Physical Geography – Earth, Landforms and Climate",
+        "coverage": "(C) Earth, latitudes and longitudes, interior, rocks, landforms, atmosphere, climate",
         "priority": "High",
-        "hours": 2.0,
+        "hours": 1.0,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KC-02",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "Geography of India – Regions, Soils, Resources and Crops",
+        "coverage": "(C) Physical divisions, rivers, soils, forests, minerals, agriculture of India",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-12",
+        "target": "2026-10-12",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KC-03",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "Geography of Karnataka",
+        "coverage": "(C) Regions, rivers, climate, soils, forests, minerals, crops, districts of Karnataka",
+        "priority": "High",
+        "hours": 1.0,
         "start": "2026-10-13",
         "target": "2026-10-13",
         "day": "Tue",
@@ -607,12 +1491,140 @@
         "notes": ""
        },
        {
-        "id": "P1-CA-13",
-        "subject": "Constitution and public administration (item G)",
-        "topic": "Indian Constitution",
-        "coverage": "(G) Constitution – amendments, articles and bodies in the news",
+        "id": "P1-KC-04",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "Population, Industries and Transport",
+        "coverage": "(C) Population and census, industries and ores, highways, railways, ports and airports",
         "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KC-05",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "World Geography, Countries and Places",
+        "coverage": "(C) Countries, capitals and currencies, peaks, tourist places, monuments and parks",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KC-06",
+        "subject": "KRIES C – Geography (ಭೂಗೋಳಶಾಸ್ತ್ರ)",
+        "topic": "KEA Previous-Year Questions – Geography",
+        "coverage": "(C) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+      "meta": [
+       "KRIES Paper 1 item (D)",
+       "5 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KD-01",
+        "subject": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+        "topic": "Civics and Political Science",
+        "coverage": "(D) SSLC civics – government, rights, international relations, political science",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-13",
+        "target": "2026-10-13",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KD-02",
+        "subject": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+        "topic": "Economics – Indian Economy, Banking and Money",
+        "coverage": "(D) Indian economy, planning, banking, money, budget, industries",
+        "priority": "High",
         "hours": 1.0,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KD-03",
+        "subject": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+        "topic": "Sociology",
+        "coverage": "(D) Society, social groups, social stratification, social change (SSLC sociology)",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KD-04",
+        "subject": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+        "topic": "Business Studies and Commerce",
+        "coverage": "(D) Business, trade, banking services, consumer protection, entrepreneurship (SSLC business studies)",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KD-05",
+        "subject": "KRIES D – Social Science (ಸಮಾಜ ವಿಜ್ಞಾನ)",
+        "topic": "KEA Previous-Year Questions – Social Science",
+        "coverage": "(D) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
         "start": "2026-10-14",
         "target": "2026-10-14",
         "day": "Wed",
@@ -626,22 +1638,22 @@
       ]
      },
      {
-      "name": "Science, geography and social science (items B, C, D)",
+      "name": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
       "meta": [
-       "GPSTR GK topics + SSLC social science",
-       "9 topics"
+       "KRIES Paper 1 item (E)",
+       "5 topics"
       ],
       "rows": [
        {
-        "id": "P1-GK-02",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Important Inventions and Discoveries",
-        "coverage": "(B) Inventions and discoveries",
+        "id": "P1-KE-01",
+        "subject": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+        "topic": "Indian Society – Diversity, Caste, Family and Religion",
+        "coverage": "(E) Features of Indian society, unity in diversity, caste, family, religion",
         "priority": "Medium",
-        "hours": 0.5,
-        "start": "2026-10-19",
-        "target": "2026-10-19",
-        "day": "Mon",
+        "hours": 0.75,
+        "start": "2026-10-14",
+        "target": "2026-10-14",
+        "day": "Wed",
         "status": "Not Started",
         "rev1": "No",
         "rev2": "No",
@@ -650,116 +1662,14 @@
         "notes": ""
        },
        {
-        "id": "P1-GK-03",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Basic Science – Concepts and Scientific Phenomena",
-        "coverage": "(B) General science – physics, chemistry, biology (SSLC level)",
+        "id": "P1-KE-02",
+        "subject": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+        "topic": "Social Reform Movements in India",
+        "coverage": "(E) Brahmo Samaj to Ambedkar – reformers and movements",
         "priority": "High",
-        "hours": 1.0,
-        "start": "2026-10-19",
-        "target": "2026-10-19",
-        "day": "Mon",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-GK-04",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Health and Hygiene",
-        "coverage": "(B) Health and hygiene",
-        "priority": "Low",
-        "hours": 0.5,
-        "start": "2026-10-19",
-        "target": "2026-10-19",
-        "day": "Mon",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-GK-10",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Geography – Basic Concepts, Land and People",
-        "coverage": "(C) Geography – basic concepts, land and people",
-        "priority": "Medium",
         "hours": 0.75,
-        "start": "2026-10-17",
-        "target": "2026-10-17",
-        "day": "Sat",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-GK-11",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Geography – Festivals, Population and Literacy",
-        "coverage": "(C) Geography – population, literacy, festivals",
-        "priority": "Medium",
-        "hours": 0.75,
-        "start": "2026-10-17",
-        "target": "2026-10-17",
-        "day": "Sat",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-GK-12",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Geography – Natural Regions, Natural Resources, Food Crops",
-        "coverage": "(C) Geography – natural regions, resources, crops",
-        "priority": "Medium",
-        "hours": 0.75,
-        "start": "2026-10-17",
-        "target": "2026-10-17",
-        "day": "Sat",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-CA-09",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Monuments and National Forests",
-        "coverage": "(C) Monuments and national parks",
-        "priority": "Low",
-        "hours": 0.5,
-        "start": "2026-10-18",
-        "target": "2026-10-18",
-        "day": "Sun",
-        "status": "Not Started",
-        "rev1": "No",
-        "rev2": "No",
-        "confidence": null,
-        "tip": "",
-        "notes": ""
-       },
-       {
-        "id": "P1-KR-08",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Social Science – SSLC Basics",
-        "coverage": "(D) Social science at SSLC level – civics, economics, sociology, business studies",
-        "priority": "Medium",
-        "hours": 1.0,
-        "start": "2026-10-22",
-        "target": "2026-10-22",
+        "start": "2026-10-15",
+        "target": "2026-10-15",
         "day": "Thu",
         "status": "Not Started",
         "rev1": "No",
@@ -769,12 +1679,157 @@
         "notes": ""
        },
        {
-        "id": "P1-GK-13",
-        "subject": "Science, geography and social science (items B, C, D)",
-        "topic": "Indian Economics – Major Industries, Projects, Public Undertakings",
-        "coverage": "(D) Indian economy – industries, projects, public undertakings",
+        "id": "P1-KE-03",
+        "subject": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+        "topic": "Culture – Festivals, Dances, Arts and Tribes",
+        "coverage": "(E) Festivals, classical and folk dances, arts, tribes of India",
         "priority": "Medium",
         "hours": 0.75,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KE-04",
+        "subject": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+        "topic": "Education, Women and Social Welfare",
+        "coverage": "(E) Education policies, women and child welfare, weaker sections, social laws",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KE-05",
+        "subject": "KRIES E – Indian Society and its Development (ಭಾರತೀಯ ಸಮಾಜ)",
+        "topic": "KEA Previous-Year Questions – Indian Society",
+        "coverage": "(E) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+      "meta": [
+       "KRIES Paper 1 item (F)",
+       "6 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KF-01",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "Ancient India",
+        "coverage": "(F) Prehistory, Indus, Vedic age, Jainism and Buddhism, Mauryas, Guptas",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-15",
+        "target": "2026-10-15",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KF-02",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "Medieval India",
+        "coverage": "(F) Sultanate, Mughals, Marathas, Bhakti and Sufi, medieval South India",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KF-03",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "Modern India and the Freedom Struggle",
+        "coverage": "(F) British rule, 1857, national movement, Gandhian era, independence",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KF-04",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "History of Karnataka – Dynasties",
+        "coverage": "(F) Satavahanas to Vijayanagara and the Bahmanis; Nayakas and Mysore",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KF-05",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "World History",
+        "coverage": "(F) Ancient, medieval and modern world events",
+        "priority": "Low",
+        "hours": 0.5,
+        "start": "2026-10-16",
+        "target": "2026-10-16",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KF-06",
+        "subject": "KRIES F – History of India and Karnataka (ಭಾರತ ಮತ್ತು ಕರ್ನಾಟಕದ ಇತಿಹಾಸ)",
+        "topic": "KEA Previous-Year Questions – History of India and Karnataka",
+        "coverage": "(F) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
         "start": "2026-10-16",
         "target": "2026-10-16",
         "day": "Fri",
@@ -788,19 +1843,395 @@
       ]
      },
      {
-      "name": "Practical knowledge and mental ability (items H, O)",
+      "name": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
       "meta": [
-       "SSLC-level reasoning and arithmetic",
-       "2 topics"
+       "KRIES Paper 1 item (G)",
+       "6 topics"
       ],
       "rows": [
        {
-        "id": "P1-KR-06",
-        "subject": "Practical knowledge and mental ability (items H, O)",
-        "topic": "Mental Ability – Reasoning",
-        "coverage": "(H, O) Mental ability – series, analogy, coding–decoding, blood relations, directions, ranking, calendar, clocks, statements and conclusions",
+        "id": "P1-KG-01",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Making of the Constitution, Preamble, Rights and Duties",
+        "coverage": "(G) Constituent Assembly, sources, Preamble, citizenship, rights, DPSP, duties",
         "priority": "High",
-        "hours": 1.5,
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KG-02",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Union and State Governments",
+        "coverage": "(G) President, Parliament, Prime Minister, Governor, State Legislature",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KG-03",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Judiciary and Constitutional Bodies",
+        "coverage": "(G) Supreme Court, High Courts, writs, Election Commission, CAG, UPSC, Finance Commission",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KG-04",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Amendments, Articles and Schedules",
+        "coverage": "(G) Important amendments, articles, parts and schedules",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KG-05",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Public Administration and Local Government",
+        "coverage": "(G) Public administration, civil services, budget process, local bodies, RTI, ombudsman",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-17",
+        "target": "2026-10-17",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KG-06",
+        "subject": "KRIES G – Constitution and Public Administration (ಸಂವಿಧಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "KEA Previous-Year Questions – Constitution and Public Administration",
+        "coverage": "(G) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+      "meta": [
+       "KRIES Paper 1 item (H)",
+       "5 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KH-01",
+        "subject": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+        "topic": "Number System, Percentage, Ratio and Average",
+        "coverage": "(H) Numbers, LCM/HCF, percentage, ratio and proportion, average",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KH-02",
+        "subject": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+        "topic": "Profit, Loss and Interest",
+        "coverage": "(H) Profit and loss, discount, simple and compound interest",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KH-03",
+        "subject": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+        "topic": "Time, Work, Speed and Mensuration",
+        "coverage": "(H) Time and work, pipes, speed and distance, trains, boats, areas and volumes",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KH-04",
+        "subject": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+        "topic": "Data Interpretation and Everyday Practical Knowledge",
+        "coverage": "(H) Tables, bar and pie charts, probability, practical problems",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-18",
+        "target": "2026-10-18",
+        "day": "Sun",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KH-05",
+        "subject": "KRIES H – Practical Knowledge, SSLC Level (ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನ)",
+        "topic": "KEA Previous-Year Questions – Practical Knowledge",
+        "coverage": "(H) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+      "meta": [
+       "KRIES Paper 1 item (I)",
+       "5 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KI-01",
+        "subject": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+        "topic": "Religious and Social Reform – Vachanas and Dasas",
+        "coverage": "(I) Basavanna and the Vachana movement, Haridasas, saints and reformers",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KI-02",
+        "subject": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+        "topic": "Literature, Arts and Culture of Karnataka",
+        "coverage": "(I) Kannada literature, art and architecture, music, folk arts",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KI-03",
+        "subject": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+        "topic": "Wodeyars, Dewans and Princely Mysore",
+        "coverage": "(I) Mysore Wodeyars, Dewans, modernisation of Mysore State",
+        "priority": "High",
+        "hours": 0.75,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KI-04",
+        "subject": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+        "topic": "Rebellions, Freedom Movement and Unification",
+        "coverage": "(I) Armed rebellions, freedom struggle in Karnataka, Ekikarana",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-19",
+        "target": "2026-10-19",
+        "day": "Mon",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KI-05",
+        "subject": "KRIES I – Social and Cultural History of Karnataka (ಕರ್ನಾಟಕದ ಸಾಮಾಜಿಕ-ಸಾಂಸ್ಕೃತಿಕ ಇತಿಹಾಸ)",
+        "topic": "KEA Previous-Year Questions – Social and Cultural History of Karnataka",
+        "coverage": "(I) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES J – Land Reforms and Social Change in Karnataka (ಭೂ ಸುಧಾರಣೆ)",
+      "meta": [
+       "KRIES Paper 1 item (J)",
+       "3 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KJ-01",
+        "subject": "KRIES J – Land Reforms and Social Change in Karnataka (ಭೂ ಸುಧಾರಣೆ)",
+        "topic": "Land Reform Acts and Land Tribunals",
+        "coverage": "(J) 1961 and 1974 Acts, land tribunals, tenancy, ceiling",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KJ-02",
+        "subject": "KRIES J – Land Reforms and Social Change in Karnataka (ಭೂ ಸುಧಾರಣೆ)",
+        "topic": "Social Change – Urs Era, Backward Classes and Reservation",
+        "coverage": "(J) Devaraj Urs, backward class commissions, reservation, social justice",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KJ-03",
+        "subject": "KRIES J – Land Reforms and Social Change in Karnataka (ಭೂ ಸುಧಾರಣೆ)",
+        "topic": "KEA Previous-Year Questions – Land Reforms and Social Change",
+        "coverage": "(J) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+      "meta": [
+       "KRIES Paper 1 item (K)",
+       "4 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KK-01",
+        "subject": "KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+        "topic": "Structure, Strengths and Weaknesses of Karnataka's Economy",
+        "coverage": "(K) GSDP, sectors, strengths, weaknesses, human development",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-20",
+        "target": "2026-10-20",
+        "day": "Tue",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KK-02",
+        "subject": "KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+        "topic": "Budget, Industries and Guarantee Schemes",
+        "coverage": "(K) State budget, industrial policy, IT-BT, guarantee schemes",
+        "priority": "High",
+        "hours": 1.0,
         "start": "2026-10-21",
         "target": "2026-10-21",
         "day": "Wed",
@@ -812,12 +2243,106 @@
         "notes": ""
        },
        {
-        "id": "P1-KR-07",
-        "subject": "Practical knowledge and mental ability (items H, O)",
-        "topic": "Practical Knowledge – SSLC Arithmetic",
-        "coverage": "(H) Practical knowledge – percentages, ratio, averages, profit and loss, interest, time and work, speed, mensuration",
+        "id": "P1-KK-03",
+        "subject": "KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+        "topic": "Agriculture, Irrigation, Energy and Regional Imbalance",
+        "coverage": "(K) Agriculture, irrigation projects, power, Nanjundappa report, Kalyana Karnataka",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KK-04",
+        "subject": "KRIES K – Economy of Karnataka (ಕರ್ನಾಟಕದ ಅರ್ಥವ್ಯವಸ್ಥೆ)",
+        "topic": "KEA Previous-Year Questions – Economy of Karnataka",
+        "coverage": "(K) Real KEA general-paper questions of this item",
         "priority": "High",
-        "hours": 1.5,
+        "hours": 0.5,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+      "meta": [
+       "KRIES Paper 1 item (L)",
+       "4 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KL-01",
+        "subject": "KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+        "topic": "Panchayat Raj Institutions",
+        "coverage": "(L) Committees, 73rd Amendment, Karnataka Panchayat Raj Act, gram sabha",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KL-02",
+        "subject": "KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+        "topic": "Rural Development Programmes",
+        "coverage": "(L) MGNREGA, rural housing, drinking water, rural livelihood schemes",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-21",
+        "target": "2026-10-21",
+        "day": "Wed",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KL-03",
+        "subject": "KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+        "topic": "Co-operative Movement in Karnataka",
+        "coverage": "(L) Co-operative principles, history (Kanaginahal), co-operative banks and societies",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KL-04",
+        "subject": "KRIES L – Rural Development, Panchayat Raj and Co-operatives (ಗ್ರಾಮೀಣಾಭಿವೃದ್ಧಿ)",
+        "topic": "KEA Previous-Year Questions – Rural Development and Panchayat Raj",
+        "coverage": "(L) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
         "start": "2026-10-22",
         "target": "2026-10-22",
         "day": "Thu",
@@ -831,18 +2356,112 @@
       ]
      },
      {
-      "name": "Current affairs (item A)",
+      "name": "KRIES M – Science and Technology in Administration (ವಿಜ್ಞಾನ-ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಆಡಳಿತ)",
       "meta": [
-       "Planner CA topics + monthly current affairs (P1 · Current Affairs)",
+       "KRIES Paper 1 item (M)",
+       "3 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KM-01",
+        "subject": "KRIES M – Science and Technology in Administration (ವಿಜ್ಞಾನ-ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "e-Governance Projects of Karnataka",
+        "coverage": "(M) Bhoomi, Kaveri, Seva Sindhu, Nemmadi, Sakala and other projects",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KM-02",
+        "subject": "KRIES M – Science and Technology in Administration (ವಿಜ್ಞಾನ-ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "Technology Institutions and Digital Services",
+        "coverage": "(M) Science and technology institutions, digital services, space and IT policy",
+        "priority": "Medium",
+        "hours": 0.75,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KM-03",
+        "subject": "KRIES M – Science and Technology in Administration (ವಿಜ್ಞಾನ-ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಆಡಳಿತ)",
+        "topic": "KEA Previous-Year Questions – Science and Technology in Administration",
+        "coverage": "(M) Real KEA general-paper questions of this item",
+        "priority": "High",
+        "hours": 0.5,
+        "start": "2026-10-22",
+        "target": "2026-10-22",
+        "day": "Thu",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+      "meta": [
+       "KRIES Paper 1 item (N)",
        "4 topics"
       ],
       "rows": [
        {
-        "id": "P1-CA-01",
-        "subject": "Current affairs (item A)",
-        "topic": "Current International Affairs",
-        "coverage": "(A) International affairs",
+        "id": "P1-KN-01",
+        "subject": "KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+        "topic": "Western Ghats, Forests and Wildlife",
+        "coverage": "(N) Western Ghats, forests, protected areas, biodiversity",
         "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KN-02",
+        "subject": "KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+        "topic": "Water, Pollution, Laws and Sustainable Development",
+        "coverage": "(N) River disputes, pollution, environmental laws, sustainability",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KN-03",
+        "subject": "KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+        "topic": "Climate Change, Disasters and Environmental Movements",
+        "coverage": "(N) Climate change, droughts and floods, Appiko, Chipko and other movements",
+        "priority": "Medium",
         "hours": 0.75,
         "start": "2026-10-23",
         "target": "2026-10-23",
@@ -855,12 +2474,38 @@
         "notes": ""
        },
        {
-        "id": "P1-CA-02",
-        "subject": "Current affairs (item A)",
-        "topic": "Current National Affairs",
-        "coverage": "(A) National affairs",
+        "id": "P1-KN-04",
+        "subject": "KRIES N – Environment and Development of Karnataka (ಪರಿಸರ)",
+        "topic": "KEA Previous-Year Questions – Environment of Karnataka",
+        "coverage": "(N) Real KEA general-paper questions of this item",
         "priority": "High",
-        "hours": 0.75,
+        "hours": 0.5,
+        "start": "2026-10-23",
+        "target": "2026-10-23",
+        "day": "Fri",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       }
+      ]
+     },
+     {
+      "name": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+      "meta": [
+       "KRIES Paper 1 item (O)",
+       "5 topics"
+      ],
+      "rows": [
+       {
+        "id": "P1-KO-01",
+        "subject": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+        "topic": "Series, Analogy, Odd One Out and Coding–Decoding",
+        "coverage": "(O) Number and letter series, analogy, classification, coding",
+        "priority": "High",
+        "hours": 1.0,
         "start": "2026-10-23",
         "target": "2026-10-23",
         "day": "Fri",
@@ -872,10 +2517,44 @@
         "notes": ""
        },
        {
-        "id": "P1-GK-14",
-        "subject": "Current affairs (item A)",
-        "topic": "Awards, Honours and Prizes",
-        "coverage": "(A) Awards, honours and prizes",
+        "id": "P1-KO-02",
+        "subject": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+        "topic": "Blood Relations, Directions and Ranking",
+        "coverage": "(O) Blood relations, direction sense, ranking and arrangement",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KO-03",
+        "subject": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+        "topic": "Clocks, Calendars, Syllogism and Venn Diagrams",
+        "coverage": "(O) Clocks, calendars, syllogisms, Venn diagrams",
+        "priority": "High",
+        "hours": 1.0,
+        "start": "2026-10-24",
+        "target": "2026-10-24",
+        "day": "Sat",
+        "status": "Not Started",
+        "rev1": "No",
+        "rev2": "No",
+        "confidence": null,
+        "tip": "",
+        "notes": ""
+       },
+       {
+        "id": "P1-KO-04",
+        "subject": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+        "topic": "Statements, Assumptions, Puzzles and Figures",
+        "coverage": "(O) Statement–assumption/conclusion, puzzles, seating, cubes and dice, figures",
         "priority": "Medium",
         "hours": 0.75,
         "start": "2026-10-24",
@@ -889,11 +2568,11 @@
         "notes": ""
        },
        {
-        "id": "P1-CA-05",
-        "subject": "Current affairs (item A)",
-        "topic": "Important Days and Slogans",
-        "coverage": "(A) Important days and slogans",
-        "priority": "Medium",
+        "id": "P1-KO-05",
+        "subject": "KRIES O – Mental Ability (ಬೌದ್ಧಿಕ ಸಾಮರ್ಥ್ಯ)",
+        "topic": "KEA Previous-Year Questions – Mental Ability",
+        "coverage": "(O) Real KEA general-paper questions of this item",
+        "priority": "High",
         "hours": 0.5,
         "start": "2026-10-24",
         "target": "2026-10-24",
@@ -1979,8 +3658,11 @@
      "P2-KRC-05 Functions"
     ],
     "p1": [
-     "P1-GK-05 Karnataka History, Culture and Art",
-     "P1-KR-01 Land Reforms and Social Change in Karnataka"
+     "P1-KA-01 International Affairs and Organisations",
+     "P1-KA-02 National Affairs, Schemes and Defence",
+     "P1-KA-03 Karnataka Current Affairs",
+     "P1-KA-04 National Current Affairs – Month by Month",
+     "P1-KA-05 Awards, Books, Films and Sports"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2000,9 +3682,11 @@
      "P2-KRD-02 Primitive Data Structures"
     ],
     "p1": [
-     "P1-GK-06 Indian History and Culture – Ancient",
-     "P1-GK-07 Indian History and Culture – Medieval",
-     "P1-KR-09 Social and Cultural History of Karnataka"
+     "P1-KA-06 Important Days and Events",
+     "P1-KA-07 KEA Previous-Year Questions – Current Affairs",
+     "P1-KB-01 Physics",
+     "P1-KB-02 Chemistry",
+     "P1-KB-03 Biology"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2019,7 +3703,11 @@
      "P2-KRD-06 Queues"
     ],
     "p1": [
-     "P1-GK-08 Indian History and Culture – Modern"
+     "P1-KB-04 Health, Nutrition and Diseases",
+     "P1-KB-05 Inventions, Discoveries, Space and Technology",
+     "P1-KB-06 KEA Previous-Year Questions – General Science",
+     "P1-KC-01 Physical Geography – Earth, Landforms and Climate",
+     "P1-KC-02 Geography of India – Regions, Soils, Resources and Crops"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2035,7 +3723,11 @@
      "P2-KRD-09 Searching and Sorting"
     ],
     "p1": [
-     "P1-GK-15 Indian Constitution – Fundamental Rights, Legislature, Executive, Judiciary"
+     "P1-KC-03 Geography of Karnataka",
+     "P1-KC-04 Population, Industries and Transport",
+     "P1-KC-05 World Geography, Countries and Places",
+     "P1-KC-06 KEA Previous-Year Questions – Geography",
+     "P1-KD-01 Civics and Political Science"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2051,8 +3743,11 @@
      "P2-U6-06 CPU Scheduling"
     ],
     "p1": [
-     "P1-CA-13 Indian Constitution",
-     "Constitution revision – public administration"
+     "P1-KD-02 Economics – Indian Economy, Banking and Money",
+     "P1-KD-03 Sociology",
+     "P1-KD-04 Business Studies and Commerce",
+     "P1-KD-05 KEA Previous-Year Questions – Social Science",
+     "P1-KE-01 Indian Society – Diversity, Caste, Family and Religion"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2067,7 +3762,11 @@
      "P2-U6-09 Virtual Memory"
     ],
     "p1": [
-     "P1-KR-03 Rural Development, Panchayat Raj and Rural Co-operatives"
+     "P1-KE-02 Social Reform Movements in India",
+     "P1-KE-03 Culture – Festivals, Dances, Arts and Tribes",
+     "P1-KE-04 Education, Women and Social Welfare",
+     "P1-KE-05 KEA Previous-Year Questions – Indian Society",
+     "P1-KF-01 Ancient India"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2083,8 +3782,11 @@
      "P2-U6-12 I/O Systems"
     ],
     "p1": [
-     "P1-KR-02 Karnataka Economy – Strengths, Weaknesses and Current Status",
-     "P1-GK-13 Indian Economics – Major Industries, Projects, Public Undertakings"
+     "P1-KF-02 Medieval India",
+     "P1-KF-03 Modern India and the Freedom Struggle",
+     "P1-KF-04 History of Karnataka – Dynasties",
+     "P1-KF-05 World History",
+     "P1-KF-06 KEA Previous-Year Questions – History of India and Karnataka"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2100,9 +3802,11 @@
      "P2-U4-07 Programming in C++ – Part 2"
     ],
     "p1": [
-     "P1-GK-10 Geography – Basic Concepts, Land and People",
-     "P1-GK-11 Geography – Festivals, Population and Literacy",
-     "P1-GK-12 Geography – Natural Regions, Natural Resources, Food Crops"
+     "P1-KG-01 Making of the Constitution, Preamble, Rights and Duties",
+     "P1-KG-02 Union and State Governments",
+     "P1-KG-03 Judiciary and Constitutional Bodies",
+     "P1-KG-04 Amendments, Articles and Schedules",
+     "P1-KG-05 Public Administration and Local Government"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2119,8 +3823,11 @@
      "P2-U5-06 Normalization"
     ],
     "p1": [
-     "P1-KR-05 Environment and Development of Karnataka",
-     "P1-CA-09 Monuments and National Forests"
+     "P1-KG-06 KEA Previous-Year Questions – Constitution and Public Administration",
+     "P1-KH-01 Number System, Percentage, Ratio and Average",
+     "P1-KH-02 Profit, Loss and Interest",
+     "P1-KH-03 Time, Work, Speed and Mensuration",
+     "P1-KH-04 Data Interpretation and Everyday Practical Knowledge"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2137,9 +3844,11 @@
      "P2-U7-05 Software Testing"
     ],
     "p1": [
-     "P1-GK-02 Important Inventions and Discoveries",
-     "P1-GK-03 Basic Science – Concepts and Scientific Phenomena",
-     "P1-GK-04 Health and Hygiene"
+     "P1-KH-05 KEA Previous-Year Questions – Practical Knowledge",
+     "P1-KI-01 Religious and Social Reform – Vachanas and Dasas",
+     "P1-KI-02 Literature, Arts and Culture of Karnataka",
+     "P1-KI-03 Wodeyars, Dewans and Princely Mysore",
+     "P1-KI-04 Rebellions, Freedom Movement and Unification"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2156,7 +3865,11 @@
      "P2-U9-10 World Wide Web & Applications"
     ],
     "p1": [
-     "P1-KR-04 Science and Technology in Karnataka Administration"
+     "P1-KI-05 KEA Previous-Year Questions – Social and Cultural History of Karnataka",
+     "P1-KJ-01 Land Reform Acts and Land Tribunals",
+     "P1-KJ-02 Social Change – Urs Era, Backward Classes and Reservation",
+     "P1-KJ-03 KEA Previous-Year Questions – Land Reforms and Social Change",
+     "P1-KK-01 Structure, Strengths and Weaknesses of Karnataka's Economy"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2170,7 +3883,11 @@
      "P2-KR-01 Basic Java Programming"
     ],
     "p1": [
-     "P1-KR-06 Mental Ability – Reasoning"
+     "P1-KK-02 Budget, Industries and Guarantee Schemes",
+     "P1-KK-03 Agriculture, Irrigation, Energy and Regional Imbalance",
+     "P1-KK-04 KEA Previous-Year Questions – Economy of Karnataka",
+     "P1-KL-01 Panchayat Raj Institutions",
+     "P1-KL-02 Rural Development Programmes"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2185,8 +3902,11 @@
      "P2-KR-02 Computer Graphics"
     ],
     "p1": [
-     "P1-KR-07 Practical Knowledge – SSLC Arithmetic",
-     "P1-KR-08 Social Science – SSLC Basics"
+     "P1-KL-03 Co-operative Movement in Karnataka",
+     "P1-KL-04 KEA Previous-Year Questions – Rural Development and Panchayat Raj",
+     "P1-KM-01 e-Governance Projects of Karnataka",
+     "P1-KM-02 Technology Institutions and Digital Services",
+     "P1-KM-03 KEA Previous-Year Questions – Science and Technology in Administration"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2203,9 +3923,11 @@
      "P2-U9-05 Data Link Layer"
     ],
     "p1": [
-     "P1-CA-01 Current International Affairs",
-     "P1-CA-02 Current National Affairs",
-     "Monthly current affairs January – June 2026 (P1 · Current Affairs)"
+     "P1-KN-01 Western Ghats, Forests and Wildlife",
+     "P1-KN-02 Water, Pollution, Laws and Sustainable Development",
+     "P1-KN-03 Climate Change, Disasters and Environmental Movements",
+     "P1-KN-04 KEA Previous-Year Questions – Environment of Karnataka",
+     "P1-KO-01 Series, Analogy, Odd One Out and Coding–Decoding"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false
@@ -2222,9 +3944,10 @@
      "Full mock test – Paper 2 (evening) + analysis"
     ],
     "p1": [
-     "P1-GK-14 Awards, Honours and Prizes",
-     "P1-CA-05 Important Days and Slogans",
-     "Monthly current affairs July – October 2026 (P1 · Current Affairs)"
+     "P1-KO-02 Blood Relations, Directions and Ranking",
+     "P1-KO-03 Clocks, Calendars, Syllogism and Venn Diagrams",
+     "P1-KO-04 Statements, Assumptions, Puzzles and Figures",
+     "P1-KO-05 KEA Previous-Year Questions – Mental Ability"
     ],
     "habit": "10 C output questions + 15 min Karnataka current affairs",
     "done": false

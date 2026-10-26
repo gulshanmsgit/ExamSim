@@ -85,6 +85,11 @@ EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PL
                                "Social and Cultural History of Karnataka": "P1-KR-09"},
                       "sizes": {}, "size": 20, "group": "② Paper 1 · General (20 questions per set)"}}
 
+# KRIES Paper 1: each syllabus item (A)–(O) is a subject of its own (owner, 26 Oct 2026) – see tools/kries_p1.py
+import kries_p1  # noqa: E402
+EXTRA_SUBJECTS.update(kries_p1.extra_subjects())
+PACKS.update(kries_p1.build_packs())
+
 
 def build(key):
     cfg = PACKS[key]
@@ -111,9 +116,13 @@ def build(key):
         sets = []
         for i, (name, qs) in enumerate(content[t], 1):
             num, sub = name.split(" · ", 1)
-            assert num == str(i), f"{t} / {name}: sets must be numbered 1, 2, 3…"
+            if extra and extra.get("renumber"):  # sets gathered from several modules (KRIES Paper 1 subjects) are numbered here
+                name = f"{i} · {sub}"
+            assert name.split(" · ", 1)[0] == str(i), f"{t} / {name}: sets must be numbered 1, 2, 3…"
             want_n = extra["sizes"].get(sub, size) if extra else size
-            if sub.startswith("Previous-Year Questions"):  # real questions only – as many as the papers give
+            if extra and extra.get("anysize"):  # pulled sets keep their own sizes (duplicates across source topics are dropped)
+                assert len(qs) >= 4, f"{t} / {name}: only {len(qs)} questions"
+            elif sub.startswith("Previous-Year Questions"):  # real questions only – as many as the papers give
                 assert len(qs) >= 4, f"{t} / {name}: only {len(qs)} questions"
             else:
                 assert len(qs) == want_n, f"{t} / {name}: {len(qs)} questions, expected {want_n}"
