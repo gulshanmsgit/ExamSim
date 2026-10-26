@@ -190,9 +190,9 @@ Firestore offline cache (keep cloud as the main copy); onboarding tour; skeleton
 - Build keys `p1-kries-a … p1-kries-o` (modules `p1_kx_<l>` + every `p1_kx_<l>_*.py`), plan IDs `P1-K<letter>-NN` (make_kries_plan.py).
   EXTRA_SUBJECTS entries come from `kries_p1.extra_subjects()` with `anysize` (any set size ≥ 4) and `renumber` (sets renumbered 1..n).
   check_packs lets `p1-kries-*` repeat other packs' questions.
-- New Kannada sets (2 × 20 + note) for topics that had nothing to pull: `p1_kx_c_karnataka` (Geography of Karnataka),
-  `p1_kx_d_sociology`, `p1_kx_g_admin` (Public Administration and Local Government), `p1_kx_l_coop` (Co-operative Movement).
-  Still empty: D Business Studies and Commerce, E Indian Society, H Data Interpretation, I Wodeyars/Dewans, K Agriculture/Irrigation/Energy,
-  N Climate Change/Disasters, O Statements/Puzzles. Thin subjects to grow next: J, K, L, M, N, I, H, O.
+- New Kannada sets (2 × 20 + note, `p1_kx_<letter>_<name>.py`) for every topic that had nothing to pull (26 Oct 2026): C Geography of
+  Karnataka, D Sociology + Business Studies, E Indian Society, G Public Administration, H Data Interpretation, I Wodeyars/Dewans,
+  K Agriculture/Irrigation/Energy, L Co-operatives, N Climate Change/Disasters, O Statements/Puzzles. **No KRIES P1 topic is empty now.**
+  Thinnest subjects (grow next): J Land Reforms 44, M e-Governance 48, K 91, L 104, N 107, I 129.
 - Order after adding a module: scratchpad `kxmap.py` (writes syllabus_map for all 15) → build the letter(s) → check_packs → ship
   (build_pyq_subjects, pyq_analysis, make_index, sw bump, commit, push).
