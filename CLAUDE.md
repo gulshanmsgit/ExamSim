@@ -193,6 +193,6 @@ Firestore offline cache (keep cloud as the main copy); onboarding tour; skeleton
 - New Kannada sets (2 × 20 + note, `p1_kx_<letter>_<name>.py`) for every topic that had nothing to pull (26 Oct 2026): C Geography of
   Karnataka, D Sociology + Business Studies, E Indian Society, G Public Administration, H Data Interpretation, I Wodeyars/Dewans,
   K Agriculture/Irrigation/Energy, L Co-operatives, N Climate Change/Disasters, O Statements/Puzzles. **No KRIES P1 topic is empty now.**
-  Thinnest subjects (grow next): J Land Reforms 44, M e-Governance 48, K 91, L 104, N 107, I 129.
+  Extra third sets: `p1_kx_j_more`, `p1_kx_m_more`. Thinnest now (grow next): J 84, M 88, K 91, L 104, N 107, I 129.
 - Order after adding a module: scratchpad `kxmap.py` (writes syllabus_map for all 15) → build the letter(s) → check_packs → ship
   (build_pyq_subjects, pyq_analysis, make_index, sw bump, commit, push).
