@@ -193,6 +193,8 @@ Firestore offline cache (keep cloud as the main copy); onboarding tour; skeleton
 - New Kannada sets (2 × 20 + note, `p1_kx_<letter>_<name>.py`) for every topic that had nothing to pull (26 Oct 2026): C Geography of
   Karnataka, D Sociology + Business Studies, E Indian Society, G Public Administration, H Data Interpretation, I Wodeyars/Dewans,
   K Agriculture/Irrigation/Energy, L Co-operatives, N Climate Change/Disasters, O Statements/Puzzles. **No KRIES P1 topic is empty now.**
-  Extra third sets: `p1_kx_j_more`, `p1_kx_m_more`. Thinnest now (grow next): J 84, M 88, K 91, L 104, N 107, I 129.
+  Extra third sets: `p1_kx_j_more`, `p1_kx_m_more`.
+  Later on 26 Oct: extra sets `p1_kx_<l>_more*.py` / `_third` / `_inst` / `_welfare` / `p1_kx_c_karnataka2` (D and E share data module `p1_kx_de_more` via thin wrappers `p1_kx_d_more`, `p1_kx_e_more`). Every non-PYQ topic now has ≥ 2 sets and ≥ 40 Q. Totals: A 911, B 339, C 440, D 223, E 218, F 329, G 254, H 213, I 189, J 104, K 131, L 144, M 108, N 147, O 195 = 3945.
+  ship.sh (scratchpad) now STOPS if check_packs reports errors – build output must be checked for 'duplicate of' (identical stems across sets fail the build).
 - Order after adding a module: scratchpad `kxmap.py` (writes syllabus_map for all 15) → build the letter(s) → check_packs → ship
   (build_pyq_subjects, pyq_analysis, make_index, sw bump, commit, push).
