@@ -5463,7 +5463,12 @@ function select(L) {
   if (!S || S.done) return;
   S.resp[S.cur].sel = L;
   renderQuestion(); renderPalette();
+  // picking an answer moves on by itself after a moment (not on the last question, not when clearing)
+  clearTimeout(autoNextId);
+  const at = S.cur;
+  if (L && at < S.qs.length - 1) autoNextId = setTimeout(() => { if (S && !S.done && S.cur === at) go(at + 1); }, 350);
 }
+let autoNextId = 0;
 $('#qOpts').addEventListener('click', e => { const b = e.target.closest('.opt'); if (b) select(b.dataset.l); });
 $('#palette').addEventListener('click', e => { const b = e.target.closest('.pal'); if (b) go(+b.dataset.i); });
 $('#prevBtn').onclick = () => go(S.cur - 1);
