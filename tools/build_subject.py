@@ -87,6 +87,9 @@ EXTRA_SUBJECTS = {"P1 · Current Affairs": {"icon": "📰", "topics": list(CA_PL
 
 # KRIES Paper 1: each syllabus item (A)–(O) is a subject of its own (owner, 26 Oct 2026) – see tools/kries_p1.py
 import kries_p1  # noqa: E402
+# Full-length mock papers (tools/build_mocks.py → packs/mock-papers.json); sets keep their own size
+EXTRA_SUBJECTS["Full Mock Papers"] = {"icon": "📝", "topics": ["Paper 1 – Full Mock Tests", "Paper 2 – Full Mock Tests"], "sizes": {}, "size": 100, "anysize": True,
+                                      "group": "④ Full mock papers"}
 EXTRA_SUBJECTS.update(kries_p1.extra_subjects())
 PACKS.update(kries_p1.build_packs())
 

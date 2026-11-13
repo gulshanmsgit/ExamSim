@@ -5645,8 +5645,14 @@ function renderResults() {
       if (!groups.has(k)) groups.set(k, { n: 0, correct: 0, wrong: 0, blank: 0, e: 0, score: 0 });
       const g = groups.get(k); g.n++; g[r.res]++; g.score += r.marks;
     });
-    h += `<div class="card"><h2>Subject-wise breakdown</h2><div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Questions</th><th class="num">Correct</th><th class="num">Wrong</th><th class="num">Blank</th><th class="num">E</th><th class="num">Score</th></tr></thead><tbody>`
-      + [...groups].map(([k, g]) => `<tr><td>${esc(k)}</td><td class="num">${g.n}</td><td class="num">${g.correct}</td><td class="num">${g.wrong}</td><td class="num">${g.blank}</td><td class="num">${g.e}</td><td class="num"><b>${fmtScore(g.score)}</b></td></tr>`).join('')
+    const pct = g => Math.round(g.correct / g.n * 100);
+    // weak subjects: under 60% correct (at least 3 questions), weakest first – what to study before the next mock
+    const weak = [...groups].filter(([, g]) => g.n >= 3 && pct(g) < 60).sort((a, b) => pct(a[1]) - pct(b[1]));
+    const weakHTML = groups.size < 2 ? '' : weak.length
+      ? `<p><b style="color:var(--red)">Focus on these first:</b> ${weak.map(([k, g]) => `${esc(k)} (${pct(g)}%)`).join(' · ')}</p>`
+      : `<p style="color:var(--green)"><b>No weak subject</b> – every subject is at 60% or above.</p>`;
+    h += `<div class="card"><h2>Subject-wise breakdown</h2>${weakHTML}<div class="tbl-wrap"><table><thead><tr><th>Subject</th><th class="num">Questions</th><th class="num">Correct</th><th class="num">Wrong</th><th class="num">Blank</th><th class="num">E</th><th class="num">Accuracy</th><th class="num">Score</th></tr></thead><tbody>`
+      + [...groups].map(([k, g]) => `<tr><td>${esc(k)}</td><td class="num">${g.n}</td><td class="num">${g.correct}</td><td class="num">${g.wrong}</td><td class="num">${g.blank}</td><td class="num">${g.e}</td><td class="num"${g.n >= 3 && pct(g) < 60 ? ' style="color:var(--red)"' : ''}>${pct(g)}%</td><td class="num"><b>${fmtScore(g.score)}</b></td></tr>`).join('')
       + '</tbody></table></div></div>';
   }
   $('#results').innerHTML = h;
