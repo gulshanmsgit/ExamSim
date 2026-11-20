@@ -75,7 +75,7 @@ def _used_before():
         return set()
     pack = json.loads(f.read_text(encoding="utf-8"))
     return {_key(q) for s in pack["subjects"] for t in s["topics"] for st in t["sets"]
-            if not st["name"].startswith("3 ·") for q in st["questions"]}
+            if st["name"].startswith(("1 ·", "2 ·")) for q in st["questions"]}  # only Sets 1–2 (later sets avoid Set 3, not the reverse)
 
 
 def _pick(pool, n, rng, taken, allow, unit=None):

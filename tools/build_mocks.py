@@ -1,5 +1,6 @@
 """Build packs/mock-papers.json – full-length GPSTR/CST mock papers (owner, 12 Nov 2026).
 
+Mock Set 4: more real previous-year questions, none from Sets 1–3 except in the education sections (tools/mock_pyq_more.py).
 Mock Set 3: only real previous-year questions (KEA/KSET/GTTC/PGCET…), same marks split, original option order and keys
             kept, each with its source paper (tools/mock3_pyq.py).
 Mock Set 2: same format; current affairs from July–August 2026 (tools/mock2_p1.py, tools/mock2_p2.py).
@@ -18,7 +19,7 @@ TOOLS = Path(__file__).parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 from packlib import build_pack
-import mock1_p1, mock1_p2, mock2_p1, mock2_p2, mock3_pyq
+import mock1_p1, mock1_p2, mock2_p1, mock2_p2, mock3_pyq, mock_pyq_more
 
 SUBJECT = "Full Mock Papers"
 P1_TOPIC, P2_TOPIC = "Paper 1 – Full Mock Tests", "Paper 2 – Full Mock Tests"
@@ -65,16 +66,22 @@ for n, m1, m2, months in SETS:
     built.append((n, p1, p2))
 pyq1, pyq2 = mock3_pyq.build()
 assert len(pyq1) == 100 and len(pyq2) == 100, (len(pyq1), len(pyq2))
+taken = {mock3_pyq._key(q) for _, a, b in built for q in a + b} | {mock3_pyq._key(q) for q in pyq1 + pyq2}
+pyq4_1, pyq4_2 = mock_pyq_more.build(4, taken, pyq1)
+assert len(pyq4_1) == 100 and len(pyq4_2) == 100, (len(pyq4_1), len(pyq4_2))
 
 pack = {"examsimPack": 1, "name": "Full Mock Papers",
         "description": "Full-length GPSTR/CST mock papers at KEA level. Mock Sets 1 and 2, each with Paper 1 (100 Q, official marks split incl. 15 current affairs) "
-                       "and Paper 2 (100 Q, unit weights); Mock Set 3 is made only of real previous-year questions. After the test, the result's subject-wise breakdown shows your weak subjects.",
+                       "and Paper 2 (100 Q, unit weights); Mock Sets 3 and 4 are made only of real previous-year questions (Set 4 has no question from Sets 1–3, except that its "
+                       "Educational Psychology, Health and Value Education sections repeat some Set 3 questions – the bank has very few of those). After the test, the result's subject-wise breakdown shows your weak subjects.",
         "subjects": [{"name": SUBJECT, "icon": "📝", "topics": [
             {"name": P1_TOPIC, "sets": [{"name": f"{n} · Mock Set {n} – Paper 1 (General)", "questions": p1} for n, p1, _ in built]
-             + [{"name": "3 · Mock Set 3 – Paper 1 (Previous-Year Questions)", "questions": pyq1}]},
+             + [{"name": "3 · Mock Set 3 – Paper 1 (Previous-Year Questions)", "questions": pyq1},
+                {"name": "4 · Mock Set 4 – Paper 1 (Previous-Year Questions)", "questions": pyq4_1}]},
             {"name": P2_TOPIC, "sets": [{"name": f"{n} · Mock Set {n} – Paper 2 (Computer Science)", "questions": p2} for n, _, p2 in built]
-             + [{"name": "3 · Mock Set 3 – Paper 2 (Previous-Year Questions)", "questions": pyq2}]}]}]}
+             + [{"name": "3 · Mock Set 3 – Paper 2 (Previous-Year Questions)", "questions": pyq2},
+                {"name": "4 · Mock Set 4 – Paper 2 (Previous-Year Questions)", "questions": pyq4_2}]}]}]}
 (ROOT / "packs" / "mock-papers.json").write_text(json.dumps(pack, ensure_ascii=False, indent=1), encoding="utf-8")
-for name, qs in [(f"Set {n} Paper {k}", q) for n, a, b in built + [(3, pyq1, pyq2)] for k, q in ((1, a), (2, b))]:
+for name, qs in [(f"Set {n} Paper {k}", q) for n, a, b in built + [(3, pyq1, pyq2), (4, pyq4_1, pyq4_2)] for k, q in ((1, a), (2, b))]:
     spread = {L: sum(q["answer"] == L for q in qs) for L in "ABCD"}
     print(f"{name}: {len(qs)} Q, answers {spread}")
