@@ -903,7 +903,29 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   .sv-seg button span{display:none}.sv-sum{margin-left:0}.sv-name{font-size:.92rem}.sv-tile>.small{font-size:.76rem}
   .sv-act{flex-wrap:wrap;margin:0 -6px -4px}.sv-act .btn{font-size:.78rem;padding:3px 6px;min-height:30px}.sv-more{display:none}}
 @media (max-width:330px){.sv-grid{grid-template-columns:1fr}}
+/* ---- exam-level mocks on the Mocks tab ---- */
+.xm-row{display:flex;align-items:center;gap:8px;padding:10px 0;border-top:.5px solid var(--sep);flex-wrap:wrap}
+.xm-row:first-of-type{border-top:none}
+.xm-row.tight{padding:7px 0}
+.xm-row.next{background:color-mix(in srgb,var(--primary) 7%,transparent);margin:0 -12px;padding:10px 12px;border-radius:10px}
+.xm-row .grow{flex:1;min-width:150px}
+.xm-btn{display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;min-width:84px;padding:6px 10px}
+.xm-btn small{font-size:.7rem;font-weight:500;opacity:.8}
+.xm-dot{min-width:64px;padding:5px 8px;font-size:.8rem}
+.xm-btn.good,.xm-dot.good{border-color:color-mix(in srgb,var(--green) 55%,transparent);color:var(--green)}
+.xm-btn.mid,.xm-dot.mid{border-color:color-mix(in srgb,var(--orange) 55%,transparent);color:var(--orange)}
+.xm-btn.low,.xm-dot.low{border-color:color-mix(in srgb,var(--red) 55%,transparent);color:var(--red)}
+.xm-btn.primary small{opacity:.9}
+.xm-sub{margin-top:8px;border-top:.5px solid var(--sep);padding-top:6px}
+.xm-sub>summary{cursor:pointer;padding:6px 0;list-style:none;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+.xm-sub>summary::-webkit-details-marker{display:none}
+.xm-sub>summary::before{content:"▾";color:var(--muted)}
+.xm-sub:not([open])>summary::before{content:"▸"}
 /* ---- calculated study plan ---- */
+.pm-edit>summary{cursor:pointer;list-style:none;color:var(--primary);font-weight:600;padding:4px 0;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pm-edit>summary::-webkit-details-marker{display:none}
+.pm-edit>summary .small{font-weight:500}
+.pm-edit[open]>summary{margin-bottom:8px}
 .pm-sum{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 0;font-size:.9rem;color:var(--muted)}
 .pm-sum b{color:var(--text);font-size:1.05rem}
 .pm-form label{display:flex;flex-direction:column;gap:3px}
@@ -2558,6 +2580,8 @@ function planModeCard() {
         : `Your learning days give <b>${Math.round(auto.haveL)} h</b> for <b>${Math.round(auto.need)} h</b> of planned study (${pct}%) – every topic is shortened to fit. Add ${short} h (more hours a day, or fewer buffer days) to study at the planned depth.`}
       ${auto.isDefault ? ' <i>Calculated with default hours – set your own below.</i>' : ''}</p>`;
   }
+  const fold = auto && !auto.isDefault;  // own numbers saved: keep Today short, the form one tap away
+  if (fold) h += `<details class="pm-edit"><summary>${I('edit')} Change dates or hours <span class="small muted">· ${esc(fmtPD(auto.start))} → exam ${esc(fmtPD(auto.exam))} · ${auto.wd} h weekdays · ${auto.we} h Sat/Sun · ${auto.buf} buffer</span></summary>`;
   h += `<div class="row pm-form" style="gap:8px">
       <label class="small">Start <input type="date" id="pmStart" value="${esc(s0)}"></label>
       <label class="small">Exam (target) <input type="date" id="pmExam" value="${esc(e0)}"></label>
@@ -2566,6 +2590,7 @@ function planModeCard() {
       <label class="small">Buffer days <input type="number" id="pmBuf" min="0" max="30" step="1" value="${esc(a.buf)}"></label>
       <button class="btn primary" id="pmBuild">${I('calendar')} ${auto ? 'Recalculate plan' : 'Calculate my plan'}</button>
       ${auto && key !== 'gpstr' ? '<button class="btn ghost" id="pmReset">Use the planner&rsquo;s dates</button>' : ''}</div>`;
+  if (fold) h += '</details>';
   return h + '</div>';
 }
 document.addEventListener('click', async e => {
@@ -2859,15 +2884,17 @@ function refreshPlanViews() {
 function openMocks() { renderMocksPage(); show('mocks'); }
 function renderMocksPage() {
   const el = $('#mocks');
-  let h = '<div class="page-head"><h1>Mock tests</h1></div><div class="kind">Mix subjects and topics with your own weightage</div>';
+  let h = '<div class="page-head"><h1>Mock tests</h1></div><div class="kind">Exam-level papers, subject tests and your own mixes</div>';
   if (!D.sets.length) h += '<div class="card empty"><p>Add question sets to your subjects first.</p><p class="small">Then build a mock test from them, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p><button class="btn primary" data-nav="home">Go to library</button></div>';
   else {
+    h += examMocksCard();
     h += mocksCard();
     const mAtts = D.attempts.filter(a => a.mode === 'mock');
     if (mAtts.length) h += progressCard(mAtts, false);
   }
   el.innerHTML = h;
   if ($('#hMock', el)) $('#hMock', el).onclick = () => openMockBuilder(null);
+  el.querySelectorAll('[data-setstart]').forEach(b => b.onclick = () => startSetFromId(b.dataset.setstart, b));
   el.querySelectorAll('[data-mockstart]').forEach(b => b.onclick = () => { const m = byId('mocks', b.dataset.mockstart); startMock(m, m.id); });
   el.querySelectorAll('[data-mockedit]').forEach(b => b.onclick = () => openMockBuilder(byId('mocks', b.dataset.mockedit)));
   el.querySelectorAll('[data-mockdel]').forEach(b => b.onclick = async () => {
@@ -2978,8 +3005,57 @@ function weakTopicsCard() {
   }).join('') + '</div>';
 }
 
+// Exam-level mock tests first on the Mocks tab (owner, 21 Nov 2026 – the real mocks were hidden in the Library): the full
+// mock papers set by set with Paper 1 / Paper 2, an "Up next" pointer, and every subject-wise test with its best score
+function examMocksCard() {
+  const subj = n => D.subjects.find(s => s.name === n && inScopeS(s));
+  const full = subj('Full Mock Papers'), sub = subj('GPSTR Subject Mock Tests');
+  const bank = f => packIndex && packIndex.packs.find(p => p.file === f);
+  if (!full && !sub && !(planKeyOf(D.plan) === 'gpstr' && (bank('mock-papers.json') || bank('gpstr-subject-mocks.json')))) return '';
+  const stat = x => { const a = D.attempts.filter(t => t.setId === x.id); return { n: a.length, best: a.length ? Math.round(Math.max(...a.map(pct))) : null }; };
+  const tone = b => b == null ? '' : b >= 60 ? 'good' : b >= 40 ? 'mid' : 'low';
+  const timing = (s, n) => { const st = { ...DEFAULT_SETTINGS, ...(s && s.settings) }; return `${n} questions in ${Math.round(st.minPerQ * n)} minutes, −${esc(String(st.wrong).replace('1/4', '¼'))} per wrong answer`; };
+  let h = `<div class="card xm"><div class="row" style="margin-bottom:2px"><h2 style="margin:0;flex:1">${I('trophy')} Exam-level mock tests</h2></div>`;
+  // full papers
+  if (full) {
+    const sets = D.sets.filter(x => x.subjectId === full.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    const bySet = new Map();
+    for (const x of sets) {
+      const m = x.name.match(/Mock Set (\d+)/); if (!m) continue;
+      const k = +m[1]; if (!bySet.has(k)) bySet.set(k, { p1: null, p2: null, label: '' });
+      const e = bySet.get(k); e[/Paper 1/.test(x.name) ? 'p1' : 'p2'] = x;
+      e.label = /Exam Level/i.test(x.name) ? 'Previous-year · exam level' : /Previous-Year/i.test(x.name) ? 'Previous-year questions' : 'KEA-level questions';
+      e.hard = /Exam Level/i.test(x.name);
+    }
+    const rows = [...bySet.entries()].sort((a, b) => a[0] - b[0]);
+    const untouched = ([, e]) => [e.p1, e.p2].some(x => x && !stat(x).n);
+    const next = (rows.find(r => r[1].hard && untouched(r)) || rows.find(untouched) || [])[0];
+    h += `<p class="small muted" style="margin:6px 0 10px">Full papers: ${timing(full, 100)}. Take them like the real exam, then check the weak subjects on the result screen.</p>`;
+    h += rows.map(([k, e]) => `<div class="xm-row ${k === next ? 'next' : ''}"><div class="grow"><b>Mock Set ${k}</b>${k === next ? ' <span class="pill pk">Up next</span>' : ''}<div class="small muted">${esc(e.label)}</div></div>
+      ${['p1', 'p2'].map((p, i) => { const x = e[p]; if (!x) return ''; const st = stat(x);
+        return `<button class="btn sm xm-btn ${k === next && !st.n ? 'primary' : ''} ${tone(st.best)}" data-setstart="${x.id}" title="${esc(x.name)}">Paper ${i + 1}<small>${st.n ? `best ${st.best}%` : 'not taken'}</small></button>`; }).join('')}</div>`).join('');
+  } else if (bank('mock-papers.json') && planKeyOf(D.plan) === 'gpstr') {
+    h += `<div class="xm-row"><div class="grow"><b>Full mock papers</b><div class="small muted">5 sets × Paper 1 + Paper 2, incl. exam-level previous-year sets</div></div><button class="btn primary sm" data-bankfile="mock-papers.json">${I('download')} Import</button></div>`;
+  }
+  // subject-wise
+  if (sub) {
+    const topics = D.topics.filter(t => t.subjectId === sub.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    const done = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id && stat(x).n).length, 0), all = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id).length, 0);
+    h += `<details class="xm-sub" ${done ? '' : 'open'}><summary><b>Subject-wise tests</b> <span class="small muted">${done} of ${all} taken · each test ${timing(sub, 25)}</span></summary>`
+      + topics.map(t => {
+        const sets = D.sets.filter(x => x.topicId === t.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+        const nm = t.name.replace(/^Paper ([12]) · /, ''), paper = (t.name.match(/^Paper ([12])/) || [])[1];
+        return `<div class="xm-row tight"><div class="grow">${paper ? `<span class="pbadge p${paper}">P${paper}</span> ` : ''}${esc(nm)}</div>
+          ${sets.map((x, i) => { const st = stat(x); return `<button class="btn sm xm-dot ${tone(st.best)}" data-setstart="${x.id}" title="${esc(nm)} – test ${i + 1}${st.n ? `, best ${st.best}%` : ', not taken'}">${st.n ? st.best + '%' : 'Test ' + (i + 1)}</button>`; }).join('')}</div>`;
+      }).join('') + '</details>';
+  } else if (bank('gpstr-subject-mocks.json') && planKeyOf(D.plan) === 'gpstr') {
+    h += `<div class="xm-row"><div class="grow"><b>Subject-wise tests</b><div class="small muted">3 tests of 25 Q for every subject and unit</div></div><button class="btn primary sm" data-bankfile="gpstr-subject-mocks.json">${I('download')} Import</button></div>`;
+  }
+  return h + '</div>';
+}
+
 function mocksCard() {
-  let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Mock tests</h2><button class="btn primary" id="hMock"><svg class=ic><use href=#i-target></use></svg> Build mock test</button></div>`;
+  let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Your own mock tests</h2><button class="btn" id="hMock"><svg class=ic><use href=#i-target></use></svg> Build mock test</button></div>`;
   const mocks = D.mocks.filter(inScopeMock);
   if (!mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
   return h + mocks.map(m => {
@@ -4877,7 +4953,7 @@ function renderSyllabus() {
     const ps = D.plan && planStatus(t.plan.id), subs = topicSubs(t), n = topicQuestionCount(t.id), today = dayIds.has(t.plan.id);
     return `<div class="syl-topic ${today ? 'is-today' : ''} ${ps ? stClass(ps) : ''}"><div class="row" style="gap:8px"><span class="pill">${esc(t.plan.id)}</span><b class="grow">${esc(t.name)}</b>
         ${today ? '<span class="pill pk">On the chosen day</span>' : ''}${ps ? `<span class="pill ${stClass(ps)}">${esc(ps)}</span>` : ''}</div>
-      <div class="small muted"><svg class=ic><use href=#i-calendar></use></svg> ${esc(fmtPD(t.plan.start))}${t.plan.end && t.plan.end !== t.plan.start ? ' – ' + esc(fmtPD(t.plan.end)) : ''}${t.plan.priority ? ' · ' + esc(t.plan.priority) + ' priority' : ''} · ${n ? plural(n, 'question') : 'no questions yet'}</div>
+      <div class="small muted"><svg class=ic><use href=#i-calendar></use></svg> ${esc(fmtPD(topicDates(t).start))}${topicDates(t).end !== topicDates(t).start ? ' – ' + esc(fmtPD(topicDates(t).end)) : ''}${t.plan.priority ? ' · ' + esc(t.plan.priority) + ' priority' : ''} · ${n ? plural(n, 'question') : 'no questions yet'}</div>
       ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
       ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
       <div class="row" style="margin-top:8px;gap:6px"><button class="btn" data-notes="${t.id}"><svg class=ic><use href=#i-notes></use></svg> Notes${topicNoteCount(t) ? ' (' + topicNoteCount(t) + ')' : ''}</button><button class="btn" data-nav="topic:${t.id}">Open topic</button>${n ? `<button class="btn primary" data-practise="${t.id}">Practise</button>` : ''}</div></div>`;
@@ -4921,11 +4997,16 @@ const pidPill = id => id ? `<span class="pill pid ${/^P1/.test(id) ? 'p1' : 'p2'
 const ST_NEXT = { 'Not Started': 'In Progress', 'In Progress': 'Completed', Completed: 'Review Required', 'Review Required': 'Not Started' };
 const ST_SHORT = { 'Not Started': 'Not started', 'In Progress': 'In progress', Completed: 'Done', 'Review Required': 'Review' };
 // One topic of a study day: tap the row to open the topic; one main action (Practise); status chip cycles on tap; the rest is in ⋯
+// A topic's dates in the current plan (the calculated calendar), falling back to the dates its pack carried
+function topicDates(t) {
+  const r = D.plan && t.plan && t.plan.id && planRow(t.plan.id);
+  return r && r.start ? { start: r.start, end: r.target || r.start } : { start: t.plan && t.plan.start, end: t.plan && (t.plan.end || t.plan.start) };
+}
 function planTopicRow(t, carry) {
   const n = topicQuestionCount(t.id), ps = D.plan && planStatus(t.plan.id), nn = topicNoteCount(t), subs = topicSubs(t);
   return `<div class="trow" data-open-topic="${t.id}" tabindex="0" role="button" aria-label="Open ${esc(t.name)}">
     <div class="grow"><div class="trow-top">${pidPill(t.plan.id)}<b>${esc(t.name)}</b></div>
-      <div class="small muted">${n ? plural(n, 'question') : 'No questions yet'}${t.plan.priority === 'High' ? ` · <span class="hot">${I('flame')} High priority</span>` : ''}${carry ? ' · continues from ' + esc(fmtPD(t.plan.start)) : ''}${nn ? ` · ${I('notes')} ${plural(nn, 'note')}` : ''}</div>
+      <div class="small muted">${n ? plural(n, 'question') : 'No questions yet'}${t.plan.priority === 'High' ? ` · <span class="hot">${I('flame')} High priority</span>` : ''}${carry ? ' · continues from ' + esc(fmtPD(topicDates(t).start)) : ''}${nn ? ` · ${I('notes')} ${plural(nn, 'note')}` : ''}</div>
       ${t.plan.coverage ? `<div class="cov">${esc(t.plan.coverage)}</div>` : ''}
       ${subs.length ? `<div class="subs">${subs.map(x => `<span class="sub">${esc(x)}</span>`).join('')}</div>` : ''}
       ${t.plan.tip ? `<div class="small tip">${I('bulb')} ${esc(t.plan.tip)}</div>` : ''}</div>
@@ -4966,7 +5047,7 @@ function caButton() {
 function dayGroupsHTML(d) {
   return dayGroups(d).map(g => `<div class="today-paper"><div class="tp-h ${/^Paper 1/.test(g.label) ? 'p1' : 'p2'}">${esc(g.label)}</div>`
     + g.subs.map(({ s, topics }) => `<div class="tp-subj" style="--sc:${subjColor(s)}"><div class="tp-subj-h"><span class="subj-ic">${esc(subjIcon(s))}</span><b>${esc(displayName(s))}</b>
-        <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></div>${topics.map(t => planTopicRow(t, t.plan.start < d.date)).join('')}</div>`).join('')
+        <button class="btn ghost sm" data-syl="${s.id}" title="Full syllabus of this subject">${I('book')} Syllabus</button><button class="btn ghost sm" data-nav="subject:${s.id}" title="Open subject">Open ${I('chev')}</button></div>${topics.map(t => planTopicRow(t, topicDates(t).start < d.date)).join('')}</div>`).join('')
     + (g.missing || []).map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.name)}</b>
         <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('')
     + (g.extra.length ? `<div class="ca-row small"><span class="grow">${I('news')} <b>Current affairs:</b> ${esc(g.extra.join(' · '))} <span class="muted">– read the news, then practise the monthly set</span></span>${caButton()}</div>` : '') + '</div>').join('');
