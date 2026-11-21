@@ -25,6 +25,7 @@ import mock_pyq_more as mm  # noqa: E402
 import packlib  # noqa: E402
 
 SUBJECT = "GPSTR Subject Mock Tests"
+REV = 2  # rev 2 (21 Nov 2026): GK questions of one Paper-1 paper no longer leak into English / Computer / Unit 1
 N_TESTS, SIZE, MAX_REAL = 3, 25, 15
 SETTINGS = {"minPerQ": 1.2, "correct": 1, "wrong": "1/4", "blank": "1/4", "shuffleQ": False, "shuffleO": False}
 
@@ -152,7 +153,7 @@ def main():
     topics, report = [], []
     for topic, lib, files, key in P1 + P2:
         tests, n_real = subject_tests(topic, lib, files, key, pools, rng)
-        topics.append({"name": topic, "sets": [{"name": f"{i} · Mock {i}", "questions": qs} for i, qs in enumerate(tests, 1)]})
+        topics.append({"name": topic, "sets": [{"name": f"{i} · Mock {i}", "questions": qs, "rev": REV} for i, qs in enumerate(tests, 1)]})
         reals = [sum(1 for q in qs if q.get("source")) for qs in tests]
         report.append(f"{topic}: real previous-year {n_real} in pool → per test {reals}")
     desc = ("Subject-wise GPSTR mock tests: 3 tests of 25 questions for each Paper 1 subject and each Paper 2 unit, at exam level – "

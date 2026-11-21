@@ -39,12 +39,13 @@ def pools():
     for s in p1["subjects"]:
         for t in s["topics"]:
             qs = [q for st in t["sets"] for q in st["questions"]]
-            if re.search(r"English|Computer|KEC", t["name"]):
+            # GK papers first: "Assistant / Computer Operator Paper-1 (General Knowledge)" must not count as a computer paper
+            if re.search(r"General Knowledge|GK|General Studies", t["name"]):
+                p["General Knowledge"] += qs
+            elif re.search(r"English & Computer|KEC", t["name"]):
                 p["General English"] += [q for q in qs if 36 <= qnum(q["source"]) <= 70]
                 p["Computer Literacy"] += [q for q in qs if qnum(q["source"]) >= 71]
                 p["@computer"] += [q for q in qs if qnum(q["source"]) >= 71]
-            elif re.search(r"General Knowledge|GK|General Studies", t["name"]):
-                p["General Knowledge"] += qs
     return p
 
 

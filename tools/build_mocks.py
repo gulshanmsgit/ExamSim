@@ -84,12 +84,12 @@ pack = {"examsimPack": 1, "name": "Full Mock Papers",
                       "topics": [
             {"name": P1_TOPIC, "sets": [{"name": f"{n} · Mock Set {n} – Paper 1 (General)", "questions": p1} for n, p1, _ in built]
              + [{"name": "3 · Mock Set 3 – Paper 1 (Previous-Year Questions)", "questions": pyq1},
-                {"name": "4 · Mock Set 4 – Paper 1 (Previous-Year, Exam Level)", "questions": pyq4_1},
-                {"name": "5 · Mock Set 5 – Paper 1 (Previous-Year, Exam Level)", "questions": pyq5_1}]},
+                {"name": "4 · Mock Set 4 – Paper 1 (Previous-Year, Exam Level)", "questions": pyq4_1, "rev": 2},
+                {"name": "5 · Mock Set 5 – Paper 1 (Previous-Year, Exam Level)", "questions": pyq5_1, "rev": 2}]},
             {"name": P2_TOPIC, "sets": [{"name": f"{n} · Mock Set {n} – Paper 2 (Computer Science)", "questions": p2} for n, _, p2 in built]
              + [{"name": "3 · Mock Set 3 – Paper 2 (Previous-Year Questions)", "questions": pyq2},
-                {"name": "4 · Mock Set 4 – Paper 2 (Previous-Year, Exam Level)", "questions": pyq4_2},
-                {"name": "5 · Mock Set 5 – Paper 2 (Previous-Year, Exam Level)", "questions": pyq5_2}]}]}]}
+                {"name": "4 · Mock Set 4 – Paper 2 (Previous-Year, Exam Level)", "questions": pyq4_2, "rev": 2},
+                {"name": "5 · Mock Set 5 – Paper 2 (Previous-Year, Exam Level)", "questions": pyq5_2, "rev": 2}]}]}]}
 (ROOT / "packs" / "mock-papers.json").write_text(json.dumps(pack, ensure_ascii=False, indent=1), encoding="utf-8")
 for name, qs in [(f"Set {n} Paper {k}", q) for n, a, b in built + [(3, pyq1, pyq2), (4, pyq4_1, pyq4_2), (5, pyq5_1, pyq5_2)] for k, q in ((1, a), (2, b))]:
     spread = {L: sum(q["answer"] == L for q in qs) for L in "ABCD"}

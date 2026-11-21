@@ -3701,6 +3701,17 @@ async function importPack(pack, onTick) {
         const name = normText(pset.name) || tname;
         if (!questions.length) continue;
         const ex = D.sets.find(x => x.topicId === t.id && same(x.name, name));
+        // A pack can publish a corrected set under the same name with a higher `rev`: replace the stored questions
+        // (attempts, scores and mistakes stay – they belong to the set id and the question keys)
+        if (ex && +pset.rev > (+ex.rev || 0)) {
+          tasks.push(async () => {
+            const old = { count: ex.count, rev: ex.rev };
+            ex.count = questions.length; ex.rev = +pset.rev;
+            try { await store.put('setq', ex.id, { questions }); qCache.set(ex.id, questions); await save('sets', ex); res.updated = (res.updated || 0) + 1; }
+            catch (e) { Object.assign(ex, old); throw e; }
+          });
+          continue;
+        }
         if (ex) {
           res.skipped++;
           // Re-importing repairs the layout (line breaks) of a set imported by an older version; only whitespace may
@@ -3712,7 +3723,7 @@ async function importPack(pack, onTick) {
           });
           continue;
         }
-        const set = { id: newId(), name, subjectId: s.id, topicId: t.id, count: questions.length, format: 'Study pack', createdAt: Date.now() };
+        const set = { id: newId(), name, subjectId: s.id, topicId: t.id, count: questions.length, format: 'Study pack', createdAt: Date.now(), ...(+pset.rev ? { rev: +pset.rev } : {}) };
         D.sets.push(set); qCache.set(set.id, questions);
         res.sets++; res.questions += questions.length; added++;
         tasks.push(async () => { await store.put('setq', set.id, { questions }); await store.put('sets', set.id, (({ id, ...rest }) => rest)(set)); });
