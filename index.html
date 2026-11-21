@@ -966,6 +966,42 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 .mm-dot{fill:var(--sc)}
 .mm-leaf{fill:var(--text);font:400 12.5px system-ui,sans-serif}
 @media (max-width:640px){.modal.mm{padding:12px}.mm-wrap{max-height:62vh}}
+/* ============================================================
+   Colour refresh (owner, 21 Nov 2026: "work on the colours"). One brand family – blue → indigo – for the Today header,
+   progress in green → cyan (not red), amber for "attention", clearer card separation in dark mode.
+   ============================================================ */
+:root{--bg:#f2f4f8;--card:#ffffff;--sep:rgba(30,41,59,.12);--border:rgba(30,41,59,.1);
+  --brand-1:#2563eb;--brand-2:#4f46e5;--brand-3:#7c3aed;--prog-1:#22c55e;--prog-2:#06b6d4;--amber:#b45309;--amber-bg:rgba(245,158,11,.14)}
+[data-theme=dark]{--bg:#111214;--card:#1d1e22;--sep:rgba(255,255,255,.08);--border:rgba(255,255,255,.1);
+  --brand-1:#1e40af;--brand-2:#3730a3;--brand-3:#5b21b6;--prog-1:#34d399;--prog-2:#22d3ee;--amber:#fbbf24;--amber-bg:rgba(251,191,36,.13)}
+body{background:var(--bg)}
+[data-theme=dark] .card{box-shadow:0 0 0 .5px rgba(255,255,255,.07),0 8px 24px -18px rgba(0,0,0,.9)}
+/* Today / Subjects header */
+.td-hero{background:linear-gradient(135deg,var(--brand-1) 0%,var(--brand-2) 58%,var(--brand-3) 100%);box-shadow:0 18px 40px -22px color-mix(in srgb,var(--brand-2) 80%,black)}
+.td-eyebrow{color:#fcd34d}
+.td-sub{color:rgba(255,255,255,.82)}
+.td-facts>span,.td-fact-btn{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18)}
+.td-hero .icon-btn,.td-hero .seg,.td-hero input[type=date]{background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.2)!important}
+.td-hero .seg button.on{background:#fff;color:var(--brand-2)}
+.td-fact-btn.on{background:#22c55e;color:#04210f}
+/* progress ring: a donut cut out with a mask, so it sits on any background */
+.td-hero .ring{background:none}
+.td-hero .ring::before{inset:0;background:conic-gradient(var(--prog-1) 0,var(--prog-2) calc(var(--p)*1%),rgba(255,255,255,.2) 0);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px));mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px))}
+/* plan summary note */
+.pm-note{margin:8px 0 10px;padding:8px 10px;border-radius:10px;border-left:3px solid}
+.pm-note.warn{background:var(--amber-bg);border-color:var(--amber)}
+.pm-note.warn b{color:var(--amber)}
+.pm-note.ok{background:var(--green-bg);border-color:var(--green)}
+/* mock set kinds */
+.xm-kind{display:inline-block;font-size:.74rem;font-weight:600;padding:1px 8px;border-radius:99px;margin-top:3px}
+.xm-kind.k-kea{background:var(--grey-bg);color:var(--muted)}
+.xm-kind.k-pyq{background:var(--amber-bg);color:var(--amber)}
+.xm-kind.k-hard{background:var(--red-bg);color:var(--red)}
+.xm-row.next{background:color-mix(in srgb,var(--brand-1) 9%,transparent);box-shadow:inset 3px 0 0 var(--brand-1)}
+/* exam options: visible edges in dark mode */
+[data-theme=dark] .opt{border-color:rgba(255,255,255,.16);background:color-mix(in srgb,var(--card) 92%,white)}
+[data-theme=dark] .opt:hover{border-color:color-mix(in srgb,var(--primary) 70%,transparent);background:color-mix(in srgb,var(--primary) 8%,var(--card))}
 </style>
 </head>
 <body>
@@ -2575,7 +2611,7 @@ function planModeCard() {
     const pct = Math.round(auto.haveL / auto.need * 100), short = Math.max(0, Math.round(auto.need - auto.haveL));
     h += `<div class="pm-sum"><span><b>${auto.days}</b> days to the exam</span><span><b>${auto.learn}</b> learning</span><span><b>${auto.buf}</b> buffer</span><span><b>${auto.rev}</b> revision &amp; mocks</span>
       <span><b>${Math.round(auto.haveAll)}</b> h of study in all</span></div>
-      <p class="small ${pct < 100 ? '' : 'muted'}" style="margin:6px 0 8px">${pct >= 100
+      <p class="small pm-note ${pct < 100 ? 'warn' : 'ok'}">${pct >= 100
         ? `Your learning days give <b>${Math.round(auto.haveL)} h</b> for the <b>${Math.round(auto.need)} h</b> the syllabus plans – enough (${pct}%). Topics get proportionally more time.`
         : `Your learning days give <b>${Math.round(auto.haveL)} h</b> for <b>${Math.round(auto.need)} h</b> of planned study (${pct}%) – every topic is shortened to fit. Add ${short} h (more hours a day, or fewer buffer days) to study at the planned depth.`}
       ${auto.isDefault ? ' <i>Calculated with default hours – set your own below.</i>' : ''}</p>`;
@@ -3025,13 +3061,14 @@ function examMocksCard() {
       const k = +m[1]; if (!bySet.has(k)) bySet.set(k, { p1: null, p2: null, label: '' });
       const e = bySet.get(k); e[/Paper 1/.test(x.name) ? 'p1' : 'p2'] = x;
       e.label = /Exam Level/i.test(x.name) ? 'Previous-year · exam level' : /Previous-Year/i.test(x.name) ? 'Previous-year questions' : 'KEA-level questions';
+      e.kind = /Exam Level/i.test(x.name) ? 'hard' : /Previous-Year/i.test(x.name) ? 'pyq' : 'kea';
       e.hard = /Exam Level/i.test(x.name);
     }
     const rows = [...bySet.entries()].sort((a, b) => a[0] - b[0]);
     const untouched = ([, e]) => [e.p1, e.p2].some(x => x && !stat(x).n);
     const next = (rows.find(r => r[1].hard && untouched(r)) || rows.find(untouched) || [])[0];
     h += `<p class="small muted" style="margin:6px 0 10px">Full papers: ${timing(full, 100)}. Take them like the real exam, then check the weak subjects on the result screen.</p>`;
-    h += rows.map(([k, e]) => `<div class="xm-row ${k === next ? 'next' : ''}"><div class="grow"><b>Mock Set ${k}</b>${k === next ? ' <span class="pill pk">Up next</span>' : ''}<div class="small muted">${esc(e.label)}</div></div>
+    h += rows.map(([k, e]) => `<div class="xm-row ${k === next ? 'next' : ''}"><div class="grow"><b>Mock Set ${k}</b>${k === next ? ' <span class="pill pk">Up next</span>' : ''}<div><span class="xm-kind k-${e.kind}">${esc(e.label)}</span></div></div>
       ${['p1', 'p2'].map((p, i) => { const x = e[p]; if (!x) return ''; const st = stat(x);
         return `<button class="btn sm xm-btn ${k === next && !st.n ? 'primary' : ''} ${tone(st.best)}" data-setstart="${x.id}" title="${esc(x.name)}">Paper ${i + 1}<small>${st.n ? `best ${st.best}%` : 'not taken'}</small></button>`; }).join('')}</div>`).join('');
   } else if (bank('mock-papers.json') && planKeyOf(D.plan) === 'gpstr') {
