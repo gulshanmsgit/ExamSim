@@ -3510,6 +3510,10 @@ async function importPack(pack, onTick) {
       if (ps.icon) s.icon = String(ps.icon);
       if (ps.color) s.color = String(ps.color);
       await save('subjects', s); res.subjects++;
+    } else if (ps.settings && JSON.stringify({ ...DEFAULT_SETTINGS, ...s.settings }) === JSON.stringify(DEFAULT_SETTINGS)) {
+      // the pack asks for exam conditions (e.g. strict mock papers) and the user never changed this subject's settings
+      s.settings = { ...DEFAULT_SETTINGS, ...ps.settings };
+      await save('subjects', s);
     }
     for (const pt of ps.topics || []) {
       const tname = normText(pt.name);

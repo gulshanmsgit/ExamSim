@@ -1,11 +1,19 @@
 {
  "examsimPack": 1,
  "name": "Full Mock Papers",
- "description": "Full-length GPSTR/CST mock papers at KEA level. Mock Sets 1 and 2, each with Paper 1 (100 Q, official marks split incl. 15 current affairs) and Paper 2 (100 Q, unit weights); Mock Sets 3 and 4 are made only of real previous-year questions (Set 4 has no question from Sets 1–3, except that its Educational Psychology, Health and Value Education sections repeat some Set 3 questions – the bank has very few of those). After the test, the result's subject-wise breakdown shows your weak subjects.",
+ "description": "Full-length GPSTR/CST mock papers at KEA level. Mock Sets 1 and 2, each with Paper 1 (100 Q, official marks split incl. 15 current affairs) and Paper 2 (100 Q, unit weights); Mock Sets 3 and 4 are made only of real previous-year questions. Set 4 is exam level: it follows the syllabus marks (Value Education's spare 9 marks go to Educational Psychology – the bank has only one real Value Education question), takes the hardest papers first (KSET, PG-level, lecturer and KEA 2025–26 papers) and repeats nothing from Sets 1–3 except some education questions. Strict timing: 120 minutes per 100 questions, −¼ for a wrong or blank answer. After the test, the result's subject-wise breakdown shows your weak subjects.",
  "subjects": [
   {
    "name": "Full Mock Papers",
    "icon": "📝",
+   "settings": {
+    "minPerQ": 1.2,
+    "correct": 1,
+    "wrong": "1/4",
+    "blank": "1/4",
+    "shuffleQ": false,
+    "shuffleO": false
+   },
    "topics": [
     {
      "name": "Paper 1 – Full Mock Tests",
@@ -3726,34 +3734,8 @@
        ]
       },
       {
-       "name": "4 · Mock Set 4 – Paper 1 (Previous-Year Questions)",
+       "name": "4 · Mock Set 4 – Paper 1 (Previous-Year, Exam Level)",
        "questions": [
-        {
-         "question": "If x and y are positive integers such that (3x + 7y) is a multiple of 11, then which of the following is also a multiple of 11?",
-         "options": {
-          "A": "5x − 3y",
-          "B": "9x + 4y",
-          "C": "4x + 6y",
-          "D": "x + y + 6"
-         },
-         "answer": "A",
-         "explanation": "9(3x + 7y) ≡ 5x − 3y (mod 11). (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q44",
-         "subject": "General Knowledge"
-        },
-        {
-         "question": "Principal fishing ground in the world are located in",
-         "options": {
-          "A": "Continental shelves",
-          "B": "Continental slope",
-          "C": "Abyssal plain",
-          "D": "Deep ocean trenches"
-         },
-         "answer": "A",
-         "explanation": "Shallow continental shelves get sunlight and nutrients, so plankton and fish are plentiful (e.g. Grand Banks, Dogger Bank). (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q75",
-         "subject": "General Knowledge"
-        },
         {
          "question": "Article 243D of Indian Constitution prescribes for",
          "options": {
@@ -3807,6 +3789,19 @@
          "subject": "General Knowledge"
         },
         {
+         "question": "Match the following art forms with the state of origin:\nList-I\n(a) Madhubani\n(b) Pattachitra\n(c) Phad\n(d) Gond\nList-II\n(i) Odisha\n(ii) Madhya Pradesh\n(iii) Rajasthan\n(iv) Bihar\nCodes:",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – i, b – iii, c – ii, d – iv",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iv, b – ii, c – iii, d – i"
+         },
+         "answer": "A",
+         "explanation": "Madhubani – Bihar; Pattachitra – Odisha; Phad – Rajasthan; Gond – Madhya Pradesh. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2025 GK (HK, 21 Dec 2025) · Q70",
+         "subject": "General Knowledge"
+        },
+        {
          "question": "Royal solvent is used to dissolve noble metals like gold and platinum. Aqua regia is a mixture of",
          "options": {
           "A": "Concentrated Hydrochloric acid and concentrated Nitric acid in the ratio 1:3",
@@ -3817,6 +3812,32 @@
          "answer": "B",
          "explanation": "Aqua regia = 3 parts HCl : 1 part HNO₃. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2025 GK (HK, 21 Dec 2025) · Q82",
+         "subject": "General Knowledge"
+        },
+        {
+         "question": "Why did Gandhiji go to South Africa?",
+         "options": {
+          "A": "On invitation by the Indians in South Africa",
+          "B": "To study Law",
+          "C": "To fight a case of a Gujarati businessman",
+          "D": "To visit South Africa with family"
+         },
+         "answer": "C",
+         "explanation": "In 1893 he went to assist in a lawsuit of the merchant Dada Abdulla. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (HK, 22 Feb 2026) · Q100",
+         "subject": "General Knowledge"
+        },
+        {
+         "question": "'TRANSPIRATION' ಪದದ ಅಕ್ಷರಗಳನ್ನು ಸ್ವರಗಳು ಯಾವಾಗಲೂ ಒಟ್ಟಿಗೆ ಬರುವಂತೆ ಎಷ್ಟು ರೀತಿಯಲ್ಲಿ ಜೋಡಿಸಬಹುದು?",
+         "options": {
+          "A": "2429500",
+          "B": "1360800",
+          "C": "1627800",
+          "D": "ಮೇಲಿನ ಯಾವುದೂ ಅಲ್ಲ"
+         },
+         "answer": "B",
+         "explanation": "13 ಅಕ್ಷರ; ಸ್ವರಗಳು A, I, A, I, O (5). ಸ್ವರಗುಂಪು = 1 ಘಟಕ → 8 ವ್ಯಂಜನ (T, R, N ತಲಾ 2) + 1 = 9 ಘಟಕ: 9!/(2!2!2!) = 45360. ಸ್ವರಗಳ ಒಳಜೋಡಣೆ 5!/(2!2!) = 30. ಒಟ್ಟು 45360 × 30 = 13,60,800. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (NHK, 11 Jan 2026) · Q56",
          "subject": "General Knowledge"
         },
         {
@@ -3859,134 +3880,56 @@
          "subject": "General Knowledge"
         },
         {
-         "question": "An example for an artificial element is",
+         "question": "Which of the following options correctly represents the increasing order of resistivity of the materials?",
          "options": {
-          "A": "Oxygen",
-          "B": "Plutonium",
-          "C": "Hydrogen",
-          "D": "Gold"
-         },
-         "answer": "B",
-         "explanation": "Plutonium is mainly made in nuclear reactors (technetium was the first artificial element). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KRIES 2025 entrance · Q62",
-         "subject": "General Knowledge"
-        },
-        {
-         "question": "Consider the following information:\nCrops | Scientific Name | Types of Crop\n1 Wheat | Triticum | Pulses\n2 Cotton | Gossypium | Fiber\n3 Tea | Camellia thea | Beverage\n4 Banana | Musa Paradarica | Fruit\nIn how many of the above row/rows, the given information is/are correctly matched?",
-         "options": {
-          "A": "Only one",
-          "B": "Only two",
-          "C": "Only three",
-          "D": "All the four"
-         },
-         "answer": "C",
-         "explanation": "Wheat is a cereal. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q28",
-         "subject": "General Knowledge"
-        },
-        {
-         "question": "With respect to Bande Nawaz, which of the following statement/statements is/are correct?\na) Bande Nawaz is a famous Sufi Saint\nb) Bande Nawaz Darga is in Bidar\nc) The Hindus considered Bande Nawaz as 'Keshava Chaitanya' and worshipped him",
-         "options": {
-          "A": "a only",
-          "B": "b and c only",
-          "C": "a and c only",
-          "D": "a, b and c"
-         },
-         "answer": "C",
-         "explanation": "The dargah is in Kalaburagi, not Bidar. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q6",
-         "subject": "General Knowledge"
-        },
-        {
-         "question": "Which of the following were the sites of the Neolithic Age?\na) Sanganakallu and Tekkalakote\nb) Brahmagiri and Halluru\nc) T. Narasipura and Piklihal\nd) Uthanur and Karnul",
-         "options": {
-          "A": "a and b only",
-          "B": "a and c only",
-          "C": "a and d only",
-          "D": "a, b, c and d"
+          "A": "Copper, Nichrome, Iron, Glass",
+          "B": "Iron, Glass, Copper, Nichrome",
+          "C": "Glass, Nichrome, Iron, Copper",
+          "D": "Copper, Iron, Nichrome, Glass"
          },
          "answer": "D",
-         "explanation": "All are south Indian neolithic sites. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Programmer P1 · Q97",
+         "explanation": "Copper 1.7×10⁻⁸, iron 10×10⁻⁸, nichrome 100×10⁻⁸ Ω m; glass is an insulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q43",
          "subject": "General Knowledge"
         },
         {
-         "question": "Eatables fried in oil and fat like chips, when exposed to moist air over a period of time develop bad odour due to rancidification of oil and fat. To avoid this, chips fried in oil are packed in flush bags by filling an inert gas. The inert gas usually is",
+         "question": "The 'Bhil' tribes are found in these four states of India.",
          "options": {
-          "A": "O₂",
-          "B": "N₂",
-          "C": "Cl₂",
-          "D": "H₂"
+          "A": "Rajasthan, Haryana, Odisha, West Bengal",
+          "B": "Rajasthan, Madhya Pradesh, Himachal Pradesh, Punjab",
+          "C": "Rajasthan, Haryana, Madhya Pradesh, Odisha",
+          "D": "Rajasthan, Gujarat, Maharashtra, Madhya Pradesh"
          },
-         "answer": "B",
-         "explanation": "Nitrogen prevents oxidation (rancidity). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "VAO 2024 Paper-1 · Q91",
+         "answer": "D",
+         "explanation": "The Bhils, India's largest tribal group, live mainly in these western and central states. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q5",
          "subject": "General Knowledge"
         },
         {
-         "question": "Which of the following tablets is administered to children and adolescents on National Deworming Day?",
+         "question": "The correct statements about Fundamental Rights are:\n(a) They are enforceable in the courts of law\n(b) These are absolute rights\n(c) They can be suspended during national emergency, except some\n(d) They are available only to Indian citizens.\nChoose the correct answer.",
          "options": {
-          "A": "Albendazole tablet",
-          "B": "Paracetamol tablet",
-          "C": "Vitamin-A tablet",
-          "D": "Calcium tablet"
-         },
-         "answer": "A",
-         "explanation": "National Deworming Day is held on 10 February (and 10 August); children aged 1–19 get albendazole. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q30",
-         "subject": "Current Affairs"
-        },
-        {
-         "question": "'SWAYAM' an initiative of the Government of India aims at",
-         "options": {
-          "A": "Promoting the SHG's in rural areas",
-          "B": "Providing affordable and quality education to the citizens for free",
-          "C": "Providing public health facilities",
-          "D": "Providing technical assistance to entrepreneurs"
+          "A": "(a), (b) and (c) are correct",
+          "B": "(a) and (c) are correct",
+          "C": "(c) and (d) are correct",
+          "D": "(d) and (a) are correct"
          },
          "answer": "B",
-         "explanation": "It aims at access, equity and quality in education through free online courses. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q58",
-         "subject": "Current Affairs"
+         "explanation": "They carry reasonable restrictions, Articles 20–21 survive an emergency, and some (14, 20, 21…) cover foreigners too. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q88",
+         "subject": "General Knowledge"
         },
         {
-         "question": "Which female writer won the prestigious Booker Prize for literature in 2024 and from which country does she hail?",
+         "question": "A metallic oxide that imparts purple colour to pottery is",
          "options": {
-          "A": "Samantha Harvey - U.K.",
-          "B": "Arundhati Roy - India",
-          "C": "Rachel Kushner - U.S.",
-          "D": "Margaret Atwood - Canada"
+          "A": "Manganese dioxide",
+          "B": "Sodium oxide",
+          "C": "Copper oxide",
+          "D": "Lead oxide"
          },
          "answer": "A",
-         "explanation": "She won for the novel 'Orbital'. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q93",
-         "subject": "Current Affairs"
-        },
-        {
-         "question": "Pradhana Mantri Suraksha Bima Yojana (PMSBY) is a",
-         "options": {
-          "A": "Government backed accident insurance scheme",
-          "B": "Only scheme for rural landless households",
-          "C": "Government health insurance programme",
-          "D": "The scheme meant for child life insurance"
-         },
-         "answer": "A",
-         "explanation": "PMSBY gives accident cover of ₹2 lakh for a small yearly premium; PMJJBY is the life-insurance scheme. (Official answer: KEA final key.)",
-         "source": "GTTC 2024 Asst Gr-II GK · Q94",
-         "subject": "Current Affairs"
-        },
-        {
-         "question": "Match List I with List II and select the correct answer using the codes given below:\nList I (Organizations)\n(a) SAARC\n(b) ASEAN\n(c) OPEC\n(d) EU\nList II (Focus / Goal)\n(i) Promote regional peace and prosperity in South Asia.\n(ii) Coordinate petroleum policies and stabilize oil markets\n(iii) Political and Economic integration of Europe.\n(iv) Economic growth and Political Cooperation in South-East Asia.",
-         "options": {
-          "A": "a – i, b – iv, c – ii, d – iii",
-          "B": "a – ii, b – i, c – iv, d – iii",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – i, b – ii, c – iii, d – iv"
-         },
-         "answer": "A",
-         "explanation": "SAARC – South Asia; ASEAN – South-East Asia; OPEC – oil policies; EU – European integration. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2025 GK (HK, 21 Dec 2025) · Q25",
-         "subject": "Current Affairs"
+         "explanation": "Manganese compounds give purple-brown tints to glazes and glass; copper gives green or blue. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2023 General Paper · Q39",
+         "subject": "General Knowledge"
         },
         {
          "question": "Kumbhalgarh Wildlife Sanctuary which has been declared as Eco-Sensitive Zone by MoEFCC recently is located in the state of",
@@ -4015,6 +3958,19 @@
          "subject": "Current Affairs"
         },
         {
+         "question": "Find the correct pair from the following:\nList-I (Commissions) – List-II (Current Chairpersons as in December 2025)\n(a) NITI Aayog – Narendra Modi\n(b) Election Commission of India – Gyanesh Kumar\n(c) National Human Rights Commission – Dr. V. Anantha Nageswaran\n(d) Karnataka State Human Rights Commission – Justice Dr. S. R. Nayak\nCodes:",
+         "options": {
+          "A": "(a), (c) and (d)",
+          "B": "(a) and (b)",
+          "C": "(a), (b) and (c)",
+          "D": "(b), (c) and (d)"
+         },
+         "answer": "B",
+         "explanation": "The PM chairs NITI Aayog and Gyanesh Kumar is CEC; Dr Anantha Nageswaran is the Chief Economic Adviser, not NHRC chair (Justice V. Ramasubramanian). Only option 2 leaves out (c). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (NHK, 11 Jan 2026) · Q92",
+         "subject": "Current Affairs"
+        },
+        {
          "question": "On July 4, 2024, which of the following country joined the 'Shanghai Cooperation Organization' (SCO) as a permanent member?",
          "options": {
           "A": "India",
@@ -4028,16 +3984,42 @@
          "subject": "Current Affairs"
         },
         {
-         "question": "The constitutional provisions for the 'Census' is mentioned in",
+         "question": "Which of the following statements is/are INCORRECT with respect to Special Intensive Revision (SIR)?\n(a) Every year Election Commission of India conducts this exercise.\n(b) The names of new voters who are aged 18+ are being included in the voters list.\n(c) It also intends to remove the names of illegal foreign immigrants.\n(d) Election Commission of India can conduct SIR exercise if the concerned states give consent.",
          "options": {
-          "A": "Seventh Schedule, Article 246, Union list",
-          "B": "Seventh Schedule, Article 246, State list",
-          "C": "Sixth Schedule, Article 247, Union list",
-          "D": "Sixth Schedule, Article 247, State list"
+          "A": "(a) and (b)",
+          "B": "(b) and (c)",
+          "C": "(c) and (d)",
+          "D": "(a) and (d)"
          },
-         "answer": "A",
-         "explanation": "Census is entry 69 of the Union List; the next census (2027) is the first digital census and includes caste enumeration. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 GK-2 (HK, 9 May 2026) · Q48",
+         "answer": "D",
+         "explanation": "SIR is a special, not annual, revision (summary revision is yearly); the EC conducts it under Art. 324 and the RP Act, 1950 without needing state consent. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-1 (NHK, 11 Jan 2026) · Q99",
+         "subject": "Current Affairs"
+        },
+        {
+         "question": "Where is Chand Minar?",
+         "options": {
+          "A": "Delhi",
+          "B": "Doulatabad",
+          "C": "Ghaziabad",
+          "D": "Hyderabad"
+         },
+         "answer": "B",
+         "explanation": "Chand Minar (1435) at Daulatabad fort was built by Alauddin Bahman Shah of the Bahmani kingdom. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-2 (HK, 9 May 2026) · Q27",
+         "subject": "Current Affairs"
+        },
+        {
+         "question": "As of December 2025, who is the Union Minister of Cooperation for Government of India?",
+         "options": {
+          "A": "Shri Shivaraj Singh Chouhan",
+          "B": "Shri Amit Shah",
+          "C": "Shri Arjun Ram Meghwal",
+          "D": "Shri V. Somanna"
+         },
+         "answer": "B",
+         "explanation": "The Ministry of Cooperation was created in 2021; Amit Shah also holds Home Affairs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KEA 2026 GK-2 (NHK, 25 Jan 2026) · Q34",
          "subject": "Current Affairs"
         },
         {
@@ -4054,19 +4036,6 @@
          "subject": "Current Affairs"
         },
         {
-         "question": "BIMSTEC stands for",
-         "options": {
-          "A": "Bay of International Maritime Security Trade Economic Cooperation",
-          "B": "Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation",
-          "C": "Border Initiative of Maritime and Trade Economic Cooperation",
-          "D": "Bengal International Strategic Trade and Economic Council"
-         },
-         "answer": "B",
-         "explanation": "Set up in 1997 (Bangkok Declaration), it has 7 members; the secretariat is in Dhaka. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 GK-3 (HK, 4 Jul 2026) · Q99",
-         "subject": "Current Affairs"
-        },
-        {
          "question": "Which initiative of the Government of India provides 24x7 DTH satellite TV channels?",
          "options": {
           "A": "Shodhganga",
@@ -4080,6 +4049,58 @@
          "subject": "Current Affairs"
         },
         {
+         "question": "Which is the 31st member country of NATO, a Western Alliance?",
+         "options": {
+          "A": "Iceland",
+          "B": "Greenland",
+          "C": "Finland",
+          "D": "Ireland"
+         },
+         "answer": "C",
+         "explanation": "Finland joined on 4 April 2023 and Sweden became the 32nd member on 7 March 2024. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2023 General Paper · Q14",
+         "subject": "Current Affairs"
+        },
+        {
+         "question": "Expand HRIDAY",
+         "options": {
+          "A": "Harbour City Development and Approved Yojana",
+          "B": "Heritage City Development and Augmentation Yojana",
+          "C": "Heritage City Development and Assurance Yojana",
+          "D": "Huge Canal Development and Augmentation Yojana"
+         },
+         "answer": "B",
+         "explanation": "HRIDAY (2015) developed heritage cities; Badami was among its first 12 cities. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2023 General Paper · Q69",
+         "subject": "Current Affairs"
+        },
+        {
+         "question": "Soft drinks beverages are usually stored in PET bottles. Expand PET.",
+         "options": {
+          "A": "Poly ethylene terephthalate",
+          "B": "Poly ethyl tolyene",
+          "C": "Propyl ethyl terephthalate",
+          "D": "Phenyl ethanyl terephthalate"
+         },
+         "answer": "A",
+         "explanation": "PET is a recyclable polyester (resin code 1). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q39",
+         "subject": "Current Affairs"
+        },
+        {
+         "question": "Match the following initiatives related to transportation infrastructure with their aims:\na) Gati Shakti Plan  i. Efficient logistics network\nb) Bharatmala Pariyojana  ii. Development of ropeways\nc) Parvatmala Pariyojana  iii. Online processing of land acquisition to accelerate highway infrastructure\nd) Bhoomi Rashi  iv. Connect, improve and decongest highways and road network in India",
+         "options": {
+          "A": "a - ii, b - iv, c - iii, d - i",
+          "B": "a - i, b - iv, c - ii, d - iii",
+          "C": "a - iii, b - ii, c - i, d - iv",
+          "D": "a - i, b - ii, c - iii, d - iv"
+         },
+         "answer": "B",
+         "explanation": "PM Gati Shakti (2021) – integrated logistics; Bharatmala – highways; Parvatmala (2022) – ropeways; Bhoomi Rashi – online land acquisition for NHs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q82",
+         "subject": "Current Affairs"
+        },
+        {
          "question": "Which is the highest peak in the Western Ghats?",
          "options": {
           "A": "Agasthyamalai",
@@ -4090,19 +4111,6 @@
          "answer": "D",
          "explanation": "Anamudi (2,695 m, Kerala) is the highest peak of the Western Ghats and of India south of the Himalayas. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "UPSC coaching entrance 2026 (HK) · Q12",
-         "subject": "Current Affairs"
-        },
-        {
-         "question": "The Bhojshala complex, which was recently in the news regarding a High Court directive for an ASI survey, is located in which State?",
-         "options": {
-          "A": "Uttar Pradesh",
-          "B": "Madhya Pradesh",
-          "C": "Chhattisgarh",
-          "D": "Rajasthan"
-         },
-         "answer": "B",
-         "explanation": "It is at Dhar in Madhya Pradesh. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "UPSC coaching entrance 2026 (HK) · Q49",
          "subject": "Current Affairs"
         },
         {
@@ -4249,71 +4257,6 @@
          "subject": "General Kannada"
         },
         {
-         "question": "The following question has words designated as A, B, C, D, E and F which are jumbled up and need to be rearranged to form a proper sentence. Find out the correct sequence of the words and select the correct option as the answer:\nA: know   B: passes\nC: they   D: will\nE: time   F: as",
-         "options": {
-          "A": "ACBDFE",
-          "B": "FEDCBA",
-          "C": "CABFED",
-          "D": "CDAFEB"
-         },
-         "answer": "D",
-         "explanation": "They will know as time passes. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q69",
-         "subject": "General English"
-        },
-        {
-         "question": "Read the sentence and choose the most appropriate meaning for the underlined idioms and phrases in the sentence.\nLavish spending on marriages has forced the poor to imitate the rich. As a result, the poor people cry for the moon.",
-         "options": {
-          "A": "The poor want the moon",
-          "B": "The poor want to cry",
-          "C": "The poor like the rich",
-          "D": "The poor wish for the impossible"
-         },
-         "answer": "D",
-         "explanation": "Cry for the moon = desire something impossible. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q38",
-         "subject": "General English"
-        },
-        {
-         "question": "Identify the correct meaning of the underlined idiom/phrase in the given sentence.\nSelfish people are more concerned with the loaves and fishes rather than the service.",
-         "options": {
-          "A": "To laugh secretly",
-          "B": "Material benefit",
-          "C": "Almost nothing",
-          "D": "To do something wrong"
-         },
-         "answer": "B",
-         "explanation": "Loaves and fishes = personal profit or material gain. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q47",
-         "subject": "General English"
-        },
-        {
-         "question": "Fill in the blank with correct idiom and proverb.\nI know I can do a better job if only my tools are better. This is a case of",
-         "options": {
-          "A": "a drowning man will clutch at straws",
-          "B": "a friend in need is a friend indeed",
-          "C": "a bad workman blames his tools",
-          "D": "a bird in hand is worth two in the bush"
-         },
-         "answer": "C",
-         "explanation": "People who do poor work blame their equipment. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC (NHK, 11 Jan 2026) · Q40",
-         "subject": "General English"
-        },
-        {
-         "question": "Change the voice of the following sentence:\nWho was doing this?",
-         "options": {
-          "A": "By whom was doing this?",
-          "B": "Who has done it?",
-          "C": "By whom is this done?",
-          "D": "By whom was this being done?"
-         },
-         "answer": "D",
-         "explanation": "Past continuous question: By whom + was + object + being + V3. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q37",
-         "subject": "General English"
-        },
-        {
          "question": "Read the passage given below and answer the question based on your understanding of the passage:\nThe intellectual life of the 19th century was more complex than that of the previous age. This was due to several causes. First, the area concerned was larger than ever before; America and Russia made important contributions, and Europe became more aware than formerly of Indian philosophies, both ancient and modern. Second, science which had been a chief source of novelty since the 17th century, made new conquests, specially in Geology, Biology and Organic Chemistry. Third, machine production profoundly altered the social structure and gave men a conception of their powers in relation to the physical environment. Fourth, a profound revolt, both philosophical and political, against traditional systems in thought, in politics and in Economics, gave rise to attacks on many beliefs and institutions that had hitherto been regarded as unassailable. This revolt had two very different forms, one romantic, the other rationalistic. (I am using these words in a liberal sense). The romantic revolt passes from Byron to Schopenhauer and Nietzsche to Mussolini and Hitler; the rationalistic revolt begins with the French philosophers of the revolution, passes on, somewhat softened, to the philosophical radicals in England, then acquires a deeper form in Marx and issues in Soviet Russia.\n\nWhich area of the world became more aware of the Indian philosophies?",
          "options": {
           "A": "South America",
@@ -4324,6 +4267,97 @@
          "answer": "B",
          "explanation": "'…Europe became more aware than formerly of Indian philosophies'. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 General Paper · Q12",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the passage given below and answer the question based on your understanding of the passage:\nThe intellectual life of the 19th century was more complex than that of the previous age. This was due to several causes. First, the area concerned was larger than ever before; America and Russia made important contributions, and Europe became more aware than formerly of Indian philosophies, both ancient and modern. Second, science which had been a chief source of novelty since the 17th century, made new conquests, specially in Geology, Biology and Organic Chemistry. Third, machine production profoundly altered the social structure and gave men a conception of their powers in relation to the physical environment. Fourth, a profound revolt, both philosophical and political, against traditional systems in thought, in politics and in Economics, gave rise to attacks on many beliefs and institutions that had hitherto been regarded as unassailable. This revolt had two very different forms, one romantic, the other rationalistic. (I am using these words in a liberal sense). The romantic revolt passes from Byron to Schopenhauer and Nietzsche to Mussolini and Hitler; the rationalistic revolt begins with the French philosophers of the revolution, passes on, somewhat softened, to the philosophical radicals in England, then acquires a deeper form in Marx and issues in Soviet Russia.\n\nWhat, according to the author, altered the social structure of the 19th Century?",
+         "options": {
+          "A": "Power structures",
+          "B": "Cultural systems",
+          "C": "Machine Production",
+          "D": "Physical Environment"
+         },
+         "answer": "C",
+         "explanation": "'Third, machine production profoundly altered the social structure'. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 General Paper · Q13",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the passage given below and answer the question based on your understanding of the passage:\nThe intellectual life of the 19th century was more complex than that of the previous age. This was due to several causes. First, the area concerned was larger than ever before; America and Russia made important contributions, and Europe became more aware than formerly of Indian philosophies, both ancient and modern. Second, science which had been a chief source of novelty since the 17th century, made new conquests, specially in Geology, Biology and Organic Chemistry. Third, machine production profoundly altered the social structure and gave men a conception of their powers in relation to the physical environment. Fourth, a profound revolt, both philosophical and political, against traditional systems in thought, in politics and in Economics, gave rise to attacks on many beliefs and institutions that had hitherto been regarded as unassailable. This revolt had two very different forms, one romantic, the other rationalistic. (I am using these words in a liberal sense). The romantic revolt passes from Byron to Schopenhauer and Nietzsche to Mussolini and Hitler; the rationalistic revolt begins with the French philosophers of the revolution, passes on, somewhat softened, to the philosophical radicals in England, then acquires a deeper form in Marx and issues in Soviet Russia.\n\nWho began the rationalistic revolt, according to the author?",
+         "options": {
+          "A": "Mussolini",
+          "B": "French philosophers",
+          "C": "English radicals",
+          "D": "Nietzsche"
+         },
+         "answer": "B",
+         "explanation": "'the rationalistic revolt begins with the French philosophers of the revolution'. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 General Paper · Q14",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the passage given below and answer the question based on your understanding of the passage:\nThe intellectual life of the 19th century was more complex than that of the previous age. This was due to several causes. First, the area concerned was larger than ever before; America and Russia made important contributions, and Europe became more aware than formerly of Indian philosophies, both ancient and modern. Second, science which had been a chief source of novelty since the 17th century, made new conquests, specially in Geology, Biology and Organic Chemistry. Third, machine production profoundly altered the social structure and gave men a conception of their powers in relation to the physical environment. Fourth, a profound revolt, both philosophical and political, against traditional systems in thought, in politics and in Economics, gave rise to attacks on many beliefs and institutions that had hitherto been regarded as unassailable. This revolt had two very different forms, one romantic, the other rationalistic. (I am using these words in a liberal sense). The romantic revolt passes from Byron to Schopenhauer and Nietzsche to Mussolini and Hitler; the rationalistic revolt begins with the French philosophers of the revolution, passes on, somewhat softened, to the philosophical radicals in England, then acquires a deeper form in Marx and issues in Soviet Russia.\n\nWhat does the author say about science in the 19th Century?",
+         "options": {
+          "A": "It had been the chief source of novelty",
+          "B": "It lacks moral responsibility",
+          "C": "It is the chief source of destruction",
+          "D": "It supported the established systems and institutions"
+         },
+         "answer": "A",
+         "explanation": "'science which had been a chief source of novelty since the 17th century, made new conquests'. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 General Paper · Q15",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the following passage carefully and answer the question:\nBooks are a great treasure house of knowledge. They are the living examples of man's march on the path to higher and higher civilization. The great men who died long ago live in their books. We feel their very personality and existence when we read their books. We feel as if they were conversing with us.\nBooks not only store civilization, but also carry it forward. All coming generations get the light of knowledge from the books written by their ancestors and try to improve upon that knowledge. Civilization cannot make much headway in a country where there are not many great books. We get through books the latest knowledge in the fields of arts, science, commerce, etc. This knowledge is helpful to us and enables us to achieve success in the field of our choice.\nBooks are never failing friends. They never desert us, not even when all fair-weather friends have deserted us. They dispel the dark clouds of gloom from our minds and increase our happiness if we are already happy. Through the ages, the scriptures and other great books have provided immeasurable solace to the wounded and strife-torn humanity.\nThere may be books prescribed for some course or profession, but then there are books for general study. The books of literature poetry, drama, novel, short stories, etc., are generally highly thrilling and inspiring, if they are written by a good author. There may be tragic, comical or humorous books. The question is that of an individual's choice.\nTo be a lover of books, though not to be a bookworm, is a sign of good luck. A voracious reader gets much more pleasure from reading books than a miser gets in hoarding money. The knowledge embedded in books is valuable; so is pleasure obtained from reading them. A good book absorbs the whole spirit of man; the reader's pleasure is indescribable.\n\nHow do books help in the progress of civilization?",
+         "options": {
+          "A": "Based on the earlier books, new knowledge is obtained",
+          "B": "Books provide solutions to many problems",
+          "C": "Books are a source of happiness",
+          "D": "Books are a means of livelihood"
+         },
+         "answer": "A",
+         "explanation": "Coming generations 'get the light of knowledge' from their ancestors' books and improve on it. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 General Paper · Q11",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the following passage carefully and answer the question:\nBooks are a great treasure house of knowledge. They are the living examples of man's march on the path to higher and higher civilization. The great men who died long ago live in their books. We feel their very personality and existence when we read their books. We feel as if they were conversing with us.\nBooks not only store civilization, but also carry it forward. All coming generations get the light of knowledge from the books written by their ancestors and try to improve upon that knowledge. Civilization cannot make much headway in a country where there are not many great books. We get through books the latest knowledge in the fields of arts, science, commerce, etc. This knowledge is helpful to us and enables us to achieve success in the field of our choice.\nBooks are never failing friends. They never desert us, not even when all fair-weather friends have deserted us. They dispel the dark clouds of gloom from our minds and increase our happiness if we are already happy. Through the ages, the scriptures and other great books have provided immeasurable solace to the wounded and strife-torn humanity.\nThere may be books prescribed for some course or profession, but then there are books for general study. The books of literature poetry, drama, novel, short stories, etc., are generally highly thrilling and inspiring, if they are written by a good author. There may be tragic, comical or humorous books. The question is that of an individual's choice.\nTo be a lover of books, though not to be a bookworm, is a sign of good luck. A voracious reader gets much more pleasure from reading books than a miser gets in hoarding money. The knowledge embedded in books is valuable; so is pleasure obtained from reading them. A good book absorbs the whole spirit of man; the reader's pleasure is indescribable.\n\nWhy are books, according to the passage, called 'never failing friends'?",
+         "options": {
+          "A": "Books do not betray individuals",
+          "B": "Books are inanimate",
+          "C": "Books give information to the reader",
+          "D": "Books are available in the market anytime unlike others"
+         },
+         "answer": "A",
+         "explanation": "'They never desert us, not even when all fair-weather friends have deserted us.' (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 General Paper · Q13",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the following passage carefully and answer the question:\nBooks are a great treasure house of knowledge. They are the living examples of man's march on the path to higher and higher civilization. The great men who died long ago live in their books. We feel their very personality and existence when we read their books. We feel as if they were conversing with us.\nBooks not only store civilization, but also carry it forward. All coming generations get the light of knowledge from the books written by their ancestors and try to improve upon that knowledge. Civilization cannot make much headway in a country where there are not many great books. We get through books the latest knowledge in the fields of arts, science, commerce, etc. This knowledge is helpful to us and enables us to achieve success in the field of our choice.\nBooks are never failing friends. They never desert us, not even when all fair-weather friends have deserted us. They dispel the dark clouds of gloom from our minds and increase our happiness if we are already happy. Through the ages, the scriptures and other great books have provided immeasurable solace to the wounded and strife-torn humanity.\nThere may be books prescribed for some course or profession, but then there are books for general study. The books of literature poetry, drama, novel, short stories, etc., are generally highly thrilling and inspiring, if they are written by a good author. There may be tragic, comical or humorous books. The question is that of an individual's choice.\nTo be a lover of books, though not to be a bookworm, is a sign of good luck. A voracious reader gets much more pleasure from reading books than a miser gets in hoarding money. The knowledge embedded in books is valuable; so is pleasure obtained from reading them. A good book absorbs the whole spirit of man; the reader's pleasure is indescribable.\n\nWhich of the following has been described as a sign of good luck?",
+         "options": {
+          "A": "Being a miser",
+          "B": "Having a lot of money",
+          "C": "Advancing the culture",
+          "D": "A passion for books"
+         },
+         "answer": "D",
+         "explanation": "'To be a lover of books… is a sign of good luck.' (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 General Paper · Q14",
+         "subject": "General English"
+        },
+        {
+         "question": "Read the following passage carefully and answer the question:\nBooks are a great treasure house of knowledge. They are the living examples of man's march on the path to higher and higher civilization. The great men who died long ago live in their books. We feel their very personality and existence when we read their books. We feel as if they were conversing with us.\nBooks not only store civilization, but also carry it forward. All coming generations get the light of knowledge from the books written by their ancestors and try to improve upon that knowledge. Civilization cannot make much headway in a country where there are not many great books. We get through books the latest knowledge in the fields of arts, science, commerce, etc. This knowledge is helpful to us and enables us to achieve success in the field of our choice.\nBooks are never failing friends. They never desert us, not even when all fair-weather friends have deserted us. They dispel the dark clouds of gloom from our minds and increase our happiness if we are already happy. Through the ages, the scriptures and other great books have provided immeasurable solace to the wounded and strife-torn humanity.\nThere may be books prescribed for some course or profession, but then there are books for general study. The books of literature poetry, drama, novel, short stories, etc., are generally highly thrilling and inspiring, if they are written by a good author. There may be tragic, comical or humorous books. The question is that of an individual's choice.\nTo be a lover of books, though not to be a bookworm, is a sign of good luck. A voracious reader gets much more pleasure from reading books than a miser gets in hoarding money. The knowledge embedded in books is valuable; so is pleasure obtained from reading them. A good book absorbs the whole spirit of man; the reader's pleasure is indescribable.\n\nWhich of the following is the author's view about the knowledge and pleasure derived from books?\na) We get more of knowledge and less of pleasure.\nb) We get more of pleasure and less of knowledge.\nc) We get knowledge and pleasure in equal measure.",
+         "options": {
+          "A": "Only (a)",
+          "B": "Only (b)",
+          "C": "Either (a) or (b)",
+          "D": "Only (c)"
+         },
+         "answer": "D",
+         "explanation": "'The knowledge embedded in books is valuable; so is pleasure obtained from reading them.' (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 General Paper · Q15",
          "subject": "General English"
         },
         {
@@ -4340,19 +4374,6 @@
          "subject": "General English"
         },
         {
-         "question": "Match the following:\nMughal Kings\na) Babur\nb) Bahadur Shah II\nc) Jahangir\nd) Akbar\nTombs\ni) Sikander near Agra\nii) Kabul\niii) Rangoon\niv) Shahdara, Lahore",
-         "options": {
-          "A": "a – iii, b – ii, c – i, d – iv",
-          "B": "a – ii, b – iii, c – iv, d – i",
-          "C": "a – i, b – ii, c – iii, d – iv",
-          "D": "a – iv, b – i, c – ii, d – iii"
-         },
-         "answer": "B",
-         "explanation": "Mughal tombs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q43",
-         "subject": "General English"
-        },
-        {
          "question": "The oceanic crust mainly consists of ____.",
          "options": {
           "A": "Silicon and Aluminium",
@@ -4363,19 +4384,6 @@
          "answer": "C",
          "explanation": "Sima; continental crust is sial. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
          "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q58",
-         "subject": "General English"
-        },
-        {
-         "question": "Choose the alternative which best expresses the meaning of the idiom/phrase given below.\nTo smell a rat",
-         "options": {
-          "A": "To suspect a trick or deceit",
-          "B": "To see hidden meaning",
-          "C": "To detect bad smell",
-          "D": "To misunderstand"
-         },
-         "answer": "A",
-         "explanation": "To smell a rat = to suspect that something is wrong. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q41",
          "subject": "General English"
         },
         {
@@ -4704,146 +4712,94 @@
          "subject": "Computer Literacy"
         },
         {
-         "question": "Who built India's first super computer PARAM 8000 in 1991?",
+         "question": "What is the purpose of spreadsheet program?",
          "options": {
-          "A": "Vijay K. Bhat",
-          "B": "Vijay P. Bhatkar",
-          "C": "A.P.J. Abdul Kalam",
-          "D": "Vijay P. Bhat"
+          "A": "To process words",
+          "B": "To browse the internet",
+          "C": "To organize and analyze data",
+          "D": "To create presentation"
          },
-         "answer": "B",
-         "explanation": "C-DAC under Vijay Bhatkar. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q83",
+         "answer": "C",
+         "explanation": "Spreadsheets organise data in rows and columns and calculate with formulas. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q74",
          "subject": "Computer Literacy"
         },
         {
-         "question": "____ is a scientist who introduced \"stored program concept\" of modern digital computers.",
+         "question": "Which is/are the characteristics of Karewa soil?\na) It is found in Kashmir Valley.\nb) They are known by different names such as Reh, Kallar, Usar.\nc) Contain fossils of mammals.\nd) Suitable for the production of saffron.",
          "options": {
-          "A": "Albert Einstein",
-          "B": "Dennis Ritchie",
-          "C": "Abacus",
-          "D": "Dr. John von Neumann"
+          "A": "a and d only",
+          "B": "d only",
+          "C": "a and b only",
+          "D": "a, c and d only"
          },
          "answer": "D",
-         "explanation": "Von Neumann architecture. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q85",
+         "explanation": "Reh/Kallar/Usar are saline soils. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q71",
          "subject": "Computer Literacy"
         },
         {
-         "question": "Match the following:\na) Optical fiber cable\nb) STP Cable\nc) UTP Cable\nd) Coaxial Cable\ni. RJ-45 Connector\nii. BNC Connector\niii. ST / SMA Connector\niv. D-Shell Connector",
+         "question": "With reference to the election of the President of India, consider the following statements:\na) The value of vote of each MLA varies from state to state.\nb) The value of vote of MPs of Lok Sabha is more than the value of vote of MPs of Rajya Sabha.",
          "options": {
-          "A": "a – i, b – ii, c – iii, d – iv",
-          "B": "a – iii, b – iv, c – i, d – ii",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – ii, b – iii, c – iv, d – i"
+          "A": "a only",
+          "B": "a and b only",
+          "C": "b only",
+          "D": "neither a nor b"
+         },
+         "answer": "A",
+         "explanation": "Every MP's vote has the same value. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q73",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "Match the following:\na) Illango Adigal\nb) Seethalai Sathanar\nc) Tiruvalluvar\nd) Tolkappiyar\ni) Tolkappiyam\nii) Silappathikaram\niii) Manimekalai\niv) Thirukkural",
+         "options": {
+          "A": "a – iv, b – i, c – iii, d – ii",
+          "B": "a – ii, b – iii, c – iv, d – i",
+          "C": "a – iii, b – ii, c – i, d – iv",
+          "D": "a – i, b – ii, c – iii, d – iv"
          },
          "answer": "B",
-         "explanation": "Connectors. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q93",
+         "explanation": "Sangam works. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q77",
          "subject": "Computer Literacy"
         },
         {
-         "question": "Match the following types of productivity tools (List-I) with their examples (List-II):\nList-I\n(a) Project management\n(b) Time management\n(c) Communication management\n(d) File storage\nList-II\n(i) Zoom\n(ii) Google Drive\n(iii) Trello\n(iv) Google Calendar",
+         "question": "The Union Budget, 2025 introduced SWAMIH 2.0. Expand SWAMIH.",
          "options": {
-          "A": "a – iv, b – i, c – ii, d – iii",
-          "B": "a – iii, b – iv, c – i, d – ii",
+          "A": "Special Window for Affordable and Mid-Income Housing",
+          "B": "Second Window for Affordable and Mid-Income Housing",
+          "C": "Second World Affordable and Mid-Income Homes",
+          "D": "Special Window for Aged and Mid-Income Housing"
+         },
+         "answer": "A",
+         "explanation": "Stalled-housing fund. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q85",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "Match the following:\na) El Azizia\nb) Vostok\nc) Cropp River\nd) Death Valley\ni) California\nii) New Zealand\niii) Antarctica\niv) Libya",
+         "options": {
+          "A": "a – iv, b – iii, c – ii, d – i",
+          "B": "a – i, b – ii, c – iii, d – iv",
           "C": "a – ii, b – i, c – iv, d – iii",
-          "D": "a – iv, b – iii, c – i, d – ii"
+          "D": "a – iii, b – ii, c – i, d – iv"
          },
-         "answer": "B",
-         "explanation": "Trello – project boards; Google Calendar – time; Zoom – communication; Google Drive – file storage. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q80",
+         "answer": "A",
+         "explanation": "Extreme-weather places. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q87",
          "subject": "Computer Literacy"
         },
         {
-         "question": "What is the well-known port number associated with the HTTP (Hypertext Transfer Protocol)?",
+         "question": "Which of the following are not an igneous rock?\na) Batholiths\nb) Barchan\nc) Phyllite\nd) Moraines\ne) Zeolites",
          "options": {
-          "A": "21",
-          "B": "80",
-          "C": "443",
-          "D": "25"
-         },
-         "answer": "B",
-         "explanation": "HTTP 80; HTTPS 443; FTP 21; SMTP 25. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2025 KEC (HK, 21 Dec 2025) · Q94",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "A ______ can infect both the boot sectors and executable files.",
-         "options": {
-          "A": "Polymorphic virus",
-          "B": "Multi-partite virus",
-          "C": "Stealth virus",
-          "D": "Companion virus"
-         },
-         "answer": "B",
-         "explanation": "A multipartite virus attacks both the boot sector and program files, so it spreads in several ways. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q77",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "Which type of virus is designed to infect both executable files and system boot sector, making removal exceptionally difficult?",
-         "options": {
-          "A": "Resident virus",
-          "B": "Sparse infector virus",
-          "C": "Multipartite virus",
-          "D": "Stealth virus"
+          "A": "a, b and d are correct",
+          "B": "a, b, c and d are correct",
+          "C": "b, c and d are correct",
+          "D": "b, c, d and e are correct"
          },
          "answer": "C",
-         "explanation": "Unless both the boot sector and the files are cleaned, a multipartite virus re-infects the system. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q77",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "Match List I with List II and select the correct answer from the codes given below the lists.\nList I (Chart type): a. Line chart  b. Pie chart  c. Column chart  d. Funnel chart\nList II (Description): i. Displays data as vertical bars  ii. Shows trends over time by connecting data points with lines  iii. Shows proportions of a whole as slices of a circle  iv. Shows stages in a process and the amount of data at each stage",
-         "options": {
-          "A": "a-iii, b-iv, c-ii, d-i",
-          "B": "a-ii, b-i, c-iii, d-iv",
-          "C": "a-ii, b-iii, c-i, d-iv",
-          "D": "a-i, b-ii, c-iv, d-iii"
-         },
-         "answer": "C",
-         "explanation": "Line – trends; pie – parts of a whole; column – vertical bars; funnel – stages of a process. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q91",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "Identify the suitable term that describes a network of compromised computers where a hacker controls remotely to launch a Distributed Denial of Service (DDoS) attack.",
-         "options": {
-          "A": "Trojan Horse",
-          "B": "Spyware",
-          "C": "Botnet",
-          "D": "Ransomware"
-         },
-         "answer": "C",
-         "explanation": "A botnet is a 'robot network' of infected machines (zombies) controlled by a bot-herder. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q79",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "Which of the following is true about Nudi 4.0's compatibility with MS Office 2016 and above?",
-         "options": {
-          "A": "Only works with 32 bit Office.",
-          "B": "Requires manual font mapping for every installation.",
-          "C": "Provides seamless real-time typing in Kannada.",
-          "D": "Does not work with Office 2016 at all."
-         },
-         "answer": "C",
-         "explanation": "Recent Nudi versions type Kannada directly into Office 2016 and later without manual set-up. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q87",
-         "subject": "Computer Literacy"
-        },
-        {
-         "question": "The glue that holds the Internet is",
-         "options": {
-          "A": "UDP",
-          "B": "RPC",
-          "C": "TCP/IP",
-          "D": "FTP"
-         },
-         "answer": "C",
-         "explanation": "TCP/IP is the protocol suite every Internet host uses; UDP and FTP are parts of it. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-2 (HK, 27 Apr 2026) · Q95",
+         "explanation": "Barchan (dune) and moraine are landforms, phyllite is metamorphic. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q88",
          "subject": "Computer Literacy"
         },
         {
@@ -4860,29 +4816,81 @@
          "subject": "Computer Literacy"
         },
         {
-         "question": "The total number of IP addresses of IPv6 version is",
+         "question": "Match the following stages of population growth in Karnataka.\na) 1901 – 1931\nb) 1931 – 1961\nc) 1961 – 1981\nd) 1981 – 2011\ni) Stage of steady growth\nii) Stage of steady growth with declining trend\niii) Stage of very slow growth\niv) Stage of rapid growth",
          "options": {
-          "A": "2^32",
-          "B": "2^48",
-          "C": "2^128",
-          "D": "2^256"
+          "A": "a – i, b – iii, c – iv, d – ii",
+          "B": "a – iii, b – i, c – ii, d – iv",
+          "C": "a – iii, b – i, c – iv, d – ii",
+          "D": "a – iv, b – iii, c – ii, d – i"
          },
          "answer": "C",
-         "explanation": "IPv6 addresses are 128 bits; IPv4 addresses are 32 bits (2^32). (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q82",
+         "explanation": "Population stages. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q93",
          "subject": "Computer Literacy"
         },
         {
-         "question": "How to insert a slide number in a presentation?",
+         "question": "The 'Namdroling Monastery of Nyingma' of Tibetians is located at ____",
          "options": {
-          "A": "Insert a text box & Select insert → number → page number",
-          "B": "Insert Page → page number → slide number",
-          "C": "Insert a new text box & select insert → slide number",
-          "D": "Insert & Select → slide number"
+          "A": "Kushalanagara",
+          "B": "Bylakuppe",
+          "C": "Gundlupet",
+          "D": "Dandeli"
+         },
+         "answer": "B",
+         "explanation": "Golden Temple, Bylakuppe. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q94",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "Identify the Indian Soldiers who have undergone INA trials.\n(i) P.K. Sehgal\n(ii) Shahnawaz Khan\n(iii) Gurbhaksh Singh Dhillon",
+         "options": {
+          "A": "i and ii are correct",
+          "B": "i and iii are correct",
+          "C": "i, ii and iii are correct",
+          "D": "ii and iii are correct"
          },
          "answer": "C",
-         "explanation": "Insert → Slide Number (inside a text box or the footer placeholder) adds a field that updates automatically. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q91",
+         "explanation": "Red Fort trials, 1945. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q95",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "'The Purple Economy' does not include which of the following?\na) Supporting the specially-abled and the elderly.\nb) Communication\nc) Women empowerment\nd) Green economy",
+         "options": {
+          "A": "a and c only",
+          "B": "b and d only",
+          "C": "b only",
+          "D": "d only"
+         },
+         "answer": "D",
+         "explanation": "KEA's key: the purple economy (care work, disability, elderly, gender equality) does not include the green economy. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q97",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "Expand OWASP in reference to Cyber Security.",
+         "options": {
+          "A": "Open World Advanced Security Project",
+          "B": "Open Web Application Security Project",
+          "C": "Open World Alternate Security Project",
+          "D": "Open Web Application Service Plan"
+         },
+         "answer": "B",
+         "explanation": "OWASP publishes the 'Top 10' list of web-application security risks. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PSI 2024 General Paper · Q80",
+         "subject": "Computer Literacy"
+        },
+        {
+         "question": "Recently BharatGen was in the news. What is BharatGen?",
+         "options": {
+          "A": "Indigenously developed, Artificial Intelligence (AI) based Multimodal Large Language Model (LLM).",
+          "B": "It is an indigenously developed low cost tablet computer.",
+          "C": "It is a genetically engineered paddy seed that will double the yield.",
+          "D": "It is a scheme for improving the mental health of the young generation (10 -25 years)."
+         },
+         "answer": "A",
+         "explanation": "BharatGen, led by IIT Bombay under the DST, builds multimodal LLMs for Indian languages. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "UPSC coaching entrance 2025 (19 Jul) · Q21",
          "subject": "Computer Literacy"
         },
         {
@@ -8751,86 +8759,8 @@
        ]
       },
       {
-       "name": "4 · Mock Set 4 – Paper 2 (Previous-Year Questions)",
+       "name": "4 · Mock Set 4 – Paper 2 (Previous-Year, Exam Level)",
        "questions": [
-        {
-         "question": "Which among the following is NOT the function of system software?",
-         "options": {
-          "A": "Device Management",
-          "B": "File Management",
-          "C": "Process Management",
-          "D": "Mail Management"
-         },
-         "answer": "D",
-         "explanation": "Mail is an application. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q78",
-         "subject": "Unit 1 – Fundamentals"
-        },
-        {
-         "question": "The program which are permanent as hardware and stored in ROM is known as",
-         "options": {
-          "A": "Hardware",
-          "B": "Software",
-          "C": "Firmware",
-          "D": "Operating system"
-         },
-         "answer": "C",
-         "explanation": "Firmware. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Officer/Asst Gr-III KEC · Q80",
-         "subject": "Unit 1 – Fundamentals"
-        },
-        {
-         "question": "Which communication device is used in the conversion of digital data to analog form and vice versa?",
-         "options": {
-          "A": "Modulator",
-          "B": "Modem",
-          "C": "Demodulator",
-          "D": "Network interface card"
-         },
-         "answer": "B",
-         "explanation": "Modem = MOdulator + DEModulator. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC (NHK, 25 Jan 2026) · Q93",
-         "subject": "Unit 1 – Fundamentals"
-        },
-        {
-         "question": "What is Google Gemini?",
-         "options": {
-          "A": "A search engine",
-          "B": "An image editor",
-          "C": "A generative AI-based Chatbot",
-          "D": "A web browser"
-         },
-         "answer": "C",
-         "explanation": "Gemini (earlier Bard) is Google's generative AI chatbot and family of models. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q71",
-         "subject": "Unit 1 – Fundamentals"
-        },
-        {
-         "question": "Wi-Fi is a standard for wireless LANs called",
-         "options": {
-          "A": "IEEE 802.9",
-          "B": "IEEE 802.10",
-          "C": "IEEE 802.11",
-          "D": "IEEE 802.12"
-         },
-         "answer": "C",
-         "explanation": "802.3 – Ethernet; 802.11 – Wi-Fi; 802.15.1 – Bluetooth. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (HK, 22 Feb 2026) · Q77",
-         "subject": "Unit 1 – Fundamentals"
-        },
-        {
-         "question": "Which the following is/are cloud-based collaboration tools?\na. Google Docs\nb. Microsoft Teams\nc. MS Paint\nd. Zoom",
-         "options": {
-          "A": "a, b and c",
-          "B": "a only",
-          "C": "a, b and d",
-          "D": "a and c"
-         },
-         "answer": "C",
-         "explanation": "Google Docs, Teams and Zoom work over the Internet; MS Paint is a local desktop program. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 KEC-1 (NHK, 26 Apr 2026) · Q82",
-         "subject": "Unit 1 – Fundamentals"
-        },
         {
          "question": "Who among the following belonged to Prarthana Samaja?\na) M.G. Ranade\nb) R.G. Bhandarkar\nc) Keshav Chandra Sen\nd) Dayananda Saraswati",
          "options": {
@@ -8845,16 +8775,120 @@
          "subject": "Unit 1 – Fundamentals"
         },
         {
-         "question": "In a hard disk, the set of corresponding tracks on all the surfaces of a stack of disks forms a logical",
+         "question": "Hemis in Ladakh region is a ____",
          "options": {
-          "A": "Cylinder",
-          "B": "Inter Cylinder",
-          "C": "Sector",
-          "D": "Inter Sector"
+          "A": "Temple",
+          "B": "Church",
+          "C": "Monastery",
+          "D": "Mosque"
+         },
+         "answer": "C",
+         "explanation": "Hemis Gompa. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q72",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "The 'NEER' indices relate to which of the following?",
+         "options": {
+          "A": "Unemployment rate",
+          "B": "External competitiveness of a currency",
+          "C": "Research and development",
+          "D": "Poverty"
+         },
+         "answer": "B",
+         "explanation": "Nominal Effective Exchange Rate. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q78",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Government cutting down the exchange rate of a domestic currency against any foreign currency is called as ____",
+         "options": {
+          "A": "Devaluation",
+          "B": "Revaluation",
+          "C": "Demonetization",
+          "D": "None of the above"
          },
          "answer": "A",
-         "explanation": "Cylinder. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Asst/Jr Asst P2 · Q85",
+         "explanation": "Devaluation. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q79",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "With respect to 'Karnataka Human Development Index Report', which among the following is wrong?",
+         "options": {
+          "A": "First Report – 1999",
+          "B": "Third Report – 2015",
+          "C": "Second Report – 2006",
+          "D": "Fourth Report – 2022"
+         },
+         "answer": "C",
+         "explanation": "KEA's key: the second report is wrongly dated. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q80",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Which of the following statement/statements is/are correct with respect to 'Pradhan Mantri Dhan-Dhaanya Krushi Yojana'?\na) This programme will cover 200 districts with low productivity in Phase-I.\nb) This programme is likely to help 1.7 crore farmers.\nc) This programme will be undertaken in partnership with states.\nd) This programme aims to enhance sustainable agricultural practices.",
+         "options": {
+          "A": "a only",
+          "B": "b and d only",
+          "C": "b, c and d only",
+          "D": "a, b, c and d"
+         },
+         "answer": "C",
+         "explanation": "It covers 100 districts. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q86",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Which of the following statements is incorrect?",
+         "options": {
+          "A": "Classical language status was given to Tamil language in 2004",
+          "B": "Classical language status was given to Sanskrit in 2005",
+          "C": "Classical language status was given to Kannada in 2008",
+          "D": "Classical language status was given to Telugu in 2009"
+         },
+         "answer": "D",
+         "explanation": "Telugu got it in 2008 with Kannada. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q89",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Which of the following Himalayan rivers are the tributaries of Indus River?\na) Shyok\nb) Zaskar\nc) Hunza\nd) Nubra\ne) Dhauli",
+         "options": {
+          "A": "All of the above",
+          "B": "a, b and e",
+          "C": "b, c and d",
+          "D": "a, b, c and d"
+         },
+         "answer": "D",
+         "explanation": "Dhauli flows to the Ganga system. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q92",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Arrange the following districts of Karnataka from north to south as per their geographical location.",
+         "options": {
+          "A": "Bidar – Kalaburgi – Raichur – Mandya – Mysuru – Chamaraja Nagara",
+          "B": "Bidar – Raichur – Kalaburgi – Mandya – Mysuru – Chamaraja Nagara",
+          "C": "Bidar – Kalaburgi – Raichur – Mysuru – Mandya – Chamaraja Nagara",
+          "D": "Bidar – Kalaburgi – Raichur – Mandya – Chamaraja Nagara – Mysuru"
+         },
+         "answer": "A",
+         "explanation": "North to south. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
+         "source": "Legislative Council 2024 Asst/Computer Operator P1 · Q96",
+         "subject": "Unit 1 – Fundamentals"
+        },
+        {
+         "question": "Section 65 of IT Act 2000 deals with :",
+         "options": {
+          "A": "Tampering with documents",
+          "B": "Hacking",
+          "C": "Acts of cyber terrorism",
+          "D": "Using other person's email ID"
+         },
+         "answer": "A",
+         "explanation": "Section 65 punishes tampering with computer source documents (up to 3 years and/or ₹2 lakh fine). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "VAO 2024 Paper-2 · Q90",
          "subject": "Unit 1 – Fundamentals"
         },
         {
@@ -8936,19 +8970,6 @@
          "subject": "Unit 2 – Discrete Structures"
         },
         {
-         "question": "Which one of the following is TRUE for a finite-state machine L1 and regular expressions L2 both representing the same class of language?",
-         "options": {
-          "A": "L1 < L2",
-          "B": "L1 >= L2",
-          "C": "L1 ∪ L2 = .*",
-          "D": "L1 = L2"
-         },
-         "answer": "D",
-         "explanation": "Kleene's theorem: finite automata and regular expressions describe exactly the same class (the regular languages). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q72",
-         "subject": "Unit 2 – Discrete Structures"
-        },
-        {
          "question": "Match the following terms with their correct definitions and choose the correct option.\na) Weighted Graph\nb) Weight\nc) Unweighted Graph\ni. A graph with no labelled edges\nii. A graph where each edge has a numerical value\niii. A numerical value associated with an edge\niv. A graph that has no vertices",
          "options": {
           "A": "a – ii, b – iii, c – i",
@@ -8959,19 +8980,6 @@
          "answer": "A",
          "explanation": "A weighted graph has a number on each edge; that number is the weight; an unweighted graph has no such labels. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2024 CS&A · Q8",
-         "subject": "Unit 2 – Discrete Structures"
-        },
-        {
-         "question": "Given the following Linear Programming Problem,\nminimize Z = 6x + 3y\nsubject to the constraints\n4x + y ≥ 80\nx + 5y ≥ 115\n3x + 2y ≤ 150\nx ≥ 0, y ≥ 0\nThe minimum value of Z is ____",
-         "options": {
-          "A": "228",
-          "B": "150",
-          "C": "285",
-          "D": "240"
-         },
-         "answer": "B",
-         "explanation": "Corner points: (15, 20) → 150; (2, 72) → 228; (40, 15) → 285. The minimum is 150 at x = 15, y = 20. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q9",
          "subject": "Unit 2 – Discrete Structures"
         },
         {
@@ -8986,6 +8994,19 @@
          "explanation": "The path V₁–V₂–…–Vₙ uses the n − 1 cheapest possible edges, each of weight 2: total 2n − 2. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2025 CS&A · Q9",
          "subject": "Unit 2 – Discrete Structures"
+        },
+        {
+         "question": "Which register is used as a working area in CPU ?",
+         "options": {
+          "A": "Program counter",
+          "B": "Stalk pointer",
+          "C": "Accumulator",
+          "D": "Instruction register"
+         },
+         "answer": "C",
+         "explanation": "Arithmetic and logic results are kept in the accumulator. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q14",
+         "subject": "Unit 3 – Computer Architecture"
         },
         {
          "question": "An instruction cycle refers to",
@@ -9011,6 +9032,19 @@
          "answer": "C",
          "explanation": "Synchronous inputs (J, K, D, T) act only at the clock edge. (Official answer: KEA final key, GTTC recruitment 2024.)",
          "source": "GTTC 2024 Lecturer CS · Q41",
+         "subject": "Unit 3 – Computer Architecture"
+        },
+        {
+         "question": "The effective memory access time of system is majorly depending on",
+         "options": {
+          "A": "Miss ratio",
+          "B": "Hit ratio",
+          "C": "Bit ratio",
+          "D": "Byte ratio"
+         },
+         "answer": "B",
+         "explanation": "EMAT = h × t_cache + (1 − h) × t_memory. (Official answer: KEA final key, GTTC 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q52",
          "subject": "Unit 3 – Computer Architecture"
         },
         {
@@ -9079,56 +9113,17 @@
          "subject": "Unit 3 – Computer Architecture"
         },
         {
-         "question": "CPU Registers are used for\na) Storing data\nb) Storing instructions\nc) Storing intermediate results",
+         "question": "Race around condition is an undesirable phenomenon in Flip-Flops. The remedy for the same is",
          "options": {
-          "A": "Only a is correct",
-          "B": "Only b is correct",
-          "C": "Both a and c are correct",
-          "D": "a, b and c are correct"
+          "A": "S-R",
+          "B": "D-Flip flop",
+          "C": "J-K Flip flop",
+          "D": "Master slave JK Flipflop"
          },
          "answer": "D",
-         "explanation": "Registers hold data (DR, AC), instructions (IR) and intermediate results (AC, TR). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "Legislative Council 2024 Data Entry Operator P2 · Q91",
+         "explanation": "Master–slave (or edge-triggered) design lets the output change only once per clock pulse. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q80",
          "subject": "Unit 3 – Computer Architecture"
-        },
-        {
-         "question": "Which of the following is an example of a pipeline hazard?",
-         "options": {
-          "A": "Branch Misprediction",
-          "B": "Cache miss",
-          "C": "Data dependency between instructions",
-          "D": "Instruction fetch stall"
-         },
-         "answer": "C",
-         "explanation": "A data dependency causes a data hazard. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q30",
-         "subject": "Unit 3 – Computer Architecture"
-        },
-        {
-         "question": "Which Instruction Set Architecture (ISA) is used in the modern processors like ARM?",
-         "options": {
-          "A": "RISC",
-          "B": "CISC",
-          "C": "VLIW",
-          "D": "EPIC"
-         },
-         "answer": "A",
-         "explanation": "ARM = Advanced RISC Machine. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q33",
-         "subject": "Unit 3 – Computer Architecture"
-        },
-        {
-         "question": "What is the output of the following code?\n#include <stdio.h>\nVoid main ()\n{\nstatic int x = 3;\nx + + ;\nif (x < = 6)\n{\nPrintf (\"World\");\nmain ();\n}\n}",
-         "options": {
-          "A": "World",
-          "B": "World World World",
-          "C": "Infinite loop",
-          "D": "World World"
-         },
-         "answer": "B",
-         "explanation": "x becomes 4, 5, 6 (prints three times), then 7 stops the recursion. (Official answer: KEA final key, GTTC 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q90",
-         "subject": "Unit 4 – Programming & Web"
         },
         {
          "question": "Match the following JSP Internal mechanisms:\n(a) jspInit()\n(b) jsp:setProperty with property = \"*\"\n(c) PageContext object\n(d) isELIgnored=\"true\"\n(i) Forces a page re-evaluation by bypassing the translation phase\n(ii) Introspects request parameters to automatically populate bean fields\n(iii) User-defined initialization logic that runs once during the JSP lifecycle\n(iv) A unified interface to access all four scopes (Page, Request, Session, App)",
@@ -9144,6 +9139,19 @@
          "subject": "Unit 4 – Programming & Web"
         },
         {
+         "question": "What is the output of the following C code?\nint main()\n{\n  int ary[] = {1, 3, 5};\n  printf(\"%d %d\", ary[-1], ary[4]);\n  return 0;\n}",
+         "options": {
+          "A": "1 5",
+          "B": "0 0",
+          "C": "Compile error",
+          "D": "Garbage value"
+         },
+         "answer": "D",
+         "explanation": "C does no bounds checking: ary[-1] and ary[4] read memory outside the array (undefined behaviour), so unpredictable 'garbage' values are printed. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q3",
+         "subject": "Unit 4 – Programming & Web"
+        },
+        {
          "question": "Which of the following can be considered as the correct syntax for declaring an array of pointers of integers that has a size of 20 in C++?",
          "options": {
           "A": "int arr = new int[20];",
@@ -9154,6 +9162,19 @@
          "answer": "C",
          "explanation": "new int*[20] allocates 20 int pointers and returns int**. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2023 CS&A · Q5",
+         "subject": "Unit 4 – Programming & Web"
+        },
+        {
+         "question": "Which of the following tag is used for inserting the largest heading in HTML?",
+         "options": {
+          "A": "<h3>",
+          "B": "<h1>",
+          "C": "<h5>",
+          "D": "<h6>"
+         },
+         "answer": "B",
+         "explanation": "<h1> is the largest heading level; <h6> is the smallest. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2023 CS&A · Q6",
          "subject": "Unit 4 – Programming & Web"
         },
         {
@@ -9209,19 +9230,6 @@
          "subject": "Unit 4 – Programming & Web"
         },
         {
-         "question": "Which of the following statements would raise an error in python?",
-         "options": {
-          "A": "a = set([1,2,3])",
-          "B": "a = set([1,[2,3]])",
-          "C": "a = set('hello')",
-          "D": "a = set('world')"
-         },
-         "answer": "B",
-         "explanation": "A list is unhashable, so it cannot be a set element. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q33",
-         "subject": "Unit 4 – Programming & Web"
-        },
-        {
          "question": "Which of the following objects is used to store user-specific data that persists across multiple pages in ASP ?",
          "options": {
           "A": "Application",
@@ -9274,6 +9282,58 @@
          "subject": "Unit 4 – Programming & Web"
         },
         {
+         "question": "In an Entity-Relationship model, suppose R is a many-to-one relationship from Entity Set E₁ to Entity set E₂. Assume that E₁ and E₂ participate totally in R and that the cardinality of E₁ is greater than the cardinality of E₂. Which one of the following is true about R ?",
+         "options": {
+          "A": "Every entity in E₁ is associated with exactly one entity in E₂.",
+          "B": "Some entity in E₁ is associated with more than one entity in E₂.",
+          "C": "Every entity in E₂ is associated with exactly one entity in E₁.",
+          "D": "Every entity in E₂ is associated with associated with at most on entity in E₁."
+         },
+         "answer": "A",
+         "explanation": "GATE 2018: many-to-one with total participation. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q38",
+         "subject": "Unit 5 – DBMS"
+        },
+        {
+         "question": "Relation R with an associated set of functional dependencies, F, is decomposed into BCNF. The redundancy (arising out of functional dependencies) in the resulting set of relation is ____.",
+         "options": {
+          "A": "No redundancy",
+          "B": "More than zero but less than that of an equivalent 3NF decomposition.",
+          "C": "Proportional to the size of F +",
+          "D": "Indetermined"
+         },
+         "answer": "A",
+         "explanation": "GATE 2002: BCNF removes FD-based redundancy. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q40",
+         "subject": "Unit 5 – DBMS"
+        },
+        {
+         "question": "Which is the identity element in the group G = {2, 4, 6, 8} under multiplication modulo 10 ?",
+         "options": {
+          "A": "5",
+          "B": "9",
+          "C": "6",
+          "D": "12"
+         },
+         "answer": "C",
+         "explanation": "6 × 2 = 12 ≡ 2, 6 × 4 ≡ 4, 6 × 6 ≡ 6, 6 × 8 ≡ 8 (mod 10). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q8",
+         "subject": "Unit 5 – DBMS"
+        },
+        {
+         "question": "In formal relational model, set of individual values is called",
+         "options": {
+          "A": "Range",
+          "B": "Domain",
+          "C": "Relation",
+          "D": "Tuple"
+         },
+         "answer": "B",
+         "explanation": "A domain is a set of atomic values. (Official answer: KEA final key, GTTC 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q57",
+         "subject": "Unit 5 – DBMS"
+        },
+        {
          "question": "Constraint which specifies that two different tuples cannot have same key value is classified as",
          "options": {
           "A": "Key Constraint",
@@ -9287,19 +9347,6 @@
          "subject": "Unit 5 – DBMS"
         },
         {
-         "question": "Match the following index structures given in List-I with characteristics given in List-II.\n(a) Index File\n(b) Sequential Files\n(c) B+ Trees\n(d) Sparse Index\n(i) Indexing large datasets\n(ii) Not all key values present\n(iii) Records accessed one after another\n(iv) Speeds up records retrieval",
-         "options": {
-          "A": "a – iii, b – i, c – ii, d – iv",
-          "B": "a – iv, b – iii, c – i, d – ii",
-          "C": "a – ii, b – i, c – iii, d – iv",
-          "D": "a – iii, b – iv, c – ii, d – i"
-         },
-         "answer": "B",
-         "explanation": "An index speeds retrieval, sequential files are read in order, B+ trees index large data, a sparse index holds only some key values. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 CS Paper-2 · Q59",
-         "subject": "Unit 5 – DBMS"
-        },
-        {
          "question": "In Multi-Data Item strict 2PL problem, the given transactions are\nT1: R(A); W(A); R(B); W(B)\nT2: R(B); W(B).\nFind the maximum locks held at peak.",
          "options": {
           "A": "2",
@@ -9310,19 +9357,6 @@
          "answer": "A",
          "explanation": "Under strict 2PL, T1 holds locks on A and B until it commits; T2 needs B and must wait, so at most 2 locks are held at once. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KEA 2026 CS Paper-2 · Q60",
-         "subject": "Unit 5 – DBMS"
-        },
-        {
-         "question": "A clustering index is defined on the fields which are of the type:",
-         "options": {
-          "A": "Non-key and ordering",
-          "B": "Non-key and non-ordering",
-          "C": "Key and ordering",
-          "D": "Key and non-ordering"
-         },
-         "answer": "A",
-         "explanation": "A clustering index is on a non-key field by which the file is physically ordered; a primary index is on an ordering key field. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q16",
          "subject": "Unit 5 – DBMS"
         },
         {
@@ -9365,55 +9399,16 @@
          "subject": "Unit 5 – DBMS"
         },
         {
-         "question": "Which of the following is the correct sequence in transaction commands?",
+         "question": "All logs are created and stored in ____ storage when the deferred database method is used, and data is synced to the database when a transaction commits.",
          "options": {
-          "A": "Savepoint → Rollback → Commit → Begin transaction",
-          "B": "Begin transaction → Commit → Rollback → Savepoint",
-          "C": "Rollback → Commit → Savepoint → Begin transaction",
-          "D": "Commit → Savepoint → Begin transaction → Rollback"
+          "A": "Stable",
+          "B": "Unstable",
+          "C": "System",
+          "D": "Recovery"
          },
-         "answer": "B",
-         "explanation": "A transaction starts with BEGIN TRANSACTION; KEA's key takes option 2 as the order in which the commands are listed and used. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q27",
-         "subject": "Unit 5 – DBMS"
-        },
-        {
-         "question": "Which of the following is not an aspect of database security?",
-         "options": {
-          "A": "Availability",
-          "B": "Confidentiality",
-          "C": "Integrity",
-          "D": "Data redundancy"
-         },
-         "answer": "D",
-         "explanation": "Security = CIA triad. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q32",
-         "subject": "Unit 5 – DBMS"
-        },
-        {
-         "question": "Match the following:\nList-1: a) Data Guard  b) Indexes  c) Redo Logs  d) SQL Developer\nList-2: i) Record changes to the database  ii) Ensures data protection and disaster recovery  iii) Oracle's integrated development environment  iv) Reduces the time taken to retrieve records",
-         "options": {
-          "A": "a – ii, b – i, c – iii, d – iv",
-          "B": "a – i, b – ii, c – iv, d – iii",
-          "C": "a – ii, b – iv, c – i, d – iii",
-          "D": "a – iv, b – i, c – ii, d – iii"
-         },
-         "answer": "C",
-         "explanation": "Oracle Data Guard maintains standby databases for disaster recovery; redo logs record every change so it can be replayed. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q75",
-         "subject": "Unit 5 – DBMS"
-        },
-        {
-         "question": "Match the following:\nList-1: a) Oracle instance  b) Tablespace  c) Trigger  d) Synonym\nList-2: i) A database structure that contains datafiles  ii) Automatically executes in response to certain events  iii) Provides alternate names for database objects  iv) A set of memory structures and background processes",
-         "options": {
-          "A": "a – iv, b – ii, c – i, d – iii",
-          "B": "a – iv, b – i, c – ii, d – iii",
-          "C": "a – i, b – iii, c – iv, d – ii",
-          "D": "a – ii, b – i, c – iii, d – iv"
-         },
-         "answer": "B",
-         "explanation": "An instance = SGA memory + background processes; a tablespace holds datafiles; a trigger fires on events; a synonym is an alias. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q76",
+         "answer": "A",
+         "explanation": "Logs go to stable storage. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q38",
          "subject": "Unit 5 – DBMS"
         },
         {
@@ -9430,6 +9425,32 @@
          "subject": "Unit 5 – DBMS"
         },
         {
+         "question": "The aggregate function is applied to a group of sets of tuples using the ____ clause.",
+         "options": {
+          "A": "Group Attribute",
+          "B": "Group Together",
+          "C": "Group Set",
+          "D": "Group By"
+         },
+         "answer": "D",
+         "explanation": "GROUP BY. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q73",
+         "subject": "Unit 5 – DBMS"
+        },
+        {
+         "question": "Consider the following two statements :\nS₁ : Every regular grammar is LL(1)\nS₂ : Every regular set has an LR(1) grammar\nWhich of the following is TRUE ?",
+         "options": {
+          "A": "Both S₁ and S₂ are true",
+          "B": "Both S₁ and S₂ are false",
+          "C": "S₁ is true and S₂ is false",
+          "D": "S₁ is false and S₂ is true"
+         },
+         "answer": "D",
+         "explanation": "An ambiguous regular grammar is not LL(1); every regular set has an LR(1) grammar (GATE 2007). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "GFGC 2021 CS · Q97",
+         "subject": "Unit 6 – OS & System Software"
+        },
+        {
          "question": "The ____ presents a uniform device access interface to the IO subsystem, much as system calls provide a standard interface between the application and the operating system",
          "options": {
           "A": "Device drivers",
@@ -9440,32 +9461,6 @@
          "answer": "A",
          "explanation": "Silberschatz: device drivers hide device differences from the I/O subsystem. (Official answer: KEA final key, GTTC recruitment 2024.)",
          "source": "GTTC 2024 Lecturer CS · Q46",
-         "subject": "Unit 6 – OS & System Software"
-        },
-        {
-         "question": "Match the following:\nGeneration of Languages: a) Second generation language  b) Third generation language  c) Fourth generation language  d) Fifth generation language\nExample: i. Prolog  ii. FoxPro  iii. Assembler  iv. Pascal",
-         "options": {
-          "A": "a – iii, b – iv, c – ii, d – i",
-          "B": "a – ii, b – iii, c – iv, d – i",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – i, b – ii, c – iii, d – iv"
-         },
-         "answer": "A",
-         "explanation": "2GL assembly, 3GL procedural languages such as Pascal, 4GL database/query tools such as FoxPro, 5GL logic languages such as Prolog. (Official answer: KEA final key, GTTC recruitment 2024.)",
-         "source": "GTTC 2024 Technician Gr-III CS (C1) · Q85",
-         "subject": "Unit 6 – OS & System Software"
-        },
-        {
-         "question": "Token recognition in a lexical analyzer is primarily based on ____.",
-         "options": {
-          "A": "Parse Trees",
-          "B": "Backtracking Algorithm",
-          "C": "Regular Expression",
-          "D": "Context-free Grammar"
-         },
-         "answer": "C",
-         "explanation": "Token patterns are regular expressions, implemented as finite automata. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KEA 2026 CS Paper-2 · Q35",
          "subject": "Unit 6 – OS & System Software"
         },
         {
@@ -9534,29 +9529,29 @@
          "subject": "Unit 6 – OS & System Software"
         },
         {
-         "question": "The clock speed of a microprocessor is measured in",
+         "question": "Operator precedence parser is an example of",
          "options": {
-          "A": "Hertz",
-          "B": "Bytes",
-          "C": "Bits",
-          "D": "Instructions per second"
+          "A": "Top down parser",
+          "B": "Recursive descent with backtracking",
+          "C": "Recursive descent without backtracking",
+          "D": "Shift reduce parser"
          },
-         "answer": "A",
-         "explanation": "GHz. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q18",
+         "answer": "D",
+         "explanation": "A bottom-up (shift-reduce) parser. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q18",
          "subject": "Unit 6 – OS & System Software"
         },
         {
-         "question": "About Shortest Job First Scheduling, which is/are incorrect among the following?\n(i) It can lead to starvation\n(ii) It can lead to a minimum average waiting time",
+         "question": "For a grammar G, both SLR and LALR parser is constructed. If the number of states in SLR parser is 'M' and number of states in LALR parser is 'n' then which of the following is true ?",
          "options": {
-          "A": "Only i",
-          "B": "Only ii",
-          "C": "Neither ii nor i",
-          "D": "Both ii & i"
+          "A": "M is necessarily less than n",
+          "B": "M is necessarily equal to n",
+          "C": "M is necessarily greater than n",
+          "D": "M is double the value of n"
          },
-         "answer": "C",
-         "explanation": "Both statements are correct. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Sr/Jr Programmer P2 · Q15",
+         "answer": "B",
+         "explanation": "Both use the LR(0) state set. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q21",
          "subject": "Unit 6 – OS & System Software"
         },
         {
@@ -9570,6 +9565,19 @@
          "answer": "C",
          "explanation": "Memory protection. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2024 M.Tech CS · Q36",
+         "subject": "Unit 6 – OS & System Software"
+        },
+        {
+         "question": "For the following synchronization construct used by processes P₁ and P₂ which of the statement is true?\nProcess P₁:\nwhile (true)\n{\nw₁ = true;\nwhile (w₂ == true);\ncritical section\nw₁ = false;\n}\nRemainder section\nProcess P₂:\nwhile (true)\n{\nw₂ = true;\nwhile (w₁ == true);\ncritical section\nw₂ = false;\n}\nRemainder section\nNote: w₁ and w₂ are shared variables and are initialized to false",
+         "options": {
+          "A": "It requires that processes enter the critical section in strict alternation",
+          "B": "It does not prevent deadlocks but ensures mutual exclusion",
+          "C": "It does not ensure mutual exclusion",
+          "D": "It does not ensure bounded waiting"
+         },
+         "answer": "B",
+         "explanation": "If both set their flags, both spin for ever (GATE 2016). (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2026 CS · Q44",
          "subject": "Unit 6 – OS & System Software"
         },
         {
@@ -9638,6 +9646,19 @@
          "subject": "Unit 7 – Software Engineering"
         },
         {
+         "question": "Consider the given statements.\nStatement 1: Cost of conducting technical reviews for Software Engineering work products\nStatement 2: Cost of data collection and metrics evaluation\nStatement 3: Cost of testing and debugging\nThese statements are the examples of ____",
+         "options": {
+          "A": "External Failure Costs",
+          "B": "Prevention Costs",
+          "C": "Internal Failure Costs",
+          "D": "Appraisal Costs"
+         },
+         "answer": "D",
+         "explanation": "Pressman lists technical reviews, data collection and metrics evaluation, and testing and debugging as appraisal costs. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2024 CS&A · Q55",
+         "subject": "Unit 7 – Software Engineering"
+        },
+        {
          "question": "____ approach is used when a project encompasses the use of existing software that must be modified in some way as part of a project",
          "options": {
           "A": "Fuzzy Logic Sizing",
@@ -9674,19 +9695,6 @@
          "answer": "D",
          "explanation": "Pair programming = continuous review; TDD = tests first; CI = frequent integration; refactoring = better structure, same behaviour. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "KSET 2025 CS&A · Q53",
-         "subject": "Unit 7 – Software Engineering"
-        },
-        {
-         "question": "Which of the following tools is used for version control in software development?",
-         "options": {
-          "A": "Git",
-          "B": "Eclipse",
-          "C": "Photoshop",
-          "D": "Visual studio"
-         },
-         "answer": "A",
-         "explanation": "Git is a distributed version-control system; Eclipse and Visual Studio are IDEs. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Junior Console Operator P2 · Q83",
          "subject": "Unit 7 – Software Engineering"
         },
         {
@@ -9833,16 +9841,42 @@
          "subject": "Unit 8 – Data Structures & Algorithms"
         },
         {
-         "question": "The divisor in a cyclic code is called",
+         "question": "Among the following protocols which is NOT used to resolve one form of address to another?",
          "options": {
-          "A": "Degree",
-          "B": "Redundancy",
-          "C": "Connector",
-          "D": "Generator"
+          "A": "ARP",
+          "B": "RARP",
+          "C": "DNS",
+          "D": "DHCP"
          },
          "answer": "D",
-         "explanation": "The divisor in CRC is the generator polynomial. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2023 CS&A · Q64",
+         "explanation": "DHCP assigns addresses; ARP: IP→MAC, RARP: MAC→IP, DNS: name→IP. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q74",
+         "subject": "Unit 9 – Networks"
+        },
+        {
+         "question": "Which of the following statements is TRUE regarding the TCP/IP reference model's application layer compared to OSI reference model's application layer, presentation layer and session layer?",
+         "options": {
+          "A": "The TCP/IP application layer combines all functionalities of the presentation and session layers of the OSI model",
+          "B": "The TCP/IP application layer focusses only on user level data interaction",
+          "C": "The OSI model includes physical addressing at the application layer",
+          "D": "The TCP/IP model separates application and session functionalities distinctly"
+         },
+         "answer": "A",
+         "explanation": "TCP/IP has no separate session and presentation layers; their work is done in the application layer. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q76",
+         "subject": "Unit 9 – Networks"
+        },
+        {
+         "question": "In a HTTP request query string is commonly used in",
+         "options": {
+          "A": "GET method only",
+          "B": "POST method only",
+          "C": "PUT method only",
+          "D": "Both in GET and POST methods"
+         },
+         "answer": "A",
+         "explanation": "KEA's key: the query string appears in the URL of GET requests; POST sends data in the body. (Official answer: KEA final key, GTTC recruitment 2024.)",
+         "source": "GTTC 2024 Lecturer CS · Q86",
          "subject": "Unit 9 – Networks"
         },
         {
@@ -9872,19 +9906,6 @@
          "subject": "Unit 9 – Networks"
         },
         {
-         "question": "The role of Address Resolution Protocol (ARP) is to find the",
-         "options": {
-          "A": "IP address from the DNS",
-          "B": "IP address of the client",
-          "C": "IP address that corresponds to a MAC address",
-          "D": "MAC address that corresponds to an IP address"
-         },
-         "answer": "D",
-         "explanation": "ARP maps a known IP address to a MAC address on the local network (RARP does the reverse). (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "KSET 2024 CS&A · Q87",
-         "subject": "Unit 9 – Networks"
-        },
-        {
          "question": "Which of these statements are CORRECT?\n(i) When a router receives the packet, TTL is reduced by one\n(ii) When a router receives the packet, TTL is increased by one\n(iii) If the TTL count is zero and the packet has not reached the destination, the packet is discarded\n(iv) If the TTL count is 255 and the packet has not reached the destination, the packet is discarded",
          "options": {
           "A": "Only (i) is correct",
@@ -9911,42 +9932,16 @@
          "subject": "Unit 9 – Networks"
         },
         {
-         "question": "What is the purpose of a router in a network?",
+         "question": "Which protocol does the PPP protocol provide for handling the capabilities of the connection/link on the network?",
          "options": {
-          "A": "To store data",
-          "B": "To provide a wireless connection",
-          "C": "To direct internet traffic",
-          "D": "To cool down the network"
+          "A": "LCP",
+          "B": "NCP",
+          "C": "Both LCP and NCP",
+          "D": "TCP"
          },
-         "answer": "C",
-         "explanation": "A router forwards packets between networks. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q16",
-         "subject": "Unit 9 – Networks"
-        },
-        {
-         "question": "Match the following in relation to network failures.\nList-1\n(a) Limited or no connectivity\n(b) Inability to connect to the internet\n(c) Driver issues\n(d) Intermittent network connections\nList-2\ni) Frequent disconnections, slow speed and unstable connections\nii) When other devices on the same network are functioning normally\niii) Failure of network card\niv) Network adapter not found",
-         "options": {
-          "A": "a – i, b – iii, c – iv, d – ii",
-          "B": "a – iv, b – ii, c – iii, d – i",
-          "C": "a – ii, b – iii, c – iv, d – i",
-          "D": "a – ii, b – i, c – iv, d – iii"
-         },
-         "answer": "C",
-         "explanation": "KEA's key. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q39",
-         "subject": "Unit 9 – Networks"
-        },
-        {
-         "question": "Match the following in relation to security\n(a) Firewall  (b) Firmware  (c) Malware  (d) Phishing\ni) Exploits device and data  ii) Steals user's sensitive data  iii) Is a security tool  iv) Controls basic function",
-         "options": {
-          "A": "a – iii, b – ii, c – iv, d – i",
-          "B": "a – iii, b – iv, c – i, d – ii",
-          "C": "a – iv, b – iii, c – ii, d – i",
-          "D": "a – ii, b – i, c – iii, d – iv"
-         },
-         "answer": "B",
-         "explanation": "Firmware is low-level software in hardware (e.g. BIOS); phishing tricks users into revealing data. (Official answer: KEA final key, Legislative Council Secretariat exam 2024.)",
-         "source": "Legislative Council 2024 Computer Operator P2 · Q6",
+         "answer": "A",
+         "explanation": "PPP's Link Control Protocol sets up, tests and negotiates link options; the Network Control Protocols configure network-layer protocols. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2023 M.Tech CS · Q41",
          "subject": "Unit 9 – Networks"
         },
         {
@@ -9960,6 +9955,19 @@
          "answer": "D",
          "explanation": "64 to 1518 bytes. (Answer worked out by ExamSim; not KEA's official key.)",
          "source": "PGCET 2024 M.Tech CS · Q47",
+         "subject": "Unit 9 – Networks"
+        },
+        {
+         "question": "How does the TCP protocol handle out-of-order segments and what mechanism does it uses to ensure data integrity ?",
+         "options": {
+          "A": "By dropping out-of-order segments and requesting retransmission",
+          "B": "By buffering out-of-order segments and using sequence numbers to reorder them",
+          "C": "By sending acknowledgements for each received segment in order",
+          "D": "By discarding duplicate segments and waiting for a timeout"
+         },
+         "answer": "B",
+         "explanation": "Sequence numbers. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "PGCET 2024 M.Tech CS · Q52",
          "subject": "Unit 9 – Networks"
         },
         {
@@ -10041,16 +10049,16 @@
          "subject": "Unit 10 – Artificial Intelligence"
         },
         {
-         "question": "The main goal of machine learning is",
+         "question": "Given two Fuzzy sets A and B with membership function μA(x) = {0.6, 0.5, 0.1, 0.7, 0.8}, μB(x) = {0.9, 0.2, 0.6, 0.8, 0.5}. Now calculate the value of μ(A ∪ B)′(x).",
          "options": {
-          "A": "To completely automate manual tasks",
-          "B": "To make computers intelligent like human beings",
-          "C": "To create self aware machines",
-          "D": "To enable computers to learn from data"
+          "A": "{0.1, 0.5, 0.4, 0.2, 0.3}",
+          "B": "{0.1, 0.5, 0.4, 0.2, 0.2}",
+          "C": "{0.1, 0.5, 0.4, 0.3, 0.2}",
+          "D": "{0.1, 0.5, 0.4, 0.3, 0.3}"
          },
-         "answer": "D",
-         "explanation": "Learning from data without explicit programming. (Answer worked out by ExamSim; not KEA's official key.)",
-         "source": "Legislative Council 2024 Data Entry Operator P2 · Q84",
+         "answer": "B",
+         "explanation": "Union = max = {0.9, 0.5, 0.6, 0.8, 0.8}; complement = 1 − μ = {0.1, 0.5, 0.4, 0.2, 0.2}. (Answer worked out by ExamSim; not KEA's official key.)",
+         "source": "KSET 2025 CS&A · Q96",
          "subject": "Unit 10 – Artificial Intelligence"
         }
        ]

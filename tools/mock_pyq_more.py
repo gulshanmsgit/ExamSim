@@ -18,6 +18,10 @@ import mock3_pyq as m3
 
 ROOT = Path(__file__).parent.parent
 EDU = ("Educational Psychology", "Health Education", "Value Education")
+# Paper 2 in the syllabus (planner) unit weights – Unit 1 back to 10 and Unit 2 to 8 (Set 3 had to swap 2 marks).
+# Paper 1 follows the official marks except Value Education: the bank has 1 real Value Education question, so its other
+# 9 marks stay with Educational Psychology (as in Set 3) – m3.P1_PLAN.
+P2_PLAN = [(tag, u, {1: 10, 2: 8}.get(u, n)) for tag, u, n in m3.P2_PLAN]
 
 
 def qnum(source):
@@ -55,14 +59,22 @@ def clean(pool, taken, allow, unit=None):
     return list(out.values())
 
 
+# Harder papers first (owner, 21 Nov 2026: "the exam is difficult – make the paper stricter"): tier 1 = lecturer/PG-level and
+# the KEA 2025–26 general papers, tier 2 = programmer/technician/MCA and other recruitment GK papers, tier 3 = clerk-level KEC.
+TIER1 = r"KSET|M\.Tech|PGCET 2026 CS|GTTC 2024 Lecturer|KEA 2026 CS|Raichur|GFGC|KEA 202[56] GK|UPSC|PSI"
+TIER2 = r"MCA|Programmer|Technician|GTTC 2024 Asst Gr-II GK|Legislative Council 2024 .*P1|KRIES|VAO"
+
+
+def tier(q):
+    return 0 if re.search(TIER1, q["source"]) else 1 if re.search(TIER2, q["source"]) else 2
+
+
 def pick(cands, n, rng, repeats=(), now=None):
-    """Half (rounded up) from KEA/KSET papers when possible; top up from `repeats` (education sections only)."""
+    """Hardest papers first (tier 1, then 2, then 3, random inside a tier); top up from `repeats` (education sections only)."""
     cands = list(cands)
     rng.shuffle(cands)
-    first = [q for q in cands if re.match(r"(KEA|KSET)", q["source"])]
-    want = (n + 1) // 2
-    got = first[:want]
-    got += [q for q in cands if q not in got][:n - len(got)]
+    cands.sort(key=tier)  # stable: random order kept inside each tier
+    got = cands[:n]
     if len(got) < n:
         extra = [q for q in repeats if m3._key(q) not in {m3._key(g) for g in got} | (now or set())]
         rng.shuffle(extra)
@@ -88,9 +100,9 @@ def build(set_no, taken, set3_questions):
             taken.add(m3._key(q))
             now.add(m3._key(q))
         paper1 += [{k: q[k] for k in ("question", "options", "answer", "explanation", "source") if k in q} | {"subject": tag} for q in got]
-    for tag, u, n in m3.P2_PLAN:
+    for tag, u, n in P2_PLAN:
         cands = clean(p[u], taken, m3.CS, u)
-        if len(cands) < n and u == 1:
+        if u == 1:
             cands += clean(p["@computer"], taken, r".")  # Unit 1 covers basics and office tools too
         got = pick(cands, n, rng)
         for q in got:
