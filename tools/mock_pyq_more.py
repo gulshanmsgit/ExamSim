@@ -69,7 +69,7 @@ def tier(q):
     return 0 if re.search(TIER1, q["source"]) else 1 if re.search(TIER2, q["source"]) else 2
 
 
-def pick(cands, n, rng, repeats=(), now=None):
+def pick(cands, n, rng, repeats=(), now=None, used=None):
     """Hardest papers first (tier 1, then 2, then 3, random inside a tier); top up from `repeats` (education sections only)."""
     cands = list(cands)
     rng.shuffle(cands)
@@ -78,16 +78,25 @@ def pick(cands, n, rng, repeats=(), now=None):
     if len(got) < n:
         extra = [q for q in repeats if m3._key(q) not in {m3._key(g) for g in got} | (now or set())]
         rng.shuffle(extra)
+        extra.sort(key=lambda q: (used or {}).get(m3._key(q), 0))  # least-used earlier questions first (stable sort)
         got += extra[:n - len(got)]
     assert len(got) == n, (n, len(got))
     got.sort(key=lambda q: q["source"])
     return got
 
 
-def build(set_no, taken, set3_questions):
-    """Return (paper1, paper2) for Mock Set `set_no`; `taken` holds keys of every earlier set and is updated."""
+def build(set_no, taken, earlier_papers):
+    """Return (paper1, paper2) for Mock Set `set_no`; `taken` holds keys of every earlier set and is updated.
+    `earlier_papers`: the Paper 1 question lists of the earlier previous-year sets (3, 4 …) – the education sections may
+    repeat from them, least-used first."""
     p, rng = pools(), random.Random(f"mock{set_no}-pyq")
-    repeat = {tag: [q for q in set3_questions if q.get("subject") == tag] for tag in EDU}
+    used, repeat = {}, {tag: [] for tag in EDU}
+    for paper in earlier_papers:
+        for q in paper:
+            k = m3._key(q)
+            if k not in used and q.get("subject") in repeat:
+                repeat[q["subject"]].append(q)
+            used[k] = used.get(k, 0) + 1
     paper1, paper2, now = [], [], set()  # `now`: keys already in this set (repeats must not clash across sections)
     for tag, _, n in m3.P1_PLAN:
         cands = clean(p[tag], taken, m3.ALLOW.get(tag, m3.CS))
@@ -95,7 +104,7 @@ def build(set_no, taken, set3_questions):
             cands = clean(p[tag], taken, r".")
         if tag == "Computer Literacy":
             cands = clean(p[tag], taken, r".")
-        got = pick(cands, n, rng, repeat.get(tag, ()), now)
+        got = pick(cands, n, rng, repeat.get(tag, ()), now, used)
         for q in got:
             taken.add(m3._key(q))
             now.add(m3._key(q))
