@@ -119,6 +119,7 @@ browser (demo mode), bump the sw cache, commit and tell the owner to push. Mergi
 
 ### GPSTR and KRIES kept apart (21 Nov 2026, owner: "no overlapping – syllabus, mock tests, anything – kept separate")
 - Both exam modes now scope the Library, subject pages, search, Mocks tab, weak topics and mistakes (`examScope`, `inScopeT`, `inScopeS`, `inScopeMock`). Names decide ownership: anything with **KRIES** in the subject/topic/mock name is KRIES-only; the **Full Mock Papers** subject (GPSTR mocks) and names with GPSTR are GPSTR-only. Topics without a plan ID show only when their subject has plan topics in the current exam, or (PYQ-by-subject topics) when the syllabus subject of the same name does. Only the full previous-year CS papers stay visible in both.
+- **Subject-wise GPSTR mocks** (21 Nov 2026): `python tools/build_subject_mocks.py` → packs/gpstr-subject-mocks.json, subject "GPSTR Subject Mock Tests" (GPSTR-only), 3 × 25 Q per P1 subject / P2 unit: real PYQs first (hardest tier first, ≤ 15 per test), then PYQ-pattern questions round-robin over the subject's topics; each question's `subject` = its syllabus topic; A–D balanced only for practice questions. Registered in build_subject EXTRA_SUBJECTS, syllabus_map and check_packs REUSE. Rebuild it after topic packs change.
 - Name new KRIES-only subjects/mock sets with "KRIES" in them, and GPSTR-only ones with "GPSTR" (or put them in Full Mock Papers).
 
 ### PYQ analysis notes (19 Oct 2026, owner: "complete the remaining PYQ analysis")

@@ -90,6 +90,10 @@ import kries_p1  # noqa: E402
 # Full-length mock papers (tools/build_mocks.py → packs/mock-papers.json); sets keep their own size
 EXTRA_SUBJECTS["Full Mock Papers"] = {"icon": "📝", "topics": ["Paper 1 – Full Mock Tests", "Paper 2 – Full Mock Tests"], "sizes": {}, "size": 100, "anysize": True,
                                       "group": "④ Full mock papers"}
+# Subject-wise GPSTR mock tests (tools/build_subject_mocks.py → packs/gpstr-subject-mocks.json), 3 × 25 Q per subject/unit
+from build_subject_mocks import TOPICS as _SM_TOPICS  # noqa: E402
+EXTRA_SUBJECTS["GPSTR Subject Mock Tests"] = {"icon": "🎯", "topics": _SM_TOPICS, "sizes": {}, "size": 25, "anysize": True,
+                                              "group": "④ Full mock papers"}
 EXTRA_SUBJECTS.update(kries_p1.extra_subjects())
 PACKS.update(kries_p1.build_packs())
 
