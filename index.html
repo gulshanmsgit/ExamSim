@@ -1575,16 +1575,53 @@ function autoPlan(sp, start, exam) {
   out.calendar.forEach(c => { c.hours = Math.round(c.hours * 2) / 2; c.p1 = c.p1.length ? [c.p1.join('\n')] : []; c.p2 = c.p2.length ? [c.p2.join('\n')] : []; });
   return out;
 }
-// Exams other than GPSTR (KRIES) show just their own plan's topics in the Library, subject pages and Plan
+// Each exam mode shows only its own material (owner, 21 Nov 2026: "GPSTR and KRIES kept separate – syllabus, mock tests,
+// anything"): its plan's topics in the Library, subject pages, search, mocks, weak topics and mistakes.
 let _scope = null, _scopeOf = null;
 function examScope() {
-  if (planKeyOf(D.plan) === 'gpstr') return null;
+  if (!D.plan) return null;
   if (_scopeOf !== D.plan) { _scope = new Set(planRows().map(r => r.id)); _scopeOf = D.plan; }
   return _scope;
 }
-// Topics with no plan ID (monthly current affairs, previous-year papers, your own topics) belong to every exam
-const inScopeT = t => { const sc = examScope(); return !sc || !(t.plan && t.plan.id) || sc.has(t.plan.id); };
-const inScopeS = sj => !examScope() || D.topics.some(t => t.subjectId === sj.id && inScopeT(t));
+// Material that belongs to one exam by name: anything called "KRIES …" is KRIES-only; the GPSTR full mock papers are GPSTR-only
+const ownExam = name => /KRIES/i.test(name || '') ? 'kries' : /^Full Mock Papers$|GPSTR/i.test(name || '') ? 'gpstr' : null;
+const examMismatch = name => { const o = ownExam(name); return !!(o && D.plan && o !== planKeyOf(D.plan)); };
+// Topics with no plan ID (monthly current affairs, previous-year papers, your own topics) belong to every exam – unless named for the other one
+const inScopeT = t => {
+  const s = byId('subjects', t.subjectId);
+  if (examMismatch(t.name) || examMismatch(s && s.name)) return false;
+  if (ownExam(t.name) || ownExam(s && s.name)) return true;
+  const sc = examScope();
+  if (!sc) return true;
+  if (t.plan && t.plan.id) return sc.has(t.plan.id);
+  // no plan ID: shown when its subject is part of this exam (e.g. monthly current affairs), or – for previous-year topics
+  // named after a syllabus subject ("Educational Psychology", "Unit 8 – …") – when that subject is part of this exam
+  const live = examSubjects();
+  if (live.planned.has(t.subjectId)) return live.inScope.has(t.subjectId);
+  const twin = live.byName.get(nameKey(t.name));
+  return twin ? live.inScope.has(twin) : true;
+};
+// Per plan: which subjects have plan topics at all, which have plan topics in this exam, and subject ids by bare name
+let _es = null, _esOf = null, _esN = -1;
+function examSubjects() {
+  if (_esOf === D.plan && _esN === D.topics.length) return _es;
+  const sc = examScope(), planned = new Set(), inScope = new Set(), byName = new Map();
+  for (const t of D.topics) if (t.plan && t.plan.id) { planned.add(t.subjectId); if (sc && sc.has(t.plan.id)) inScope.add(t.subjectId); }
+  for (const s of D.subjects) byName.set(nameKey(s.name), s.id);  // nameKey drops the "P1 · " / "P2 · " prefix
+  _es = { planned, inScope, byName }; _esOf = D.plan; _esN = D.topics.length;
+  return _es;
+}
+const inScopeS = sj => {
+  if (examMismatch(sj.name)) return false;
+  const ts = D.topics.filter(t => t.subjectId === sj.id);
+  return !ts.length || ts.some(inScopeT);  // an empty (new) subject stays visible
+};
+// A saved mock test belongs to the current exam unless it is named for the other one or all its sources are out of scope
+const inScopeMock = m => {
+  if (examMismatch(m.name)) return false;
+  const src = (m.sources || []).map(x => x.type === 'subject' ? byId('subjects', x.id) : byId('topics', x.id)).filter(Boolean);
+  return !src.length || src.some(x => (x.subjectId ? inScopeT(x) : inScopeS(x)));
+};
 const planPapers = () => (D.plan && D.plan.papers) || ['p1', 'p2'];
 const qCache = new Map();
 let store = null, WS = null, fb = null;
@@ -2875,7 +2912,7 @@ function topicAccuracy() {
 }
 function weakTopicsCard() {
   const acc = topicAccuracy();
-  const rows = D.topics.map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5)
+  const rows = D.topics.filter(inScopeT).map(t => ({ t, r: acc.get(t.id) })).filter(x => x.r && x.r.seen >= 5)
     .sort((a, b) => a.r.c / a.r.seen - b.r.c / b.r.seen).slice(0, 5);
   let h = '<div class="card"><h2>Weak topics</h2>';
   if (!rows.length) return h + '<p class="small muted" style="margin-bottom:0">Answer at least 5 questions in a topic and your weakest topics will show up here.</p></div>';
@@ -2891,8 +2928,9 @@ function weakTopicsCard() {
 
 function mocksCard() {
   let h = `<div class="card"><div class="row" style="margin-bottom:4px"><h2 style="margin:0;flex:1">Mock tests</h2><button class="btn primary" id="hMock"><svg class=ic><use href=#i-target></use></svg> Build mock test</button></div>`;
-  if (!D.mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
-  return h + D.mocks.map(m => {
+  const mocks = D.mocks.filter(inScopeMock);
+  if (!mocks.length) return h + '<p class="small muted" style="margin-bottom:0">Combine questions from several subjects or topics with your own weightage, e.g. 40% Ed. Psychology + 30% Pedagogy + 30% Computers.</p></div>';
+  return h + mocks.map(m => {
     const parts = m.sources.filter(srcName).map(s => `${srcName(s).replace(' (whole subject)', '')} ${m.mode === 'pct' ? s.weight + '%' : s.weight + 'q'}`);
     // how many questions the library can supply right now (grows as packs are imported)
     const target = m.totalInput || m.total, avail = allocate(m.sources.filter(srcName), target, m.mode).reduce((a, b) => a + b, 0);
@@ -4240,7 +4278,9 @@ function errorLogData() {
     if (x.r !== 'c') { r.missDate = a.date; r.missSel = x.s; r.missKind = x.r; }
   }));
   // wrong answers always count; blank / option E only when "include skipped" is on
-  return [...map.values()].filter(r => r.w || (EL.skipped && (r.b || r.e))).map(r => ({ ...r, open: r.last !== 'c' }));
+  return [...map.values()].filter(r => r.w || (EL.skipped && (r.b || r.e)))
+    .filter(r => { const t = r.t && byId('topics', r.t); return !t || inScopeT(t); })  // only the current exam's mistakes
+    .map(r => ({ ...r, open: r.last !== 'c' }));
 }
 // First calendar day on which a topic is scheduled
 function topicDayIndex(t) {
