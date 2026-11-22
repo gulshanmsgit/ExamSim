@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PACKS = ROOT / "packs"
-SKIP = {"index.json", "syllabus.json", "mock-papers.json", "pyq-p1.json", "pyq-p2.json", "pyq-by-subject.json"}
+SKIP = {"index.json", "syllabus.json", "mock-papers.json", "gpstr-subject-mocks.json", "gpstr-unit-pyq-tests.json", "pyq-p1.json", "pyq-p2.json", "pyq-by-subject.json"}
 TITLE = "Previous-year analysis – "
 
 

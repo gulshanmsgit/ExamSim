@@ -63,11 +63,26 @@ def main():
     rngs = {"p2": random.Random("gpstr-unit-pyq-tests"), "p1": random.Random("gpstr-unit-pyq-tests-p1")}
     built = {topic: unit_tests(lib, files, u, pools, rngs["p2"]) for topic, lib, files, u in UNITS}
     built |= {topic: unit_tests(lib, files, u, pools, rngs["p1"]) for topic, lib, files, u in SUBJECTS_P1}
+    # a test whose questions change (new papers typed up) gets a higher `rev`, so the app replaces the stored copy
+    old_path = ROOT / "packs" / FILE
+    old = {}
+    if old_path.exists():
+        for t in json.loads(old_path.read_text(encoding="utf-8"))["subjects"][0]["topics"]:
+            for st in t["sets"]:
+                old[(t["name"], st["name"])] = st
     topics, report = [], []
     for topic, *_ in SUBJECTS_P1 + UNITS:
         tests, n_real = built[topic]
         assert n_real >= MIN_Q, (topic, n_real)
-        topics.append({"name": topic, "sets": [{"name": f"{i} · PYQ Test {i}", "questions": qs} for i, qs in enumerate(tests, 1)]})
+        sets = []
+        for i, qs in enumerate(tests, 1):
+            st = {"name": f"{i} · PYQ Test {i}", "questions": qs}
+            prev = old.get((topic, st["name"]))
+            rev = (prev or {}).get("rev", 1) + (prev is not None and prev["questions"] != qs)
+            if rev > 1:
+                st["rev"] = rev
+            sets.append(st)
+        topics.append({"name": topic, "sets": sets})
         report.append(f"{topic}: {n_real} real → {len(tests)} tests {[len(t) for t in tests]}")
     desc = ("GPSTR mock tests made only of real previous-year questions (KEA, KSET, GTTC, PGCET …): every Paper 1 subject "
             "(except Value Education – too few real questions) and every Paper 2 unit split into tests of about 25 questions, each question used once, hard and easy papers spread evenly. Original wording, "
