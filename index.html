@@ -3091,17 +3091,22 @@ function examMocksCard() {
   }
   // unit-wise, previous-year questions only (owner, 22 Nov 2026)
   if (unitP) {
-    const topics = D.topics.filter(t => t.subjectId === unitP.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    // Paper 1 subjects first (in pack order), then the Paper 2 units by number
+    const isP1 = t => /^Paper 1 · /.test(t.name), P1_ORDER = ['Knowledge', 'Current', 'Kannada', 'English', 'Psychology', 'Computer', 'Health'];
+    const p1rank = t => { const i = P1_ORDER.findIndex(w => t.name.includes(w)); return i < 0 ? 99 : i; };
+    const topics = D.topics.filter(t => t.subjectId === unitP.id).sort((a, b) => (isP1(b) - isP1(a)) || (isP1(a) ? p1rank(a) - p1rank(b) : a.name.localeCompare(b.name, undefined, { numeric: true })));
     const done = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id && stat(x).n).length, 0), all = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id).length, 0);
-    h += `<details class="xm-sub" ${done ? '' : 'open'}><summary><b>Unit-wise previous-year tests</b> <span class="xm-kind k-pyq">only real questions</span> <span class="small muted">${done} of ${all} taken · about 25 questions each, 1.2 min per question, −¼ per wrong answer</span></summary>`
+    h += `<details class="xm-sub" ${done ? '' : 'open'}><summary><b>Previous-year tests by subject &amp; unit</b> <span class="xm-kind k-pyq">only real questions</span> <span class="small muted">${done} of ${all} taken · about 25 questions each, 1.2 min per question, −¼ per wrong answer</span></summary>`
       + topics.map(t => {
         const sets = D.sets.filter(x => x.topicId === t.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
-        const nm = t.name, unit = (nm.match(/^Unit (\d+)/) || [])[1];
-        return `<div class="xm-row tight"><div class="grow"><span class="pbadge p2">P2</span> ${esc(nm)} <span class="small muted">· ${sets.reduce((n, x) => n + (x.count || 0), 0)} Q</span></div>
-          <div class="xm-dots">${sets.map((x, i) => { const st = stat(x); return `<button class="btn sm xm-dot ${tone(st.best)}" data-setstart="${x.id}" title="Unit ${unit} – previous-year test ${i + 1} (${x.count} Q)${st.n ? `, best ${st.best}%` : ', not taken'}">${st.n ? st.best + '%' : 'Test ' + (i + 1)}</button>`; }).join('')}</div></div>`;
-      }).join('') + '</details>';
+        const p1 = isP1(t), nm = p1 ? t.name.replace(/^Paper 1 · /, '') : t.name, short = p1 ? nm : (nm.match(/^Unit \d+/) || [nm])[0];
+        return `<div class="xm-row tight"><div class="grow"><span class="pbadge ${p1 ? 'p1' : 'p2'}">${p1 ? 'P1' : 'P2'}</span> ${esc(nm)} <span class="small muted">· ${sets.reduce((n, x) => n + (x.count || 0), 0)} Q</span></div>
+          <div class="xm-dots">${sets.map((x, i) => { const st = stat(x); return `<button class="btn sm xm-dot ${tone(st.best)}" data-setstart="${x.id}" title="${esc(short)} – previous-year test ${i + 1} (${x.count} Q)${st.n ? `, best ${st.best}%` : ', not taken'}">${st.n ? st.best + '%' : 'Test ' + (i + 1)}</button>`; }).join('')}</div></div>`;
+      }).join('')
+      + (topics.some(isP1) || !bank('gpstr-unit-pyq-tests.json') ? '' : `<div class="xm-row tight"><div class="grow small muted">New: Paper 1 subjects (GK, Current Affairs, Kannada, English, Psychology, Computer, Health) – previous-year only</div><button class="btn primary sm" data-bankfile="gpstr-unit-pyq-tests.json">${I('download')} Update</button></div>`)
+      + '</details>';
   } else if (bank('gpstr-unit-pyq-tests.json') && planKeyOf(D.plan) === 'gpstr') {
-    h += `<div class="xm-row"><div class="grow"><b>Unit-wise previous-year tests</b><div class="small muted">Every Paper 2 unit, only real previous-year questions</div></div><button class="btn primary sm" data-bankfile="gpstr-unit-pyq-tests.json">${I('download')} Import</button></div>`;
+    h += `<div class="xm-row"><div class="grow"><b>Previous-year tests by subject &amp; unit</b><div class="small muted">Every Paper 1 subject and Paper 2 unit, only real previous-year questions</div></div><button class="btn primary sm" data-bankfile="gpstr-unit-pyq-tests.json">${I('download')} Import</button></div>`;
   }
   return h + '</div>';
 }

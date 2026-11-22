@@ -1,5 +1,5 @@
-"""Build packs/gpstr-unit-pyq-tests.json – unit-wise GPSTR mock tests made ONLY of real previous-year questions
-(owner, 22 Nov 2026: "start mock for each unit from previous year").
+"""Build packs/gpstr-unit-pyq-tests.json – unit-wise and subject-wise GPSTR mock tests made ONLY of real previous-year
+questions (owner, 22 Nov 2026: "start mock for each unit from previous year", then "Paper 1 too").
 
 For every Paper 2 unit, all its clean real previous-year questions (the same pool the subject tests draw on: questions with a
 `source` in the unit's topic packs, KEA/KSET/PGCET papers filed under the unit, and – Unit 1 – the KEA papers' computer
@@ -25,7 +25,10 @@ FILE = "gpstr-unit-pyq-tests.json"
 TARGET = 25          # questions per test (tests in a unit differ by at most one question)
 MAX_TESTS = 8        # big units: at most 8 tests (≤ 200 questions)
 UNITS = [(f"Unit {u} – {n}", f"P2 · Unit {u} – {n}", bsm.P2_FILES[u], u) for u, n in bsm.P2_NAMES.items()]
-TOPICS = [t for t, *_ in UNITS]
+# Paper 1 subjects too (owner, 22 Nov 2026: "Yes, Paper 1 too"); Value Education is left out – the bank has one real question
+SUBJECTS_P1 = [x for x in bsm.P1 if x[3] != "Value Education"]
+TOPICS = [t for t, *_ in SUBJECTS_P1 + UNITS]
+MIN_Q = 10  # a subject needs at least this many real questions for a test
 
 
 def n_tests(n):
@@ -55,14 +58,19 @@ def unit_tests(lib, files, u, pools, rng):
 
 
 def main():
-    pools, rng = mm.pools(), random.Random("gpstr-unit-pyq-tests")
+    pools = mm.pools()
+    # Paper 2 units keep their own random stream, so the tests published first stay exactly the same
+    rngs = {"p2": random.Random("gpstr-unit-pyq-tests"), "p1": random.Random("gpstr-unit-pyq-tests-p1")}
+    built = {topic: unit_tests(lib, files, u, pools, rngs["p2"]) for topic, lib, files, u in UNITS}
+    built |= {topic: unit_tests(lib, files, u, pools, rngs["p1"]) for topic, lib, files, u in SUBJECTS_P1}
     topics, report = [], []
-    for topic, lib, files, u in UNITS:
-        tests, n_real = unit_tests(lib, files, u, pools, rng)
+    for topic, *_ in SUBJECTS_P1 + UNITS:
+        tests, n_real = built[topic]
+        assert n_real >= MIN_Q, (topic, n_real)
         topics.append({"name": topic, "sets": [{"name": f"{i} · PYQ Test {i}", "questions": qs} for i, qs in enumerate(tests, 1)]})
         report.append(f"{topic}: {n_real} real → {len(tests)} tests {[len(t) for t in tests]}")
-    desc = ("Unit-wise GPSTR mock tests made only of real previous-year questions (KEA, KSET, GTTC, PGCET …): every Paper 2 unit "
-            "split into tests of about 25 questions, each question used once, hard and easy papers spread evenly. Original wording, "
+    desc = ("GPSTR mock tests made only of real previous-year questions (KEA, KSET, GTTC, PGCET …): every Paper 1 subject "
+            "(except Value Education – too few real questions) and every Paper 2 unit split into tests of about 25 questions, each question used once, hard and easy papers spread evenly. Original wording, "
             "option order and keys. Strict timing: 30 minutes per 25 questions, −¼ for a wrong or blank answer. GPSTR mode only.")
     pack = {"examsimPack": 1, "name": SUBJECT, "description": desc,
             "subjects": [{"name": SUBJECT, "icon": "📚", "settings": bsm.SETTINGS, "topics": topics}]}
