@@ -912,6 +912,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 .xm-btn{display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;min-width:84px;padding:6px 10px}
 .xm-btn small{font-size:.7rem;font-weight:500;opacity:.8}
 .xm-dot{min-width:64px;padding:5px 8px;font-size:.8rem}
+.xm-dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .xm-btn.good,.xm-dot.good{border-color:color-mix(in srgb,var(--green) 55%,transparent);color:var(--green)}
 .xm-btn.mid,.xm-dot.mid{border-color:color-mix(in srgb,var(--orange) 55%,transparent);color:var(--orange)}
 .xm-btn.low,.xm-dot.low{border-color:color-mix(in srgb,var(--red) 55%,transparent);color:var(--red)}
@@ -3045,9 +3046,9 @@ function weakTopicsCard() {
 // mock papers set by set with Paper 1 / Paper 2, an "Up next" pointer, and every subject-wise test with its best score
 function examMocksCard() {
   const subj = n => D.subjects.find(s => s.name === n && inScopeS(s));
-  const full = subj('Full Mock Papers'), sub = subj('GPSTR Subject Mock Tests');
+  const full = subj('Full Mock Papers'), sub = subj('GPSTR Subject Mock Tests'), unitP = subj('GPSTR Unit Tests (Previous-Year)');
   const bank = f => packIndex && packIndex.packs.find(p => p.file === f);
-  if (!full && !sub && !(planKeyOf(D.plan) === 'gpstr' && (bank('mock-papers.json') || bank('gpstr-subject-mocks.json')))) return '';
+  if (!full && !sub && !unitP && !(planKeyOf(D.plan) === 'gpstr' && (bank('mock-papers.json') || bank('gpstr-subject-mocks.json') || bank('gpstr-unit-pyq-tests.json')))) return '';
   const stat = x => { const a = D.attempts.filter(t => t.setId === x.id); return { n: a.length, best: a.length ? Math.round(Math.max(...a.map(pct))) : null }; };
   const tone = b => b == null ? '' : b >= 60 ? 'good' : b >= 40 ? 'mid' : 'low';
   const timing = (s, n) => { const st = { ...DEFAULT_SETTINGS, ...(s && s.settings) }; return `${n} questions in ${Math.round(st.minPerQ * n)} minutes, −${esc(String(st.wrong).replace('1/4', '¼'))} per wrong answer`; };
@@ -3087,6 +3088,20 @@ function examMocksCard() {
       }).join('') + '</details>';
   } else if (bank('gpstr-subject-mocks.json') && planKeyOf(D.plan) === 'gpstr') {
     h += `<div class="xm-row"><div class="grow"><b>Subject-wise tests</b><div class="small muted">3 tests of 25 Q for every subject and unit</div></div><button class="btn primary sm" data-bankfile="gpstr-subject-mocks.json">${I('download')} Import</button></div>`;
+  }
+  // unit-wise, previous-year questions only (owner, 22 Nov 2026)
+  if (unitP) {
+    const topics = D.topics.filter(t => t.subjectId === unitP.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    const done = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id && stat(x).n).length, 0), all = topics.reduce((n, t) => n + D.sets.filter(x => x.topicId === t.id).length, 0);
+    h += `<details class="xm-sub" ${done ? '' : 'open'}><summary><b>Unit-wise previous-year tests</b> <span class="xm-kind k-pyq">only real questions</span> <span class="small muted">${done} of ${all} taken · about 25 questions each, 1.2 min per question, −¼ per wrong answer</span></summary>`
+      + topics.map(t => {
+        const sets = D.sets.filter(x => x.topicId === t.id).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+        const nm = t.name, unit = (nm.match(/^Unit (\d+)/) || [])[1];
+        return `<div class="xm-row tight"><div class="grow"><span class="pbadge p2">P2</span> ${esc(nm)} <span class="small muted">· ${sets.reduce((n, x) => n + (x.count || 0), 0)} Q</span></div>
+          <div class="xm-dots">${sets.map((x, i) => { const st = stat(x); return `<button class="btn sm xm-dot ${tone(st.best)}" data-setstart="${x.id}" title="Unit ${unit} – previous-year test ${i + 1} (${x.count} Q)${st.n ? `, best ${st.best}%` : ', not taken'}">${st.n ? st.best + '%' : 'Test ' + (i + 1)}</button>`; }).join('')}</div></div>`;
+      }).join('') + '</details>';
+  } else if (bank('gpstr-unit-pyq-tests.json') && planKeyOf(D.plan) === 'gpstr') {
+    h += `<div class="xm-row"><div class="grow"><b>Unit-wise previous-year tests</b><div class="small muted">Every Paper 2 unit, only real previous-year questions</div></div><button class="btn primary sm" data-bankfile="gpstr-unit-pyq-tests.json">${I('download')} Import</button></div>`;
   }
   return h + '</div>';
 }

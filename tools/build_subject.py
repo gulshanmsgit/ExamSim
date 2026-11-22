@@ -94,6 +94,10 @@ EXTRA_SUBJECTS["Full Mock Papers"] = {"icon": "📝", "topics": ["Paper 1 – Fu
 from build_subject_mocks import TOPICS as _SM_TOPICS  # noqa: E402
 EXTRA_SUBJECTS["GPSTR Subject Mock Tests"] = {"icon": "🎯", "topics": _SM_TOPICS, "sizes": {}, "size": 25, "anysize": True,
                                               "group": "④ Full mock papers"}
+# Unit-wise previous-year-only tests (tools/build_unit_pyq_tests.py → packs/gpstr-unit-pyq-tests.json)
+from build_unit_pyq_tests import TOPICS as _UP_TOPICS  # noqa: E402
+EXTRA_SUBJECTS["GPSTR Unit Tests (Previous-Year)"] = {"icon": "📚", "topics": _UP_TOPICS, "sizes": {}, "size": 25, "anysize": True,
+                                                     "group": "④ Full mock papers"}
 EXTRA_SUBJECTS.update(kries_p1.extra_subjects())
 PACKS.update(kries_p1.build_packs())
 

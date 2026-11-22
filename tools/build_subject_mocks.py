@@ -82,8 +82,9 @@ def round_robin(by_topic, n, rng, used):
     return got
 
 
-def subject_tests(topic, lib_subject, files, pool_key, pools, rng):
-    items = topic_questions(lib_subject, files)
+def real_questions(lib_subject, files, pool_key, pools, items=None):
+    """{key: (syllabus topic, question)} – every clean real previous-year question of a subject/unit."""
+    items = topic_questions(lib_subject, files) if items is None else items
     real_t = {}   # real previous-year questions with their syllabus topic
     for tn, q in items:
         if q.get("source") and not any(b in q["question"].lower() for b in m3.BAD) and q["source"] not in m3.EXCLUDE:
@@ -93,6 +94,12 @@ def subject_tests(topic, lib_subject, files, pool_key, pools, rng):
         if q.get("source") and not any(b in q["question"].lower() for b in m3.BAD) and q["source"] not in m3.EXCLUDE \
                 and (not isinstance(pool_key, int) or q in extra or re.search(m3.UNIT_KW[pool_key], q["question"], re.I)):
             real_t.setdefault(m3._key(q), ("Previous-year questions (mixed topics)", q))
+    return real_t
+
+
+def subject_tests(topic, lib_subject, files, pool_key, pools, rng):
+    items = topic_questions(lib_subject, files)
+    real_t = real_questions(lib_subject, files, pool_key, pools, items)
     real = list(real_t.values())
     rng.shuffle(real)
     real.sort(key=lambda it: mm.tier(it[1]))  # hardest papers first
