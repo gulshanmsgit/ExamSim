@@ -1003,6 +1003,22 @@ body{background:var(--bg)}
 /* exam options: visible edges in dark mode */
 [data-theme=dark] .opt{border-color:rgba(255,255,255,.16);background:color-mix(in srgb,var(--card) 92%,white)}
 [data-theme=dark] .opt:hover{border-color:color-mix(in srgb,var(--primary) 70%,transparent);background:color-mix(in srgb,var(--primary) 8%,var(--card))}
+/* Most important topics card */
+.imp-seg{margin:4px 0 8px}
+.imp-legend{margin:6px 0 4px}
+.imp-key{font-weight:600}.imp-key.must{color:var(--red)}.imp-key.important{color:var(--amber)}
+.imp-subj{margin-top:14px;padding-top:10px;border-top:1px solid var(--sep)}
+.imp-subj-h{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.imp-few{margin:2px 0 6px;color:var(--amber)}
+.imp-row{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:10px;cursor:pointer}
+.imp-row:hover{background:var(--grey-bg)}
+.imp-row>.btn{flex:0 0 auto;margin-left:auto}
+.imp-row .imp-ic{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--grey-bg);color:var(--muted)}
+.imp-row.must .imp-ic{background:var(--red-bg);color:var(--red)}
+.imp-row.important .imp-ic{background:var(--amber-bg);color:var(--amber)}
+.imp-row.must b{font-weight:700}
+.imp-done{color:var(--green)}
+.imp-rest summary{color:var(--muted);padding:6px 8px;font-weight:500}
 </style>
 </head>
 <body>
@@ -5184,6 +5200,7 @@ function renderSubjectsView(el) {
   if (P.missing.length) h += `<div class="card">` + P.missing.map(m => `<div class="list-row unlinked"><div class="grow">${pidPill(m.id)} <b>${esc(m.topic || m.name || '')}</b>
       <div class="small muted">This planner topic is not linked to a topic in your library.</div></div><button class="btn primary sm" data-fix-links>Fix</button></div>`).join('') + '</div>';
   if (k === 'p1') h += `<div class="ca-row small sv-ca"><span class="grow">${I('news')} <b>Monthly current affairs</b> <span class="muted">– January to October 2026, 75% Karnataka</span></span>${caButton()}</div>`;
+  h += importantTopicsCard(k);
   el.innerHTML = h;
   wireToday();
 }
@@ -5307,6 +5324,54 @@ function mindMapSVG(s, topics) {
 document.addEventListener('click', e => { const b = e.target.closest('[data-mm]'); if (b) { e.preventDefault(); e.stopPropagation(); openMindMap(b.dataset.mm); } }, true);
 
 /* ---------- Today ---------- */
+/* ---------- Most important topics, subject-wise, from the real previous-year papers (owner, 23 Nov 2026) ----------
+   Data: packs/topic-priority.json (tools/topic_priority.py) – every real question counted once under its GPSTR topic;
+   per subject "must" (the top topics holding about half the questions), "important", and the rest. GPSTR mode only. */
+let topicPrio = null, topicPrioState = '';
+function loadTopicPrio() {
+  if (topicPrioState) return;
+  topicPrioState = 'loading';
+  fetch('packs/topic-priority.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null)
+    .then(j => { topicPrio = j; topicPrioState = 'done'; if (j && $('#today') && !$('#today').hidden) renderToday(); })
+    .catch(() => { topicPrioState = 'done'; });
+}
+const LS_IMPPAPER = 'examsim.imppaper';
+const IMP_TIER = { must: ['Must do', 'flame'], important: ['Important', 'target'], revise: ['Revise', 'refresh'] };
+function importantTopicsCard(fixedPaper) {
+  if (!D.plan || planKeyOf(D.plan) !== 'gpstr') return '';
+  if (!topicPrio) { loadTopicPrio(); return ''; }
+  const pk = fixedPaper || lsGet(LS_IMPPAPER, 'p1'), P = pk === 'p2' ? 'P2' : 'P1';
+  const libTopic = (s, name) => { const sj = D.subjects.find(x => x.name === s.library); return sj && D.topics.find(t => t.subjectId === sj.id && t.name === name); };
+  const row = (s, t) => {
+    const lt = libTopic(s, t.name), n = lt ? topicQuestionCount(lt.id) : 0, ps = lt && lt.plan && planStatus(lt.plan.id);
+    return `<div class="imp-row ${t.tier}" ${lt ? `data-open-topic="${lt.id}" tabindex="0" role="button" aria-label="Open ${esc(t.name)}"` : ''}>
+      <span class="imp-ic" title="${IMP_TIER[t.tier][0]}">${I(IMP_TIER[t.tier][1])}</span>
+      <div class="grow"><b>${esc(t.name)}</b><div class="small muted">${t.real ? `${plural(t.real, 'real question')} · ${plural(t.papers, 'paper')}` : 'Not asked in the papers collected so far'}${ps === 'Completed' ? ` · <span class="imp-done">${I('check')} done</span>` : ''}</div></div>
+      ${n ? `<button class="btn sm" data-practise="${lt.id}">${I('play')} Practise</button>` : ''}</div>`;
+  };
+  const subs = topicPrio.subjects.filter(s => s.paper === P);
+  const body = subs.map(s => {
+    const top = s.topics.filter(t => t.tier !== 'revise'), rest = s.topics.filter(t => t.tier === 'revise');
+    return `<div class="imp-subj"><div class="imp-subj-h"><b class="grow">${esc(s.subject)}</b>
+        <span class="pill" title="${s.est ? 'Estimated share of Paper 2 – the syllabus gives no split' : 'Official marks'}">${s.est ? '~' + Math.round(s.marks) : s.marks} marks</span>
+        <span class="small muted">${plural(s.real, 'real Q')}</span></div>
+      ${s.few ? `<p class="small imp-few">${I('alert')} Only ${plural(s.real, 'real question')} in the papers so far – too few to show a trend. Learn every topic briefly.</p>` : ''}
+      ${top.map(t => row(s, t)).join('')}
+      ${rest.length ? `<details class="imp-rest"><summary class="small">${top.length ? `${plural(rest.length, 'other topic')} – revise the basics` : `All ${plural(rest.length, 'topic')}`}</summary>${rest.map(t => row(s, t)).join('')}</details>` : ''}</div>`;
+  }).join('');
+  const tabs = fixedPaper ? '' : `<div class="seg imp-seg">${[['p1', 'Paper 1'], ['p2', 'Paper 2']].map(([k, l]) => `<button data-imp-paper="${k}" class="${pk === k ? 'on' : ''}">${l}</button>`).join('')}</div>`;
+  return `<details class="card fold imp-card" ${TD.impOpen ? 'open' : ''}><summary><span class="td-ic">${I('flame')}</span><span class="grow"><b>Most important topics${fixedPaper ? ` · ${P === 'P1' ? 'Paper 1' : 'Paper 2'}` : ''}</b>
+      <span class="small muted"> · subject-wise, from ${topicPrio.counted.toLocaleString()} real previous-year questions</span></span>${I('chevd')}</summary>
+    ${tabs}
+    <p class="small muted imp-legend"><span class="imp-key must">${I('flame')} Must do</span> topics that hold about half of a subject's past questions · <span class="imp-key important">${I('target')} Important</span> the next most asked · tap a topic to open it.</p>
+    ${body}
+    <p class="small muted" style="margin:10px 0 0">Counted from ${topicPrio.papers} KEA / KSET / GTTC / PGCET / GFGC papers; each question once. Marks: Paper 1 official, Paper 2 estimated.</p></details>`;
+}
+document.addEventListener('toggle', e => { if (e.target.classList && e.target.classList.contains('imp-card')) TD.impOpen = e.target.open; }, true);
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-imp-paper]');
+  if (b) { e.preventDefault(); lsSet(LS_IMPPAPER, b.dataset.impPaper); TD.impOpen = true; renderToday(); }
+});
 function renderToday() {
   const el = $('#today'), today = dayKey();
   setTodayTabLabel();
@@ -5360,6 +5425,7 @@ function renderToday() {
   h += `<div class="card"><h2>Tests for this day</h2>${rows.length ? rows.map(([ic, t, sub, btn]) => `<div class="list-row"><span class="td-ic">${I(ic)}</span><div class="grow"><b>${t}</b><div class="small muted">${sub}</div></div>${btn}</div>`).join('')
     : '<p class="small muted" style="margin:0">No questions for this day yet. They appear here as the question bank grows.</p>'}
     <label class="check small" style="margin-top:10px" title="Download the questions for the chosen day and the next day automatically"><input type="checkbox" id="tdAuto" ${D.prefs.autoImport !== false ? 'checked' : ''}> Get questions automatically</label></div>`;
+  h += importantTopicsCard();
   // 3. Secondary: revision and history (collapsed)
   const rev = [[1, 'Yesterday'], [3, '3 days ago'], [7, 'A week ago']].map(([k, l]) => {
     const dd = calRowFor(addDays(date, -k)); if (!dd) return null;

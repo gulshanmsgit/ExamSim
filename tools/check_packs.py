@@ -48,7 +48,7 @@ err = lambda m: errors.append(m)
 warn = lambda m: warns.append(m)
 
 for f in sorted(PACKS.glob("*.json")):
-    if f.name not in ("index.json", "syllabus.json") and f.name not in listed:  # syllabus.json is app data, not a pack
+    if f.name not in ("index.json", "syllabus.json", "topic-priority.json") and f.name not in listed:  # app data, not packs
         err(f"{f.name}: not listed in packs/index.json")
 
 for f in sorted(listed):
