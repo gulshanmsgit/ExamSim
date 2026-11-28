@@ -1019,6 +1019,13 @@ body{background:var(--bg)}
 .imp-row.must b{font-weight:700}
 .imp-done{color:var(--green)}
 .imp-rest summary{color:var(--muted);padding:6px 8px;font-weight:500}
+/* question-count picker */
+.qc-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qc-chips .chip.on{background:var(--primary);border-color:var(--primary);color:#fff}
+.qc-own{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--muted);font-weight:600}
+.qc-own input{width:80px;padding:6px 8px;border-radius:8px}
+/* answer sheet: the full question shows when a row is open, so the one-line preview hides */
+.as-row[open] > summary .clamp2{display:none}
 </style>
 </head>
 <body>
@@ -5560,7 +5567,7 @@ document.addEventListener('click', e => {
 
 
 /* ---------- Results: answer sheet – every question with your answer and the correct one, colour-coded ---------- */
-const AS = { filter: 'all' };
+const AS = { filter: 'all', open: true }; // answers start expanded (owner, 28 Nov 2026)
 /* Previous-year questions: q.source names a real paper ("KSET 2024 · CS&A · Q17"); generated questions written to a
    recurring exam pattern start their explanation with "PYQ pattern" (QUESTION_STANDARD.md §3) */
 function pyqBadge(q) {
@@ -5576,7 +5583,7 @@ function answerSheetHTML(R) {
     if (AS.filter !== 'all' && r.res !== AS.filter) return '';
     const q = r.q, your = r.sel ? `${r.sel}${r.sel === 'E' ? ' (skipped)' : ''}` : '—';
     const status = { correct: 'Correct', wrong: 'Wrong', blank: r.visited ? 'Blank' : 'Not visited', e: 'Skipped (E)' }[r.res];
-    return `<details class="as-row r-${r.res}" id="as-${i}"><summary><span class="as-n">${i + 1}</span><span class="grow"><span class="clamp2">${esc(q.question)}</span>
+    return `<details class="as-row r-${r.res}" id="as-${i}" ${AS.open ? 'open' : ''}><summary><span class="as-n">${i + 1}</span><span class="grow"><span class="clamp2">${esc(q.question)}</span>
         <span class="small as-meta"><span class="pill ${r.res === 'correct' ? 'correct' : r.res === 'wrong' ? 'wrong' : 'blank'}">${status}</span> Your answer: <b>${esc(your)}</b> · Correct: <b>${esc(q.answer)}</b> ${pyqBadge(q)}</span></span>${I('chevd')}</summary>
       <div class="qtext as-q">${esc(q.question)}</div>
       ${LETTERS.map(L => { const ok = L === q.answer, mine = L === r.sel; return optLine(q, L, ok ? 'right' : mine ? 'bad' : '', ok && mine ? 'Your answer ✓' : ok ? 'Correct answer' : mine ? 'Your answer' : ''); }).join('')}
@@ -5584,7 +5591,7 @@ function answerSheetHTML(R) {
       ${q.explanation ? `<div class="expl"><b>Explanation</b>\n${esc(q.explanation)}</div>` : ''}</details>`;
   }).join('');
   return `<div class="card answer-sheet"><div class="row" style="margin-bottom:8px"><h2 style="margin:0;flex:1">Answer sheet</h2>
-      <button class="btn ghost sm" data-as-open>${I('list')} Expand all</button></div>
+      <button class="btn ghost sm" data-as-open>${I('list')} ${AS.open ? 'Collapse all' : 'Expand all'}</button></div>
     <div class="as-legend small"><span><i class="lg r-correct"></i>Correct</span><span><i class="lg r-wrong"></i>Wrong</span><span><i class="lg r-blank"></i>Blank</span><span><i class="lg r-e"></i>Skipped (E)</span></div>
     <div class="pal-grid as-grid">${R.rows.map((r, i) => `<button class="pal r-${r.res}" data-as-jump="${i}" title="Question ${i + 1}">${i + 1}</button>`).join('')}</div>
     <div class="seg as-filter">${tabs.map(([k, l, c]) => `<button data-as-filter="${k}" class="${AS.filter === k ? 'on' : ''}">${l} ${c}</button>`).join('')}</div>
@@ -5602,7 +5609,7 @@ document.addEventListener('click', e => {
     return;
   }
   const o = e.target.closest('[data-as-open]');
-  if (o) { const rows = [...document.querySelectorAll('#asList details')], open = rows.some(d => !d.open); rows.forEach(d => { d.open = open; }); o.innerHTML = `${I('list')} ${open ? 'Collapse all' : 'Expand all'}`; }
+  if (o) { const rows = [...document.querySelectorAll('#asList details')], open = rows.some(d => !d.open); AS.open = open; rows.forEach(d => { d.open = open; }); o.innerHTML = `${I('list')} ${open ? 'Collapse all' : 'Expand all'}`; }
 });
 
 /* ---------- Offline notice ---------- */
@@ -5613,19 +5620,62 @@ window.addEventListener('offline', updateOnline);
 /* ============================================================
    Exam setup
    ============================================================ */
+/* Choose how many questions to answer (owner, 28 Nov 2026): whatever number is picked, the test keeps a fair mix –
+   real previous-year questions, "PYQ pattern" questions and the topic's other questions get equal shares (a short kind
+   gives its spare share to the others), and inside each kind the questions are dealt round-robin over the sub-topics
+   (the topic's sets, or the syllabus topics inside one set), so every part of the topic is covered. */
+const LS_QCOUNT = 'examsim.qcount';
+const qKind = q => q.source ? 'pyq' : /PYQ pattern/.test(q.explanation || '') ? 'pat' : 'std';
+function pickBalanced(qs, n) {
+  if (n >= qs.length) return qs.slice();
+  const kinds = { pyq: [], pat: [], std: [] };
+  qs.forEach(q => kinds[qKind(q)].push(q));
+  // equal shares, spare capacity handed on until n is reached
+  const want = { pyq: 0, pat: 0, std: 0 };
+  let left = n, open = Object.keys(kinds).filter(k => kinds[k].length);
+  while (left > 0 && open.length) {
+    const each = Math.max(1, Math.floor(left / open.length));
+    for (const k of open) { const add = Math.min(each, kinds[k].length - want[k], left); want[k] += add; left -= add; if (!left) break; }
+    open = open.filter(k => want[k] < kinds[k].length);
+  }
+  const out = [];
+  for (const k of Object.keys(kinds)) {
+    const groups = new Map();
+    shuffle(kinds[k].slice()).forEach(q => { const g = q.setName || q.subject || ''; if (!groups.has(g)) groups.set(g, []); groups.get(g).push(q); });
+    const lists = shuffle([...groups.values()]);
+    for (let i = 0; out.length < n && want[k] > 0; i = (i + 1) % lists.length) {
+      if (!lists.some(l => l.length)) break;
+      if (lists[i].length) { out.push(lists[i].shift()); want[k]--; }
+    }
+  }
+  return shuffle(out);
+}
+function qCountMix(qs) {
+  const c = { pyq: 0, pat: 0, std: 0 };
+  qs.forEach(q => c[qKind(q)]++);
+  return [c.pyq && `${c.pyq} previous-year`, c.pat && `${c.pat} PYQ-pattern`, c.std && `${c.std} other`].filter(Boolean).join(' · ');
+}
 function startSetup(info) {
   const s = byId('subjects', info.subjectId), t = byId('topics', info.topicId);
   // A mixed mock test takes its default settings from its first section's subject
   const sDef = s || byId('subjects', info.settingsSubjectId);
   const st = { ...DEFAULT_SETTINGS, ...(sDef && sDef.settings) };
-  const n = info.questions.length;
+  const all = info.questions, N = all.length;
+  // the question-count picker: topic practice, study-plan days and single sets of more than 10 questions (not mocks)
+  const canPick = N > 10 && !['mock', 'mistakes'].includes(info.mode);
+  const saved = canPick ? lsGet(LS_QCOUNT, 'all') : 'all';
+  let n = saved === 'all' ? N : Math.min(N, +saved || N);
   const modeLbl = { mistakes: 'Mistakes practice', all: 'All sets in this topic', mock: 'Mock test', import: 'Just imported', day: 'Study plan day' }[info.mode];
   const items = [['Library', 'home']];
   if (s) items.push([s.name, 'subject:' + s.id]);
   if (t) items.push([t.name, 'topic:' + t.id]);
   items.push(['Exam settings']);
   $('#setup').innerHTML = crumbs(items) + `<div class="page-head"><h1>${esc(info.name)}</h1></div>
-    <div class="kind">${plural(n, 'question')}${modeLbl ? ' · ' + modeLbl : ''}</div>
+    <div class="kind" id="exKind">${plural(n, 'question')}${modeLbl ? ' · ' + modeLbl : ''}</div>
+    ${canPick ? `<div class="card qc-card"><h2>How many questions?</h2>
+      <div class="qc-chips">${[10, 20, 25, 30, 40, 50, 75, 100].filter(x => x < N).map(x => `<button class="chip" data-qc="${x}">${x}</button>`).join('')}<button class="chip" data-qc="all">All ${N}</button>
+        <label class="qc-own">Other <input type="number" id="qcOwn" min="1" max="${N}" inputmode="numeric" placeholder="${N}"></label></div>
+      <p class="small muted" id="qcMix" style="margin:8px 0 0"></p></div>` : ''}
     <div class="card"><h2>Exam settings</h2>
     ${settingsForm('ex', { ...st, minutes: Math.max(1, Math.ceil(n * st.minPerQ)) }, true)}
     <p class="small muted" id="exHint" style="margin:6px 0 0"></p>
@@ -5637,6 +5687,23 @@ function startSetup(info) {
     $('#exHint').innerHTML = `Max score <b>${fmtNum(n * c)}</b> · about <b>${m ? fmtDuration(m * 60000 / n) : '—'}</b> per question (a guide, not a limit) · Correct +${fmtNum(c)}, wrong −${fmtNum(w)}, blank −${fmtNum(b)}, option E 0.`;
   });
   $('#exBack').onclick = () => info.from === 'errlog' ? openErrLog() : info.mode === 'mock' ? openMocks() : info.mode === 'day' ? openPlan('days') : info.topicId ? openTopic(info.topicId) : goHome();
+  let picked = all;
+  const setCount = (v, typed) => {
+    n = v === 'all' ? N : Math.max(1, Math.min(N, Math.floor(+v) || N));
+    picked = n < N ? pickBalanced(all, n) : all;
+    if (canPick) {
+      if (!typed) lsSet(LS_QCOUNT, v === 'all' || n >= N ? 'all' : n);
+      document.querySelectorAll('[data-qc]').forEach(b => b.classList.toggle('on', b.dataset.qc === String(v === 'all' || n >= N ? 'all' : n)));
+      $('#qcMix').textContent = (n < N ? `${n} of ${N}, spread over the whole topic: ` : 'All questions: ') + qCountMix(picked);
+    }
+    $('#exKind').textContent = plural(n, 'question') + (modeLbl ? ' · ' + modeLbl : '');
+    const tm = $('#exTime'); if (tm) { tm.value = Math.max(1, Math.ceil(n * st.minPerQ)); tm.dispatchEvent(new Event('input', { bubbles: true })); }
+  };
+  if (canPick) {
+    document.querySelectorAll('[data-qc]').forEach(b => b.onclick = () => { $('#qcOwn').value = ''; setCount(b.dataset.qc); });
+    $('#qcOwn').oninput = e => { if (+e.target.value > 0) { setCount(e.target.value, true); lsSet(LS_QCOUNT, Math.min(N, +e.target.value)); } };
+    setCount(saved);
+  }
   $('#exStart').onclick = () => {
     const r = readSettings('ex', true);
     if (!r) return;
@@ -5644,7 +5711,7 @@ function startSetup(info) {
       s.settings = { minPerQ: r2(r.cfg.minutes / n) || DEFAULT_SETTINGS.minPerQ, correct: r.cfg.correct, wrong: r.raw.wrong, blank: r.raw.blank, shuffleQ: r.cfg.shuffleQ, shuffleO: r.cfg.shuffleO };
       save('subjects', s).catch(e => toast(errText(e), 'error'));
     }
-    startExam(info, r.cfg);
+    startExam(n < N ? { ...info, questions: picked, setId: null, name: `${info.name} (${n} of ${N})` } : info, r.cfg);
   };
   show('setup');
 }
